@@ -143,6 +143,7 @@ class VirtualSensorGrid20m(Base):
     confidence = Column(Float)  # 0-1 interpolation confidence
     
     created_at = Column(DateTime, default=datetime.utcnow)
+    physical_probe_value = Column(Float) # Ground truth for cross-validation
     edge_device_id = Column(String(50))
     
     __table_args__ = (
@@ -180,6 +181,7 @@ class VirtualSensorGrid50m(Base):
     confidence = Column(Float)
     
     created_at = Column(DateTime, default=datetime.utcnow)
+    physical_probe_value = Column(Float) # Ground truth for cross-validation
     edge_device_id = Column(String(50))
     
     __table_args__ = (
@@ -208,6 +210,10 @@ class VirtualSensorGrid1m(Base):
     temperature = Column(Float)
     ndvi = Column(Float)  # From Sentinel-2
     ndwi = Column(Float)  # Normalized Difference Water Index
+    
+    confidence_score = Column(Float, default=1.0) # 0.0 to 1.0 based on data source quality
+    physical_probe_value = Column(Float) # Ground truth for cross-validation
+    edge_device_id = Column(String(50))
     
     # Advanced analytics
     crop_stress_probability = Column(Float)  # ML model output
@@ -280,6 +286,7 @@ class ComplianceReport(Base):
     total_irrigation_m3 = Column(Float)
     water_use_efficiency = Column(Float)
     allocation_compliance_pct = Column(Float)
+    validation_score = Column(Float) # Cross-validation score vs. physical probes
     
     # Environmental metrics
     avg_soil_health_index = Column(Float)
@@ -307,3 +314,26 @@ class ComplianceReport(Base):
     __table_args__ = (
         Index('idx_field_period', 'field_id', 'report_period_start', 'report_period_end'),
     )
+
+class AnonymizedResearchArchive(Base):
+    """
+    Centralized collection for FarmSense platform.
+    Stripped of PII and linked only by salted-hash field/user IDs.
+    """
+    __tablename__ = 'research_archive'
+    
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    # Salted hash of field_id to allow temporal tracking without identity
+    anon_field_hash = Column(String(64), index=True) 
+    timestamp = Column(DateTime, nullable=False, index=True)
+    
+    # Aggregated metrics (Raw telemetry but no link to user)
+    avg_moisture = Column(Float)
+    avg_temperature = Column(Float)
+    total_water_m3 = Column(Float)
+    
+    # Context (Non-PII)
+    soil_type = Column(String(50))
+    region_code = Column(String(20)) # e.g. 'SLV-01'
+    
+    created_at = Column(DateTime, default=datetime.utcnow)

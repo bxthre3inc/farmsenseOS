@@ -1,13 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
 import { ComplianceList } from './components/ComplianceList';
+import { ScientificValidation } from './components/ScientificValidation';
 import Login from './components/Login';
-import { FileBadge, Search, Bell, LogOut } from 'lucide-react';
+import { FileBadge, Search, Bell, LogOut, ShieldCheck, ClipboardList } from 'lucide-react';
 import { getApiKey, removeApiKey } from './services/api';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [metrics, setMetrics] = useState<any>(null);
+    const [activeView, setActiveView] = useState<'reports' | 'science'>('reports');
 
     useEffect(() => {
         const auth = !!getApiKey();
@@ -85,6 +87,26 @@ function App() {
                 </div>
             </header>
 
+            {/* Sub-header Navigation */}
+            <div className="bg-white border-b border-gray-200 shadow-sm">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex gap-8 h-12">
+                        <button
+                            onClick={() => setActiveView('reports')}
+                            className={`flex items-center gap-2 px-1 border-b-2 text-sm font-bold transition-all ${activeView === 'reports' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+                        >
+                            <ClipboardList className="w-4 h-4" /> Compliance Reports
+                        </button>
+                        <button
+                            onClick={() => setActiveView('science')}
+                            className={`flex items-center gap-2 px-1 border-b-2 text-sm font-bold transition-all ${activeView === 'science' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+                        >
+                            <ShieldCheck className="w-4 h-4" /> Scientific Validation
+                        </button>
+                    </div>
+                </div>
+            </div>
+
             {/* Main Content */}
             <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -106,7 +128,11 @@ function App() {
                     </div>
                 </div>
 
-                <ComplianceList />
+                {activeView === 'reports' ? (
+                    <ComplianceList />
+                ) : (
+                    <ScientificValidation />
+                )}
             </main>
         </div>
     );

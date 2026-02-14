@@ -15,7 +15,12 @@ import {
   CloudRain,
   Zap,
   Navigation,
-  Satellite
+  Satellite,
+  Mic,
+  Video,
+  MessageSquare,
+  X,
+  Camera
 } from 'lucide-react';
 import AgriMap from './components/AgriMap';
 import TelemetryOverlay from './components/TelemetryOverlay';
@@ -25,6 +30,32 @@ import { getApiKey, removeApiKey } from './services/api';
 const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeTab, setActiveTab] = useState('dashboard');
+  const [isSilasMode, setIsSilasMode] = useState(false);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [showProfit, setShowProfit] = useState(false);
+  const [showAgent, setShowAgent] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const [agentResponse, setAgentResponse] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    window.addEventListener('online', handleOnline);
+    window.addEventListener('offline', handleOffline);
+
+    // Initial hardware-sync simulation
+    if (!navigator.onLine) {
+      console.log("Offline mode: Loading grid data from local Edge-Cache.");
+    }
+
+    return () => {
+      window.removeEventListener('online', handleOnline);
+      window.removeEventListener('offline', handleOffline);
+    };
+  }, []);
+  const [isSilasMode, setIsSilasMode] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
     setIsAuthenticated(!!getApiKey());
@@ -40,7 +71,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="flex h-screen overflow-hidden text-slate-200">
+    <div className={`flex h-screen overflow-hidden text-slate-200 transition-colors duration-500 ${isSilasMode ? 'bg-black' : ''}`}>
       {/* Sidebar Navigation */}
       <aside className="w-72 bg-[#020617] border-r border-white/5 flex flex-col p-6 space-y-8 z-20">
         <div className="flex items-center gap-3 px-2">
@@ -69,8 +100,26 @@ const App: React.FC = () => {
           <button className="w-full nav-item">
             <Navigation className="w-5 h-5" /> Robotics Fleet
           </button>
-          <button className="w-full nav-item">
-            <Database className="w-5 h-5" /> Historical Data
+          <button className="w-full nav-item" onClick={() => setActiveTab('settings')}>
+            <Settings className="w-5 h-5" /> Privacy & Data
+          </button>
+          <button
+            onClick={() => {
+              setActiveTab('dashboard');
+              setIsSilasMode(true);
+            }}
+            className={`w-full nav-item ${isSilasMode ? 'nav-item-active' : ''}`}
+          >
+            <Activity className="w-5 h-5 text-orange-400" /> Silas Mode (Simple)
+          </button>
+          <button
+            onClick={() => {
+              setActiveTab('dashboard');
+              setIsSilasMode(!isSilasMode);
+            }}
+            className={`w-full nav-item ${isSilasMode ? 'bg-orange-600 text-white shadow-lg glow-orange border-none' : ''}`}
+          >
+            <Activity className="w-5 h-5" /> {isSilasMode ? 'ADVANCED MODE' : 'SILAS MODE (SIMPLE)'}
           </button>
         </nav>
 
@@ -99,7 +148,10 @@ const App: React.FC = () => {
 
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-slate-500">
-              <div className="flex items-center gap-2"><div className="w-2 h-2 rounded-full bg-emerald-500 glow-active"></div> System Operational</div>
+              <div className="flex items-center gap-2">
+                <div className={`w-2 h-2 rounded-full ${isOnline ? 'bg-emerald-500 glow-active' : 'bg-orange-500'}`}></div>
+                {isOnline ? 'System Operational' : 'Offline Mode (Local Edge Cache Active)'}
+              </div>
               <div className="flex items-center gap-2"><CloudRain className="w-4 h-4" /> Precipitation: 12mm</div>
             </div>
             <div className="relative cursor-pointer">
@@ -111,52 +163,163 @@ const App: React.FC = () => {
 
         {/* Dashboard / Map View */}
         <div className="flex-1 relative">
-          {activeTab === 'dashboard' ? (
-            <div className="p-10 space-y-8 overflow-y-auto h-full pb-32">
+          {isSilasMode ? (
+            <div className="p-10 h-full bg-[#070b14] overflow-y-auto">
+              <div className="flex justify-between items-center mb-10">
+                <h2 className="farmsense-headings text-6xl font-black text-white">SILAS VIEW</h2>
+                <button
+                  onClick={() => setIsSilasMode(false)}
+                  className="glass-button-secondary border-emerald-500/20 text-emerald-400"
+                >
+                  Switch to Advanced Mode
+                </button>
+              </div>
+
+              {/* Hands-Free Voice Trigger */}
+              <div className="absolute bottom-10 right-10 z-50">
+                <button
+                  onClick={() => {
+                    setIsListening(true);
+                    setTimeout(() => {
+                      setIsListening(false);
+                      setAgentResponse("Field 01: Moisture is 22.0% vWC — LOW. Below the 22% threshold. Irrigation recommended within 24h. [RULE: moisture < low (0.22 vWC)]");
+                      setShowAgent(true);
+                    }, 2000);
+                  }}
+                  className="w-32 h-32 bg-emerald-500 rounded-full flex items-center justify-center shadow-2xl shadow-emerald-500/50 hover:scale-110 active:scale-95 transition-all group"
+                >
+                  <Mic className={`w-12 h-12 text-white ${isListening ? 'animate-pulse' : ''}`} />
+                  <div className="absolute -inset-4 bg-emerald-500/20 rounded-full animate-ping opacity-20 group-hover:opacity-40"></div>
+                </button>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                {/* Big Water Status */}
+                <div className="glass-card p-12 flex flex-col items-center justify-center text-center space-y-6">
+                  <Droplets className="w-32 h-32 text-emerald-400" />
+                  <h3 className="text-4xl font-bold text-white">WATER STATUS</h3>
+                  <div className="px-10 py-4 bg-emerald-500 rounded-full text-slate-950 text-3xl font-black tracking-widest">NORMAL</div>
+                  <p className="text-slate-500 text-xl italic">"Dirt's plenty wet today, Silas."</p>
+                </div>
+
+                {/* Big Pump Control */}
+                <div className="glass-card p-12 flex flex-col items-center justify-center text-center space-y-6">
+                  <Zap className="w-32 h-32 text-orange-400" />
+                  <h3 className="text-4xl font-bold text-white">PUMP CONTROL</h3>
+                  <button className="w-full py-8 bg-red-500 hover:bg-red-600 text-white text-4xl font-black rounded-3xl shadow-2xl shadow-red-500/20 transition-all border-b-8 border-red-700 active:border-b-0 active:translate-y-2">
+                    STOP PUMP
+                  </button>
+                  <p className="text-slate-500 font-bold uppercase tracking-widest mt-4">Pressure: 4.2 bar (SAFE)</p>
+                </div>
+
+                {/* Simple Map */}
+                <div className="md:col-span-2 glass-card h-[400px] overflow-hidden relative">
+                  <div className="absolute top-6 left-6 z-10 bg-slate-950/80 p-4 rounded-xl border border-white/10">
+                    <h4 className="text-2xl font-bold text-white uppercase">Field Map</h4>
+                  </div>
+                  <AgriMap />
+                </div>
+              </div>
+            </div>
+          ) : activeTab === 'dashboard' ? (
+            <div className="p-10 space-y-8 overflow-y-auto h-full pb-32 relative">
+              {/* Fixed Conversation Bubble */}
+              {showAgent && (
+                <div className="fixed bottom-10 right-10 w-96 glass-card p-6 border-emerald-500 animate-in slide-in-from-bottom duration-300 z-50">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="flex items-center gap-2">
+                      <Activity className="w-5 h-5 text-emerald-400" />
+                      <span className="text-xs font-bold text-white uppercase tracking-tighter">Field Decision Engine</span>
+                    </div>
+                    <button onClick={() => setShowAgent(false)} className="text-slate-500 hover:text-white"><X className="w-4 h-4" /></button>
+                  </div>
+                  <p className="text-sm text-slate-200 leading-relaxed mb-4">
+                    "{agentResponse || "Waiting for query. All decisions are threshold-based and fully auditable."}"
+                  </p>
+                  <div className="flex gap-2">
+                    <button className="flex-1 py-2 bg-emerald-600 text-white text-[10px] font-bold rounded-lg uppercase">Start Pump</button>
+                    <button className="flex-1 py-2 bg-slate-800 text-slate-300 text-[10px] font-bold rounded-lg uppercase">Thanks</button>
+                  </div>
+                </div>
+              )}
+
               <div className="flex items-end justify-between">
                 <div>
                   <h2 className="text-4xl font-black text-white tracking-tight mb-2">OPERATIONS COMMAND</h2>
                   <p className="text-slate-400">Holistic overview of all field ecosystems and autonomous assets.</p>
                 </div>
                 <div className="flex gap-4">
-                  <button className="glass-button-primary"><Satellite className="w-4 h-4" /> Request Sentinel Update</button>
-                  <button className="glass-button-secondary"><Navigation className="w-4 h-4" /> Dispatch Robotic Fleet</button>
+                  <button
+                    onClick={() => {
+                      setIsListening(true);
+                      setTimeout(() => {
+                        setIsListening(false);
+                        setAgentResponse("Field 01: Cumulative savings this season: $4,280. Calculated from: (baseline_water_cost - actual_water_cost) + fuel_savings. [RULE: financial_summary]");
+                        setShowAgent(true);
+                      }, 1500);
+                    }}
+                    className={`glass-button-primary border-blue-500/50 flex items-center gap-2 ${isListening ? 'bg-blue-600' : ''}`}
+                  >
+                    <Mic className={`w-4 h-4 ${isListening ? 'animate-pulse' : ''}`} /> Ask Decision Engine
+                  </button>
+                  <button className="glass-button-secondary flex items-center gap-2">
+                    <Camera className="w-4 h-4" /> Field Diagnostic
+                  </button>
                 </div>
               </div>
 
               {/* Hero Stat Grid */}
               <div className="grid grid-cols-4 gap-6">
-                <div className="glass-card p-6 border-l-4 border-emerald-500">
+                <div className="glass-card p-6 border-l-4 border-emerald-500 transition-all duration-500">
                   <div className="flex justify-between items-start mb-4">
                     <Droplets className="text-emerald-400 w-6 h-6" />
                     <span className="text-[10px] font-bold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase">Optimal</span>
                   </div>
-                  <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Avg. Moisture</p>
-                  <p className="text-3xl font-black text-white mt-1">32.4<span className="text-sm font-normal text-slate-500 ml-1">%</span></p>
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">
+                    {showProfit ? 'Estimated Savings' : 'Avg. Moisture'}
+                  </p>
+                  <p className="text-3xl font-black text-white mt-1">
+                    {showProfit ? '$4,280' : '32.4%'}
+                    {showProfit && <span className="text-sm font-normal text-emerald-400 ml-1">/ season</span>}
+                  </p>
                 </div>
                 <div className="glass-card p-6 border-l-4 border-orange-500">
                   <div className="flex justify-between items-start mb-4">
                     <Thermometer className="text-orange-400 w-6 h-6" />
                     <span className="text-[10px] font-bold text-orange-500 bg-orange-500/10 px-2 py-0.5 rounded-full uppercase">High</span>
                   </div>
-                  <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Temperature</p>
-                  <p className="text-3xl font-black text-white mt-1">28.5<span className="text-sm font-normal text-slate-500 ml-1">°C</span></p>
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">
+                    {showProfit ? 'Fuel/Yield Offset' : 'Temperature'}
+                  </p>
+                  <p className="text-3xl font-black text-white mt-1">
+                    {showProfit ? '+$1,120' : '28.5°C'}
+                  </p>
                 </div>
                 <div className="glass-card p-6 border-l-4 border-blue-500">
                   <div className="flex justify-between items-start mb-4">
                     <Activity className="text-blue-400 w-6 h-6" />
                     <span className="text-[10px] font-bold text-blue-500 bg-blue-500/10 px-2 py-0.5 rounded-full uppercase">Nominal</span>
                   </div>
-                  <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Pump Pressure</p>
-                  <p className="text-3xl font-black text-white mt-1">4.2<span className="text-sm font-normal text-slate-500 ml-1">bar</span></p>
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">
+                    {showProfit ? 'Labor Efficiency' : 'Pump Pressure'}
+                  </p>
+                  <p className="text-3xl font-black text-white mt-1">
+                    {showProfit ? '22%' : '4.2 bar'}
+                    {showProfit && <span className="text-sm font-normal text-blue-400 ml-1">Gain</span>}
+                  </p>
                 </div>
                 <div className="glass-card p-6 border-l-4 border-slate-500">
                   <div className="flex justify-between items-start mb-4">
                     <Zap className="text-slate-400 w-6 h-6" />
                     <span className="text-[10px] font-bold text-slate-500 bg-slate-500/10 px-2 py-0.5 rounded-full uppercase">Standby</span>
                   </div>
-                  <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Robotic Battery</p>
-                  <p className="text-3xl font-black text-white mt-1">88<span className="text-sm font-normal text-slate-500 ml-1">%</span></p>
+                  <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">
+                    {showProfit ? 'Water Credit (SLV)' : 'Robotic Battery'}
+                  </p>
+                  <p className="text-3xl font-black text-white mt-1">
+                    {showProfit ? '140' : '88%'}
+                    {showProfit && <span className="text-sm font-normal text-slate-500 ml-1">Units Earned</span>}
+                  </p>
                 </div>
               </div>
 
@@ -193,6 +356,80 @@ const App: React.FC = () => {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          ) : activeTab === 'settings' ? (
+            <div className="p-10 space-y-12 overflow-y-auto h-full pb-32 max-w-4xl">
+              <div className="space-y-4">
+                <h2 className="farmsense-headings text-4xl font-black text-white">DATA OWNERSHIP</h2>
+                <p className="text-slate-400">You are the sole owner of your field data. Use these settings to control transparent access for your stakeholders.</p>
+              </div>
+
+              <div className="space-y-6">
+                <div className="glass-card p-10 flex items-center justify-between border-l-4 border-blue-500">
+                  <div className="space-y-1">
+                    <h3 className="text-xl font-bold text-white">Share Raw Telemetry with Auditors</h3>
+                    <p className="text-sm text-slate-500 italic">"Allows Regulatory Portal to see exact moisture percentages."</p>
+                  </div>
+                  <div className="w-16 h-8 bg-slate-800 rounded-full relative p-1 cursor-pointer">
+                    <div className="w-6 h-6 bg-emerald-500 rounded-full shadow-lg ml-auto"></div>
+                  </div>
+                </div>
+
+                <div className="glass-card p-10 flex items-center justify-between border-l-4 border-slate-700">
+                  <div className="space-y-1">
+                    <h3 className="text-xl font-bold text-white">Share Financial Trends with Investors</h3>
+                    <p className="text-sm text-slate-500 italic">"Anonymizes everything except yield forecasts."</p>
+                  </div>
+                  <div className="w-16 h-8 bg-slate-800 rounded-full relative p-1 cursor-pointer">
+                    <div className="w-6 h-6 bg-slate-600 rounded-full shadow-lg"></div>
+                  </div>
+                </div>
+
+                <div className="glass-card p-10 flex items-center justify-between border-l-4 border-emerald-500 bg-emerald-500/5">
+                  <div className="space-y-1">
+                    <h3 className="text-xl font-bold text-white">Contribute to Anonymized Research Pool</h3>
+                    <p className="text-sm text-slate-500 italic">"Shares raw sensor trends with FarmSense HQ with NO trace back to you."</p>
+                    <p className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mt-2">Default: OPTED IN for all accounts</p>
+                  </div>
+                  <div className="flex flex-col items-end gap-2">
+                    <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest bg-emerald-400/10 px-2 py-1 rounded">No Trace Policy</span>
+                    {/* Free tier: locked, cannot opt out */}
+                    <div className="w-16 h-8 bg-slate-800 rounded-full relative p-1 cursor-not-allowed opacity-60" title="Free accounts contribute to the research pool. Upgrade to Command or Enterprise to manage this setting.">
+                      <div className="w-6 h-6 bg-emerald-500 rounded-full shadow-lg ml-auto"></div>
+                    </div>
+                    <span className="text-[9px] text-slate-600 italic">Free Tier: Always contributed</span>
+                  </div>
+                </div>
+
+                <div className="glass-card p-6 border-l-4 border-slate-700 bg-slate-800/30">
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-slate-700 flex items-center justify-center flex-shrink-0 mt-1">
+                      <Database className="w-5 h-5 text-slate-400" />
+                    </div>
+                    <div className="space-y-2 flex-1">
+                      <h4 className="text-sm font-bold text-white uppercase tracking-widest">Opt-Out Policy (Command & Enterprise Only)</h4>
+                      <p className="text-xs text-slate-500 leading-relaxed">
+                        Paid accounts may opt out of the anonymized research pool at any time via this panel.
+                        Opting out requires a <strong className="text-orange-400">two-step confirmation</strong> to prevent accidental changes.
+                        Free (Silas Tier) accounts contribute to the research pool as a condition of the free service —
+                        all data is irreversibly anonymized before submission.
+                      </p>
+                      <button className="mt-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 text-slate-300 text-[10px] font-bold rounded-lg uppercase tracking-widest transition-all border border-slate-600">
+                        Request Opt-Out (Requires Confirmation)
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="glass-card p-10 border-l-4 border-orange-500 bg-orange-500/5">
+                  <h4 className="text-orange-400 font-bold mb-4 flex items-center gap-2 underline underline-offset-4">
+                    GUARANTEED DATA RECALL
+                  </h4>
+                  <p className="text-sm text-orange-200/80 leading-relaxed">
+                    Under SLV 2026 guidelines, you have the right to revoke all shared access immediately. Recalling access will automatically scrub your raw data from all stakeholder dashboards while keeping your hashed compliance reports valid.
+                  </p>
                 </div>
               </div>
             </div>

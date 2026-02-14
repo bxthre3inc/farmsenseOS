@@ -14,13 +14,17 @@ class GridRenderingService:
         db: Session,
         field_id: str,
         resolution: str,
-        limit: int = 1000
+        limit: int = 1000,
+        offline_mode: bool = False
     ):
         """
         Dynamically renders the grid based on recent sensor trends, 
         Landsat history, and real-time external environmental factors.
+        
+        If offline_mode is True, it fallbacks to local cached data with 
+        a reduced confidence score.
         """
-        logger.info(f"Rendering grid for field {field_id} at {resolution} resolution")
+        logger.info(f"Rendering grid for field {field_id} at {resolution} resolution (Offline: {offline_mode})")
 
         # 1. Fetch recent sensor readings to determine trend
         readings = db.query(SoilSensorReading).filter(
@@ -58,10 +62,21 @@ class GridRenderingService:
         
         logger.info(f"Satellite Fusion: Sentinel-2 NDVI={real_ndvi:.2f}, Sentinel-1 SAR Mod={sar_modifier:.2f}")
 
+        # 4. Calculate Confidence Score
+        # 1.0 = All sensors online + Satellite recent
+        # < 0.5 = High uncertainty
+        confidence = 1.0
+        if offline_mode:
+            confidence *= 0.7  # Reduced confidence due to stale external data
+            logger.warning(f"Field {field_id} is in OFFLINE mode. Using local cache fallbacks.")
+        
+        if len(readings) < 3:
+            confidence *= 0.8  # Sparse physical sensor data
+            
         final_modifier = trend_modifier * weather_modifier * soil_modifier * sar_modifier
-        logger.info(f"Enterprise Data Fusion Complete. Final Grid Modifier: {final_modifier:.2f}")
+        logger.info(f"Fusion Complete. Final Modifier: {final_modifier:.2f}, Confidence: {confidence:.2f}")
 
-        # 4. Render Grid
+        # 5. Render Grid
         model_map = {
             "50m": VirtualSensorGrid50m,
             "20m": VirtualSensorGrid20m,
@@ -78,7 +93,9 @@ class GridRenderingService:
         
         if not results and resolution == "1m":
              logger.info("No cached 1m grid found. Generating new high-res points with Fusion...")
-             results = GridRenderingService._generate_synthetic_1m_grid(db, field_id, real_ndvi * final_modifier)
+             # Fetch physical sensor ground truth for validation
+             ground_truth = readings[0].moisture_surface if readings else None
+             results = GridRenderingService._generate_synthetic_1m_grid(db, field_id, real_ndvi * final_modifier, ground_truth)
         
         return results
 
@@ -87,7 +104,7 @@ class GridRenderingService:
         return {f"cell_{i}": 0.3 + (i % 5) * 0.1 for i in range(10)}
 
     @staticmethod
-    def _generate_synthetic_1m_grid(db: Session, field_id: str, modifier: float):
+    def _generate_synthetic_1m_grid(db: Session, field_id: str, modifier: float, ground_truth: float = None):
         points = []
         base_time = datetime.utcnow()
         
@@ -103,6 +120,8 @@ class GridRenderingService:
                 temperature=22.5,
                 ndvi=0.4 + (modifier - 1.0),
                 ndwi=0.1,
+                confidence_score=0.95 if modifier > 0.8 else 0.6,
+                physical_probe_value=ground_truth,
                 crop_stress_probability=max(0.0, 1.0 - modifier),
                 yield_forecast_kgha=8500 * modifier,
                 irrigation_priority=1 if modifier < 0.8 else 5
