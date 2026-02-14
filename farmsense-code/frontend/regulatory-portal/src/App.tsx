@@ -3,13 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { ComplianceList } from './components/ComplianceList';
 import { ScientificValidation } from './components/ScientificValidation';
 import Login from './components/Login';
-import { FileBadge, Search, Bell, LogOut, ShieldCheck, ClipboardList } from 'lucide-react';
+import { FileBadge, Search, Bell, LogOut, ShieldCheck, ClipboardList, TrendingUp } from 'lucide-react';
+import { EconomicImpact } from './components/EconomicImpact';
 import { getApiKey, removeApiKey } from './services/api';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [metrics, setMetrics] = useState<any>(null);
-    const [activeView, setActiveView] = useState<'reports' | 'science'>('reports');
+    const [activeView, setActiveView] = useState<'reports' | 'science' | 'economy'>('reports');
 
     useEffect(() => {
         const auth = !!getApiKey();
@@ -103,6 +104,12 @@ function App() {
                         >
                             <ShieldCheck className="w-4 h-4" /> Scientific Validation
                         </button>
+                        <button
+                            onClick={() => setActiveView('economy')}
+                            className={`flex items-center gap-2 px-1 border-b-2 text-sm font-bold transition-all ${activeView === 'economy' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-500 hover:text-slate-700'}`}
+                        >
+                            <TrendingUp className="w-4 h-4" /> Economic Impact & IP
+                        </button>
                     </div>
                 </div>
             </div>
@@ -130,8 +137,10 @@ function App() {
 
                 {activeView === 'reports' ? (
                     <ComplianceList />
-                ) : (
+                ) : activeView === 'science' ? (
                     <ScientificValidation />
+                ) : (
+                    <EconomicImpact />
                 )}
             </main>
         </div>

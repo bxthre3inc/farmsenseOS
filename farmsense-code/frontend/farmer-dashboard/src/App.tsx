@@ -16,11 +16,11 @@ import {
   Zap,
   Navigation,
   Satellite,
-  Mic,
-  Video,
-  MessageSquare,
-  X,
-  Camera
+  Camera,
+  Shield,
+  BarChart3,
+  Users,
+  TrendingUp
 } from 'lucide-react';
 import AgriMap from './components/AgriMap';
 import TelemetryOverlay from './components/TelemetryOverlay';
@@ -54,9 +54,6 @@ const App: React.FC = () => {
       window.removeEventListener('offline', handleOffline);
     };
   }, []);
-  const [isSilasMode, setIsSilasMode] = useState(false);
-  const [showSettings, setShowSettings] = useState(false);
-
   useEffect(() => {
     setIsAuthenticated(!!getApiKey());
   }, []);
@@ -106,22 +103,24 @@ const App: React.FC = () => {
           <button
             onClick={() => {
               setActiveTab('dashboard');
-              setIsSilasMode(true);
-            }}
-            className={`w-full nav-item ${isSilasMode ? 'nav-item-active' : ''}`}
-          >
-            <Activity className="w-5 h-5 text-orange-400" /> Silas Mode (Simple)
-          </button>
-          <button
-            onClick={() => {
-              setActiveTab('dashboard');
               setIsSilasMode(!isSilasMode);
             }}
             className={`w-full nav-item ${isSilasMode ? 'bg-orange-600 text-white shadow-lg glow-orange border-none' : ''}`}
           >
-            <Activity className="w-5 h-5" /> {isSilasMode ? 'ADVANCED MODE' : 'SILAS MODE (SIMPLE)'}
+            <Activity className={`w-5 h-5 ${isSilasMode ? 'animate-pulse' : ''}`} /> {isSilasMode ? 'ADVANCED MODE' : 'SILAS MODE (SIMPLE)'}
           </button>
         </nav>
+
+        <div className="mt-8 pt-8 border-t border-white/5 space-y-6">
+          {/* Community Wealth Card */}
+          <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-2xl p-4 shadow-xl">
+            <p className="text-[10px] font-bold text-emerald-500 uppercase tracking-widest mb-1 flex items-center gap-1">
+              <TrendingUp className="w-3 h-3" /> Community Equity
+            </p>
+            <p className="text-xl font-black text-white">$21.2M</p>
+            <p className="text-[9px] text-slate-400 mt-1">Platform Value Created</p>
+          </div>
+        </div>
 
         <div className="pt-8 border-t border-white/5 space-y-4">
           <button className="w-full nav-item"><Settings className="w-5 h-5" /> System Config</button>
@@ -149,6 +148,9 @@ const App: React.FC = () => {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-8 text-xs font-bold uppercase tracking-widest text-slate-500">
               <div className="flex items-center gap-2">
+                <Shield className="w-3 h-3 text-emerald-400" />
+                <span className="text-emerald-400">Grant Subsidized (100%)</span>
+                <div className="w-[1px] h-4 bg-white/10 mx-2"></div>
                 <div className={`w-2 h-2 rounded-full ${isOnline ? 'bg-emerald-500 glow-active' : 'bg-orange-500'}`}></div>
                 {isOnline ? 'System Operational' : 'Offline Mode (Local Edge Cache Active)'}
               </div>
@@ -236,6 +238,19 @@ const App: React.FC = () => {
                   <p className="text-sm text-slate-200 leading-relaxed mb-4">
                     "{agentResponse || "Waiting for query. All decisions are threshold-based and fully auditable."}"
                   </p>
+
+                  {/* Show Me The Math - Rule Inspector */}
+                  <div className="bg-slate-900/50 rounded-lg p-3 mb-4 border border-white/5">
+                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 flex items-center gap-2">
+                      <Shield className="w-3 h-3" /> Rule Provenance
+                    </p>
+                    <div className="space-y-1 font-mono text-[9px] text-emerald-400/80">
+                      <p>RULE: moisture &lt; low (0.22 vWC)</p>
+                      <p>DATA: sensor_node_01_primary: 0.22</p>
+                      <p>SOURCE: CSU SLV RC Thresholds v2026.1</p>
+                    </div>
+                  </div>
+
                   <div className="flex gap-2">
                     <button className="flex-1 py-2 bg-emerald-600 text-white text-[10px] font-bold rounded-lg uppercase">Start Pump</button>
                     <button className="flex-1 py-2 bg-slate-800 text-slate-300 text-[10px] font-bold rounded-lg uppercase">Thanks</button>

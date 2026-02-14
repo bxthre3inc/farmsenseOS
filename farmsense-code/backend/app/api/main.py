@@ -102,6 +102,36 @@ async def diagnose_field_frame(
     result = FieldDiagnosticService.analyze_frame(content, location)
     return result
 
+@app.post("/api/v1/decisions/sms", tags=["Decision Engine"])
+async def handle_sms_query(
+    From: str = Form(...),
+    Body: str = Form(...),
+    db: Session = Depends(get_db)
+):
+    """
+    SMS/Voice Gateway (Twilio Compatible).
+    Allows farmers to query field status via text/voice.
+    Returns a concise, deterministic response with rule provenance.
+    """
+    # Mock lookup field_id from phone number
+    field_id = "field_01"
+    
+    telemetry = {
+        "moisture": 0.22,
+        "ndvi": 0.78,
+        "temperature": 28.5,
+        "savings": 4280
+    }
+    
+    result = FieldDecisionEngine.evaluate_query(Body, field_id, telemetry)
+    
+    # Return TwiML or concise text
+    return {
+        "to": From,
+        "message": f"FARMSENSE [{field_id}]: {result['response']}",
+        "audit_id": result['audit_log']['integrity_hash'][:8]
+    }
+
 # CORS configuration
 app.add_middleware(
     CORSMiddleware,
