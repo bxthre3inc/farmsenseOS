@@ -25,20 +25,22 @@ Add the following secrets:
 ### 🌍 Oracle Cloud (Map Stack)
 
 | Secret Name | Value Description |
-|-------------|-------------------|
+| ------------- | ------------------- |
 | `ORACLE_HOST` | Public IP address of your Oracle instance |
 | `ORACLE_USER` | SSH username (e.g., `ubuntu` or `opc`) |
 | `ORACLE_SSH_KEY` | Private SSH Key (Content of your `.pem` file) |
-| `ENV_FILE_ORACLE` | The full content of your `.env` file for Oracle.<br>Must include: `POSTGRES_USER`, `POSTGRES_PASSWORD`, etc. |
+| `ENV_FILE_ORACLE` | The full content of your `.env` file for Oracle. Must include: `POSTGRES_USER`, `POSTGRES_PASSWORD`, etc. |
 
 ### 🧠 Zo.computer (Core Platform)
 
 | Secret Name | Value Description |
-|-------------|-------------------|
+| ------------- | ------------------- |
 | `ZO_HOST` | Public IP address of your Zo instance |
 | `ZO_USER` | SSH username (e.g., `user` or `root`) |
 | `ZO_SSH_KEY` | Private SSH Key |
-| `ENV_FILE_ZO` | The full content of your `.env` file for Zo.<br>Must include: `MAP_DATABASE_URL` pointing to Oracle IP. |
+| `ENV_FILE_ZO` | The full content of your `.env` file for Zo. |
+
+Must include: `MAP_DATABASE_URL` pointing to Oracle IP. |
 
 ## 3. Deployment Flow
 
