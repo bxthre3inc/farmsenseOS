@@ -1,4 +1,4 @@
-# Project FarmSense - Precision Agriculture Platform
+# farmsenseOS - Precision Agriculture Platform
 
 **Full-stack precision agriculture application with virtual sensor networks, adaptive recalculation, and regulatory compliance.**
 
@@ -6,7 +6,7 @@
 
 ## 🌾 Overview
 
-Project FarmSense is a nationally-scalable precision agriculture platform that:
+farmsenseOS is a nationally-scalable precision agriculture platform that:
 
 - **Ingests multi-source data**: Soil sensors (2-depth + vertical profiling), pump telemetry, weather stations, Sentinel-1/2 imagery, Landsat historical data
 - **Computes virtual sensor grids**:

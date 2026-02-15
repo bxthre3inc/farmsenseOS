@@ -1,7 +1,7 @@
 
-import React, { useState, useEffect } from 'react';
-import { ShieldCheck, TrendingUp, Users, Lock, ChevronRight, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, TrendingUp, Users, Lock, ChevronRight, AlertCircle, CheckCircle2, RefreshCw } from 'lucide-react';
 import { api } from '../services/api';
+import { SeedAgreementPortal } from './SeedAgreementPortal';
 
 export const EquityBuyIn: React.FC = () => {
     const [equityStatus, setEquityStatus] = useState<any>({
@@ -11,14 +11,19 @@ export const EquityBuyIn: React.FC = () => {
     });
     const [amount, setAmount] = useState<number>(5000);
     const [isProcessing, setIsProcessing] = useState(false);
+    const [showAgreement, setShowAgreement] = useState(false);
     const [success, setSuccess] = useState<any>(null);
 
-    const handlePurchase = async () => {
+    const handleInitiate = () => {
+        setShowAgreement(true);
+    };
+
+    const handleFinalExecution = async () => {
+        setShowAgreement(false);
         setIsProcessing(true);
         try {
             const result = await api.investorBuyIn(amount);
             setSuccess(result);
-            // Refresh counts (Mock)
             setEquityStatus(prev => ({
                 ...prev,
                 claimed_seats: prev.claimed_seats + 1,
