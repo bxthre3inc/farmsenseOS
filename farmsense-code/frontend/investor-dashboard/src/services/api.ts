@@ -28,6 +28,11 @@ async function request(endpoint: string, options: RequestInit = {}) {
 }
 
 export const api = {
-    getMetrics: () => request('/investor/metrics'),
+    getFields: () => request('/fields'),
+    getMetrics: () => request('/admin/metrics'),
+    investorBuyIn: (amount: number) => request('/investor/buy-in', {
+        method: 'POST',
+        body: JSON.stringify({ amount }),
+    }),
     getForecast: (fieldId: string) => request(`/fields/${fieldId}/forecast`),
 };

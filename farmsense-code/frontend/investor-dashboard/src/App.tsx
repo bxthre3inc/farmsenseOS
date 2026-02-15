@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { TrendingUp, Users, DollarSign, Activity, LogOut, RefreshCw } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Login from './components/Login';
+import { EquityBuyIn } from './components/EquityBuyIn';
 import { getApiKey, removeApiKey, api } from './services/api';
 
 const mockRoiData = [
@@ -113,6 +114,10 @@ function App() {
                         </p>
                         <p className="text-sm text-yellow-500 mt-1">Annual Recurring Revenue</p>
                     </div>
+                </div>
+
+                <div className="mb-10">
+                    <EquityBuyIn />
                 </div>
 
                 <div className="bg-neutral-800 p-8 rounded-2xl border border-neutral-700">

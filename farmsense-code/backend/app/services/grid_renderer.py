@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from app.models.sensor_data import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m, SoilSensorReading
 from app.services.external_data_service import ExternalDataService
 from app.services.satellite_service import SatelliteDataService
+from app.core.env_wrapper import platform_wrapper
 import logging
 import uuid
 
@@ -66,6 +67,13 @@ class GridRenderingService:
         # 1.0 = All sensors online + Satellite recent
         # < 0.5 = High uncertainty
         confidence = 1.0
+        
+        if platform_wrapper.is_pilot():
+            confidence *= 0.9 # Minor penalty for pilot-phase uncalibrated sensors
+            logger.info("ENVIRONMENT: Pilot mode detected. Applying calibration buffer.")
+        elif not platform_wrapper.is_production():
+            confidence *= 0.8 # Dev mode penalty
+            
         if offline_mode:
             confidence *= 0.7  # Reduced confidence due to stale external data
             logger.warning(f"Field {field_id} is in OFFLINE mode. Using local cache fallbacks.")

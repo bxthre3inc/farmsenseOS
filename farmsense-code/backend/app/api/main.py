@@ -29,6 +29,7 @@ from app.services.grid_renderer import GridRenderingService
 from app.services.notification_service import NotificationService
 from app.services.ai_handsfree import FieldDecisionEngine, FieldDiagnosticService
 from app.models.sensor_data import AnonymizedResearchArchive
+from app.services.equity_service import SignatureService
 import os
 
 app = FastAPI(
@@ -306,6 +307,10 @@ class UserBase(BaseModel):
     role: UserRole
     tier: SubscriptionTier
     is_active: bool = True
+    name: Optional[str] = None
+    organization: Optional[str] = None
+    phone: Optional[str] = None
+    notes: Optional[str] = None
 
 class UserCreate(UserBase):
     api_key: str
@@ -314,11 +319,16 @@ class UserUpdate(BaseModel):
     role: Optional[UserRole] = None
     tier: Optional[SubscriptionTier] = None
     is_active: Optional[bool] = None
+    name: Optional[str] = None
+    organization: Optional[str] = None
+    phone: Optional[str] = None
+    notes: Optional[str] = None
 
 class UserResponse(UserBase):
     id: str
     api_key: str
     created_at: datetime
+    last_login: Optional[datetime] = None
     
     class Config:
         from_attributes = True
@@ -380,6 +390,14 @@ def update_user(
         db_user.tier = user_update.tier
     if user_update.is_active is not None:
         db_user.is_active = user_update.is_active
+    if user_update.name is not None:
+        db_user.name = user_update.name
+    if user_update.organization is not None:
+        db_user.organization = user_update.organization
+    if user_update.phone is not None:
+        db_user.phone = user_update.phone
+    if user_update.notes is not None:
+        db_user.notes = user_update.notes
         
     db.commit()
     db.refresh(db_user)
@@ -500,32 +518,34 @@ async def request_support_letter(
     db.commit()
     db.refresh(db_letter)
     
-    # In a real app, send an email with a unique signing link here
-    print(f"DEBUG: Sent signing link to {db_letter.sender_email} for letter {db_letter.id}")
-    
-    return db_letter
-
-@app.post("/api/v1/letters/{letter_id}/sign", response_model=SupportLetterRead)
-async def sign_support_letter(
-    letter_id: uuid.UUID, 
-    sign_in: SupportLetterSign, 
-    db: Session = Depends(get_db)
-):
-    """Public endpoint for an individual to sign a support letter"""
-    db_letter = db.query(SupportLetter).filter(SupportLetter.id == letter_id).first()
-    if not db_letter:
-        raise HTTPException(status_code=404, detail="Letter not found")
-    
-    if db_letter.status != LetterStatus.PENDING:
-        raise HTTPException(status_code=400, detail="Letter is already signed or processed")
-
-    db_letter.signature_data = sign_in.signature_data
-    db_letter.status = LetterStatus.SIGNED
-    db_letter.signed_at = datetime.utcnow()
-    
+    new_token = SignatureService.generate_signing_token(str(db_letter.id))
+    db_letter.token = new_token
     db.commit()
-    db.refresh(db_letter)
+    
+    # In a real app, send an email with a unique signing link here
+    signing_url = f"http://localhost:3000/sign/{new_token}"
+    print(f"DEBUG: Sent signing link to {db_letter.sender_email}: {signing_url}")
+    
     return db_letter
+
+@app.post("/api/v1/investor/buy-in", tags=["Investor"])
+async def process_investor_buy_in(
+    amount: float,
+    db: Session = Depends(get_db),
+    user: User = Depends(get_current_user)
+):
+    """Processes a stock buy-in for a logged-in investor"""
+    from app.services.equity_service import EquityService
+    try:
+        stake = EquityService.process_buy_in(db, user, amount)
+        return {
+            "status": "success",
+            "shares_issued": stake.shares,
+            "price_per_share": stake.purchase_price,
+            "audit_hash": hashlib.sha256(str(stake.id).encode()).hexdigest()[:12]
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 @app.post("/api/v1/letters/{letter_id}/verify", response_model=SupportLetterRead)
 async def verify_support_letter(

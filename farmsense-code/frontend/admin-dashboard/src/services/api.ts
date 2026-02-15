@@ -39,4 +39,8 @@ export const api = {
     }),
     getFields: () => request('/fields'),
     getMetrics: () => request('/admin/metrics'),
+    signLetter: (token: string, signature: string) => request(`/letters/${token}/sign`, {
+        method: 'POST',
+        body: JSON.stringify({ signature_data: signature }),
+    }),
 };

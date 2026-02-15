@@ -1,7 +1,4 @@
-import requests
-import logging
-from datetime import datetime, timedelta
-from typing import Dict, Any, List, Optional
+from app.core.env_wrapper import platform_wrapper
 
 logger = logging.getLogger(__name__)
 
@@ -15,24 +12,29 @@ class SatelliteDataService:
         """
         logger.info(f"Querying STAC catalog for {collection} near ({lat}, {lon})")
         
-        # Mocking a STAC API response
-        # To make it keyless, we would use public endpoints like:
-        # https://planetarycomputer.microsoft.com/api/stac/v1/search
+        config = platform_wrapper.get_service_config("satellite")
+        provider = config.get("provider", "MockSTAC")
         
-        # Simulating finding a few scenes
-        scenes = []
-        for i in range(2):
-            scenes.append({
-                "id": f"{collection}_scene_{i}",
-                "datetime": (datetime.utcnow() - timedelta(days=i*5)).isoformat(),
-                "cloud_cover": 5.0 * i,
-                "assets": {
-                    "visual": {"href": f"https://example.com/satellite/{collection}/visual_{i}.tif"},
-                    "ndvi": {"href": f"https://example.com/satellite/{collection}/ndvi_{i}.tif"}
-                },
-                "bbox": [lon - 0.1, lat - 0.1, lon + 0.1, lat + 0.1]
-            })
-        return scenes
+        if provider == "MockSTAC":
+            logger.info("ENVIRONMENT: Using simulated satellite stream.")
+            # Simulating finding a few scenes
+            scenes = []
+            for i in range(2):
+                scenes.append({
+                    "id": f"{collection}_scene_{i}",
+                    "datetime": (datetime.utcnow() - timedelta(days=i*5)).isoformat(),
+                    "cloud_cover": 5.0 * i,
+                    "assets": {
+                        "visual": {"href": f"https://example.com/satellite/{collection}/visual_{i}.tif"},
+                        "ndvi": {"href": f"https://example.com/satellite/{collection}/ndvi_{i}.tif"}
+                    },
+                    "bbox": [lon - 0.1, lat - 0.1, lon + 0.1, lat + 0.1]
+                })
+            return scenes
+        else:
+            logger.info(f"ENVIRONMENT: Using institutional stream via {provider}.")
+            # Production STAC query logic would go here
+            return []
 
     @staticmethod
     def get_latest_ndvi_point(lat: float, lon: float, field_id: str) -> float:

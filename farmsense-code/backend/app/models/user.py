@@ -18,14 +18,20 @@ class UserRole(str, enum.Enum):
     RESEARCHER = "RESEARCHER"
     INVESTOR = "INVESTOR"
     REVIEWER = "REVIEWER"
+    PARTNER = "PARTNER"
 
 class User(Base):
     __tablename__ = "users"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     email = Column(String, unique=True, index=True, nullable=False)
+    name = Column(String, nullable=True)
+    organization = Column(String, nullable=True)
+    phone = Column(String, nullable=True)
     api_key = Column(String, unique=True, index=True, nullable=False)
     tier = Column(Enum(SubscriptionTier), default=SubscriptionTier.FREE, nullable=False)
     role = Column(Enum(UserRole), default=UserRole.FARMER, nullable=False)
     is_active = Column(Boolean, default=True)
+    notes = Column(String, nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
+    last_login = Column(DateTime, nullable=True)
