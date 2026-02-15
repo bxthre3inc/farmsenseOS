@@ -1,21 +1,18 @@
-MIT License
+COPYRIGHT AND PROPRIETARY NOTICE
+Copyright © 2026 Jeremy Beebe. All rights reserved.
 
-Copyright (c) 2026 Farm-Sense
+1. NO LICENSE GRANTED
+This software and all associated files (the "Software") are the confidential and proprietary property of Jeremy Beebe. This repository is public for viewing purposes only. No license, express or implied, is granted to any person or entity to download, copy, modify, distribute, or use the Software for any purpose—commercial or non-commercial.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+2. RESTRICTIONS
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+No Modification: You may not alter, transform, or build upon this Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+No Redistribution: You may not host mirrors, forks (outside of GitHub's native interface), or redistributions of this code.
+
+No Commercial Use: Any use of the FarmSense architecture, including the Zo processing logic and Oracle Map Manager, is strictly prohibited without a signed commercial agreement and a negotiated royalty share.
+
+3. ENFORCEMENT
+Any unauthorized use, reproduction, or modification of this Software will be considered copyright infringement and will be prosecuted to the fullest extent of the law.
+
+For commercial inquiries or to purchase a license, contact: Jeremy Beebe getfarmsense@gmail.com
