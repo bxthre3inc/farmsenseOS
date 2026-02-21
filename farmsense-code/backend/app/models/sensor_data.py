@@ -1,12 +1,13 @@
 """
 Data models for sensor telemetry and virtual grid outputs
 """
-from sqlalchemy import Column, String, Float, DateTime, Integer, JSON, Index, ForeignKey
+from sqlalchemy import Column, String, Float, DateTime, Integer, JSON, Index, ForeignKey, Enum
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.dialects.postgresql import UUID
 from geoalchemy2 import Geometry
 import uuid
 from datetime import datetime
+from enum import Enum as PyEnum
 
 Base = declarative_base()
 
@@ -335,5 +336,131 @@ class AnonymizedResearchArchive(Base):
     # Context (Non-PII)
     soil_type = Column(String(50))
     region_code = Column(String(20)) # e.g. 'SLV-01'
+    
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+class HardwareModel(str, PyEnum):
+    LRZ = "LRZ"
+    VFA = "VFA"
+    DHU = "DHU"
+    RSS = "RSS"
+    PFA = "PFA"
+    PMT = "PMT"
+    CSA = "CSA"
+
+class HardwareNode(Base):
+    """Generic Hardware Node deployment tracker"""
+    __tablename__ = 'hardware_nodes'
+    
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    hardware_id = Column(String(50), nullable=False, unique=True, index=True)
+    field_id = Column(String(50), nullable=False, index=True)
+    node_type = Column(Enum(HardwareModel), nullable=False)
+    
+    # Hierarchy: LRZ/PFA/PMT/CSA -> VFA -> DHU -> RSS
+    parent_hardware_id = Column(String(50), ForeignKey('hardware_nodes.hardware_id'), nullable=True)
+    
+    # Geospatial 
+    location = Column(Geometry('POINT', srid=4326), nullable=False)
+    
+    status = Column(String(20), default='active') # active, offline, maintenance
+    battery_voltage = Column(Float)
+    last_active = Column(DateTime)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+class LRZReading(Base):
+    """Lateral Root-Zone Scout high-density readings"""
+    __tablename__ = 'lrz_readings'
+    
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    hardware_id = Column(String(50), ForeignKey('hardware_nodes.hardware_id'), nullable=False, index=True)
+    field_id = Column(String(50), nullable=False, index=True)
+    timestamp = Column(DateTime, nullable=False, index=True)
+    
+    location = Column(Geometry('POINT', srid=4326), nullable=False)
+    
+    dielectric_count = Column(Float)
+    ec_count = Column(Float)
+    
+    battery_voltage = Column(Float)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+class VFAReading(Base):
+    """Vertical Field Anchor deep-profile reading"""
+    __tablename__ = 'vfa_readings'
+    
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    hardware_id = Column(String(50), ForeignKey('hardware_nodes.hardware_id'), nullable=False, index=True)
+    field_id = Column(String(50), nullable=False, index=True)
+    timestamp = Column(DateTime, nullable=False, index=True)
+    
+    location = Column(Geometry('POINT', srid=4326), nullable=False)
+    
+    # +5 psi Nitrogen seal pressure
+    nitrogen_pressure_psi = Column(Float)
+    
+    # Proxy method depths
+    slot_10_moisture = Column(Float)
+    slot_10_ec = Column(Float)
+    slot_10_temp = Column(Float)
+    
+    slot_18_moisture = Column(Float)
+    
+    slot_25_moisture = Column(Float)
+    slot_25_ec = Column(Float)
+    slot_25_temp = Column(Float)
+    
+    slot_35_moisture = Column(Float)
+    
+    slot_48_moisture = Column(Float)
+    slot_48_ec = Column(Float)
+    
+    battery_voltage = Column(Float) # Cluster string voltage
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+class PFAReading(Base):
+    """Pressure & Flow Anchor reading"""
+    __tablename__ = 'pfa_readings'
+    
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    hardware_id = Column(String(50), ForeignKey('hardware_nodes.hardware_id'), nullable=False, index=True)
+    field_id = Column(String(50), nullable=False, index=True)
+    timestamp = Column(DateTime, nullable=False, index=True)
+    
+    well_pressure_psi = Column(Float)
+    flow_rate_gpm = Column(Float)
+    pump_status = Column(String(20))
+    
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+class PMTReading(Base):
+    """Pivot Motion Tracker kinematic reading"""
+    __tablename__ = 'pmt_readings'
+    
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    hardware_id = Column(String(50), ForeignKey('hardware_nodes.hardware_id'), nullable=False, index=True)
+    field_id = Column(String(50), nullable=False, index=True)
+    timestamp = Column(DateTime, nullable=False, index=True)
+    
+    location = Column(Geometry('POINT', srid=4326), nullable=False)
+    
+    kinematic_angle_deg = Column(Float)
+    span_speed_mph = Column(Float)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+class AuditLog(Base):
+    """Immutable audit record for decisions made by the system"""
+    __tablename__ = 'audit_logs'
+    
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    field_id = Column(String(50), nullable=False, index=True)
+    timestamp = Column(DateTime, nullable=False, index=True)
+    decision_type = Column(String(50))
+    input_telemetry = Column(JSON)
+    rules_applied = Column(JSON)
+    deterministic_output = Column(String(500))
+    provenance = Column(String(200))
+    model_type = Column(String(100))
+    integrity_hash = Column(String(64), unique=True, index=True)
     
     created_at = Column(DateTime, default=datetime.utcnow)

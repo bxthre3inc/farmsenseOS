@@ -28,6 +28,7 @@ class SupportLetter(Base):
     is_digital = Column(Boolean, default=True)
     file_path = Column(String(512)) # For manual uploads
     token = Column(String(128), unique=True, index=True) # Public signing token
+    token_expires_at = Column(DateTime)
     signed_at = Column(DateTime)
     verified_at = Column(DateTime)
     created_at = Column(DateTime, default=datetime.utcnow)

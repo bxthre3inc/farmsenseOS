@@ -12,6 +12,8 @@ from typing import Dict, List, Optional
 import hashlib
 import json
 import logging
+from sqlalchemy.orm import Session
+from app.models.sensor_data import VFAReading, LRZReading, PFAReading, VirtualSensorGrid1m, AuditLog
 
 logger = logging.getLogger(__name__)
 
@@ -100,6 +102,7 @@ class DecisionAuditLog:
 
     @staticmethod
     def create(
+        db: Session,
         decision_type: str,
         input_data: dict,
         rules_applied: List[str],
@@ -121,6 +124,22 @@ class DecisionAuditLog:
         record_str = json.dumps(payload, sort_keys=True)
         payload["integrity_hash"] = hashlib.sha256(record_str.encode()).hexdigest()
 
+        # Persist to DB
+        if db:
+            db_log = AuditLog(
+                field_id=payload["field_id"],
+                timestamp=datetime.fromisoformat(payload["timestamp"]),
+                decision_type=payload["decision_type"],
+                input_telemetry=payload["input_telemetry"],
+                rules_applied=payload["rules_applied"],
+                deterministic_output=payload["deterministic_output"],
+                provenance=payload["provenance"],
+                model_type=payload["model_type"],
+                integrity_hash=payload["integrity_hash"]
+            )
+            db.add(db_log)
+            db.commit()
+
         logger.info(f"AUDIT: Decision logged — {decision_type} for {field_id} [{payload['integrity_hash'][:12]}]")
         return payload
 
@@ -133,10 +152,10 @@ class FieldDecisionEngine:
     """
 
     @staticmethod
-    def evaluate_query(query: str, field_id: str, telemetry: dict) -> dict:
+    def evaluate_query(query: str, field_id: str, db: Session) -> dict:
         """
         Processes a farmer's question using deterministic rule matching.
-        Integrates HAPS grid averages, VAPS root-depth profiling, and well extraction data.
+        Integrates LRZ grid averages, VFA root-depth profiling, and well extraction data.
         Dynamically adjusts thresholds based on the modular payload (crop type).
         """
         query_lc = query.lower()
@@ -144,20 +163,32 @@ class FieldDecisionEngine:
         response = ""
 
         # Strategy Context
-        crop_type = telemetry.get("crop_type", "potato").lower()
-        mapping_model = telemetry.get("mapping_model", "Model-A (Even-Grid)").upper()
+        crop_type = "potato"  # Simplifcation - in prod query from field metadata
+        mapping_model = "Model-A (Even-Grid)"
         
         # Load Crop-Specific Thresholds
         crop_config = CROP_MODELS.get(crop_type, CROP_MODELS["potato"])
         thresholds = crop_config["moisture"]
 
+        # ── Database Queries ──
+        # Get Latest VFA Reading (Truth Node)
+        latest_vfa = db.query(VFAReading).filter(VFAReading.field_id == field_id).order_by(VFAReading.timestamp.desc()).first()
+        # Get Latest PFA Reading (Well Flow)
+        latest_pfa = db.query(PFAReading).filter(PFAReading.field_id == field_id).order_by(PFAReading.timestamp.desc()).first()
+        # Get Latest LRZ Readings (Scouts)
+        latests_lrz = db.query(LRZReading).filter(LRZReading.field_id == field_id).order_by(LRZReading.timestamp.desc()).limit(10).all()
+
         # Data Stratification
-        moisture_haps_avg = telemetry.get("moisture_haps_avg", telemetry.get("moisture", 0.0))
-        moisture_vaps_36in = telemetry.get("moisture_vaps_36in", 0.35)
-        well_extraction_rate = telemetry.get("well_flow_gpm", 850)
-        ndvi = telemetry.get("ndvi", 0.0)
-        temp = telemetry.get("temperature", 20.0)
-        savings = telemetry.get("savings", 0)
+        if latests_lrz:
+            moisture_haps_avg = sum(l.dielectric_count or 0.20 for l in latests_lrz) / len(latests_lrz)
+        else:
+            moisture_haps_avg = 0.20  # fallback
+
+        moisture_vaps_36in = latest_vfa.slot_35_moisture if latest_vfa else 0.35
+        well_extraction_rate = latest_pfa.flow_rate_gpm if latest_pfa else 850.0
+        ndvi = 0.78  # Mock satellite integration
+        temp = 28.5
+        savings = 4280
 
         # ── MOISTURE & IRRIGATION QUERIES ──
         if any(w in query_lc for w in ["water", "dry", "moisture", "irrigat", "pump", "haps", "vaps"]):
@@ -200,6 +231,7 @@ class FieldDecisionEngine:
 
         # Create auditable decision record
         audit = DecisionAuditLog.create(
+            db=db,
             decision_type="field_query",
             input_data={
                 "crop_type": crop_type,

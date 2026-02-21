@@ -56,4 +56,7 @@ class SignatureService:
     @staticmethod
     def verify_token(db: Session, token: str):
         from app.models.grant import SupportLetter
-        return db.query(SupportLetter).filter(SupportLetter.token == token).first()
+        letter = db.query(SupportLetter).filter(SupportLetter.token == token).first()
+        if letter and letter.token_expires_at and letter.token_expires_at < datetime.utcnow():
+            return None # Token expired
+        return letter

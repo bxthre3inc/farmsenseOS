@@ -207,11 +207,11 @@ const App: React.FC = () => {
                 {/* Big Pump Control */}
                 <div className="glass-card p-12 flex flex-col items-center justify-center text-center space-y-6">
                   <Zap className="w-32 h-32 text-orange-400" />
-                  <h3 className="text-4xl font-bold text-white">PUMP CONTROL</h3>
+                  <h3 className="text-4xl font-bold text-white">PFA PUMP CONTROL</h3>
                   <button className="w-full py-8 bg-red-500 hover:bg-red-600 text-white text-4xl font-black rounded-3xl shadow-2xl shadow-red-500/20 transition-all border-b-8 border-red-700 active:border-b-0 active:translate-y-2">
                     STOP PUMP
                   </button>
-                  <p className="text-slate-500 font-bold uppercase tracking-widest mt-4">Pressure: 4.2 bar (SAFE)</p>
+                  <p className="text-slate-500 font-bold uppercase tracking-widest mt-4">PFA Pressure: 68.2 PSI | 850 GPM</p>
                 </div>
 
                 {/* Simple Map */}
@@ -291,7 +291,7 @@ const App: React.FC = () => {
                     <span className="text-[10px] font-bold text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-full uppercase">Optimal</span>
                   </div>
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">
-                    {showProfit ? 'Estimated Savings' : 'Avg. Moisture'}
+                    {showProfit ? 'Estimated Savings' : 'VFA Truth Node'}
                   </p>
                   <p className="text-3xl font-black text-white mt-1">
                     {showProfit ? '$4,280' : '32.4%'}
@@ -301,13 +301,13 @@ const App: React.FC = () => {
                 <div className="glass-card p-6 border-l-4 border-orange-500">
                   <div className="flex justify-between items-start mb-4">
                     <Thermometer className="text-orange-400 w-6 h-6" />
-                    <span className="text-[10px] font-bold text-orange-500 bg-orange-500/10 px-2 py-0.5 rounded-full uppercase">High</span>
+                    <span className="text-[10px] font-bold text-orange-500 bg-orange-500/10 px-2 py-0.5 rounded-full uppercase">Active</span>
                   </div>
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">
-                    {showProfit ? 'Fuel/Yield Offset' : 'Temperature'}
+                    {showProfit ? 'Fuel/Yield Offset' : 'LRZ Scout Network'}
                   </p>
                   <p className="text-3xl font-black text-white mt-1">
-                    {showProfit ? '+$1,120' : '28.5°C'}
+                    {showProfit ? '+$1,120' : '12 Nodes'}
                   </p>
                 </div>
                 <div className="glass-card p-6 border-l-4 border-blue-500">
@@ -316,23 +316,23 @@ const App: React.FC = () => {
                     <span className="text-[10px] font-bold text-blue-500 bg-blue-500/10 px-2 py-0.5 rounded-full uppercase">Nominal</span>
                   </div>
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">
-                    {showProfit ? 'Labor Efficiency' : 'Pump Pressure'}
+                    {showProfit ? 'Labor Efficiency' : 'PFA Well Flow'}
                   </p>
                   <p className="text-3xl font-black text-white mt-1">
-                    {showProfit ? '22%' : '4.2 bar'}
+                    {showProfit ? '22%' : '850 GPM'}
                     {showProfit && <span className="text-sm font-normal text-blue-400 ml-1">Gain</span>}
                   </p>
                 </div>
                 <div className="glass-card p-6 border-l-4 border-slate-500">
                   <div className="flex justify-between items-start mb-4">
                     <Zap className="text-slate-400 w-6 h-6" />
-                    <span className="text-[10px] font-bold text-slate-500 bg-slate-500/10 px-2 py-0.5 rounded-full uppercase">Standby</span>
+                    <span className="text-[10px] font-bold text-slate-500 bg-slate-500/10 px-2 py-0.5 rounded-full uppercase">Tracking</span>
                   </div>
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">
-                    {showProfit ? 'Water Credit (SLV)' : 'Robotic Battery'}
+                    {showProfit ? 'Water Credit (SLV)' : 'PMT Kinematics'}
                   </p>
                   <p className="text-3xl font-black text-white mt-1">
-                    {showProfit ? '140' : '88%'}
+                    {showProfit ? '140' : '2.4 MPH'}
                     {showProfit && <span className="text-sm font-normal text-slate-500 ml-1">Units Earned</span>}
                   </p>
                 </div>

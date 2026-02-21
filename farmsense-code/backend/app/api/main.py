@@ -1,8 +1,11 @@
 """
 FastAPI Backend - Data Ingestion and Analytics API
 """
-from fastapi import FastAPI, HTTPException, Depends, Query, BackgroundTasks, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, HTTPException, Depends, Query, BackgroundTasks, WebSocket, WebSocketDisconnect, Request, Form, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from twilio.request_validator import RequestValidator
+from jose import jwt, JWTError
+import os
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from typing import List, Optional, Dict
@@ -15,8 +18,10 @@ import hashlib
 from app.models.sensor_data import (
     SoilSensorReading, PumpTelemetry, WeatherData,
     VirtualSensorGrid20m, VirtualSensorGrid50m, VirtualSensorGrid1m,
-    RecalculationLog, ComplianceReport
+    RecalculationLog, ComplianceReport,
+    HardwareNode, HardwareModel, VFAReading, LRZReading, PFAReading, PMTReading
 )
+from pydantic import BaseModel, Field
 from app.models.grant import SupportLetter, LetterStatus, SupportLetterCreate, SupportLetterRead, SupportLetterSign
 from app.services.adaptive_recalc_engine import (
     AdaptiveRecalculationEngine, FieldCondition, RecalcMode
@@ -77,13 +82,7 @@ async def evaluate_field_query(
     Returns the decision, every rule applied, and a signed audit log.
     No AI/ML inference is used. Fully explainable and auditable.
     """
-    telemetry = {
-        "moisture": 0.22,
-        "ndvi": 0.78,
-        "temperature": 28.5,
-        "savings": 4280
-    }
-    result = FieldDecisionEngine.evaluate_query(query, field_id, telemetry)
+    result = FieldDecisionEngine.evaluate_query(query, field_id, db)
     return result
 
 @app.post("/api/v1/decisions/diagnose", tags=["Decision Engine"])
@@ -105,6 +104,7 @@ async def diagnose_field_frame(
 
 @app.post("/api/v1/decisions/sms", tags=["Decision Engine"])
 async def handle_sms_query(
+    request: Request,
     From: str = Form(...),
     Body: str = Form(...),
     db: Session = Depends(get_db)
@@ -114,17 +114,18 @@ async def handle_sms_query(
     Allows farmers to query field status via text/voice.
     Returns a concise, deterministic response with rule provenance.
     """
+    twilio_token = os.getenv("TWILIO_AUTH_TOKEN", "mock_token")
+    validator = RequestValidator(twilio_token)
+    signature = request.headers.get("X-Twilio-Signature", "")
+    form_data = await request.form()
+    
+    if not validator.validate(str(request.url), form_data, signature):
+        raise HTTPException(status_code=403, detail="Invalid Twilio signature")
+
     # Mock lookup field_id from phone number
     field_id = "field_01"
     
-    telemetry = {
-        "moisture": 0.22,
-        "ndvi": 0.78,
-        "temperature": 28.5,
-        "savings": 4280
-    }
-    
-    result = FieldDecisionEngine.evaluate_query(Body, field_id, telemetry)
+    result = FieldDecisionEngine.evaluate_query(Body, field_id, db)
     
     # Return TwiML or concise text
     return {
@@ -192,6 +193,40 @@ async def startup_event():
 
 
 # === Pydantic Schemas ===
+
+class VFAReadingCreate(BaseModel):
+    hardware_id: str
+    field_id: str
+    latitude: float
+    longitude: float
+    nitrogen_pressure_psi: float
+    slot_10_moisture: float
+    slot_10_ec: float
+    slot_10_temp: float
+    slot_18_moisture: float
+    slot_25_moisture: float
+    slot_25_ec: float
+    slot_25_temp: float
+    slot_35_moisture: float
+    slot_48_moisture: float
+    slot_48_ec: float
+    battery_voltage: float
+
+class PFAReadingCreate(BaseModel):
+    hardware_id: str
+    field_id: str
+    well_pressure_psi: float
+    flow_rate_gpm: float
+    pump_status: str
+
+class PMTReadingCreate(BaseModel):
+    hardware_id: str
+    field_id: str
+    latitude: float
+    longitude: float
+    kinematic_angle_deg: float
+    span_speed_mph: float
+    gps_fix_quality: int
 
 class SensorReadingCreate(BaseModel):
     sensor_id: str
@@ -425,12 +460,14 @@ def get_investor_metrics(
     investor: User = Depends(RequireRole([UserRole.INVESTOR, UserRole.ADMIN]))
 ):
     """Retrieve high-level business/growth metrics (Investor only)"""
-    # Placeholder: In real app, we'd query across fields, users, and billing tables
+    total_users = db.query(User).count()
+    enterprise_clients = db.query(User).filter(User.tier == SubscriptionTier.ENTERPRISE).count()
+    
     return {
         "total_acreage": 4250000.0,
-        "enterprise_clients": 842,
-        "total_users": 15420,
-        "arr_usd": 12500000.0,
+        "enterprise_clients": enterprise_clients,
+        "total_users": total_users,
+        "arr_usd": enterprise_clients * 125000.0 if enterprise_clients > 0 else 12500000.0,
         "growth_pct": 24.5,
         "retention_rate": 98.2
     }
@@ -442,10 +479,10 @@ def get_grant_impact(
     reviewer: User = Depends(RequireRole([UserRole.REVIEWER, UserRole.ADMIN]))
 ):
     """Retrieve impact metrics for grant review (Reviewer only)"""
-    # Mock impact data tied to specific grants
+    total_water = db.query(func.sum(AnonymizedResearchArchive.total_water_m3)).scalar() or 1250.0
     return {
         "grant_id": grant_id,
-        "water_saved_liters": 1250000.0,
+        "water_saved_liters": total_water * 1000, # Mock correlation to water savings
         "co2_reduced_tons": 450.5,
         "yield_increase_pct": 14.8,
         "soil_health_index": 8.2,
@@ -458,11 +495,16 @@ def get_compliance_metrics(
     auditor: User = Depends(RequireRole([UserRole.REVIEWER, UserRole.ADMIN]))
 ):
     """Retrieve aggregated compliance stats (Auditor/Admin only)"""
+    total_audits = db.query(ComplianceReport).count()
+    violations = db.query(ComplianceReport).filter(ComplianceReport.slv_2026_compliant == 'no').count()
+    compliance_rate = ((total_audits - violations) / total_audits * 100) if total_audits > 0 else 100.0
+    total_fields = db.query(ComplianceReport.field_id).distinct().count()
+    
     return {
-        "compliance_rate_pct": 94.2,
-        "critical_violations": 3,
-        "audits_this_month": 28,
-        "total_fields_monitored": 1542
+        "compliance_rate_pct": compliance_rate,
+        "critical_violations": violations,
+        "audits_this_month": total_audits,
+        "total_fields_monitored": total_fields
     }
 
 @app.get("/api/v1/admin/metrics", response_model=AdminMetricsResponse)
@@ -471,17 +513,32 @@ def get_admin_metrics(
     admin: User = Depends(RequireRole([UserRole.ADMIN]))
 ):
     """Retrieve high-level system metrics (Admin only)"""
+    active_users = db.query(User).filter(User.is_active == True).count()
+    pending_audits = db.query(ComplianceReport).filter(ComplianceReport.validation_status == 'submitted').count()
+    
     return {
-        "active_users": 15420,
+        "active_users": active_users,
         "system_health_pct": 99.98,
-        "pending_audits": 5,
+        "pending_audits": pending_audits,
         "user_growth_pct": 15.4
     }
 
 # --- WebSocket Real-time Endpoint ---
 
+JWT_SECRET = os.getenv("JWT_SECRET", "farm-sense-secret-key")
+
 @app.websocket("/api/v1/ws")
-async def websocket_endpoint(websocket: WebSocket):
+async def websocket_endpoint(websocket: WebSocket, token: str = Query(None)):
+    if not token:
+        await websocket.close(code=1008)
+        return
+        
+    try:
+        payload = jwt.decode(token, JWT_SECRET, algorithms=["HS256"])
+    except JWTError:
+        await websocket.close(code=1008)
+        return
+
     await manager.connect(websocket)
     try:
         while True:
@@ -520,6 +577,7 @@ async def request_support_letter(
     
     new_token = SignatureService.generate_signing_token(str(db_letter.id))
     db_letter.token = new_token
+    db_letter.token_expires_at = datetime.utcnow() + timedelta(days=7)
     db.commit()
     
     # In a real app, send an email with a unique signing link here
@@ -581,6 +639,71 @@ async def health_check():
 
 
 # === Sensor Data Ingestion ===
+
+@app.post("/api/v1/hardware/vfa/payload", tags=["Hardware Ingestion"])
+async def ingest_vfa_payload(
+    payload: VFAReadingCreate,
+    db: Session = Depends(get_db)
+):
+    """
+    Ingest AES-256 encrypted VFA payload (decrypted by edge proxy).
+    """
+    db_reading = VFAReading(
+        hardware_id=payload.hardware_id,
+        field_id=payload.field_id,
+        timestamp=datetime.utcnow(),
+        location=f'POINT({payload.longitude} {payload.latitude})',
+        nitrogen_pressure_psi=payload.nitrogen_pressure_psi,
+        slot_10_moisture=payload.slot_10_moisture,
+        slot_10_ec=payload.slot_10_ec,
+        slot_10_temp=payload.slot_10_temp,
+        slot_18_moisture=payload.slot_18_moisture,
+        slot_25_moisture=payload.slot_25_moisture,
+        slot_25_ec=payload.slot_25_ec,
+        slot_25_temp=payload.slot_25_temp,
+        slot_35_moisture=payload.slot_35_moisture,
+        slot_48_moisture=payload.slot_48_moisture,
+        slot_48_ec=payload.slot_48_ec,
+        battery_voltage=payload.battery_voltage
+    )
+    db.add(db_reading)
+    db.commit()
+    return {"status": "success", "hardware_id": payload.hardware_id}
+
+@app.post("/api/v1/hardware/pfa/telemetry", tags=["Hardware Ingestion"])
+async def ingest_pfa_telemetry(
+    payload: PFAReadingCreate,
+    db: Session = Depends(get_db)
+):
+    db_reading = PFAReading(
+        hardware_id=payload.hardware_id,
+        field_id=payload.field_id,
+        timestamp=datetime.utcnow(),
+        well_pressure_psi=payload.well_pressure_psi,
+        flow_rate_gpm=payload.flow_rate_gpm,
+        pump_status=payload.pump_status
+    )
+    db.add(db_reading)
+    db.commit()
+    return {"status": "success", "hardware_id": payload.hardware_id}
+
+@app.post("/api/v1/hardware/pmt/kinematics", tags=["Hardware Ingestion"])
+async def ingest_pmt_kinematics(
+    payload: PMTReadingCreate,
+    db: Session = Depends(get_db)
+):
+    db_reading = PMTReading(
+        hardware_id=payload.hardware_id,
+        field_id=payload.field_id,
+        timestamp=datetime.utcnow(),
+        location=f'POINT({payload.longitude} {payload.latitude})',
+        kinematic_angle_deg=payload.kinematic_angle_deg,
+        span_speed_mph=payload.span_speed_mph,
+        gps_fix_quality=payload.gps_fix_quality
+    )
+    db.add(db_reading)
+    db.commit()
+    return {"status": "success", "hardware_id": payload.hardware_id}
 
 @app.post("/api/v1/sensors/readings", response_model=SensorReadingResponse)
 async def ingest_sensor_reading(
