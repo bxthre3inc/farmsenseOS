@@ -27,7 +27,7 @@ from app.api.dependencies import get_current_user, RequireTier
 
 from app.services.grid_renderer import GridRenderingService
 from app.services.notification_service import NotificationService
-from app.services.ai_handsfree import FieldDecisionEngine, FieldDiagnosticService
+from app.services.decision_engine import FieldDecisionEngine, FieldDiagnosticService
 from app.models.sensor_data import AnonymizedResearchArchive
 from app.services.equity_service import SignatureService
 import os

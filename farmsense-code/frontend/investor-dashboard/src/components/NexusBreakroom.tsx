@@ -43,7 +43,7 @@ export const NexusBreakroom: React.FC = () => {
         setMessages(newMessages);
         setInput('');
 
-        // Simulating AI logic
+        // Simulating automated logic
         setTimeout(() => {
             let aiResponse = "Interesting combination. I've added some suggestions to your palette.";
             if (input.toLowerCase().includes('coffee') || input.toLowerCase().includes('caffeine')) {
@@ -111,11 +111,11 @@ export const NexusBreakroom: React.FC = () => {
             </header>
 
             <main className="flex-1 max-w-7xl mx-auto w-full p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 overflow-hidden">
-                {/* AI Architect Chat */}
+                {/* Nexus Architect Chat */}
                 <div className="lg:col-span-4 bg-neutral-900/50 border border-white/5 rounded-3xl flex flex-col overflow-hidden shadow-2xl">
                     <div className="p-6 border-b border-white/5 bg-neutral-900/80 flex items-center gap-3">
                         <Brain className="w-5 h-5 text-green-500" />
-                        <span className="font-black uppercase text-sm tracking-widest text-neutral-400">AI Meal Architect</span>
+                        <span className="font-black uppercase text-sm tracking-widest text-neutral-400">Nexus Menu Architect</span>
                     </div>
 
                     <div ref={scrollRef} className="flex-1 p-6 overflow-auto space-y-4">

@@ -165,7 +165,7 @@ Sensors → API → TimescaleDB → Edge (20m IDW) → Cloud (1m Kriging) → Da
 
 ### Computational Layers
 1. **Edge Layer**: Raspberry Pi 4 @ field (20m grid, offline-capable)
-2. **Cloud Layer**: AWS EKS (1m grid, satellite integration, ML)
+2. **Cloud Layer**: AWS EKS (1m grid, satellite integration, Analytics)
 3. **Analytics Layer**: Real-time predictions, irrigation recommendations
 4. **Compliance Layer**: SLV 2026 reporting, immutable audit logs
 
@@ -245,11 +245,11 @@ docker-compose exec backend python -m app.core.database
 - Event-driven triggers (sensor anomalies, weather)
 - Configurable thresholds
 
-### ✅ Analytics & ML
+### ✅ Analytics & Modeling
 - Irrigation scheduling
 - Crop stress detection
 - Water deficit calculation
-- Yield forecasting (ready for ML integration)
+- Yield forecasting (ready for analytics modeling integration)
 
 ### ✅ Compliance Reporting
 - SLV 2026 regulatory alignment
@@ -298,7 +298,7 @@ docker-compose exec backend python -m app.core.database
 4. Test adaptive recalculation with real data
 
 ### Medium-term (Weeks 9-16)
-1. Train ML models with collected data
+1. Train analytics models with collected data
 2. Build farmer and regulatory dashboards
 3. Conduct UAT with pilot users
 4. Security audit and penetration testing

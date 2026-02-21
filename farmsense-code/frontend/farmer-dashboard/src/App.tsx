@@ -177,7 +177,7 @@ const App: React.FC = () => {
                 </button>
               </div>
 
-              {/* Hands-Free Voice Trigger */}
+              {/* Voice Operations Menu */}
               <div className="absolute bottom-10 right-10 z-50">
                 <button
                   onClick={() => {

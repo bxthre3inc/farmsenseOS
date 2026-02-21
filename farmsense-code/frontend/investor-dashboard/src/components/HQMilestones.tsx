@@ -30,7 +30,7 @@ const MILESTONES = [
     {
         id: 4,
         name: "Nexus Hospitality Center",
-        description: "AI-driven automated breakroom and social nexus.",
+        description: "Automated breakroom and social nexus.",
         status: "pending",
         icon: <Building2 className="w-6 h-6" />,
         impact: "Engineering retention and wow-factor"

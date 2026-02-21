@@ -38,7 +38,7 @@ farmsense-code/
 ├── ☁️  cloud-processing/                 # Cloud Analytics (1m Grid)
 │   ├── pipelines/
 │   │   └── kriging_1m.py                # Regression Kriging ✅
-│   └── ml/                               # ML models (ready for training)
+│   └── analytics/                        # Analytics models
 │
 ├── 🎨 frontend/                          # Web Applications
 │   ├── farmer-dashboard/                # Farmer interface (React)
@@ -60,6 +60,7 @@ farmsense-code/
 ## 🎯 Delivered Components
 
 ### ✅ **1. System Architecture** (80+ pages)
+
 - Complete technical specifications
 - Component diagrams & data flows
 - Technology stack justifications
@@ -73,6 +74,7 @@ farmsense-code/
 ### ✅ **2. Backend Services** (Python/FastAPI)
 
 #### 📊 Data Models (`sensor_data.py` - 350 lines)
+
 - `SoilSensorReading` - 2-depth + vertical profiling
 - `PumpTelemetry` - Operational metrics
 - `WeatherData` - Atmospheric conditions
@@ -82,6 +84,7 @@ farmsense-code/
 - `ComplianceReport` - SLV 2026 reporting
 
 **Features**:
+
 - PostGIS spatial types (POINT, POLYGON)
 - TimescaleDB hypertables
 - JSON vertical profiling
@@ -92,11 +95,13 @@ farmsense-code/
 #### 🔄 Adaptive Recalculation Engine (`adaptive_recalc_engine.py` - 400 lines)
 
 **Core Classes**:
+
 - `AdaptiveRecalculationEngine` - Main decision logic
 - `FieldCondition` - State representation
 - `RecalcDecision` - Output with reasoning
 
 **Operational Modes**:
+
 ```python
 RecalcMode.STABLE      # 12 hour intervals
 RecalcMode.ACTIVE      # 15 minute intervals  
@@ -105,6 +110,7 @@ RecalcMode.OUT_OF_TURN # Immediate, event-driven
 ```
 
 **Decision Logic**:
+
 1. **Critical event check** → Immediate recalc
    - Rapid moisture drops (>30% in 6h)
    - Heat stress + low moisture
@@ -122,6 +128,7 @@ RecalcMode.OUT_OF_TURN # Immediate, event-driven
    - High ET conditions
 
 **Configurable Thresholds**:
+
 ```python
 'moisture_stable_band': 0.05        # ±5% stable
 'moisture_active_threshold': 0.15   # >15% active
@@ -136,22 +143,27 @@ RecalcMode.OUT_OF_TURN # Immediate, event-driven
 **15+ Endpoints**:
 
 **Data Ingestion**:
+
 - `POST /api/v1/sensors/readings` - Single reading
 - `POST /api/v1/sensors/readings/batch` - Bulk ingestion (1000/request)
 
 **Virtual Grid Queries**:
+
 - `GET /api/v1/fields/{field_id}/grid/20m` - Edge grid
 - `GET /api/v1/fields/{field_id}/grid/1m` - Cloud high-res
 
 **Analytics**:
+
 - `GET /api/v1/fields/{field_id}/analytics` - Field statistics
-- `GET /api/v1/fields/{field_id}/irrigation-recommendation` - AI guidance
+- `GET /api/v1/fields/{field_id}/irrigation-recommendation` - Deterministic guidance
 
 **Compliance**:
+
 - `GET /api/v1/compliance/reports` - List reports
 - `POST /api/v1/compliance/reports/generate` - Create SLV 2026 report
 
 **Features**:
+
 - Background task processing (FastAPI BackgroundTasks)
 - Automatic recalculation evaluation on data ingestion
 - Pydantic validation
@@ -162,6 +174,7 @@ RecalcMode.OUT_OF_TURN # Immediate, event-driven
 #### 🗄️ Database Layer (`database.py` - 80 lines)
 
 **Features**:
+
 - Dual database support (PostgreSQL + TimescaleDB)
 - Connection pooling (20 connections + 40 overflow)
 - Session management with FastAPI `Depends()`
@@ -175,6 +188,7 @@ RecalcMode.OUT_OF_TURN # Immediate, event-driven
 #### 🔧 Edge Processor (`edge_processor.go` - 600 lines)
 
 **Core Functionality**:
+
 - **IDW Interpolation**: Inverse Distance Weighting with configurable power
 - **20m Grid Generation**: Automatic field boundary processing
 - **Offline Resilience**: Local SQLite cache when cloud unavailable
@@ -182,6 +196,7 @@ RecalcMode.OUT_OF_TURN # Immediate, event-driven
 - **Real-time Processing**: Continuous computation loop
 
 **Key Functions**:
+
 ```go
 computeVirtualGrid()       // Main processing loop
 interpolatePoint()         // IDW calculation
@@ -194,6 +209,7 @@ syncToCloud()              // Offline data sync
 ```
 
 **Deployment**:
+
 - Raspberry Pi 4 / Jetson Nano compatible
 - Systemd service integration
 - Low memory footprint (<100MB)
@@ -206,6 +222,7 @@ syncToCloud()              // Offline data sync
 #### 📈 Regression Kriging (`kriging_1m.py` - 800 lines)
 
 **Advanced Interpolation**:
+
 - **Trend Model**: Linear regression on satellite covariates
   - NDVI (vegetation index)
   - NDWI (water index)
@@ -218,6 +235,7 @@ syncToCloud()              // Offline data sync
   - Uncertainty quantification
 
 **Core Classes**:
+
 ```python
 RegressionKriging
   .fit_trend()           # Train on sensor + satellite
@@ -231,6 +249,7 @@ SatelliteProcessor
 ```
 
 **Output**:
+
 - 1m resolution moisture predictions
 - Kriging variance (uncertainty)
 - Multi-source data fusion
@@ -242,6 +261,7 @@ SatelliteProcessor
 #### 📊 Initialization Script (`001_initial_schema.sql` - 150 lines)
 
 **Features**:
+
 - PostGIS extension setup
 - TimescaleDB hypertables (5 tables)
 - Spatial indices (GIST) for fast queries
@@ -251,6 +271,7 @@ SatelliteProcessor
 - Sample data insertion
 
 **Hypertables**:
+
 ```sql
 soil_sensor_readings        # 1 day chunks
 pump_telemetry              # 1 day chunks
@@ -260,6 +281,7 @@ virtual_sensor_grid_1m      # 1 week chunks
 ```
 
 **Continuous Aggregate**:
+
 ```sql
 CREATE MATERIALIZED VIEW hourly_field_stats
 -- Auto-refresh every hour
@@ -273,6 +295,7 @@ CREATE MATERIALIZED VIEW hourly_field_stats
 #### 🐳 Docker Compose (`docker-compose.yml` - 200 lines)
 
 **11 Services**:
+
 1. **PostgreSQL + PostGIS** - Main database
 2. **TimescaleDB** - Time-series optimization
 3. **Redis** - Caching layer
@@ -285,6 +308,7 @@ CREATE MATERIALIZED VIEW hourly_field_stats
 10. **Prometheus** - Metrics collection
 
 **Features**:
+
 - Health checks for all services
 - Volume persistence
 - Network isolation
@@ -292,6 +316,7 @@ CREATE MATERIALIZED VIEW hourly_field_stats
 - Auto-restart policies
 
 **One-Command Startup**:
+
 ```bash
 docker-compose up -d
 # All 11 services running in 30 seconds
@@ -304,6 +329,7 @@ docker-compose up -d
 #### 🔧 Environment Template (`.env.example`)
 
 **Categories**:
+
 - Database credentials
 - API keys (Sentinel, Landsat, Mapbox)
 - JWT security
@@ -315,7 +341,7 @@ docker-compose up -d
 
 ### ✅ **8. Documentation** (100+ pages)
 
-#### 📚 Three Complete Guides:
+#### 📚 Three Complete Guides
 
 1. **README.md** (500 lines)
    - Architecture overview
@@ -360,6 +386,7 @@ docker-compose up -d
 ## 🎯 Key Features Summary
 
 ### Data Ingestion ✅
+
 - [x] Multi-source sensor support
 - [x] Batch ingestion (1000/request)
 - [x] Real-time streaming
@@ -367,6 +394,7 @@ docker-compose up -d
 - [x] Anomaly detection
 
 ### Virtual Sensor Networks ✅
+
 - [x] Edge 20m grid (IDW)
 - [x] Cloud 1m grid (Kriging)
 - [x] Satellite integration (Sentinel, Landsat)
@@ -374,6 +402,7 @@ docker-compose up -d
 - [x] Auto-sync mechanisms
 
 ### Adaptive Recalculation ✅
+
 - [x] 4 operational modes
 - [x] Trend-based decisions
 - [x] Event-driven triggers
@@ -381,6 +410,7 @@ docker-compose up -d
 - [x] Audit logging
 
 ### Analytics ✅
+
 - [x] Water deficit calculation
 - [x] Crop stress detection
 - [x] Irrigation recommendations
@@ -388,6 +418,7 @@ docker-compose up -d
 - [x] Multi-field analysis
 
 ### Compliance ✅
+
 - [x] SLV 2026 alignment
 - [x] Immutable audit logs
 - [x] Water usage tracking
@@ -395,6 +426,7 @@ docker-compose up -d
 - [x] PDF/Excel export ready
 
 ### Infrastructure ✅
+
 - [x] Docker containerization
 - [x] Kubernetes manifests
 - [x] Database optimization
@@ -483,36 +515,42 @@ ssh pi@field-device "sudo systemctl start farmsense-edge"
 ## 🎓 Next Steps
 
 ### Week 1: Infrastructure
+
 - [ ] Review architecture document in detail
 - [ ] Set up AWS account and networking
 - [ ] Deploy PostgreSQL RDS
 - [ ] Configure Kubernetes cluster
 
 ### Week 2-4: Backend
+
 - [ ] Deploy FastAPI backend
 - [ ] Test data ingestion pipeline
 - [ ] Verify adaptive recalculation logic
 - [ ] Set up monitoring
 
 ### Week 5-8: Processing
+
 - [ ] Install edge processors on pilot fields
 - [ ] Configure Sentinel/Landsat pipelines
 - [ ] Test 1m grid generation
 - [ ] Validate accuracy
 
-### Week 9-12: Analytics & ML
-- [ ] Train ML models with real data
+### Week 9-12: Analytics & Modeling
+
+- [ ] Train analytics models with real data
 - [ ] Implement prediction APIs
 - [ ] Test irrigation recommendations
 - [ ] Optimize performance
 
 ### Week 13-16: Dashboards & Testing
+
 - [ ] Build React dashboards
 - [ ] Implement real-time alerts
 - [ ] Load testing (10K concurrent)
 - [ ] Security audit
 
 ### Week 17-20: Rollout
+
 - [ ] Pilot deployment (10 farms)
 - [ ] User training
 - [ ] Documentation finalization
@@ -523,15 +561,16 @@ ssh pi@field-device "sudo systemctl start farmsense-edge"
 ## 📞 Support
 
 - **Architecture**: [Technical Specifications](https://www.genspark.ai/doc_agent?id=b0db7361-09c7-4f59-8007-0b644ec4310d)
-- **API Docs**: http://localhost:8000/docs
+- **API Docs**: <http://localhost:8000/docs>
 - **Issues**: GitHub Issues (after repo setup)
-- **Email**: support@farmsense.io
+- **Email**: <support@farmsense.io>
 
 ---
 
 ## 🏆 Success Criteria
 
 ### Technical ✅
+
 - All core components implemented
 - Production-ready code quality
 - Comprehensive test coverage ready
@@ -539,6 +578,7 @@ ssh pi@field-device "sudo systemctl start farmsense-edge"
 - Documentation thorough
 
 ### Functional ✅
+
 - Data ingestion pipeline working
 - Virtual grids generating accurately
 - Adaptive recalc logic validated
@@ -546,6 +586,7 @@ ssh pi@field-device "sudo systemctl start farmsense-edge"
 - APIs documented and tested
 
 ### Scalability ✅
+
 - Designed for 100K+ sensors
 - Horizontal scaling ready
 - Database optimized
