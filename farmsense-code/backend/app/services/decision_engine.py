@@ -2,7 +2,7 @@
 FarmSense Decision Engine & Field Diagnostic Service
 
 ARCHITECTURE PRINCIPLE: Every output is deterministic, explainable, and auditable.
-There are NO probabilistic models, NO neural networks, NO ML inference.
+There are NO probabilistic models, NO neural networks, NO probabilistic inference.
 All decisions are derived from threshold-based rules against live telemetry,
 and every decision produces a signed audit log entry with full provenance.
 """
@@ -258,7 +258,7 @@ class FieldDiagnosticService:
     """
     Deterministic visual diagnostic service for in-field inspection.
     Uses threshold-based pattern matching against known pest/disease
-    signatures — NOT a neural network or ML classifier.
+    signatures — NOT a neural network or probabilistic classifier.
     """
 
     @staticmethod

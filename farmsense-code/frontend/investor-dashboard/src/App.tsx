@@ -66,7 +66,7 @@ function App() {
                 <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
                     <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
                         <Zap className="text-green-400 w-6 h-6" />
-                        farmsenseOS <span className="text-neutral-400 font-light">• Nexus Ops</span>
+                        FarmSense <span className="text-neutral-400 font-light">• Nexus Ops</span>
                     </h1>
                     <div className="flex items-center gap-8">
                         <nav className="flex gap-6">

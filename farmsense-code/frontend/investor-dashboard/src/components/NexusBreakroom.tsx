@@ -21,8 +21,8 @@ const INGREDIENTS: Ingredient[] = [
 
 export const NexusBreakroom: React.FC = () => {
     const [selectedIngredients, setSelectedIngredients] = useState<Ingredient[]>([]);
-    const [messages, setMessages] = useState<{ role: 'user' | 'ai', text: string }[]>([
-        { role: 'ai', text: 'Welcome to the Nexus. I am your Meal Architect. What are we building today?' }
+    const [messages, setMessages] = useState<{ role: 'user' | 'system', text: string }[]>([
+        { role: 'system', text: 'Welcome to the Nexus. I am your Automated Meal System. What are we building today?' }
     ]);
     const [input, setInput] = useState('');
     const [isPrep, setIsPrep] = useState(false);
@@ -45,17 +45,17 @@ export const NexusBreakroom: React.FC = () => {
 
         // Simulating automated logic
         setTimeout(() => {
-            let aiResponse = "Interesting combination. I've added some suggestions to your palette.";
+            let systemResponse = "Interesting combination. I've added some suggestions to your palette.";
             if (input.toLowerCase().includes('coffee') || input.toLowerCase().includes('caffeine')) {
-                aiResponse = "Acknowledged. Focusing on high-performance stimulants. Recommending Nitro Cold Brew base with Lions Mane for neural clarity.";
+                systemResponse = "Acknowledged. Focusing on high-performance stimulants. Recommending Nitro Cold Brew base with Lions Mane for neural clarity.";
                 addIngredient(INGREDIENTS[1]);
                 addIngredient(INGREDIENTS[4]);
             } else if (input.toLowerCase().includes('sweet')) {
-                aiResponse = "Deploying sweetness protocols. Recommending Golden Honey and Vanilla Bean.";
+                systemResponse = "Deploying sweetness protocols. Recommending Golden Honey and Vanilla Bean.";
                 addIngredient(INGREDIENTS[5]);
                 addIngredient(INGREDIENTS[3]);
             }
-            setMessages(prev => [...prev, { role: 'ai', text: aiResponse }]);
+            setMessages(prev => [...prev, { role: 'system', text: systemResponse }]);
         }, 1000);
     };
 
@@ -79,7 +79,7 @@ export const NexusBreakroom: React.FC = () => {
                 setTimeout(() => {
                     setIsPrep(false);
                     setProgress(0);
-                    setMessages(prev => [...prev, { role: 'ai', text: 'Your custom creation has been materialized in Bay 4. Enjoy your break, Engineer.' }]);
+                    setMessages(prev => [...prev, { role: 'system', text: 'Your custom creation has been materialized in Bay 4. Enjoy your break, Engineer.' }]);
                     setSelectedIngredients([]);
                 }, 1000);
             }
@@ -115,7 +115,7 @@ export const NexusBreakroom: React.FC = () => {
                 <div className="lg:col-span-4 bg-neutral-900/50 border border-white/5 rounded-3xl flex flex-col overflow-hidden shadow-2xl">
                     <div className="p-6 border-b border-white/5 bg-neutral-900/80 flex items-center gap-3">
                         <Brain className="w-5 h-5 text-green-500" />
-                        <span className="font-black uppercase text-sm tracking-widest text-neutral-400">Nexus Menu Architect</span>
+                        <span className="font-black uppercase text-sm tracking-widest text-neutral-400">Nexus Automated Menu</span>
                     </div>
 
                     <div ref={scrollRef} className="flex-1 p-6 overflow-auto space-y-4">
@@ -134,7 +134,7 @@ export const NexusBreakroom: React.FC = () => {
                                 type="text"
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
-                                placeholder="Chat with the Architect..."
+                                placeholder="Command the Automated System..."
                                 className="w-full bg-neutral-800 border-none rounded-xl py-4 pl-6 pr-14 text-sm font-bold placeholder:text-neutral-600 focus:ring-2 focus:ring-green-500 transition-all outline-none"
                             />
                             <button type="submit" className="absolute right-2 top-2 p-2 bg-green-500 rounded-lg text-black hover:bg-green-400 transition-colors">

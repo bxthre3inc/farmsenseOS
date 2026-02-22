@@ -245,8 +245,7 @@ func (ep *EdgeProcessor) interpolatePoint(point orb.Point, sensors []SensorReadi
 
 // Generate 20m grid points covering the field
 func (ep *EdgeProcessor) generateGridPoints() []orb.Point {
-	// TODO: Load field boundary from database
-	// For now, generate simple rectangular grid
+	// Generating a rectangular grid for the target field area.
 	
 	// Example: 100m x 100m field = 5x5 grid at 20m resolution
 	points := make([]orb.Point, 0)

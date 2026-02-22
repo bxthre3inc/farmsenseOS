@@ -87,6 +87,7 @@ const Footer = () => (
                 <div className="flex items-center gap-2">
                     <Globe className="text-emerald-500 w-6 h-6" />
                     <span className="farmsense-headings text-xl font-bold text-white">FarmSense</span>
+                    <span className="text-emerald-500 font-bold ml-2">#getfarmsense</span>
                 </div>
                 <p className="text-slate-500 text-sm leading-relaxed">
                     The global standard in institutional precision agriculture. Fusing ground-truth telemetry with hyper-res satellite intelligence.
@@ -135,9 +136,9 @@ const Home = () => (
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="glass-badge mx-auto"
+                    className="glass-badge mx-auto text-emerald-400 font-bold tracking-widest"
                 >
-                    v1.0.0-PRO Now Live
+                    v1.0.0-PRO Now Live • #getfarmsense
                 </motion.div>
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}

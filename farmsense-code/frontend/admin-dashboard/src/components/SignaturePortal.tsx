@@ -46,7 +46,7 @@ export const SignaturePortal: React.FC<{ token: string }> = ({ token }) => {
                         <CheckCircle2 className="w-10 h-10" />
                     </div>
                     <h2 className="text-3xl font-black text-slate-900 mb-2">Signature Verified</h2>
-                    <p className="text-slate-500 font-medium mb-8">Your support for Project FarmSense has been recorded and synchronized with the grant audit chain.</p>
+                    <p className="text-slate-500 font-medium mb-8">Your support for FarmSense has been recorded and synchronized with the grant audit chain.</p>
                     <div className="bg-slate-50 rounded-xl p-4 text-left border border-slate-100 mb-8">
                         <div className="text-[10px] font-black uppercase text-slate-400 tracking-widest mb-1">Legal Reference</div>
                         <div className="text-xs font-mono text-slate-500 break-all">FS-LOS-{Math.random().toString(36).substring(7).toUpperCase()}</div>

@@ -432,9 +432,9 @@ class SatelliteProcessor:
                         x=x, y=y,
                         ndvi=ndvi[i, j],
                         ndwi=ndwi[i, j],
-                        lst=0.0,  # TODO: from thermal band
-                        elevation=0.0,  # TODO: from DEM
-                        slope=0.0
+                        lst=satellite_data.get('lst', np.zeros_like(ndvi))[i, j] if 'lst' in satellite_data else 0.0,
+                        elevation=satellite_data.get('elevation', np.zeros_like(ndvi))[i, j] if 'elevation' in satellite_data else 0.0,
+                        slope=satellite_data.get('slope', np.zeros_like(ndvi))[i, j] if 'slope' in satellite_data else 0.0
                     ))
         
         return pixels

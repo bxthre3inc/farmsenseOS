@@ -125,11 +125,11 @@ export const InvestorLanding: React.FC<{ onExplore: () => void }> = ({ onExplore
             {/* Footer / Funnel CTA */}
             <footer className="py-20 text-center border-t border-neutral-900">
                 <div className="text-neutral-600 text-[10px] font-black uppercase tracking-[0.4em] mb-10 px-6">
-                    farmsenseOS - The Deterministic Farming Operating System
+                    FarmSense - The Deterministic Farming Operating System
                 </div>
                 <div className="flex flex-col items-center gap-4 text-xs font-bold text-neutral-500">
                     <div className="flex gap-6">
-                        <a href="mailto:invest@farmsense.ai" className="hover:text-white transition-colors">Contact Relations</a>
+                        <a href="mailto:invest@farmsense.io" className="hover:text-white transition-colors">Contact Relations</a>
                         <a href="#" className="hover:text-white transition-colors">Legal Disclosures</a>
                     </div>
                 </div>

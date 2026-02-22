@@ -1,4 +1,4 @@
-# farmsenseOS - Precision Agriculture Platform
+# FarmSense - Precision Agriculture Platform
 
 **Full-stack precision agriculture application with virtual sensor networks, adaptive recalculation, and regulatory compliance.**
 
@@ -6,7 +6,7 @@
 
 ## 🌾 Overview
 
-farmsenseOS is a nationally-scalable precision agriculture platform that:
+FarmSense is a nationally-scalable precision agriculture platform that:
 
 - **Ingests multi-source data**: Soil sensors (2-depth + vertical profiling), pump telemetry, weather stations, Sentinel-1/2 imagery, Landsat historical data
 - **Computes virtual sensor grids**:
@@ -42,7 +42,7 @@ farmsense-code/
 ├── cloud-processing/          # Cloud analytics (1m grid)
 │   ├── pipelines/
 │   │   └── kriging_1m.py      # Regression Kriging interpolation
-│   └── ml/                    # ML models
+│   └── analytics/             # Analytics models
 │
 ├── frontend/                  # Web applications
 │   ├── farmer-dashboard/      # Farmer interface (React + Mapbox)
@@ -117,12 +117,12 @@ docker-compose up -d
 
 **Services will be available at:**
 
-- **Backend API**: http://localhost:8000
-- **API Docs**: http://localhost:8000/docs
-- **Farmer Dashboard**: http://localhost:3000
-- **Regulatory Portal**: http://localhost:3001
-- **Grafana Monitoring**: http://localhost:3002
-- **RabbitMQ Management**: http://localhost:15672
+- **Backend API**: <http://localhost:8000>
+- **API Docs**: <http://localhost:8000/docs>
+- **Farmer Dashboard**: <http://localhost:3000>
+- **Regulatory Portal**: <http://localhost:3001>
+- **Grafana Monitoring**: <http://localhost:3002>
+- **RabbitMQ Management**: <http://localhost:15672>
 
 ### 4. Initialize Database
 
@@ -191,7 +191,7 @@ curl -X POST http://localhost:8000/api/v1/sensors/readings \
 │    └────┬──────────────┘                                │
 │         │                                                │
 │    ┌────▼──────────────────────────────┐                │
-│    │        Analytics & ML              │                │
+│    │        Analytics                   │                │
 │    │  • Irrigation scheduling           │                │
 │    │  • Crop stress detection           │                │
 │    │  • Yield forecasting               │                │
@@ -213,7 +213,7 @@ curl -X POST http://localhost:8000/api/v1/sensors/readings \
 2. **Edge Processing**: Local compute → 20m grid → PostgreSQL/PostGIS
 3. **Cloud Processing**: Satellite integration → Regression Kriging → 1m grid
 4. **Adaptive Logic**: Trend analysis → Mode selection (1min/15min/12hr)
-5. **Analytics**: ML models → Irrigation recommendations → Compliance reports
+5. **Analytics**: Deterministic algorithms → Irrigation recommendations → Compliance reports
 6. **Delivery**: WebSocket updates → Real-time dashboards
 
 ---
@@ -338,7 +338,7 @@ POST /api/v1/compliance/reports/generate
 }
 ```
 
-**Full API documentation**: http://localhost:8000/docs
+**Full API documentation**: <http://localhost:8000/docs>
 
 ---
 
@@ -475,7 +475,7 @@ ssh pi@field-device "sudo systemctl restart farmsense-edge"
 
 ### Documentation
 
-- [System Architecture](https://www.genspark.ai/doc_agent?id=b0db7361-09c7-4f59-8007-0b644ec4310d) - Complete technical specs
+- [System Architecture](https://docs.FarmSense.com/architecture) - Complete technical specs
 - [API Reference](http://localhost:8000/docs) - Interactive API docs
 - [Database Schema](./docs/database_schema.md) - Data model documentation
 - [Deployment Guide](./docs/deployment.md) - Production deployment
@@ -484,7 +484,7 @@ ssh pi@field-device "sudo systemctl restart farmsense-edge"
 
 - **Issues**: GitHub Issues
 - **Discussions**: GitHub Discussions
-- **Email**: support@farmsense.io
+- **Email**: <support@farmsense.io>
 
 ### Contributing
 
@@ -494,7 +494,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
 ## 📄 License
 
-Copyright © 2026 Project FarmSense. All rights reserved.
+Copyright © 2026 FarmSense. All rights reserved.
 
 ---
 

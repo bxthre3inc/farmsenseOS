@@ -217,7 +217,7 @@ class VirtualSensorGrid1m(Base):
     edge_device_id = Column(String(50))
     
     # Advanced analytics
-    crop_stress_probability = Column(Float)  # ML model output
+    crop_stress_probability = Column(Float)  # Deterministic model output
     yield_forecast_kgha = Column(Float)
     irrigation_priority = Column(Integer)  # 1-5 scale
     

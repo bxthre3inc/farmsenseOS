@@ -12,7 +12,7 @@ class FarmSenseMode(Enum):
 
 class PlatformEnvironmentWrapper:
     """
-    Unified environment wrapper for FarmSenseOS.
+    Unified environment wrapper for FarmSense.
     Bridges the gap between local development, pilot-stage field trials,
     and full institutional production.
     """

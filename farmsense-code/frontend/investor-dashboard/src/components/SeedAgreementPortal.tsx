@@ -47,7 +47,7 @@ export const SeedAgreementPortal: React.FC<AgreementProps> = ({ shares, price, o
                         </div>
                         <div>
                             <h3 className="text-xl font-bold text-white uppercase tracking-tighter">Seed Round Execution</h3>
-                            <p className="text-neutral-500 text-xs font-bold uppercase tracking-widest mt-0.5">farmsenseOS - The Deterministic Farming Operating System</p>
+                            <p className="text-neutral-500 text-xs font-bold uppercase tracking-widest mt-0.5">FarmSense - The Deterministic Farming Operating System</p>
                         </div>
                     </div>
                     <button onClick={onCancel} className="p-2 hover:bg-neutral-700 rounded-full transition-colors text-neutral-400">
@@ -63,7 +63,7 @@ export const SeedAgreementPortal: React.FC<AgreementProps> = ({ shares, price, o
                                 Stock Purchase Agreement: Seed Round
                             </div>
 
-                            <p className="font-bold">farmsenseOS - The Deterministic Farming Operating System</p>
+                            <p className="font-bold">FarmSense - The Deterministic Farming Operating System</p>
 
                             <section className="space-y-4">
                                 <h4 className="font-black text-xs uppercase tracking-widest text-slate-400">1. Investment Terms</h4>
@@ -87,7 +87,7 @@ export const SeedAgreementPortal: React.FC<AgreementProps> = ({ shares, price, o
 
                             <section className="space-y-4">
                                 <h4 className="font-black text-xs uppercase tracking-widest text-slate-400">4. Digital Handshake</h4>
-                                <p>This instrument is executed digitally. The resulting signature hash shall be legally binding and recorded in the farmsenseOS governance vault.</p>
+                                <p>This instrument is executed digitally. The resulting signature hash shall be legally binding and recorded in the FarmSense governance vault.</p>
                             </section>
 
                             <div className="h-40 border-t-2 border-slate-100 flex items-center justify-center text-slate-200">
@@ -131,7 +131,7 @@ export const SeedAgreementPortal: React.FC<AgreementProps> = ({ shares, price, o
                                     className="mt-1 w-4 h-4 rounded border-neutral-700 bg-neutral-950 text-green-500 focus:ring-green-500"
                                 />
                                 <span className="text-[10px] text-neutral-500 font-bold uppercase tracking-wider leading-relaxed group-hover:text-neutral-400">
-                                    I hereby confirm my intent to join farmsenseOS as a Seed Round Stakeholder and agree to the terms of the Stock Purchase Agreement as outlined.
+                                    I hereby confirm my intent to join FarmSense as a Seed Round Stakeholder and agree to the terms of the Stock Purchase Agreement as outlined.
                                 </span>
                             </label>
                         </div>

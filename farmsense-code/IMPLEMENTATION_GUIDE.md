@@ -85,17 +85,9 @@
 **Key Files:**
 - `backend/app/services/adaptive_recalc_engine.py` ✓
 
-#### Week 11-12: Machine Learning Models
-- [ ] Train LSTM irrigation predictor
-- [ ] Implement Random Forest stress detector
-- [ ] Develop yield forecasting model
-- [ ] Create anomaly detection for pumps
-- [ ] Set up model serving infrastructure
-
 **Deliverables:**
 - Adaptive recalculation working across all modes
-- ML models deployed and operational
-- Real-time predictions available via API
+- Deterministic diagnostic queries available via API
 
 ---
 

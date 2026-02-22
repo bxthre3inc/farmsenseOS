@@ -1,4 +1,4 @@
-# 🌾 PROJECT FARMSENSE - COMPLETE IMPLEMENTATION PACKAGE
+# 🌾 FarmSense - COMPLETE IMPLEMENTATION PACKAGE
 
 ## 📦 Package Delivered
 
@@ -67,7 +67,7 @@ farmsense-code/
 - Deployment architecture (AWS/K8s)
 - Security & SLV 2026 compliance
 
-**Document**: [View Architecture](https://www.genspark.ai/doc_agent?id=b0db7361-09c7-4f59-8007-0b644ec4310d)
+**Document**: [View Architecture](https://docs.FarmSense.com/architecture)
 
 ---
 
@@ -560,7 +560,7 @@ ssh pi@field-device "sudo systemctl start farmsense-edge"
 
 ## 📞 Support
 
-- **Architecture**: [Technical Specifications](https://www.genspark.ai/doc_agent?id=b0db7361-09c7-4f59-8007-0b644ec4310d)
+- **Architecture**: [Technical Specifications](https://docs.FarmSense.com/architecture)
 - **API Docs**: <http://localhost:8000/docs>
 - **Issues**: GitHub Issues (after repo setup)
 - **Email**: <support@farmsense.io>
@@ -624,7 +624,7 @@ ssh pi@field-device "sudo systemctl start farmsense-edge"
 
 ---
 
-🌾 **PROJECT FARMSENSE - READY FOR NATIONAL DEPLOYMENT** 🚀
+🌾 **FarmSense - READY FOR NATIONAL DEPLOYMENT** 🚀
 
 ---
 

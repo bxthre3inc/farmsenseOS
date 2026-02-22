@@ -80,7 +80,7 @@ async def evaluate_field_query(
     Deterministic field decision endpoint.
     Evaluates the query against live telemetry using explicit threshold rules.
     Returns the decision, every rule applied, and a signed audit log.
-    No AI/ML inference is used. Fully explainable and auditable.
+    No probabilistic inference is used. Fully explainable and auditable.
     """
     result = FieldDecisionEngine.evaluate_query(query, field_id, db)
     return result
@@ -95,7 +95,7 @@ async def diagnose_field_frame(
     """
     Deterministic visual diagnostic endpoint.
     Matches captured frames against a peer-reviewed pest signature library.
-    No neural networks or ML classifiers. Fully auditable.
+    No neural networks or probabilistic classifiers. Fully auditable.
     """
     content = await file.read()
     location = {"lat": latitude, "lon": longitude}
