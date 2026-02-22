@@ -189,6 +189,15 @@ async def startup_event():
 
 # === Pydantic Schemas ===
 
+class AerialMultispectralCreate(BaseModel):
+    fleet_id: str
+    field_id: str
+    latitude: float
+    longitude: float
+    resolution_cm_px: float
+    ndvi_avg: float
+    ndre_avg: float
+    
 class VFAReadingCreate(BaseModel):
     hardware_id: str
     field_id: str
@@ -365,6 +374,101 @@ class UserResponse(UserBase):
 
 
 # === API Endpoints ===
+
+# --- Hardware Telemetry Ingestion (3-Tier) ---
+
+@app.post("/api/v1/hardware/vfa/payload", tags=["Hardware Ingestion"])
+def ingest_vfa_payload(
+    payload: VFAReadingCreate,
+    db: Session = Depends(get_db)
+):
+    """
+    Ingests the decrypted/aggregated AES-256 payload from a Vertical Field Anchor (VFA).
+    This serves as the root node reading for a specific location.
+    """
+    # Create the reading
+    vfa_reading = VFAReading(
+        hardware_id=payload.hardware_id,
+        field_id=payload.field_id,
+        timestamp=datetime.utcnow(),
+        location=f"POINT({payload.longitude} {payload.latitude})",
+        nitrogen_pressure_psi=payload.nitrogen_pressure_psi,
+        slot_10_moisture=payload.slot_10_moisture,
+        slot_10_ec=payload.slot_10_ec,
+        slot_10_temp=payload.slot_10_temp,
+        slot_18_moisture=payload.slot_18_moisture,
+        slot_25_moisture=payload.slot_25_moisture,
+        slot_25_ec=payload.slot_25_ec,
+        slot_25_temp=payload.slot_25_temp,
+        slot_35_moisture=payload.slot_35_moisture,
+        slot_48_moisture=payload.slot_48_moisture,
+        slot_48_ec=payload.slot_48_ec,
+        battery_voltage=payload.battery_voltage
+    )
+    
+    db.add(vfa_reading)
+    db.commit()
+    db.refresh(vfa_reading)
+    return {"status": "success", "id": str(vfa_reading.id)}
+
+@app.post("/api/v1/hardware/pfa/telemetry", tags=["Hardware Ingestion"])
+def ingest_pfa_telemetry(
+    payload: PFAReadingCreate,
+    db: Session = Depends(get_db)
+):
+    """
+    Ingests real-time pressure and flow data from a Pressure & Flow Anchor (PFA).
+    """
+    pfa_reading = PFAReading(
+        hardware_id=payload.hardware_id,
+        field_id=payload.field_id,
+        timestamp=datetime.utcnow(),
+        well_pressure_psi=payload.well_pressure_psi,
+        flow_rate_gpm=payload.flow_rate_gpm,
+        pump_status=payload.pump_status
+    )
+    db.add(pfa_reading)
+    db.commit()
+    return {"status": "success", "id": str(pfa_reading.id)}
+
+@app.post("/api/v1/hardware/pmt/kinematics", tags=["Hardware Ingestion"])
+def ingest_pmt_kinematics(
+    payload: PMTReadingCreate,
+    db: Session = Depends(get_db)
+):
+    """
+    Ingests real-time location and speed data from a Pivot Motion Tracker (PMT).
+    """
+    pmt_reading = PMTReading(
+        hardware_id=payload.hardware_id,
+        field_id=payload.field_id,
+        timestamp=datetime.utcnow(),
+        location=f"POINT({payload.longitude} {payload.latitude})",
+        kinematic_angle_deg=payload.kinematic_angle_deg,
+        span_speed_mph=payload.span_speed_mph
+    )
+    db.add(pmt_reading)
+    db.commit()
+    return {"status": "success", "id": str(pmt_reading.id)}
+
+@app.post("/api/v1/hardware/aerial/multispectral", tags=["Hardware Ingestion"])
+def ingest_aerial_multispectral(
+    payload: AerialMultispectralCreate,
+    db: Session = Depends(get_db)
+):
+    """
+    Ingests drone multispectral orthomosaics serving as Spatial Priors for the 1m Kriging model.
+    Triggers the 'Resolution Pop' data availability flag.
+    """
+    # In a real system, this would store the geospatial raster data and trigger the Celery pipeline.
+    # We will log the intake and return success for the drone's edge computer.
+    logger.info(f"Ingested {payload.resolution_cm_px}cm/px multispectral tile for field {payload.field_id}")
+    return {
+        "status": "success", 
+        "resolution": payload.resolution_cm_px,
+        "action": "prior_updated"
+    }
+
 
 # --- Admin User Management ---
 

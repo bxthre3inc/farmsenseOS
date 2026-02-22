@@ -238,14 +238,15 @@ syncToCloud()              // Offline data sync
 
 ```python
 RegressionKriging
-  .fit_trend()           # Train on sensor + satellite
+  .fit_trend()           # Train on sensor + satellite + aerial mosaic
   .fit_variogram()       # Model spatial correlation
-  .predict_1m_grid()     # Generate high-res grid
+  .predict_1m_grid()     # Generate high-res grid (Resolution Pop)
   
 SatelliteProcessor
   .calculate_ndvi()      # Vegetation index
   .calculate_ndwi()      # Water index
   .process_sentinel2()   # Sentinel-2 pipeline
+  .ingest_drone_multispectral() # Incorporate 0.7cm/pixel drone data
 ```
 
 **Output**:

@@ -65,7 +65,7 @@ services:
     restart: unless-stopped
 
   # === Processing Layer ===
-  backend-api:
+  backend:
     build: ../../backend
     image: farmsense-backend:latest
     environment:
@@ -173,7 +173,7 @@ services:
     networks:
       - farmsense-net
     depends_on:
-      - backend-api
+      - backend
       - farmer-dashboard
       - admin-dashboard
       - regulatory-portal
