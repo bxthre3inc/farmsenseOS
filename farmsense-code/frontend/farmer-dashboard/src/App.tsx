@@ -32,11 +32,11 @@ const App: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [activeTab, setActiveTab] = useState('dashboard');
   const [isSilasMode, setIsSilasMode] = useState(false);
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
-  const [showProfit, setShowProfit] = useState(false);
+  const [showProfit, setShowProfit] = useState(true); // Default to showing Profit/ROI
   const [showAgent, setShowAgent] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [agentResponse, setAgentResponse] = useState<string | null>(null);
+  const [showDiagnostics, setShowDiagnostics] = useState(false);
 
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
@@ -155,7 +155,6 @@ const App: React.FC = () => {
                 <div className={`w-2 h-2 rounded-full ${isOnline ? 'bg-emerald-500 glow-active' : 'bg-orange-500'}`}></div>
                 {isOnline ? 'System Operational' : 'Offline Mode (Local Edge Cache Active)'}
               </div>
-              <div className="flex items-center gap-2"><CloudRain className="w-4 h-4" /> Precipitation: 12mm</div>
             </div>
             <div className="relative cursor-pointer">
               <Bell className="w-5 h-5 text-slate-400" />
@@ -163,6 +162,10 @@ const App: React.FC = () => {
             </div>
           </div>
         </header>
+
+        {/* Global HUDs */}
+        <WeatherHUD />
+        {showDiagnostics && <HardwareDiagnostics onClose={() => setShowDiagnostics(false)} />}
 
         {/* Dashboard / Map View */}
         <div className="flex-1 relative">
@@ -278,8 +281,11 @@ const App: React.FC = () => {
                   >
                     <Mic className={`w-4 h-4 ${isListening ? 'animate-pulse' : ''}`} /> Ask Decision Engine
                   </button>
-                  <button className="glass-button-secondary flex items-center gap-2">
-                    <Camera className="w-4 h-4" /> Field Diagnostic
+                  <button
+                    onClick={() => setShowDiagnostics(true)}
+                    className="glass-button-secondary flex items-center gap-2 hover:bg-emerald-500/10 hover:border-emerald-500/30 transition-all font-bold"
+                  >
+                    <Activity className="w-4 h-4 text-emerald-400" /> Node Diagnostics
                   </button>
                 </div>
               </div>

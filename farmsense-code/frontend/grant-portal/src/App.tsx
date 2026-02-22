@@ -60,9 +60,9 @@ function App() {
     ] : [];
 
     return (
-        <div className="min-h-screen bg-stone-50 text-stone-900 font-serif">
-            <header className="bg-white border-b border-stone-200 shadow-sm">
-                <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center">
+        <div className="min-h-screen bg-stone-50 text-stone-900 font-serif selection:bg-stone-900 selection:text-white pb-32">
+            <header className="bg-white/80 backdrop-blur-md border-b border-stone-200 shadow-sm fixed top-0 w-full z-50">
+                <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center transition-all duration-500">
                     <div className="flex items-center gap-3">
                         <div className="bg-orange-700 p-2 rounded-md">
                             <ScrollText className="text-white w-6 h-6" />
@@ -86,78 +86,128 @@ function App() {
                 </div>
             </header>
 
-            <main className="max-w-7xl mx-auto w-full px-8 py-10 font-sans">
-                <div className="flex justify-between items-center mb-12">
-                    <h2 className="text-2xl font-bold text-stone-800 font-serif">Financial & Impact Status</h2>
-                    <button onClick={fetchImpact} className="text-stone-500 hover:text-stone-800 transition-colors">
-                        <RefreshCw className={`w-5 h-5 ${loading ? 'animate-spin' : ''}`} />
-                    </button>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                    <div className="bg-white p-6 rounded-lg shadow-sm border-t-4 border-green-600">
-                        <div className="flex items-center gap-2 mb-2 text-green-700 font-semibold">
-                            <CheckCircle className="w-5 h-5" /> Disbursement Status
-                        </div>
-                        <p className="text-3xl font-bold text-stone-900">$2.4M</p>
-                        <p className="text-sm text-stone-500 mt-2">FY2025 Grant Funds</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow-sm border-t-4 border-blue-600">
-                        <div className="flex items-center gap-2 mb-2 text-blue-700 font-semibold">
-                            <Clock className="w-5 h-5" /> Reported Since
-                        </div>
-                        <p className="text-3xl font-bold text-stone-900">
-                            {impact ? impact.reporting_period_days : '---'} Days
+            <main className="w-full font-sans relative">
+                {/* Intro Slide */}
+                <section className="h-screen flex flex-col justify-center items-center text-center px-8 relative sticky top-0 pt-20 bg-stone-50 z-0">
+                    <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-10 duration-1000">
+                        <p className="text-sm font-bold tracking-[0.3em] uppercase text-orange-700 mb-6">Federal Dept. of Agriculture</p>
+                        <h2 className="text-6xl md:text-8xl font-black text-stone-900 font-serif tracking-tighter leading-tight mb-8">
+                            Grant Return<br />On Investment.
+                        </h2>
+                        <p className="text-xl md:text-2xl text-stone-500 max-w-2xl mx-auto font-serif italic mb-12">
+                            A completely transparent, cryptographically secured overview of environmental and economic impact for Grant FS-2025-X82.
                         </p>
-                        <p className="text-sm text-stone-500 mt-2">Active Data Pipeline</p>
-                    </div>
-                    <div className="bg-white p-6 rounded-lg shadow-sm border-t-4 border-yellow-500">
-                        <div className="flex items-center gap-2 mb-2 text-yellow-700 font-semibold">
-                            <AlertTriangle className="w-5 h-5" /> Data Integrity
-                        </div>
-                        <p className="text-3xl font-bold text-stone-900">100%</p>
-                        <p className="text-sm text-stone-500 mt-2">Verified via Blockchain</p>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                    {/* Impact Report */}
-                    <div className="bg-white p-8 rounded-lg shadow-sm border border-stone-100">
-                        <h2 className="text-xl font-bold text-stone-800 mb-6 font-serif">Environmental Impact</h2>
-                        <div className="h-80 w-full">
-                            <ResponsiveContainer width="100%" height="100%">
-                                <BarChart data={impactData} layout="vertical">
-                                    <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                                    <XAxis type="number" />
-                                    <YAxis dataKey="name" type="category" width={100} />
-                                    <Tooltip />
-                                    <Bar dataKey="value" fill="#c2410c" radius={[0, 4, 4, 0]} barSize={20} />
-                                </BarChart>
-                            </ResponsiveContainer>
+                        <div className="animate-bounce">
+                            <span className="text-stone-300 text-sm font-bold uppercase tracking-widest">Scroll to Explore</span>
                         </div>
                     </div>
+                </section>
 
-                    {/* Support Letters */}
-                    <SupportLetters />
-                </div>
+                {/* Financial Status Slide */}
+                <section className="min-h-screen sticky top-0 pt-32 pb-20 bg-stone-100 z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.05)] border-t border-stone-200 px-8 flex flex-col justify-center">
+                    <div className="max-w-7xl mx-auto w-full">
+                        <div className="flex justify-between items-end mb-16 border-b border-stone-300 pb-8">
+                            <div>
+                                <h2 className="text-4xl md:text-5xl font-bold text-stone-900 font-serif tracking-tight">Financial & Impact Status</h2>
+                                <p className="text-lg text-stone-500 mt-4 font-serif italic">Real-time metrics sourced directly from FarmSense IoT deployed nodes.</p>
+                            </div>
+                            <button onClick={fetchImpact} className="hidden md:flex items-center gap-2 text-stone-500 hover:text-stone-800 transition-colors uppercase text-xs font-bold tracking-widest bg-white px-4 py-2 rounded-full border border-stone-200 shadow-sm">
+                                <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} /> Refresh Feed
+                            </button>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div className="bg-white p-10 rounded-2xl shadow-xl border border-stone-100 transform transition-transform hover:-translate-y-2 relative overflow-hidden group">
+                                <div className="absolute top-0 left-0 w-full h-1 bg-green-500"></div>
+                                <div className="flex items-center gap-3 mb-6 text-green-700 font-semibold text-lg">
+                                    <CheckCircle className="w-6 h-6" /> Disbursement
+                                </div>
+                                <p className="text-6xl font-black text-stone-900 tracking-tighter mb-2">$2.4M</p>
+                                <p className="text-base text-stone-500 font-serif italic">FY2025 Grant Funds Allocated</p>
+                            </div>
+                            <div className="bg-white p-10 rounded-2xl shadow-xl border border-stone-100 transform transition-transform hover:-translate-y-2 relative overflow-hidden group">
+                                <div className="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
+                                <div className="flex items-center gap-3 mb-6 text-blue-700 font-semibold text-lg">
+                                    <Clock className="w-6 h-6" /> Reporting
+                                </div>
+                                <p className="text-6xl font-black text-stone-900 tracking-tighter mb-2">
+                                    {impact ? impact.reporting_period_days : '---'} <span className="text-3xl font-bold text-stone-400">Days</span>
+                                </p>
+                                <p className="text-base text-stone-500 font-serif italic">Active Continuous Data Pipeline</p>
+                            </div>
+                            <div className="bg-white p-10 rounded-2xl shadow-xl border border-stone-100 transform transition-transform hover:-translate-y-2 relative overflow-hidden group">
+                                <div className="absolute top-0 left-0 w-full h-1 bg-orange-500"></div>
+                                <div className="flex items-center gap-3 mb-6 text-orange-700 font-semibold text-lg">
+                                    <AlertTriangle className="w-6 h-6" /> Integrity
+                                </div>
+                                <p className="text-6xl font-black text-stone-900 tracking-tighter mb-2">100%</p>
+                                <p className="text-base text-stone-500 font-serif italic">Verified via Zero-Knowledge Blockchain</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Environmental & Support Slide */}
+                <section className="min-h-screen sticky top-0 pt-32 pb-20 bg-stone-900 text-stone-100 z-20 shadow-[0_-20px_50px_rgba(0,0,0,0.5)] border-t border-stone-700 px-8 flex flex-col justify-center">
+                    <div className="max-w-7xl mx-auto w-full">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                            {/* Impact Report */}
+                            <div className="space-y-8">
+                                <div>
+                                    <h2 className="text-4xl font-bold text-white mb-4 font-serif tracking-tight">Environmental Impact</h2>
+                                    <p className="text-stone-400 font-serif italic text-lg mb-10 border-b border-stone-800 pb-8">Measurable improvements derived organically from hardware operation.</p>
+                                </div>
+                                <div className="h-96 w-full bg-black/40 rounded-3xl p-8 border border-stone-800 shadow-2xl">
+                                    <ResponsiveContainer width="100%" height="100%">
+                                        <BarChart data={impactData} layout="vertical">
+                                            <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#292524" />
+                                            <XAxis type="number" stroke="#78716c" />
+                                            <YAxis dataKey="name" type="category" width={120} stroke="#a8a29e" tick={{ fontSize: 14, fontWeight: 600 }} />
+                                            <Tooltip cursor={{ fill: '#1c1917' }} contentStyle={{ backgroundColor: '#0c0a09', borderColor: '#292524', borderRadius: '12px', color: '#fff' }} />
+                                            <Bar dataKey="value" fill="#ea580c" radius={[0, 8, 8, 0]} barSize={28} />
+                                        </BarChart>
+                                    </ResponsiveContainer>
+                                </div>
+                            </div>
+
+                            {/* Support Letters */}
+                            <div className="h-full mt-4 lg:mt-0">
+                                <SupportLetters />
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 {/* Audit Submissions */}
                 <div className="mt-10 bg-white p-8 rounded-lg shadow-sm border border-stone-100">
-                    <h2 className="text-xl font-bold text-stone-800 mb-6 font-serif">Recent Audit Submissions</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {impact?.audit_log?.map((log: any, idx: number) => (
-                            <div key={idx} className="flex justify-between items-center p-4 border border-stone-100 rounded-md hover:bg-stone-50 transition-colors">
-                                <div>
-                                    <p className="font-semibold text-stone-800">{log.event}</p>
-                                    <p className="text-xs text-stone-500">{log.timestamp}</p>
-                                </div>
-                                <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-bold rounded-full uppercase">
-                                    {log.status}
-                                </span>
+                    {/* Audit Submissions */}
+                    <section className="min-h-[60vh] sticky top-0 bg-white z-30 pt-32 pb-20 px-8 flex flex-col items-center">
+                        <div className="max-w-4xl mx-auto w-full">
+                            <div className="text-center mb-16">
+                                <h2 className="text-4xl font-black text-stone-900 tracking-tight font-serif mb-4">Chronological Immutable Audit</h2>
+                                <p className="text-stone-500 font-serif italic text-xl">Every action, validation, and disbursement event logged permanently.</p>
                             </div>
-                        )) || <p className="text-stone-400 italic font-sans text-sm">No recent logs.</p>}
-                    </div>
-                </div>
+
+                            <div className="space-y-4">
+                                {impact?.audit_log?.map((log: any, idx: number) => (
+                                    <div key={idx} className="flex justify-between items-center p-6 bg-stone-50 border border-stone-200 rounded-xl hover:bg-stone-100 hover:shadow-md transition-all group">
+                                        <div className="flex items-center gap-6">
+                                            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center font-bold text-stone-400 border border-stone-200 group-hover:border-stone-400 group-hover:text-stone-800 transition-colors">
+                                                {impact.audit_log.length - idx}
+                                            </div>
+                                            <div>
+                                                <p className="text-lg font-bold text-stone-800 mb-1">{log.event}</p>
+                                                <p className="text-sm text-stone-500 font-serif italic flex items-center gap-2"><Clock className="w-3 h-3" /> {log.timestamp}</p>
+                                            </div>
+                                        </div>
+                                        <span className={`px-4 py-1.5 text-xs font-bold rounded-full uppercase tracking-widest ${log.status === 'validated' ? 'bg-green-100 text-green-800 border-green-200' : 'bg-stone-200 text-stone-800'} border`}>
+                                            {log.status}
+                                        </span>
+                                    </div>
+                                )) || <p className="text-stone-400 italic font-sans text-center mt-10">No recent logs available for this grant.</p>}
+                            </div>
+                        </div>
+                    </section>
             </main>
         </div>
     );

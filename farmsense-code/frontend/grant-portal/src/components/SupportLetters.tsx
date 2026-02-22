@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { FileText, Plus, CheckCircle, Clock, Send, X, ExternalLink } from 'lucide-react';
 import { api } from '../services/api';
+import { TrustBadge } from './TrustBadge';
 
 interface SupportLetter {
     id: string;
@@ -97,12 +98,7 @@ const SupportLetters: React.FC = () => {
                                     <p className="text-xs text-gray-500">{letter.sender_organization}</p>
                                     <p className="text-[10px] text-gray-400">{letter.sender_email}</p>
                                 </div>
-                                <div className={`flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider ${letter.status === 'verified' ? 'bg-green-100 text-green-700' :
-                                        letter.status === 'signed' ? 'bg-blue-100 text-blue-700' : 'bg-orange-100 text-orange-700'
-                                    }`}>
-                                    {letter.status === 'verified' ? <CheckCircle className="w-3 h-3" /> : <Clock className="w-3 h-3" />}
-                                    {letter.status}
-                                </div>
+                                <TrustBadge status={letter.status} />
                             </div>
 
                             <div className="text-sm text-gray-600 line-clamp-2 italic">

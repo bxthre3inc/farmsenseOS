@@ -41,7 +41,9 @@ const AgriMap: React.FC<AgriMapProps> = ({
     initialViewState = {
         longitude: -105.00, // Matching demo seed data
         latitude: 40.00,
-        zoom: 14
+        zoom: 15,
+        pitch: 60,
+        bearing: -20
     },
     isEnterprise = false
 }) => {
@@ -119,7 +121,35 @@ const AgriMap: React.FC<AgriMapProps> = ({
                 style={{ width: '100%', height: '100%' }}
                 mapStyle={style}
                 onMove={evt => setZoomLevel(evt.viewState.zoom)}
+                pitchWithGestures={true}
+                dragRotate={true}
+                maxPitch={85}
+                terrain={{ source: 'mapbox-dem', exaggeration: 1.5 }}
             >
+                <Source
+                    id="mapbox-dem"
+                    type="raster-dem"
+                    url="mapbox://mapbox.mapbox-terrain-dem-v1"
+                    tileSize={512}
+                    maxzoom={14}
+                />
+                
+                {/* 3D Buildings Layer (mocked for SLV region) */}
+                <Layer 
+                    id="3d-buildings"
+                    source="composite"
+                    source-layer="building"
+                    filter={['==', 'extrude', 'true']}
+                    type="fill-extrusion"
+                    minzoom={15}
+                    paint={{
+                        'fill-extrusion-color': '#aaa',
+                        'fill-extrusion-height': ['get', 'height'],
+                        'fill-extrusion-base': ['get', 'min_height'],
+                        'fill-extrusion-opacity': 0.6
+                    }}
+                />
+
                 <NavigationControl position="bottom-right" />
                 <ScaleControl />
                 <DrawControl
