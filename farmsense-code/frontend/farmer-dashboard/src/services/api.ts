@@ -34,4 +34,8 @@ export const api = {
     get50mGrid: (fieldId: string) => request(`/fields/${fieldId}/grid/50m`),
     get1mGrid: (fieldId: string) => request(`/fields/${fieldId}/grid/1m`),
     listComplianceReports: (fieldId?: string) => request(`/compliance/reports${fieldId ? `?field_id=${fieldId}` : ''}`),
+    analyzeZone: (fieldId: string, geometry: any) => request(`/fields/${fieldId}/zones/analyze`, {
+        method: 'POST',
+        body: JSON.stringify({ geometry })
+    }),
 };
