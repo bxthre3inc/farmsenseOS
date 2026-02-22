@@ -247,6 +247,18 @@ class SensorReadingCreate(BaseModel):
     ph: Optional[float] = None
     battery_voltage: Optional[float] = None
 
+class ZoneAnalysisRequest(BaseModel):
+    geometry: dict = Field(..., description="GeoJSON Polygon geometry dict")
+
+class ZoneAnalysisResponse(BaseModel):
+    field_id: str
+    zone_area_sqm: float
+    avg_moisture: float
+    avg_temperature: float
+    avg_stress_index: float
+    estimated_water_deficit_mm: float
+    intersecting_points_count: int
+
 class SensorReadingResponse(BaseModel):
     id: str
     sensor_id: str
@@ -965,6 +977,66 @@ async def get_1m_grid(
 
 
 # === Field Analytics ===
+
+@app.post("/api/v1/fields/{field_id}/zones/analyze", response_model=ZoneAnalysisResponse)
+async def analyze_custom_zone(
+    field_id: str,
+    request: ZoneAnalysisRequest,
+    db: Session = Depends(get_db)
+):
+    """
+    Advanced GIS Endpoint: Draw a custom polygon and instantly analyze the virtual sensors within it.
+    Uses PostGIS ST_Intersects and ST_Area for exact geospatial math.
+    """
+    try:
+        geometry_json = json.dumps(request.geometry)
+    except Exception as e:
+        raise HTTPException(status_code=400, detail="Invalid GeoJSON geometry")
+
+    # PostGIS query to get all 20m virtual sensor points inside the polygon
+    # ST_GeomFromGeoJSON parses the incoming geojson, ST_SetSRID sets it to WGS84 (4326)
+    polygon_geom = func.ST_SetSRID(func.ST_GeomFromGeoJSON(geometry_json), 4326)
+    
+    # We query the active points for this field
+    active_points = db.query(VirtualSensorGrid20m).filter(
+        VirtualSensorGrid20m.field_id == field_id,
+        func.ST_Intersects(VirtualSensorGrid20m.location, polygon_geom)
+    ).all()
+
+    if not active_points:
+        return ZoneAnalysisResponse(
+            field_id=field_id,
+            zone_area_sqm=0.0,
+            avg_moisture=0.0,
+            avg_temperature=0.0,
+            avg_stress_index=0.0,
+            estimated_water_deficit_mm=0.0,
+            intersecting_points_count=0
+        )
+
+    # Calculate area (approximate for quick return using geography conversion)
+    zone_area = db.query(func.ST_Area(func.cast(polygon_geom, sqlalchemy.types.UserDefinedType('geography')))).scalar() or 0.0
+
+    # Aggregate stats
+    moisture_values = [p.moisture_surface for p in active_points]
+    temp_values = [p.temperature for p in active_points]
+    stress_values = [p.stress_index for p in active_points]
+    deficit_values = [p.water_deficit_mm for p in active_points]
+
+    avg_moisture = sum(moisture_values) / len(moisture_values)
+    avg_temp = sum(temp_values) / len(temp_values)
+    avg_stress = sum(stress_values) / len(stress_values)
+    avg_deficit = sum(deficit_values) / len(deficit_values)
+
+    return ZoneAnalysisResponse(
+        field_id=field_id,
+        zone_area_sqm=zone_area,
+        avg_moisture=round(avg_moisture, 3),
+        avg_temperature=round(avg_temp, 1),
+        avg_stress_index=round(avg_stress, 3),
+        estimated_water_deficit_mm=round(avg_deficit, 1),
+        intersecting_points_count=len(active_points)
+    )
 
 @app.get("/api/v1/fields/{field_id}/analytics", response_model=FieldAnalyticsResponse)
 async def get_field_analytics(
