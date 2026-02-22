@@ -96,10 +96,9 @@ TIMESCALE_PASSWORD=your_timescale_password
 # Message Queue
 RABBITMQ_PASSWORD=your_rabbitmq_password
 
-# API Keys
-SENTINEL_API_KEY=your_copernicus_key
-LANDSAT_API_KEY=your_usgs_key
-MAPBOX_TOKEN=your_mapbox_token
+# Third-Party (Optional / Self-Hosted)
+MAP_SERVER_URL=http://localhost:8001
+NTFY_TOPIC=farmsense_critical_alerts
 
 # Security
 SECRET_KEY=your_jwt_secret_key

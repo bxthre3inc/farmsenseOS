@@ -3,7 +3,6 @@ FastAPI Backend - Data Ingestion and Analytics API
 """
 from fastapi import FastAPI, HTTPException, Depends, Query, BackgroundTasks, WebSocket, WebSocketDisconnect, Request, Form, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from twilio.request_validator import RequestValidator
 from jose import jwt, JWTError
 import os
 from sqlalchemy.orm import Session
@@ -102,25 +101,21 @@ async def diagnose_field_frame(
     result = FieldDiagnosticService.analyze_frame(content, location)
     return result
 
-@app.post("/api/v1/decisions/sms", tags=["Decision Engine"])
-async def handle_sms_query(
+@app.post("/api/v1/decisions/push", tags=["Decision Engine"])
+async def handle_push_query(
     request: Request,
     From: str = Form(...),
     Body: str = Form(...),
     db: Session = Depends(get_db)
 ):
     """
-    SMS/Voice Gateway (Twilio Compatible).
-    Allows farmers to query field status via text/voice.
+    Generic Push Gateway (ntfy.sh / Matrix / Webhook Compatible).
+    Allows farmers to query field status via text/webhook payload.
     Returns a concise, deterministic response with rule provenance.
     """
-    twilio_token = os.getenv("TWILIO_AUTH_TOKEN", "mock_token")
-    validator = RequestValidator(twilio_token)
-    signature = request.headers.get("X-Twilio-Signature", "")
-    form_data = await request.form()
     
-    if not validator.validate(str(request.url), form_data, signature):
-        raise HTTPException(status_code=403, detail="Invalid Twilio signature")
+    # Generic webhook endpoint (Twilio signature validation removed)
+    form_data = await request.form()
 
     # Mock lookup field_id from phone number
     field_id = "field_01"

@@ -145,7 +145,7 @@ This comprehensive implementation package contains **everything needed** to buil
 
 - `.env.example` - Complete environment template
   - Database credentials
-  - API keys (Sentinel, Landsat, Mapbox)
+  - STAC endpoints and self-hosted MapLibre
   - Security keys (JWT)
   - Email/SMS alert configuration
   - AWS credentials
@@ -276,7 +276,7 @@ docker-compose exec backend python -m app.core.database
 
 ### ✅ Dashboards
 
-- Real-time field visualization (Mapbox)
+- Real-time field visualization (MapLibre)
 - Irrigation recommendations
 - Alert system (email/SMS)
 - Multi-field analysis (consultant view)
@@ -294,7 +294,7 @@ docker-compose exec backend python -m app.core.database
 | **Cache** | Redis 7 | Sub-millisecond latency |
 | **Queue** | RabbitMQ 3.12 | Event-driven recalc triggers |
 | **Frontend** | React 18 + TypeScript | Modern, maintainable |
-| **Maps** | Mapbox GL JS | Best geospatial rendering |
+| **Maps** | MapLibre GL JS | Open-source geospatial rendering |
 | **Orchestration** | Kubernetes | Auto-scaling, HA |
 | **Monitoring** | Prometheus + Grafana | Industry standard |
 | **Processing** | NumPy, SciPy, Rasterio | Scientific computing |

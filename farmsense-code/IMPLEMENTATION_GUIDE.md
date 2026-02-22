@@ -108,7 +108,7 @@
 
 #### Week 13-14: Farmer Dashboard
 
-- [ ] Implement React frontend with Mapbox
+- [ ] Implement React frontend with MapLibre
 - [ ] Create real-time field visualization
 - [ ] Build irrigation recommendation UI
 - [ ] Implement alert system (email/SMS)
@@ -117,7 +117,7 @@
 **Tech Stack:**
 
 - React 18 + TypeScript
-- Mapbox GL JS for maps
+- MapLibre GL JS for maps
 - Socket.io for real-time updates
 - Material-UI components
 

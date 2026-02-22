@@ -109,8 +109,8 @@ services:
       DATABASE_URL: postgresql://farmsense_user:${DB_PASSWORD:-changeme}@postgres:5432/farmsense
       REDIS_URL: redis://redis:6379/0
       RABBITMQ_URL: amqp://farmsense:${RABBITMQ_PASSWORD:-changeme}@rabbitmq:5672/
-      SENTINEL_API_KEY: ${SENTINEL_API_KEY}
-      LANDSAT_API_KEY: ${LANDSAT_API_KEY}
+      # Open STAC APIs and local models are used, no API keys necessary
+      ENABLE_DETERMINISTIC_ENGINE: "true"
     volumes:
       - ./cloud-processing:/app
       - satellite_cache:/app/satellite_cache
@@ -131,7 +131,8 @@ services:
     container_name: farmsense-farmer-dashboard
     environment:
       REACT_APP_API_URL: http://localhost:8000/api/v1
-      REACT_APP_MAPBOX_TOKEN: ${MAPBOX_TOKEN}
+      REACT_APP_MAPBOX_TOKEN: "" # Using open source MapLibre GL JS
+      REACT_APP_MAP_SERVER_URL: ${MAP_SERVER_URL:-http://localhost:8001}
     volumes:
       - ./frontend/farmer-dashboard/src:/app/src
     ports:

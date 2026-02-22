@@ -331,9 +331,9 @@ docker-compose up -d
 **Categories**:
 
 - Database credentials
-- API keys (Sentinel, Landsat, Mapbox)
+- STAC endpoints (Sentinel, Landsat) and self-hosted Maps
 - JWT security
-- Email/SMS alerts (SMTP, Twilio)
+- Email/Push alerts (SMTP, ntfy.sh)
 - AWS credentials
 - Feature flags
 
