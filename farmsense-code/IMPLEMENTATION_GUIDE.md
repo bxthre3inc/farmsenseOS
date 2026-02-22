@@ -4,21 +4,23 @@
 
 ### Phase 1: Foundation (Weeks 1-4)
 
-#### Week 1-2: Infrastructure Setup
-- [ ] Set up AWS account and configure regions
-- [ ] Provision RDS PostgreSQL with PostGIS extension
-- [ ] Set up TimescaleDB for time-series data
-- [ ] Configure Redis and RabbitMQ clusters
-- [ ] Set up Kubernetes cluster (EKS)
-- [ ] Configure CI/CD pipeline (GitHub Actions)
-- [ ] Set up monitoring (Prometheus + Grafana)
+#### Week 1-2: Infrastructure Setup (Zo.computer Pivot)
+
+- [ ] Provision custom Zo.computer server ($18 paid tier)
+- [ ] Install Docker & Docker Compose on Zo.computer
+- [ ] Deploy unified `docker-compose.zo-unified.yml` (Postgres, Timescale, Redis, RabbitMQ)
+- [ ] Configure Nginx reverse proxy for the 7 frontend portals
+- [ ] Set up CI/CD pipeline deployment hooks for Zo.computer
+- [ ] Set up monitoring stack (Prometheus + Grafana) inside Zo
 
 **Deliverables:**
+
 - Infrastructure-as-Code (Terraform) ✓
 - CI/CD pipeline operational
 - Monitoring dashboards
 
 #### Week 3-4: Core Data Models
+
 - [ ] Implement database schema (migrations)
 - [ ] Create SQLAlchemy models
 - [ ] Set up API authentication (JWT)
@@ -26,6 +28,7 @@
 - [ ] Create seed data for testing
 
 **Deliverables:**
+
 - Database schema deployed
 - API authentication working
 - Basic CRUD endpoints
@@ -35,6 +38,7 @@
 ### Phase 2: Data Ingestion & Processing (Weeks 5-8)
 
 #### Week 5: Sensor Data Pipeline
+
 - [ ] Implement sensor data ingestion API
 - [ ] Set up data validation and QA/QC
 - [ ] Create batch ingestion endpoints
@@ -42,10 +46,12 @@
 - [ ] Set up data quality monitoring
 
 **Key Files:**
+
 - `backend/app/api/main.py` - API endpoints ✓
 - `backend/app/models/sensor_data.py` - Data models ✓
 
 #### Week 6: Edge Computing (20m Grid)
+
 - [ ] Deploy edge processor to Raspberry Pi
 - [ ] Implement IDW interpolation
 - [ ] Set up offline caching
@@ -53,10 +59,12 @@
 - [ ] Test with real sensor hardware
 
 **Key Files:**
+
 - `edge-compute/src/edge_processor.go` ✓
 - `edge-compute/config/field_001.json` ✓
 
 #### Week 7-8: Cloud Processing (1m Grid)
+
 - [ ] Implement Regression Kriging pipeline
 - [ ] Integrate Sentinel-2 imagery processing
 - [ ] Set up Landsat historical data pipeline
@@ -64,9 +72,11 @@
 - [ ] Optimize for large-scale processing
 
 **Key Files:**
+
 - `cloud-processing/pipelines/kriging_1m.py` ✓
 
 **Deliverables:**
+
 - Dual-layer virtual sensor grid operational
 - Edge devices deployed
 - Cloud processing pipeline running
@@ -76,6 +86,7 @@
 ### Phase 3: Adaptive Recalculation & Analytics (Weeks 9-12)
 
 #### Week 9-10: Adaptive Recalculation Engine
+
 - [ ] Implement trend analysis logic
 - [ ] Create mode determination algorithms
 - [ ] Set up event-driven triggers
@@ -83,9 +94,11 @@
 - [ ] Test with various field scenarios
 
 **Key Files:**
+
 - `backend/app/services/adaptive_recalc_engine.py` ✓
 
 **Deliverables:**
+
 - Adaptive recalculation working across all modes
 - Deterministic diagnostic queries available via API
 
@@ -94,6 +107,7 @@
 ### Phase 4: Dashboards & Compliance (Weeks 13-16)
 
 #### Week 13-14: Farmer Dashboard
+
 - [ ] Implement React frontend with Mapbox
 - [ ] Create real-time field visualization
 - [ ] Build irrigation recommendation UI
@@ -101,24 +115,28 @@
 - [ ] Mobile-responsive design
 
 **Tech Stack:**
+
 - React 18 + TypeScript
 - Mapbox GL JS for maps
 - Socket.io for real-time updates
 - Material-UI components
 
 #### Week 15: Regulatory Portal
+
 - [ ] Build compliance report generator
 - [ ] Implement SLV 2026 validation
 - [ ] Create audit trail viewer
 - [ ] Design export functionality (PDF/Excel)
 
 #### Week 16: Testing & QA
+
 - [ ] End-to-end testing
 - [ ] Load testing (10K concurrent users)
 - [ ] Security penetration testing
 - [ ] UAT with pilot farmers
 
 **Deliverables:**
+
 - All dashboards operational
 - Compliance reporting system live
 - System tested and validated
@@ -128,6 +146,7 @@
 ### Phase 5: Optimization & Rollout (Weeks 17-20)
 
 #### Week 17-18: Performance Optimization
+
 - [ ] Database query optimization
 - [ ] Implement caching strategies
 - [ ] Optimize Kriging algorithms
@@ -135,6 +154,7 @@
 - [ ] Load balancer configuration
 
 #### Week 19: Documentation & Training
+
 - [ ] Complete API documentation
 - [ ] Write user manuals
 - [ ] Create video tutorials
@@ -142,6 +162,7 @@
 - [ ] Train support staff
 
 #### Week 20: Production Rollout
+
 - [ ] Pilot deployment (10 farms)
 - [ ] Monitor system performance
 - [ ] Gather user feedback
@@ -149,6 +170,7 @@
 - [ ] National rollout planning
 
 **Deliverables:**
+
 - Production system live
 - Documentation complete
 - Users trained
@@ -175,16 +197,13 @@ psql -h your-rds-host -U farmsense_user -d farmsense
 ### 2. Backend Deployment
 
 ```bash
-# Build Docker image
-cd backend
-docker build -t farmsense-backend:latest .
+# SSH into Zo.computer
+ssh ubuntu@your-zo-ip
 
-# Push to registry
-docker tag farmsense-backend:latest your-registry/farmsense-backend:latest
-docker push your-registry/farmsense-backend:latest
-
-# Deploy to Kubernetes
-kubectl apply -f deployment/kubernetes/backend/
+# Run the deployment script
+cd /opt/farmsense/deployment
+chmod +x zo_deploy.sh
+./zo_deploy.sh
 ```
 
 ### 3. Edge Device Setup
@@ -212,31 +231,20 @@ sudo systemctl status farmsense-edge
 
 ### 4. Frontend Deployment
 
+Frontends are now automatically containerized and routed via Nginx within the Zo.computer unified stack. No manual AWS S3/CloudFront invalidations are required for Phase 1.
+
 ```bash
-cd frontend/farmer-dashboard
-
-# Install dependencies
-npm install
-
-# Build for production
-npm run build
-
-# Deploy to S3 + CloudFront
-aws s3 sync build/ s3://your-frontend-bucket/
-aws cloudfront create-invalidation --distribution-id YOUR_DIST_ID --paths "/*"
+# If developing locally, rebuild a specific portal:
+docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --build farmer-dashboard
 ```
 
 ### 5. Monitoring Setup
 
+Available out-of-the-box via the unified Zo stack. (Pending `docker-compose.zo-unified.yml` expansion to include prometheus/grafana containers).
+
 ```bash
-# Deploy Prometheus
-kubectl apply -f deployment/kubernetes/monitoring/prometheus/
-
-# Deploy Grafana
-kubectl apply -f deployment/kubernetes/monitoring/grafana/
-
-# Import dashboards
-kubectl apply -f deployment/grafana/dashboards/
+# Access Grafana locally hosted on the Zo server
+http://your-zo-ip:3000
 ```
 
 ---
@@ -280,6 +288,7 @@ k6 run tests/load/api_load_test.js
 ```
 
 **Test Scenarios:**
+
 - 1,000 sensor readings/second
 - 10,000 concurrent dashboard users
 - 1m grid computation for 100 hectare field
@@ -306,18 +315,20 @@ k6 run tests/load/api_load_test.js
 ### Common Issues
 
 #### Database Connection Errors
+
 ```bash
-# Check PostgreSQL status
-kubectl get pods -n farmsense | grep postgres
+# Check PostgreSQL status inside Zo
+docker ps | grep postgres-core
 
 # View logs
-kubectl logs -f postgres-pod-name -n farmsense
+docker logs -f postgres-core
 
-# Test connection
-psql -h postgres-service -U farmsense_user -d farmsense -c "SELECT 1;"
+# Test connection via interactive shell
+docker exec -it postgres-core psql -U farmsense_user -d farmsense_core -c "SELECT 1;"
 ```
 
 #### Edge Device Offline
+
 ```bash
 # Check edge device status
 ssh pi@field-device
@@ -331,24 +342,25 @@ sudo journalctl -u farmsense-edge -f
 ```
 
 #### Kriging Computation Slow
+
 ```bash
 # Check cloud processor
-kubectl logs -f cloud-processor-pod -n farmsense
+docker logs -f cloud-processor
 
 # Monitor resource usage
-kubectl top pods -n farmsense
+docker stats
 
-# Scale up workers
-kubectl scale deployment cloud-processor --replicas=20 -n farmsense
+# Scale up Celery workers (Increase concurrency flag in compose file)
+docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale cloud-processor=4
 ```
 
 ---
 
 ## 📞 Support Contacts
 
-- **Technical Lead**: tech-lead@farmsense.io
-- **DevOps**: devops@farmsense.io
-- **Support**: support@farmsense.io
+- **Technical Lead**: <tech-lead@farmsense.io>
+- **DevOps**: <devops@farmsense.io>
+- **Support**: <support@farmsense.io>
 - **Emergency**: +1-800-FARM-911
 
 ---
@@ -356,6 +368,7 @@ kubectl scale deployment cloud-processor --replicas=20 -n farmsense
 ## 🎯 Success Criteria
 
 ### Technical
+
 - ✅ All API endpoints operational
 - ✅ 99.9% system uptime
 - ✅ Sub-second dashboard response
@@ -363,6 +376,7 @@ kubectl scale deployment cloud-processor --replicas=20 -n farmsense
 - ✅ Compliance reports accurate
 
 ### Business
+
 - ✅ 100+ farms onboarded
 - ✅ 10,000+ hectares monitored
 - ✅ 50,000+ sensors ingesting data
