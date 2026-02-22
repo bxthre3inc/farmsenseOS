@@ -25,6 +25,7 @@ import {
 import AgriMap from './components/AgriMap';
 import TelemetryOverlay from './components/TelemetryOverlay';
 import Login from './components/Login';
+import ForecastWidget from './components/ForecastWidget';
 import { getApiKey, removeApiKey } from './services/api';
 
 const App: React.FC = () => {
@@ -372,6 +373,11 @@ const App: React.FC = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Predictive AI Forecasting Row */}
+              <div className="grid grid-cols-1 mt-8">
+                <ForecastWidget fieldId="field_01" />
               </div>
             </div>
           ) : activeTab === 'settings' ? (

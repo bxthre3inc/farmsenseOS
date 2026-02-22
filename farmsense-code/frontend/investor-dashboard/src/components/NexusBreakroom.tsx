@@ -35,7 +35,7 @@ export const NexusBreakroom: React.FC = () => {
         }
     }, [messages]);
 
-    const handleSendMessage = (e: React.FormEvent) => {
+    const handleSendMessage = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!input.trim()) return;
 
@@ -43,20 +43,22 @@ export const NexusBreakroom: React.FC = () => {
         setMessages(newMessages);
         setInput('');
 
-        // Simulating automated logic
-        setTimeout(() => {
-            let systemResponse = "Interesting combination. I've added some suggestions to your palette.";
-            if (input.toLowerCase().includes('coffee') || input.toLowerCase().includes('caffeine')) {
-                systemResponse = "Acknowledged. Focusing on high-performance stimulants. Recommending Nitro Cold Brew base with Lions Mane for neural clarity.";
-                addIngredient(INGREDIENTS[1]);
-                addIngredient(INGREDIENTS[4]);
-            } else if (input.toLowerCase().includes('sweet')) {
-                systemResponse = "Deploying sweetness protocols. Recommending Golden Honey and Vanilla Bean.";
-                addIngredient(INGREDIENTS[5]);
-                addIngredient(INGREDIENTS[3]);
-            }
-            setMessages(prev => [...prev, { role: 'system', text: systemResponse }]);
-        }, 1000);
+        try {
+            const res = await fetch('http://localhost:8000/api/v1/nexus/meal-architect', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: input })
+            });
+            const data = await res.json();
+            
+            data.suggested_ingredients.forEach((id: string) => {
+                const ing = INGREDIENTS.find(i => i.id === id);
+                if (ing) addIngredient(ing);
+            });
+            setMessages(prev => [...prev, { role: 'system', text: data.response }]);
+        } catch (error) {
+            setMessages(prev => [...prev, { role: 'system', text: 'Error contacting AI architect.' }]);
+        }
     };
 
     const addIngredient = (ing: Ingredient) => {
@@ -68,9 +70,19 @@ export const NexusBreakroom: React.FC = () => {
         setSelectedIngredients(prev => prev.filter(i => i.id !== id));
     };
 
-    const handleExecute = () => {
+    const handleExecute = async () => {
         setIsPrep(true);
         let p = 0;
+        try {
+            await fetch('http://localhost:8000/api/v1/nexus/execute', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ingredients: selectedIngredients.map(i => i.id) })
+            });
+        } catch (error) {
+            console.error('Execution failed', error);
+        }
+        
         const interval = setInterval(() => {
             p += 2;
             setProgress(p);

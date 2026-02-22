@@ -13,6 +13,7 @@ import asyncio
 import json
 import uvicorn
 import hashlib
+import requests
 
 from app.models.sensor_data import (
     SoilSensorReading, PumpTelemetry, WeatherData,
@@ -384,6 +385,16 @@ class UserResponse(UserBase):
     class Config:
         from_attributes = True
 
+class NexusArchitectRequest(BaseModel):
+    message: str
+
+class NexusArchitectResponse(BaseModel):
+    response: str
+    suggested_ingredients: List[str]
+
+class NexusExecuteRequest(BaseModel):
+    ingredients: List[str]
+
 
 # === API Endpoints ===
 
@@ -733,6 +744,27 @@ async def verify_support_letter(
     db.refresh(db_letter)
     return db_letter
 
+# --- Nexus Endpoints ---
+
+@app.post("/api/v1/nexus/meal-architect", tags=["Nexus"])
+async def meal_architect(request: NexusArchitectRequest):
+    input_text = request.message.lower()
+    response = "Interesting combination. I've added some suggestions to your palette."
+    ingredients = []
+
+    if "coffee" in input_text or "caffeine" in input_text:
+        response = "Acknowledged. Focusing on high-performance stimulants. Recommending Nitro Cold Brew base with Lions Mane for neural clarity."
+        ingredients = ["2", "5"]
+    elif "sweet" in input_text:
+        response = "Deploying sweetness protocols. Recommending Golden Honey and Vanilla Bean."
+        ingredients = ["6", "4"]
+
+    return {"response": response, "suggested_ingredients": ingredients}
+
+@app.post("/api/v1/nexus/execute", tags=["Nexus"])
+async def execute_meal(request: NexusExecuteRequest):
+    return {"status": "success", "message": "Materialization initialized"}
+
 
 @app.get("/")
 async def root():
@@ -748,6 +780,17 @@ async def health_check():
     """Health check endpoint for load balancer"""
     return {"status": "healthy", "timestamp": datetime.utcnow()}
 
+@app.get("/api/v1/analytics/forecast", tags=["Analytics"])
+async def get_analytics_forecast(field_id: str = Query(..., description="Field ID for the forecast")):
+    """
+    Fetch 7-14 day forecast string from the cloud processing analytics microservice.
+    """
+    try:
+        response = requests.get(f"http://localhost:8001/predict/forecast/{field_id}")
+        response.raise_for_status()
+        return response.json()
+    except requests.RequestException as e:
+        raise HTTPException(status_code=500, detail=f"Analytics service error: {str(e)}")
 
 # === Sensor Data Ingestion ===
 
@@ -1327,6 +1370,67 @@ def generate_compliance_report_task(
     # 4. Push to Anonymized Central Research Pool (No Trace Policy)
     archive_anonymized_data(db, field_id, total_irrigation_m3, period_start)
 
+
+# === Nexus Breakroom Automation (Demo/Mock AI) ===
+
+class MealArchitectCommand(BaseModel):
+    command: str
+
+class NexusExecuteRequest(BaseModel):
+    ingredient_ids: List[str]
+
+@app.post("/api/v1/nexus/meal-architect", tags=["Nexus Breakroom"])
+async def meal_architect_chat(payload: MealArchitectCommand):
+    """
+    Mock-AI endpoint simulating the automated meal architect.
+    Returns targeted ingredient IDs based on keywords.
+    """
+    cmd = payload.command.lower()
+    system_response = "Interesting combination. I've added some suggestions to your palette."
+    suggested_ingredients = []
+
+    if "coffee" in cmd or "caffeine" in cmd or "energy" in cmd:
+        system_response = "Acknowledged. Focusing on high-performance stimulants. Recommending Nitro Cold Brew base with Lions Mane for neural clarity."
+        suggested_ingredients = ["2", "5"]
+    elif "sweet" in cmd or "sugar" in cmd:
+        system_response = "Deploying sweetness protocols. Recommending Golden Honey and Vanilla Bean."
+        suggested_ingredients = ["6", "4"]
+    elif "light" in cmd or "fresh" in cmd:
+        system_response = "Origin notes selected. Preparing Ethiopian Sidamo base."
+        suggested_ingredients = ["1"]
+    
+    return {
+        "response": system_response,
+        "suggested_ingredient_ids": suggested_ingredients
+    }
+
+@app.post("/api/v1/nexus/execute", tags=["Nexus Breakroom"])
+async def execute_nexus_order(
+    request: NexusExecuteRequest,
+    db: Session = Depends(get_db),
+    user: User = Depends(get_current_user)
+):
+    """
+    Simulates the materialization command sent to the robotic bay.
+    Logs the order and returns a verified audit hash.
+    """
+    if not request.ingredient_ids:
+        raise HTTPException(status_code=400, detail="Cannot materialize an empty bay.")
+
+    # In production, this would trigger the hardware IoT mesh
+    order_timestamp = datetime.utcnow().isoformat()
+    
+    # Generate verified audit hash simulating mechanical execution receipt
+    hasher = hashlib.sha256()
+    hasher.update(f"nexus_bay_4_{order_timestamp}_{','.join(request.ingredient_ids)}".encode())
+    receipt_hash = hasher.hexdigest()
+
+    return {
+        "status": "success",
+        "message": "Protocol execution verified. Order pending materialization in Bay 4.",
+        "receipt_hash": receipt_hash[:12],
+        "execution_time_ms": 1240
+    }
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

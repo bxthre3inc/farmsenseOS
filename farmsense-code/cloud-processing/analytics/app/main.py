@@ -1,7 +1,7 @@
 
 from fastapi import FastAPI, HTTPException, Query
 from typing import List, Optional
-from app.model_stubs import predict_yield, predict_moisture_trend
+from app.model_stubs import predict_yield, predict_moisture_trend, predict_7_14_day_forecast
 import uvicorn
 
 app = FastAPI(
@@ -33,6 +33,14 @@ async def get_moisture_trend(field_id: str):
             "field_id": field_id,
             "trends": trends
         }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/predict/forecast/{field_id}")
+async def get_14_day_forecast(field_id: str):
+    """Predict 14-day forecast for a field"""
+    try:
+        return predict_7_14_day_forecast(field_id)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

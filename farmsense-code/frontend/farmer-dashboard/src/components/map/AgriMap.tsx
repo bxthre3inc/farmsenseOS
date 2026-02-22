@@ -1,10 +1,31 @@
 
-import React, { useMemo, useState, useEffect } from 'react';
-import { Lock } from 'lucide-react';
-import Map, { Source, Layer, NavigationControl, ScaleControl } from 'react-map-gl/maplibre';
+import React, { useMemo, useState, useEffect, useRef, useCallback } from 'react';
+import { Lock, Navigation, Layers, Droplets } from 'lucide-react';
+import Map, { Source, Layer, NavigationControl, ScaleControl, useControl } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
+import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
+import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import mapStyle from '../../styles/agri-map-style.json';
 import { api } from '../../services/api';
+
+// Custom Mapbox Draw React hook
+function DrawControl(props: any) {
+    useControl(
+        () => new MapboxDraw(props),
+        ({ map }) => {
+            map.on('draw.create', props.onCreate);
+            map.on('draw.update', props.onUpdate);
+            map.on('draw.delete', props.onDelete);
+        },
+        ({ map }) => {
+            map.off('draw.create', props.onCreate);
+            map.off('draw.update', props.onUpdate);
+            map.off('draw.delete', props.onDelete);
+        },
+        { position: props.position }
+    );
+    return null;
+}
 
 // Types for props (can be expanded)
 interface AgriMapProps {
@@ -27,7 +48,9 @@ const AgriMap: React.FC<AgriMapProps> = ({
     const [gridData, setGridData] = useState<any>(null);
     const [loading, setLoading] = useState(false);
     const [zoomLevel, setZoomLevel] = useState(initialViewState.zoom);
-    
+    const [zoneStats, setZoneStats] = useState<any>(null);
+    const [analyzingZone, setAnalyzingZone] = useState(false);
+
     const showResolutionPop = zoomLevel >= 15.5 && !isEnterprise;
 
     useEffect(() => {
@@ -68,6 +91,27 @@ const AgriMap: React.FC<AgriMapProps> = ({
         return mapStyle as any; // Type assertion for MapLibre style compatibility
     }, []);
 
+    const handlePolygonDrawn = useCallback(async (e: any) => {
+        const data = e.features;
+        if (data && data.length > 0) {
+            setAnalyzingZone(true);
+            try {
+                // Get the most recent drawn polygon
+                const latestPolygon = data[data.length - 1];
+                const stats = await api.analyzeZone('field_demo_001', latestPolygon.geometry);
+                setZoneStats(stats);
+            } catch (err) {
+                console.error("Zone analysis failed:", err);
+            } finally {
+                setAnalyzingZone(false);
+            }
+        }
+    }, []);
+
+    const handlePolygonDeleted = useCallback(() => {
+        setZoneStats(null);
+    }, []);
+
     return (
         <div className="w-full h-full relative">
             <Map
@@ -76,8 +120,19 @@ const AgriMap: React.FC<AgriMapProps> = ({
                 mapStyle={style}
                 onMove={evt => setZoomLevel(evt.viewState.zoom)}
             >
-                <NavigationControl position="top-right" />
+                <NavigationControl position="bottom-right" />
                 <ScaleControl />
+                <DrawControl
+                    position="top-right"
+                    displayControlsDefault={false}
+                    controls={{
+                        polygon: true,
+                        trash: true
+                    }}
+                    onCreate={handlePolygonDrawn}
+                    onUpdate={handlePolygonDrawn}
+                    onDelete={handlePolygonDeleted}
+                />
 
                 {gridData && (
                     <Source id="grid-source" type="geojson" data={gridData}>
@@ -112,7 +167,7 @@ const AgriMap: React.FC<AgriMapProps> = ({
                         1M HIGH-RESOLUTION AERIAL AUDIT
                     </h2>
                     <p className="text-slate-300 font-medium mb-6 max-w-lg leading-relaxed drop-shadow-sm">
-                        Zo has detected a multispectral variance in this sector via the Aerial Fleet. 
+                        Zo has detected a multispectral variance in this sector via the Aerial Fleet.
                         Upgrade to Enterprise to unlock <strong className="text-white">0.7cm/px M3M orthomosaics</strong> and verify the ground truth.
                     </p>
                     <button className="px-8 py-3 bg-emerald-600 hover:bg-emerald-500 font-bold tracking-widest uppercase rounded shadow-lg shadow-emerald-900/50 text-white transition-all active:scale-95 border border-emerald-400/50">
@@ -122,30 +177,95 @@ const AgriMap: React.FC<AgriMapProps> = ({
             )}
 
             {/* Overlay controls or legend could go here */}
-            <div className="absolute top-4 left-4 bg-white p-4 rounded shadow-lg z-10 opacity-90">
-                <h3 className="font-bold text-lg text-green-800">FarmSense Field View</h3>
-                <p className="text-sm text-gray-600">Region: North Field (Demo)</p>
-                {loading && <p className="text-xs text-blue-500 animate-pulse">Loading grid data...</p>}
-                {!loading && gridData && (
-                    <p className="text-xs text-gray-500">{gridData.features.length} virtual points active</p>
-                )}
-                <div className="mt-4 text-xs">
-                    <p className="font-semibold mb-1">Moisture Levels</p>
-                    <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 bg-[#00ff00] border border-gray-300 block"></span>
-                            <span>Optimal</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 bg-[#ffff00] border border-gray-300 block"></span>
-                            <span>Moderate</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 bg-[#ff0000] border border-gray-300 block"></span>
-                            <span>Alert</span>
+            <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm p-5 rounded-xl shadow-2xl z-10 border border-green-900/10 w-80 transition-all">
+                <div className="flex items-center gap-2 mb-2">
+                    <Navigation className="w-5 h-5 text-green-700" />
+                    <h3 className="font-bold text-lg text-green-800 tracking-tight">FarmSense Field View</h3>
+                </div>
+                <p className="text-sm text-gray-600 mb-4 pb-4 border-b border-gray-100">Region: North Field (Demo)</p>
+
+                {loading && <p className="text-xs text-blue-500 animate-pulse font-medium">Synchronizing 20m virtual sensor grid...</p>}
+                {!loading && gridData && !zoneStats && (
+                    <div className="space-y-4">
+                        <p className="text-sm font-medium text-gray-700 flex items-center justify-between">
+                            <span>Active Sensors:</span>
+                            <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded-full text-xs font-bold">{gridData.features.length}</span>
+                        </p>
+                        <div className="pt-2">
+                            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3 border-b border-gray-100 pb-2">Moisture Legend</p>
+                            <div className="flex flex-col gap-2.5">
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                        <span className="w-3 h-3 rounded-full bg-[#00ff00] shadow-[0_0_8px_rgba(0,255,0,0.4)]"></span>
+                                        <span className="text-sm font-medium text-gray-700">Optimal</span>
+                                    </div>
+                                    <span className="text-xs text-gray-400">70-100%</span>
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                        <span className="w-3 h-3 rounded-full bg-[#ffff00] shadow-[0_0_8px_rgba(255,255,0,0.4)]"></span>
+                                        <span className="text-sm font-medium text-gray-700">Moderate Warning</span>
+                                    </div>
+                                    <span className="text-xs text-gray-400">40-70%</span>
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                        <span className="w-3 h-3 rounded-full bg-[#ff0000] shadow-[0_0_8px_rgba(255,0,0,0.4)]"></span>
+                                        <span className="text-sm font-medium text-gray-700">Critical Drought</span>
+                                    </div>
+                                    <span className="text-xs text-gray-400">< 40%</span>
+                                </div>
+                            </div>
+
+                            <div className="mt-6 p-3 bg-blue-50/50 rounded-lg shrink-0 w-full border border-blue-100">
+                                <p className="text-xs text-blue-700 font-medium">Draw a custom polygon on the right to analyze specific zone conditions.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
+
+                {analyzingZone && (
+                    <p className="text-xs text-blue-500 animate-pulse font-medium mt-4">Running spatial query on zone endpoints...</p>
+                )}
+
+                {zoneStats && !analyzingZone && (
+                    <div className="mt-2 space-y-4 animate-in fade-in duration-300">
+                        <div className="flex items-center gap-2 mb-1">
+                            <Layers className="w-4 h-4 text-emerald-600" />
+                            <p className="text-sm font-bold text-emerald-800 uppercase tracking-wider">Custom Zone Stats</p>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-3">
+                            <div className="bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                <p className="text-[10px] uppercase font-bold text-gray-400 mb-1">Area</p>
+                                <p className="font-bold text-gray-800">{(zoneStats.zone_area_sqm / 10000).toFixed(2)} ha</p>
+                            </div>
+                            <div className="bg-gray-50 p-3 rounded-lg border border-gray-100">
+                                <p className="text-[10px] uppercase font-bold text-gray-400 mb-1">Sensors Included</p>
+                                <p className="font-bold text-gray-800">{zoneStats.intersecting_points_count}</p>
+                            </div>
+                        </div>
+
+                        <div className="bg-blue-50 p-4 rounded-xl border border-blue-100 mt-2 flex flex-col items-center justify-center text-center">
+                            <Droplets className="w-6 h-6 text-blue-500 mb-2" />
+                            <p className="text-[10px] uppercase font-bold text-blue-400 mb-1 tracking-widest">Est. Water Deficit</p>
+                            <p className="text-2xl font-black text-blue-700 tabular-nums leading-none">
+                                {zoneStats.estimated_water_deficit_mm.toFixed(1)} <span className="text-sm">mm</span>
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-2 gap-3 mt-2">
+                            <div>
+                                <p className="text-[10px] uppercase font-bold text-gray-400 mb-0.5">Avg Moisture</p>
+                                <p className="font-medium text-gray-700">{(zoneStats.avg_moisture * 100).toFixed(1)}%</p>
+                            </div>
+                            <div>
+                                <p className="text-[10px] uppercase font-bold text-gray-400 mb-0.5">Avg Temp</p>
+                                <p className="font-medium text-gray-700">{zoneStats.avg_temperature.toFixed(1)}°C</p>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
