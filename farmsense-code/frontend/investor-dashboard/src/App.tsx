@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { TrendingUp, Users, DollarSign, Activity, LogOut, RefreshCw, Zap } from 'lucide-react';
+import { TrendingUp, Users, DollarSign, Activity, LogOut, RefreshCw, Zap, Globe } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Login from './components/Login';
 import { EquityBuyIn } from './components/EquityBuyIn';
 import { InvestorLanding } from './components/InvestorLanding';
 import { HQMilestones } from './components/HQMilestones';
 import { NexusBreakroom } from './components/NexusBreakroom';
+import { HolographicGlobe } from './components/HolographicGlobe';
 import { getApiKey, removeApiKey, api } from './services/api';
 
 // Live Ticker Component for authentic Bloomberg feel
@@ -36,7 +37,7 @@ const mockRoiData = [
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [showLogin, setShowLogin] = useState(false);
-    const [view, setView] = useState<'dashboard' | 'breakroom'>('dashboard');
+    const [view, setView] = useState<'dashboard' | 'breakroom' | 'globe'>('dashboard');
     const [metrics, setMetrics] = useState<any>(null);
     const [loading, setLoading] = useState(false);
 
@@ -109,6 +110,12 @@ function App() {
                             >
                                 Nexus Breakroom
                             </button>
+                            <button
+                                onClick={() => setView('globe')}
+                                className={`text-sm font-bold transition-all flex items-center gap-2 ${view === 'globe' ? 'text-cyan-400' : 'text-slate-400 hover:text-white'}`}
+                            >
+                                <Globe className="w-4 h-4" /> Global Nodes
+                            </button>
                         </nav>
                         <button
                             onClick={handleLogout}
@@ -124,6 +131,10 @@ function App() {
                     {view === 'breakroom' ? (
                         <div className="bg-black/40 rounded-[3rem] border border-white/5 overflow-hidden shadow-2xl h-[85vh]">
                             <NexusBreakroom />
+                        </div>
+                    ) : view === 'globe' ? (
+                        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
+                            <HolographicGlobe />
                         </div>
                     ) : (
                         <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-500">

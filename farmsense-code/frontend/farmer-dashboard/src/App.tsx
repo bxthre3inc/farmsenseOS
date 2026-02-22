@@ -20,12 +20,17 @@ import {
   Shield,
   BarChart3,
   Users,
-  TrendingUp
+  TrendingUp,
+  Mic,
+  Cpu
 } from 'lucide-react';
 import AgriMap from './components/AgriMap';
 import TelemetryOverlay from './components/TelemetryOverlay';
 import Login from './components/Login';
 import ForecastWidget from './components/ForecastWidget';
+import { HardwareDiagnostics } from './components/HardwareDiagnostics';
+import { ARFieldVision } from './components/ARFieldVision';
+import { WeatherHUD } from './components/WeatherHUD';
 import { getApiKey, removeApiKey } from './services/api';
 
 const App: React.FC = () => {
@@ -100,6 +105,12 @@ const App: React.FC = () => {
           </button>
           <button className="w-full nav-item">
             <Navigation className="w-5 h-5" /> Robotics Fleet
+          </button>
+          <button
+            onClick={() => setActiveTab('ar-vision')}
+            className={`w-full nav-item ${activeTab === 'ar-vision' ? 'nav-item-active' : ''}`}
+          >
+            <Cpu className="w-5 h-5" /> AR Field Vision
           </button>
           <button className="w-full nav-item" onClick={() => setActiveTab('settings')}>
             <Settings className="w-5 h-5" /> Privacy & Data
@@ -230,6 +241,8 @@ const App: React.FC = () => {
                 </div>
               </div>
             </div>
+          ) : activeTab === 'ar-vision' ? (
+            <ARFieldVision />
           ) : activeTab === 'dashboard' ? (
             <div className="p-10 space-y-8 overflow-y-auto h-full pb-32 relative">
               {/* Fixed Conversation Bubble */}

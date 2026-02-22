@@ -60,25 +60,25 @@ function App() {
     ] : [];
 
     return (
-        <div className="min-h-screen bg-stone-50 text-stone-900 font-serif selection:bg-stone-900 selection:text-white pb-32">
-            <header className="bg-white/80 backdrop-blur-md border-b border-stone-200 shadow-sm fixed top-0 w-full z-50">
+        <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-emerald-500 selection:text-white pb-32">
+            <header className="bg-slate-950/80 backdrop-blur-md border-b border-white/5 shadow-sm fixed top-0 w-full z-50">
                 <div className="max-w-7xl mx-auto px-8 py-5 flex justify-between items-center transition-all duration-500">
                     <div className="flex items-center gap-3">
-                        <div className="bg-orange-700 p-2 rounded-md">
+                        <div className="bg-emerald-500 p-2 rounded-lg shadow-lg shadow-emerald-500/20">
                             <ScrollText className="text-white w-6 h-6" />
                         </div>
                         <div>
-                            <h1 className="text-2xl font-bold text-stone-800 tracking-tight">Grant Oversight</h1>
-                            <p className="text-xs text-stone-500 uppercase tracking-widest font-sans">Federal Dept. of Agriculture</p>
+                            <h1 className="text-2xl font-black tracking-tighter text-white">farmsenseOS<span className="text-emerald-400">.</span></h1>
+                            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none mt-1">Grant Portal</p>
                         </div>
                     </div>
                     <div className="flex items-center gap-6 font-sans">
-                        <div className="text-sm text-stone-500">
-                            Grant ID: <span className="font-mono text-stone-900 font-bold">FS-2025-X82</span>
+                        <div className="text-sm text-slate-400">
+                            Grant ID: <span className="font-mono text-white font-bold">FS-2025-X82</span>
                         </div>
                         <button
                             onClick={handleLogout}
-                            className="text-stone-400 hover:text-red-700 transition-colors"
+                            className="text-slate-500 hover:text-red-500 transition-colors"
                         >
                             <LogOut className="w-5 h-5" />
                         </button>
@@ -88,60 +88,60 @@ function App() {
 
             <main className="w-full font-sans relative">
                 {/* Intro Slide */}
-                <section className="h-screen flex flex-col justify-center items-center text-center px-8 relative sticky top-0 pt-20 bg-stone-50 z-0">
+                <section className="h-screen flex flex-col justify-center items-center text-center px-8 relative sticky top-0 pt-20 bg-slate-950 z-0">
                     <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-10 duration-1000">
-                        <p className="text-sm font-bold tracking-[0.3em] uppercase text-orange-700 mb-6">Federal Dept. of Agriculture</p>
-                        <h2 className="text-6xl md:text-8xl font-black text-stone-900 font-serif tracking-tighter leading-tight mb-8">
+                        <p className="text-sm font-bold tracking-[0.3em] uppercase text-emerald-500 mb-6">Federal Dept. of Agriculture</p>
+                        <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-tight mb-8">
                             Grant Return<br />On Investment.
                         </h2>
-                        <p className="text-xl md:text-2xl text-stone-500 max-w-2xl mx-auto font-serif italic mb-12">
+                        <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto italic mb-12">
                             A completely transparent, cryptographically secured overview of environmental and economic impact for Grant FS-2025-X82.
                         </p>
                         <div className="animate-bounce">
-                            <span className="text-stone-300 text-sm font-bold uppercase tracking-widest">Scroll to Explore</span>
+                            <span className="text-slate-500 text-sm font-bold uppercase tracking-widest">Scroll to Explore</span>
                         </div>
                     </div>
                 </section>
 
                 {/* Financial Status Slide */}
-                <section className="min-h-screen sticky top-0 pt-32 pb-20 bg-stone-100 z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.05)] border-t border-stone-200 px-8 flex flex-col justify-center">
+                <section className="min-h-screen sticky top-0 pt-32 pb-20 bg-slate-900 z-10 shadow-[0_-20px_50px_rgba(0,0,0,0.5)] border-t border-white/5 px-8 flex flex-col justify-center">
                     <div className="max-w-7xl mx-auto w-full">
-                        <div className="flex justify-between items-end mb-16 border-b border-stone-300 pb-8">
+                        <div className="flex justify-between items-end mb-16 border-b border-white/10 pb-8">
                             <div>
-                                <h2 className="text-4xl md:text-5xl font-bold text-stone-900 font-serif tracking-tight">Financial & Impact Status</h2>
-                                <p className="text-lg text-stone-500 mt-4 font-serif italic">Real-time metrics sourced directly from FarmSense IoT deployed nodes.</p>
+                                <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">Financial & Impact Status</h2>
+                                <p className="text-lg text-slate-400 mt-4 italic">Real-time metrics sourced directly from FarmSense IoT deployed nodes.</p>
                             </div>
-                            <button onClick={fetchImpact} className="hidden md:flex items-center gap-2 text-stone-500 hover:text-stone-800 transition-colors uppercase text-xs font-bold tracking-widest bg-white px-4 py-2 rounded-full border border-stone-200 shadow-sm">
+                            <button onClick={fetchImpact} className="hidden md:flex items-center gap-2 text-slate-400 hover:text-white transition-colors uppercase text-xs font-bold tracking-widest bg-white/5 px-4 py-2 rounded-full border border-white/10 shadow-sm">
                                 <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} /> Refresh Feed
                             </button>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                            <div className="bg-white p-10 rounded-2xl shadow-xl border border-stone-100 transform transition-transform hover:-translate-y-2 relative overflow-hidden group">
-                                <div className="absolute top-0 left-0 w-full h-1 bg-green-500"></div>
-                                <div className="flex items-center gap-3 mb-6 text-green-700 font-semibold text-lg">
+                            <div className="bg-white/5 backdrop-blur-xl p-10 rounded-xl shadow-2xl border border-white/10 transform transition-transform hover:-translate-y-2 relative overflow-hidden group">
+                                <div className="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div>
+                                <div className="flex items-center gap-3 mb-6 text-emerald-400 font-semibold text-lg">
                                     <CheckCircle className="w-6 h-6" /> Disbursement
                                 </div>
-                                <p className="text-6xl font-black text-stone-900 tracking-tighter mb-2">$2.4M</p>
-                                <p className="text-base text-stone-500 font-serif italic">FY2025 Grant Funds Allocated</p>
+                                <p className="text-6xl font-black font-mono text-white tracking-tighter mb-2">$2.4M</p>
+                                <p className="text-base text-slate-400 italic">FY2025 Grant Funds Allocated</p>
                             </div>
-                            <div className="bg-white p-10 rounded-2xl shadow-xl border border-stone-100 transform transition-transform hover:-translate-y-2 relative overflow-hidden group">
+                            <div className="bg-white/5 backdrop-blur-xl p-10 rounded-xl shadow-2xl border border-white/10 transform transition-transform hover:-translate-y-2 relative overflow-hidden group">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
-                                <div className="flex items-center gap-3 mb-6 text-blue-700 font-semibold text-lg">
+                                <div className="flex items-center gap-3 mb-6 text-blue-400 font-semibold text-lg">
                                     <Clock className="w-6 h-6" /> Reporting
                                 </div>
-                                <p className="text-6xl font-black text-stone-900 tracking-tighter mb-2">
-                                    {impact ? impact.reporting_period_days : '---'} <span className="text-3xl font-bold text-stone-400">Days</span>
+                                <p className="text-6xl font-black font-mono text-white tracking-tighter mb-2">
+                                    {impact ? impact.reporting_period_days : '---'} <span className="text-3xl font-bold text-slate-500 font-sans">Days</span>
                                 </p>
-                                <p className="text-base text-stone-500 font-serif italic">Active Continuous Data Pipeline</p>
+                                <p className="text-base text-slate-400 italic">Active Continuous Data Pipeline</p>
                             </div>
-                            <div className="bg-white p-10 rounded-2xl shadow-xl border border-stone-100 transform transition-transform hover:-translate-y-2 relative overflow-hidden group">
+                            <div className="bg-white/5 backdrop-blur-xl p-10 rounded-xl shadow-2xl border border-white/10 transform transition-transform hover:-translate-y-2 relative overflow-hidden group">
                                 <div className="absolute top-0 left-0 w-full h-1 bg-orange-500"></div>
-                                <div className="flex items-center gap-3 mb-6 text-orange-700 font-semibold text-lg">
+                                <div className="flex items-center gap-3 mb-6 text-orange-400 font-semibold text-lg">
                                     <AlertTriangle className="w-6 h-6" /> Integrity
                                 </div>
-                                <p className="text-6xl font-black text-stone-900 tracking-tighter mb-2">100%</p>
-                                <p className="text-base text-stone-500 font-serif italic">Verified via Zero-Knowledge Blockchain</p>
+                                <p className="text-6xl font-black font-mono text-white tracking-tighter mb-2">100%</p>
+                                <p className="text-base text-slate-400 italic">Verified via Zero-Knowledge Blockchain</p>
                             </div>
                         </div>
                     </div>

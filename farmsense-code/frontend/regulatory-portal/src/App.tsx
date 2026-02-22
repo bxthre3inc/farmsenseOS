@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { ComplianceList } from './components/ComplianceList';
 import { ScientificValidation } from './components/ScientificValidation';
 import Login from './components/Login';
-import { FileBadge, Search, Bell, LogOut, ShieldCheck, ClipboardList, TrendingUp, AlertTriangle } from 'lucide-react';
+import { FileBadge, Search, Bell, LogOut, ShieldCheck, ClipboardList, TrendingUp, AlertTriangle, Video } from 'lucide-react';
 import { EconomicImpact } from './components/EconomicImpact';
 import { IntegrityChainVisualizer } from './components/IntegrityChainVisualizer';
+import { DroneARFeed } from './components/DroneARFeed';
 import { getApiKey, removeApiKey, api } from './services/api';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [metrics, setMetrics] = useState<any>(null);
-    const [activeView, setActiveView] = useState<'reports' | 'science' | 'economy'>('reports');
+    const [activeView, setActiveView] = useState<'reports' | 'science' | 'economy' | 'drone'>('reports');
 
     useEffect(() => {
         const auth = !!getApiKey();
@@ -110,6 +111,12 @@ function App() {
                         >
                             <TrendingUp className="w-4 h-4" /> Economic Impact & IP
                         </button>
+                        <button
+                            onClick={() => setActiveView('drone')}
+                            className={`flex items-center gap-2 px-1 border-b-2 text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${activeView === 'drone' ? 'border-cyan-500 text-cyan-400' : 'border-transparent text-slate-600 hover:text-slate-300'}`}
+                        >
+                            <Video className="w-4 h-4" /> Drone AR Feed
+                        </button>
                     </div>
                 </div>
             </div>
@@ -156,6 +163,8 @@ function App() {
                     <ComplianceList />
                 ) : activeView === 'science' ? (
                     <ScientificValidation />
+                ) : activeView === 'drone' ? (
+                    <DroneARFeed />
                 ) : (
                     <EconomicImpact />
                 )}
