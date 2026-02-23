@@ -1,0 +1,37 @@
+# FarmSense: System Architecture
+
+The FarmSense infrastructure is an uncompromising, decentralized monolithic grid that functions indigenously without relying on external or public cloud services. Designed for deployment in rural, extreme weather environments, the architecture operates synchronously across multiple tiers, securing data integrity for legal auditing.
+
+## Backend Intelligence (Decentralized Cloud Layer)
+
+- **Map Servers (Oracle Vault):** Serves as the master data library housing spatial, satellite (Sentinel-2, Landsat), and historical edaphic datasets.
+- **Spatial Query Engine (Map Manager):** Extracts specific values (elevation, slope, aspect, NDVI) mapping specific latitude and longitude coordinates into fast JSON arrays.
+- **Core Compute Server (Zo):** High-Performance Computing cluster executing Bayesian priors and Localized Kriging algorithms (geostatistical interpolation). It outputs deterministic "Worksheets."
+
+## Regional & District Edge Infrastructure
+
+Relying entirely on external backhauls in rural zones creates unacceptable vulnerability. Heavy computational loads process continuously at the edge:
+
+- **Regional Superstation (RSS) [Level 3 - Territory Master]:** A localized cloud counterpart housed in a modified 40-foot High-Cube container. Features a 64-Core AMD Threadripper PRO cluster, 256GB ECC RAM, and a 50TB Enterprise NVMe array securing the master spatial database. Will support FHE (Fully Homomorphic Encryption) Kriging modeling.
+- **District Hubs (DHU) [Level 2 - Regional Mesh Manager]:** Edge coordinators mounted on 35-foot Class 4 timber poles. Line-of-sight 10km radius. Runs an OnLogic CL210 Industrial 8-Core ARM SOC. Capable of instant "Reflex Logic" responses bypassing cellular latency.
+  - **Audit Node Addendum**: Houses a cryptographically signed (128-bit AES) "Black Box" cache.
+
+## Field-Level Edge Hardware
+
+Sensors and actuators deployed below and above ground across field zones. Equipment strictly utilizes UV-shielded (fluoropolymer coated) Polycarbonate due to altitude degradation risks and requires Hybrid Pulse Capacitors (HPC) for extreme-cold \-30°F survivability.
+
+- **Vertical Field Anchors (VFA) [Level 1.5 - Secure Routing Node]:** Intercepts 128-bit encrypted FHSS data from surrounding lateral nodes via local 900MHz LoRa uplinks. The single "truth node" per field. Must include 2.4GHz transceivers for PFA communication.
+- **Lateral Root-Zone Scout (LRZ) [Level 1 - Spatial Mapper]:** Mass-produced "dumb nodes" deployed at a 1:15-acre density. Utilizes high-frequency Frequency-Hopping Spread Spectrum (FHSS) chirps, providing inherent Low Probability of Intercept/Detection (LPI/LPD) features natively desirable under DoD architectures. Enclosures feature 50mm non-contact capacitive telemetry fields.
+- **Pressure & Flow Anchor (PFA) [Sentry of the Source]:** Mounts at the wellhead, monitoring vibration torque ripple, cavitation, and bearing wear via 400A CT Clamps. Runs NXP Cortex-M7 edge processors preparing to process Current Harmonic Analysis signatures. Will use 2.4GHz High-Gain links to contact the VFAs.
+- **Pivot Motion Trackers (PMT) [Level 1 - Kinematic Auditor]:** The Nervous System mechanism of center pivots.
+  - Generates \+/\- 1% flow accuracy non-invasively using Badger Meter TFX-5000 ultrasonic transit-time components.
+  - Contains u-blox ZED-F9P RTK GNSS modules for sub-2.5m horizontal spatial resolution.
+  - Monitors vibration harmonics using Bosch BNO055 9-Axis IMUs.
+  - **Corner-Swing Auditor (CSA)** variants utilize dual-node configurations (Primary Span Tracker and Swing-Arm Tracker) to resolve swing-arm irrigation mechanics mathematically.
+
+## Dual-Layer Spatial Privacy Architecture
+
+To comply with strict privacy laws surrounding accurate geolocation data, FarmSense segments analytics logically:
+
+1. **Internal Legal Ledger (Absolute Precision):** Exact GPS data locked cryptographically within the DHU cache. Strictly preserved unmodified for legal evidentiary submission.
+2. **Contextual Anonymization (Federated Learning):** Data uploaded for broader analysis and global model training is contextually anonymized, obfuscating individual localized geometries while maintaining regional hydro-climate validity.

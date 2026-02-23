@@ -162,30 +162,10 @@ class ConnectionManager:
 
 manager = ConnectionManager()
 
-# Background task to simulate real-time sensor updates
-async def sensor_stream_simulator():
-    """Simulates real-time sensor broadcasts every 5 seconds"""
-    import random
-    while True:
-        await asyncio.sleep(5)
-        if manager.active_connections:
-            # Generate mock update for a field
-            update = {
-                "type": "SENSOR_UPDATE",
-                "timestamp": datetime.utcnow().isoformat(),
-                "field_id": "field_demo_001",
-                "data": {
-                    "sensor_id": f"S-{random.randint(100, 999)}",
-                    "moisture": round(random.uniform(0.15, 0.35), 3),
-                    "temperature": round(random.uniform(20, 30), 1),
-                    "status": "normal" if random.random() > 0.05 else "alert"
-                }
-            }
-            await manager.broadcast(update)
-
 @app.on_event("startup")
 async def startup_event():
-    asyncio.create_task(sensor_stream_simulator())
+    # Hardware Simulator will push real data to endpoints, which will then be broadcast
+    pass
 
 
 # === Pydantic Schemas ===
@@ -223,6 +203,7 @@ class PFAReadingCreate(BaseModel):
     well_pressure_psi: float
     flow_rate_gpm: float
     pump_status: str
+    current_harmonics: Optional[List[float]] = None  # Fast Fourier Transform output from 400A CT Clamps
 
 class PMTReadingCreate(BaseModel):
     hardware_id: str
@@ -432,6 +413,22 @@ def ingest_vfa_payload(
     db.add(vfa_reading)
     db.commit()
     db.refresh(vfa_reading)
+    
+    # Broadcast to connected clients
+    update_payload = {
+        "type": "SENSOR_UPDATE",
+        "timestamp": datetime.utcnow().isoformat(),
+        "field_id": payload.field_id,
+        "data": {
+            "device": "VFA",
+            "hardware_id": payload.hardware_id,
+            "slot_10_moisture": payload.slot_10_moisture,
+            "nitrogen_pressure_psi": payload.nitrogen_pressure_psi,
+            "battery_voltage": payload.battery_voltage
+        }
+    }
+    asyncio.create_task(manager.broadcast(update_payload))
+    
     return {"status": "success", "id": str(vfa_reading.id)}
 
 @app.post("/api/v1/hardware/pfa/telemetry", tags=["Hardware Ingestion"])
@@ -452,6 +449,22 @@ def ingest_pfa_telemetry(
     )
     db.add(pfa_reading)
     db.commit()
+
+    # Broadcast to connected clients
+    update_payload = {
+        "type": "SENSOR_UPDATE",
+        "timestamp": datetime.utcnow().isoformat(),
+        "field_id": payload.field_id,
+        "data": {
+            "device": "PFA",
+            "hardware_id": payload.hardware_id,
+            "well_pressure_psi": payload.well_pressure_psi,
+            "flow_rate_gpm": payload.flow_rate_gpm,
+            "pump_status": payload.pump_status
+        }
+    }
+    asyncio.create_task(manager.broadcast(update_payload))
+    
     return {"status": "success", "id": str(pfa_reading.id)}
 
 @app.post("/api/v1/hardware/pmt/kinematics", tags=["Hardware Ingestion"])
@@ -472,6 +485,21 @@ def ingest_pmt_kinematics(
     )
     db.add(pmt_reading)
     db.commit()
+    
+    # Broadcast to connected clients
+    update_payload = {
+        "type": "SENSOR_UPDATE",
+        "timestamp": datetime.utcnow().isoformat(),
+        "field_id": payload.field_id,
+        "data": {
+            "device": "PMT",
+            "hardware_id": payload.hardware_id,
+            "kinematic_angle_deg": payload.kinematic_angle_deg,
+            "span_speed_mph": payload.span_speed_mph
+        }
+    }
+    asyncio.create_task(manager.broadcast(update_payload))
+
     return {"status": "success", "id": str(pmt_reading.id)}
 
 @app.post("/api/v1/hardware/aerial/multispectral", tags=["Hardware Ingestion"])

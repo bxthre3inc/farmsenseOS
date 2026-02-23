@@ -32,6 +32,7 @@ The "Corner Reach" Data Gap: Corner irrigation is historically the most "unaudit
 agric
 
 --- Master Specification: District Hub (DHU) V1.1.pdf ---
+**[CRITICAL UPDATE 2/26: DHU Polycarbonate enclosures must strictly be treated with industrial fluoropolymer coatings (PVDF) or specific UV inhibitors to prevent radiation embrittlement at 8,000ft SLV altitude.]**
 Master Specification: District Hub (DHU) V1.1
 Role: District Director & Edge Coordinator | Tier: Layer 2 (Regional Mesh Manager) | Radius:
 10km (Line-of-Sight)
@@ -44,7 +45,10 @@ that bridges the gap between raw field data and the high-performance computing c
 the Regional Superstation (RSS).
 Network Topology & High-Availability Backhaul: Each DHU covers a 10km radius zone,
 managing up to 100 VFA/LRZ field deployments. To ensure 99.9% data availability, the DHU
-employs a "Fiber-First" Backhaul Mandate: in any location where fiber internet ca
+employs a "Fiber-First" Backhaul Mandate: in any location where fiber internet cannot be
+reached, it utilizes a proprietary "Triple-Sector Radio Spine" consisting of three Ubiquiti LTU
+Sector Antennas (120° each) to establish a 360-degree, high-bandwidth 5GHz connection
+back to the RSS. **[CRITICAL UPDATE 2/26: To resolve the VFA-to-DHU backhaul failure, an industrial 900MHz LoRaWAN gateway must be mounted alongside the Ubiquiti array to successfully receive the VFA's encrypted payloads.]**
 
 --- Master Specification: Lateral Root-Zone Scout (LRZ) V1.21.pdf ---
 Master Specification: Lateral Root-Zone Scout (LRZ) V1.21
@@ -62,6 +66,7 @@ them back to the single VFA anchored in that field.
 This massive density of spatial da
 
 --- Master Specification: Pivot Motion Tracker (PMT) V1.6.pdf ---
+**[CRITICAL UPDATE 2/26: PMT Polycarbonate enclosures must strictly be treated with industrial fluoropolymer coatings (PVDF) or specific UV inhibitors to prevent radiation embrittlement at 8,000ft SLV altitude.]**
 Master Specification: Pivot Motion Tracker (PMT) V1.6
 Role: Kinematic & Hydraulic Auditor | Network Density: 1 per Pivot (Subdistrict 1 Deployment)
 The Pivot Motion Tracker (PMT) serves as the high-fidelity "Nervous System" and the primary
@@ -71,9 +76,9 @@ kinematic and hydraulic flow data required to verify exactly where, when, and ho
 is applied to the land. While the LRZ (Lateral Root-Zone) scouts monitor the soil's response to
 water, the PMT provides the certified proof of application, completing the data loop for the Zo
 Scientist Engine and establishing the legal foundation for the "Digital Water Ledger."
+**[CRITICAL UPDATE 2/26: To bypass spring passivation events in the primary Saft LS14500 LiSOCl2 cell, an HPC (Hybrid Pulse Capacitor) must be integrated to handle the instantaneous pulse currents required for GNSS "Warm Starts" in extreme sub-zero climates.]**
 Subdistrict 1 Economics & Strategic Procurement: This version of the specification reflects
-the optimized procurement strategy for the 1,280-unit deployment in Subdistrict 1. At this
-scale, FarmSense leve
+the optimized procurement strategy for the 1,280-unit deployment in Subdistrict 1.
 
 --- Master Specification: Pressure & Flow Anchor (PFA) V1.9.pdf ---
 Master Specification: Pressure & Flow Anchor (PFA) V1.9
@@ -86,9 +91,9 @@ Deployment) architecture, the PFA focuses exclusively on the extraction point—
 the aquifer. While the LRZ and VFA nodes monitor the consumption of water at the crop level,
 the PFA provide the high-fidelity data required to bridge the gap between farm-gate operations
 and regional aquifer health, serving as the primary gatekeeper for the "Digital Water Ledger."
+**[CRITICAL UPDATE 2/26: Thermal loss calculations must be validated proving the closed-cell foam insulation allows the 40Ah LiFePO4 battery to sustainably run the 5W Kapton heater during -30°F events without system depletion.]**
 Subdistrict 1 Economics & Strategic Procurement: This version of the specification reflects
-the optimized procurement strategy for the 1,280-unit deployment in Subdistrict 1. At this
-scale, 
+the optimized procurement strategy for the 1,280-unit deployment in Subdistrict 1.
 
 --- Master Specification: Regional Superstation (RSS) V1.3.pdf ---
 Master Specification: Regional Superstation (RSS) V1.3
@@ -117,5 +122,6 @@ Network Topology: There is exactly one VFA deployed per field (typically at the 
 or a highly representative baseline zone). This single VFA is responsible for intercepting the 128-
 bit encrypted FHSS chirps from the surrounding high-density Lateral Root-Zone (LRZ) scouts,
 which are deployed at a strict density of 1 unit per 15 acres.
+**[CRITICAL UPDATE 2/26: The VFA BOM must be immediately revised to include a 2.4GHz/BLE transceiver. This is required to establish direct communication with the wellhead Pressure & Flow Anchor (PFA) safety node, correcting the previous communication gap.]**
 Instead of treating each data point in isolation, the solitary VFA seamlessly aggregates this
-expansive lateral spatial data, combines
+expansive lateral spatial data, combining it with its own 1m deep continuous profile metrics.

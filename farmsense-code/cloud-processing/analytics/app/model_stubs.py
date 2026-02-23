@@ -8,10 +8,14 @@ def predict_yield(field_id: str, history_days: int = 30):
     Mock yield prediction based on historical stability.
     In production, this would use a Random Forest or LSTM model.
     """
+    # Deterministic pseudo-random seed based on field_id
+    seed_val = sum(ord(c) for c in field_id)
+    rng = random.Random(seed_val)
+    
     # Simulate a baseline yield and some variability
     base_yield = 180.0 # bushels/acre
-    variability = random.uniform(-15.0, 15.0)
-    confidence = random.uniform(0.85, 0.96)
+    variability = rng.uniform(-15.0, 15.0)
+    confidence = rng.uniform(0.85, 0.96)
     
     return {
         "field_id": field_id,
@@ -49,21 +53,26 @@ def predict_7_14_day_forecast(field_id: str):
     """
     Mock 14-day forecast for yield, moisture, and temperature.
     """
+    # Deterministic pseudo-random seed based on field_id and current day
+    today_str = datetime.utcnow().date().isoformat()
+    seed_val = sum(ord(c) for c in field_id + today_str)
+    rng = random.Random(seed_val)
+    
     predictions = []
-    base_moisture = random.uniform(0.20, 0.40)
-    base_temp = random.uniform(15.0, 30.0)
+    base_moisture = rng.uniform(0.20, 0.40)
+    base_temp = rng.uniform(15.0, 30.0)
     
     for i in range(1, 15):
         # Add realistic noise/trends for daily forecast
-        moisture_noise = random.uniform(-0.02, 0.02)
-        temp_noise = random.uniform(-2.0, 2.0)
+        moisture_noise = rng.uniform(-0.02, 0.02)
+        temp_noise = rng.uniform(-2.0, 2.0)
         
         predictions.append({
             "day": i,
             "date": (datetime.utcnow() + timedelta(days=i)).date().isoformat(),
             "avg_moisture": round(max(0, base_moisture + (i * -0.005) + moisture_noise), 3),
             "avg_temperature": round(base_temp + temp_noise, 1),
-            "stress_index": round(random.uniform(0.1, 0.8), 2)
+            "stress_index": round(rng.uniform(0.1, 0.8), 2)
         })
         
     return {

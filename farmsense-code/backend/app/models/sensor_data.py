@@ -430,6 +430,7 @@ class PFAReading(Base):
     well_pressure_psi = Column(Float)
     flow_rate_gpm = Column(Float)
     pump_status = Column(String(20))
+    current_harmonics = Column(JSON) # FFT signature for predictive maintenance
     
     created_at = Column(DateTime, default=datetime.utcnow)
 

@@ -161,20 +161,20 @@
 - [ ] Conduct farmer training sessions
 - [ ] Train support staff
 
-#### Week 20: Production Rollout
+#### Week 20: 2-Field Production Pilot Rollout
 
-- [ ] Pilot deployment (10 farms)
-- [ ] Monitor system performance
-- [ ] Gather user feedback
-- [ ] Bug fixes and improvements
-- [ ] National rollout planning
+- [ ] Abandon generic 10-farm scaling deployment in favor of targeted high-fidelity 2-Field Pilot at CSU SLV Research Center, Center Colorado.
+- [ ] Build & install Minimum Viable Hardware Stack under 2-Field constraints (2 PMTs, 2 PFAs, 2 VFAs, and 16-20 LRZs).
+- [ ] Capture empirical Phase-1 data for the June 2026 Subdistrict 1 Water Court evidence submission.
+- [ ] Submit DoD ESTCP pre-proposal grant application by the March 26, 2026 deadline.
+- [ ] Begin structuring metrics framing for the World Food Prize and Earthshot Prize packages.
 
 **Deliverables:**
 
-- Production system live
+- Production system live (Center, Colorado SLV 2-Field Pilot)
 - Documentation complete
-- Users trained
-- Support infrastructure ready
+- Empirical validation data generated
+- Global infrastructure & defense grant packages initiated
 
 ---
 
