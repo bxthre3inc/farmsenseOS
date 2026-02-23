@@ -35,6 +35,7 @@ from app.services.notification_service import NotificationService
 from app.services.decision_engine import FieldDecisionEngine, FieldDiagnosticService
 from app.models.sensor_data import AnonymizedResearchArchive
 from app.services.equity_service import SignatureService
+from app.services.predictive_maintenance import PredictiveMaintenanceService
 import os
 
 app = FastAPI(
@@ -445,9 +446,25 @@ def ingest_pfa_telemetry(
         timestamp=datetime.utcnow(),
         well_pressure_psi=payload.well_pressure_psi,
         flow_rate_gpm=payload.flow_rate_gpm,
-        pump_status=payload.pump_status
+        pump_status=payload.pump_status,
+        current_harmonics=payload.current_harmonics
     )
     db.add(pfa_reading)
+    
+    pm_analysis = PredictiveMaintenanceService.analyze_harmonics(payload.current_harmonics)
+    if pm_analysis["status"] != "inconclusive":
+        pump_telemetry = PumpTelemetry(
+            pump_id=f"pump_{payload.hardware_id}",
+            field_id=payload.field_id,
+            timestamp=datetime.utcnow(),
+            status=payload.pump_status,
+            flow_rate_lpm=payload.flow_rate_gpm * 3.78541,
+            pressure_bar=payload.well_pressure_psi * 0.0689476,
+            anomaly_score=pm_analysis["anomaly_score"],
+            anomaly_flag=pm_analysis["status"]
+        )
+        db.add(pump_telemetry)
+
     db.commit()
 
     # Broadcast to connected clients
