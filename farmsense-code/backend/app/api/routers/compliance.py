@@ -46,7 +46,7 @@ def generate_compliance_report(
     Generate SLV 2026 compliance report for a field and time period
     Heavy computation - runs in background
     """
-    from app.api.main import generate_compliance_report_task
+    from app.api.tasks import generate_compliance_report_task
     task_id = f"report_{field_id}_{datetime.utcnow().timestamp()}"
     
     if background_tasks:

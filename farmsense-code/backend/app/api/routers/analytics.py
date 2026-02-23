@@ -48,7 +48,7 @@ def ingest_sensor_reading(
     db.commit()
     db.refresh(db_reading)
     
-    from app.api.main import evaluate_field_recalculation
+    from app.api.tasks import evaluate_field_recalculation
     background_tasks.add_task(evaluate_field_recalculation, reading.field_id, db)
     
     return {"status": "success", "id": str(db_reading.id)}
@@ -83,7 +83,7 @@ def ingest_sensor_batch(
     db.add_all(db_readings)
     db.commit()
     
-    from app.api.main import evaluate_field_recalculation
+    from app.api.tasks import evaluate_field_recalculation
     for field_id in field_ids:
         background_tasks.add_task(evaluate_field_recalculation, field_id, db)
         
