@@ -74,17 +74,11 @@ damaged by deep tillage during the off-season, the shell is treated as a disposa
 
 consumable and easily replaced.
 
-Elevated Mast & Antenna Array: Because the 2" shell is flush-mounted, the removable
-
-C&C Cap (attached to the internal sled) utilizes a 1" Pultruded Fiberglass Mast to elevate
-
-the antenna base 3 feet above the soil. This radio-transparent mast is topped with a 3-foot
-
-SS-304 stainless steel whip antenna featuring a heavy-duty spring base. This gives the VFA
-
-the RF clearance it needs to transmit over mature crop canopies while safely deflecting
-
-tractor booms and pivot tires.
+Low-Profile Antenna Mount: Because the 2" shell is flush-mounted 48 inches deep,
+the removable C&C Cap (attached to the internal sled) mounts a 3-foot SS-304
+stainless steel whip antenna directly to its base via a heavy-duty spring. The VFA
+no longer features an elevated fiberglass mast. This gives the VFA an exact
+3-foot profile above the soil, minimizing collision risk with tractor booms while remaining highly visible to the elevated PMT hub overhead for 900MHz FHSS chirps.
 
 Monolithic Chemical Fix (HDPE-to-HDPE): The outer shell is paired with a Custom
 
@@ -234,9 +228,6 @@ Housing 2" SCH 40 UV-HDPE (4ft Cut Flush Mount)
 Housing Custom HDPE Tapered Driving Tip
 (Mold-V5)
 
-Housing 1" Pultruded Fiberglass Mast (3.5ft
-Cut)
-
 Supplier / Scale
 Method
 
@@ -257,8 +248,8 @@ Dispensing
 Seals Viton (FKM) 2" O-Rings (2 units @
 $0.40/ea)
 
-Computing Custom VFA Relay & AES-256
-Encryption PCB
+Computing nRF52840 "Chirp" Logic Board (No
+Heavy Processing)
 
 OEM Rubber Fab
 (Bulk)
@@ -357,7 +348,7 @@ $14.00/ea *$42.00*
 
 $2.00/ea $4.00
 
-$159.65
+$154.15
 
 TOTAL Per Unit Hardware Cost
 (Absolute OEM Scale)
