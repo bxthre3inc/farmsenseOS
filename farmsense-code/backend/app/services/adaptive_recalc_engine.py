@@ -10,19 +10,19 @@ import numpy as np
 from sqlalchemy.orm import Session
 
 
-class RecalcMode(Enum):
-    """Operational modes for recalculation frequency"""
-    STABLE = "stable"          # 12 hour intervals
-    ACTIVE = "active"          # 15 minute intervals
-    CRITICAL = "critical"      # 1 minute intervals
-    OUT_OF_TURN = "out_of_turn"  # Immediate, event-driven
+class AttentionMode(Enum):
+    """Operational modes governed by Fisherman's Attention"""
+    DORMANT = "dormant"             # 4 hour intervals
+    ANTICIPATORY = "anticipatory"   # 60 minute intervals
+    RIPPLE = "ripple"               # 15 minute intervals
+    COLLAPSE = "collapse"           # 1 minute intervals
 
 
 @dataclass
 class FieldCondition:
     """Current field state for decision making"""
     field_id: str
-    current_mode: RecalcMode
+    current_mode: AttentionMode
     last_recalc: datetime
     
     # Moisture metrics
@@ -53,7 +53,7 @@ class FieldCondition:
 class RecalcDecision:
     """Output of decision engine"""
     should_recalculate: bool
-    new_mode: RecalcMode
+    new_mode: AttentionMode
     reason: str
     next_scheduled: datetime
     priority: int  # 1-5, higher = more urgent
@@ -164,7 +164,7 @@ class AdaptiveRecalculationEngine:
         if reasons:
             return RecalcDecision(
                 should_recalculate=True,
-                new_mode=RecalcMode.CRITICAL,
+                new_mode=AttentionMode.COLLAPSE,
                 reason=" | ".join(reasons),
                 next_scheduled=datetime.utcnow() + timedelta(minutes=1),
                 priority=5,
@@ -204,22 +204,22 @@ class AdaptiveRecalculationEngine:
         if reasons:
             return RecalcDecision(
                 should_recalculate=True,
-                new_mode=RecalcMode.OUT_OF_TURN,
+                new_mode=AttentionMode.RIPPLE,
                 reason=" | ".join(reasons),
-                next_scheduled=datetime.utcnow() + timedelta(minutes=5),  # Resume normal after event
+                next_scheduled=datetime.utcnow() + timedelta(minutes=15),  # Resume normal after event
                 priority=4,
                 trigger_type='out_of_turn_event'
             )
         
         return None
     
-    def _determine_mode(self, condition: FieldCondition) -> RecalcMode:
+    def _determine_mode(self, condition: FieldCondition) -> AttentionMode:
         """
         Determine appropriate recalculation mode based on field trends
         
-        STABLE (12h): Moisture stable, no irrigation, normal conditions
-        ACTIVE (15min): Irrigation active OR moisture trending OR moderate weather
-        CRITICAL (1min): Rapid changes OR stress conditions OR high volatility
+        DORMANT (4h): Moisture stable, no irrigation, normal conditions
+        ANTICIPATORY (60min): Moisture trending or moderate weather
+        RIPPLE/COLLAPSE: Handled by event triggers or extreme volatility
         """
         
         # Calculate volatility score (0-1)
@@ -255,16 +255,16 @@ class AdaptiveRecalculationEngine:
         
         # Mode determination thresholds
         if volatility_score > 0.7:
-            return RecalcMode.CRITICAL
+            return AttentionMode.COLLAPSE
         elif volatility_score > 0.3:
-            return RecalcMode.ACTIVE
+            return AttentionMode.ANTICIPATORY
         else:
-            return RecalcMode.STABLE
+            return AttentionMode.DORMANT
     
     def _is_recalc_due(
         self, 
-        current_mode: RecalcMode, 
-        new_mode: RecalcMode,
+        current_mode: AttentionMode, 
+        new_mode: AttentionMode,
         time_since_last: timedelta
     ) -> Tuple[bool, datetime]:
         """
@@ -273,16 +273,16 @@ class AdaptiveRecalculationEngine:
         """
         
         mode_intervals = {
-            RecalcMode.STABLE: timedelta(hours=12),
-            RecalcMode.ACTIVE: timedelta(minutes=15),
-            RecalcMode.CRITICAL: timedelta(minutes=1),
-            RecalcMode.OUT_OF_TURN: timedelta(minutes=1),  # Immediate
+            AttentionMode.DORMANT: timedelta(hours=4),
+            AttentionMode.ANTICIPATORY: timedelta(minutes=60),
+            AttentionMode.RIPPLE: timedelta(minutes=15),
+            AttentionMode.COLLAPSE: timedelta(minutes=1),
         }
         
         # Use the shorter interval if mode is changing
         interval = min(
-            mode_intervals.get(current_mode, timedelta(hours=12)),
-            mode_intervals.get(new_mode, timedelta(hours=12))
+            mode_intervals.get(current_mode, timedelta(hours=4)),
+            mode_intervals.get(new_mode, timedelta(hours=4))
         )
         
         is_due = time_since_last >= interval
@@ -290,13 +290,13 @@ class AdaptiveRecalculationEngine:
         
         return is_due, next_scheduled
     
-    def _calculate_priority(self, mode: RecalcMode, condition: FieldCondition) -> int:
+    def _calculate_priority(self, mode: AttentionMode, condition: FieldCondition) -> int:
         """Calculate urgency priority 1-5"""
         priority_map = {
-            RecalcMode.STABLE: 1,
-            RecalcMode.ACTIVE: 3,
-            RecalcMode.CRITICAL: 5,
-            RecalcMode.OUT_OF_TURN: 4,
+            AttentionMode.DORMANT: 1,
+            AttentionMode.ANTICIPATORY: 2,
+            AttentionMode.RIPPLE: 3,
+            AttentionMode.COLLAPSE: 5,
         }
         
         base_priority = priority_map[mode]
@@ -307,16 +307,16 @@ class AdaptiveRecalculationEngine:
         
         return base_priority
     
-    def _generate_reason(self, condition: FieldCondition, new_mode: RecalcMode) -> str:
+    def _generate_reason(self, condition: FieldCondition, new_mode: AttentionMode) -> str:
         """Generate human-readable reason for recalculation"""
         
         reasons = [f"Mode: {new_mode.value}"]
         
-        if new_mode == RecalcMode.CRITICAL:
+        if new_mode == AttentionMode.COLLAPSE:
             reasons.append(f"High volatility detected")
             if condition.irrigation_active:
                 reasons.append("Active irrigation")
-        elif new_mode == RecalcMode.ACTIVE:
+        elif new_mode == AttentionMode.ANTICIPATORY:
             if condition.irrigation_active:
                 reasons.append("Irrigation in progress")
             reasons.append(f"Moisture trend: {condition.moisture_trend_1h:+.1f}%/h")

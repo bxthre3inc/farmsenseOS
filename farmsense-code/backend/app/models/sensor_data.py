@@ -139,7 +139,7 @@ class VirtualSensorGrid20m(Base):
     irrigation_need = Column(String(20))  # none, low, medium, high, critical
     
     # Computation metadata
-    computation_mode = Column(String(20))  # stable, active, critical, out_of_turn
+    computation_mode = Column(String(20))  # dormant, anticipatory, ripple, collapse
     source_sensors = Column(JSON)  # List of contributing sensor IDs
     confidence = Column(Float)  # 0-1 interpolation confidence
     

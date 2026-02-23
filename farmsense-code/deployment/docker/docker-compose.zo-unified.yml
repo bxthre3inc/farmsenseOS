@@ -32,7 +32,7 @@ services:
       - farmsense-net
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-farmsense_user} -d farmsense_core"]
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-farmsense_user} -d farmsense_core" ]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -101,18 +101,49 @@ services:
     restart: unless-stopped
 
   map-service:
-    image: farmsense-backend:latest 
+    image: farmsense-backend:latest
     build: ../../backend
     environment:
       DATABASE_URL: postgresql://${MAP_DB_USER:-map_user}:${MAP_DB_PASSWORD:-changeme}@postgis-map:5432/farmsense_map
       MAP_DATABASE_URL: postgresql://${MAP_DB_USER:-map_user}:${MAP_DB_PASSWORD:-changeme}@postgis-map:5432/farmsense_map
     ports:
-      - "8001:8000" 
+      - "8001:8000"
     networks:
       - farmsense-net
     depends_on:
       postgis-map:
         condition: service_healthy
+    restart: unless-stopped
+
+  # === Simulation Layer ===
+  environment-simulator:
+    build: ../../environment-simulator
+    image: farmsense-env-sim:latest
+    environment:
+      FARMSENSE_BACKEND_URL: http://backend:8000
+    ports:
+      - "8002:8002"
+    networks:
+      - farmsense-net
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  sensor-emulator:
+    build:
+      context: ../../
+      dockerfile: sensor-emulator/Dockerfile
+    image: farmsense-sensor-emu:latest
+    environment:
+      FARMSENSE_BACKEND_URL: http://backend:8000
+      TIME_MULTIPLIER: 1.0
+    ports:
+      - "8003:8003"
+    networks:
+      - farmsense-net
+    depends_on:
+      - backend
+      - environment-simulator
     restart: unless-stopped
 
   # === Presentation & Proxy Layer ===
@@ -187,6 +218,7 @@ volumes:
   postgres_map_data:
   postgres_core_data:
   timescale_data:
+
 
 networks:
   farmsense-net:
