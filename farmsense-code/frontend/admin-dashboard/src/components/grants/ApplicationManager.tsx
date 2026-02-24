@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { Plus, FileText, Calendar, ChevronRight, X, Paperclip, DollarSign } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Plus, FileText, Calendar, ChevronRight, X, Paperclip, DollarSign, Save, Clock } from 'lucide-react';
+import { useGrantProfile, saveDraft, getDraft, getDraftIds, deleteDraft } from '../../data/grant-profile';
+import type { ApplicationDraft } from '../../data/grant-profile';
 
 type Stage = 'Identified' | 'Drafting' | 'Submitted' | 'Under Review' | 'Awarded' | 'Rejected';
 
@@ -15,6 +17,7 @@ interface Application {
     notes: string;
     docs: string[];
     contacts: { name: string; role: string; email: string }[];
+    draftSavedAt?: string;
 }
 
 const STAGES: Stage[] = ['Identified', 'Drafting', 'Submitted', 'Under Review', 'Awarded', 'Rejected'];
@@ -39,87 +42,182 @@ const STAGE_HEADER: Record<Stage, string> = {
 
 function daysUntil(d: string) { return Math.ceil((new Date(d).getTime() - Date.now()) / 86400000); }
 function fmtAsk(n: number) { return n >= 1e6 ? `$${(n / 1e6).toFixed(1)}M` : `$${(n / 1000).toFixed(0)}K`; }
+function fmtSavedAt(iso: string) {
+    return new Date(iso).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+}
 
 const SEED_APPS: Application[] = [
     { id: 'APP-001', grant: 'DoD ESTCP — Water Resilience', agency: 'DoD ESTCP', ask: 2400000, deadline: '2026-03-26', stage: 'Drafting', owner: 'Admin', completionPct: 62, notes: 'Pre-proposal drafted. Need Fort Carson POC for site access section.', docs: ['ESTCP_PreProposal_Draft.md', 'Budget_Narrative_v1.xlsx'], contacts: [{ name: 'Col. R. Martinez', role: 'ESTCP Program Manager', email: 'r.martinez@estcp.osd.mil' }] },
-    { id: 'APP-002', grant: 'LOR Foundation — Initial Introduction', agency: 'LOR Foundation', ask: 0, deadline: '2026-02-26', stage: 'Under Review', owner: 'Admin', completionPct: 80, notes: 'First call Thursday Feb 26. Call brief prepared.', docs: ['LOR_Foundation_Call_Brief.md'], contacts: [{ name: 'Program Officer (TBD)', role: 'Water Program', email: '' }] },
-    { id: 'APP-003', grant: 'USDA NRCS EQIP — Water Conservation', agency: 'USDA NRCS', ask: 300000, deadline: '2026-04-15', stage: 'Identified', owner: 'Admin', completionPct: 10, notes: 'Need to identify local NRCS office contact.', docs: [], contacts: [] },
+    { id: 'APP-002', grant: 'LOR Foundation — Introduction Call', agency: 'LOR Foundation', ask: 0, deadline: '2026-02-26', stage: 'Under Review', owner: 'Admin', completionPct: 80, notes: 'First call Thursday Feb 26. Call brief prepared.', docs: ['LOR_Foundation_Call_Brief.md'], contacts: [{ name: 'Program Officer (TBD)', role: 'Water Program', email: '' }] },
+    { id: 'APP-003', grant: 'USDA NRCS EQIP — Water Conservation', agency: 'USDA NRCS EQIP', ask: 300000, deadline: '2026-04-15', stage: 'Identified', owner: 'Admin', completionPct: 10, notes: 'Need to identify local NRCS office contact.', docs: [], contacts: [] },
 ];
 
 function UrgencyDot({ deadline }: { deadline: string }) {
     const d = daysUntil(deadline);
     const color = d <= 14 ? 'bg-red-500' : d <= 30 ? 'bg-amber-400' : d <= 60 ? 'bg-blue-400' : 'bg-slate-600';
-    return <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${color}`} title={`${d} days`} />;
+    return <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${color}`} />;
 }
 
 export const ApplicationManager: React.FC = () => {
     const [apps, setApps] = useState<Application[]>(SEED_APPS);
     const [selected, setSelected] = useState<Application | null>(null);
     const [showNew, setShowNew] = useState(false);
-    const [newForm, setNewForm] = useState({ grant: '', agency: '', ask: '', deadline: '', owner: 'Admin' });
+    const { field: profileField, setField: setProfileField } = useGrantProfile();
+
+    // Form state — prefilled from grant profile
+    const [newForm, setNewForm] = useState({
+        grant: '',
+        agency: profileField('default_agency'),
+        ask: '',
+        deadline: '',
+        owner: profileField('pi_name') || profileField('owner') || 'Admin',
+        notes: '',
+    });
+
+    // Load drafts from localStorage on mount
+    useEffect(() => {
+        const draftIds = getDraftIds();
+        const restored: Application[] = [];
+        for (const id of draftIds) {
+            const d = getDraft(id);
+            if (!d) continue;
+            // Only restore if not already in apps list
+            if (apps.some(a => a.id === id)) continue;
+            restored.push({
+                id: d.id,
+                grant: d.grant,
+                agency: d.agency,
+                ask: Number(d.ask.replace(/[^0-9]/g, '')) || 0,
+                deadline: d.deadline,
+                stage: 'Drafting',
+                owner: d.owner,
+                completionPct: 0,
+                notes: d.notes,
+                docs: [],
+                contacts: [],
+                draftSavedAt: d.savedAt,
+            });
+        }
+        if (restored.length > 0) {
+            setApps(prev => [...prev, ...restored]);
+        }
+    }, []);
+
+    // Prefill form from profile when opening new form
+    const openNewForm = () => {
+        setNewForm({
+            grant: '',
+            agency: profileField('default_agency'),
+            ask: '',
+            deadline: '',
+            owner: profileField('pi_name') || profileField('owner') || 'Admin',
+            notes: '',
+        });
+        setShowNew(true);
+    };
+
+    const handleFormChange = (key: keyof typeof newForm, value: string) => {
+        setNewForm(f => ({ ...f, [key]: value }));
+        // Auto-save relevant fields to grant profile
+        if (key === 'agency') setProfileField('default_agency', value);
+        if (key === 'owner') setProfileField('owner', value);
+    };
+
+    const handleSaveDraft = () => {
+        const id = `DRAFT-${Date.now()}`;
+        const draft: ApplicationDraft = {
+            id, grant: newForm.grant, agency: newForm.agency,
+            ask: newForm.ask, deadline: newForm.deadline,
+            owner: newForm.owner, notes: newForm.notes,
+            savedAt: new Date().toISOString(),
+        };
+        saveDraft(draft);
+        const app: Application = {
+            id, grant: newForm.grant, agency: newForm.agency,
+            ask: Number(newForm.ask.replace(/[^0-9]/g, '')) || 0,
+            deadline: newForm.deadline, stage: 'Drafting',
+            owner: newForm.owner, completionPct: 0,
+            notes: newForm.notes, docs: [], contacts: [],
+            draftSavedAt: draft.savedAt,
+        };
+        setApps(prev => [...prev, app]);
+        setShowNew(false);
+    };
+
+    const handleCreate = () => {
+        const id = `APP-${String(apps.length + 1).padStart(3, '0')}`;
+        const app: Application = {
+            id, grant: newForm.grant, agency: newForm.agency,
+            ask: Number(newForm.ask.replace(/[^0-9]/g, '')) || 0,
+            deadline: newForm.deadline, stage: 'Identified',
+            owner: newForm.owner, completionPct: 0,
+            notes: newForm.notes, docs: [], contacts: [],
+        };
+        setApps(prev => [...prev, app]);
+        setShowNew(false);
+    };
 
     const moveApp = (id: string, direction: 1 | -1) => {
         setApps(prev => prev.map(a => {
             if (a.id !== id) return a;
             const idx = STAGES.indexOf(a.stage);
             const next = STAGES[Math.max(0, Math.min(STAGES.length - 1, idx + direction))];
-            return { ...a, stage: next };
+            // Remove from draft store if advancing past Drafting
+            if (next !== 'Identified' && next !== 'Drafting') deleteDraft(id);
+            return { ...a, stage: next, draftSavedAt: undefined };
         }));
-    };
-
-    const handleCreate = () => {
-        const app: Application = {
-            id: `APP-${String(apps.length + 1).padStart(3, '0')}`,
-            grant: newForm.grant,
-            agency: newForm.agency,
-            ask: Number(newForm.ask.replace(/[^0-9]/g, '')),
-            deadline: newForm.deadline,
-            stage: 'Identified',
-            owner: newForm.owner,
-            completionPct: 0,
-            notes: '',
-            docs: [],
-            contacts: [],
-        };
-        setApps(prev => [...prev, app]);
-        setShowNew(false);
-        setNewForm({ grant: '', agency: '', ask: '', deadline: '', owner: 'Admin' });
     };
 
     return (
         <div className="space-y-4">
             <div className="flex items-center justify-between">
-                <p className="text-xs text-slate-500">{apps.length} applications tracked</p>
-                <button onClick={() => setShowNew(true)}
+                <p className="text-xs text-slate-500">{apps.length} applications tracked · {getDraftIds().length} drafts saved</p>
+                <button onClick={openNewForm}
                     className="flex items-center gap-1.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-500 px-3 py-1.5 rounded-lg transition-colors">
                     <Plus className="w-3.5 h-3.5" /> Add Application
                 </button>
             </div>
 
-            {/* New Application Modal */}
+            {/* New Application Form */}
             {showNew && (
                 <div className="bg-slate-900 border border-indigo-800/40 rounded-xl p-5 space-y-3">
                     <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest">New Application</p>
+                    <p className="text-[10px] text-slate-500">Fields prefilled from your grant profile. Every change saves automatically.</p>
                     <div className="grid grid-cols-2 gap-3">
-                        <input placeholder="Grant title" value={newForm.grant} onChange={e => setNewForm(f => ({ ...f, grant: e.target.value }))}
+                        <input placeholder="Grant title" value={newForm.grant}
+                            onChange={e => handleFormChange('grant', e.target.value)}
                             className="col-span-2 bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none" />
-                        <input placeholder="Agency" value={newForm.agency} onChange={e => setNewForm(f => ({ ...f, agency: e.target.value }))}
+                        <input placeholder="Agency / Funder" value={newForm.agency}
+                            onChange={e => handleFormChange('agency', e.target.value)}
                             className="bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none" />
-                        <input placeholder="Ask amount (e.g. $2.4M)" value={newForm.ask} onChange={e => setNewForm(f => ({ ...f, ask: e.target.value }))}
+                        <input placeholder="Ask amount (e.g. $2.4M)" value={newForm.ask}
+                            onChange={e => handleFormChange('ask', e.target.value)}
                             className="bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none" />
-                        <input type="date" value={newForm.deadline} onChange={e => setNewForm(f => ({ ...f, deadline: e.target.value }))}
+                        <input type="date" value={newForm.deadline}
+                            onChange={e => handleFormChange('deadline', e.target.value)}
                             className="bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none" />
-                        <input placeholder="Owner" value={newForm.owner} onChange={e => setNewForm(f => ({ ...f, owner: e.target.value }))}
+                        <input placeholder="Owner / PI" value={newForm.owner}
+                            onChange={e => handleFormChange('owner', e.target.value)}
                             className="bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none" />
+                        <textarea placeholder="Notes…" value={newForm.notes}
+                            onChange={e => handleFormChange('notes', e.target.value)} rows={2}
+                            className="col-span-2 bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 placeholder:text-slate-600 focus:outline-none resize-none" />
                     </div>
                     <div className="flex gap-2">
-                        <button onClick={handleCreate} className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-xs font-bold transition-colors">Create</button>
-                        <button onClick={() => setShowNew(false)} className="text-slate-400 border border-slate-700 px-4 py-2 rounded-lg text-xs font-bold hover:bg-slate-800 transition-colors">Cancel</button>
+                        <button onClick={handleCreate}
+                            className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded-lg text-xs font-bold transition-colors">
+                            Submit to Pipeline
+                        </button>
+                        <button onClick={handleSaveDraft}
+                            className="flex items-center gap-1.5 text-xs font-bold text-slate-300 border border-slate-700 px-3 py-2 rounded-lg hover:bg-slate-800 transition-colors">
+                            <Save className="w-3 h-3" /> Save Draft
+                        </button>
+                        <button onClick={() => setShowNew(false)} className="text-slate-500 text-xs px-3 py-2 hover:text-slate-300 transition-colors">Cancel</button>
                     </div>
                 </div>
             )}
 
-            {/* Kanban Columns */}
+            {/* Kanban */}
             <div className="grid grid-cols-2 xl:grid-cols-3 gap-3">
                 {STAGES.filter(s => s !== 'Rejected').map(stage => {
                     const stageApps = apps.filter(a => a.stage === stage);
@@ -142,7 +240,12 @@ export const ApplicationManager: React.FC = () => {
                                             <span><Calendar className="w-2.5 h-2.5 inline" />{daysUntil(app.deadline)}d</span>
                                             <span><Paperclip className="w-2.5 h-2.5 inline" />{app.docs.length}</span>
                                         </div>
-                                        <div className="mt-2 w-full bg-slate-800 rounded-full h-0.5">
+                                        {app.draftSavedAt && (
+                                            <div className="flex items-center gap-1 mt-1.5 text-[9px] text-blue-500/70">
+                                                <Clock className="w-2.5 h-2.5" /> Draft · saved {fmtSavedAt(app.draftSavedAt)}
+                                            </div>
+                                        )}
+                                        <div className="w-full bg-slate-800 rounded-full h-0.5 mt-2">
                                             <div className="h-0.5 rounded-full bg-indigo-500 transition-all" style={{ width: `${app.completionPct}%` }} />
                                         </div>
                                         <div className="flex gap-1 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -173,7 +276,14 @@ export const ApplicationManager: React.FC = () => {
             {selected && (
                 <div className="fixed inset-y-0 right-0 w-full max-w-md bg-slate-950 border-l border-slate-800 z-50 overflow-y-auto shadow-2xl">
                     <div className="flex items-center justify-between px-5 py-4 border-b border-slate-800">
-                        <p className="font-bold text-white text-sm">{selected.grant}</p>
+                        <div>
+                            <p className="font-bold text-white text-sm">{selected.grant}</p>
+                            {selected.draftSavedAt && (
+                                <p className="text-[10px] text-blue-400 flex items-center gap-1 mt-0.5">
+                                    <Clock className="w-2.5 h-2.5" /> Draft saved {fmtSavedAt(selected.draftSavedAt)}
+                                </p>
+                            )}
+                        </div>
                         <button onClick={() => setSelected(null)} className="text-slate-500 hover:text-white"><X className="w-5 h-5" /></button>
                     </div>
                     <div className="p-5 space-y-5">
@@ -189,9 +299,7 @@ export const ApplicationManager: React.FC = () => {
                         <div>
                             <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-2">Completion</p>
                             <div className="flex items-center gap-2">
-                                <div className="flex-1 bg-slate-800 rounded-full h-1.5">
-                                    <div className="h-1.5 rounded-full bg-indigo-500" style={{ width: `${selected.completionPct}%` }} />
-                                </div>
+                                <div className="flex-1 bg-slate-800 rounded-full h-1.5"><div className="h-1.5 rounded-full bg-indigo-500" style={{ width: `${selected.completionPct}%` }} /></div>
                                 <span className="text-xs font-mono text-white">{selected.completionPct}%</span>
                             </div>
                         </div>
@@ -204,13 +312,11 @@ export const ApplicationManager: React.FC = () => {
                         <div>
                             <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-2">Documents ({selected.docs.length})</p>
                             {selected.docs.length === 0 ? <p className="text-xs text-slate-600">No documents attached.</p> : (
-                                <ul className="space-y-1">
-                                    {selected.docs.map(d => (
-                                        <li key={d} className="flex items-center gap-2 text-xs text-slate-300 bg-slate-900 border border-slate-800 rounded-lg px-3 py-2">
-                                            <FileText className="w-3.5 h-3.5 text-slate-500 shrink-0" />{d}
-                                        </li>
-                                    ))}
-                                </ul>
+                                <ul className="space-y-1">{selected.docs.map(d => (
+                                    <li key={d} className="flex items-center gap-2 text-xs text-slate-300 bg-slate-900 border border-slate-800 rounded-lg px-3 py-2">
+                                        <FileText className="w-3.5 h-3.5 text-slate-500 shrink-0" />{d}
+                                    </li>
+                                ))}</ul>
                             )}
                         </div>
 
@@ -228,7 +334,7 @@ export const ApplicationManager: React.FC = () => {
                         </div>
 
                         <div className="flex gap-2 flex-wrap pt-2">
-                            <button onClick={() => moveApp(selected.id, 1)}
+                            <button onClick={() => { moveApp(selected.id, 1); setSelected(null); }}
                                 className="flex items-center gap-1.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-500 px-4 py-2 rounded-lg transition-colors">
                                 Advance Stage <ChevronRight className="w-3.5 h-3.5" />
                             </button>
