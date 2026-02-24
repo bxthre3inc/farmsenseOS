@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlaskConical, Play, ShieldCheck, Activity, BarChart2, BookOpen, ChevronRight, CheckCircle2, XCircle, HelpCircle, Loader2, AlertTriangle } from 'lucide-react';
+import { FlaskConical, Play, ShieldCheck, Activity, BarChart2, BookOpen, ChevronRight, CheckCircle2, XCircle, HelpCircle, Loader2 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 
 type ExperimentStatus = 'idle' | 'privacy_review' | 'training' | 'complete';
@@ -24,8 +24,8 @@ const MOCK_REGISTRY = [
 
 const StatusIcon = ({ s }: { s: ResultClass | string }) =>
     s === 'Confirmed' ? <CheckCircle2 className="w-4 h-4 text-emerald-400" /> :
-    s === 'Rejected' ? <XCircle className="w-4 h-4 text-red-400" /> :
-    <HelpCircle className="w-4 h-4 text-yellow-400" />;
+        s === 'Rejected' ? <XCircle className="w-4 h-4 text-red-400" /> :
+            <HelpCircle className="w-4 h-4 text-yellow-400" />;
 
 export const FederatedExperimentConsole: React.FC = () => {
     const [tab, setTab] = useState<'builder' | 'monitor' | 'results' | 'registry'>('builder');
@@ -170,7 +170,7 @@ export const FederatedExperimentConsole: React.FC = () => {
                                 </div>
                                 <div className="w-full bg-purple-950/50 rounded-full h-1.5"><div className="bg-purple-500 h-1.5 rounded-full transition-all" style={{ width: `${progress}%` }} /></div>
                                 <div className="grid grid-cols-3 gap-3">
-                                    {[{ label: 'Current Loss', value: trainingData.at(-1)?.loss ?? '—' }, { label: 'Accuracy', value: trainingData.at(-1)?.accuracy ?? '—' }, { label: 'ETA', value: status === 'complete' ? 'Done' : `~${Math.round((epochs - trainingData.length) * 0.08)}s` }].map(m => (
+                                    {[{ label: 'Current Loss', value: trainingData[trainingData.length - 1]?.loss ?? '—' }, { label: 'Accuracy', value: trainingData[trainingData.length - 1]?.accuracy ?? '—' }, { label: 'ETA', value: status === 'complete' ? 'Done' : `~${Math.round((epochs - trainingData.length) * 0.08)}s` }].map(m => (
                                         <div key={m.label} className="bg-black/40 rounded-xl border border-purple-900/30 p-4 text-center">
                                             <p className="text-2xl font-black font-mono text-white">{m.value}</p>
                                             <p className="text-[10px] font-bold text-purple-500 uppercase tracking-widest mt-1">{m.label}</p>
@@ -215,7 +215,7 @@ export const FederatedExperimentConsole: React.FC = () => {
                         ) : (
                             <>
                                 <div className="grid grid-cols-3 gap-3">
-                                    {[{ label:'RMSE', value:'0.038' }, { label:'R²', value:'0.944' }, { label:'AUC', value:'0.961' }].map(m => (
+                                    {[{ label: 'RMSE', value: '0.038' }, { label: 'R²', value: '0.944' }, { label: 'AUC', value: '0.961' }].map(m => (
                                         <div key={m.label} className="bg-black/40 rounded-xl border border-emerald-900/30 p-4 text-center">
                                             <p className="text-3xl font-black font-mono text-emerald-400">{m.value}</p>
                                             <p className="text-[10px] font-bold text-emerald-700 uppercase tracking-widest mt-1">{m.label}</p>
@@ -224,7 +224,7 @@ export const FederatedExperimentConsole: React.FC = () => {
                                 </div>
                                 <div className="bg-black/40 rounded-xl border border-purple-900/30 p-5 space-y-3">
                                     <p className="text-xs font-bold text-purple-400 uppercase tracking-widest">Feature Importance</p>
-                                    {[{ name:'VPD', pct:81 }, { name:'EC', pct:64 }, { name:'ET Forecast', pct:57 }, { name:'SMP', pct:43 }, { name:'Rainfall', pct:29 }].map(f => (
+                                    {[{ name: 'VPD', pct: 81 }, { name: 'EC', pct: 64 }, { name: 'ET Forecast', pct: 57 }, { name: 'SMP', pct: 43 }, { name: 'Rainfall', pct: 29 }].map(f => (
                                         <div key={f.name}>
                                             <div className="flex justify-between text-xs text-slate-400 mb-1"><span>{f.name}</span><span className="font-mono">{f.pct}%</span></div>
                                             <div className="w-full bg-purple-950/50 rounded-full h-1.5"><div className="bg-purple-500 h-1.5 rounded-full" style={{ width: `${f.pct}%` }} /></div>

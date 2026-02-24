@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GitBranch, BarChart2, Sigma, TrendingUp, Download, Hash } from 'lucide-react';
-import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Line, LineChart } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 
 type Tab = 'inputs' | 'trend' | 'variogram' | 'residual' | 'grid';
 

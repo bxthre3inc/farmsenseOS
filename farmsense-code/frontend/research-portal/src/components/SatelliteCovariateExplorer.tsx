@@ -22,7 +22,7 @@ const ALL_LAYERS: Layer[] = [
     { id: 'dem_twi', label: 'DEM TWI', source: 'DEM', color: '#e879f9', unit: 'idx', value: 7.4 },
 ];
 
-const GROUND_SENSORS = ['SMP (Bars)', 'SWC (%)', 'EC (dS/m)'];
+
 
 // Simple mock correlation matrix values
 const corrMatrix = [
