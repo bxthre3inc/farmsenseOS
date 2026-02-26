@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Target, AlertTriangle, Crosshair, Hexagon, Wifi, Battery, MapPin, Video } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { AlertTriangle, Crosshair, Hexagon, Wifi, Battery, MapPin, Video } from 'lucide-react';
 
 export const DroneARFeed = () => {
     const [glitch, setGlitch] = useState(false);

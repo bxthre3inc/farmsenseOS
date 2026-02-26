@@ -1,16 +1,15 @@
-import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { FlaskConical, Globe, BookOpen, BarChart2, Cpu, Layers, Database, Beaker } from 'lucide-react';
-import BasinAnalytics from '../research/BasinAnalytics';
-import FederatedExperimentConsole from '../research/FederatedExperimentConsole';
-import FieldTrialDesignEngine from '../research/FieldTrialDesignEngine';
-import LabIntegrationBridge from '../research/LabIntegrationBridge';
-import MatrixDataStream from '../research/MatrixDataStream';
-import OpenDataRepository from '../research/OpenDataRepository';
-import SatelliteCovariateExplorer from '../research/SatelliteCovariateExplorer';
-import SPACModelSandbox from '../research/SPACModelSandbox';
-import ZoKrigingWorksheetInspector from '../research/ZoKrigingWorksheetInspector';
-import ParameterDial from '../research/ParameterDial';
+import { BasinAnalytics } from '../research/BasinAnalytics';
+import { FederatedExperimentConsole } from '../research/FederatedExperimentConsole';
+import { FieldTrialDesignEngine } from '../research/FieldTrialDesignEngine';
+import { LabIntegrationBridge } from '../research/LabIntegrationBridge';
+import { MatrixDataStream } from '../research/MatrixDataStream';
+import { OpenDataRepository } from '../research/OpenDataRepository';
+import { SatelliteCovariateExplorer } from '../research/SatelliteCovariateExplorer';
+import { SPACModelSandbox } from '../research/SPACModelSandbox';
+import { ZoKrigingWorksheetInspector } from '../research/ZoKrigingWorksheetInspector';
+import { ParameterDial } from '../research/ParameterDial';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const TABS = [
@@ -53,8 +52,8 @@ export default function ResearchView() {
                     <Route path="opendata" element={<OpenDataRepository />} />
                     <Route path="basin" element={<BasinAnalytics />} />
                     <Route path="lab" element={<LabIntegrationBridge />} />
-                    <Route path="matrix" element={<MatrixDataStream />} />
-                    <Route path="params" element={<ParameterDial />} />
+                    <Route path="matrix" element={<MatrixDataStream isStreaming={true} />} />
+                    <Route path="params" element={<ParameterDial label="Mock Delta" value={42} min={0} max={100} unit="%" onChange={() => {}} />} />
                 </Routes>
             </div>
         </div>

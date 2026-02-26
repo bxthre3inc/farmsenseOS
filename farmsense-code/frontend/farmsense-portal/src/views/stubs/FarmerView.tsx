@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-import ARFieldVision from '../farmer/ARFieldVision';
+import { ARFieldVision } from '../farmer/ARFieldVision';
 import ForecastWidget from '../farmer/ForecastWidget';
-import HardwareDiagnostics from '../farmer/HardwareDiagnostics';
+import { HardwareDiagnostics } from '../farmer/HardwareDiagnostics';
 import TelemetryOverlay from '../farmer/TelemetryOverlay';
-import WeatherHUD from '../farmer/WeatherHUD';
+import { WeatherHUD } from '../farmer/WeatherHUD';
 import AgriMap from '../farmer/map/AgriMap';
 
 export default function FarmerView() {
@@ -19,7 +19,7 @@ export default function FarmerView() {
                     <AgriMap />
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                         <TelemetryOverlay />
-                        <HardwareDiagnostics />
+                        <HardwareDiagnostics onClose={() => { }} />
                     </div>
                 </div>
             } />

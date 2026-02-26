@@ -1,5 +1,5 @@
 
-import React, { useMemo, useState, useEffect, useRef, useCallback } from 'react';
+import { useMemo, useState, useEffect, useCallback } from 'react';
 import { Lock, Navigation, Layers, Droplets } from 'lucide-react';
 import Map, { Source, Layer, NavigationControl, ScaleControl, useControl } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -11,7 +11,7 @@ import { fields } from '../../../services/api';
 // Custom Mapbox Draw React hook
 function DrawControl(props: any) {
     useControl(
-        () => new MapboxDraw(props),
+        () => new MapboxDraw(props) as any,
         ({ map }) => {
             map.on('draw.create', props.onCreate);
             map.on('draw.update', props.onUpdate);
@@ -60,7 +60,7 @@ const AgriMap: React.FC<AgriMapProps> = ({
             setLoading(true);
             try {
                 // Fetching 20m grid for field_demo_001
-                const data = await fields.getGrid('field_demo_001', '20m');
+                const data = await fields.getGrid('field_demo_001', '20m') as any[];
 
                 // Convert to GeoJSON
                 const geojson = {
@@ -121,7 +121,6 @@ const AgriMap: React.FC<AgriMapProps> = ({
                 style={{ width: '100%', height: '100%' }}
                 mapStyle={style}
                 onMove={evt => setZoomLevel(evt.viewState.zoom)}
-                pitchWithGestures={true}
                 dragRotate={true}
                 maxPitch={85}
                 terrain={{ source: 'mapbox-dem', exaggeration: 1.5 }}
@@ -243,7 +242,7 @@ const AgriMap: React.FC<AgriMapProps> = ({
                                         <span className="w-3 h-3 rounded-full bg-[#ff0000] shadow-[0_0_8px_rgba(255,0,0,0.4)]"></span>
                                         <span className="text-sm font-medium text-gray-700">Critical Drought</span>
                                     </div>
-                                    <span className="text-xs text-gray-400">{'<'} 40%</span>
+                                    <span className="text-xs text-gray-400">&lt; 40%</span>
                                 </div>
                             </div>
 

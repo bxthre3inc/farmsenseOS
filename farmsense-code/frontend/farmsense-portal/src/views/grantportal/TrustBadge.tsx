@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle, Clock, ShieldCheck, Signature } from 'lucide-react';
+import { Clock, ShieldCheck, Signature } from 'lucide-react';
 
 interface TrustBadgeProps {
     status: 'pending' | 'signed' | 'verified';

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { TrendingUp, CloudRain, ThermometerSun, AlertTriangle, Loader2 } from 'lucide-react';
-import { getApiKey } from '../services/api';
+import { getApiKey } from '../../services/api';
 
 interface DailyForecast {
     day: number;

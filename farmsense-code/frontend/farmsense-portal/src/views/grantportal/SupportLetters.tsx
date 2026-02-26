@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
-import { FileText, Plus, CheckCircle, Clock, Send, X, ExternalLink } from 'lucide-react';
-import { api } from '../services/api';
+import { FileText, Plus, Send, X, ExternalLink } from 'lucide-react';
+import { api } from '../../services/api';
 import { TrustBadge } from './TrustBadge';
 
 interface SupportLetter {
@@ -30,7 +29,7 @@ const SupportLetters: React.FC = () => {
 
     const fetchLetters = async () => {
         try {
-            const data = await api.getSupportLetters('grant_001'); // Mocking grant_id for now
+            const data = await api.letters.getSupportLetters('grant_001') as SupportLetter[];
             setLetters(data);
         } catch (error) {
             console.error('Failed to fetch letters:', error);
@@ -45,7 +44,7 @@ const SupportLetters: React.FC = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            await api.requestSupportLetter('grant_001', {
+            await api.letters.requestSupportLetter('grant_001', {
                 ...newLetter,
                 grant_id: 'grant_001'
             });
@@ -61,7 +60,7 @@ const SupportLetters: React.FC = () => {
 
     const handleVerify = async (id: string) => {
         try {
-            await api.verifySupportLetter(id);
+            await api.letters.verifySupportLetter(id);
             fetchLetters();
         } catch (error) {
             console.error('Failed to verify letter:', error);

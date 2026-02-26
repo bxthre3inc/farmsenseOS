@@ -1,10 +1,16 @@
-
-import { ShieldCheck, TrendingUp, Users, Lock, ChevronRight, AlertCircle, CheckCircle2, RefreshCw } from 'lucide-react';
-import { api } from '../services/api';
+import React, { useState } from 'react';
+import { ShieldCheck, TrendingUp, Users, Lock, CheckCircle2, RefreshCw, Activity } from 'lucide-react';
+import { api } from '../../services/api';
 import { SeedAgreementPortal } from './SeedAgreementPortal';
 
+interface EquityStatus {
+    claimed_seats: number;
+    current_price: number;
+    total_group_interest: string;
+}
+
 export const EquityBuyIn: React.FC = () => {
-    const [equityStatus, setEquityStatus] = useState<any>({
+    const [equityStatus, setEquityStatus] = useState<EquityStatus>({
         claimed_seats: 12,
         current_price: 134.50,
         total_group_interest: "1%"
@@ -12,7 +18,11 @@ export const EquityBuyIn: React.FC = () => {
     const [amount, setAmount] = useState<number>(5000);
     const [isProcessing, setIsProcessing] = useState(false);
     const [showAgreement, setShowAgreement] = useState(false);
-    const [success, setSuccess] = useState<any>(null);
+    interface SuccessResult {
+        shares_issued: number;
+        audit_hash: string;
+    }
+    const [success, setSuccess] = useState<SuccessResult | null>(null);
 
     const handleInitiate = () => {
         setShowAgreement(true);
@@ -22,9 +32,9 @@ export const EquityBuyIn: React.FC = () => {
         setShowAgreement(false);
         setIsProcessing(true);
         try {
-            const result = await api.investorBuyIn(amount);
+            const result = await api.investor.buyIn(amount) as SuccessResult;
             setSuccess(result);
-            setEquityStatus(prev => ({
+            setEquityStatus((prev: EquityStatus) => ({
                 ...prev,
                 claimed_seats: prev.claimed_seats + 1,
                 current_price: prev.current_price * 1.025
@@ -92,7 +102,7 @@ export const EquityBuyIn: React.FC = () => {
                     ) : (
                         <button
                             disabled={isProcessing}
-                            onClick={handlePurchase}
+                            onClick={handleInitiate}
                             className="w-full bg-green-500 hover:bg-green-600 text-black py-4 rounded-xl font-black text-lg transition-all shadow-xl shadow-green-500/20 flex items-center justify-center gap-2 active:scale-[0.98]"
                         >
                             {isProcessing ? <RefreshCw className="animate-spin" /> : <TrendingUp className="w-5 h-5" />}
@@ -130,13 +140,21 @@ export const EquityBuyIn: React.FC = () => {
                         </div>
                         <div className="grid grid-cols-5 gap-1">
                             {[...Array(20)].map((_, i) => (
-                                <div key={i} className={`h-1 rounded-full ${i < equityStatus.claimed_seats / 5 ? 'bg-green-500 shadow-lg shadow-green-500/20' : 'bg-neutral-800'}`} />
+                                <div key={i} className={`h - 1 rounded - full ${ i < equityStatus.claimed_seats / 5 ? 'bg-green-500 shadow-lg shadow-green-500/20' : 'bg-neutral-800' } `} />
                             ))}
                         </div>
                         <p className="text-[10px] text-neutral-600 mt-2 font-medium">Progress to 1% Group Saturation</p>
                     </div>
                 </div>
             </div>
+            {showAgreement && (
+                <SeedAgreementPortal
+                    shares={Math.floor(amount / equityStatus.current_price)}
+                    price={equityStatus.current_price}
+                    onSigned={handleFinalExecution}
+                    onCancel={() => setShowAgreement(false)}
+                />
+            )}
         </div>
     );
 };

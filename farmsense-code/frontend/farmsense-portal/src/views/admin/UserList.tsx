@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Users, Shield, Award, RefreshCw, Search, Filter, UserPlus, Mail, Building2 } from 'lucide-react';
-import { api } from '../services/api';
+import { api } from '../../services/api';
 import { UserModal } from './UserModal';
 
 interface User {

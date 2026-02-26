@@ -1,7 +1,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { FileCheck, PenTool, X, CheckCircle2, ShieldCheck, Download, Mail, RefreshCw } from 'lucide-react';
-import { api } from '../services/api';
+import { api } from '../../services/api';
 
 export const SignaturePortal: React.FC<{ token: string }> = ({ token }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);

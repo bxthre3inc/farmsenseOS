@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-import ComplianceList from '../regulatory/ComplianceList';
-import IntegrityChainVisualizer from '../regulatory/IntegrityChainVisualizer';
-import EconomicImpact from '../regulatory/EconomicImpact';
-import ScientificValidation from '../regulatory/ScientificValidation';
-import DroneARFeed from '../regulatory/DroneARFeed';
+import { ComplianceList } from '../regulatory/ComplianceList';
+import { IntegrityChainVisualizer } from '../regulatory/IntegrityChainVisualizer';
+import { EconomicImpact } from '../regulatory/EconomicImpact';
+import { ScientificValidation } from '../regulatory/ScientificValidation';
+import { DroneARFeed } from '../regulatory/DroneARFeed';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ShieldCheck, Link, BarChart2, Microscope, Video } from 'lucide-react';
 

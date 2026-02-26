@@ -1,17 +1,14 @@
-
-import React, { useState, useEffect } from 'react';
-import { ShieldCheck, Database, Activity, Thermometer, Droplets, AlertTriangle } from 'lucide-react';
-import { api } from '../services/api';
+import React, { useState } from 'react';
+import { Activity, Database, Droplets, AlertTriangle, ShieldCheck } from 'lucide-react';
 
 export const ScientificValidation: React.FC = () => {
-    const [stats, setStats] = useState<any>({
+    const [stats] = useState<any>({
         r_squared: 0.942,
         mean_absolute_error: 0.015,
         confidence_interval: 98.4,
         validation_nodes: 124
     });
 
-    // Mocking the "Scientific" data that Harold needs to see
     const comparisonData = [
         { grid_id: 'G-001', fusion: 0.324, physical: 0.321, residual: 0.003, confidence: 0.98 },
         { grid_id: 'G-002', fusion: 0.285, physical: 0.288, residual: -0.003, confidence: 0.97 },
@@ -32,7 +29,6 @@ export const ScientificValidation: React.FC = () => {
                 </div>
             </div>
 
-            {/* Scientific Stats Grid */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Coefficient (R²)</p>
@@ -56,7 +52,6 @@ export const ScientificValidation: React.FC = () => {
                 </div>
             </div>
 
-            {/* Residual Error Table */}
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
                 <div className="bg-slate-950 px-8 py-5 flex justify-between items-center">
                     <h3 className="text-white font-bold flex items-center gap-2">

@@ -1,12 +1,7 @@
-import UserList from './UserList';
-import UserModal from './UserModal';
-import SignaturePortal from './SignaturePortal';
-import { useState } from 'react';
+import { UserList } from '../admin/UserList';
 import { useNavigate } from 'react-router-dom';
 
 export default function AdminView() {
-    const [showModal, setShowModal] = useState(false);
-    const [selectedUser, setSelectedUser] = useState<any>(null);
     const navigate = useNavigate();
 
     return (
@@ -22,23 +17,10 @@ export default function AdminView() {
                         className="text-xs font-bold text-slate-400 bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg hover:text-white transition-colors">
                         Metrics
                     </button>
-                    <button
-                        onClick={() => { setSelectedUser(null); setShowModal(true); }}
-                        className="text-xs font-bold text-white bg-indigo-600 px-3 py-1.5 rounded-lg hover:bg-indigo-500 transition-colors">
-                        + New User
-                    </button>
                 </div>
             </div>
 
-            <UserList onEditUser={(u: any) => { setSelectedUser(u); setShowModal(true); }} />
-
-            {showModal && (
-                <UserModal
-                    user={selectedUser}
-                    onClose={() => setShowModal(false)}
-                    onSaved={() => { setShowModal(false); }}
-                />
-            )}
+            <UserList />
         </div>
     );
 }

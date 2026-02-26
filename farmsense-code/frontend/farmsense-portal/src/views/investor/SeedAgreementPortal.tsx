@@ -1,155 +1,166 @@
-
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import SignatureCanvas from 'react-signature-canvas';
-import { PenTool, X, CheckCircle2, ShieldCheck, Download, Mail, FileText, Activity, RefreshCw } from 'lucide-react';
-import { api } from '../services/api';
+import { PenTool, X, ShieldCheck, Download, FileText, Activity, RefreshCw } from 'lucide-react';
 
 interface AgreementProps {
     shares: number;
     price: number;
-    onSigned: () => void;
+    onSigned: (signature?: string) => void;
     onCancel: () => void;
 }
 
 export const SeedAgreementPortal: React.FC<AgreementProps> = ({ shares, price, onSigned, onCancel }) => {
-    const sigPad = useRef<any>(null);
+    const sigPad = useRef<SignatureCanvas | null>(null);
     const [isProcessing, setIsProcessing] = useState(false);
     const [agreed, setAgreed] = useState(false);
-    const [step, setStep] = useState(1);
 
     const total = shares * price;
 
     const save = async () => {
-        if (sigPad.current.isEmpty()) return;
+        if (sigPad.current && sigPad.current.isEmpty()) return;
         setIsProcessing(true);
         try {
-            const signature = sigPad.current.getTrimmedCanvas().toDataURL('image/png');
+            const signature = sigPad.current?.getTrimmedCanvas().toDataURL('image/png');
             // Mock API call for agreement signing
-            // await api.signEquityAgreement(signature);
             setTimeout(() => {
-                onSigned();
-            }, 1000);
+                onSigned(signature);
+                setIsProcessing(false);
+            }, 1500);
         } catch (error) {
-            console.error('Signing failed:', error);
-        } finally {
+            console.error('Failed to sign:', error);
             setIsProcessing(false);
         }
     };
 
+    const clear = () => {
+        sigPad.current?.clear();
+    };
+
     return (
-        <div className="fixed inset-0 bg-black/95 backdrop-blur-md z-[100] flex flex-col items-center justify-center p-4">
-            <div className="bg-neutral-900 border border-neutral-800 rounded-3xl w-full max-w-5xl h-[90vh] overflow-hidden flex flex-col shadow-2xl">
-                {/* Header */}
-                <div className="p-6 bg-neutral-800 border-b border-neutral-700 flex justify-between items-center">
-                    <div className="flex items-center gap-4">
-                        <div className="p-2 bg-green-500 rounded-lg text-black">
-                            <ShieldCheck className="w-5 h-5" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8">
+            <div className="bg-white w-full max-w-5xl rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row h-full max-h-[800px]">
+                {/* Left: Summary Panel */}
+                <div className="w-full md:w-1/3 bg-slate-900 p-8 text-white space-y-8 flex flex-col justify-between">
+                    <div className="space-y-6">
+                        <div className="flex items-center gap-3 text-indigo-400">
+                            <ShieldCheck className="w-8 h-8" />
+                            <span className="font-black tracking-widest uppercase text-xs">Agreement Vault</span>
                         </div>
-                        <div>
-                            <h3 className="text-xl font-bold text-white uppercase tracking-tighter">Seed Round Execution</h3>
-                            <p className="text-neutral-500 text-xs font-bold uppercase tracking-widest mt-0.5">FarmSense - The Deterministic Farming Operating System</p>
+                        <h2 className="text-3xl font-black leading-tight">Investment Summary</h2>
+                        <div className="space-y-4 pt-6">
+                            <div className="flex justify-between border-b border-white/10 pb-4">
+                                <span className="text-slate-400 font-bold">Equity Units</span>
+                                <span className="font-mono text-xl">{shares.toLocaleString()}</span>
+                            </div>
+                            <div className="flex justify-between border-b border-white/10 pb-4">
+                                <span className="text-slate-400 font-bold">Unit Price</span>
+                                <span className="font-mono text-xl">${price.toFixed(2)}</span>
+                            </div>
+                            <div className="flex justify-between pt-4">
+                                <span className="text-indigo-400 font-black uppercase text-xs">Total Commitment</span>
+                                <span className="text-2xl font-black text-indigo-400">${total.toLocaleString()}</span>
+                            </div>
                         </div>
                     </div>
-                    <button onClick={onCancel} className="p-2 hover:bg-neutral-700 rounded-full transition-colors text-neutral-400">
-                        <X className="w-6 h-6" />
-                    </button>
+
+                    <div className="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-3">
+                        <div className="flex items-center gap-2 text-xs font-black uppercase text-slate-400">
+                            <Activity className="w-4 h-4" /> Real-time Attestation
+                        </div>
+                        <p className="text-[10px] text-slate-500 leading-relaxed">
+                            This signature will be cryptographically bound to your session ID and the current block hash.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="flex-1 overflow-auto flex flex-col md:flex-row">
-                    {/* Document View */}
-                    <div className="flex-1 p-8 md:p-12 bg-white text-slate-800 font-serif overflow-auto">
-                        <div className="max-w-2xl mx-auto space-y-8 text-sm">
-                            <div className="text-center font-black text-2xl uppercase tracking-tighter border-b-2 border-slate-900 pb-4 mb-10">
-                                Stock Purchase Agreement: Seed Round
+                {/* Right: Signature Area */}
+                <div className="flex-1 p-8 flex flex-col bg-slate-50 relative overflow-y-auto">
+                    <button
+                        onClick={onCancel}
+                        className="absolute right-8 top-8 text-slate-400 hover:text-slate-900 transition-colors"
+                    >
+                        <X className="w-8 h-8" />
+                    </button>
+
+                    <div className="flex-1 space-y-8">
+                        <div>
+                            <h3 className="text-2xl font-black text-slate-900">Legal Attestation</h3>
+                            <p className="text-slate-500 font-medium">Please review and sign the Seed Investment Agreement below.</p>
+                        </div>
+
+                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 prose prose-slate max-w-none h-64 overflow-y-auto text-xs text-slate-600 space-y-4">
+                            <h4 className="font-black text-slate-900 uppercase">1. Investment Terms</h4>
+                            <p>The Investor hereby agrees to subscribe for and purchase the designated Equity Units of FarmSense OS (the "Company") at the specified Unit Price. This purchase is subject to the terms and conditions set forth in this Seed Investment Agreement and the Company's Bylaws.</p>
+                            <h4 className="font-black text-slate-900 uppercase">2. Representations</h4>
+                            <p>The Investor represents that they have such knowledge and experience in financial and business matters as to be capable of evaluating the merits and risks of this investment and are able to bear the economic risk of loss of their entire investment.</p>
+                            <h4 className="font-black text-slate-900 uppercase">3. Governing Law</h4>
+                            <p>This Agreement shall be governed by and construed in accordance with the laws of the State of Colorado, without giving effect to any choice or conflict of law provision or rule.</p>
+                        </div>
+
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between">
+                                <label className="flex items-center gap-3 cursor-pointer group">
+                                    <input
+                                        type="checkbox"
+                                        className="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                                        checked={agreed}
+                                        onChange={(e) => setAgreed(e.target.checked)}
+                                    />
+                                    <span className="text-xs font-bold text-slate-700 group-hover:text-slate-900 transition-colors">
+                                        I have read and agree to be bound by the terms above.
+                                    </span>
+                                </label>
+                                <button
+                                    onClick={clear}
+                                    className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600 flex items-center gap-1 transition-colors"
+                                >
+                                    <RefreshCw className="w-3 h-3" /> Clear Pad
+                                </button>
                             </div>
 
-                            <p className="font-bold">FarmSense - The Deterministic Farming Operating System</p>
-
-                            <section className="space-y-4">
-                                <h4 className="font-black text-xs uppercase tracking-widest text-slate-400">1. Investment Terms</h4>
-                                <p>This Agreement governs the purchase of Common Stock in the Company. The Investor agrees to purchase <span className="underline font-bold text-black">{shares.toLocaleString()}</span> shares at a price of <span className="underline font-bold text-black">${price.toFixed(2)}</span> per share, for a total investment of <span className="underline font-bold text-black">${total.toLocaleString()}</span>.</p>
-                            </section>
-
-                            <section className="space-y-4">
-                                <h4 className="font-black text-xs uppercase tracking-widest text-slate-400">2. Seed Objectives: Monte Vista HQ</h4>
-                                <p>The proceeds of this Seed Round are specifically earmarked for critical industrial infrastructure:</p>
-                                <ul className="list-disc pl-5 space-y-2">
-                                    <li><span className="font-bold">Aerial Intelligence:</span> Acquisition of DJI Mavic 3M Multispectral UAV hardware.</li>
-                                    <li><span className="font-bold">Monte Vista HQ:</span> Build-out of modular automated manufacturing and subterranean robotics R&D tunnels.</li>
-                                    <li><span className="font-bold">R&D Lab:</span> Development of hardware-agnostic, dual-use robotics IP for DoD and industrial sectors.</li>
-                                </ul>
-                            </section>
-
-                            <section className="space-y-4">
-                                <h4 className="font-black text-xs uppercase tracking-widest text-slate-400">3. The 1% Group Provision</h4>
-                                <p>The Investor is part of a collective 'Group 100' buy-in representing a combined 1.0% equity stake. Shares are issued on a price-increment curve to reward early stakeholders.</p>
-                            </section>
-
-                            <section className="space-y-4">
-                                <h4 className="font-black text-xs uppercase tracking-widest text-slate-400">4. Digital Handshake</h4>
-                                <p>This instrument is executed digitally. The resulting signature hash shall be legally binding and recorded in the FarmSense governance vault.</p>
-                            </section>
-
-                            <div className="h-40 border-t-2 border-slate-100 flex items-center justify-center text-slate-200">
-                                [Final Execution Block Below]
+                            <div className="relative bg-white rounded-3xl border-2 border-dashed border-slate-200 p-4 h-48 group hover:border-indigo-400 transition-colors">
+                                <SignatureCanvas
+                                    ref={sigPad}
+                                    canvasProps={{ className: "w-full h-full cursor-crosshair" }}
+                                />
+                                {!agreed && (
+                                    <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] rounded-3xl flex items-center justify-center">
+                                        <p className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                                            <PenTool className="w-4 h-4" /> Please Agree to terms first
+                                        </p>
+                                    </div>
+                                )}
                             </div>
                         </div>
                     </div>
 
-                    {/* Signature Panel */}
-                    <div className="w-full md:w-[400px] bg-neutral-900 p-8 flex flex-col gap-8 border-l border-neutral-800">
-                        <div className="space-y-2 text-center md:text-left">
-                            <h4 className="text-xl font-black text-white">Attest & Sign</h4>
-                            <p className="text-neutral-500 text-sm">Review the agreement above and provide your secure handwritten signature.</p>
-                        </div>
-
-                        <div className="bg-neutral-950 rounded-2xl border-2 border-dashed border-neutral-800 overflow-hidden relative group aspect-video">
-                            <SignatureCanvas
-                                ref={sigPad}
-                                penColor="white"
-                                canvasProps={{ width: 336, height: 200, className: 'sigCanvas' }}
-                            />
-                            <button
-                                onClick={() => sigPad.current.clear()}
-                                className="absolute right-3 top-3 p-2 bg-neutral-800 hover:bg-neutral-700 rounded-lg text-neutral-400 opacity-0 group-hover:opacity-100 transition-opacity"
-                            >
-                                <X className="w-3 h-3" />
-                            </button>
-                        </div>
-
-                        <div className="space-y-4 py-4">
-                            <div className="flex justify-between items-center bg-neutral-800/50 p-4 rounded-xl border border-neutral-700">
-                                <div className="text-xs font-bold text-neutral-400 uppercase">Total Commitment</div>
-                                <div className="text-lg font-black text-green-500">${total.toLocaleString()}</div>
-                            </div>
-
-                            <label className="flex items-start gap-3 cursor-pointer group">
-                                <input
-                                    type="checkbox"
-                                    checked={agreed}
-                                    onChange={(e) => setAgreed(e.target.checked)}
-                                    className="mt-1 w-4 h-4 rounded border-neutral-700 bg-neutral-950 text-green-500 focus:ring-green-500"
-                                />
-                                <span className="text-[10px] text-neutral-500 font-bold uppercase tracking-wider leading-relaxed group-hover:text-neutral-400">
-                                    I hereby confirm my intent to join FarmSense as a Seed Round Stakeholder and agree to the terms of the Stock Purchase Agreement as outlined.
-                                </span>
-                            </label>
-                        </div>
-
+                    <div className="mt-8 flex gap-4">
+                        <button
+                            onClick={onCancel}
+                            className="flex-1 py-4 bg-slate-200 text-slate-600 rounded-2xl font-black text-sm hover:bg-slate-300 transition-all active:scale-95"
+                        >
+                            Decline & Exit
+                        </button>
                         <button
                             disabled={!agreed || isProcessing}
                             onClick={save}
-                            className={`w-full py-5 rounded-2xl font-black text-lg transition-all shadow-xl flex items-center justify-center gap-3 active:scale-[0.98] ${agreed ? 'bg-green-500 text-black hover:bg-green-400' : 'bg-neutral-800 text-neutral-600 cursor-not-allowed'}`}
+                            className={`flex-[2] py-4 rounded-2xl font-black text-sm flex items-center justify-center gap-2 transition-all active:scale-95 shadow-xl
+                                ${agreed && !isProcessing
+                                    ? 'bg-indigo-600 text-white shadow-indigo-200 hover:bg-indigo-700'
+                                    : 'bg-slate-100 text-slate-400 shadow-none cursor-not-allowed'}`}
                         >
-                            {isProcessing ? <RefreshCw className="animate-spin" /> : <PenTool className="w-5 h-5" />}
-                            Execute Agreement
+                            {isProcessing ? (
+                                <>
+                                    <RefreshCw className="w-5 h-5 animate-spin" />
+                                    Attesting Identity...
+                                </>
+                            ) : (
+                                <>
+                                    <FileText className="w-5 h-5" />
+                                    Execute Agreement
+                                </>
+                            )}
                         </button>
-
-                        <div className="mt-auto flex justify-center gap-6 text-neutral-700">
-                            <FileText className="w-4 h-4" />
-                            <Activity className="w-4 h-4" />
-                            <Download className="w-4 h-4" />
-                        </div>
                     </div>
                 </div>
             </div>

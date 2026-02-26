@@ -12,7 +12,7 @@ export default function InvestorView() {
             <Route path="fleet" element={<HolographicGlobe />} />
             <Route path="milestones" element={<HQMilestones />} />
             <Route path="equity" element={<EquityBuyIn />} />
-            <Route path="seed" element={<SeedAgreementPortal />} />
+            <Route path="seed" element={<SeedAgreementPortal shares={100} price={134.5} onSigned={() => { }} onCancel={() => { }} />} />
         </Routes>
     );
 }

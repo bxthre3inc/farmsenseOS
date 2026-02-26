@@ -1,17 +1,24 @@
 
 import React, { useState, useEffect } from 'react';
-import { ShieldCheck, TrendingUp, Users, Lock, ChevronRight, Activity, Building2, Zap, Award, Mail } from 'lucide-react';
-import { api } from '../services/api';
+import { ShieldCheck, Users, Lock, ChevronRight, Activity, Building2, Zap, Award, CheckCircle2 } from 'lucide-react';
+import { api } from '../../services/api';
+
+interface PublicLetter {
+    id: string;
+    sender_name: string;
+    sender_organization: string;
+    content: string;
+    status: string;
+}
 
 export const InvestorLanding: React.FC<{ onExplore: () => void }> = ({ onExplore }) => {
-    const [publicLetters, setPublicLetters] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [publicLetters, setPublicLetters] = useState<PublicLetter[]>([]);
 
     useEffect(() => {
         // In a real app, fetch from /api/v1/public/letters
         setPublicLetters([
-            { id: 1, sender_name: "Zack Czernecki", sender_organization: "CSU SLV RC", status: "SIGNED" },
-            { id: 2, sender_name: "Regional Ag-Board", sender_organization: "Subdistrict 1", status: "SIGNED" }
+            { id: '1', sender_name: 'Dr. Sarah Chen', sender_organization: 'Global Research Initiative', content: 'Formal support for the FarmSense initiative... recognized critical need for soil telemetry...', status: 'verified' },
+            { id: '2', sender_name: 'Marcus Thorne', sender_organization: 'AgriTech Capital', content: 'We believe FarmSense has the potential to revolutionize agricultural data collection and analysis, offering unprecedented insights for sustainable farming practices.', status: 'verified' }
         ]);
         setLoading(false);
     }, []);
@@ -64,13 +71,17 @@ export const InvestorLanding: React.FC<{ onExplore: () => void }> = ({ onExplore
                             <div className="flex items-center gap-2 text-green-500 font-bold text-[10px] uppercase tracking-widest mb-6">
                                 <ShieldCheck className="w-4 h-4" /> Digitally Attested
                             </div>
-                            <h4 className="text-xl font-black text-white">{letter.sender_name}</h4>
-                            <div className="text-neutral-400 font-bold text-sm underline mb-6">{letter.sender_organization}</div>
-                            <p className="text-neutral-500 text-sm italic line-clamp-3">"Formal support for the FarmSense initiative... recognized critical need for soil telemetry..."</p>
-                            <div className="mt-8 pt-8 border-t border-neutral-800 flex justify-between items-center">
-                                <span className="text-[10px] font-black uppercase text-neutral-600">ID: FS-LOS-{letter.id}00X</span>
-                                <span className="text-green-500/80 font-black text-[10px] uppercase tracking-tighter">Status: {letter.status}</span>
+                            <div className="flex flex-col gap-2">
+                                <div className="flex items-center gap-2">
+                                    <CheckCircle2 className="w-4 h-4 text-green-500" />
+                                    <p className="text-[10px] text-indigo-400 font-bold uppercase tracking-wider">{letter.status ?? 'Verified'}</p>
+                                </div>
+                                <h4 className="text-sm font-black text-white leading-tight">{letter.sender_name}</h4>
+                                <p className="text-[10px] text-slate-400 font-medium">{letter.sender_organization}</p>
                             </div>
+                            <p className="text-xs text-slate-300 leading-relaxed italic line-clamp-3 mt-4">
+                                "{letter.content}"
+                            </p>
                         </div>
                     ))}
 

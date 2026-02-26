@@ -1,6 +1,4 @@
-
-import React from 'react';
-import { TrendingUp, Award, Shield, Landmark, Scale, ArrowUpRight } from 'lucide-react';
+import { Shield, Landmark, ArrowUpRight } from 'lucide-react';
 
 export const EconomicImpact = () => {
     return (

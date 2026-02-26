@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { PenTool, CheckCircle, AlertCircle, FileText } from 'lucide-react';
-import { api } from '../services/api';
+import { api } from '../../services/api';
 
 interface SupportLetter {
     id: string;
@@ -43,7 +43,7 @@ const SignLetter: React.FC<{ letterId: string }> = ({ letterId }) => {
         if (!signature.trim()) return;
         setStatus('loading');
         try {
-            await api.signSupportLetter(letterId, signature);
+            await api.letters.signSupportLetter(letterId, signature);
             setStatus('success');
         } catch (err) {
             setStatus('error');

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Globe, Activity, Network, Zap } from 'lucide-react';
+import { Globe, Shield, Activity, Share2 } from 'lucide-react';
 
 export const HolographicGlobe = () => {
     return (

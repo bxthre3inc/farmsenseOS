@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { X, Phone, Building2, Shield, Award, CheckCircle, AlertCircle, FileText } from 'lucide-react';
-import { api } from '../services/api';
+import { api } from '../../services/api';
 
 interface User {
     id: string;
