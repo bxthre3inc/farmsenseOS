@@ -1,26 +1,33 @@
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { UserList } from '../admin/UserList';
-import { useNavigate } from 'react-router-dom';
+import { AdminMetrics } from '../admin/AdminMetrics';
 
 export default function AdminView() {
     const navigate = useNavigate();
 
     return (
-        <div className="p-6 space-y-6">
-            <div className="flex items-center justify-between">
-                <div>
-                    <h1 className="text-xl font-black text-white">Admin Dashboard</h1>
-                    <p className="text-xs text-slate-500 mt-0.5">Hardware fleet, tenant management &amp; system metrics</p>
-                </div>
-                <div className="flex gap-2">
-                    <button
-                        onClick={() => navigate('/admin/metrics')}
-                        className="text-xs font-bold text-slate-400 bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg hover:text-white transition-colors">
-                        Metrics
-                    </button>
-                </div>
-            </div>
+        <Routes>
+            <Route index element={
+                <div className="p-6 space-y-6">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <h1 className="text-xl font-black text-white uppercase tracking-tighter">Admin Dashboard</h1>
+                            <p className="text-xs text-slate-500 mt-0.5">Hardware fleet, tenant management & system metrics</p>
+                        </div>
+                        <div className="flex gap-2">
+                            <button
+                                onClick={() => navigate('/admin/metrics')}
+                                className="text-xs font-bold text-indigo-400 bg-indigo-900/10 border border-indigo-500/20 px-4 py-2 rounded-xl hover:bg-indigo-900/20 transition-all uppercase tracking-widest">
+                                View Clusters
+                            </button>
+                        </div>
+                    </div>
 
-            <UserList />
-        </div>
+                    <UserList />
+                </div>
+            } />
+            <Route path="users" element={<UserList />} />
+            <Route path="metrics" element={<AdminMetrics />} />
+        </Routes>
     );
 }

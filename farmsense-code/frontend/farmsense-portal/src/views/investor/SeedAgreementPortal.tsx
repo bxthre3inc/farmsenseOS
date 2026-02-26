@@ -1,166 +1,105 @@
-import { useRef, useState } from 'react';
-import SignatureCanvas from 'react-signature-canvas';
-import { PenTool, X, ShieldCheck, Download, FileText, Activity, RefreshCw } from 'lucide-react';
+import { Shield, BarChart3, Globe, X } from 'lucide-react';
 
-interface AgreementProps {
-    shares: number;
-    price: number;
-    onSigned: (signature?: string) => void;
-    onCancel: () => void;
+interface SeedAgreementPortalProps {
+    shares?: number;
+    price?: number;
+    onSigned?: () => void;
+    onCancel?: () => void;
 }
 
-export const SeedAgreementPortal: React.FC<AgreementProps> = ({ shares, price, onSigned, onCancel }) => {
-    const sigPad = useRef<SignatureCanvas | null>(null);
-    const [isProcessing, setIsProcessing] = useState(false);
-    const [agreed, setAgreed] = useState(false);
-
-    const total = shares * price;
-
-    const save = async () => {
-        if (sigPad.current && sigPad.current.isEmpty()) return;
-        setIsProcessing(true);
-        try {
-            const signature = sigPad.current?.getTrimmedCanvas().toDataURL('image/png');
-            // Mock API call for agreement signing
-            setTimeout(() => {
-                onSigned(signature);
-                setIsProcessing(false);
-            }, 1500);
-        } catch (error) {
-            console.error('Failed to sign:', error);
-            setIsProcessing(false);
-        }
-    };
-
-    const clear = () => {
-        sigPad.current?.clear();
-    };
-
+export const SeedAgreementPortal: React.FC<SeedAgreementPortalProps> = ({ 
+    shares = 0, 
+    price = 0, 
+    onSigned, 
+    onCancel 
+}) => {
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-xl p-4 md:p-8">
-            <div className="bg-white w-full max-w-5xl rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row h-full max-h-[800px]">
-                {/* Left: Summary Panel */}
-                <div className="w-full md:w-1/3 bg-slate-900 p-8 text-white space-y-8 flex flex-col justify-between">
-                    <div className="space-y-6">
-                        <div className="flex items-center gap-3 text-indigo-400">
-                            <ShieldCheck className="w-8 h-8" />
-                            <span className="font-black tracking-widest uppercase text-xs">Agreement Vault</span>
-                        </div>
-                        <h2 className="text-3xl font-black leading-tight">Investment Summary</h2>
-                        <div className="space-y-4 pt-6">
-                            <div className="flex justify-between border-b border-white/10 pb-4">
-                                <span className="text-slate-400 font-bold">Equity Units</span>
-                                <span className="font-mono text-xl">{shares.toLocaleString()}</span>
-                            </div>
-                            <div className="flex justify-between border-b border-white/10 pb-4">
-                                <span className="text-slate-400 font-bold">Unit Price</span>
-                                <span className="font-mono text-xl">${price.toFixed(2)}</span>
-                            </div>
-                            <div className="flex justify-between pt-4">
-                                <span className="text-indigo-400 font-black uppercase text-xs">Total Commitment</span>
-                                <span className="text-2xl font-black text-indigo-400">${total.toLocaleString()}</span>
-                            </div>
-                        </div>
-                    </div>
+        <div className="fixed inset-0 z-[60] bg-slate-950/90 backdrop-blur-xl p-8 overflow-auto">
+            <div className="max-w-6xl mx-auto space-y-8 relative">
+                <button 
+                    onClick={onCancel}
+                    className="absolute -top-4 -right-4 p-3 bg-slate-900 border border-slate-800 rounded-full text-slate-400 hover:text-white transition-all z-10"
+                >
+                    <X className="w-6 h-6" />
+                </button>
 
-                    <div className="bg-white/5 p-6 rounded-2xl border border-white/10 space-y-3">
-                        <div className="flex items-center gap-2 text-xs font-black uppercase text-slate-400">
-                            <Activity className="w-4 h-4" /> Real-time Attestation
-                        </div>
-                        <p className="text-[10px] text-slate-500 leading-relaxed">
-                            This signature will be cryptographically bound to your session ID and the current block hash.
-                        </p>
+                <div className="flex items-center justify-between">
+                    <div>
+                        <h2 className="text-4xl font-black text-white tracking-tight">Seed Round A-1 Agreement</h2>
+                        <p className="text-slate-400 font-medium">Digital instrument for strategic capital allocation.</p>
+                        {shares > 0 && (
+                            <div className="mt-4 inline-flex items-center gap-4 bg-indigo-500/10 border border-indigo-500/20 px-4 py-2 rounded-xl">
+                                <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest">Execution Target:</span>
+                                <span className="text-white font-black">{shares.toLocaleString()} Shares @ ${price.toFixed(2)}</span>
+                            </div>
+                        )}
+                    </div>
+                    <div className="flex gap-4">
+                        <button 
+                            onClick={onCancel}
+                            className="px-6 py-3 bg-slate-900 border border-slate-800 text-slate-400 hover:text-white font-bold rounded-xl transition-all"
+                        >
+                            Decline
+                        </button>
+                        <button 
+                            onClick={onSigned}
+                            className="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-all shadow-xl shadow-indigo-900/20"
+                        >
+                            Authorize & Execute
+                        </button>
                     </div>
                 </div>
 
-                {/* Right: Signature Area */}
-                <div className="flex-1 p-8 flex flex-col bg-slate-50 relative overflow-y-auto">
-                    <button
-                        onClick={onCancel}
-                        className="absolute right-8 top-8 text-slate-400 hover:text-slate-900 transition-colors"
-                    >
-                        <X className="w-8 h-8" />
-                    </button>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="md:col-span-2 space-y-6">
+                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 space-y-6 font-serif text-slate-300 leading-relaxed shadow-2xl">
+                            <section className="space-y-4">
+                                <h3 className="text-white font-black text-xl tracking-wide uppercase border-b border-white/5 pb-4 font-sans">1. Allocation Summary</h3>
+                                <p>This document outlines the participation terms for the FarmSense (FS-1) Seed A-1 round. 
+                                   The deterministic telemetry infrastructure developed by FarmSense represents a paradigm shift in climate-resilient agriculture.</p>
+                            </section>
 
-                    <div className="flex-1 space-y-8">
-                        <div>
-                            <h3 className="text-2xl font-black text-slate-900">Legal Attestation</h3>
-                            <p className="text-slate-500 font-medium">Please review and sign the Seed Investment Agreement below.</p>
-                        </div>
+                            <section className="space-y-4 pt-6">
+                                <h3 className="text-white font-black text-xl tracking-wide uppercase border-b border-white/5 pb-4 font-sans">2. Deterministic Rights</h3>
+                                <p>Investors participating at the $1M+ Tier acquire direct node-governance rights and real-time access to the 0.7cm orthomosaic audit chain.</p>
+                            </section>
 
-                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 prose prose-slate max-w-none h-64 overflow-y-auto text-xs text-slate-600 space-y-4">
-                            <h4 className="font-black text-slate-900 uppercase">1. Investment Terms</h4>
-                            <p>The Investor hereby agrees to subscribe for and purchase the designated Equity Units of FarmSense OS (the "Company") at the specified Unit Price. This purchase is subject to the terms and conditions set forth in this Seed Investment Agreement and the Company's Bylaws.</p>
-                            <h4 className="font-black text-slate-900 uppercase">2. Representations</h4>
-                            <p>The Investor represents that they have such knowledge and experience in financial and business matters as to be capable of evaluating the merits and risks of this investment and are able to bear the economic risk of loss of their entire investment.</p>
-                            <h4 className="font-black text-slate-900 uppercase">3. Governing Law</h4>
-                            <p>This Agreement shall be governed by and construed in accordance with the laws of the State of Colorado, without giving effect to any choice or conflict of law provision or rule.</p>
-                        </div>
-
-                        <div className="space-y-4">
-                            <div className="flex items-center justify-between">
-                                <label className="flex items-center gap-3 cursor-pointer group">
-                                    <input
-                                        type="checkbox"
-                                        className="w-5 h-5 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                                        checked={agreed}
-                                        onChange={(e) => setAgreed(e.target.checked)}
-                                    />
-                                    <span className="text-xs font-bold text-slate-700 group-hover:text-slate-900 transition-colors">
-                                        I have read and agree to be bound by the terms above.
-                                    </span>
-                                </label>
-                                <button
-                                    onClick={clear}
-                                    className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-indigo-600 flex items-center gap-1 transition-colors"
-                                >
-                                    <RefreshCw className="w-3 h-3" /> Clear Pad
-                                </button>
-                            </div>
-
-                            <div className="relative bg-white rounded-3xl border-2 border-dashed border-slate-200 p-4 h-48 group hover:border-indigo-400 transition-colors">
-                                <SignatureCanvas
-                                    ref={sigPad}
-                                    canvasProps={{ className: "w-full h-full cursor-crosshair" }}
-                                />
-                                {!agreed && (
-                                    <div className="absolute inset-0 bg-white/60 backdrop-blur-[2px] rounded-3xl flex items-center justify-center">
-                                        <p className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                                            <PenTool className="w-4 h-4" /> Please Agree to terms first
-                                        </p>
-                                    </div>
-                                )}
+                            <div className="p-12 border-4 border-dashed border-slate-800 rounded-3xl flex flex-col items-center justify-center text-slate-600 font-sans">
+                                <Shield className="w-16 h-16 mb-4 opacity-20" />
+                                <p className="font-bold">Authorized Signature Required</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="mt-8 flex gap-4">
-                        <button
-                            onClick={onCancel}
-                            className="flex-1 py-4 bg-slate-200 text-slate-600 rounded-2xl font-black text-sm hover:bg-slate-300 transition-all active:scale-95"
-                        >
-                            Decline & Exit
-                        </button>
-                        <button
-                            disabled={!agreed || isProcessing}
-                            onClick={save}
-                            className={`flex-[2] py-4 rounded-2xl font-black text-sm flex items-center justify-center gap-2 transition-all active:scale-95 shadow-xl
-                                ${agreed && !isProcessing
-                                    ? 'bg-indigo-600 text-white shadow-indigo-200 hover:bg-indigo-700'
-                                    : 'bg-slate-100 text-slate-400 shadow-none cursor-not-allowed'}`}
-                        >
-                            {isProcessing ? (
-                                <>
-                                    <RefreshCw className="w-5 h-5 animate-spin" />
-                                    Attesting Identity...
-                                </>
-                            ) : (
-                                <>
-                                    <FileText className="w-5 h-5" />
-                                    Execute Agreement
-                                </>
-                            )}
-                        </button>
+                    <div className="space-y-6">
+                        <div className="bg-gradient-to-br from-indigo-900 to-slate-900 border border-indigo-500/20 rounded-2xl p-6 shadow-2xl">
+                            <BarChart3 className="w-8 h-8 text-indigo-400 mb-6" />
+                            <h4 className="text-white font-black mb-1 uppercase tracking-widest text-sm">Round Participation</h4>
+                            <p className="text-indigo-200 text-3xl font-black">$4.2M / $10M</p>
+                            <div className="w-full bg-slate-800 h-2 rounded-full mt-4 overflow-hidden">
+                                <div className="bg-indigo-500 h-full w-[42%] rounded-full shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
+                            </div>
+                        </div>
+
+                        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                            <h4 className="text-white font-black mb-4 uppercase tracking-widest text-xs flex items-center gap-2">
+                                <Globe className="w-4 h-4 text-cyan-400" /> Recent Commitments
+                            </h4>
+                            <div className="space-y-4">
+                                {[
+                                    { name: 'TerraCap Ventures', amount: '$500k', time: '2h ago' },
+                                    { name: 'AgriNext Equity', amount: '$1.2M', time: '6h ago' }
+                                ].map((c, i) => (
+                                    <div key={i} className="flex justify-between items-center border-b border-white/5 pb-4 last:border-0 last:pb-0">
+                                        <div>
+                                            <p className="text-sm font-bold text-white">{c.name}</p>
+                                            <p className="text-[10px] text-slate-500">{c.time}</p>
+                                        </div>
+                                        <div className="text-indigo-400 font-black">{c.amount}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

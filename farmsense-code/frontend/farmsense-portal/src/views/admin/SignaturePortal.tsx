@@ -35,7 +35,7 @@ export const SignaturePortal: React.FC<{ token: string }> = ({ token }) => {
         setIsProcessing(true);
         try {
             const signature = canvasRef.current?.toDataURL('image/png') || '';
-            await api.signLetter(token, signature);
+            await api.letters.sign(token, signature);
             setIsSigned(true);
         } catch (error) {
             console.error('Signing failed:', error);

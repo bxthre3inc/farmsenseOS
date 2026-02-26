@@ -61,7 +61,7 @@ const SupportLetters: React.FC = () => {
 
     const handleVerify = async (id: string) => {
         try {
-            await api.letters.verifySupportLetter(id);
+            await api.letters.verifySupportLetter(id, 'verified');
             fetchLetters();
         } catch (error) {
             console.error('Failed to verify letter:', error);

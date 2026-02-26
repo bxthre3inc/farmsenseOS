@@ -10,10 +10,12 @@ import { SatelliteCovariateExplorer } from '../research/SatelliteCovariateExplor
 import { SPACModelSandbox } from '../research/SPACModelSandbox';
 import { ZoKrigingWorksheetInspector } from '../research/ZoKrigingWorksheetInspector';
 import { ParameterDial } from '../research/ParameterDial';
+import { RawDataFeed } from '../research/RawDataFeed';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const TABS = [
-    { label: 'Kriging', path: '/research', icon: <Layers className="w-3.5 h-3.5" /> },
+    { label: 'Raw Feed', path: '/research', icon: <Database className="w-3.5 h-3.5" /> },
+    { label: 'Kriging', path: '/research/kriging', icon: <Layers className="w-3.5 h-3.5" /> },
     { label: 'Satellite', path: '/research/satellite', icon: <Globe className="w-3.5 h-3.5" /> },
     { label: 'Federated', path: '/research/federated', icon: <Cpu className="w-3.5 h-3.5" /> },
     { label: 'Field Trials', path: '/research/trials', icon: <FlaskConical className="w-3.5 h-3.5" /> },
@@ -44,7 +46,8 @@ export default function ResearchView() {
             <ResearchNav />
             <div className="flex-1 overflow-y-auto">
                 <Routes>
-                    <Route index element={<ZoKrigingWorksheetInspector />} />
+                    <Route index element={<RawDataFeed />} />
+                    <Route path="kriging" element={<ZoKrigingWorksheetInspector />} />
                     <Route path="satellite" element={<SatelliteCovariateExplorer />} />
                     <Route path="federated" element={<FederatedExperimentConsole />} />
                     <Route path="trials" element={<FieldTrialDesignEngine />} />
@@ -53,7 +56,7 @@ export default function ResearchView() {
                     <Route path="basin" element={<BasinAnalytics />} />
                     <Route path="lab" element={<LabIntegrationBridge />} />
                     <Route path="matrix" element={<MatrixDataStream isStreaming={true} />} />
-                    <Route path="params" element={<ParameterDial label="Mock Delta" value={42} min={0} max={100} unit="%" onChange={() => {}} />} />
+                    <Route path="params" element={<ParameterDial label="Mock Delta" value={42} min={0} max={100} unit="%" onChange={() => { }} />} />
                 </Routes>
             </div>
         </div>

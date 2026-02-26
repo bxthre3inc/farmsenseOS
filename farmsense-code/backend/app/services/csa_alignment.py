@@ -81,7 +81,7 @@ class CSAAlignmentService:
 
     @staticmethod
     def map_to_kriging_grid(
-        grid_base: "np.ndarray",  # Using string to avoid immediate numpy import in stubs
+        grid_base: "np.ndarray",
         nozzle_lat: float, 
         nozzle_lon: float, 
         applied_gallons: float,
@@ -89,6 +89,23 @@ class CSAAlignmentService:
     ):
         """
         Places the audited liquid volume into the 1m virtual grid used by the Zo Server.
+        grid_bounds: (min_lat, max_lat, min_lon, max_lon)
         """
-        # Logic to be integrated with `kriging_1m.py`
-        pass
+        import numpy as np
+        
+        min_lat, max_lat, min_lon, max_lon = grid_bounds
+        rows, cols = grid_base.shape
+        
+        # Linear mapping of GPS to grid indices
+        lat_step = (max_lat - min_lat) / rows
+        lon_step = (max_lon - min_lon) / cols
+        
+        row_idx = int((nozzle_lat - min_lat) / lat_step)
+        col_idx = int((nozzle_lon - min_lon) / lon_step)
+        
+        if 0 <= row_idx < rows and 0 <= col_idx < cols:
+            # Atomic add if this were high-concurrency, but for single-pass aggregation:
+            grid_base[row_idx, col_idx] += applied_gallons
+            return True
+        
+        return False

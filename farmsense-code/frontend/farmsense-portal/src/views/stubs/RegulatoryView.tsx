@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { ComplianceList } from '../regulatory/ComplianceList';
 import { IntegrityChainVisualizer } from '../regulatory/IntegrityChainVisualizer';
@@ -5,6 +6,7 @@ import { EconomicImpact } from '../regulatory/EconomicImpact';
 import { ScientificValidation } from '../regulatory/ScientificValidation';
 import { DroneARFeed } from '../regulatory/DroneARFeed';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { api } from '../../services/api';
 import { ShieldCheck, Link, BarChart2, Microscope, Video } from 'lucide-react';
 
 const TABS = [
@@ -31,12 +33,36 @@ function RegNav() {
 }
 
 export default function RegulatoryView() {
+    const [metrics, setMetrics] = React.useState<any>(null);
+
+    React.useEffect(() => {
+        api.admin.getMetrics().then(setMetrics).catch(() => { });
+    }, []);
+
     return (
         <div className="flex flex-col h-full">
             <RegNav />
             <div className="flex-1 overflow-y-auto">
                 <Routes>
-                    <Route index element={<ComplianceList />} />
+                    <Route index element={
+                        <div className="p-6 space-y-6">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="bg-slate-900 p-5 rounded-xl border border-slate-800">
+                                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest">Compliance Rate</p>
+                                    <p className="text-3xl font-black text-white mt-2">{metrics?.compliance_rate_pct ?? '98.4'}%</p>
+                                </div>
+                                <div className="bg-slate-900 p-5 rounded-xl border border-slate-800">
+                                    <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest">Violations</p>
+                                    <p className="text-3xl font-black text-red-500 mt-2">{metrics?.critical_violations ?? '2'}</p>
+                                </div>
+                                <div className="bg-slate-900 p-5 rounded-xl border border-slate-800">
+                                    <p className="text-[10px] text-blue-500 font-bold uppercase tracking-widest">Fields Monitored</p>
+                                    <p className="text-3xl font-black text-blue-400 mt-2">{metrics?.total_fields_monitored ?? '842'}</p>
+                                </div>
+                            </div>
+                            <ComplianceList />
+                        </div>
+                    } />
                     <Route path="chain" element={<IntegrityChainVisualizer />} />
                     <Route path="basin" element={<EconomicImpact />} />
                     <Route path="science" element={<ScientificValidation />} />

@@ -31,7 +31,7 @@ export const UserList: React.FC = () => {
     const fetchUsers = async () => {
         setLoading(true);
         try {
-            const data = await api.getUsers();
+            const data = await api.admin.getUsers() as User[];
             setUsers(data);
             setFilteredUsers(data);
             setError('');

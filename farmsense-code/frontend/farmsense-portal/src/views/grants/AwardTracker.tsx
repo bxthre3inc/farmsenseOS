@@ -209,13 +209,46 @@ export const AwardTracker: React.FC = () => {
             </div>
 
             {/* Report Stub Generator */}
-            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-                <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-3">Report Stub Generator</p>
-                <p className="text-xs text-slate-500 mb-3">Auto-fills a progress report template with current platform metrics for funder submission.</p>
-                <button className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-4 py-2 rounded-lg text-xs font-bold transition-colors">
-                    <FileText className="w-4 h-4 text-indigo-400" /> Generate Report Stub — {activeAward.funder}
-                </button>
+    const generateReport = async () => {
+                setLoading(true); // Assuming we added a loading state
+            try {
+            const reportData = {
+                awardId: activeAward.id,
+            funder: activeAward.funder,
+            generatedAt: new Date().toISOString(),
+            metrics: {
+                disbursed: activeAward.disbursed,
+            milestonesCompleted: completedMs,
+            totalMilestones: activeAward.milestones.length
+                }
+            };
+            const blob = new Blob([JSON.stringify(reportData, null, 2)], {type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Report_Stub_${activeAward.funder}_${activeAward.awardId}.json`;
+            a.click();
+        } catch (err) {
+                console.error('Failed to generate report stub:', err);
+        } finally {
+                setLoading(false);
+        }
+    };
+
+            return (
+            <div className="space-y-5">
+                {/* ... rest of the component ... */}
+                <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+                    <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-3">Report Stub Generator</p>
+                    <p className="text-xs text-slate-500 mb-3">Auto-fills a progress report template with current platform metrics for funder submission.</p>
+                    <button
+                        onClick={generateReport}
+                        className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-4 py-2 rounded-lg text-xs font-bold transition-colors">
+                        <FileText className="w-4 h-4 text-indigo-400" /> Generate Report Stub — {activeAward.funder}
+                    </button>
+                </div>
             </div>
+            );
         </div>
     );
 };

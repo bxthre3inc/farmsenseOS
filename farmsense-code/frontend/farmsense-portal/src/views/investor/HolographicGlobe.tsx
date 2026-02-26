@@ -1,4 +1,4 @@
-import { Globe, Activity, Network, Network as NetworkIcon } from 'lucide-react';
+import { Globe, Activity, Network as NetworkIcon } from 'lucide-react';
 
 export const HolographicGlobe = () => {
     return (

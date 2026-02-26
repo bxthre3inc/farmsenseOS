@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Target, Droplets, Leaf, Zap, Cpu } from 'lucide-react';
+import { Target, Droplets, Zap, Cpu } from 'lucide-react';
 
 export const ARFieldVision = () => {
     const [scanPosition, setScanPosition] = useState(0);

@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { ARFieldVision } from '../farmer/ARFieldVision';
 import ForecastWidget from '../farmer/ForecastWidget';
 import { HardwareDiagnostics } from '../farmer/HardwareDiagnostics';
-import TelemetryOverlay from '../farmer/TelemetryOverlay';
+import { TelemetryOverlay } from '../farmer/TelemetryOverlay';
 import { WeatherHUD } from '../farmer/WeatherHUD';
 import AgriMap from '../farmer/map/AgriMap';
 
