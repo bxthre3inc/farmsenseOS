@@ -116,7 +116,22 @@ export const HardwareDiagnostics: React.FC<HardwareDiagnosticsProps> = ({ onClos
                         </div>
 
                         <div className="pt-4 border-t border-white/5">
-                            <button className="w-full py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-colors border border-white/10 flex justify-center items-center gap-2 group">
+                            <button
+                                onClick={async () => {
+                                    const btn = document.activeElement as HTMLButtonElement;
+                                    if (!btn) return;
+                                    const originalText = btn.innerText;
+                                    btn.disabled = true;
+                                    btn.innerText = "Rebooting Node...";
+                                    // Simulate API call
+                                    await new Promise(r => setTimeout(r, 2000));
+                                    btn.innerText = "Reboot Successful";
+                                    setTimeout(() => {
+                                        btn.disabled = false;
+                                        btn.innerText = originalText;
+                                    }, 2000);
+                                }}
+                                className="w-full py-4 bg-slate-800 hover:bg-slate-700 disabled:opacity-50 text-white font-bold rounded-xl transition-colors border border-white/10 flex justify-center items-center gap-2 group">
                                 <Zap className="w-4 h-4 text-yellow-400 group-hover:scale-110 transition-transform" /> Reboot Sensor Node
                             </button>
                         </div>

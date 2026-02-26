@@ -108,4 +108,5 @@ export const ComplianceDashboard: React.FC = () => {
         </div>
     );
 };
-```
+
+export default ComplianceDashboard;

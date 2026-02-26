@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Trophy, AlertTriangle, CheckCircle2, DollarSign, FileText, Plus } from 'lucide-react';
+import { Trophy, AlertTriangle, CheckCircle2, DollarSign, FileText, Plus, RefreshCw } from 'lucide-react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface Milestone {
@@ -84,7 +84,7 @@ function MilestoneRow({ ms, onToggle }: { ms: Milestone; onToggle: () => void })
     );
 }
 
-export const AwardTracker: React.FC = () => {
+const AwardTrackerComponent: React.FC = () => {
     const [awards, setAwards] = useState<Award[]>(SEED_AWARDS);
     const [activeAward, setActiveAward] = useState<Award>(SEED_AWARDS[0]);
     const [showNewMs, setShowNewMs] = useState(false);
@@ -109,6 +109,34 @@ export const AwardTracker: React.FC = () => {
         }));
         setShowNewMs(false);
         setNewMs({ title: '', dueDate: '', reportRequired: false });
+    };
+
+    const [loading, setLoading] = useState(false);
+
+    const generateReport = async () => {
+        setLoading(true);
+        try {
+            const reportData = {
+                awardId: activeAward.id,
+                funder: activeAward.funder,
+                generatedAt: new Date().toISOString(),
+                metrics: {
+                    disbursed: activeAward.disbursed,
+                    milestonesCompleted: completedMs,
+                    totalMilestones: activeAward.milestones.length
+                }
+            };
+            const blob = new Blob([JSON.stringify(reportData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Report_Stub_${activeAward.funder}_${activeAward.awardId}.json`;
+            a.click();
+        } catch (err) {
+            console.error('Failed to generate report stub:', err);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const burn = burnData(activeAward.startDate, activeAward.totalAmount || 2400000, activeAward.disbursed || 0, activeAward.endDate);
@@ -209,48 +237,21 @@ export const AwardTracker: React.FC = () => {
             </div>
 
             {/* Report Stub Generator */}
-    const generateReport = async () => {
-                setLoading(true); // Assuming we added a loading state
-            try {
-            const reportData = {
-                awardId: activeAward.id,
-            funder: activeAward.funder,
-            generatedAt: new Date().toISOString(),
-            metrics: {
-                disbursed: activeAward.disbursed,
-            milestonesCompleted: completedMs,
-            totalMilestones: activeAward.milestones.length
-                }
-            };
-            const blob = new Blob([JSON.stringify(reportData, null, 2)], {type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Report_Stub_${activeAward.funder}_${activeAward.awardId}.json`;
-            a.click();
-        } catch (err) {
-                console.error('Failed to generate report stub:', err);
-        } finally {
-                setLoading(false);
-        }
-    };
-
-            return (
-            <div className="space-y-5">
-                {/* ... rest of the component ... */}
-                <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
-                    <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-3">Report Stub Generator</p>
-                    <p className="text-xs text-slate-500 mb-3">Auto-fills a progress report template with current platform metrics for funder submission.</p>
-                    <button
-                        onClick={generateReport}
-                        className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-4 py-2 rounded-lg text-xs font-bold transition-colors">
-                        <FileText className="w-4 h-4 text-indigo-400" /> Generate Report Stub — {activeAward.funder}
-                    </button>
-                </div>
+            <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
+                <p className="text-[10px] font-bold text-indigo-400 uppercase tracking-widest mb-3">Report Stub Generator</p>
+                <p className="text-xs text-slate-500 mb-3">Auto-fills a progress report template with current platform metrics for funder submission.</p>
+                <button
+                    onClick={generateReport}
+                    disabled={loading}
+                    className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 disabled:opacity-50 border border-slate-700 text-white px-4 py-2 rounded-lg text-xs font-bold transition-colors">
+                    {loading ? <RefreshCw className="w-4 h-4 animate-spin text-indigo-400" /> : <FileText className="w-4 h-4 text-indigo-400" />}
+                    {loading ? 'Generating...' : `Generate Report Stub — ${activeAward.funder}`}
+                </button>
             </div>
-            );
         </div>
     );
 };
 
-export default AwardTracker;
+export default function AwardTracker() {
+    return <AwardTrackerComponent />;
+}

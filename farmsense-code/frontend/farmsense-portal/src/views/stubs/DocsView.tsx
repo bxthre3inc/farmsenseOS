@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { useAuth } from '../../auth/AuthContext';
 import { DOCS_SECTIONS } from '../../auth/types';
-import { BookOpen, Lock } from 'lucide-react';
+import { BookOpen, Lock, ChevronRight } from 'lucide-react';
+import DocsPlaceholder from '../docs/DocsPlaceholder';
 
 const ALL_SECTIONS = [
     'Overview', 'Hardware Overview', 'Privacy Policy', 'Security Architecture',
@@ -16,10 +18,25 @@ const ALL_SECTIONS = [
 
 export default function DocsView() {
     const { user, activeRole } = useAuth();
+    const [selectedSection, setSelectedSection] = useState<string | null>(null);
 
     const allowed = user && activeRole
         ? new Set(DOCS_SECTIONS[activeRole])
         : new Set(DOCS_SECTIONS['PUBLIC']);
+
+    if (selectedSection) {
+        return (
+            <div className="min-h-screen bg-slate-950 px-8 py-10 max-w-4xl mx-auto">
+                <button
+                    onClick={() => setSelectedSection(null)}
+                    className="text-xs font-bold text-indigo-400 mb-6 flex items-center gap-1 hover:text-indigo-300 transition-colors"
+                >
+                    <ChevronRight className="w-4 h-4 rotate-180" /> Back to Documentation
+                </button>
+                <DocsPlaceholder title={selectedSection} />
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-slate-950 px-8 py-10 max-w-4xl mx-auto">
@@ -34,6 +51,7 @@ export default function DocsView() {
                     const accessible = allowed.has(section);
                     return (
                         <div key={section}
+                            onClick={() => accessible && setSelectedSection(section)}
                             className={`flex items-center gap-3 px-5 py-4 rounded-xl border transition-all ${accessible ? 'bg-slate-900 border-slate-700 hover:border-indigo-600/50 cursor-pointer' : 'bg-slate-950 border-slate-800 opacity-40 cursor-not-allowed'}`}>
                             {accessible
                                 ? <BookOpen className="w-4 h-4 text-indigo-400 shrink-0" />
@@ -42,6 +60,7 @@ export default function DocsView() {
                             {!accessible && (
                                 <span className="ml-auto text-[10px] font-bold text-slate-700">Requires elevated role</span>
                             )}
+                            {accessible && <ChevronRight className="ml-auto w-4 h-4 text-slate-700" />}
                         </div>
                     );
                 })}
