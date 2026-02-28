@@ -12,6 +12,7 @@ import {
     ShieldCheck
 } from 'lucide-react';
 import { useState } from 'react';
+import { useSession, signOut } from 'next-auth/react';
 
 const NAV_ITEMS = [
     { id: 'regional', label: 'Regional View', icon: LayoutDashboard, category: 'CORE' },
@@ -23,6 +24,7 @@ const NAV_ITEMS = [
 
 export default function TacticalSidebar() {
     const [active, setActive] = useState('regional');
+    const { data: session } = useSession();
 
     return (
         <aside className="w-64 h-full glass-panel !rounded-none border-r border-slate-800/80 flex flex-col z-10 transition-all duration-300">
@@ -50,8 +52,8 @@ export default function TacticalSidebar() {
                                     key={item.id}
                                     onClick={() => setActive(item.id)}
                                     className={`w-full group flex items-center justify-between px-3 py-2.5 rounded-lg transition-all duration-200 ${isActive
-                                            ? 'bg-tactical-blue/10 text-tactical-blue border border-tactical-blue/20'
-                                            : 'text-slate-500 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
+                                        ? 'bg-tactical-blue/10 text-tactical-blue border border-tactical-blue/20'
+                                        : 'text-slate-500 hover:text-slate-200 hover:bg-slate-800/40 border border-transparent'
                                         }`}
                                 >
                                     <div className="flex items-center gap-3">
@@ -72,13 +74,16 @@ export default function TacticalSidebar() {
                         <Users className="w-4 h-4 text-indigo-400" />
                     </div>
                     <div className="flex-1 min-w-0">
-                        <p className="text-[10px] font-black text-white truncate uppercase tracking-tighter">B. Thre3</p>
-                        <p className="text-[8px] text-slate-500 font-bold uppercase tracking-widest">Sovereign Admin</p>
+                        <p className="text-[10px] font-black text-white truncate uppercase tracking-tighter">{session?.user?.name || 'GUEST'}</p>
+                        <p className="text-[8px] text-slate-500 font-bold uppercase tracking-widest">{(session?.user as any)?.role || 'UNAUTHORIZED'}</p>
                     </div>
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
                 </div>
 
-                <button className="flex items-center gap-3 w-full px-4 py-2 text-[10px] font-bold text-slate-500 hover:text-red-400 hover:bg-red-500/5 rounded-lg transition-colors">
+                <button
+                    onClick={() => signOut()}
+                    className="flex items-center gap-3 w-full px-4 py-2 text-[10px] font-bold text-slate-500 hover:text-red-400 hover:bg-red-500/5 rounded-lg transition-colors"
+                >
                     <LogOut className="w-3.5 h-3.5" />
                     <span className="uppercase tracking-[0.2em]">Terminate Session</span>
                 </button>
