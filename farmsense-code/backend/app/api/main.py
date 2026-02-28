@@ -55,7 +55,8 @@ app.include_router(integration_router, prefix="/api/v1", tags=["Integration"])
 app.include_router(tiles.router, prefix="/api/v1", tags=["tiles"])
 
 # === Global WebSocket Real-time Endpoint ===
-JWT_SECRET = os.getenv("JWT_SECRET", "farm-sense-secret-key")
+# IMPORTANT: JWT_SECRET must match the NEXTAUTH_SECRET to validate tokens from the frontend
+JWT_SECRET = os.getenv("JWT_SECRET", "farmsense-tactical-secret-2026-v1-mvp")
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket, token: str = Query(None)):

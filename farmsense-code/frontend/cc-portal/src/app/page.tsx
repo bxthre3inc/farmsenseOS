@@ -13,20 +13,45 @@ import {
   Clock,
   Crosshair,
   BarChart3,
-  Waves
+  Waves,
+  Activity
 } from 'lucide-react';
+import { useSession } from 'next-auth/react';
+import { useState, useEffect } from 'react';
+import { useRealtimeTelemetry } from '@/hooks/useRealtimeTelemetry';
 
 export default function MissionControlPage() {
+  const { data: session, status } = useSession();
   const rss = useCCStore((state) => state.rss);
   const dhus = useCCStore((state) => state.dhus);
 
   // Take first 3 DHUs for the status strip
   const activeDHUs = Object.values(dhus).slice(0, 3);
 
+  // Initialize Real-time Telemetry
+  const { isConnected } = useRealtimeTelemetry(status === "authenticated");
+
+  if (status === "loading") {
+    return (
+      <div className="h-screen w-screen bg-slate-950 flex flex-col items-center justify-center gap-4">
+        <Activity className="w-8 h-8 text-tactical-blue animate-spin" />
+        <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.4em]">Initializing Session...</span>
+      </div>
+    );
+  }
+
   return (
     <main className="flex h-screen w-screen bg-slate-950 text-slate-200 overflow-hidden">
-      {/* Simulation Engine */}
-      <DataSimulator />
+      {/* Simulation Engine (Development Only) */}
+      {/* <DataSimulator /> */}
+      
+      {/* Live Telemetry Status Indicator */}
+      <div className="absolute top-4 right-4 z-50 flex items-center gap-2 px-2 py-1 rounded bg-slate-900/80 border border-slate-800 pointer-events-none">
+        <div className={`w-1.5 h-1.5 rounded-full ${isConnected ? 'bg-tactical-green animate-pulse' : 'bg-red-500'}`} />
+        <span className="text-[8px] font-black uppercase tracking-widest text-slate-400">
+          {isConnected ? 'Live Oracle Stream' : 'Oracle Disconnected'}
+        </span>
+      </div>
 
       {/* 1. Tactical Sidebar */}
       <TacticalSidebar />
@@ -70,13 +95,27 @@ export default function MissionControlPage() {
             </div>
 
             {/* Emergency Halt (Admin Only) */}
-            <button className="glass-panel px-4 py-3 bg-red-950/20 hover:bg-red-500/10 border-red-500/20 hover:border-red-500/40 transition-all flex items-center gap-3 active:scale-95 group">
-              <div className="p-1 px-2 rounded bg-red-500/20 text-red-500 border border-red-500/30 group-hover:animate-pulse">
+            <button
+              disabled={(session?.user as any)?.role !== 'admin'}
+              className={`glass-panel px-4 py-3 border-red-500/20 transition-all flex items-center gap-3 active:scale-95 group ${(session?.user as any)?.role === 'admin'
+                  ? 'bg-red-950/20 hover:bg-red-500/10 hover:border-red-500/40'
+                  : 'opacity-50 cursor-not-allowed bg-slate-900/40 border-slate-700/50 grayscale'
+                }`}
+              title={(session?.user as any)?.role !== 'admin' ? "Admin privileges required" : "Emergency Protocol"}
+            >
+              <div className={`p-1 px-2 rounded border group-hover:animate-pulse ${(session?.user as any)?.role === 'admin'
+                  ? 'bg-red-500/20 text-red-500 border-red-500/30'
+                  : 'bg-slate-800 text-slate-500 border-slate-700'
+                }`}>
                 <ShieldAlert className="w-4 h-4" />
               </div>
               <div className="text-left">
-                <p className="text-[9px] font-black text-red-500 uppercase tracking-widest leading-none">Full Grid Stop</p>
-                <p className="text-[7px] text-red-700 font-bold uppercase tracking-tighter">Emergency Protocol</p>
+                <p className={`text-[9px] font-black uppercase tracking-widest leading-none ${(session?.user as any)?.role === 'admin' ? 'text-red-500' : 'text-slate-500'
+                  }`}>Full Grid Stop</p>
+                <p className={`text-[7px] font-bold uppercase tracking-tighter ${(session?.user as any)?.role === 'admin' ? 'text-red-700' : 'text-slate-600'
+                  }`}>
+                  {(session?.user as any)?.role === 'admin' ? 'Emergency Protocol' : 'Restricted Access'}
+                </p>
               </div>
             </button>
           </div>
