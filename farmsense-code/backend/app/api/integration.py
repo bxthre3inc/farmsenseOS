@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from datetime import datetime
 import uuid
 
-from app.api.main import get_db
+from app.api.dependencies import get_db
 from app.models.devices import Device, DeviceType, RoboticsMission
 
 router = APIRouter(prefix="/api/v1/integration", tags=["Vendor Integration"])

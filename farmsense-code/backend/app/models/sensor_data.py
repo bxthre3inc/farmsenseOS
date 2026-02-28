@@ -9,7 +9,7 @@ import uuid
 from datetime import datetime
 from enum import Enum as PyEnum
 
-Base = declarative_base()
+from .base import Base
 
 
 class SoilSensorReading(Base):

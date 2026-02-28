@@ -3,7 +3,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from datetime import datetime
 import uuid
 import enum
-from .sensor_data import Base
+from .base import Base
 
 class DeviceType(str, enum.Enum):
     SENSOR = "sensor"

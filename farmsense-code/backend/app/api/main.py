@@ -7,7 +7,8 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Query
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.dependencies import get_db, get_current_user
-from app.core.database import Base, engine
+from app.models.base import Base
+from app.core.database import engine
 from app.api.integration import router as integration_router
 from app.api import tiles
 from app.core.websocket import manager

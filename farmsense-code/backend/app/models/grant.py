@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, DateTime, ForeignKey, Text, Enum as sqlalchemy_enum
+from sqlalchemy import Column, String, DateTime, ForeignKey, Text, Boolean, Float, Integer, Enum as sqlalchemy_enum
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from datetime import datetime
@@ -6,7 +6,7 @@ import uuid
 import enum
 from pydantic import BaseModel, EmailStr
 from typing import Optional, List
-from .sensor_data import Base
+from .base import Base
 
 class LetterStatus(str, enum.Enum):
     PENDING = "pending"
