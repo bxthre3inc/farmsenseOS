@@ -2,13 +2,15 @@
 Data models for sensor telemetry and virtual grid outputs
 """
 from sqlalchemy import Column, String, Float, DateTime, Integer, JSON, Index, ForeignKey, Enum
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.dialects.postgresql import UUID
 from geoalchemy2 import Geometry
 import uuid
 from datetime import datetime
 from enum import Enum as PyEnum
+<<<<<<< HEAD
 
+=======
+>>>>>>> c52d84f (Sync workspace: add AGENTS.md, ROADMAP.md, SPRINT.md, and backend updates)
 from .base import Base
 
 

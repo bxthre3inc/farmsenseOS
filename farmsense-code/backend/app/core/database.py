@@ -18,15 +18,20 @@ TIMESCALE_URL = os.getenv(
     "postgresql://timescale_user:changeme@localhost:5433/farmsense_timeseries"
 )
 
+MAP_DATABASE_URL = os.getenv(
+    "MAP_DATABASE_URL",
+    "postgresql://map_user:changeme@localhost:5432/farmsense_map"
+)
+
 # SQLAlchemy engine configuration
 engine = create_engine(
     DATABASE_URL,
     poolclass=QueuePool,
     pool_size=20,
     max_overflow=40,
-    pool_pre_ping=True,  # Verify connections before using
-    pool_recycle=3600,   # Recycle connections after 1 hour
-    echo=False           # Set True for SQL logging
+    pool_pre_ping=True,
+    pool_recycle=3600,
+    echo=False
 )
 
 # TimescaleDB engine for time-series data
@@ -39,26 +44,41 @@ timescale_engine = create_engine(
     echo=False
 )
 
+# Map database engine
+map_engine = create_engine(
+    MAP_DATABASE_URL,
+    poolclass=QueuePool,
+    pool_size=10,
+    max_overflow=20,
+    pool_pre_ping=True,
+    echo=False
+)
+
 # Session factories
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 TimescaleSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=timescale_engine)
-MapSessionLocal = SessionLocal # Default to main engine for map data in V1
+MapSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=map_engine)
 
 
 def get_db() -> Generator[Session, None, None]:
     """
     FastAPI dependency for database sessions
-    
-    Usage:
-        @app.get("/endpoint")
-        async def endpoint(db: Session = Depends(get_db)):
-            ...
     """
     db = SessionLocal()
     try:
         yield db
     finally:
         db.close()
+
+
+def get_timescale_db() -> Generator[Session, None, None]:
+    """Database dependency for time-series data"""
+    db = TimescaleSessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
 
 def get_map_db() -> Generator[Session, None, None]:
     """Database dependency for Map/Tile data"""
@@ -79,7 +99,6 @@ def init_db():
     # Create PostGIS extension
     with engine.connect() as conn:
         conn.execute("CREATE EXTENSION IF NOT EXISTS postgis;")
-        conn.execute("CREATE EXTENSION IF NOT EXISTS timescaledb;")
     
     print("Database initialized successfully")
 
