@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Stars, Grid, Environment } from '@react-three/drei';
 import { Suspense } from 'react';
 import { SpatialOpsOverlay } from '@/components/map/SpatialOpsOverlay';
+import { TerrainMesh } from '@/components/map/TerrainMesh';
 
 export default function DigitalTwin() {
   return (
@@ -42,11 +43,8 @@ export default function DigitalTwin() {
 
           <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
 
-          {/* Placeholder for the 1m resolution terrain/mesh */}
-          <mesh rotation={[-Math.PI / 2, 0, 0]} receiveShadow>
-            <planeGeometry args={[1000, 1000]} />
-            <meshStandardMaterial color="#020617" />
-          </mesh>
+          {/* 1m resolution terrain/mesh from Oracle DEM */}
+          <TerrainMesh />
 
           {/* Simulated PMT/Node marker */}
           <mesh position={[0, 0, 0]} castShadow>

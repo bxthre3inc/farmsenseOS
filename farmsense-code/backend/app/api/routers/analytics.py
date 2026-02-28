@@ -11,6 +11,7 @@ from sqlalchemy import func
 from app.services.grid_renderer import GridRenderingService
 from app.services.decision_engine import FieldDecisionEngine, FieldDiagnosticService
 from app.services.vri_command_center import VRICommandCenter
+from app.services.terrain import TerrainService
 
 from app.schemas.grids import (
     VirtualGridResponse, ZoneAnalysisRequest, ZoneAnalysisResponse,
@@ -19,6 +20,20 @@ from app.schemas.grids import (
 from app.schemas.hardware import SensorReadingCreate
 
 router = APIRouter()
+
+@router.get("/terrain/{field_id}", tags=["Geospatial Analytics"])
+def get_field_terrain(
+    field_id: str,
+    db: Session = Depends(get_db),
+    user: User = Depends(get_current_user)
+):
+    """
+    Returns 1m resolution topographic DEM data for the field.
+    In V1, coordinates are centered on the field's RTK anchor.
+    """
+    # Standard center point for Subdistrict 1 central grid
+    lat, lon = 37.5851, -106.1478
+    return TerrainService.get_1m_dem(field_id, lat, lon)
 
 @router.post("/reading", tags=["Sensor Data"])
 def ingest_sensor_reading(
