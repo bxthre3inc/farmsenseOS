@@ -28,10 +28,14 @@ type EdgeConfig struct {
 	LocalCacheDB    string  `json:"local_cache_db"`
 	SyncInterval    int     `json:"sync_interval_sec"`
 	ComputeInterval int     `json:"compute_interval_sec"`
-	
+
 	// Mesh Peering
 	PeerDHUAddresses []string `json:"peer_dhu_addresses"` // 10km LoRaWAN mesh peers
 	LoadThreshold    float64  `json:"load_threshold"`    // CPU utilization to start offloading
+
+	// AllianceChain HTTP Bridge
+	AllianceHTTPPort       int    `json:"alliance_http_port"`       // Port for the DHU HTTP API (default 8080)
+	BackendCallbackURL     string `json:"backend_callback_url"`     // FastAPI backend base URL for finalization callbacks
 }
 
 // DHU Orchestrator manages multiple fields and mesh coordination
@@ -489,15 +493,33 @@ func main() {
 		LocalCacheDB:    "/data/local_cache.db",
 		SyncInterval:    300,  // 5 minutes
 		ComputeInterval: 900,  // 15 minutes (active mode)
+
+		// Alliance-Chain HTTP Bridge
+		// Override via field_001.json or environment in production.
+		AllianceHTTPPort:   8080,
+		BackendCallbackURL: "http://farmsense-backend:8000",
 	}
-	
+
 	deviceID := "edge_rpi4_001"
-	
+
+	// Boot the AllianceChain HTTP server in a goroutine.
+	// It accepts trade requests from the Python backend and calls back on commit.
+	if config.AllianceHTTPPort > 0 {
+		allianceSrv := NewAllianceChainServer(
+			deviceID,
+			config.PeerDHUAddresses,
+			config.AllianceHTTPPort,
+			config.BackendCallbackURL,
+		)
+		go allianceSrv.Start()
+	}
+
+	// Boot the edge grid processor (blocking).
 	processor, err := NewEdgeProcessor(config, deviceID)
 	if err != nil {
 		log.Fatalf("Failed to initialize processor: %v", err)
 	}
-	
+
 	log.Println("FarmSense Edge Processor starting...")
 	processor.Run()
 }

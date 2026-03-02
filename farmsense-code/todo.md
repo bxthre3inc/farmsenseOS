@@ -12,10 +12,11 @@
 
 - [x] [x] Implement Predictive Maintenance via Current Harmonic Analysis on the Pressure & Flow Anchor (PFA).
 - [x] [x] Integrate k-means Machine-Learning Kriging algorithms into the Zo Core Compute Engine.
-- [ ] [ ] Implement PBFT Alliance-Chain Blockchain inside the DHU "Black Box" SSD for water rights trading.
+- [x] [x] Implement PBFT Alliance-Chain Blockchain inside the DHU "Black Box" SSD for water rights trading. (`edge-compute/src/alliance_chain.go` — Go PBFT ledger complete)
+- [x] [x] **Bridge Alliance-Chain ↔ Backend**: `WaterTradingService.initiate_trade()` now calls the Go DHU HTTP server via `httpx`. Go `AllianceChainServer` added with `/trade`, `/ledger`, `/health` endpoints and backend callback on finalization. 5/5 unit tests passing.
 - [ ] [ ] Build DoD Federated Data Fabric Adapters.
-- [ ] [ ] Implement Dual-Layer Spatial Privacy (Contextual Anonymization) for cloud/federated machine learning.
-- [ ] [ ] Develop automated GLOBALG.A.P. compliance report generator.
+- [x] [x] Implement Dual-Layer Spatial Privacy (Contextual Anonymization) for cloud/federated machine learning. (`app/services/spatial_privacy.py` — GPS jitter + k-anonymity + Laplace DP complete)
+- [x] [x] Develop automated GLOBALG.A.P. compliance report generator. (`app/services/globalGAP_compliance.py` — all 6 IFA v6 control points + SHA-256 audit hash complete)
 
 ## Advanced Dual-Use Enhancements (R&D)
 
