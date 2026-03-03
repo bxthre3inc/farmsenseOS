@@ -11,7 +11,7 @@ interface TelemetryPayload {
 export function useRealtimeTelemetry(enabled: boolean = true) {
     const socketRef = useRef<WebSocket | null>(null);
     const [isConnected, setIsConnected] = useState(false);
-    const updateRSS = useCCStore((state) => state.updateRSS);
+    const setRSS = useCCStore((state) => state.setRSS);
     const updateDHU = useCCStore((state) => state.updateDHU);
 
     useEffect(() => {
@@ -36,10 +36,10 @@ export function useRealtimeTelemetry(enabled: boolean = true) {
 
                     switch (payload.type) {
                         case 'RSS_UPDATE':
-                            updateRSS(payload.data);
+                            setRSS(payload.data);
                             break;
                         case 'DHU_UPDATE':
-                            updateDHU(payload.data.id, payload.data);
+                            updateDHU(payload.data);
                             break;
                         default:
                             console.log('✉️ [TELEMETRY] Received unhandled payload type:', payload.type);
@@ -68,7 +68,7 @@ export function useRealtimeTelemetry(enabled: boolean = true) {
                 socketRef.current.close();
             }
         };
-    }, [enabled, updateRSS, updateDHU]);
+    }, [enabled, setRSS, updateDHU]);
 
     return { isConnected };
 }

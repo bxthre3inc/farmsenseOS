@@ -6,7 +6,7 @@ from app.core.database import get_db
 from app.api.dependencies import get_current_user, RequireTier, SubscriptionTier
 from app.models.user import User
 
-from app.models.sensor_data import VirtualSensorGrid20m, VirtualSensorGrid50m, VirtualSensorGrid10m, VirtualSensorGrid1m, SensorReading
+from app.models.sensor_data import VirtualSensorGrid20m, VirtualSensorGrid50m, VirtualSensorGrid10m, VirtualSensorGrid1m, SoilSensorReading as SensorReading
 from sqlalchemy import func
 from app.services.grid_renderer import GridRenderingService
 from app.services.decision_engine import FieldDecisionEngine, FieldDiagnosticService

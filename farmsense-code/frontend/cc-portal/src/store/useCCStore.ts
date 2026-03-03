@@ -1,4 +1,5 @@
-import { CCStoreState, DHUTelemetry, SpatialOpsCrew, RSSTelemetry, LedgerEntry, AssetFilterType } from '@/types/cc';
+import { create } from 'zustand';
+import { CCStoreState, DHUTelemetry, SpatialOpsCrew, RSSTelemetry, LedgerEntry, AssetFilterType, TerrainData } from '@/types/cc';
 
 export const useCCStore = create<CCStoreState>((set) => ({
     rss: null,

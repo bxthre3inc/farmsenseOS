@@ -11,7 +11,7 @@ from sqlalchemy.orm import Session
 from datetime import datetime
 
 from app.services.grid_renderer import GridRenderingService
-from app.services.adaptive_recalc_engine import FishermansAttentionEngine, AttentionMode
+from app.services.adaptive_recalc_engine import AdaptiveRecalculationEngine, AttentionMode
 from app.models.sensor_data import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m
 
 logger = logging.getLogger(__name__)
@@ -26,7 +26,7 @@ class VRICommandCenter:
         # 1. Check current attention mode
         # In a real app, this would query the latest RecalculationLog
         # For now, we'll instantiate the engine or query a mock state
-        attention = FishermansAttentionEngine(field_id)
+        attention = AdaptiveRecalculationEngine(field_id)
         # Mocking mode retrieval
         current_mode = AttentionMode.DORMANT 
         

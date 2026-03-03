@@ -15,8 +15,8 @@ from app.core.websocket import manager
 
 from app.api.routers import hardware, users, metrics, grants, analytics, compliance, trading, federated
 
-# Create database tables if they don't exist
-Base.metadata.create_all(bind=engine)
+# Skip auto-create in production - use Alembic migrations
+# Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="FarmSense API",
