@@ -37,7 +37,7 @@ export default function FarmSenseProject() {
               <Sprout className="w-10 h-10 text-emerald-400" />
             </div>
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-3">FarmSense</h1>
+              <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-3">FarmSense Project</h1>
               <p className="text-xl text-zinc-400">Precision Agriculture Intelligence Platform</p>
             </div>
           </div>

@@ -1,16 +1,13 @@
 """
 Data models for sensor telemetry and virtual grid outputs
 """
-from sqlalchemy import Column, String, Float, DateTime, Integer, JSON, Index, ForeignKey, Enum
+from sqlalchemy import Column, String, Float, DateTime, Integer, JSON, Index, ForeignKey, Enum, Boolean
 from sqlalchemy.dialects.postgresql import UUID
 from geoalchemy2 import Geometry
 import uuid
 from datetime import datetime
 from enum import Enum as PyEnum
-<<<<<<< HEAD
 
-=======
->>>>>>> c52d84f (Sync workspace: add AGENTS.md, ROADMAP.md, SPRINT.md, and backend updates)
 from .base import Base
 
 
@@ -268,7 +265,11 @@ class VirtualSensorGrid1m(Base):
     sentinel_cloud_pct = Column(Float)
     landsat_qa = Column(String(20))
     
-    created_at = Column(DateTime, default=datetime.utcnow)
+    # Dual-use and JADC2 synchronization
+    is_dual_use_enabled = Column(Boolean, default=False)
+    jadc2_sync_status = Column(String(20), default='pending') # pending, synced, failed
+    
+    created_at = Column(DateTime, default=datetime.now)
     
     __table_args__ = (
         Index('idx_field_time_1m', 'field_id', 'timestamp'),
