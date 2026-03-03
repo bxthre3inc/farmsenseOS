@@ -55,8 +55,6 @@ The interior is divided into three zones to facilitate the "Blitz" deployment mo
 
 * **GPU Array**: Dual NVIDIA RTX A6000 (48GB VRAM each) for FP16-accelerated spatial statistical worksheets.
 * **Storage (The Master Vault)**: 50TB WD Gold Enterprise NVMe array in RAID-10.
-* **GPU Array**: Dual NVIDIA RTX A6000 (48GB VRAM each) for FP16-accelerated spatial statistical worksheets.
-* **Storage (The Master Vault)**: 50TB WD Gold Enterprise NVMe array in RAID-10.
 * **Networking**:
   * **Uplink A**: Fiber ONT (Symmetrical Gigabit).
   * **Uplink B**: Starlink Business (High-Performance Dish with Tilt-Base).
@@ -110,8 +108,6 @@ The DHU provides the "Umbrella" of connectivity, positioned on 35-foot timber po
 
 ### 3.3 Power & Protection
 
-* **Solar**: Dual 100W Renogy Mono-Solar panels (200W total).
-* **Storage**: 200Ah Battle Born Heated LiFePO4 battery (Internal heating pads draw from solar to warm cells during "Polar Vortex" events).
 * **Solar**: Dual 100W Renogy Mono-Solar panels (200W total).
 * **Storage**: 200Ah Battle Born Heated LiFePO4 battery (Internal heating pads draw from solar to warm cells during "Polar Vortex" events).
 * **Lightning Mitigation**: L-com GDT Gas Discharge Tube arrestors on every external N-type connector.
@@ -218,7 +214,6 @@ The LRZ utilizes a "Fringe Field" approach for non-contact measurement:
 #### 4.3.3 Edge Compute
 
 * **Processor**: NXP i.MX RT1020 (Cortex-M7). Selected for high-speed synchronous sampling of motor transients.
-* **Processor**: NXP i.MX RT1020 (Cortex-M7). Selected for high-speed synchronous sampling of motor transients.
 * **Buffer**: 40,000mAh LiFePO4 battery array (7-day blackout resilience).
 
 #### 4.3.4 Motor Signature Analysis (The "Zo" Engine Integration)
@@ -320,8 +315,6 @@ Kinematic auditing provides the spatial proof of application, verifying where wa
 
 ### 6.2 The "Fisherman's Attention" Scale
 
-### 6.2 The "Fisherman's Attention" Scale
-
 The system uses adaptive update frequencies to optimize battery:
 
 1. **Dormant (4-hour)**: Stable soil + parked pivot.
@@ -331,15 +324,15 @@ The system uses adaptive update frequencies to optimize battery:
 
 ---
 
-## 10. Deep Technical Specifications: Sub-Component Level
+## 7. Deep Technical Specifications: Sub-Component Level
 
 This section provides the "Circuit-to-Code" mapping for the primary field and hub units.
 
-### 10.1 VFA/LRZ "AlphaSled" Internal PCBA
+### 7.1 VFA/LRZ "AlphaSled" Internal PCBA
 
 **Main SoC**: Nordic Semiconductor nRF52840 (WLCSP package for size minimization).
 
-#### 10.1.1 GPIO Pinout Map
+#### 7.1.1 GPIO Pinout Map
 
 | Pin | Function | Peripheral | Logic Level |
 | :--- | :--- | :--- | :--- |
@@ -352,14 +345,14 @@ This section provides the "Circuit-to-Code" mapping for the primary field and hu
 | **P1.01** | BMS_INT | Battery Management Interrupt | Fault Detection |
 | **P1.02** | HEAT_EN | Frost-Defense Heating FET | PWM Control |
 
-#### 10.1.2 LoRa Radio Sub-Module (SX1262)
+#### 7.1.2 LoRa Radio Sub-Module (SX1262)
 
 * **Operating Frequency**: 902-928 MHz (ISM Band).
 * **Output Power**: +22 dBm (Max).
 * **Sensitivity**: −148 dBm.
 * **Protocol Logic**: Implements the "Chirp" FHSS state machine.
 
-#### 10.1.3 Internal Register Mapping (Semtech SX1262)
+#### 7.1.3 Internal Register Mapping (Semtech SX1262)
 
 | Operation | Command Code | Description |
 | :--- | :--- | :--- |
@@ -369,15 +362,15 @@ This section provides the "Circuit-to-Code" mapping for the primary field and hu
 | **SetBufferBaseAddress** | 0x8F | Initialized at 0x00 for TX, 0x80 for RX. |
 | **GetStatus** | 0xC0 | Returns chip mode and busy status. |
 
-#### 10.1.4 Crystal & Oscillator Specs
+#### 7.1.4 Crystal & Oscillator Specs
 
 The AlphaSled utilizes a **32MHz TCXO** with ±0.5ppm stability to ensure the LoRa narrow-band pings do not drift during extreme SLV temperature swings (-40°C to +50°C).
 
-### 10.2 PMT "Hydraulic Auditor" Processing Sled
+### 7.2 PMT "Hydraulic Auditor" Processing Sled
 
 **Main CPU**: Microchip ATSAMD51J20A-AU.
 
-#### 10.2.1 Peripheral Registry & Bus Mapping
+#### 7.2.1 Peripheral Registry & Bus Mapping
 
 * **SERCOM 0 (I2C)**: Bosch BNO055 9-Axis IMU.
   * *Address*: 0x28 (Default).
@@ -388,13 +381,13 @@ The AlphaSled utilizes a **32MHz TCXO** with ±0.5ppm stability to ensure the Lo
   * *Baud/Parity*: 9600-8-N-1.
 * **SERCOM 3 (LoRa)**: Semtech SX1262 Radio Sled.
 
-#### 10.2.3 ATSAMD51 Memory Architecture
+#### 7.2.3 ATSAMD51 Memory Architecture
 
 * **Flash (1MB)**: Dual-banked for OTA (Over-The-Air) updates.
 * **SRAM (256KB)**: Partitioned for Fast FFT operations on ultrasonic flow data.
 * **DMA Channels**: 32 channels used for zero-latency moving average GNSS position updates.
 
-#### 10.2.4 Bosch BNO055 Register Depth
+#### 7.2.4 Bosch BNO055 Register Depth
 
 | Register | Address | Function | Scale Factor |
 | :--- | :--- | :--- | :--- |
@@ -404,16 +397,16 @@ The AlphaSled utilizes a **32MHz TCXO** with ±0.5ppm stability to ensure the Lo
 | **EUL_DATA_H** | 0x1A | Euler Heading | 1 LSB = 1/16 degree |
 | **TEMP** | 0x34 | Chip Temperature | 1°C per LSB |
 
-#### 10.2.2 ZED-F9P RTK-GNSS Pinout
+#### 7.2.2 ZED-F9P RTK-GNSS Pinout
 
 * **V_BACKUP**: Connected to Saft LS14500 LiSOCl2 5yr Hibernation Pack (maintains RTC and ephemeris during winter).
 * **TX_READY**: Pin 5. Signal to ATSAMD51 to wake from sleep for NMEA parsing.
 
-### 10.3 PFA "Well Sentry" Sled
+### 7.3 PFA "Well Sentry" Sled
 
 **Component CPU**: NXP i.MX RT1020 (Cortex-M7 @ 500MHz).
 
-#### 10.3.1 ADC Calibration & CT Clamp Scale
+#### 7.3.1 ADC Calibration & CT Clamp Scale
 
 * **ADC1_CH0**: Motor Phase A Current (Magnelab SCT-1250).
 * **ADC1_CH1**: Motor Phase B Current.
@@ -421,7 +414,7 @@ The AlphaSled utilizes a **32MHz TCXO** with ±0.5ppm stability to ensure the Lo
 * **ADC1_CH3**: Line Pressure (0-5V Ratiometric).
 * **Sampling Rate**: 100ksps (Simultaneous sampling for harmonic distortion analysis).
 
-#### 10.3.2 i.MX RT1020 FlexPWM Register Logic
+#### 7.3.2 i.MX RT1020 FlexPWM Register Logic
 
 Used for high-precision timing of current sampling across the 3-phase motor leads:
 
@@ -429,7 +422,7 @@ Used for high-precision timing of current sampling across the 3-phase motor lead
 * **PWM_SM0VAL1**: Set to motor frequency period (nominal 60Hz).
 * **PWM_OUTEN**: Enables the dry-contact relay driver on GPIO_AD_B0_05.
 
-#### 10.3.3 CT Clamp Ratiometric Calibration
+#### 7.3.3 CT Clamp Ratiometric Calibration
 
 * **Primary Rating**: 400A RMS.
 * **Secondary Voltage**: 0.333V at rated current.
@@ -437,22 +430,22 @@ Used for high-precision timing of current sampling across the 3-phase motor lead
 
 ---
 
-## 11. Mechanical Engineering: The "40-Year" Structural Bill
+## 8. Mechanical Engineering: The "40-Year" Structural Bill
 
-### 11.1 Tower & Mounting Civil Specs (DHU)
+### 8.1 Tower & Mounting Civil Specs (DHU)
 
 * **Pole Material**: Southern Yellow Pine, Class 4, Chromated Copper Arsenate (CCA) treated.
 * **Installation Depth**: 8 feet minimum (below SLV frost line of 48").
 * **Backfill**: 3/4" minus crushed rock with mechanical tamping every 12" to mitigate "wind-shimmer" on the sector radios.
 
-### 11.2 Enclosure Material Science
+### 8.2 Enclosure Material Science
 
 * **Housing**: Polycase NEMA 4X Polycarbonate.
 * **UV Integrity**: UL 746C f1 rated for outdoor exposure.
 * **Impact Resistance**: IK08 rating (protects against ice-hail and tractor debris).
 * **RF Transparency**: Permittivity (εr) of 2.9 at 2.4GHz/5GHz, allowing internal mounting of high-gain BLE/GPS antennas.
 
-### 11.3 Chemical Resistance & Soil Integrity (SLV Series)
+### 8.3 Chemical Resistance & Soil Integrity (SLV Series)
 
 The HDPE Shells and Polycarbonate Enclosures are rated for:
 
@@ -462,9 +455,9 @@ The HDPE Shells and Polycarbonate Enclosures are rated for:
 
 ---
 
-## 12. Power Management & Winterization Logic
+## 9. Power Management & Winterization Logic
 
-### 12.1 The "Frost Defense" State Machine
+### 9.1 The "Frost Defense" State Machine
 
 Every node (VFA/LRZ/DHU) implements a thermal safety loop:
 
@@ -475,11 +468,11 @@ Every node (VFA/LRZ/DHU) implements a thermal safety loop:
 
 ---
 
-## 13. Firmware State Machine Architecture: The "Decision Cortex"
+## 10. Firmware State Machine Architecture: The "Decision Cortex"
 
 Every FarmSense node operates on a deterministic Event-Driven architecture.
 
-### 13.1 VFA/LRZ "Pulse" State Machine
+### 10.1 VFA/LRZ "Pulse" State Machine
 
 1. **BOOT**: Verify AES-128 key integrity in secure flash.
 2. **CALIBRATE**: Self-zero the Dielectric ADC against internal reference voltage.
@@ -489,13 +482,13 @@ Every FarmSense node operates on a deterministic Event-Driven architecture.
 6. **TRANSMIT**: Execute FHSS burst to field VFA.
 7. **SLEEP**: Enter 1.5µA Deep Sleep until next trigger.
 
-### 13.2 PMT "Auditor" Reflex Hierarchy
+### 10.2 PMT "Auditor" Reflex Hierarchy
 
 * **Layer 0 (Reflex)**: If IMU vibration > 5.0g (Stall/Collision), immediately broadcast "Soft-Stop" to DHU/PFA.
 * **Layer 1 (Hydraulic)**: Correlate flow picoseconds with GNSS velocity.
 * **Layer 2 (Mesh)**: Act as local Time-Server for entire field sensor fleet.
 
-### 13.3 DHU "Cortex" Decimation Logic
+### 10.3 DHU "Cortex" Decimation Logic
 
 * **Raw Buffer**: 1s intervals.
 * **Z-Wave Decimation**: Converts high-frequency surges into 15-minute moving average Worksheets to minimize LTE backhaul costs.
@@ -504,15 +497,15 @@ Every FarmSense node operates on a deterministic Event-Driven architecture.
 
 ---
 
-## 14. Hyper-Granular Bill of Materials & Sub-Component Specifications
+## 11. Hyper-Granular Bill of Materials & Sub-Component Specifications
 
 This section provides a line-item breakdown for every circuit, sensor, and structural element in the FarmSense fleet.
 
-### 14.1 Regional Superstation (RSS) V1.3 - Detailed BOM
+### 11.1 Regional Superstation (RSS) V1.3 - Detailed BOM
 
-**Total System Cost (Estimate): $682,450.00**
+**Total System Cost (Estimate): $212,000.00**
 
-#### 14.1.1 Infrastructure & Civil
+#### 11.1.1 Infrastructure & Civil
 
 | Component | Spec/Part # | Qty | Unit Cost | Extended | MPN / Supplier | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -521,40 +514,37 @@ This section provides a line-item breakdown for every circuit, sensor, and struc
 | **Power Dist.** | 200A Industrial Panel + Surge Suppression | 1 | $2,850 | $2,850 | SquareD-QO | 1 Week |
 | **Flooring** | Industrial Diamond Plate (Aluminum) | 320 sqft | $15/sqft | $4,800 | AL-DP-3/16 | 2 Weeks |
 
-#### 14.1.2 Computational Infrastructure
+#### 11.1.2 Computational Infrastructure
 
 | Component | Spec/Part # | Qty | Unit Cost | Extended | MPN / Supplier | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Processor** | AMD Threadripper PRO 5995WX | 1 | $6,499 | $6,499 | 100-100000444WOF | 4 Weeks |
-| **GPU** | NVIDIA RTX A6000 (48GB) | 2 | $4,650 | $9,300 | VCNRTXA6000-PB | 6 Weeks |
-| **Memory** | 512GB ECC DDR4-3200 (8x64GB) | 1 | $3,200 | $3,200 | Micron-MTA36ASF8G72PZ | 3 Weeks |
-| **Storage (NVMe)** | WD Gold 7.68TB Enterprise (RAID-10) | 8 | $1,150 | $9,200 | WDS768T1D0D | 2 Weeks |
-| **Motherboard** | ASUS Pro WS WRX80E-SAGE WIFI | 1 | $1,050 | $1,050 | WRX80E-SAGE | 4 Weeks |
+| **Compute Node** | 64-Core Threadripper + Dual RTX GPUs | 1 | $22,000 | $22,000 | Puget Systems | 4 Weeks |
+| **Storage (NVMe)** | 50TB WD Gold NVMe Array | 1 | $12,500 | $12,500 | WDS-50TB-Array | 2 Weeks |
 
 ---
 
-### 14.2 District Hub (DHU) V1.1 - Detailed BOM
+### 11.2 District Hub (DHU) V1.1 - Detailed BOM
 
-**Total System Cost (Estimate): $4,875.00**
+**Total System Cost (Estimate): $4,915.00**
 
 | Component | Spec/Part # | Qty | Unit Cost | Extended | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Edge Compute** | NVIDIA Jetson Nano Dev Kit (4GB) | 1 | $149 | $149 | 4 Weeks |
-| **Storage** | 128GB Swissbit Industrial SSD | 1 | $85 | $85 | 2 Weeks |
-| **Radio Array** | Ubiquiti LTU Sector Antennas (360°) | 3 | $245 | $735 | 4 Weeks |
+| **Edge Compute** | NVIDIA Jetson Nano Dev Kit (4GB) | 1 | $99 | $99 | 4 Weeks |
+| **Storage** | 128GB Swissbit X-75 | 1 | $185 | $185 | 2 Weeks |
+| **Radio Array** | 120° Sector Array | 3 | $283 | $850 | 4 Weeks |
 | **LoRa Gateway** | RAK7249 Enterprise LoRaWAN | 1 | $650 | $650 | 6 Weeks |
 | **LTE Modem** | Telit ME910G1 + SIM | 1 | $110 | $110 | 4 Weeks |
 | **Solar Panel** | 100W Mono-Crystalline | 2 | $125 | $250 | 2 Weeks |
-| **Battery** | Battle Born 100Ah LiFePO4 (Heated) | 2 | $925 | $1,850 | 6 Weeks |
-| **Pole** | 35' Class 4 Treated Timber | 1 | $850 | $850 | 3 Weeks |
+| **Battery** | Battle Born 200Ah LiFePO4 (Heated) | 1 | $850 | $850 | 6 Weeks |
+| **Pole** | 35' Class 4 Treated Timber | 1 | $1,500 | $1,500 | 3 Weeks |
 
 ---
 
-### 14.3 Vertical Field Anchor (VFA) V1.21 - Technical Pulse
+### 11.3 Vertical Field Anchor (VFA) V1.21 - Technical Pulse
 
-**Total Unit Cost: $419.65**
+**Total Unit Cost: $159.65**
 
-#### 14.3.1 Sensor Physics & Reg Maps
+#### 11.3.1 Sensor Physics & Reg Maps
 
 The VFA "Multi-Depth" sequence uses a proprietary I2C bridge for the dielectric stack.
 
@@ -563,24 +553,24 @@ The VFA "Multi-Depth" sequence uses a proprietary I2C bridge for the dielectric 
 * **Register 0x02**: Thermal Comp Value.
 * **Register 0x03**: Salinity (EC) Correction Factor.
 
-#### 14.3.2 Line-Item BOM
+#### 11.3.2 Line-Item BOM
 
 | Component | Part Category | Qty | Unit Cost | Extended | MPN / Supplier | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **PCBA** | nRF52840 Mainboard | 1 | $24.50 | $24.50 | Nordic-FS-V1.2 | 8 Weeks |
-| **Dielectric Unit** | Proprietary 10-Unit Stack | 1 | $120.00 | $120.00 | FS-DE-48U | 12 Weeks |
-| **Battery** | LiFePO4 32700 (6Ah) Cell | 4 | $12.50 | $50.00 | GP-32700-LFP | 6 Weeks |
-| **HDPE Tube** | 2" x 48" Sch 40 UV-Stabilized | 1 | $18.00 | $18.00 | JM-602-UV | 2 Weeks |
-| **Driving Tip** | Friction-Formed Alloy | 1 | $12.50 | $12.50 | FS-TIP-H8 | 4 Weeks |
-| **Seal Kit** | Viton O-Rings + Nitrogen Port | 1 | $15.00 | $15.00 | FS-SEAL-V1 | 3 Weeks |
+| **PCBA** | nRF52840 Mainboard | 1 | $6.50 | $6.50 | Nordic-FS-V1.2 | 8 Weeks |
+| **Dielectric Unit** | Proprietary 5-Unit Stack | 5 | $10.00 | $50.00 | FS-DE-48U | 12 Weeks |
+| **Battery** | 21700 Li-ion Cartridge | 5 | $16.75 | $83.75 | 21700-LFP | 6 Weeks |
+| **HDPE Tube** | 2" x 48" Sch 40 UV-Stabilized | 1 | $4.00 | $4.00 | JM-602-UV | 2 Weeks |
+| **Driving Tip** | Friction-Formed Alloy | 1 | $4.25 | $4.25 | FS-TIP-H8 | 4 Weeks |
+| **Seal Kit** | Viton O-Rings + Nitrogen Port | 1 | $0.80 | $0.80 | FS-SEAL-V1 | 3 Weeks |
 
 ---
 
-### 14.4 Pivot Motion Tracker (PMT) V1.6 - Detailed Specs
+### 11.4 Pivot Motion Tracker (PMT) V1.6 - Detailed Specs
 
-**Total Unit Cost: $1,412.00**
+**Total Unit Cost: $1,112.00**
 
-#### 14.4.1 How it Works: Adaptive Kinematics
+#### 11.4.1 How it Works: Adaptive Kinematics
 
 The PMT differentiates motion through **Sensor Fusion**:
 
@@ -588,79 +578,78 @@ The PMT differentiates motion through **Sensor Fusion**:
 2. **IMU Vibration**: High-frequency (200Hz) spectral analysis of the galvanized pipe.
 3. **Ultrasonic Correlation**: If flow is detected (> 100 GPM), the motion is logged as "Irrigation-On."
 
-#### 14.4.2 Line-Item BOM
+#### 11.4.2 Line-Item BOM
 
 | Component | Part Category | Qty | Unit Cost | Extended | MPN / Supplier | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Logic Board** | ATSAMD51J20A Processor | 1 | $85.00 | $85.00 | Microchip-SAMD51 | 10 Weeks |
-| **GNSS Engine** | u-blox ZED-F9P | 1 | $185.00 | $185.00 | ZED-F9P-02B | 8 Weeks |
-| **Flow Sensor** | Badger Meter TFX-5000 | 1 | $745.00 | $745.00 | TFX-5000-U | 14 Weeks |
-| **Orientation** | Bosch BNO055 IMU | 1 | $18.00 | $18.00 | 0273141114 | 4 Weeks |
-| **Power Set** | 20W Solar + 20Ah Battery | 1 | $145.00 | $145.00 | Renogy-20W-Kit | 2 Weeks |
-| **Housing** | Custom IP68 Aluminum | 1 | $120.00 | $120.00 | Hammond-1554WA | 6 Weeks |
+| **Logic Board** | ATSAMD51 Processor | 1 | $65.00 | $65.00 | Microchip-SAMD51 | 10 Weeks |
+| **GNSS Engine** | u-blox ZED-F9P | 1 | $140.00 | $140.00 | ZED-F9P-02B | 8 Weeks |
+| **Flow Sensor** | Badger Meter TFX-5000 | 1 | $648.00 | $648.00 | TFX-5000-U | 14 Weeks |
+| **Orientation** | Bosch BNO055 IMU | 1 | $32.00 | $32.00 | 0273141114 | 4 Weeks |
+| **Power Set** | 10W Solar + Saft LS14500 | 1 | $120.00 | $120.00 | Renogy-10W-Kit | 2 Weeks |
+| **Housing** | Polycase IP67 UV-Polycarbonate | 1 | $45.00 | $45.00 | Polycase-WP-21F | 6 Weeks |
 | **Gore-Vent** | Dual-Stage EQ Vents | 2 | $15.00 | $30.00 | PMF100444 | 2 Weeks |
 
 ---
 
-### 14.5 Pressure & Flow Anchor (PFA) V1.9 - Deep Dive
+### 11.5 Pressure & Flow Anchor (PFA) V1.9 - Deep Dive
 
-**Total Unit Cost: $985.00**
+**Total Unit Cost: $750.00**
 
-#### 14.5.1 The "Electrical Blueprint"
+#### 11.5.1 The "Electrical Blueprint"
 
 The PFA monitors pump health by sampling the 480V/3-Phase incoming line via split-core transformers.
 
 * **ADC Channels**: 6 (3I, 3V).
 * **Calculation Engine**: Real-time FFT for Power Factor and THD (Total Harmonic Distortion).
 
-#### 14.5.2 Line-Item BOM
+#### 11.5.2 Line-Item BOM
 
 | Component | Part Category | Qty | Unit Cost | Extended | MPN / Supplier | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Processor** | NXP i.MX RT1020 | 1 | $42.00 | $42.00 | MIMXRT1021DAG5A | 12 Weeks |
-| **Current Clamps** | Magnelab 600A (Split-Core) | 3 | $85.00 | $255.00 | SCT-1250-600 | 6 Weeks |
+| **Current Clamps** | Magnelab 400A SCT-1250 | 3 | $36.66 | $110.00 | SCT-1250-400 | 6 Weeks |
 | **Press Trans.** | TE Connectivity 250 PSI | 1 | $140.00 | $140.00 | M5200-000005-250PG | 8 Weeks |
-| **Well Sounder** | Submersible Hydrostatic | 1 | $320.00 | $320.00 | Dwyer-PBLTX | 5 Weeks |
-| **Enclosure** | NEMA 4X Steel | 1 | $125.00 | $125.00 | Saginaw-SCE-12106CHNF | 3 Weeks |
+| **Well Sounder** | Dwyer PBLTX | 1 | $185.00 | $185.00 | Dwyer-PBLTX | 5 Weeks |
+| **Enclosure** | NEMA 4X Polycarbonate | 1 | $55.00 | $55.00 | Hoffman-NEMA4X | 3 Weeks |
 
 ---
 
 ---
 
-### 14.6 Lateral Root-Zone Scout (LRZ) V1.21 - Technical Pulse
+### 11.6 Lateral Root-Zone Scout (LRZ) V1.21 - Technical Pulse
 
 **Total Unit Cost: $60.80**
 
-#### 14.6.1 Circuit & Pin Logic
+#### 11.6.1 Circuit & Pin Logic
 
 The LRZ is a cost-optimized variant of the VFA, designed for massive spatial density.
 
-* **MCU**: Nordic nRF52811 (Cortex-M4 @ 64MHz).
+* **MCU**: Nordic nRF52840 (Cortex-M4 @ 64MHz).
 * **Dielectric Interface**: Direct analog measurement using P0.02 (AIN0) and P0.03 (AIN1).
 * **State Machine**:
   * *Sleep*: 1.5µA (System ON).
   * *Measurement*: 5mA (1.0ms duration).
   * *Transmit (LoRa)*: 120mA (50ms duration).
 
-#### 14.6.2 Line-Item BOM
+#### 11.6.2 Line-Item BOM
 
 | Component | Part Category | Qty | Unit Cost | Extended | MPN / Supplier | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **PCBA** | nRF52811 Embedded Sled | 1 | $12.50 | $12.50 | Nordic-FS-V1.0 | 8 Weeks |
+| **PCBA** | nRF52840 Embedded Sled | 1 | $12.50 | $12.50 | Nordic-FS-V1.0 | 8 Weeks |
 | **Logic Board** | Proprietary 18U PCBA | 1 | $8.00 | $8.00 | FS-LRZ-18U | 12 Weeks |
 | **Battery** | LiFePO4 18650 (1.5Ah) Cell | 2 | $6.50 | $13.00 | LFP-18650-1500 | 6 Weeks |
 | **HDPE Tube** | 2" x 18" Sch 40 UV-Stabilized | 1 | $8.00 | $8.00 | JM-602-18 | 2 Weeks |
-| **Driving Tip** | HDPE Injection-Molded (H6) | 1 | $4.50 | $4.50 | FS-TIP-H6 | 4 Weeks |
-| **Seal Kit** | Nitrile O-Rings + Cap | 1 | $4.80 | $4.80 | FS-SEAL-V0 | 3 Weeks |
+| **Driving Tip** | Friction-Formed HDPE Tip | 1 | $4.50 | $4.50 | FS-TIP-H6 | 4 Weeks |
+| **Seal Kit** | Viton O-Rings + Cap | 1 | $4.80 | $4.80 | FS-SEAL-V0 | 3 Weeks |
 | **Nitrogen Port** | Mini-Check Valve (316-SS) | 1 | $10.00 | $10.00 | Swagelok-SS-CHK | 3 Weeks |
 
 ---
 
-### 14.7 Corner-Swing Auditor (CSA) V1.0 - Multi-Node Spec
+### 11.7 Corner-Swing Auditor (CSA) V1.0 - Multi-Node Spec
 
 **Total Unit Cost (PST + SAT): $2,224.00**
 
-#### 14.7.1 Kinematic Handshake
+#### 11.7.1 Kinematic Handshake
 
 The CSA consists of two PMT-derived nodes that resolve the angle of the swing arm.
 
@@ -668,7 +657,7 @@ The CSA consists of two PMT-derived nodes that resolve the angle of the swing ar
 * **SAT (Swing-Arm Tracker)**: Positioned on the swinging corner arm.
 * **Synchronization**: BLE 5.2 Distance Ranging resolves elbow angle to ±0.1°.
 
-#### 14.7.2 Line-Item BOM (Aggregated)
+#### 11.7.2 Line-Item BOM (Aggregated)
 
 | Component | Part Category | Qty | Unit Cost | Extended | MPN / Supplier | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -680,9 +669,9 @@ The CSA consists of two PMT-derived nodes that resolve the angle of the swing ar
 
 ---
 
-### 14.8 Tier 0: Aerial Fleet - Component Breakdown
+### 11.8 Tier 0: Aerial Fleet - Component Breakdown
 
-#### 14.8.1 eBee Ag (Fixed-Wing)
+#### 11.8.1 eBee Ag (Fixed-Wing)
 
 **Total System Cost: $14,500.00**
 
@@ -693,7 +682,7 @@ The CSA consists of two PMT-derived nodes that resolve the angle of the swing ar
 | **Avionics** | SenseFly Autopilot + RTK | 1 | $2,500 | $2,500 | senseFly-Auto | 4 Weeks |
 | **Ground Sta.** | 2.4GHz High-Gain Link | 1 | $1,000 | $1,000 | eMotion-GS | 2 Weeks |
 
-#### 14.8.2 DJI Mavic 3M (Multi-Rotor)
+#### 11.8.2 DJI Mavic 3M (Multi-Rotor)
 
 **Total System Cost: $4,999.00**
 
@@ -706,23 +695,23 @@ The CSA consists of two PMT-derived nodes that resolve the angle of the swing ar
 
 ---
 
-## 15. Summary of System-Wide Scaling Costs (Subdistrict 1)
+## 12. Summary of System-Wide Scaling Costs (Subdistrict 1)
 
 | Asset Class | Install Qty | Unit Cost | Total Capital |
 | :--- | :--- | :--- | :--- |
-| **RSS (Superstation)** | 1 | $682,450 | $682,450 |
-| **DHU (Hubs)** | 12 | $4,875 | $58,500 |
-| **VFA (Anchors)** | 1,280 | $419 | $536,320 |
+| **RSS (Superstation)** | 1 | $212,000 | $212,000 |
+| **DHU (Hubs)** | 25 | $4,915 | $122,875 |
+| **VFA (Anchors)** | 1,280 | $159.65 | $204,352 |
 | **LRZ (Scouts)** | 10,240 | $61 | $624,640 |
-| **PMT (Pivot Trackers)** | 1,280 | $1,412 | $1,807,360 |
-| **PFA (Pump Anchors)** | 850 | $985 | $837,250 |
+| **PMT (Pivot Trackers)** | 1,280 | $1,112 | $1,423,360 |
+| **PFA (Pump Anchors)** | 1,280 | $750 | $960,000 |
 | **CSA (Corner Auditors)** | 320 | $2,224 | $711,680 |
 | **Drones (Mixed Fleet)** | 2 | $19,499 | $19,499 |
-| **TOTAL HARDWARE CAPEX** | | | **$5,277,699.00** |
+| **TOTAL HARDWARE CAPEX** | | | **$4,264,406.00** |
 
 ### [END OF HYPER-EXPANDED SPECIFICATION]
 
-## 7. Consolidated Bill of Materials (Subdistrict 1 Deployment)
+## 13. Consolidated Bill of Materials (Subdistrict 1 Deployment)
 
 This section details the procurement logic and unit costs for a standard Subdistrict 1 rollout (1,280 fields).
 
@@ -754,7 +743,7 @@ This section details the procurement logic and unit costs for a standard Subdist
 
 ---
 
-## 8. Enclosure Engineering & Mechanical Logistics
+## 14. Enclosure Engineering & Mechanical Logistics
 
 ### 8.1 Thermal Mass Strategy
 
@@ -771,7 +760,7 @@ The DHU and RSS utilizes **Passive Thermal Buffering**.
 
 ---
 
-## 9. Regulatory Compliance & GLOBALG.A.P
+## 15. Regulatory Compliance & GLOBALG.A.P
 
 All hardware is traceable via the **AllianceChain Immutable Ledger**.
 
@@ -780,7 +769,7 @@ All hardware is traceable via the **AllianceChain Immutable Ledger**.
 * **WORM Storage**: Compliance logs are stored on Write-Once-Read-Many media in the Oracle Vault.
 * **Legal Defensibility**: Every gallon of water is logged with a ±1.0% accuracy certificate from the transit-time flow meters, providing absolute seniority protection in Water Court.
 
-### 14.9 Manufacturing & Sourcing Strategy (Subdistrict 1 Expansion)
+### 11.10 Manufacturing & Sourcing Strategy (Subdistrict 1 Expansion)
 
 To achieve the $4.2M CAPEX target, FarmSense utilizes a tiered sourcing model:
 
@@ -788,13 +777,13 @@ To achieve the $4.2M CAPEX target, FarmSense utilizes a tiered sourcing model:
 * **Tier 2 (Sensors)**: Strategic partnerships with Badger Meter and Dwyer.
 * **Tier 3 (Structural)**: Local SLV suppliers for timber poles and gravel backfill to minimize logistics weight.
 
-#### 14.9.1 The "Band-It Blitz" Logistic Workflow
+#### 11.9.1 The "Band-It Blitz" Logistic Workflow
 
 1. **Preparation**: RSS pre-configures sleds and assigns UID to field coordinates.
 2. **Deployment**: 3-person crews (Surveyor, Installer, Verifier) deploy 1 VFA + 10 LRZ in <60 minutes.
 3. **Verification**: C&C Portal provides real-time "Green-Light" signal once mesh consensus is achieved.
 
-## 15. Civil Engineering & Structural Longevity
+## 16. Civil Engineering & Structural Longevity
 
 ### 15.1 Wind-Shimmer Mitigation
 
@@ -806,7 +795,7 @@ To achieve the $4.2M CAPEX target, FarmSense utilizes a tiered sourcing model:
 * **HDPE Shells**: Selected for chemical resistance to alkaline soils (pH > 8.5).
 * **SS-304/316 Hardware**: Mandatory for all external fasteners to prevent galvanic corrosion at the pump-house interface.
 
-## 16. Power & Thermal Lifecycle Analysis
+## 17. Power & Thermal Lifecycle Analysis
 
 ### 16.1 The "Polar Vortex" Survival Mode
 
@@ -817,7 +806,7 @@ To achieve the $4.2M CAPEX target, FarmSense utilizes a tiered sourcing model:
 
 ---
 
-## 17. Legal & Hydrological Defense Architecture (WORM)
+## 18. Legal & Hydrological Defense Architecture (WORM)
 
 The FarmSense hardware is engineered to withstand judicial scrutiny in Water Court.
 
@@ -838,7 +827,7 @@ To prevent "Flood-Spoofing," the DHU performs PBFT consensus on all pump stops:
 
 ---
 
-## 18. Manufacturing Quality Control (QC) Protocols
+## 19. Manufacturing Quality Control (QC) Protocols
 
 ### 18.1 Sled Hospital Intake Checklist (SOP-09)
 
@@ -853,7 +842,7 @@ To prevent "Flood-Spoofing," the DHU performs PBFT consensus on all pump stops:
 
 ---
 
-## 19. Hardware Security Modules & Cryptographic Primatives
+## 20. Hardware Security Modules & Cryptographic Primatives
 
 To ensure legal audibility, FarmSense hardware treats every sensor reading as a financial transaction.
 
