@@ -1,6 +1,6 @@
 import os
 from sqlalchemy.orm import Session
-from datetime import datetime
+from datetime import datetime, timezone
 import uuid
 import logging
 from typing import Optional

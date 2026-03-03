@@ -7,10 +7,7 @@ from geoalchemy2 import Geometry
 import uuid
 from datetime import datetime
 from enum import Enum as PyEnum
-<<<<<<< HEAD
 
-=======
->>>>>>> c52d84f (Sync workspace: add AGENTS.md, ROADMAP.md, SPRINT.md, and backend updates)
 from .base import Base
 
 
