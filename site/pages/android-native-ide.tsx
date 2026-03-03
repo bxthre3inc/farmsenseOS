@@ -1,4 +1,4 @@
-import { Smartphone, Cpu, Zap, Mail, ChevronLeft } from "lucide-react";
+import { Smartphone, ArrowUpRight, MapPin, Cpu, Zap, Mail, ChevronLeft } from "lucide-react";
 
 export default function AndroidIDEProject() {
   return (
@@ -9,18 +9,21 @@ export default function AndroidIDEProject() {
         
         <nav className="relative z-10 max-w-7xl mx-auto px-6 py-8 flex items-center justify-between">
           <a href="/" className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
-            <ChevronLeft className="w-4 h-4" /><span>Back to Bxthre3</span>
+            <ChevronLeft className="w-4 h-4" />
+            <span>Back to Bxthre3</span>
           </a>
           <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center font-bold text-lg">B3</div>
         </nav>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-24">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />Pilot
-          </span>
+          <div className="flex items-center gap-3 mb-6">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />Pilot
+            </span>
+          </div>
           
           <div className="flex items-start gap-6 mb-8">
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-violet-500/20 to-violet-600/20 flex items-center justify-center border border-violet-500/20">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-violet-500/20 to-violet-600/20 flex items-center justify-center flex-shrink-0 border border-violet-500/20">
               <Smartphone className="w-10 h-10 text-violet-400" />
             </div>
             <div>
@@ -30,8 +33,8 @@ export default function AndroidIDEProject() {
           </div>
           
           <p className="text-xl text-zinc-300 max-w-4xl leading-relaxed">
-            A self-contained, mobile-native environment designed for agentic workflows. 
-            Code, build, and deploy entirely from your Android device.
+            A self-contained, mobile-native environment designed from the ground up for agentic workflows. 
+            Code, build, and deploy entirely from your Android device—no laptop required.
           </p>
         </div>
       </header>
@@ -42,17 +45,17 @@ export default function AndroidIDEProject() {
           <div className="p-6 rounded-2xl bg-gradient-to-br from-violet-900/20 to-purple-900/10 border border-violet-500/10">
             <Smartphone className="w-8 h-8 text-violet-400 mb-4" />
             <h3 className="text-lg font-semibold mb-2">Mobile-First</h3>
-            <p className="text-sm text-zinc-400">Built specifically for Android, every interaction designed for touch.</p>
+            <p className="text-sm text-zinc-400">Built specifically for Android, not ported from desktop. Every interaction designed for touch.</p>
           </div>
           <div className="p-6 rounded-2xl bg-gradient-to-br from-violet-900/20 to-purple-900/10 border border-violet-500/10">
             <Cpu className="w-8 h-8 text-violet-400 mb-4" />
             <h3 className="text-lg font-semibold mb-2">Agent-First</h3>
-            <p className="text-sm text-zinc-400">Designed around AI agent workflows for maximum productivity.</p>
+            <p className="text-sm text-zinc-400">Designed around AI agent workflows. Let agents handle the mundane while you focus on decisions.</p>
           </div>
           <div className="p-6 rounded-2xl bg-gradient-to-br from-violet-900/20 to-purple-900/10 border border-violet-500/10">
             <Zap className="w-8 h-8 text-violet-400 mb-4" />
             <h3 className="text-lg font-semibold mb-2">Self-Contained</h3>
-            <p className="text-sm text-zinc-400">Full development environment on device, no cloud dependency.</p>
+            <p className="text-sm text-zinc-400">Full development environment on device. No cloud dependency, no external servers.</p>
           </div>
         </div>
       </section>
@@ -60,7 +63,7 @@ export default function AndroidIDEProject() {
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center p-12 rounded-3xl bg-gradient-to-br from-violet-900/20 to-purple-900/10 border border-violet-500/20">
           <h2 className="text-3xl font-bold mb-4">Currently in Pilot</h2>
-          <p className="text-zinc-400 mb-8 max-w-xl mx-auto">Interested in early access?</p>
+          <p className="text-zinc-400 mb-8 max-w-xl mx-auto">Android-Native IDE is being tested with select developers. Interested in early access?</p>
           <a href="mailto:contact@bxthre3.com" className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 transition-colors">
             <Mail className="w-4 h-4" />Get in Touch
           </a>
@@ -73,7 +76,10 @@ export default function AndroidIDEProject() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center font-bold text-sm">B3</div>
             <span className="font-semibold">Bxthre3 Inc.</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-zinc-500"><span>© 2025 Bxthre3 Inc.</span></div>
+          <div className="flex items-center gap-2 text-sm text-zinc-500"><MapPin className="w-4 h-4" /><span>United States</span></div>
+          <div className="flex items-center gap-2 text-sm text-zinc-500">
+            <span>© 2026 Bxthre3 Inc. All rights reserved.</span>
+          </div>
         </div>
       </footer>
     </div>
