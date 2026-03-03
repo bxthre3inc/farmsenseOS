@@ -1,4 +1,4 @@
-import { Leaf, Users, Zap, Mail, ChevronLeft } from "lucide-react";
+import { Leaf, ArrowUpRight, MapPin, Users, Zap, Mail, ChevronLeft } from "lucide-react";
 
 export default function WellServedProject() {
   return (
@@ -15,12 +15,14 @@ export default function WellServedProject() {
         </nav>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-24">
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />Pilot
-          </span>
+          <div className="flex items-center gap-3 mb-6">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />Pilot
+            </span>
+          </div>
           
           <div className="flex items-start gap-6 mb-8">
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-600/20 flex items-center justify-center border border-green-500/20">
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-600/20 flex items-center justify-center flex-shrink-0 border border-green-500/20">
               <Leaf className="w-10 h-10 text-green-400" />
             </div>
             <div>
@@ -31,10 +33,30 @@ export default function WellServedProject() {
           
           <p className="text-xl text-zinc-300 max-w-4xl leading-relaxed">
             Vertical integration of service industry supply chains. Streamlining the path from 
-            producer to provider with transparent pricing and quality verification.
+            producer to provider, reducing friction and increasing transparency across the entire service ecosystem.
           </p>
         </div>
       </header>
+
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <h2 className="text-3xl font-bold mb-8">Core Value</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="p-8 rounded-2xl bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 border border-white/5">
+            <h3 className="text-xl font-semibold mb-4 text-green-400">The Problem</h3>
+            <p className="text-zinc-300 leading-relaxed">
+              Service industries operate with fragmented supply chains, opaque pricing, and inefficient 
+              intermediaries. Providers struggle to manage inventory, costs, and quality consistently.
+            </p>
+          </div>
+          <div className="p-8 rounded-2xl bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 border border-white/5">
+            <h3 className="text-xl font-semibold mb-4 text-green-400">The Solution</h3>
+            <p className="text-zinc-300 leading-relaxed">
+              WellServed creates a unified platform connecting service providers directly with suppliers, 
+              with transparent pricing, quality verification, and streamlined logistics.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="max-w-7xl mx-auto px-6 py-24">
         <div className="text-center p-12 rounded-3xl bg-gradient-to-br from-green-900/20 to-emerald-900/10 border border-green-500/20">
@@ -52,7 +74,10 @@ export default function WellServedProject() {
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center font-bold text-sm">B3</div>
             <span className="font-semibold">Bxthre3 Inc.</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-zinc-500"><span>© 2025 Bxthre3 Inc.</span></div>
+          <div className="flex items-center gap-2 text-sm text-zinc-500"><MapPin className="w-4 h-4" /><span>United States</span></div>
+          <div className="flex items-center gap-2 text-sm text-zinc-500">
+            <span>© 2026 Bxthre3 Inc. All rights reserved.</span>
+          </div>
         </div>
       </footer>
     </div>
