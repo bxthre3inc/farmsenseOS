@@ -17,7 +17,7 @@ Located at the primary double-door end of the container, this zone handles the h
 * **Tactical Fleet Dock**: Specifically dimensioned to house the Polaris Ranger-HD UTV and the Hydraulic Auger Trailer. With a 62" vehicle width, this leaves a 30" walk-aisle for personnel. The floor is reinforced with industrial-grade anti-slip diamond plating to withstand the weight of loaded UTVs and the constant tracking of SLV alkali dust.
 * **The Sled Hospital (The Circular Economy Hub)**: A longitudinal stainless steel workbench (12' long) equipped with automated JIGs. This is the heart of the hardware's 10-year survival strategy.
 * **Nitrogen Station**: Includes a manifold for flushing and re-pressurizing sleds to +5 psi with Dry Nitrogen. This slight over-pressure is critical; it creates an internal atmosphere that is denser than the surrounding air, actively pushing out moisture and preventing the ingress of groundwater even if the Viton seals experience microscopic wear over a decade.
-* **Seal Validation & QC**: Features a specialized digital pressure-decay tester. Every sled extracted during the harvest window must pass a 15-minute seal integrity test before being moved to the trickle-charge racks.
+* **Seal Validation & QC (SOP-09)**: Features a specialized digital pressure-decay tester. Every sled extracted during the harvest window undergoes an ultrasonic solvent bath to remove SLV mineral deposits before a strict 15-minute seal integrity test (Pass = <0.1 PSI drop) is performed. Sleds are scanned via RFID and their battery SoC is archived.
 * **Environmental Barrier**: A heavy-duty, clear industrial strip curtain separates Zone A from Zone B. This provides a secondary thermal and dust barrier, ensuring that the abrasive particulates from the maintenance bay do not migrate into the sensitive electronics zones.
 
 ### Zone B: Inventory Staging & Ready-Rack (10' x 7.7')
@@ -39,11 +39,11 @@ The most protected, hermetically sealed section at the far end of the container,
 
 The RSS provides the local muscle for FarmSense’s primary software engine, ensuring that "Digital Water Ledger" transactions are processed with sub-second latency and absolute cryptographic certainty.
 
-### Oracle Multi-Core Compute (The Scientist)
+### Oracle Multi-Core Compute & Parallel Processing Workflow
 
-* **Processing Power**: 64-Core AMD Threadripper PRO with 256GB of ECC RAM and dual NVIDIA RTX data-processing GPUs.
-* **Mathematical Logic**: This cluster is responsible for the massive Bayesian math required to synchronize data from 15,600 LRZ sensors. Oracle executes Localized Kriging, an advanced geostatistical interpolation method that "fills in the gaps" between physical sensors.
-* **Function**: By processing these math "Worksheets" locally, the RSS can generate hyper-granular 1m grid "pops" for Enterprise Tier users and host the regional Map Tile server. This local processing allows the FarmSense UI and **Command & Control (C&C)** field tools to be snappy and responsive, serving high-resolution map tiles and XR deployment overlays without the multi-second latency of cloud round-trips.
+* **Processing Power**: 64-Core AMD Threadripper PRO 5995WX with 512GB of ECC RAM and dual NVIDIA RTX A6000 (48GB) data-processing GPUs.
+* **Mathematical Logic & CUDA Smoothing**: This cluster is responsible for the massive Bayesian math required to synchronize data from 15,600 LRZ sensors. The GPUs execute a parallel spatial pipeline: ingesting FHSS chirps, using CUDA kernels to trend-filter moisture noise from pivot "splash-zones," and calculating Variogram clouds.
+* **Function**: By processing these math "Worksheets" locally, the RSS renders the 1m Enterprise Kriging Tiles (Layer 12 PNGs) every 15 minutes. This local processing serves the FarmSense UI and **Command & Control (C&C)** field tools, streaming frustum-culled map data to fieldXR headsets for sub-meter "Pinning."
 
 ### The Oracle Vault (The Master Librarian)
 
@@ -71,21 +71,21 @@ Following the "Fiber-First" mandate, the RSS acts as the primary backhaul hub fo
 
 This ledger reflects the absolute cost for a fully operational 40' HC RSS hub, encompassing everything from the structural modifications to the specialized "Blitz" deployment fleet.
 
-| Category | Component Description | Supplier / Detail | Unit Cost |
-| :--- | :--- | :--- | :--- |
-| Structure | 40' HC Container | Western Container | $18,000 |
-| Climate | Mini-Split + HEPA | Mitsubishi | $4,500 |
-| Compute | 64-Core Threadripper | Puget Systems | $22,000 |
-| Storage | 50TB NVMe Array | WD Gold | $12,500 |
-| Network | Fiber + Starlink | Local / SpaceX | $6,500 |
-| Security | AI Perimeter + Fence | Verkada | $15,000 |
-| Power | 1.2kW Array + LFP | Renogy | $14,000 |
-| Backup | 5kW Gen (Auto-Start) | Honda | $5,500 |
-| Fleet | 4WD Heavy Duty UTV | Polaris | $28,500 |
-| Trailer | Mobile Lab + Auger | Proprietary | $15,000 |
-| Software | Oracle Unified Compute | FarmSense Core | $50,000 |
-| O&M | Y1 Ops Contingency | Local Supply | $20,500 |
-| **TOTAL** | **RSS Project Total** | | **$212,000** |
+| Category | Component Description | MPN / Supplier | Lead Time | Unit Cost |
+| :--- | :--- | :--- | :--- | :--- |
+| **Structure** | 40' HC Modified Container (R-21) | SeaBox-HC40 | 12 Weeks | $18,500 |
+| **Climate** | Mitsubishi 36k BTU Mini-Split | MUZ-FS36NA | 2 Weeks | $4,200 |
+| **Compute** | AMD Threadripper PRO 5995WX | 100-100000444 | 4 Weeks | $6,499 |
+| **Compute** | NVIDIA RTX A6000 (48GB) (x2) | VCNRTXA6000-PB | 6 Weeks | $9,300 |
+| **Storage** | 50TB WD Gold NVMe Array | WDS768T1D0D | 2 Weeks | $9,200 |
+| **Network** | Fiber ONT + Starlink Business | Local/SpaceX | 6 Weeks | $6,500 |
+| **Security** | Verkada AI Perimeter + Badge | Verkada-Pack | 3 Weeks | $15,000 |
+| **Power** | 1.2kW Array + 800Ah LFP | Renogy/BattleBorn | 6 Weeks | $14,000 |
+| **Backup** | Honda EU7000iS Gen (Auto-Start) | EU7000iS | 2 Weeks | $5,500 |
+| **Fleet** | 4WD Heavy Duty Polaris UTV | Polaris-Ranger-HD | 8 Weeks | $28,500 |
+| **Software** | Oracle Unified Compute License | FarmSense-Core | 0 Weeks | $50,000 |
+| **O&M** | Y1 Ops Contingency | Local Supply | 0 Weeks | $20,500 |
+| **TOTAL** | **RSS Project Total** | | | **$187,699** |
 
 ## 5. Strategic Value: ROI & The 10-Year Lifecycle
 

@@ -29,7 +29,7 @@ The PMT moves beyond simple GPS tracking to professional-grade kinematic auditin
 The hydraulic flow stack is the primary engine for water rights verification and state-level regulatory compliance.
 
 * **Ultrasonic Transit-Time Transducers**: Utilizes a Badger Meter TFX-5000 clamp-on transducer pair.
-* **Physics of Flow**: These sensors utilize "Transit-Time" logic, measuring the nanosecond difference between ultrasonic pulses traveling upstream vs. downstream. This difference is directly proportional to the water's flow velocity.
+* **Adaptive Kinematics & Ultrasonic Physics**: The sensors apply a dynamic Reynolds Number compensation algorithm to account for laminar-to-turbulent flow transitions within the 8" pipe. By measuring the nanosecond "Transit-Time delta" between upstream and downstream ultrasonic pulses, the system calculates precise flow velocity without physical interruption.
 * **The "Cut-Less" Advantage**: Because these clamp to the outside of the 8" main pipe, they require zero pipe cutting or downtime. Most importantly, they ensure zero pressure drop in the hydraulic system. Unlike invasive paddle-wheel meters that create drag, this non-invasive approach preserves the energy efficiency of the well pump, saving the farmer thousands in seasonal energy costs.
 * **Legal Certification**: The system provides ±1.0% flow accuracy, meeting the "Gold Standard" required for verified water use reporting to the State Engineer and securing long-term water rights through empirical proof.
 
@@ -37,6 +37,12 @@ The hydraulic flow stack is the primary engine for water rights verification and
 
 * **Cortex-M4 Processing Sled**: Features an ATSAMD51 processing sled (sourced via Digi-Key). It buffers 1-second interval flow data and GNSS coordinates, applying a localized Kalman Filter to the IMU data to smooth out the intense vibration noise of the pivot spans.
 * **Comms (The Field Hub)**: Features a dual-radio stack. Transmits and receives via a High-Gain 900MHz FHSS antenna to act as the primary "listening post" for the field's LRZ & VFA mesh. It then intercepts this data, bundles it with its own 2.4GHz/BLE hydraulic payload, and blasts the entire field's encrypted payload via a 900MHz LoRaWAN transceiver to the District Hub (DHU).
+
+### 4.1 Deep Technical Specs (ATSAMD51 Interface)
+
+* **Memory Architecture**: 1MB Dual-Bank Flash allows for seamless OTA (Over-The-Air) firmware updates via the DHU mesh without risking a bricked state during the 512KB partition swap.
+* **IMU Logic (BNO055)**: Sits on the I2C bus (Address 0x28), actively calculating quaternions (3D orientation) to detect "crabbing" stalls before visible structural bowing occurs.
+* **GNSS States (ZED-F9P)**: Communicates via UART. Defaults to a 1Hz NMEA stream, scaling to 10Hz "Blitz Mode" updates when the PMT detects rapid hydraulic surges.
 
 ### Empirical Bayesian Kriging (Edge-EBK) & VRI Failover Operations
 
@@ -57,21 +63,21 @@ The PMT acts as an **Autonomous Compute Engine** continuously. Utilizing the ATS
 
 This ledger deconstructs the hardware costs for the initial 1,280-unit rollout.
 
-| Category | Component Description | Supplier Part # | Unit Cost | Ext. Cost |
+| Category | Component Description | MPN / Supplier | Lead Time | Unit Cost |
 | :--- | :--- | :--- | :--- | :--- |
-| Housing | IP67 UV-Polycarbonate Puck | Polycase WP-21F | $45.00 | $45.00 |
-| Mounting | 304-SS Band-It Straps (x2) | McMaster 5530K34 | $12.50 | $12.50 |
-| Mounting | Neoprene Friction Pad | McMaster 8637K32 | $5.50 | $5.50 |
-| Computing | Cortex-M4 Processing Sled | Digi-Key ATSAMD51 | $65.00 | $65.00 |
-| Position | u-blox ZED-F9P RTK GNSS | SparkFun GPS-15136 | $140.00 | $140.00 |
-| Position | 9-Axis IMU (Vibration/Tilt) | Bosch BNO055 | $32.00 | $32.00 |
-| Hydraulic | Ultrasonic Transit-Time Pair | Badger Meter TFX-5000 | $648.00 | $648.00 |
-| Power | 10W Solar Lid + LiFePO4 | Renogy Cust-10W | $95.00 | $95.00 |
-| Power | LiSOCl2 5yr Hibernation Pack | Saft LS14500 | $25.00 | $25.00 |
-| Fasteners | SS M4 Security Screws (x4) | McMaster Security-M4 | $2.00 | $2.00 |
-| Radio | High-Gain BLE Whip Antenna | Linx ANT-BLE | $30.00 | $30.00 |
-| Radio | 900MHz LoRaWAN Transceiver | Semtech SX1262 | $12.00 | $12.00 |
-| **TOTAL** | **Per Unit Hardware Cost** | | **$1,112.00** | |
+| **Housing** | IP67 UV-Polycarbonate Puck | Hammond-1554WA | 6 Weeks | $45.00 |
+| **Mounting** | 304-SS Band-It Straps (x2) | McMaster 5530K34 | 1 Week | $12.50 |
+| **Mounting** | Neoprene Friction Pad | McMaster 8637K32 | 1 Week | $5.50 |
+| **Computing** | Cortex-M4 Processing Sled | Microchip-SAMD51 | 10 Weeks | $65.00 |
+| **Position** | u-blox ZED-F9P RTK GNSS | ZED-F9P-02B | 8 Weeks | $140.00 |
+| **Position** | 9-Axis IMU (Vibration/Tilt) | Bosch-0273141114 | 4 Weeks | $32.00 |
+| **Hydraulic** | Ultrasonic Transit-Time Pair | TFX-5000-U | 14 Weeks | $648.00 |
+| **Power** | 10W Solar Lid + LiFePO4 | Renogy-10W-Kit | 2 Weeks | $95.00 |
+| **Power** | LiSOCl2 5yr Hibernation Pack | Saft-LS14500 | 4 Weeks | $25.00 |
+| **Fasteners** | SS M4 Security Screws (x4) | McMaster Sec-M4 | 1 Week | $2.00 |
+| **Radio** | High-Gain BLE Whip Antenna | Linx-ANT-BLE | 3 Weeks | $30.00 |
+| **Radio** | 900MHz LoRaWAN Transceiver | Semtech-SX1262 | 6 Weeks | $12.00 |
+| **TOTAL** | **Per Unit Hardware Cost** | | | **$1,112.00** |
 
 **Total Subdistrict 1 Project Financials (1,280 Units)**:
 

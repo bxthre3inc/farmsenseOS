@@ -24,9 +24,10 @@ The LRZ housing is engineered for an "Invisible Presence"—a ruggedized subterr
 
 The LRZ is an exercise in extreme power efficiency. It lacks the eMMC storage and heavy compute processors found in edge coordinators. It is a "Set and Forget" asset that awakens, acts, and sleeps.
 
-* **Ultra-Low Power nRF Logic**: The compute board relies on a Nordic nRF52840 SoC. This chip stays in a deep micro-amp sleep state for 99% of its life, waking only to capture raw dielectric counts before immediately cutting power.
+* **Ultra-Low Power nRF Logic**: The compute board relies on a Nordic nRF52811 SoC (Cortex-M4 @ 64MHz). This chip stays in a deep 1.5µA sleep state for 99% of its life.
+* **Fringe Field Physics**: Wakens to sample the dielectric interface using a direct analog measurement via P0.02 (AIN0) and P0.03 (AIN1), pulling 5mA for 1.0ms.
 * **Interference Mitigation (FHSS)**: The LRZ chirp utilizes a Frequency-Hopping Spread Spectrum (FHSS) approach, scattering micro-transmissions across 75 different frequencies to ensure zero packet collisions in high-density fields.
-* **128-Bit Edge Encryption**: Before the chirp leaves the antenna, the payload is signed and encrypted with a factory-burned 128-bit AES key. The field VFA intercepts and decrypts this packet for routing.
+* **128-Bit Edge Encryption**: Before the chirp leaves the antenna, the payload is signed and encrypted with a factory-burned 128-bit AES key. The field VFA intercepts and decrypts this packet for routing. (Transmit draws 120mA for 50ms).
 * **Oracle Unified Compute Remote Calibration**: The LRZ requires zero manual calibration. Its baseline is established remotely by the **Oracle Unified Compute** using the high-fidelity Bayesian math from the field's VFA "Truth Node."
 
 ## 3. The High-Density Sensor Array (18-Inch / 18U Sequence)
@@ -50,21 +51,19 @@ Like the VFA, the LRZ employs the advanced "Proxy Method" of non-contact sensing
 1. **Post-Planting Insertion**: Utilizing a three-crew rotation, installation is calculated at under 10 minutes per unit. Crew A drills/sets the shell, Crew B drops/pressurizes the sled, and Crew C performs final compaction.
 2. **Harvest Extraction**: Prior to harvest, crews extract the internal sleds and cap the permanent shells with crush-proof blanking plugs.
 
-## 5. Hyper-Granular OEM Scale BOM (15,600 Unit Tier)
+## 5. Hyper-Granular OEM Scale BOM & Logistics (15,600 Unit Tier)
 
-| Category | Component Detail | Supplier / Scale Method | Unit Cost | Ext. Cost |
+| Category | Component Detail | MPN / Supplier | Lead Time | Unit Cost |
 | :--- | :--- | :--- | :--- | :--- |
-| Housing | 2" SCH 40 UV-HDPE (18-inch) | Direct Extruder | $1.50 | $1.50 |
-| Housing | Custom HDPE Tapered Tip | Proprietary Mold | $4.25 | $4.25 |
-| Antenna | 3ft SS-304 Whip + Spring | Industrial Pultrusion | $3.50 | $3.50 |
-| Adhesive | Structural HDPE Acrylic Epoxy | Automated Bulk | $4.50 | $4.50 |
-| Seals | Viton (FKM) 2" O-Rings (x2) | OEM Rubber Fab | $0.80 | $0.80 |
-| Computing | nRF52840 "Chirp" Logic Board | Tier-1 PCBA | $4.50 | $4.50 |
-| Climate | 1U Stamped Desiccant Matrix | Bulk Supply | $1.50 | $1.50 |
-| Structure | 18" AlphaSled Chassis | Continuous Extrusion | $1.25 | $1.25 |
-| Structure | Injection-Molded EndCaps | High-Cavity Mold | $0.60 | $0.60 |
-| Structure | Extruded HDPE Spacers (7U) | Recycled Bulk | $0.05 | $0.05 |
-| Power (x2) | 4U Battery Cartridges (21700x3) | Direct Cell Sourcing | $16.75/ea | $33.50 |
-| Basic Sensor (x2) | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | $2.00/ea | $4.00 |
-| **TOTAL** | **Per Unit Hardware Cost** | | | **$60.80** |
-| | **(Absolute OEM Scale)** | | | |
+| **Housing** | 2" SCH 40 UV-HDPE (18-inch) | JM-602-18 | 2 Weeks | $1.50 |
+| **Housing** | HDPE Injection-Molded (H6) Tip | FS-TIP-H6 | 4 Weeks | $4.50 |
+| **Antenna** | 3ft SS-304 Whip + Spring | Industrial Pultrusion | 2 Weeks | $3.50 |
+| **Adhesive** | Structural HDPE Acrylic Epoxy | Automated Bulk | 1 Week | $4.50 |
+| **Seals** | Nitrile O-Rings + Cap | FS-SEAL-V0 | 3 Weeks | $4.80 |
+| **Nitrogen Port** | Mini-Check Valve (316-SS) | Swagelok-SS-CHK | 3 Weeks | $10.00 |
+| **Computing** | nRF52811 Embedded Sled | Nordic-FS-V1.0 | 8 Weeks | $12.50 |
+| **Logic Board** | Proprietary 18U PCBA | FS-LRZ-18U | 12 Weeks | $8.00 |
+| **Climate** | 1U Stamped Desiccant Matrix | Bulk Supply | 1 Week | $1.50 |
+| **Power (x2)** | 4U Battery Cartridges (18650x2) | LFP-18650-1500 | 6 Weeks | $13.00 |
+| **Basic Sensor** | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | 4 Weeks | $4.00 |
+| **TOTAL** | **Per Unit Hardware Cost (Absolute OEM Scale)** | | | **$67.80** |

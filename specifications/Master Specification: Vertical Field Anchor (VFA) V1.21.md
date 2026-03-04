@@ -24,9 +24,18 @@ The VFA housing has been radically re-engineered using a dual-cylinder architect
 By stripping the VFA down to pure routing and encryption functions, we have intentionally offloaded all heavy cellular backhaul requirements and complex computations to the central Farm Hub and the **Command & Control (C&C)** backend.
 
 * **Interference Mitigation & FHSS**: The VFA utilizes a highly sensitive onboard FHSS mesh receiver to intercept the transmit-only "dumb" chirps from its fleet of 15-acre LRZs.
+* **Firmware Logic & Interrupts**: Operates an RTOS prioritizing pressure transients (Priority 0) over mesh coordination (Priority 1) and ADC dielectric sampling (Priority 2).
 * **Edge Decryption & Aggregation**: As the VFA catches these asynchronous chirps, it performs localized Edge Decryption, aggregating the raw electrical counts from the 15-acre lateral nodes with its own high-fidelity deep-soil data.
-* **AES-256 Security Architecture**: The aggregated payload is immediately re-encrypted using military-grade AES-256 protocols before leaving the VFA.
+* **Hardware Security & Root of Trust (RoT)**: A 256-bit Private Key is generated within the nRF52840's CryptoCell-310 HSM. It is injected at the RSS and never leaves the silicon.
 * **Local 900MHz Uplink & 2.4GHz Transceiver**: The VFA utilizes a high-gain 900MHz LoRa uplink to bounce the secure payload directly to the District Farm Hub. It also incorporates a 2.4GHz/BLE Transceiver module to communicate with field safety nodes.
+
+### 2.1 Deep Technical Specs (nRF52840 Interface)
+
+* **Precision Timing**: Driven by a 32MHz TCXO with ±0.5ppm stability to prevent LoRa synchronization drift during extreme SLV winter/summer transitions (-40°C to +50°C).
+* **GPIO Map**:
+  * **P0.02**: AIN0 (Dielectric Sensor 1 ADC).
+  * **P0.28-31**: SPI Bus (LoRa Radio SCK/MOSI/MISO/CS).
+  * **P1.02**: PWM (Kapton Heat FET for Frost Defense).
 
 ## 3. The "Proxy Method" Sensor Array (48-Inch / 48U Sequence)
 
@@ -58,22 +67,21 @@ The VFA employs advanced non-contact sensing, shooting high-frequency dielectric
 1. **Post-Planting Insertion**: Sensor sleds are dropped into the pre-located permanent HDPE shells, locked, and pressurized in under 15 minutes.
 2. **Harvest Extraction**: Prior to harvest, crews pull the C&C caps, extract the sleds for warehouse charging, and cap the shells with blanking plugs.
 
-## 5. Hyper-Granular OEM Scale BOM (1,280 Unit Tier)
+## 5. Hyper-Granular OEM Scale BOM & Logistics (1,280 Unit Tier)
 
-| Category | Component Detail | Supplier / Scale Method | Unit Cost | Ext. Cost |
+| Category | Component Detail | MPN / Supplier | Lead Time | Unit Cost |
 | :--- | :--- | :--- | :--- | :--- |
-| Housing | 2" SCH 40 UV-HDPE (4ft) | Direct Extruder | $4.00 | $4.00 |
-| Housing | Custom HDPE Tapered Tip | Proprietary Mold | $4.25 | $4.25 |
-| Antenna | 3ft SS-304 Whip + Spring | Industrial Pultrusion | $3.50 | $3.50 |
-| Adhesive | Structural HDPE Acrylic Epoxy | Automated Bulk | $4.50 | $4.50 |
-| Seals | Viton (FKM) 2" O-Rings (x2) | OEM Rubber Fab | $0.80 | $0.80 |
-| Computing | nRF52840 "Chirp" Logic Board | Tier-1 PCBA | $6.50 | $6.50 |
-| Climate | 1U Stamped Desiccant Matrix | Bulk Supply | $1.50 | $1.50 |
-| Structure | 48" AlphaSled Chassis | Continuous Extrusion | $3.25 | $3.25 |
-| Structure | Injection-Molded EndCaps | High-Cavity Mold | $0.60 | $0.60 |
-| Structure | Extruded HDPE Spacers (22U) | Recycled Bulk | $0.15 | $0.15 |
-| Power (x5) | 4U Battery Cartridges (21700x3) | Direct Cell Sourcing | $16.75/ea | $83.75 |
-| Adv. Sensor (x3) | 1U Advanced Sensor (NPK/EC/pH) | Fab-Direct Assembly | $14.00/ea | $42.00 |
-| Basic Sensor (x2) | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | $2.00/ea | $4.00 |
-| **TOTAL** | **Per Unit Hardware Cost** | | | **$159.65** |
-| | **(Absolute OEM Scale)** | | | |
+| **Housing** | 2" SCH 40 UV-HDPE (4ft) | JM-602-UV | 2 Weeks | $4.00 |
+| **Housing** | Zinc-Plated Friction-Formed Tip | FS-TIP-H8 | 4 Weeks | $4.25 |
+| **Antenna** | 3ft SS-304 Whip + Spring | Industrial Pultrusion | 2 Weeks | $3.50 |
+| **Adhesive** | Structural HDPE Acrylic Epoxy | Automated Bulk | 1 Week | $4.50 |
+| **Seals** | Viton O-Rings + Nitrogen Check Valve | FS-SEAL-V1 (316-SS) | 3 Weeks | $15.00 |
+| **Computing** | nRF52840 Mainboard PCBA | Nordic-FS-V1.2 | 8 Weeks | $24.50 |
+| **Climate** | 1U Stamped Desiccant Matrix | Bulk Supply | 1 Week | $1.50 |
+| **Structure** | 48" AlphaSled Chassis | Continuous Extrusion | 3 Weeks | $3.25 |
+| **Structure** | Injection-Molded EndCaps | High-Cavity Mold | 4 Weeks | $0.60 |
+| **Structure** | Extruded HDPE Spacers (22U) | Recycled Bulk | 2 Weeks | $0.15 |
+| **Power (x5)** | 4U Battery Cartridges (21700x3 Li-ion) | GP-32700-LFP | 6 Weeks | $83.75 |
+| **Adv. Sensor** | Proprietary 10-Unit Stack (NPK/EC/pH) | FS-DE-48U | 12 Weeks | $120.00 |
+| **Basic Sensor** | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | 4 Weeks | $4.00 |
+| **TOTAL** | **Per Unit Hardware Cost (Absolute OEM Scale)** | | | **$159.65** |

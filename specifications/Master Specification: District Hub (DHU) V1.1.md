@@ -26,6 +26,7 @@ The DHU is engineered for a 40-year structural lifespan, utilizing utility-grade
 The DHU performs heavy "Data Decimation" at the edge to reduce monthly backhaul costs while maintaining a high-fidelity local record for legal auditing.
 
 * **Edge Processing Engine**: Utilizes an **NVIDIA Jetson Nano Developer Kit** (or custom carrier equivalent) featuring a 128-core Maxwell GPU and Quad-core ARM A57 CPU.
+* **Operational Reliability & Mesh Consensus**: Enforces PBFT (Practical Byzantine Fault Tolerance) consensus by aggregating Schnorr multi-signatures from up to 1,280 VFA nodes. This ensures the "Digital Water Ledger" remains immutable against local tampering or spoofed sensor packets.
 * **Localized Kriging (10m & 20m)**: The DHU executes localized Bayesian math worksheets provided by the **RSS Oracle Compute** specifically for the 10-meter and 20-meter resolution tiers. By performing these multi-tenancy calculations for up to 100 fields at the edge, the DHU can make instantaneous "Reflex Logic" decisions (e.g., stopping a pump if a pivot stalls) without waiting for a cloud round-trip, which is vital during cellular latency spikes.
 * **The 30-Day "Black Box" Cache**: Equipped with a 128GB Swissbit PSLC Industrial SSD. Unlike consumer-grade storage, the Swissbit PSLC (Pseudo-Single Level Cell) drive is selected for extreme write-endurance and data retention in sub-zero temperatures.
 * **Data Integrity**: It maintains a localized master ledger of all regional water transactions. If both the fiber and cellular backhauls fail, the DHU continues to record every "Audit Packet," ensuring that the farmer's water conservation credits are never lost or questioned in Water Court.
@@ -55,35 +56,36 @@ To provide 360-degree high-bandwidth coverage across the basin, the DHU utilizes
 
 * **Solar**: 200W High-Tilt Rigid Mono-Solar Array designed to shed snow in under 2 hours.
 * **Battery**: Battle Born 200Ah Heated LiFePO4 Bank. Internal heating elements ensure the cells stay at +5°C even during −30°F "Polar Vortex" events. The system uses a "Solar First" charging priority to warm the battery before accepting charge current, preserving the 10-year battery life.
+* **Wind-Shimmer & Polar Vortex Recovery**: The 35ft Class 4 timber poles are stayed to eliminate oscillations <20Hz, ensuring the 5GHz radio spine never drops. In extreme -20°F blizzards, a hardcoded "Polar Vortex" subroutine shuts down non-essential LTE sectors to prioritize battery warming and core LoRa mesh routing.
 * **Lightning Defense**: Positioned at 35ft, DHUs are prime targets. Inclusion of L-com GDT (Gas Discharge Tube) Lightning Arrestors is non-negotiable for every antenna line.
 
-## 4. Hyper-Granular DHU CapEx & Procurement (25-Unit Fleet)
+## 5. Hyper-Granular DHU CapEx & Procurement (25-Unit Fleet)
 
 This ledger reflects the civil engineering and hardware costs for the 25-hub "Umbrella" required to cover Subdistrict 1.
 
-| Category | Component Description | Supplier / Part # | Unit Cost |
-| :--- | :--- | :--- | :--- |
-| Computing | NVIDIA Jetson Nano Dev Kit | NVIDIA | $99.00 |
-| Storage | 128GB PSLC SSD | Swissbit X-75 | $185.00 |
-| Radio | 120° 5GHz Sector (x3) | Ubiquiti UISP | $850.00 |
-| Backhaul A | Fiber ONT (Primary) | Local ISP | $350.00 |
-| Backhaul B | IoT LTE-M/NB-IoT (Backup) | Telit ME910G1 | $115.00 |
-| Housing | NEMA 4X Polycarbonate Box | Polycase ML | $180.00 |
-| Power | 200W Mono-Solar Array | Renogy | $340.00 |
-| Power | 200Ah Heated LiFePO4 Bank | Battle Born | $850.00 |
-| Tower | 35ft Class 4 Timber Pole | Local Utility | $1,500.00 |
-| Protection | Lightning Arrestor/Surge | L-com | $125.00 |
-| **TOTAL** | **Per Unit Hardware Cost** | | **$4,915.00** |
+| Category | Component Description | MPN / Supplier | Lead Time | Unit Cost |
+| :--- | :--- | :--- | :--- | :--- |
+| **Computing** | NVIDIA Jetson Nano Dev Kit | NVIDIA-Nano-4GB | 4 Weeks | $149.00 |
+| **Storage** | 128GB PSLC SSD | Swissbit-X-75 | 2 Weeks | $185.00 |
+| **Radio** | 120° 5GHz Sector (x3) | Ubiquiti-UISP | 4 Weeks | $850.00 |
+| **Backhaul A** | Fiber ONT (Primary) | Local ISP | 6 Weeks | $350.00 |
+| **Backhaul B** | IoT LTE-M/NB-IoT (Backup) | Telit-ME910G1 | 4 Weeks | $115.00 |
+| **Housing** | NEMA 4X Polycarbonate Box | Polycase-ML | 3 Weeks | $180.00 |
+| **Power** | 200W Mono-Solar Array | Renogy-200W | 2 Weeks | $340.00 |
+| **Power** | 200Ah Heated LiFePO4 Bank | BattleBorn-200Ah | 6 Weeks | $850.00 |
+| **Tower** | 35ft Class 4 Timber Pole | Local Utility | 3 Weeks | $1,500.00 |
+| **Protection**| Lightning Arrestor/Surge | L-com-GDT | 2 Weeks | $125.00 |
+| **TOTAL** | **Per Unit Hardware Cost** | | | **$4,644.00** |
 
 **Subdistrict 1 Infrastructure Totals (25 Hubs)**:
 
-* Hardware Subtotal: $122,875
+* Hardware Subtotal: $116,100
 * Fiber Trenching/Drop Allowance: $25,000
 * Site Foundation & Concrete: $12,500
 * Labor (Vertical Blitz): $18,375
-* **DHU PROJECT TOTAL: $178,750**
+* **DHU PROJECT TOTAL: $171,975**
 
-## 5. Strategic Value & "Resolution Pop" Support
+## 6. Strategic Value & "Resolution Pop" Support
 
 The DHU is the final staging area for the Enterprise (1m) Resolution Tier.
 
