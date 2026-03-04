@@ -1,5 +1,15 @@
 # FarmSense Project Memory
 
+## Document Map
+
+| Document | Purpose | Audience |
+|----------|---------|----------|
+| `FarmSense_Master_Manual.md` | Comprehensive system documentation (7,936 lines) | External: investors, grants, water court, partners |
+| `FarmSense_Internal_Guide.md` | Development workflow & AI assistant instructions | Internal: developers, AI assistants |
+| `RECONCILIATION_CHECKLIST.md` | Code ↔ documentation alignment tracker | Internal: project management |
+
+---
+
 ## CRITICAL INSTRUCTIONS FOR AI ASSISTANT
 
 ### Before Creating ANYTHING
@@ -149,6 +159,36 @@ See `file 'farmsenseOS/DEPENDENCY_REDUCTION.md'` for full plan.
 | **DHU** (District Hub) | 2 | Regional mesh manager | 10km radius |
 | **RSS** (Regional Superstation) | 3 | Territory master | Container cluster |
 
+### Robotics & Autonomy
+
+FarmSense supports autonomous field operations tracked via the `robotics_missions` model:
+
+| Mission Type | Description | Tracking |
+|--------------|-------------|----------|
+| Weeding | Autonomous weed removal | Path data, coverage area |
+| Seeding | Precision planting | Row spacing, depth |
+| Spraying | Targeted application | Chemical usage, drift |
+
+Robotic devices report real-time telemetry including battery level, mission status, and coverage metrics.
+
+---
+
+## Water Markets & Trading
+
+FarmSense includes a water trading system for federal water market integration:
+
+| Component | Purpose |
+|-----------|---------|
+| `trading.py` router | Water allocation trading endpoints |
+| `trading_service.py` | Market logic, pricing, transaction execution |
+| `water_rights.py` model | Water rights ownership, allocations, transfers |
+
+**Features:**
+- Water allocation buy/sell orders
+- Transfer verification & chain of custody
+- Market price tracking
+- Integration with Water Ledger for legal admissibility
+
 ---
 
 ## File Locations
@@ -167,16 +207,31 @@ farmsense-code/backend/
 │   │   │   ├── grants.py        # Grants & investment
 │   │   │   ├── analytics.py     # Geospatial analytics
 │   │   │   ├── compliance.py    # SLV 2026 compliance
-│   │   │   └── nexus.py         # Breakroom automation
+│   │   │   ├── trading.py       # Water market operations
+│   │   │   └── federated.py     # JADC2 / DoD data fabric
 │   │   └── tiles.py             # Map tiles
 │   ├── models/
 │   │   ├── sensor_data.py       # SQLAlchemy models
 │   │   ├── devices.py           # Hardware models
-│   │   └── user.py              # User models
+│   │   ├── user.py              # User models
+│   │   └── water_rights.py      # Water rights & allocations
 │   ├── services/
 │   │   ├── adaptive_recalc_engine.py  # Judgment-based recalc
 │   │   ├── decision_engine.py         # Deterministic logic
-│   │   └── grid_renderer.py           # Spatial grid rendering
+│   │   ├── grid_renderer.py           # Spatial grid rendering
+│   │   ├── vri_command_center.py      # VRI actuation orchestrator
+│   │   ├── trading_service.py         # Water market trading
+│   │   ├── jadc2_adapter.py           # JADC2 / DoD data fabric
+│   │   ├── satellite_service.py       # Satellite data integration
+│   │   ├── spatial_privacy.py         # Dual-layer spatial privacy
+│   │   ├── rss_kriging.py             # RSS Kriging operations
+│   │   ├── globalGAP_compliance.py    # GLOBALG.A.P. compliance
+│   │   ├── predictive_maintenance.py  # Predictive maintenance
+│   │   ├── csa_alignment.py           # CSA alignment service
+│   │   ├── terrain.py                 # Terrain analysis
+│   │   ├── equity_service.py          # Equity/investment service
+│   │   ├── external_data_service.py   # External data integration
+│   │   └── notification_service.py    # Notification system
 │   └── core/
 │       ├── database.py          # PostgreSQL/TimescaleDB
 │       └── websocket.py         # Real-time updates
@@ -187,7 +242,7 @@ farmsense-code/backend/
 
 ```
 farmsense-code/frontend/
-├── farmer-dashboard/        # Farmer field interface
+├── farmsense-portal/        # Farmer field interface (renamed from farmer-dashboard)
 ├── regulatory-portal/       # SLV 2026 compliance
 ├── investor-dashboard/      # Investment portal
 ├── grant-portal/            # Grant reviewer portal
@@ -234,7 +289,8 @@ reference/
 | grants | `/api/v1/grants` | Grants & investment |
 | analytics | `/api/v1/analytics` | Geospatial analytics |
 | compliance | `/api/v1/compliance` | SLV 2026 compliance |
-| nexus | `/api/v1/nexus` | Breakroom automation |
+| trading | `/api/v1/trading` | Water market operations |
+| federated | `/api/v1/federated` | JADC2 / DoD data fabric |
 | tiles | `/api/v1/tiles` | Map tiles |
 | ws | `/ws` | WebSocket real-time |
 
@@ -383,8 +439,19 @@ reference/
 - FHE Kriging on encrypted data
 - ESTCP grant application in progress
 
+### JADC2 / Federated Data Fabric
+
+The `federated.py` router enables integration with Department of Defense data sharing infrastructure:
+
+| Capability | Description |
+|------------|-------------|
+| JADC2 Compliance | Joint All-Domain Command & Control compatible |
+| Data Fabric Adapters | Secure data exchange with DoD systems |
+| Federated Queries | Cross-domain data access without data leaving secure enclaves |
+| FHE Support | Fully Homomorphic Encryption for sensitive operations |
+
 ---
 
-*Last updated: 2026-02-24*
+*Last updated: 2026-03-03*
 *Repository: github.com/bxthre3inc/farmsenseOS*
 *Server: brodiblanco.zo.computer*
