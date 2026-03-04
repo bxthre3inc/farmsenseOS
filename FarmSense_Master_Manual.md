@@ -8,8 +8,6 @@
 
 <div style="page-break-after: always;"></div>
 
-
-
 <div style="page-break-after: always;"></div>
 
 # PART I: EXECUTIVE VISION & STRATEGY
@@ -245,298 +243,202 @@ The FarmSense platform represents a highly sophisticated synthesis of edge compu
 
 # Long-Term Roadmap: FarmSense as Sovereign Water Infrastructure
 
-
 Vision: To establish FarmSense as the definitive "Global Water Ledger"—the legally recognized,
-
 
 cryptographically secure, and scientifically absolute source of truth for water management,
 
-
 recognized by state engineers and national governments worldwide.
-
 
 1. The Sovereign Value Proposition
 
-
 FarmSense provides the official "Water Balance Sheet" for nations, enabling international treaty
-
 
 compliance, climate resilience enforcement, and the legal verification of water rights. By
 
-
 integrating high-resolution spatial data with hardware-level cryptographic signing, FarmSense
-
 
 becomes a critical national asset—a "Zero-Trust" infrastructure that converts physical water
 
-
 movement into immutable legal evidence. This system moves beyond simple monitoring; it
-
 
 provides the empirical foundation for national security interests related to food stability and
 
-
 aquifer preservation.
 
-
-2. Strategic Objectives for "Gold Standard" Status
-
+1. Strategic Objectives for "Gold Standard" Status
 
 A. Regulatory Capture & State Recognition (Year 1–2)
 
-
 DWR (Division of Water Resources) Integration: Partner with state agencies to accept
-
 
 FarmSense data as "Rule-Compliant" for groundwater reporting. This involves automating
 
-
 the submittal process so that a FarmSense-enabled well is "Presumed Compliant,"
-
 
 drastically reducing the administrative overhead for state engineering offices.
 
-
 The State Auditor Portal: A specialized UI role for regulatory bodies providing basin-wide
-
 
 aggregated depletion data while maintaining producer privacy. This portal allows for
 
-
 "Macro-Management," where a State Engineer can observe real-time aquifer draw-down
-
 
 across an entire valley and issue "Reflex" pumping limits to the entire mesh during
 
-
 emergency drought conditions.
 
-
 Defensible Science: Formalizing the Zo Scientist Kriging models as the legal standard for
-
 
 Consumptive Use (CU) calculations. By replacing traditional, static formulas (like Blaney
 
 Criddle) with real-time, multi-layered profiling (soil moisture, atmospheric vapor pressure,
 
-
 and multispectral canopy health), FarmSense provides a scientifically superior record that
-
 
 can withstand the highest levels of judicial scrutiny in Water Court.
 
-
 B. Cryptographic Audit Trail & The Forensic Water Record (Year 2–3)
-
 
 Hardware Signing: Every data packet from a Vertical Field Anchor (VFA) or Pump Sentry
 
-
 (PFA) is cryptographically signed at the hardware level using Secure Element (SE) chips.
 
-
-https://gemini.google.com/app/625852be44d61d17?is_sa=1&is_sa=1&android-min-version=301356232&ios-min-version=322.0&campaign_id=bkws&… 1/3
-
+<https://gemini.google.com/app/625852be44d61d17?is_sa=1&is_sa=1&android-min-version=301356232&ios-min-version=322.0&campaign_id=bkws&…> 1/3
 
 2/16/26, 4:13 PM Google Gemini
 
-
 This ensures that the data is untampered from the moment it leaves the sensor, effectively
-
 
 "fingerprinting" every gallon of water measured.
 
-
 Immutable Ledger: Creates an unbreakable chain of custody from the well-head to the
 
-
 Oracle Vault. In Water Court, this data is "Self-Authenticating," removing the need for
-
 
 manual inspections or witness testimony. This "Forensic Record" allows for historical re
 
 play, where a state can audit the exact hydrological state of a field from years prior to
 
-
 resolve property or water right disputes with absolute certainty.
-
 
 C. The "Resolution Pop" Economic Engine
 
-
 The Compliance Hook: Governments provide the 50m Free Tier to ensure 100% market
-
 
 participation. This "Baseline Ledger" gives the state a low-resolution but complete picture
 
-
 of the regional water balance, effectively mapping the "Macro-Truth" of the basin.
-
 
 The Enterprise Revenue & Verification: Private entities, corporate sustainability officers,
 
-
 and enforcement agencies utilize the 1m Enterprise "Total Truth" resolution. This tier is
-
 
 used to verify ESG goals, investigate specific instances of illegal depletion, and manage
 
-
 high-value water transfers. The "Resolution Pop" creates a psychological and economic
-
 
 funnel where the need for "Micro-Truth" drives a high-margin revenue stream that
 
-
 subsidizes the state's baseline infrastructure.
 
-
-3. Scaling the Sovereign Mesh & Geopolitical Strategy
-
+1. Scaling the Sovereign Mesh & Geopolitical Strategy
 
 Stage Milestone Infrastructure & Geopolitical Goal
-
-
 
 Stabilize the Monte Vista Logistics Epicenter and the first Regional
 Superstation (RSS). Establish the first "Rule-Compliant" digital
 subdistrict.
 
-
 Deploy 15+ RSS units across the Front Range and Western Slope;
 achieve full DWR status. Become the state’s primary tool for
 Colorado River Compact compliance.
 
-
 Roll out the "Cloneable Command Center" to the High Plains
 Aquifer. Standardize "Federal Water Credits" based on FarmSenseverified depletions.
-
 
 Deploy RSS nodes in Australia and Brazil. Act as the neutral, thirdparty ledger for trans-boundary water conflicts and UN Water
 Security initiatives.
 
-
-
 Regional
 Master
-
 
 State
 Standard
 
-
 National
 Layer
-
 
 Sovereign
 Global
 
-
-
 100% of SLV
 Subdistrict 1
-
 
 Colorado
 Statewide
 Adoption
 
-
 USDA/USGS
 Partnership
-
 
 International G2G
 Treaties
 
+1. Technical Architecture for Sovereignty
 
-
-4. Technical Architecture for Sovereignty
-
-
-https://gemini.google.com/app/625852be44d61d17?is_sa=1&is_sa=1&android-min-version=301356232&ios-min-version=322.0&campaign_id=bkws&… 2/3
-
+<https://gemini.google.com/app/625852be44d61d17?is_sa=1&is_sa=1&android-min-version=301356232&ios-min-version=322.0&campaign_id=bkws&…> 2/3
 
 2/16/26, 4:13 PM Google Gemini
 
-
 The Librarian/Scientist Split: By keeping storage (Oracle) and math (Zo) separate, national
-
 
 governments can audit the science without compromising the security of the data vault. If
 
-
 the state updates its legal definition of "Consumptive Use," they simply update the Zo
-
 
 Worksheet, and the entire historical record is re-calculated instantly without altering the
 
-
 raw evidence.
-
 
 Worksheet Autonomy & The Reflex Logic: The Worksheet Reflex ensures that even during
 
-
 a national cyber-event or total internet blackout, the local "Reflex" logic—governing pump
-
 
 actuation and depletion limits—continues to function at the edge (Hub/VFA level). This
 
-
 "Hydraulic Autonomy" prevents catastrophic aquifer damage during periods of civil or
-
 
 digital instability.
 
-
 Decentralized Resilience: Each RSS (Regional Superstation) is a peer. If a central node is
-
 
 offline, the decentralized mesh continues to process and synchronize the water ledger for
 
-
 their respective regions. This peer-to-peer verification prevents any single point of failure
-
 
 from compromising the national water record.
 
-
-5. Final Valuation & Socio-Economic Implications
-
+1. Final Valuation & Socio-Economic Implications
 
 As the "Official Data Source," FarmSense becomes a mandatory utility. By underwriting the
 
-
 value of the land through verified water rights, the network moves from a management tool to a
-
 
 financial clearinghouse.
 
-
 Market Stability: Land value becomes "Intrinsic + Verified Water," making the agricultural
-
 
 real estate market more transparent and resilient to climate shocks.
 
-
 The Global Standard: FarmSense eventually becomes a prerequisite for agricultural
-
 
 exports; international buyers will demand a "FarmSense Audit" to prove that the crops were
 
-
 grown within sustainable water envelopes.
-
 
 A th i d f l t t t i i l t ti
 
-
-https://gemini.google.com/app/625852be44d61d17?is_sa=1&is_sa=1&android-min-version=301356232&ios-min-version=322.0&campaign_id=bkws&… 3/3
-
-
-
+<https://gemini.google.com/app/625852be44d61d17?is_sa=1&is_sa=1&android-min-version=301356232&ios-min-version=322.0&campaign_id=bkws&…> 3/3
 
 <div style="page-break-after: always;"></div>
 
@@ -544,496 +446,337 @@ https://gemini.google.com/app/625852be44d61d17?is_sa=1&is_sa=1&android-min-versi
 
 # FarmSense: Technical Project Overview & Research Validation Guide
 
-
 This document provides an exhaustive technical summary of the FarmSense project, specifically
 
-
 curated for scientific validation, gap analysis, and multi-dimensional risk assessment by
-
 
 research institutions, hydrologists, and agricultural stakeholders.
 
 ## 1. Project Overview & Current Scope
 
-
 FarmSense is a high-resolution, multi-modal agricultural intelligence and water-resource
-
 
 management platform. Its primary mission is the stabilization and long-term preservation of the
 
-
 San Luis Valley (SLV) Aquifer—a critical, semi-arid water resource currently facing systemic
-
 
 depletion due to prolonged drought and historical over-extraction.
 
-
 Project Status: Shovel-Ready: The project has successfully finalized its high-level
-
 
 architectural design, backend software framework, and data ingestion pipelines. It is
 
-
 currently positioned as a "shovel-ready" pilot. The immediate critical path to activation is
-
 
 securing funding for the fabrication, assembly, and field installation of the physical sensor
 
-
 hardware.
-
 
 Planned Deployment: CSU SLV RC Pilot: A high-density 2-field pilot phase located in
 
-
 Center, Colorado. This deployment is designed in direct partnership with the Colorado
-
 
 State University San Luis Valley Research Center (CSU SLV RC). This partnership
 
-
 allows FarmSense to leverage existing research-grade lysimeters, weather stations, and
-
 
 historical soil records for rigorous ground-truth calibration.
 
-
 Primary Objective: Precision Hydrology: The goal is to move beyond "estimated"
-
 
 irrigation and achieve "Precision Hydrology." By correlating real-time sub-surface
 
-
 telemetry with atmospheric demand, the project aims to eliminate the "irrigation safety
-
 
 margin"—the common practice of over-watering by 10-20% to avoid localized stress. This
 
-
 optimization is intended to sustain agricultural productivity and the local tax base without
-
 
 the need for mandatory fallowing or the aggressive closure of historic wells.
 
-
 Target Area: SLV Subdistrict 1: The initial scaling focus is Subdistrict 1 (approx. 166,000
 
-
 acres), a high-priority zone for the Rio Grande Water Conservation District. Success in this
-
 
 pilot is intended to serve as a blueprint for the entire Rio Grande Basin.
 
 ## 2. System Architecture & Component Hierarchy
 
-
 A. Backend Intelligence (Cloud Layer)
 
-
-https://gemini.google.com/app/9fe738dfc0a70bee 1/5
-
+<https://gemini.google.com/app/9fe738dfc0a70bee> 1/5
 
 2/22/26, 6:05 AM Google Gemini
 
-
 Map Servers (Distributed Data Library): These serve as the system’s "Long-Term
-
 
 Memory." They consist of distributed databases storing multi-temporal, multi-spectral
 
-
 satellite imagery, historical yield data, and high-resolution topographical maps. This layer
-
 
 handles the continuous ingestion of massive spatial datasets from sources like Sentinel-2
 
-
 (European Space Agency) and Landsat (NASA), performing pre-processing tasks such as
-
 
 cloud masking and atmospheric correction.
 
-
 Spatial Query Engine (SQE): Acting as the "Librarian," this specialized middleware
-
 
 performs high-speed lookups across tiered spatial datasets. When a specific field or Local
 
-
 Resource Zone (LRZ) requires analysis, the SQE extracts localized variables—elevation,
-
 
 slope, aspect, and NDVI (Normalized Difference Vegetation Index)—at precise Lat/Long
 
-
 coordinates. These are packaged into lightweight JSON arrays, allowing the compute layer
-
 
 to process complex spatial relationships without the overhead of full raster manipulation.
 
-
 Core Compute Server (The "Scientist"): This is the central intelligence of FarmSense. It
-
 
 utilizes a custom stack of math libraries to reconcile remote sensing data with sparse, in
 
 ground sensor telemetry.
 
-
 Bayesian Priors: The system uses Bayesian logic to establish initial probability
 
-
 distributions of soil moisture. By using historical data and Soil Functional Domain (SFD)
-
 
 profiles as "priors," the system can make high-probability estimates even when real
 
 time sensor data is intermittent.
 
-
 Kriging Trends & Geostatistics: To move from point-based sensor data to a
-
 
 continuous field-wide map, the server employs Kriging. This method accounts for the
 
-
 spatial autocorrelation of soil moisture, allowing the system to "fill the gaps" between
-
 
 sensors with a statistically valid confidence interval.
 
-
 B. Hardware & Infrastructure (Field Layer)
-
 
 Regional Superstations: High-capacity, elevated nodes providing the long-range
 
-
 backhaul for the entire subdistrict. They manage the mesh network and provide redundant
-
 
 internet gateways, ensuring that field data reaches the cloud even if local cellular towers
 
-
 are congested or fail.
-
 
 District Hubs (The Edge Compute Layer): These are the "Local Commanders."
 
-
 Positioned at the field edge (typically near the pivot point), these units possess significant
-
 
 local processing power. They receive encrypted data from relays and store the localized
 
-
 "Worksheet." Crucially, the Hub is designed for autonomous operation; it can execute
-
 
 irrigation logic for days or weeks without cloud connectivity, syncing back once a
 
-
 connection is re-established.
-
 
 Field Relays: Signal aggregators that utilize low-power, long-range (LoRa) radio protocols
 
-
 to "wake up" sensors, collect their data, and hop the signal back to the District Hub. This
 
-
-https://gemini.google.com/app/9fe738dfc0a70bee 2/5
-
+<https://gemini.google.com/app/9fe738dfc0a70bee> 2/5
 
 2/22/26, 6:05 AM Google Gemini
 
-
 multi-hop architecture allows the system to cover massive circular fields (120+ acres)
-
 
 without requiring high-power batteries in the sensors themselves.
 
-
 Sensors (The Sensor Grid): Designed as low-cost, "dumb" transmission units to facilitate
-
 
 high-density deployment:
 
-
 Vertical Profiling Sensors: Multi-depth probes measuring soil moisture tension (kPa),
-
 
 temperature, and Electrical Conductivity (EC) across the root zone (typically at 10cm,
 
-
 30cm, 60cm, and 90cm intervals).
-
 
 Horizontal Profiling Sensors: Specialized units detecting lateral moisture movement
 
-
 and moisture "fronts," which are critical for identifying drainage issues or sub-surface
-
 
 leaching.
 
-
 Master Nails: High-precision reference sensors per field, often co-located with PFA
-
 
 sample sites, used to calibrate the cheaper, high-density sensor grid.
 
 ## 3. The SFD (Soil Functional Domain) Framework
 
-
 Scientific validation is achieved through the SFD framework, which translates raw data into
-
 
 actionable agronomic management zones.
 
-
 VFA (Visual Field Analysis): The macroscopic mapping of field variability. This includes
-
 
 using satellite-derived NDVI to identify historical vigor patterns, as well as LIDAR-based
 
-
 Digital Elevation Models (DEM) to identify low spots where water naturally accumulates or
-
 
 ridges where run-off is likely.
 
-
 PFA (Physicochemical Field Analysis): This is the mapping of the soil’s "hardware." By
-
 
 analyzing Cation Exchange Capacity (CEC), pH, organic matter, and texture (sand/silt/clay
 
-
 ratios), the system understands the soil's hydraulic conductivity and water-holding
-
 
 capacity. Different PFAs require different irrigation "curves."
 
-
 PMT / +CSA (Profile Management Tools / Core Sample Analysis): This is the critical
-
 
 "Ground Truth" phase. Physical core samples are extracted at various depths and sent to
 
-
 the CSU SLV RC labs. The results are used to "fingerprint" the specific soil mineralogy,
-
 
 allowing the digital sensor grid to be calibrated specifically to the unique properties of that
 
-
 exact field.
-
 
 LRZ (Local Resource Zones): The operational output. The field is subdivided into zones
 
-
 that behave similarly from a hydraulic perspective. Instead of one irrigation rate for the
 
-
 whole field, the pivot or drip system receives a prescription tailored to each LRZ,
-
 
 maximizing water efficiency.
 
 ## 4. Operational Logic & Data Integration
 
-
 A. Data Sources
 
-
-https://gemini.google.com/app/9fe738dfc0a70bee 3/5
-
+<https://gemini.google.com/app/9fe738dfc0a70bee> 3/5
 
 2/22/26, 6:05 AM Google Gemini
 
-
 Satellite APIs: Automated pipelines for Sentinel-2 and Landsat imagery, providing 10m to
-
 
 80m resolution multi-spectral data for biomass monitoring.
 
-
 Weather APIs: Integration with global NOAA datasets and regional IBM/The Weather
-
 
 Company forecasts to predict short-term Evapotranspiration (ET) rates.
 
-
 Research-Grade Local Weather Stations: Integration with on-site stations at CSU SLV RC
-
 
 to obtain localized wind speed, solar radiation, and humidity. These variables are essential
 
-
 for calculating the Penman-Monteith ET0, which serves as the "demand" side of the water
-
 
 balance equation.
 
-
 Virtual Sensor Grid: Through Kriging interpolation, the system generates a "virtual" data
-
 
 point for every square meter of the field. This allows for a 1-meter resolution map even with
 
-
 a sensor spacing of 10-15 acres.
-
 
 B. The Worksheet Cycle
 
-
 1. Ingestion & Fusion: The Map Servers and Query Engine synthesize all atmospheric and
-
 
 spatial data.
 
-
-2. Model Generation: The Core Compute Server runs the Bayesian/Kriging models,
-
+1. Model Generation: The Core Compute Server runs the Bayesian/Kriging models,
 
 comparing current sub-surface telemetry against the existing Soil Variability Maps.
 
-
-3. Refinement: Following an irrigation event or significant rainfall, the system observes the
-
+1. Refinement: Following an irrigation event or significant rainfall, the system observes the
 
 "wetting front" movement. If the reality (sensor data) differs from the model (prediction),
 
-
 the Virtual Sensor Grid is automatically updated to reflect the new soil behavior (e.g.,
-
 
 faster-than-expected drainage).
 
-
-4. OTA Update: An optimized, machine-readable "Worksheet" is sent via Over-The-Air (OTA)
-
+1. OTA Update: An optimized, machine-readable "Worksheet" is sent via Over-The-Air (OTA)
 
 update to the District Hub.
 
-
-5. Local Execution: The Hub uses the Worksheet to calculate the exact gallonage needed for
-
+1. Local Execution: The Hub uses the Worksheet to calculate the exact gallonage needed for
 
 each LRZ. This local calculation ensures the farmer has an auditable, real-time record of
-
 
 water usage that is accurate to the gallon.
 
 ## 5. Funding & Sustainability
 
-
 Primary Funding Partner: The project is currently supported by the LOR Foundation, an
-
 
 organization dedicated to enhancing the quality of life and economic resilience in rural
 
-
 mountain communities. Their focus is specifically on the intersection of water conservation
-
 
 and agricultural viability.
 
-
 Immediate Capital Need: The project is currently seeking funding specifically for the
-
 
 construction, assembly, and deployment of the sensor hardware for the 2-field CSU pilot.
 
-
 This hardware procurement is the critical bottleneck preventing the transition from a digital
-
 
 framework to a physical, ground-truth validation system.
 
-
-https://gemini.google.com/app/9fe738dfc0a70bee 4/5
-
+<https://gemini.google.com/app/9fe738dfc0a70bee> 4/5
 
 2/22/26, 6:05 AM Google Gemini
 
-
 Commercial Model: Data-as-a-Service (DaaS):
-
 
 Free (50m): Community-level insights for general trend monitoring.
 
-
 Basic (20m): Standard precision for small-to-medium operations.
-
 
 Pro (10m): High-resolution analytics for commercial growers looking to maximize yield
 
-
 and minimize input costs.
 
-
 Enterprise (1m): Research-grade resolution, full SFD integration, and direct API access
-
 
 for integration into existing farm management software.
 
 ## 6. Gap & Risk Analysis for Researchers
 
-
 Implementation Risk: Hardware Fabrication: The most immediate risk is the delay in
 
-
 hardware deployment. While the software architecture and "Core Compute" models are
-
 
 ready for ingestion, the lack of physical sensors prevents the generation of the first real
 
 world "Worksheets."
 
-
 Scientific Gap: Soil Tension vs. Volumetric Content: There is a significant research gap
-
 
 in correlating soil moisture tension (what the plant feels) with volumetric water content
 
-
 (what the sensor reads) across the highly variable PFA profiles of the SLV. This requires
-
 
 continuous CSA (Core Sample) validation to reduce the "uncertainty envelope" of the
 
-
 predictive models.
-
 
 Technical Risk: Extreme Environmental Stress: The SLV is characterized by extreme
 
-
 temperature swings (-40°C to +35°C) and high soil alkalinity. The long-term reliability of
-
 
 LiSOCl2 batteries and sensor casings under these conditions is a primary hardware risk
 
-
 that requires the 2-field pilot for validation.
-
 
 Scaling Risk: Computational Overhead: Maintaining a 1-meter resolution (Enterprise
 
-
 level) across the entirety of Subdistrict 1 (166,000 acres) will require a massive increase in
-
 
 parallel processing within the Core Compute Server. Researchers must evaluate the trade
 
-https://gemini.google.com/app/9fe738dfc0a70bee 5/5
-
-
-
+<https://gemini.google.com/app/9fe738dfc0a70bee> 5/5
 
 <div style="page-break-after: always;"></div>
 
@@ -1082,6 +825,7 @@ The 126-acre average is not arbitrary. It is the precise geometric result of fit
 ## 4. Crop Mix
 
 Approximately **85%** of Subdistrict 1 fields grow three primary crops:
+
 * **Potatoes** (High ET demand: 4.5 – 7.7 mm/day)
 * **Barley** (Primary supply to Coors/Molson Brewery, Alamosa)
 * **Alfalfa** (Extremely high water use; primary fallowing target)
@@ -1109,9 +853,7 @@ Standard pivot: 126 acres × ~2 AF/acre/season = 252 AF. 20% savings = **50.4 AF
 
 *This document supersedes earlier population estimates used in prior FarmSense feasibility documents, which referenced 166,000 acres or 130-acre average fields.*
 
-
 <div style="page-break-after: always;"></div>
-
 
 <div style="page-break-after: always;"></div>
 
@@ -1126,40 +868,46 @@ To fund FarmSense hardware, deployment, and ongoing operations 100% through gran
 ## 1. Federal Grants (The Heavy Lifters)
 
 ### USDA NRCS: Conservation Innovation Grants (CIG)
-*   **Focus:** Development and adoption of innovative conservation approaches and technologies.
-*   **Relevance:** FarmSense aligns perfectly with CIG's focus on water management, irrigation efficiency, and aquifer recovery.
-*   **Funding Profile:** Up to $2M+ for National Classic; requires 1:1 match (often via in-kind contributions).
+
+* **Focus:** Development and adoption of innovative conservation approaches and technologies.
+* **Relevance:** FarmSense aligns perfectly with CIG's focus on water management, irrigation efficiency, and aquifer recovery.
+* **Funding Profile:** Up to $2M+ for National Classic; requires 1:1 match (often via in-kind contributions).
 
 ### Bureau of Reclamation (BoR): WaterSMART Grants
-*   **Focus:** Securing and managing water supplies in the American West.
-*   **Programs of Interest:**
-    *   **Applied Science Grants:** (Up to $300K) Funds tools and modeling for water managers.
-    *   **Water and Energy Efficiency Grants:** Funds projects conserving water.
+
+* **Focus:** Securing and managing water supplies in the American West.
+* **Programs of Interest:**
+  * **Applied Science Grants:** (Up to $300K) Funds tools and modeling for water managers.
+  * **Water and Energy Efficiency Grants:** Funds projects conserving water.
 
 ### DoD ESTCP: Installation Energy and Water (IEW)
-*   **Focus:** Demonstrating innovative energy and water technologies on military installations.
-*   **Relevance:** Dual-use AES-256 / FHSS mesh network and LPI/LPD characteristics.
-*   **Funding Profile:** $500K to $1.5M+, no strict cost-share required for private industry.
+
+* **Focus:** Demonstrating innovative energy and water technologies on military installations.
+* **Relevance:** Dual-use AES-256 / FHSS mesh network and LPI/LPD characteristics.
+* **Funding Profile:** $500K to $1.5M+, no strict cost-share required for private industry.
 
 ### National Science Foundation (NSF): SBIR/STTR (AgTech & Environment)
-*   **Focus:** Deep-tech startups conducting R&D with high commercial potential.
-*   **Funding Profile:** Phase I ($275K); Phase II ($1M+). Non-dilutive, taking $0 equity.
+
+* **Focus:** Deep-tech startups conducting R&D with high commercial potential.
+* **Funding Profile:** Phase I ($275K); Phase II ($1M+). Non-dilutive, taking $0 equity.
 
 ## 2. State & Regional Grants (Colorado Specific)
 
 ### Colorado Water Conservation Board (CWCB): Water Plan Grants
-*   **Focus:** Implementing the Colorado Water Plan.
-*   **Funding Profile:** ~$37.7M available. Targeting Agriculture, Conservation, and Engagement & Innovation categories.
+
+* **Focus:** Implementing the Colorado Water Plan.
+* **Funding Profile:** ~$37.7M available. Targeting Agriculture, Conservation, and Engagement & Innovation categories.
 
 ### Colorado Department of Agriculture (CDA): ACRE3 Program
-*   **Focus:** Advancing Renewable Energy and Energy Efficiency (ACRE3) in agriculture.
-*   **Relevance:** Reduces irrigation pumping energy through VFD monitoring and soft-stops.
+
+* **Focus:** Advancing Renewable Energy and Energy Efficiency (ACRE3) in agriculture.
+* **Relevance:** Reduces irrigation pumping energy through VFD monitoring and soft-stops.
 
 ## 3. Private, Philanthropic & AgTech Innovation Grants
 
-*   **The Walton Family Foundation (Environment Program)**: Protecting water resources in the Colorado River Basin.
-*   **Foundation for Food & Agriculture Research (FFAR)**: Matching funds for research on water scarcity.
-*   **1% for the Planet / Corporate Sustainability Grants**: Supply chain sustainability for major crop buyers (e.g., Coors, Frito-Lay).
+* **The Walton Family Foundation (Environment Program)**: Protecting water resources in the Colorado River Basin.
+* **Foundation for Food & Agriculture Research (FFAR)**: Matching funds for research on water scarcity.
+* **1% for the Planet / Corporate Sustainability Grants**: Supply chain sustainability for major crop buyers (e.g., Coors, Frito-Lay).
 
 <div style="page-break-after: always;"></div>
 
@@ -1167,279 +915,191 @@ To fund FarmSense hardware, deployment, and ongoing operations 100% through gran
 
 # Master Specification: Aerial Fleet Strategy V1.3
 
-
 Role: Multispectral Spatial Auditor & High-Resolution Data Anchor | Objective: 1m Enterprise
-
 
 Resolution & "Resolution Pop" Revenue Funnel
 
-
 The FarmSense Aerial Fleet serves as the critical "Spatial Bridge" in the SFD (Single Field
-
 
 Deployment) architecture. While physical subsurface sensors (VFA and LRZ) provide absolute
 
-
 "Deep Truth" at specific, geolocated pins, the aerial fleet provides the "Spatial Envelope"
-
 
 required to interpolate the vast, unmonitored acreage between those pins. By capturing high
 
 altitude multispectral data—specifically targeting the Red Edge and Near-Infrared bands—the
 
-
 fleet provides the Zo Scientist Engine with the high-frequency spatial gradients needed to
-
 
 transform discrete sensor pings into a continuous, hyper-accurate 1m-resolution "Digital Twin"
 
-
 of the entire subdistrict.
-
 
 The Strategic Convergence of Air and Earth: In the FarmSense ecosystem, drones are not
 
-
 merely cameras; they are Remote Radiometric Calibration Tools. The LRZ mesh provides the
-
 
 "Zero-Point" soil moisture and EC (Electrical Conductivity) calibration, while the aerial
 
-
 multispectral imagery identifies the "Vegetative Expression" of that data. When Zo (the
-
 
 Scientist) observes a dip in NDVI (Normalized Difference Vegetation Index) that correlates with a
 
-
 specific dielectric shift at an LRZ node, it can then mathematically "anchor" that relationship
-
 
 across every 1-meter tile of the field. This fusion eliminates the "Kriging Guesswork" common in
 
-
 lower-resolution platforms, providing the empirical foundation for Subdistrict 1’s Digital Water
-
 
 Ledger.
 
-
 The "Resolution Pop" Sales Funnel: The drone fleet is the primary psychological and technical
-
 
 driver for SaaS revenue growth. FarmSense operates on a "Resolution-as-a-Product" model,
 
-
 where the UI itself acts as a constant sales representative:
-
 
 The Interaction: When a Free (50m) or Basic (20m) tier user interacts with their interactive
 
-
 field map, the interface is powered by satellite-level data.
-
 
 The "Pop" Trigger: The moment the user attempts to zoom in to inspect a specific pivot
 
-
 tower or a suspected nozzle leak, the high-fidelity aerial data triggers the "Resolution
-
 
 Pop." * The Information Gap: Instead of a pixelated blur, the system generates a high
 
 contrast, blurred-out preview of the 1m grid, overlaid with a "High-Resolution Audit
 
-
 Available" call-to-action. This demonstrates the presence of hidden variability—such as
-
 
 localized crop stress or nitrogen leaching—that the user is currently missing. By proving
 
-
 the existence of an "unknown problem" via the 1m aerial ground-truth, the "Resolution
-
 
 Pop" converts the fear of missing out (FOMO) into an Enterprise-tier subscription upgrade.
 
 ## 1. Phased Mobilization & Hardware Selection
 
-
-https://gemini.google.com/app/7d9f7fc3aa518d8b 1/5
-
+<https://gemini.google.com/app/7d9f7fc3aa518d8b> 1/5
 
 2/22/26, 6:11 AM Google Gemini
 
-
 The fleet scales in three distinct phases designed to align with Subdistrict 1's adoption curve,
-
 
 regulatory milestones, and seasonal cash flow requirements.
 
-
 Phase 0: Startup (The Proof of Concept)
-
 
 Goal: Prove the end-to-end data pipeline—from multispectral capture at the field to Zo
 
-
 Worksheet correlation in the RSS—on 2 pilot fields (approx. 500 acres total).
-
 
 Unit: 1 DJI Mavic 3M (Multi-rotor). Selected for its portability and integrated
 
-
 multispectral sensor suite.
-
 
 Focus: Establishing the "Spectral-to-Soil" correlation baseline. This phase is founder
 
 led to minimize overhead while refining the Kriging algorithms that power the 1m
 
-
 "Resolution Pop."
-
 
 Phase 1: Regional Scaling (The Blitz Support)
 
-
 Goal: Support the first 100 high-value pivots (approx. 16,000 acres) with 10m Pro Tier
-
 
 audits and initial 1m previews.
 
-
 Fleet: 2 Fixed-wing (eBee Ag) for broad-acre mapping + 3 Multi-rotor (Mavic 3M) for
-
 
 targeted audits.
 
-
 Logistics: Deployment of portable RTK base stations at field edges to ensure sub-5cm
-
 
 absolute geographic accuracy, ensuring that aerial pixels align perfectly with
 
-
 subsurface sensor coordinates.
-
 
 Phase 2: Full Automation (District-Wide Umbrella)
 
-
 Goal: Achieving 150,000-acre subdistrict-wide coverage via automated Remote
-
 
 Operation Centers (ROC).
 
-
 Fleet: 4 Fixed-wing + 7 Multi-rotor.
-
 
 Regulatory Horizon: Requires FAA Part 108 (BVLOS) waivers to allow automated
 
-
 deployments directly from RSS hubs. The RSS container serves as the "Hangar" and
-
 
 weather-shielded charging dock for these automated sorties, allowing the fleet to
 
-
 respond to "Zo Detection Events" (e.g., a sudden pressure drop in a PFA) within
-
 
 minutes.
 
 ## 2. Unit Roles & Agronomic Intelligence Logic
 
-
 The fleet utilizes a "Macro-to-Micro" strategy, where high-speed fixed-wing units identify
-
 
 regional stress patterns that multi-rotor units then investigate for "Resolution Pop" verification.
 
-
 Fixed-Wing (AgEagle eBee Ag): Broad-Acre Auditor
-
 
 Role: Temporal Baseline Creation and Regional Trend Analysis.
 
-
 Capability: 90-minute endurance allows for mapping 1,200+ acres per flight at 400ft
-
 
 AGL.
 
-
-https://gemini.google.com/app/7d9f7fc3aa518d8b 2/5
-
+<https://gemini.google.com/app/7d9f7fc3aa518d8b> 2/5
 
 2/22/26, 6:11 AM Google Gemini
 
-
 Logic: These units fly the entire subdistrict every 30 days to establish the "Seasonal
-
 
 Baseline." They detect regional "Anomalies"—such as a subdistrict-wide dip in NDRE
 
-
 (Normalized Difference Red Edge) that might indicate a regional pest outbreak or a
-
 
 shifting water table—allowing the Zo Engine to prioritize which individual fields require
 
-
 immediate subsurface sensor attention.
-
 
 Multi-Rotor (DJI Mavic 3M): The Precision Diagnostic Tool
 
-
 Role: Targeted "Resolution Pops," Irrigation Failure Audits, and Plant-Level Verification.
-
 
 Capability: 0.7cm/pixel GSD (Ground Sample Distance) at 50m AGL.
 
-
 Logic: Dispatched only when the Zo Engine detects anomalous variability between LRZ
-
 
 scouts (e.g., Slot 10 is "dry" while Slot 18 is "wet," indicating a potential surface
 
-
 compaction layer). These high-resolution sweeps provide the hyper-granular proof
 
-
 needed for Enterprise-tier customers to see individual plant health and nozzle
-
 
 performance. They are the "Closing Tool" for the Enterprise sales funnel.
 
 ## 3. Data Fusion: The Zo-Oracle Synergy
 
-
 The true value of the Aerial Fleet is not in the images themselves, but in their integration within
-
 
 the Regional Superstation (RSS) architecture.
 
-
 Oracle (The Spatial Librarian): Oracle ingests drone-captured orthomosaics and stacks
-
 
 them into a "Multilayered Data Cake." It aligns spectral indices (NDVI/NDRE) directly on top
 
-
 of 1m DEM (Digital Elevation Models), soil texture maps, and historical yield data.
-
 
 Zo (The Scientist): Zo uses the aerial data as a Spatial Prior. While the LRZ mesh might
 
-
 have sensors 1,000 feet apart, the drone data provides the "Texture" between those
 
-
 points. If the drone sees a strip of high NDVI between two sensors, Zo assumes the
-
 
 moisture levels in that strip follow a similar gradient, allowing for the generation of 1m
 
@@ -1447,123 +1107,83 @@ resolution maps with >90% statistical confidence.
 
 ## 4. Phase 2 Financials & Operational Breakeven
 
-
 To achieve 150,000-acre coverage, the fleet operates on a militarized budget with 3 FTE staff
-
 
 members coordinating flights from the Monte Vista RSS.
 
-
 Category Expense Description Estimated Cost
-
 
 Hardware CAPEX 4x eBee Ag + 7x Mavic 3M + Spares $110,000
 
-
 Support CAPEX RTK Ground Stations + Field Vehicles $26,500
-
 
 Technical Labor 3 FTE (Lead Pilot + 2 Field Technicians) $280,000 (Annual)
 
-
-https://gemini.google.com/app/7d9f7fc3aa518d8b 3/5
-
+<https://gemini.google.com/app/7d9f7fc3aa518d8b> 3/5
 
 2/22/26, 6:11 AM Google Gemini
 
-
 Maintenance Hull Insurance + Component Overhauls $67,000 (Annual)
-
 
 Cloud Compute Zo Server Multispectral Processing & Storage $32,500 (Annual)
 
-
 CAPEX TOTAL Full Fleet Mobilization $136,500
-
 
 MONTHLY OPEX Operational Run-Rate $31,625
 
 ## 5. Revenue Model: The Resolution Pop Impact
 
-
 The model is designed to be profitable even at minimal adoption, with a massive ceiling for profit
-
 
 as Enterprise Tier conversions scale through the "Resolution Pop" funnel.
 
-
 Tier Rate Target Acreage Monthly Revenue
-
 
 Basic (20m Res) $15/acre 1,500 acres $22,500
 
-
 Enterprise (1m Res) $30/acre 400 acres $12,000
-
 
 TOTAL REVENUE 1,900 acres $34,500
 
-
 NET MONTHLY PROFIT $2,875
-
 
 Economic Verdict: Breakeven is achieved by servicing just 1.3% of the total subdistrict
 
-
 acreage (approx. 2,000 out of 150,000 acres) per month. This low threshold provides a
-
 
 massive safety margin for expansion. Every Enterprise upgrade beyond the initial 400 acres
 
-
 contributes directly to the bottom line, turning the drone fleet into a high-margin profit center
-
 
 that actively fuels the entire FarmSense sales funnel.
 
 ## 6. Regulatory & Compliance Framework
 
-
 Operating 11 drones across a 150,000-acre basin requires a robust compliance architecture to
-
 
 ensure long-term "License to Operate."
 
-
 Part 107 & BVLOS Path: All pilots are Part 107 certified. Phase 2 moves toward
-
 
 autonomous flight under Part 108, utilizing the RSS and DHU towers as electronic "Visual
 
-
 Observers" to maintain airspace safety during Beyond Visual Line of Sight operations.
-
 
 Privacy & Data Security: FarmSense maintains a strict "No-Fly" registry for adjacent
 
-
 landowners. Aerial data is surgically cropped to the field boundaries defined in the Oracle
-
 
 Map Manager, ensuring that only paid subscribers have access to their specific
 
-
 multispectral insights, while ensuring the "Digital Water Ledger" remains a secure, private
-
 
 asset for the district.
 
-
-https://gemini.google.com/app/7d9f7fc3aa518d8b 4/5
-
+<https://gemini.google.com/app/7d9f7fc3aa518d8b> 4/5
 
 2/22/26, 6:11 AM Google Gemini
 
-
-https://gemini.google.com/app/7d9f7fc3aa518d8b 5/5
-
-
-
+<https://gemini.google.com/app/7d9f7fc3aa518d8b> 5/5
 
 <div style="page-break-after: always;"></div>
 
@@ -1571,45 +1191,31 @@ https://gemini.google.com/app/7d9f7fc3aa518d8b 5/5
 
 # Master Specification: Corner-Swing Auditor (CSA) V1.0
 
-
 Role: Dual-Node Kinematic & Hydraulic Auditor for Swing-Arm Pivots | Network Density: 2 PMT
-
 
 Units per Corner Pivot (Subdistrict 1)
 
-
 The Corner-Swing Auditor (CSA) is a specialized dual-node configuration of the FarmSense
-
 
 PMT system, specifically engineered for center-pivots equipped with swinging corner arms
 
-
 (swing-spans) or end-gun extensions. In a standard pivot, a single PMT can calculate the
-
 
 circular application area. However, a swinging pivot introduces a non-linear "elbow" joint that
 
-
 extends the irrigation reach into the corners of square fields. To maintain the Enterprise (1m)
-
 
 Resolution required for the Digital Water Ledger, the CSA utilizes two synchronized PMT units—
 
-
 a Primary Span Tracker (PST) and a Swing-Arm Tracker (SAT)—to mathematically resolve
-
 
 the complex kinematics and hydraulic surges associated with corner irrigation.
 
-
 The "Corner Reach" Data Gap: Corner irrigation is historically the most "unaudited" zone in
-
 
 agriculture. Because swing arms extend and retract based on soil boundaries and legal
 
-
 property lines, the water distribution is rarely uniform. The CSA closes this gap, providing the Zo
-
 
 Scientist Engine with the high-fidelity proof needed to audit every gallon sprayed into the high
 
@@ -1617,338 +1223,225 @@ value corner acres of Subdistrict 1.
 
 ## 1. Dual-Node Kinematic Architecture (The Elbow Logic)
 
-
 The CSA operates on a "Master-Slave" kinematic relationship to resolve the pivot's exact
-
 
 footprint in real-time.
 
-
 Primary Span Tracker (PST): Mounted on the first or second tower of the main pivot
-
 
 span. It establishes the "Base Vector" of the machine. It tracks the primary rotation angle
 
-
 (0-360°) and the bulk flow entering the main pipe from the wellhead.
-
 
 Swing-Arm Tracker (SAT): Mounted on the distal end of the swinging corner arm. It tracks
 
-
 the "Swing Angle" relative to the main span. By comparing the GNSS and IMU data
-
 
 between the PST and SAT, the Zo Server can triangulate the exact position of every nozzle
 
-
 on the swing arm within 1 meter.
 
-
 Kinematic Synchronization: Both units utilize a sub-second BLE handshake. The SAT
-
 
 feeds its angular displacement data to the PST, which then packages a unified "Double
 
 Kinematic" payload for the VFA. This allows the Zo Engine to calculate the "Crabbing"
 
-
 effect of the swing-arm tires independently of the main span, identifying structural stress
-
 
 caused by mud or terrain slope in the corners.
 
 ## 2. Advanced Hydraulic Auditing (End-Gun & Solenoid Pulse)
 
-
-https://gemini.google.com/app/7d9f7fc3aa518d8b 1/4
-
+<https://gemini.google.com/app/7d9f7fc3aa518d8b> 1/4
 
 2/21/26, 1:19 AM Google Gemini
 
-
 Corner spans often utilize high-pressure "End-Guns" that pulse on and off via solenoids as the
-
 
 arm swings. This creates massive pressure spikes and flow variability that a single meter cannot
 
-
 capture.
-
 
 Dual-Flow Correlation: The SAT unit is equipped with its own dedicated set of clamp-on
 
-
 ultrasonic transducers placed downstream of the swing-arm's main joint. This allows the
-
 
 system to differentiate between the Main Span Flow and the Swing-Arm/End-Gun Flow.
 
-
 Solenoid Audit Logic: The IMU in the SAT is specifically tuned to detect the "Hydraulic
-
 
 Hammer" (vibration signature) produced when the end-gun solenoid fires. By timestamping
 
-
 this mechanical vibration against the ultrasonic flow surge, the CSA provides the "Digital
 
-
 Ledger" with certified proof of exactly how much water was dumped into the corner zones,
-
 
 preventing over-application and nitrate leaching in these sensitive areas.
 
 ## 3. Structural Housing & "Cut-Less" Mounting (Subdistrict 1 Grade)
 
-
 The CSA nodes utilize the same ruggedized housing as the standard PMT but are reinforced for
-
 
 the higher vibration and centrifugal forces experienced at the edge of the swing arm.
 
-
 IP67 UV-Polycarbonate Puck: Both nodes are housed in Polycase WP-21F enclosures.
-
 
 Polycarbonate is mandated due to its RF-transparency, ensuring the GNSS RTK lock is not
 
-
 interrupted by the massive steel trusses of the swing-arm extension.
-
 
 Vibration Isolation (The Corner Whip): The SAT unit is subject to a "whip effect" as the
 
-
 corner arm starts and stops. To protect the electronics, the SAT utilizes a double-layer
-
 
 Neoprene Friction Pad. This isolates the u-blox ZED-F9P chipset from the high-frequency
 
-
 metal-on-metal vibration of the swing joint, ensuring the GNSS lock remains stable even
-
 
 during aggressive machine maneuvers.
 
-
 Zero-Impact Installation: Like the standard PMT, the CSA is 100% "Cut-Less." It uses
-
 
 304-SS Band-It straps for mounting and clamp-on transducers for flow. This allows the
 
-
 District’s "Band-It Blitz" crews to install a full CSA system on a corner pivot in under 4 hours
-
 
 without any welding or structural modifications.
 
 ## 4. UI Logic & The "Corner Pop" Sales Funnel
 
-
 The high-fidelity data generated by the SAT unit is the primary driver for Enterprise (1m) Tier
-
 
 conversions in fields with corner irrigation.
 
-
 The Resolution Challenge: In the Free (50m) and Basic (20m) tiers, the corner irrigation is
-
 
 often rendered as a simplified square block. However, when the farmer views their "Corner
 
-
 Health" on the interactive tile map, the system triggers a specialized "Corner Pop." * The
-
 
 Enterprise Hook: The UI showcases the real-time angular movement of the swing arm
 
-
 (audited by the SAT) and offers a preview of the 1m-resolution "Application Map." This
-
 
 proves to the farmer that they are wasting water in the corners or missing critical zones
 
-
-https://gemini.google.com/app/7d9f7fc3aa518d8b 2/4
-
+<https://gemini.google.com/app/7d9f7fc3aa518d8b> 2/4
 
 2/21/26, 1:19 AM Google Gemini
 
-
 due to end-gun malfunctions, providing a high-conversion incentive to upgrade to the
-
 
 Enterprise tier to unlock the full hydraulic audit.
 
 ## 5. Hyper-Granular CSA BOM & Project Costs (Dual-Unit Setup)
 
-
 Because a corner pivot requires two full PMT nodes (PST + SAT), the cost is essentially doubled
 
-
 per machine. This ledger reflects the Subdistrict 1 volume pricing for the dual-unit hardware.
-
-
 
 Category Component Description Supplier Part # /
 Type
 
-
-
 Unit
 Cost
-
-
 
 Ext. Cost
 (x2)
 
-
-
 Housing IP67 UV-Polycarbonate Puck Polycase WP-21F $45.00 $90.00
-
 
 Mounting 304-SS Band-It Straps (x4) McMaster 5530K34 $12.50 $25.00
 
-
 Mounting Neoprene Friction Pad (x2) McMaster 8637K32 $5.50 $11.00
-
-
 
 Computing Cortex-M4 Processing Sled
 (x2)
 
-
 Position u-blox ZED-F9P RTK GNSS
 (x2)
-
 
 Position 9-Axis IMU (Vibration/Tilt)
 (x2)
 
-
 Hydraulic Ultrasonic Transit-Time Pair
 (x2)
-
 
 Power 10W Solar Lid + LiFePO4
 Buffer (x2)
 
-
 Power LiSOCl2 5yr Hibernation
 Pack (x2)
-
 
 Radio High-Gain BLE Whip
 Antenna (x2)
 
-
-
 Digi-Key ATSAMD51 $65.00 $130.00
-
 
 SparkFun GPS-15136 $140.00 $280.00
 
-
 Bosch BNO055 $32.00 $64.00
-
-
 
 Badger
 Meter
 
-
-
 TFX-5000 $648.00 $1,296.00
-
-
 
 Renogy Cust-10W $95.00 $190.00
 
-
 Saft LS14500 $25.00 $50.00
-
 
 Linx ANT-BLE $30.00 $60.00
 
-
-
 Fasteners SS M4 Security Screws (x8) McMaster SecurityM4
-
 
 TOTAL Per Unit Hardware Cost
 (Dual PMT)
 
-
-
 $2.00 $4.00
-
 
 $2,200.00
 
-
-
-https://gemini.google.com/app/7d9f7fc3aa518d8b 3/4
-
+<https://gemini.google.com/app/7d9f7fc3aa518d8b> 3/4
 
 2/21/26, 1:19 AM Google Gemini
 
-
 Total CSA Project Financials (Per Corner Pivot):
-
 
 Hardware Total: $2,200.00
 
-
 Dual-Point Calibration & Audit: $114.88 (Requires a double-run with the Master Meter to
-
 
 verify both the main span flow and the swing-arm flow separately).
 
-
 Labor (Installation): $200.00 (Calculated at 4 hours total per corner pivot to handle the
 
-
 complex mounting on the swing arm).
-
 
 CSA PER-PIVOT TOTAL: $2,514.88
 
 ## 6. Strategic Legal Value
 
-
 The CSA provides the ultimate level of protection in Water Court. For Subdistrict 1 farmers, the
-
 
 corners are often the first areas to have their water rights curtailed during drought years.
 
-
 Empirical Defense: The CSA provides the only certified way to prove that water was
-
 
 delivered only within the permitted swing-arm boundaries and was not "oversprayed" onto
 
-
 non-irrigated land.
-
 
 Worksheet Integration: The Zo Server uses the dual-node data to update the field's
 
-
 "Swing Worksheet." If the SAT detects that the swing arm is not extending fully, it informs
-
 
 the Zo Scientist, who then adjusts the virtual sensor grid values for the corner tiles,
 
-
 i th 1 E t i i th d fi iti "G d T th "
 
-
-https://gemini.google.com/app/7d9f7fc3aa518d8b 4/4
-
-
-
+<https://gemini.google.com/app/7d9f7fc3aa518d8b> 4/4
 
 <div style="page-break-after: always;"></div>
 
@@ -2044,7 +1537,6 @@ The DHU is the final staging area for the Enterprise (1m) Resolution Tier.
 * **The Resolution Engine**: By aggregating the high-fidelity GNSS and flow data from the PMT with the subsurface pings from the LRZ mesh, the DHU facilitates the "Resolution Pop" in the farmer’s UI.
 * **The Sales Funnel**: If a user on a lower tier attempts to view 1m granular data, the DHU triggers the blurred preview funnel. This proves the value of the Enterprise subscription by demonstrating the DHU's ability to sync data in real-time, even during regional internet outages. Furthermore, the DHU provides the high-fidelity spatial data stream required for the **Command & Control (C&C)** XR deployment tools used by field technicians.
 
-
 <div style="page-break-after: always;"></div>
 
 # Master Specification: Lateral Root-Zone Scout (LRZ) V1.21
@@ -2117,7 +1609,6 @@ Like the VFA, the LRZ employs the advanced "Proxy Method" of non-contact sensing
 | Basic Sensor (x2) | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | $2.00/ea | $4.00 |
 | **TOTAL** | **Per Unit Hardware Cost** | | | **$60.80** |
 | | **(Absolute OEM Scale)** | | | |
-
 
 <div style="page-break-after: always;"></div>
 
@@ -2208,7 +1699,6 @@ This ledger deconstructs the hardware costs for the initial 1,280-unit rollout.
 By deploying the PMT at this scale, FarmSense moves the needle from "estimated water use" to "audited water reality."
 
 * **Water Court Integrity**: In the event of an aquifer depletion dispute, the PMT's unbroken, ±1.0% accurate log serves as the absolute "Gold Standard" of evidence, proving that every gallon was applied exactly where the **Oracle Compute Layer** calculated it was needed.
-
 
 <div style="page-break-after: always;"></div>
 
@@ -2514,7 +2004,6 @@ Water Court Integrity: In the event of an water rights dispute, the PFA's unbrok
 
 <https://gemini.google.com/app/7d9f7fc3aa518d8b> 5/5
 
-
 <div style="page-break-after: always;"></div>
 
 # Master Specification: Regional Superstation (RSS) V1.3
@@ -2614,7 +2103,6 @@ By investing $212,000 in a centralized RSS, FarmSense dramatically lowers the pe
 * **The "Digital Twin" Revenue Multiplier**: The RSS is what makes the 1m Enterprise resolution possible. By hosting the Oracle compute layer locally, the RSS facilitates the "Resolution Pop" feature in the farmer's app. This high-conversion UI feature is the primary driver for SaaS upgrades, effectively paying for the RSS infrastructure through increased subscription revenue within the first 24 months.
 * **Legal Defensibility & Aquifer Security**: In the high-stakes environment of Subdistrict 1, data is a weapon. The RSS provides the "Empirical Fortress" required to win Water Court disputes. By storing signed, encrypted data locally in the Oracle Vault, the district can prove its water stewardship regardless of global cloud outages or geopolitical instability, securing the seniority of its members' water rights for the next generation of farmers.
 
-
 <div style="page-break-after: always;"></div>
 
 # Master Specification: Vertical Field Anchor (VFA) V1.21
@@ -2697,10 +2185,7 @@ The VFA employs advanced non-contact sensing, shooting high-frequency dielectric
 | **TOTAL** | **Per Unit Hardware Cost** | | | **$159.65** |
 | | **(Absolute OEM Scale)** | | | |
 
-
-
 <div style="page-break-after: always;"></div>
-
 
 <div style="page-break-after: always;"></div>
 
@@ -2714,9 +2199,9 @@ FarmSense is the definitive sovereign water infrastructure—legally recognized,
 
 ### Core Philosophy: Deterministic Farming
 
-- **MAD Framework:** Implementation of Management Allowable Depletion (MAD) to treat soil as a "battery," mathematically eliminating deep percolation and water wastage.
-- **Legal Defense:** A decentralized, unbreakable 128-bit AES cryptographic chain of custody for water rights evidence in State Water Courts.
-- **Economic Optimization:** Continuous Cost-Benefit Analysis (CBA) preventing irrigation when marginal pumping cost exceeds marginal yield revenue.
+* **MAD Framework:** Implementation of Management Allowable Depletion (MAD) to treat soil as a "battery," mathematically eliminating deep percolation and water wastage.
+* **Legal Defense:** A decentralized, unbreakable 128-bit AES cryptographic chain of custody for water rights evidence in State Water Courts.
+* **Economic Optimization:** Continuous Cost-Benefit Analysis (CBA) preventing irrigation when marginal pumping cost exceeds marginal yield revenue.
 
 ---
 
@@ -2731,10 +2216,10 @@ FarmSense is the definitive sovereign water infrastructure—legally recognized,
 
 ### 2.2. Core Software Components
 
-- **Backend:** FastAPI (async), PostgreSQL + TimescaleDB (Time-series), PostGIS (Spatial), Redis (Cache), RabbitMQ (Queue).
-- **Edge Computing:** Go-optimized IDW interpolation with offline SQLite resilience.
-- **Cloud Analytics:** NumPy/SciPy Regression Kriging incorporating Sentinel-2/Landsat-9 imagery.
-- **Security:** JWT Authentication, 128-bit AES payload encryption, Secure Element (SE) chip integration (planned).
+* **Backend:** FastAPI (async), PostgreSQL + TimescaleDB (Time-series), PostGIS (Spatial), Redis (Cache), RabbitMQ (Queue).
+* **Edge Computing:** Go-optimized IDW interpolation with offline SQLite resilience.
+* **Cloud Analytics:** NumPy/SciPy Regression Kriging incorporating Sentinel-2/Landsat-9 imagery.
+* **Security:** JWT Authentication, 128-bit AES payload encryption, Secure Element (SE) chip integration (planned).
 
 ---
 
@@ -2744,54 +2229,54 @@ FarmSense is the definitive sovereign water infrastructure—legally recognized,
 
 ### M1.1: Backend & Infrastructure Hardening (Weeks 1-4)
 
-- [ ] Optimize TimescaleDB retention policies and continuous aggregates.
-- [ ] Implement Dual-Layer Spatial Privacy (Contextual Anonymization) for cloud datasets.
-- [ ] Set up Prometheus/Grafana monitoring on Zo server.
-- [ ] Hardening of `adaptive_recalc_engine.py` for "Critical" event triggers.
+* [ ] Optimize TimescaleDB retention policies and continuous aggregates.
+* [ ] Implement Dual-Layer Spatial Privacy (Contextual Anonymization) for cloud datasets.
+* [ ] Set up Prometheus/Grafana monitoring on Zo server.
+* [ ] Hardening of `adaptive_recalc_engine.py` for "Critical" event triggers.
 
 ### M1.2: Hardware Finalization & BOM (Weeks 5-8)
 
-- [ ] **PMT:** Finalize LoRaWAN 900MHz gateway & u-blox ZED-F9P RTK logic.
-- [ ] **PFA:** Implement Current Harmonic Analysis for predictive pump maintenance.
-- [ ] **VFA/LRZ:** Finalize PVDF enclosure coating and HPC battery integration for -30°F survivability.
-- [ ] Order prototype components for the CSU SLV pilot.
+* [ ] **PMT:** Finalize LoRaWAN 900MHz gateway & u-blox ZED-F9P RTK logic.
+* [ ] **PFA:** Implement Current Harmonic Analysis for predictive pump maintenance.
+* [ ] **VFA/LRZ:** Finalize PVDF enclosure coating and HPC battery integration for -30°F survivability.
+* [ ] Order prototype components for the CSU SLV pilot.
 
 ### M1.3: Portal Deployment & 3D Integration (Weeks 9-12)
 
-- [ ] Deploy **Farmer Dashboard** (MapLibre + React).
-- [ ] Deploy **Regulatory Portal** (Compliance reporting).
-- [ ] **3D Terrain Integration:** Implement `TerrainService` (1m DEM data) and `TerrainMesh` for spatial visualization.
-- [ ] Validate 1m Regression Kriging accuracy against SLV ground-truth.
+* [ ] Deploy **Farmer Dashboard** (MapLibre + React).
+* [ ] Deploy **Regulatory Portal** (Compliance reporting).
+* [ ] **3D Terrain Integration:** Implement `TerrainService` (1m DEM data) and `TerrainMesh` for spatial visualization.
+* [ ] Validate 1m Regression Kriging accuracy against SLV ground-truth.
 
 ### M1.4: Pilot Deployment & Data Ingestion (Weeks 13-16)
 
-- [ ] Physical installation at CSU SLV (2 PMTs, 2 PFAs, 2 VFAs, 20 LRZs).
-- [ ] Continuous data flowing to Zo via DHU backhaul.
-- [ ] Verify 99.9% uptime and <5% Kriging error.
+* [ ] Physical installation at CSU SLV (2 PMTs, 2 PFAs, 2 VFAs, 20 LRZs).
+* [ ] Continuous data flowing to Zo via DHU backhaul.
+* [ ] Verify 99.9% uptime and <5% Kriging error.
 
 ### M1.5: Legal Submission & Grants (Weeks 17-20)
 
-- [ ] Generate **Subdistrict 1 Water Court Evidence Package**.
-- [ ] Submit **DoD ESTCP** pre-proposal (Deadline: March 26, 2026).
-- [ ] Finalize Bill & Melinda Gates Foundation smallholder adaptation proposal.
+* [ ] Generate **Subdistrict 1 Water Court Evidence Package**.
+* [ ] Submit **DoD ESTCP** pre-proposal (Deadline: March 26, 2026).
+* [ ] Finalize Bill & Melinda Gates Foundation smallholder adaptation proposal.
 
 ---
 
 ## 4. Phase 2: Regulatory Capture (Q3-Q4 2026)
 
-**Goal:** 100% SLV Subdistrict 1 coverage + PBFT Water Trading.
+**Goal:** 100% SLV Subdistrict 1 coverage (1,280 fields, 25 DHUs) + PBFT Water Trading.
 
 ### 4.1. PBFT Alliance-Chain Implementation
 
-- [ ] Develop decentralized PBFT consensus service in Go for the DHU "Black Box."
-- [ ] Implement smart contracts for "Water Credit" tokenization and trading.
-- [ ] 128-bit Cryptographic Chain-of-Custody for DWR audit trails.
+* [ ] Develop decentralized PBFT consensus service in Go for the DHU "Black Box."
+* [ ] Implement smart contracts for "Water Credit" tokenization and trading.
+* [ ] 128-bit Cryptographic Chain-of-Custody for DWR audit trails.
 
 ### 4.2. DWR Integration
 
-- [ ] Build **State Engineer Portal** for automated compliance submittal.
-- [ ] Implement "Presumed Compliant" well status workflow.
-- [ ] Basin-wide depletion visualization for state auditors.
+* [ ] Build **State Engineer Portal** for automated compliance submittal.
+* [ ] Implement "Presumed Compliant" well status workflow.
+* [ ] Basin-wide depletion visualization for state auditors.
 
 ---
 
@@ -2801,21 +2286,21 @@ FarmSense is the definitive sovereign water infrastructure—legally recognized,
 
 ### 5.1. Advanced Analytics & Privacy
 
-- [ ] Upgrade RSS compute layer to support **FHE (Fully Homomorphic Encryption)** Kriging.
-- [ ] Implement Real-time aquifer draw-down monitoring with emergency drought reflex logic.
-- [ ] Historical audit replay for State Auditor investigations.
+* [ ] Upgrade RSS compute layer to support **FHE (Fully Homomorphic Encryption)** Kriging.
+* [ ] Implement Real-time aquifer draw-down monitoring with emergency drought reflex logic.
+* [ ] Historical audit replay for State Auditor investigations.
 
 ### 5.2. Regional Expansion
 
-- [ ] Rollout 15+ RSS nodes across Front Range and Western Slope.
-- [ ] Colorado River Compact Compliance automation.
+* [ ] Rollout 15+ RSS nodes across Front Range and Western Slope.
+* [ ] Colorado River Compact Compliance automation.
 
 ---
 
 ## 6. Phase 4-5: National & Global Expansion (2028+)
 
-- **National Layer (2028):** USDA/USGS Partnership, High Plains Aquifer expansion.
-- **Sovereign Global (2029+):** International G2G treaties (Australia, Brazil), UN Water Security initiatives.
+* **National Layer (2028):** USDA/USGS Partnership, High Plains Aquifer expansion.
+* **Sovereign Global (2029+):** International G2G treaties (Australia, Brazil), UN Water Security initiatives.
 
 ---
 
@@ -2832,16 +2317,15 @@ FarmSense is the definitive sovereign water infrastructure—legally recognized,
 
 ## 8. Development Success Metrics (Phase 1)
 
-- [ ] **p95 Latency:** <200ms for API responses.
-- [ ] **Ingestion:** Stress-tested up to 10K sensor readings/sec.
-- [ ] **Accuracy:** Kriging RMSE < 0.05 m³/m³.
-- [ ] **Resilience:** Hub-level "Reflex Logic" operational during backhaul blackout.
+* [ ] **p95 Latency:** <200ms for API responses.
+* [ ] **Ingestion:** Stress-tested up to 10K sensor readings/sec.
+* [ ] **Accuracy:** Kriging RMSE < 0.05 m³/m³.
+* [ ] **Resilience:** Hub-level "Reflex Logic" operational during backhaul blackout.
 
 ---
 
 *Last Updated: 2026-02-28*
 *Contact: <support@farmsense.io>*
-
 
 <div style="page-break-after: always;"></div>
 
@@ -2880,34 +2364,34 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 #### Week 1-2: Backend & API Hardening
 
-- [ ] Verify all API endpoints return valid responses
-- [ ] Test sensor data ingestion pipeline
-- [ ] Validate Adaptive Recalculation Engine logic
-- [ ] Set up PostgreSQL + TimescaleDB on Zo server
-- [ ] Deploy docker-compose.zo-unified.yml
+* [ ] Verify all API endpoints return valid responses
+* [ ] Test sensor data ingestion pipeline
+* [ ] Validate Adaptive Recalculation Engine logic
+* [ ] Set up PostgreSQL + TimescaleDB on Zo server
+* [ ] Deploy docker-compose.zo-unified.yml
 
 #### Week 3-4: Frontend Portal Deployment
 
-- [ ] Deploy farmer-dashboard to Zo server
-- [ ] Deploy regulatory-portal (compliance reporting)
-- [ ] Deploy marketing-site (public landing)
-- [ ] Configure Nginx routing for all portals
+* [ ] Deploy farmer-dashboard to Zo server
+* [ ] Deploy regulatory-portal (compliance reporting)
+* [ ] Deploy marketing-site (public landing)
+* [ ] Configure Nginx routing for all portals
 
 #### Week 5-6: Hardware Integration
 
-- [ ] Finalize PMT firmware spec
-- [ ] Finalize VFA firmware spec
-- [ ] Finalize LRZ firmware spec
-- [ ] Finalize PFA firmware spec
-- [ ] Order prototype components
-- [ ] Implement PBFT Alliance-Chain prototype (Draft spec)
+* [ ] Finalize PMT firmware spec
+* [ ] Finalize VFA firmware spec
+* [ ] Finalize LRZ firmware spec
+* [ ] Finalize PFA firmware spec
+* [ ] Order prototype components
+* [ ] Implement PBFT Alliance-Chain prototype (Draft spec)
 
 #### Week 7-8: Grant & Documentation
 
-- [ ] Finalize DoD ESTCP pre-proposal (Deadline: March 26, 2026)
-- [ ] Create pilot hardware BOM with costs
-- [ ] Document Kriging validation methodology
-- [ ] Prepare Water Court evidence template
+* [ ] Finalize DoD ESTCP pre-proposal (Deadline: March 26, 2026)
+* [ ] Create pilot hardware BOM with costs
+* [ ] Document Kriging validation methodology
+* [ ] Prepare Water Court evidence template
 
 ### Technical Architecture for Pilot
 
@@ -2961,24 +2445,24 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### DWR Integration Objectives
 
-- [ ] State Engineer Portal UI
-- [ ] Automated compliance submittal API
-- [ ] "Presumed Compliant" well status workflow
-- [ ] Basin-wide depletion visualization
+* [ ] State Engineer Portal UI
+* [ ] Automated compliance submittal API
+* [ ] "Presumed Compliant" well status workflow
+* [ ] Basin-wide depletion visualization
 
 ### Cryptographic Audit Trail
 
-- [ ] Secure Element (SE) chip integration in VFA
-- [ ] Hardware-level packet signing
-- [ ] Immutable ledger database schema
-- [ ] Chain-of-custody verification API
+* [ ] Secure Element (SE) chip integration in VFA
+* [ ] Hardware-level packet signing
+* [ ] Immutable ledger database schema
+* [ ] Chain-of-custody verification API
 
 ### Resolution Pop Implementation
 
-- [ ] 50m Free Tier (government baseline)
-- [ ] 20m Basic Tier ($49/mo)
-- [ ] 10m Pro Tier ($199/mo)
-- [ ] 1m Enterprise Tier (custom)
+* [ ] 50m Free Tier (government baseline)
+* [ ] 20m Basic Tier ($49/mo)
+* [ ] 10m Pro Tier ($199/mo)
+* [ ] 1m Enterprise Tier (custom)
 
 ---
 
@@ -2986,18 +2470,18 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### Colorado River Compact Compliance
 
-- [ ] 15+ RSS deployments across Colorado
-- [ ] Front Range coverage
-- [ ] Western Slope coverage
-- [ ] Real-time aquifer draw-down monitoring
-- [ ] Emergency drought reflex logic
+* [ ] 15+ RSS deployments across Colorado
+* [ ] Front Range coverage
+* [ ] Western Slope coverage
+* [ ] Real-time aquifer draw-down monitoring
+* [ ] Emergency drought reflex logic
 
 ### State Auditor Portal
 
-- [ ] Basin-wide aggregated depletion data
-- [ ] Producer privacy protections
-- [ ] Emergency pumping limit authority
-- [ ] Historical audit replay
+* [ ] Basin-wide aggregated depletion data
+* [ ] Producer privacy protections
+* [ ] Emergency pumping limit authority
+* [ ] Historical audit replay
 
 ---
 
@@ -3005,10 +2489,10 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### USDA/USGS Partnership
 
-- [ ] High Plains Aquifer expansion
-- [ ] Federal Water Credits standard
-- [ ] Cloneable Command Center
-- [ ] Multi-state Kriging coordination
+* [ ] High Plains Aquifer expansion
+* [ ] Federal Water Credits standard
+* [ ] Cloneable Command Center
+* [ ] Multi-state Kriging coordination
 
 ---
 
@@ -3016,10 +2500,10 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### International Deployment
 
-- [ ] Australia RSS nodes
-- [ ] Brazil RSS nodes
-- [ ] UN Water Security initiatives
-- [ ] Trans-boundary conflict resolution
+* [ ] Australia RSS nodes
+* [ ] Brazil RSS nodes
+* [ ] UN Water Security initiatives
+* [ ] Trans-boundary conflict resolution
 
 ---
 
@@ -3027,22 +2511,22 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### 1. Librarian/Scientist Split
 
-- **Oracle Vault** = Raw data storage (immutable)
-- **Zo Server** = Computation layer (worksheets)
-- Benefit: Governments audit science without compromising data vault
+* **Oracle Vault** = Raw data storage (immutable)
+* **Zo Server** = Computation layer (worksheets)
+* Benefit: Governments audit science without compromising data vault
 
 ### 2. Worksheet Autonomy
 
-- Local "Reflex Logic" at edge (Hub/VFA level)
-- Functions during internet blackout
-- Hydraulic autonomy prevents aquifer damage
+* Local "Reflex Logic" at edge (Hub/VFA level)
+* Functions during internet blackout
+* Hydraulic autonomy prevents aquifer damage
 
 ### 3. Decentralized Resilience
 
-- Each RSS is a peer node
-- P2P verification prevents single point of failure
-- **Edge Computing:** NVIDIA Jetson Nano optimization for 10m/20m IDW/Kriging interpolation with offline SQLite resilience.
-- **Cloud Analytics:** NumPy/SciPy Regression Kriging incorporating Sentinel-2/Landsat-9 imagery on Zo Cloud.
+* Each RSS is a peer node
+* P2P verification prevents single point of failure
+* **Edge Computing:** NVIDIA Jetson Nano optimization for 10m/20m IDW/Kriging interpolation with offline SQLite resilience.
+* **Cloud Analytics:** NumPy/SciPy Regression Kriging incorporating Sentinel-2/Landsat-9 imagery on Zo Cloud.
 
 ---
 
@@ -3057,9 +2541,9 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 **Economic Logic:**
 
-- Free tier ensures 100% market participation (compliance hook)
-- Enterprise tier drives high-margin revenue
-- Subsidizes state baseline infrastructure
+* Free tier ensures 100% market participation (compliance hook)
+* Enterprise tier drives high-margin revenue
+* Subsidizes state baseline infrastructure
 
 ---
 
@@ -3067,24 +2551,24 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### Pilot Phase (June 2026)
 
-- [ ] 2 fields instrumented
-- [ ] 16-20 LRZs deployed
-- [ ] 2 PMTs operational
-- [ ] 2 PFAs at wellheads
-- [ ] Continuous data flowing to Zo
-- [ ] Kriging validation <5% error
+* [ ] 2 fields instrumented
+* [ ] 16-20 LRZs deployed
+* [ ] 2 PMTs operational
+* [ ] 2 PFAs at wellheads
+* [ ] Continuous data flowing to Zo
+* [ ] Kriging validation <5% error
 
 ### Regional Master (Q4 2026)
 
-- [ ] 100% Subdistrict 1 coverage
-- [ ] DWR "Rule-Compliant" status
-- [ ] Water Court evidence accepted
+* [ ] 100% Subdistrict 1 coverage
+* [ ] DWR "Rule-Compliant" status
+* [ ] Water Court evidence accepted
 
 ### State Standard (2027)
 
-- [ ] Colorado DWR primary tool
-- [ ] Colorado River Compact compliance
-- [ ] 15+ RSS nodes operational
+* [ ] Colorado DWR primary tool
+* [ ] Colorado River Compact compliance
+* [ ] 15+ RSS nodes operational
 
 ---
 
@@ -3101,7 +2585,6 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 *Last updated: 2026-02-24*
 
-
 <div style="page-break-after: always;"></div>
 
 # Sprint Plan: Pilot Validation
@@ -3114,37 +2597,42 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 ## Sprint Backlog
 
 ### Priority 1: Backend Deployment (Days 1-3)
+
 - [ ] Install Python dependencies
-- [ ] Set up PostgreSQL database
-- [ ] Run database migrations
-- [ ] Start FastAPI backend
-- [ ] Verify all API endpoints respond
-- [ ] Test sensor ingestion endpoint
+* [ ] Set up PostgreSQL database
+* [ ] Run database migrations
+* [ ] Start FastAPI backend
+* [ ] Verify all API endpoints respond
+* [ ] Test sensor ingestion endpoint
 
 ### Priority 2: Database Setup (Days 2-4)
+
 - [ ] Create PostgreSQL database
-- [ ] Enable PostGIS extension
-- [ ] Run schema migrations
-- [ ] Seed test data
-- [ ] Verify queries work
+* [ ] Enable PostGIS extension
+* [ ] Run schema migrations
+* [ ] Seed test data
+* [ ] Verify queries work
 
 ### Priority 3: Frontend Deployment (Days 3-5)
+
 - [ ] Build farmer-dashboard
-- [ ] Deploy via nginx
-- [ ] Test farmer-dashboard loads
-- [ ] Verify API connection from frontend
+* [ ] Deploy via nginx
+* [ ] Test farmer-dashboard loads
+* [ ] Verify API connection from frontend
 
 ### Priority 4: Hardware Documentation (Days 5-7)
+
 - [ ] Finalize PMT BOM with costs
-- [ ] Finalize VFA BOM with costs
-- [ ] Finalize LRZ BOM with costs
-- [ ] Finalize PFA BOM with costs
-- [ ] Create procurement spreadsheet
+* [ ] Finalize VFA BOM with costs
+* [ ] Finalize LRZ BOM with costs
+* [ ] Finalize PFA BOM with costs
+* [ ] Create procurement spreadsheet
 
 ### Priority 5: Grant Preparation (Parallel)
+
 - [ ] Draft ESTCP pre-proposal outline
-- [ ] Gather pilot metrics
-- [ ] Prepare budget justification
+* [ ] Gather pilot metrics
+* [ ] Prepare budget justification
 
 ---
 
@@ -3158,24 +2646,23 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ## Definition of Done
 
-- [ ] Code committed to main branch
-- [ ] API endpoints return valid responses
-- [ ] Frontend loads and connects to backend
-- [ ] Database queries return expected data
-- [ ] Documentation updated
+* [ ] Code committed to main branch
+* [ ] API endpoints return valid responses
+* [ ] Frontend loads and connects to backend
+* [ ] Database queries return expected data
+* [ ] Documentation updated
 
 ---
 
 ## Notes
 
-- Focus on **working software** over perfect architecture
-- Pilot deadline is June 2026 — we have time but need momentum
-- ESTCP deadline March 26, 2026 is HARD deadline
+* Focus on **working software** over perfect architecture
+* Pilot deadline is June 2026 — we have time but need momentum
+* ESTCP deadline March 26, 2026 is HARD deadline
 
 ---
 
 *Sprint started: 2026-02-24*
-
 
 <div style="page-break-after: always;"></div>
 
@@ -3185,28 +2672,28 @@ The FarmSense infrastructure is an uncompromising, decentralized monolithic grid
 
 ## Backend Intelligence (Decentralized Cloud Layer)
 
-- **RSS Oracle Vault (Master Database & Compute):** The central nervous system of FarmSense. It houses the master spatial library, historical datasets, and the consolidated **Zo Compute Layer**. It is responsible for executing Bayesian priors, generating deterministic "Worksheets," and pre-rendering the 1m-resolution Enterprise map tiles.
+* **RSS Oracle Vault (Master Database & Compute):** The central nervous system of FarmSense. It houses the master spatial library, historical datasets, and the consolidated **Zo Compute Layer**. It is responsible for executing Bayesian priors, generating deterministic "Worksheets," and pre-rendering the 1m-resolution Enterprise map tiles.
 
 ## Regional & District Edge Infrastructure
 
 Relying entirely on external backhauls in rural zones creates unacceptable vulnerability. Heavy computational loads process continuously at the edge:
 
-- **Regional Superstation (RSS) [Level 3 - Territory Master]:** A localized cloud counterpart housed in a modified 40-foot High-Cube container. Features a 64-Core AMD Threadripper PRO cluster, 256GB ECC RAM, and a 50TB Enterprise NVMe array securing the master spatial database. Will support FHE (Fully Homomorphic Encryption) Kriging modeling at **1m spatial fidelity**.
-- **District Hubs (DHU) [Level 2 - Regional Mesh Manager]:** Edge coordinators mounted on 35-foot Class 4 timber poles. Line-of-sight 10km radius. Runs an NVIDIA Jetson Nano edge processor. Capable of instant "Reflex Logic" responses bypassing cellular latency. Processes **20m and 10m spatial fidelity** grids.
-  - **Audit Node Addendum**: Houses a cryptographically signed (128-bit AES) "Black Box" cache.
+* **Regional Superstation (RSS) [Level 3 - Territory Master]:** A localized cloud counterpart housed in a modified 40-foot High-Cube container. Features a 64-Core AMD Threadripper PRO cluster, 256GB ECC RAM, and a 50TB Enterprise NVMe array securing the master spatial database. Will support FHE (Fully Homomorphic Encryption) Kriging modeling at **1m spatial fidelity**.
+* **District Hubs (DHU) [Level 2 - Regional Mesh Manager]:** Edge coordinators mounted on 35-foot Class 4 timber poles. Line-of-sight 10km radius. Runs an NVIDIA Jetson Nano edge processor. Capable of instant "Reflex Logic" responses bypassing cellular latency. Processes **20m and 10m spatial fidelity** grids.
+  * **Audit Node Addendum**: Houses a cryptographically signed (128-bit AES) "Black Box" cache.
 
 ## Field-Level Edge Hardware
 
 Sensors and actuators deployed below and above ground across field zones. Equipment strictly utilizes UV-shielded (fluoropolymer coated) Polycarbonate due to altitude degradation risks and requires Hybrid Pulse Capacitors (HPC) for extreme-cold \-30°F survivability.
 
-- **Vertical Field Anchors (VFA) [Level 1 - Advanced Peer Node]:** The 48-inch deep-profile central ground-truth soil node. Downgraded from a routing hub to a highly efficient peer, it uses a flush 3-foot antenna to transmit 128-bit encrypted FHSS payload data directly to the elevated PMT.
-- **Lateral Root-Zone Scout (LRZ) [Level 1 - Spatial Mapper]:** Mass-produced "dumb nodes" deployed at a 1:15-acre density. Utilizes high-frequency Frequency-Hopping Spread Spectrum (FHSS) chirps, providing inherent Low Probability of Intercept/Detection (LPI/LPD) features natively desirable under DoD architectures. Enclosures feature 50mm non-contact capacitive telemetry fields.
-- **Pressure & Flow Anchor (PFA) [Sentry of the Source]:** Mounts at the wellhead, monitoring vibration torque ripple, cavitation, and bearing wear via 400A CT Clamps. Runs NXP Cortex-M7 edge processors preparing to process Current Harmonic Analysis signatures. Uses 2.4GHz High-Gain links to bounce data to the elevated PMT, safely bypassing canopy interference.
-- **Pivot Motion Trackers (PMT) [Level 1.5 - Field Hub & Edge-EBK Engine]:** The command center and Nervous System of the field, mounted 10-15 feet high on the pivot span.
-  - **RF Umbrella:** Receives 900MHz FHSS chirps from the VFA/LRZs and 2.4GHz payloads from the PFA, bundling the entire field state into a single ~187-byte AES-256 payload and blasting it to the DHU via 900MHz LoRaWAN.
-  - **Sensors:** Generates +/- 1% flow accuracy non-invasively using Badger Meter ultrasonic transit-time components. Contains u-blox ZED-F9P RTK GNSS modules for sub-2.5m horizontal spatial resolution and Bosch BNO055 9-Axis IMUs for vibration harmonics.
-  - **Edge IQ:** Constant Edge-EBK processing utilizing an onboard ATSAMD51 Cortex-M4 FPU to continuously calculate a **50m spatial fidelity** EBK spatial probability grid using "Fisherman's Attention" and Ripple/Collapse logic. This constant baseline enables hierarchical processing upstream (20m/10m grids at DHU, 1m at RSS/Cloud). It inherently serves as zero-downtime VRI failover guidance if the DHU uplink drops.
-  - **Corner-Swing Auditor (CSA)** variants utilize dual-node configurations (Primary Span Tracker and Swing-Arm Tracker) to resolve swing-arm irrigation mechanics mathematically.
+* **Vertical Field Anchors (VFA) [Level 1 - Advanced Peer Node]:** The 48-inch deep-profile central ground-truth soil node. Downgraded from a routing hub to a highly efficient peer, it uses a flush 3-foot antenna to transmit 128-bit encrypted FHSS payload data directly to the elevated PMT.
+* **Lateral Root-Zone Scout (LRZ) [Level 1 - Spatial Mapper]:** Mass-produced "dumb nodes" deployed at a 1:15-acre density. Utilizes high-frequency Frequency-Hopping Spread Spectrum (FHSS) chirps, providing inherent Low Probability of Intercept/Detection (LPI/LPD) features natively desirable under DoD architectures. Enclosures feature 50mm non-contact capacitive telemetry fields.
+* **Pressure & Flow Anchor (PFA) [Sentry of the Source]:** Mounts at the wellhead, monitoring vibration torque ripple, cavitation, and bearing wear via 400A CT Clamps. Runs NXP Cortex-M7 edge processors preparing to process Current Harmonic Analysis signatures. Uses 2.4GHz High-Gain links to bounce data to the elevated PMT, safely bypassing canopy interference.
+* **Pivot Motion Trackers (PMT) [Level 1.5 - Field Hub & Edge-EBK Engine]:** The command center and Nervous System of the field, mounted 10-15 feet high on the pivot span.
+  * **RF Umbrella:** Receives 900MHz FHSS chirps from the VFA/LRZs and 2.4GHz payloads from the PFA, bundling the entire field state into a single ~187-byte AES-256 payload and blasting it to the DHU via 900MHz LoRaWAN.
+  * **Sensors:** Generates +/- 1% flow accuracy non-invasively using Badger Meter ultrasonic transit-time components. Contains u-blox ZED-F9P RTK GNSS modules for sub-2.5m horizontal spatial resolution and Bosch BNO055 9-Axis IMUs for vibration harmonics.
+  * **Edge IQ:** Constant Edge-EBK processing utilizing an onboard ATSAMD51 Cortex-M4 FPU to continuously calculate a **50m spatial fidelity** EBK spatial probability grid using "Fisherman's Attention" and Ripple/Collapse logic. This constant baseline enables hierarchical processing upstream (20m/10m grids at DHU, 1m at RSS/Cloud). It inherently serves as zero-downtime VRI failover guidance if the DHU uplink drops.
+  * **Corner-Swing Auditor (CSA)** variants utilize dual-node configurations (Primary Span Tracker and Swing-Arm Tracker) to resolve swing-arm irrigation mechanics mathematically.
 
 ## Dual-Layer Spatial Privacy Architecture
 
@@ -3214,7 +2701,6 @@ To comply with strict privacy laws surrounding accurate geolocation data, FarmSe
 
 1. **Internal Legal Ledger (Absolute Precision):** Exact GPS data locked cryptographically within the DHU cache. Strictly preserved unmodified for legal evidentiary submission.
 2. **Contextual Anonymization (Federated Learning):** Data uploaded for broader analysis and global model training is contextually anonymized, obfuscating individual localized geometries while maintaining regional hydro-climate validity.
-
 
 <div style="page-break-after: always;"></div>
 
@@ -3238,9 +2724,9 @@ In extreme regulatory environments (like the Rio Grande Basin and Subdistrict 1)
 
 By unifying edge computing, hyper-local meteorological and edaphic physics, and immutable continuous reporting, FarmSense achieves:
 
-- **Agronomic Output**: 20-30% reduction in irrigation water consumption alongside an 18-22% increase in ROI.
-- **Economic Output**: Continuous Cost-Benefit Analysis (CBA) preventing the deployment of water when the marginal cost of pumping exceeds the marginal revenue of yield.
-- **Legal Output**: A decentralized, unbreakable 128-bit AES cryptographic chain of custody serving as an empirical "Water Ledger" valid in State Water Courts.
+* **Agronomic Output**: 20-30% reduction in irrigation water consumption alongside an 18-22% increase in ROI.
+* **Economic Output**: Continuous Cost-Benefit Analysis (CBA) preventing the deployment of water when the marginal cost of pumping exceeds the marginal revenue of yield.
+* **Legal Output**: A decentralized, unbreakable 128-bit AES cryptographic chain of custody serving as an empirical "Water Ledger" valid in State Water Courts.
 
 ## The Management Allowable Depletion (MAD) Framework
 
@@ -3248,9 +2734,8 @@ FarmSense synthesizes weather forecasts, localized soil properties, and vegetati
 
 ## Phased Approach & Dual-Use
 
-- **Civilian Scaling**: Targeting immediate 2-field pilot validations to freeze punitive regulatory mandates, while building momentum for Earthshot and World Food Prize grants.
-- **Defense/DoD (Dual-Use)**: Designing infrastructure to serve as a Highly resilient, Environmental Unattended Ground Sensor (UGS) network (JADC2 compliant), leveraging native FHSS architecture for Low Probability of Intercept (LPI) properties.
-
+* **Civilian Scaling**: Targeting immediate 2-field pilot validations to freeze punitive regulatory mandates, while building momentum for Earthshot and World Food Prize grants.
+* **Defense/DoD (Dual-Use)**: Designing infrastructure to serve as a Highly resilient, Environmental Unattended Ground Sensor (UGS) network (JADC2 compliant), leveraging native FHSS architecture for Low Probability of Intercept (LPI) properties.
 
 <div style="page-break-after: always;"></div>
 
@@ -3260,30 +2745,29 @@ FarmSense encompasses a complete suite of precision agriculture optimization met
 
 ## Core Application & Dashboard Capabilities
 
-- **Digital Water Ledger & Audit Tracking**: Cryptographically signed, immutable chains of custody monitoring precise groundwater extraction and dispersal. Compliant as empirical evidence in State Water Courts.
-- **Deterministic Irrigation Guidance**: Direct "withdraw or pump" boolean logic preventing water dispersal when macroeconomic models note that the operational cost (regulatory fees, energy, labor) outweighs predicted crop yield preservation.
-- **Automated SPAC Modeling (Soil-Plant-Atmosphere Continuum)**: Dynamic integration of Soil Matric Potential (SMP), Volumetric Water Content (SWC), Electrical Conductivity (EC), Vapor Pressure Deficit (VPD), solar radiation, NDVI, and LSTM deep-learning Evapotranspiration forecasting.
-- **Resolution Pop (Hierarchical Spatial Grids)**: Integration of high-fidelity 0.7cm/pixel multispectral drone data natively layered above a tiered sensor grid: **50m (PMT Edge IQ)**, **20m/10m (DHU)**, and **1m (RSS/Cloud)** spatial fidelity. Includes support for Satellite (Sentinel-2, Landsat) covariates.
-- **Automated GLOBALG.A.P. Compliance Reports**: Single-click generation translating field hardware hydro-metrics into recognized sustainable farming criteria for global premium supply markets.
+* **Digital Water Ledger & Audit Tracking**: Cryptographically signed, immutable chains of custody monitoring precise groundwater extraction and dispersal. Compliant as empirical evidence in State Water Courts.
+* **Deterministic Irrigation Guidance**: Direct "withdraw or pump" boolean logic preventing water dispersal when macroeconomic models note that the operational cost (regulatory fees, energy, labor) outweighs predicted crop yield preservation.
+* **Automated SPAC Modeling (Soil-Plant-Atmosphere Continuum)**: Dynamic integration of Soil Matric Potential (SMP), Volumetric Water Content (SWC), Electrical Conductivity (EC), Vapor Pressure Deficit (VPD), solar radiation, NDVI, and LSTM deep-learning Evapotranspiration forecasting.
+* **Resolution Pop (Hierarchical Spatial Grids)**: Integration of high-fidelity 0.7cm/pixel multispectral drone data natively layered above a tiered sensor grid: **50m (PMT Edge IQ)**, **20m/10m (DHU)**, and **1m (RSS/Cloud)** spatial fidelity. Includes support for Satellite (Sentinel-2, Landsat) covariates.
+* **Automated GLOBALG.A.P. Compliance Reports**: Single-click generation translating field hardware hydro-metrics into recognized sustainable farming criteria for global premium supply markets.
 
 ## Software-Driven Edge Hardware Expansions
 
 Zero-cost, OTA software-only framework upgrades activating extreme analytical potential from existing Level-1/2 hardware processors:
 
-- **Predictive Well Maintenance [PFA]**: Implementing Machine Learning Current Harmonic Analysis. The NXP Cortex-M7 utilizes 400A CT Clamps to detect minute "torque ripples," bearing wear, or cavitation prior to a catastrophic pump motor failure.
-- **Machine-Learning Kriging [Zo]**: K-means clustering algorithms unifying sparse proximal data with high-frequency satellite integrations, massively increasing predictive model accuracy without additional sensors.
-- **PBFT Alliance Blockchain Ledger [DHU]**: Transforming the 128GB passive "Black Box" memory module into an active, Byzantine fault tolerance consensus mechanism for executing hyper-local peer-to-peer groundwater trading rights.
-- **Dual-Layer Contextual Anonymization**: Systematically dividing hyper-accurate, unmodifiable legal ledger data (for private court use) from anonymized, federally-shared machine learning analytics (obfuscating individual farmers).
+* **Predictive Well Maintenance [PFA]**: Implementing Machine Learning Current Harmonic Analysis. The NXP Cortex-M7 utilizes 400A CT Clamps to detect minute "torque ripples," bearing wear, or cavitation prior to a catastrophic pump motor failure.
+* **Machine-Learning Kriging [Zo]**: K-means clustering algorithms unifying sparse proximal data with high-frequency satellite integrations, massively increasing predictive model accuracy without additional sensors.
+* **PBFT Alliance Blockchain Ledger [DHU]**: Transforming the 128GB passive "Black Box" memory module into an active, Byzantine fault tolerance consensus mechanism for executing hyper-local peer-to-peer groundwater trading rights.
+* **Dual-Layer Contextual Anonymization**: Systematically dividing hyper-accurate, unmodifiable legal ledger data (for private court use) from anonymized, federally-shared machine learning analytics (obfuscating individual farmers).
 
 ## Strategic Defense/DoD "Dual-Use" Features (JADC2 Alignment)
 
 Aligning FarmSense hardware to operate optimally under contested deployment and military environments to support Environmental Security Technology Certification Program (ESTCP) investments:
 
-- **Low Probability of Intercept / Detection (LPI/LPD)**: Applying the LRZ's native 128-bit Frequency-Hopping Spread Spectrum (FHSS) framework to mitigate co-channel interference and adversarial jamming.
-- **Air-Deliverable Kinetic Penetrators**: Leveraging high-density Polycarbonate geometries and 15-degree tapered impact tips to enable airdrops (HALO/Low-Orbit). Allows the sensor fleet to auto-bury during sudden deployment as a covert, Unattended Ground Sensor (UGS) grid.
-- **Fully Homomorphic Encryption (FHE)**: Upgrading the Central Zo Kriging Algorithms to calculate geostatistical processes directly upon encrypted incoming environmental data, maintaining military-grade confidentiality without requiring intermediary decryption loops.
-- **Federated Data Fabric Adapters**: Software layers directly translating localized deterministic agricultural reads into standardized Joint All-Domain Command and Control (JADC2) networking protocols.
-
+* **Low Probability of Intercept / Detection (LPI/LPD)**: Applying the LRZ's native 128-bit Frequency-Hopping Spread Spectrum (FHSS) framework to mitigate co-channel interference and adversarial jamming.
+* **Air-Deliverable Kinetic Penetrators**: Leveraging high-density Polycarbonate geometries and 15-degree tapered impact tips to enable airdrops (HALO/Low-Orbit). Allows the sensor fleet to auto-bury during sudden deployment as a covert, Unattended Ground Sensor (UGS) grid.
+* **Fully Homomorphic Encryption (FHE)**: Upgrading the Central Zo Kriging Algorithms to calculate geostatistical processes directly upon encrypted incoming environmental data, maintaining military-grade confidentiality without requiring intermediary decryption loops.
+* **Federated Data Fabric Adapters**: Software layers directly translating localized deterministic agricultural reads into standardized Joint All-Domain Command and Control (JADC2) networking protocols.
 
 <div style="page-break-after: always;"></div>
 
@@ -3295,32 +2779,32 @@ Aligning FarmSense hardware to operate optimally under contested deployment and 
 
 #### Week 1-2: Infrastructure Setup (Zo.computer Pivot)
 
-- [ ] Provision custom Zo.computer server ($18 paid tier)
-- [ ] Install Docker & Docker Compose on Zo.computer
-- [ ] Deploy unified `docker-compose.zo-unified.yml` (Postgres, Timescale, Redis, RabbitMQ)
-- [ ] Configure Nginx reverse proxy for the 7 frontend portals
-- [ ] Set up CI/CD pipeline deployment hooks for Zo.computer
-- [ ] Set up monitoring stack (Prometheus + Grafana) inside Zo
+* [ ] Provision custom Zo.computer server ($18 paid tier)
+* [ ] Install Docker & Docker Compose on Zo.computer
+* [ ] Deploy unified `docker-compose.zo-unified.yml` (Postgres, Timescale, Redis, RabbitMQ)
+* [ ] Configure Nginx reverse proxy for the 7 frontend portals
+* [ ] Set up CI/CD pipeline deployment hooks for Zo.computer
+* [ ] Set up monitoring stack (Prometheus + Grafana) inside Zo
 
 **Deliverables:**
 
-- Infrastructure-as-Code (Terraform) ✓
-- CI/CD pipeline operational
-- Monitoring dashboards
+* Infrastructure-as-Code (Terraform) ✓
+* CI/CD pipeline operational
+* Monitoring dashboards
 
 #### Week 3-4: Core Data Models
 
-- [ ] Implement database schema (migrations)
-- [ ] Create SQLAlchemy models
-- [ ] Set up API authentication (JWT)
-- [ ] Implement basic CRUD operations
-- [ ] Create seed data for testing
+* [ ] Implement database schema (migrations)
+* [ ] Create SQLAlchemy models
+* [ ] Set up API authentication (JWT)
+* [ ] Implement basic CRUD operations
+* [ ] Create seed data for testing
 
 **Deliverables:**
 
-- Database schema deployed
-- API authentication working
-- Basic CRUD endpoints
+* Database schema deployed
+* API authentication working
+* Basic CRUD endpoints
 
 ---
 
@@ -3328,47 +2812,47 @@ Aligning FarmSense hardware to operate optimally under contested deployment and 
 
 #### Week 5: Sensor Data Pipeline
 
-- [ ] Implement sensor data ingestion API
-- [ ] Set up data validation and QA/QC
-- [ ] Create batch ingestion endpoints
-- [ ] Implement error handling and retry logic
-- [ ] Set up data quality monitoring
+* [ ] Implement sensor data ingestion API
+* [ ] Set up data validation and QA/QC
+* [ ] Create batch ingestion endpoints
+* [ ] Implement error handling and retry logic
+* [ ] Set up data quality monitoring
 
 **Key Files:**
 
-- `backend/app/api/main.py` - API endpoints ✓
-- `backend/app/models/sensor_data.py` - Data models ✓
+* `backend/app/api/main.py` - API endpoints ✓
+* `backend/app/models/sensor_data.py` - Data models ✓
 
 #### Week 6: Edge Computing (20m Grid)
 
-- [ ] Deploy edge processor to Raspberry Pi
-- [ ] Implement IDW interpolation
-- [ ] Set up offline caching
-- [ ] Configure sync mechanisms
-- [ ] Test with real sensor hardware
+* [ ] Deploy edge processor to Raspberry Pi
+* [ ] Implement IDW interpolation
+* [ ] Set up offline caching
+* [ ] Configure sync mechanisms
+* [ ] Test with real sensor hardware
 
 **Key Files:**
 
-- `edge-compute/src/edge_processor.go` ✓
-- `edge-compute/config/field_001.json` ✓
+* `edge-compute/src/edge_processor.go` ✓
+* `edge-compute/config/field_001.json` ✓
 
 #### Week 7-8: Cloud Processing (1m Grid)
 
-- [ ] Implement Regression Kriging pipeline
-- [ ] Integrate Sentinel-2 imagery processing
-- [ ] Set up Landsat historical data pipeline
-- [ ] Implement variogram fitting
-- [ ] Optimize for large-scale processing
+* [ ] Implement Regression Kriging pipeline
+* [ ] Integrate Sentinel-2 imagery processing
+* [ ] Set up Landsat historical data pipeline
+* [ ] Implement variogram fitting
+* [ ] Optimize for large-scale processing
 
 **Key Files:**
 
-- `cloud-processing/pipelines/kriging_1m.py` ✓
+* `cloud-processing/pipelines/kriging_1m.py` ✓
 
 **Deliverables:**
 
-- Dual-layer virtual sensor grid operational
-- Edge devices deployed
-- Cloud processing pipeline running
+* Dual-layer virtual sensor grid operational
+* Edge devices deployed
+* Cloud processing pipeline running
 
 ---
 
@@ -3376,20 +2860,20 @@ Aligning FarmSense hardware to operate optimally under contested deployment and 
 
 #### Week 9-10: Adaptive Recalculation Engine
 
-- [ ] Implement trend analysis logic
-- [ ] Create mode determination algorithms
-- [ ] Set up event-driven triggers
-- [ ] Implement recalculation scheduler
-- [ ] Test with various field scenarios
+* [ ] Implement trend analysis logic
+* [ ] Create mode determination algorithms
+* [ ] Set up event-driven triggers
+* [ ] Implement recalculation scheduler
+* [ ] Test with various field scenarios
 
 **Key Files:**
 
-- `backend/app/services/adaptive_recalc_engine.py` ✓
+* `backend/app/services/adaptive_recalc_engine.py` ✓
 
 **Deliverables:**
 
-- Adaptive recalculation working across all modes
-- Deterministic diagnostic queries available via API
+* Adaptive recalculation working across all modes
+* Deterministic diagnostic queries available via API
 
 ---
 
@@ -3397,38 +2881,38 @@ Aligning FarmSense hardware to operate optimally under contested deployment and 
 
 #### Week 13-14: Farmer Dashboard
 
-- [ ] Implement React frontend with MapLibre
-- [ ] Create real-time field visualization
-- [ ] Build irrigation recommendation UI
-- [ ] Implement alert system (email/SMS)
-- [ ] Mobile-responsive design
+* [ ] Implement React frontend with MapLibre
+* [ ] Create real-time field visualization
+* [ ] Build irrigation recommendation UI
+* [ ] Implement alert system (email/SMS)
+* [ ] Mobile-responsive design
 
 **Tech Stack:**
 
-- React 18 + TypeScript
-- MapLibre GL JS for maps
-- Socket.io for real-time updates
-- Material-UI components
+* React 18 + TypeScript
+* MapLibre GL JS for maps
+* Socket.io for real-time updates
+* Material-UI components
 
 #### Week 15: Regulatory Portal
 
-- [ ] Build compliance report generator
-- [ ] Implement SLV 2026 validation
-- [ ] Create audit trail viewer
-- [ ] Design export functionality (PDF/Excel)
+* [ ] Build compliance report generator
+* [ ] Implement SLV 2026 validation
+* [ ] Create audit trail viewer
+* [ ] Design export functionality (PDF/Excel)
 
 #### Week 16: Testing & QA
 
-- [ ] End-to-end testing
-- [ ] Load testing (10K concurrent users)
-- [ ] Security penetration testing
-- [ ] UAT with pilot farmers
+* [ ] End-to-end testing
+* [ ] Load testing (10K concurrent users)
+* [ ] Security penetration testing
+* [ ] UAT with pilot farmers
 
 **Deliverables:**
 
-- All dashboards operational
-- Compliance reporting system live
-- System tested and validated
+* All dashboards operational
+* Compliance reporting system live
+* System tested and validated
 
 ---
 
@@ -3436,34 +2920,34 @@ Aligning FarmSense hardware to operate optimally under contested deployment and 
 
 #### Week 17-18: Performance Optimization
 
-- [ ] Database query optimization
-- [ ] Implement caching strategies
-- [ ] Optimize Kriging algorithms
-- [ ] CDN setup for static assets
-- [ ] Load balancer configuration
+* [ ] Database query optimization
+* [ ] Implement caching strategies
+* [ ] Optimize Kriging algorithms
+* [ ] CDN setup for static assets
+* [ ] Load balancer configuration
 
 #### Week 19: Documentation & Training
 
-- [ ] Complete API documentation
-- [ ] Write user manuals
-- [ ] Create video tutorials
-- [ ] Conduct farmer training sessions
-- [ ] Train support staff
+* [ ] Complete API documentation
+* [ ] Write user manuals
+* [ ] Create video tutorials
+* [ ] Conduct farmer training sessions
+* [ ] Train support staff
 
 #### Week 20: 2-Field Production Pilot Rollout
 
-- [ ] Abandon generic 10-farm scaling deployment in favor of targeted high-fidelity 2-Field Pilot at CSU SLV Research Center, Center Colorado.
-- [ ] Build & install Minimum Viable Hardware Stack under 2-Field constraints (2 PMTs, 2 PFAs, 2 VFAs, and 16-20 LRZs).
-- [ ] Capture empirical Phase-1 data for the June 2026 Subdistrict 1 Water Court evidence submission.
-- [ ] Submit DoD ESTCP pre-proposal grant application by the March 26, 2026 deadline.
-- [ ] Begin structuring metrics framing for the World Food Prize and Earthshot Prize packages.
+* [ ] Abandon generic 10-farm scaling deployment in favor of targeted high-fidelity 2-Field Pilot at CSU SLV Research Center, Center Colorado.
+* [ ] Build & install Minimum Viable Hardware Stack under 2-Field constraints (2 PMTs, 2 PFAs, 2 VFAs, and 16-20 LRZs).
+* [ ] Capture empirical Phase-1 data for the June 2026 Subdistrict 1 Water Court evidence submission.
+* [ ] Submit DoD ESTCP pre-proposal grant application by the March 26, 2026 deadline.
+* [ ] Begin structuring metrics framing for the World Food Prize and Earthshot Prize packages.
 
 **Deliverables:**
 
-- Production system live (Center, Colorado SLV 2-Field Pilot)
-- Documentation complete
-- Empirical validation data generated
-- Global infrastructure & defense grant packages initiated
+* Production system live (Center, Colorado SLV 2-Field Pilot)
+* Documentation complete
+* Empirical validation data generated
+* Global infrastructure & defense grant packages initiated
 
 ---
 
@@ -3578,10 +3062,10 @@ k6 run tests/load/api_load_test.js
 
 **Test Scenarios:**
 
-- 1,000 sensor readings/second
-- 10,000 concurrent dashboard users
-- 1m grid computation for 100 hectare field
-- Compliance report generation for 1 year data
+* 1,000 sensor readings/second
+* 10,000 concurrent dashboard users
+* 1m grid computation for 100 hectare field
+* Compliance report generation for 1 year data
 
 ---
 
@@ -3647,10 +3131,10 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 
 ## 📞 Support Contacts
 
-- **Technical Lead**: <tech-lead@farmsense.io>
-- **DevOps**: <devops@farmsense.io>
-- **Support**: <support@farmsense.io>
-- **Emergency**: +1-800-FARM-911
+* **Technical Lead**: <tech-lead@farmsense.io>
+* **DevOps**: <devops@farmsense.io>
+* **Support**: <support@farmsense.io>
+* **Emergency**: +1-800-FARM-911
 
 ---
 
@@ -3658,27 +3142,25 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 
 ### Technical
 
-- ✅ All API endpoints operational
-- ✅ 99.9% system uptime
-- ✅ Sub-second dashboard response
-- ✅ Real-time alerts working
-- ✅ Compliance reports accurate
+* ✅ All API endpoints operational
+* ✅ 99.9% system uptime
+* ✅ Sub-second dashboard response
+* ✅ Real-time alerts working
+* ✅ Compliance reports accurate
 
 ### Business
 
-- ✅ 100+ farms onboarded
-- ✅ 10,000+ hectares monitored
-- ✅ 50,000+ sensors ingesting data
-- ✅ 95% user satisfaction
-- ✅ Regulatory approval achieved
+* ✅ 100+ farms onboarded
+* ✅ 10,000+ hectares monitored
+* ✅ 50,000+ sensors ingesting data
+* ✅ 95% user satisfaction
+* ✅ Regulatory approval achieved
 
 ---
 
 **Next Steps**: Start with Phase 1 infrastructure setup and work through sequentially. Each phase builds on the previous one. 🚀
 
-
 <div style="page-break-after: always;"></div>
-
 
 <div style="page-break-after: always;"></div>
 
@@ -3688,7 +3170,8 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 
 ## CRITICAL INSTRUCTIONS FOR AI ASSISTANT
 
-### Before Creating ANYTHING:
+### Before Creating ANYTHING
+
 1. **CHECK EXISTING ROUTES FIRST**: Use `list_space_routes` to see all current pages and APIs
 2. **CHECK EXISTING FILES**: Use `grep_search` or `list_files` before creating new files
 3. **CHECK AGENTS.MD**: Read this file at the start of every conversation for context
@@ -3699,6 +3182,7 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 ## CURRENT PHASE: Pilot Validation (NOW - June 2026)
 
 ### Critical Deadlines
+
 | Deadline | Date | Deliverable |
 |----------|------|-------------|
 | DoD ESTCP Pre-Proposal | March 26, 2026 | Grant application submitted |
@@ -3706,6 +3190,7 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 | Water Court Evidence | June 2026 | Empirical hydrodynamic proof |
 
 ### Immediate Focus
+
 1. Backend & API deployment to Zo server
 2. Frontend portal deployment (farmer, regulatory, marketing)
 3. Hardware BOM finalization and ordering
@@ -3714,14 +3199,15 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 ---
 
 ## Architecture Principle: Anti-AI / Deterministic
+
 FarmSense uses **deterministic, judgment-based algorithms** - NOT ML/AI black boxes.
-- Water courts don't accept AI decisions
-- All logic must be explainable and auditable
-- See `file 'farmsenseOS/GENUINELY_NOVEL_IP.md'` for defensible moats
+* Water courts don't accept AI decisions
+* All logic must be explainable and auditable
+* See `file 'farmsenseOS/GENUINELY_NOVEL_IP.md'` for defensible moats
 
 **Future AI**: Post-beta, sandboxed Digital Twin simulations only.
-- See `file 'farmsenseOS/AI_INTEGRATION_ROADMAP.md'`
-- **DO NOT ACT** until user says "begin to integrate AI per our previous discussions"
+* See `file 'farmsenseOS/AI_INTEGRATION_ROADMAP.md'`
+* **DO NOT ACT** until user says "begin to integrate AI per our previous discussions"
 
 ---
 
@@ -3730,6 +3216,7 @@ FarmSense uses **deterministic, judgment-based algorithms** - NOT ML/AI black bo
 FarmSense as sovereign water infrastructure—legally recognized, cryptographically secure, scientifically absolute.
 
 ### Scaling Roadmap
+
 1. **Pilot** (Now - June 2026): CSU SLV 2-Field Pilot
 2. **Regional Master** (Q3-Q4 2026): 100% SLV Subdistrict 1
 3. **State Standard** (2027): Colorado DWR adoption
@@ -3737,6 +3224,7 @@ FarmSense as sovereign water infrastructure—legally recognized, cryptographica
 5. **Sovereign Global** (2029+): International G2G treaties
 
 ### Resolution Pop Revenue Model
+
 | Tier | Resolution | Price | Target |
 |------|------------|-------|--------|
 | Free | 50m | $0 | Government baseline |
@@ -3747,29 +3235,32 @@ FarmSense as sovereign water infrastructure—legally recognized, cryptographica
 ---
 
 ## Dependency Reduction
+
 See `file 'farmsenseOS/DEPENDENCY_REDUCTION.md'` for full plan.
-- Phase 1 ✅: Removed numpy, pandas, scipy, scikit-learn, redis, celery, requests
-- Next: Phase 3 (clsx/tailwind-merge replacement)
+* Phase 1 ✅: Removed numpy, pandas, scipy, scikit-learn, redis, celery, requests
+* Next: Phase 3 (clsx/tailwind-merge replacement)
 
 ---
 
 ## Project Overview
 
 **FarmSense** is a deterministic precision agriculture operating system designed for:
-- **Agronomic Output**: 20-30% reduction in irrigation water, 18-22% increase in ROI
-- **Economic Output**: Continuous Cost-Benefit Analysis preventing water deployment when costs exceed yield revenue
-- **Legal Output**: Cryptographically secure "Water Ledger" valid in State Water Courts
+* **Agronomic Output**: 20-30% reduction in irrigation water, 18-22% increase in ROI
+* **Economic Output**: Continuous Cost-Benefit Analysis preventing water deployment when costs exceed yield revenue
+* **Legal Output**: Cryptographically secure "Water Ledger" valid in State Water Courts
 
 ### Core Philosophy
+
 - **Deterministic, judgment-based algorithms** — NOT ML/AI black boxes
-- All logic must be explainable and auditable for water court admissibility
-- Future AI: Post-beta, sandboxed Digital Twin simulations only
+* All logic must be explainable and auditable for water court admissibility
+* Future AI: Post-beta, sandboxed Digital Twin simulations only
 
 ### Current Deployment Target
+
 **2-Field Pilot at CSU San Luis Valley (SLV) Research Center, Center, Colorado**
-- Purpose: Generate empirical Gold Standard data for June 2026 Subdistrict 1 Water Court
-- Hardware: 2 PMTs, 2 PFAs, 2 VFAs, 16-20 LRZs
-- Grant deadline: DoD ESTCP pre-proposal (March 26, 2026)
+* Purpose: Generate empirical Gold Standard data for June 2026 Subdistrict 1 Water Court
+* Hardware: 2 PMTs, 2 PFAs, 2 VFAs, 16-20 LRZs
+* Grant deadline: DoD ESTCP pre-proposal (March 26, 2026)
 
 ---
 
@@ -3826,6 +3317,7 @@ See `file 'farmsenseOS/DEPENDENCY_REDUCTION.md'` for full plan.
 ## File Locations
 
 ### Backend (FastAPI)
+
 ```
 farmsense-code/backend/
 ├── app/
@@ -3855,6 +3347,7 @@ farmsense-code/backend/
 ```
 
 ### Frontend (React + TypeScript)
+
 ```
 farmsense-code/frontend/
 ├── farmer-dashboard/        # Farmer field interface
@@ -3869,6 +3362,7 @@ farmsense-code/frontend/
 ```
 
 ### Specifications
+
 ```
 specifications/
 ├── Master Specification: Lateral Root-Zone Scout (LRZ) V1.21.md
@@ -3882,6 +3376,7 @@ specifications/
 ```
 
 ### Reference Documents
+
 ```
 reference/
 ├── Due Diligence and Systems Architecture Audit_ FarmSense San Luis Valley Pilot.md
@@ -3942,6 +3437,7 @@ reference/
 | COLLAPSE | 1 min | Critical events |
 
 ### Decision Logic (Judgment-Based, NOT AI)
+
 1. **Critical events** → Immediate recalc (moisture drops >30% in 6h, pump failure)
 2. **Out-of-turn triggers** → Event-driven (sensor anomalies, rainfall >10mm/h)
 3. **Trend-based** → Scheduled (volatility score, moisture trends, irrigation status)
@@ -3964,23 +3460,25 @@ reference/
 ## Current Task Status
 
 ### Completed ✅
+
 - [x] Rectify DHU BOM for 900MHz LoRaWAN gateway
-- [x] Rectify VFA BOM for 2.4GHz/BLE module
-- [x] Validate Thermal Loss capacity for 5W Kapton heater
-- [x] Integrate HPC with PMT LiSOCl2 battery
-- [x] Treat Polycarbonate with fluoropolymer coatings
-- [x] Implement Predictive Maintenance via Current Harmonic Analysis
-- [x] Integrate k-means ML Kriging algorithms
+* [x] Rectify VFA BOM for 2.4GHz/BLE module
+* [x] Validate Thermal Loss capacity for 5W Kapton heater
+* [x] Integrate HPC with PMT LiSOCl2 battery
+* [x] Treat Polycarbonate with fluoropolymer coatings
+* [x] Implement Predictive Maintenance via Current Harmonic Analysis
+* [x] Integrate k-means ML Kriging algorithms
 
 ### Pending 🔄
+
 - [ ] Implement PBFT Alliance-Chain Blockchain in DHU
-- [ ] Build DoD Federated Data Fabric Adapters
-- [ ] Implement Dual-Layer Spatial Privacy
-- [ ] Develop automated GLOBALG.A.P. compliance reports
-- [ ] Verify LPI/LPD logic on LRZ FHSS chirps
-- [ ] Concept design for Air-Deliverable Kinetic Penetrator
-- [ ] Upgrade RSS for FHE Kriging operations
-- [ ] Draft DoD ESTCP pre-proposal (Deadline: March 26, 2026)
+* [ ] Build DoD Federated Data Fabric Adapters
+* [ ] Implement Dual-Layer Spatial Privacy
+* [ ] Develop automated GLOBALG.A.P. compliance reports
+* [ ] Verify LPI/LPD logic on LRZ FHSS chirps
+* [ ] Concept design for Air-Deliverable Kinetic Penetrator
+* [ ] Upgrade RSS for FHE Kriging operations
+* [ ] Draft DoD ESTCP pre-proposal (Deadline: March 26, 2026)
 
 ---
 
@@ -4011,10 +3509,10 @@ reference/
 ## Hardware BOM Summary
 
 **Minimum Viable Hardware Stack (2-Field Pilot):**
-- 2x PMT (Pivot Motion Tracker)
-- 2x PFA (Pressure & Flow Anchor)
-- 2x VFA (Vertical Field Anchor)
-- 16-20x LRZ (Lateral Root-Zone Scout)
+* 2x PMT (Pivot Motion Tracker)
+* 2x PFA (Pressure & Flow Anchor)
+* 2x VFA (Vertical Field Anchor)
+* 16-20x LRZ (Lateral Root-Zone Scout)
 
 **Total Investment**: $5,382,940 (for Subdistrict 1: 19,466 devices)
 
@@ -4022,37 +3520,36 @@ reference/
 
 ## Regulatory Context
 
-- **Subdistrict 1**: 117,000 acres, San Luis Valley, Colorado
-- **Water Court Deadline**: June 2026
-- **Compliance**: SLV 2026 regulatory alignment
-- **Audit Requirement**: Immutable, cryptographically signed chain of custody
+* **Subdistrict 1**: ~150,000 acres, San Luis Valley, Colorado
+* **Water Court Deadline**: June 2026
+* **Compliance**: SLV 2026 regulatory alignment
+* **Audit Requirement**: Immutable, cryptographically signed chain of custody
 
 ---
 
 ## Security Requirements
 
-- JWT authentication for API
-- 128-bit AES encryption for field data
-- FHSS (Frequency-Hopping Spread Spectrum) for LRZ communications
-- Dual-layer spatial privacy (exact GPS locked, cloud data anonymized)
-- FHE (Fully Homomorphic Encryption) planned for RSS
+* JWT authentication for API
+* 128-bit AES encryption for field data
+* FHSS (Frequency-Hopping Spread Spectrum) for LRZ communications
+* Dual-layer spatial privacy (exact GPS locked, cloud data anonymized)
+* FHE (Fully Homomorphic Encryption) planned for RSS
 
 ---
 
 ## Dual-Use (DoD) Features
 
-- LPI/LPD native FHSS architecture
-- JADC2-compliant UGS network
-- Air-deliverable kinetic penetrator housings
-- FHE Kriging on encrypted data
-- ESTCP grant application in progress
+* LPI/LPD native FHSS architecture
+* JADC2-compliant UGS network
+* Air-deliverable kinetic penetrator housings
+* FHE Kriging on encrypted data
+* ESTCP grant application in progress
 
 ---
 
 *Last updated: 2026-02-24*
 *Repository: github.com/bxthre3inc/farmsenseOS*
 *Server: brodiblanco.zo.computer*
-
 
 <div style="page-break-after: always;"></div>
 
@@ -4109,9 +3606,8 @@ Must include: `MAP_DATABASE_URL` pointing to Oracle IP. |
 
 ## ⚠️ Troubleshooting
 
-- **Permission Denied**: Ensure the SSH keys added to GitHub match the public keys in `~/.ssh/authorized_keys` on the servers.
-- **Timeout**: Deployment might take time if building images from scratch. The workflow pulls changes and rebuilds.
-
+* **Permission Denied**: Ensure the SSH keys added to GitHub match the public keys in `~/.ssh/authorized_keys` on the servers.
+* **Timeout**: Deployment might take time if building images from scratch. The workflow pulls changes and rebuilds.
 
 <div style="page-break-after: always;"></div>
 
@@ -4150,9 +3646,8 @@ Please familiarize yourself with the FarmSense project documentation in the foll
 
 ## Important Operational & Policy Context
 
-- **DoD Funding and DARPA**: We are tailoring architectures to qualify for the DoD Environmental Security Technology Certification Program (ESTCP) (Deadline: March 26, 2026). Ensure any Edge communication protocol changes (e.g. 5GHz/900MHz backhaul adjustments) maintain secure 128-bit encryption constraints.
-- **Privacy Policy**: Our Spatial Privacy Framework requires all individual geographic point parameters sent to the Global Cloud to be contextually obfuscated. Do not bypass the Differential Privacy protocols applied downstream of the District Hub "Black Box".
-
+* **DoD Funding and DARPA**: We are tailoring architectures to qualify for the DoD Environmental Security Technology Certification Program (ESTCP) (Deadline: March 26, 2026). Ensure any Edge communication protocol changes (e.g. 5GHz/900MHz backhaul adjustments) maintain secure 128-bit encryption constraints.
+* **Privacy Policy**: Our Spatial Privacy Framework requires all individual geographic point parameters sent to the Global Cloud to be contextually obfuscated. Do not bypass the Differential Privacy protocols applied downstream of the District Hub "Black Box".
 
 <div style="page-break-after: always;"></div>
 
@@ -4168,11 +3663,11 @@ This comprehensive implementation package contains **everything needed** to buil
 
 ### 1. **System Architecture Documentation**
 
-- **Complete technical specifications** (15 major sections, 80+ pages)
-- System diagrams and data flow charts
-- Technology stack decisions with trade-off analysis
-- Deployment architecture (Decentralized Monolithic / Sovereign Edge)
-- Security & compliance framework (SLV 2026)
+* **Complete technical specifications** (15 major sections, 80+ pages)
+* System diagrams and data flow charts
+* Technology stack decisions with trade-off analysis
+* Deployment architecture (Decentralized Monolithic / Sovereign Edge)
+* Security & compliance framework (SLV 2026)
 
 **Access**: [System Architecture Document](https://docs.FarmSense.com/architecture)
 
@@ -4182,30 +3677,30 @@ This comprehensive implementation package contains **everything needed** to buil
 
 #### Core Components
 
-- ✅ **Data Models** (`backend/app/models/sensor_data.py`)
-  - 7 complete SQLAlchemy models
-  - PostGIS spatial data types
-  - TimescaleDB time-series optimization
-  - Full audit trail support
+* ✅ **Data Models** (`backend/app/models/sensor_data.py`)
+  * 7 complete SQLAlchemy models
+  * PostGIS spatial data types
+  * TimescaleDB time-series optimization
+  * Full audit trail support
 
-- ✅ **Adaptive Recalculation Engine** (`backend/app/services/adaptive_recalc_engine.py`)
-  - Judgment-based timing logic (1min → 12hr)
-  - 4 operational modes (Stable, Active, Critical, Out-of-Turn)
-  - Event-driven trigger system
-  - Configurable thresholds per crop/field
+* ✅ **Adaptive Recalculation Engine** (`backend/app/services/adaptive_recalc_engine.py`)
+  * Judgment-based timing logic (1min → 12hr)
+  * 4 operational modes (Stable, Active, Critical, Out-of-Turn)
+  * Event-driven trigger system
+  * Configurable thresholds per crop/field
 
-- ✅ **REST API** (`backend/app/api/main.py`)
-  - 15+ endpoints for data ingestion, analytics, compliance
-  - Real-time sensor ingestion (batch + streaming)
-  - Virtual grid queries (20m & 1m)
-  - Field analytics and irrigation recommendations
-  - Compliance report generation
+* ✅ **REST API** (`backend/app/api/main.py`)
+  * 15+ endpoints for data ingestion, analytics, compliance
+  * Real-time sensor ingestion (batch + streaming)
+  * Virtual grid queries (20m & 1m)
+  * Field analytics and irrigation recommendations
+  * Compliance report generation
 
-- ✅ **Database Layer** (`backend/app/core/database.py`)
-  - PostgreSQL + PostGIS configuration
-  - TimescaleDB integration
-  - Connection pooling
-  - Session management
+* ✅ **Database Layer** (`backend/app/core/database.py`)
+  * PostgreSQL + PostGIS configuration
+  * TimescaleDB integration
+  * Connection pooling
+  * Session management
 
 **Lines of Code**: ~4,500 (Production-ready)
 
@@ -4215,18 +3710,18 @@ This comprehensive implementation package contains **everything needed** to buil
 
 #### Key Features
 
-- ✅ **20m Virtual Grid Processor** (`edge-compute/src/edge_processor.go`)
-  - IDW (Inverse Distance Weighting) interpolation
-  - Real-time field-level computation
-  - Offline resilience with local SQLite cache
-  - Automatic cloud synchronization
-  - Configurable recalculation intervals
+* ✅ **20m Virtual Grid Processor** (`edge-compute/src/edge_processor.go`)
+  * IDW (Inverse Distance Weighting) interpolation
+  * Real-time field-level computation
+  * Offline resilience with local SQLite cache
+  * Automatic cloud synchronization
+  * Configurable recalculation intervals
 
-- ✅ **Configuration System** (`edge-compute/config/field_001.json`)
-  - Per-field configuration
-  - Sensor mapping
-  - Threshold customization
-  - Alert definitions
+* ✅ **Configuration System** (`edge-compute/config/field_001.json`)
+  * Per-field configuration
+  * Sensor mapping
+  * Threshold customization
+  * Alert definitions
 
 **Lines of Code**: ~600 (Optimized for Raspberry Pi 4/Jetson Nano)
 
@@ -4236,18 +3731,18 @@ This comprehensive implementation package contains **everything needed** to buil
 
 #### Advanced Analytics
 
-- ✅ **Regression Kriging** (`cloud-processing/pipelines/kriging_1m.py`)
-  - 1m high-resolution interpolation
-  - Multi-source data fusion (sensors + satellites)
-  - Trend modeling with satellite covariates
-  - Variogram fitting and validation
-  - Uncertainty quantification (kriging variance)
+* ✅ **Regression Kriging** (`cloud-processing/pipelines/kriging_1m.py`)
+  * 1m high-resolution interpolation
+  * Multi-source data fusion (sensors + satellites)
+  * Trend modeling with satellite covariates
+  * Variogram fitting and validation
+  * Uncertainty quantification (kriging variance)
 
-- ✅ **Satellite Integration**
-  - NDVI, NDWI calculation
-  - Sentinel-2 and Landsat processing
-  - Cloud masking and atmospheric correction
-  - Historical trend calibration
+* ✅ **Satellite Integration**
+  * NDVI, NDWI calculation
+  * Sentinel-2 and Landsat processing
+  * Cloud masking and atmospheric correction
+  * Historical trend calibration
 
 **Lines of Code**: ~800 (NumPy/SciPy optimized)
 
@@ -4257,27 +3752,27 @@ This comprehensive implementation package contains **everything needed** to buil
 
 #### Docker Compose (`deployment/docker/docker-compose.yml`)
 
-- **11 containerized services**:
-  - PostgreSQL + PostGIS
-  - TimescaleDB
-  - Redis (caching)
-  - RabbitMQ (message queue)
-  - FastAPI backend
-  - Cloud processor (Celery)
-  - Farmer dashboard (React)
-  - Regulatory portal (React)
-  - Grafana (monitoring)
-  - Prometheus (metrics)
+* **11 containerized services**:
+  * PostgreSQL + PostGIS
+  * TimescaleDB
+  * Redis (caching)
+  * RabbitMQ (message queue)
+  * FastAPI backend
+  * Cloud processor (Celery)
+  * Farmer dashboard (React)
+  * Regulatory portal (React)
+  * Grafana (monitoring)
+  * Prometheus (metrics)
 
-- **One-command startup**: `docker-compose up -d`
-- **Production-ready** with health checks, volume persistence, networking
+* **One-command startup**: `docker-compose up -d`
+* **Production-ready** with health checks, volume persistence, networking
 
 #### Bare-Metal Systemd Services (Ready for RSS)
 
-- Production service configurations
-- Auto-restart policies
-- Hardware resource limits
-- Monitoring integration
+* Production service configurations
+* Auto-restart policies
+* Hardware resource limits
+* Monitoring integration
 
 ---
 
@@ -4285,13 +3780,13 @@ This comprehensive implementation package contains **everything needed** to buil
 
 #### Initialization Script (`database/migrations/001_initial_schema.sql`)
 
-- ✅ PostGIS extension setup
-- ✅ TimescaleDB hypertables (5 tables)
-- ✅ Spatial indices (GIST)
-- ✅ Composite indices for common queries
-- ✅ Retention policies (2-year data retention)
-- ✅ Continuous aggregates (hourly field stats)
-- ✅ Sample data for testing
+* ✅ PostGIS extension setup
+* ✅ TimescaleDB hypertables (5 tables)
+* ✅ Spatial indices (GIST)
+* ✅ Composite indices for common queries
+* ✅ Retention policies (2-year data retention)
+* ✅ Continuous aggregates (hourly field stats)
+* ✅ Sample data for testing
 
 **Tables**: 7 core tables + 1 materialized view
 
@@ -4301,22 +3796,22 @@ This comprehensive implementation package contains **everything needed** to buil
 
 #### Environment Configuration
 
-- `.env.example` - Complete environment template
-  - Database credentials
-  - STAC endpoints and self-hosted MapLibre
-  - Security keys (JWT)
-  - Email/SMS alert configuration
-  - Sovereign Data Vault credentials
+* `.env.example` - Complete environment template
+  * Database credentials
+  * STAC endpoints and self-hosted MapLibre
+  * Security keys (JWT)
+  * Email/SMS alert configuration
+  * Sovereign Data Vault credentials
 
 #### Comprehensive Documentation
 
-- **README.md** - Getting started guide
-- **IMPLEMENTATION_GUIDE.md** - 20-week rollout plan
-  - Phase-by-phase breakdown
-  - Technical implementation details
-  - Testing strategies
-  - Performance targets
-  - Troubleshooting guide
+* **README.md** - Getting started guide
+* **IMPLEMENTATION_GUIDE.md** - 20-week rollout plan
+  * Phase-by-phase breakdown
+  * Technical implementation details
+  * Testing strategies
+  * Performance targets
+  * Troubleshooting guide
 
 ---
 
@@ -4340,11 +3835,11 @@ Sensors → API → TimescaleDB → Edge (20m IDW) → Cloud (1m Kriging) → Da
 
 ### Scalability
 
-- **Sensors**: 100,000+ concurrent
-- **Fields**: 10,000+ monitored
-- **Data Rate**: 10,000 readings/second
-- **Grid Points**: 1M+ per field (1m resolution)
-- **Users**: 10,000+ concurrent dashboard access
+* **Sensors**: 100,000+ concurrent
+* **Fields**: 10,000+ monitored
+* **Data Rate**: 10,000 readings/second
+* **Grid Points**: 1M+ per field (1m resolution)
+* **Users**: 10,000+ concurrent dashboard access
 
 ---
 
@@ -4399,45 +3894,45 @@ docker-compose exec backend python -m app.core.database
 
 ### ✅ Data Ingestion
 
-- Multi-source sensor data (soil, pump, weather)
-- Batch and streaming ingestion
-- Data quality validation
-- Anomaly detection
+* Multi-source sensor data (soil, pump, weather)
+* Batch and streaming ingestion
+* Data quality validation
+* Anomaly detection
 
 ### ✅ Virtual Sensor Networks
 
-- **Edge**: 20m grid with IDW interpolation
-- **Cloud**: 1m grid with Regression Kriging
-- Satellite data integration (Sentinel-2, Landsat)
-- Historical calibration
+* **Edge**: 20m grid with IDW interpolation
+* **Cloud**: 1m grid with Regression Kriging
+* Satellite data integration (Sentinel-2, Landsat)
+* Historical calibration
 
 ### ✅ Adaptive Recalculation
 
-- **4 operational modes**: Stable (12h), Active (15min), Critical (1min), Out-of-Turn
-- Trend-based decision logic
-- Event-driven triggers (sensor anomalies, weather)
-- Configurable thresholds
+* **4 operational modes**: Stable (12h), Active (15min), Critical (1min), Out-of-Turn
+* Trend-based decision logic
+* Event-driven triggers (sensor anomalies, weather)
+* Configurable thresholds
 
 ### ✅ Analytics & Modeling
 
-- Irrigation scheduling
-- Crop stress detection
-- Water deficit calculation
-- Yield forecasting (ready for analytics modeling integration)
+* Irrigation scheduling
+* Crop stress detection
+* Water deficit calculation
+* Yield forecasting (ready for analytics modeling integration)
 
 ### ✅ Compliance Reporting
 
-- SLV 2026 regulatory alignment
-- Immutable audit trails
-- Water usage tracking
-- Export to PDF/Excel
+* SLV 2026 regulatory alignment
+* Immutable audit trails
+* Water usage tracking
+* Export to PDF/Excel
 
 ### ✅ Dashboards
 
-- Real-time field visualization (MapLibre)
-- Irrigation recommendations
-- Alert system (email/SMS)
-- Multi-field analysis (consultant view)
+* Real-time field visualization (MapLibre)
+* Irrigation recommendations
+* Alert system (email/SMS)
+* Multi-field analysis (consultant view)
 
 ---
 
@@ -4493,10 +3988,10 @@ docker-compose exec backend python -m app.core.database
 
 ## 📞 Support & Resources
 
-- **Architecture Doc**: [View Full Architecture Document](https://docs.FarmSense.com/architecture)
-- **API Documentation**: <http://localhost:8000/docs> (after deployment)
-- **GitHub Issues**: For bug reports
-- **Email**: <support@farmsense.io>
+* **Architecture Doc**: [View Full Architecture Document](https://docs.FarmSense.com/architecture)
+* **API Documentation**: <http://localhost:8000/docs> (after deployment)
+* **GitHub Issues**: For bug reports
+* **Email**: <support@farmsense.io>
 
 ---
 
@@ -4516,12 +4011,12 @@ docker-compose exec backend python -m app.core.database
 
 The system is designed to achieve:
 
-- **99.9%** uptime
-- **<1 minute** data latency
-- **10,000** readings/second ingestion
-- **<5 minutes** for 1m grid computation (100 ha field)
-- **<200ms** API response time (p95)
-- **100%** SLV 2026 compliance
+* **99.9%** uptime
+* **<1 minute** data latency
+* **10,000** readings/second ingestion
+* **<5 minutes** for 1m grid computation (100 ha field)
+* **<200ms** API response time (p95)
+* **100%** SLV 2026 compliance
 
 ---
 
@@ -4533,7 +4028,6 @@ The system is designed to achieve:
 ---
 
 🌾 **Built for sustainable agriculture. Ready for immediate implementation.** 🚀
-
 
 <div style="page-break-after: always;"></div>
 
@@ -4600,11 +4094,11 @@ farmsense-code/
 
 ### ✅ **1. System Architecture** (80+ pages)
 
-- Complete technical specifications
-- Component diagrams & data flows
-- Technology stack justifications
-- Deployment architecture (Decentralized Monolithic / Sovereign Edge)
-- Security & SLV 2026 compliance
+* Complete technical specifications
+* Component diagrams & data flows
+* Technology stack justifications
+* Deployment architecture (Decentralized Monolithic / Sovereign Edge)
+* Security & SLV 2026 compliance
 
 **Document**: [View Architecture](https://docs.FarmSense.com/architecture)
 
@@ -4614,20 +4108,20 @@ farmsense-code/
 
 #### 📊 Data Models (`sensor_data.py` - 350 lines)
 
-- `SoilSensorReading` - 2-depth + vertical profiling
-- `PumpTelemetry` - Operational metrics
-- `WeatherData` - Atmospheric conditions
-- `VirtualSensorGrid20m` - Edge computed grid
-- `VirtualSensorGrid1m` - Cloud high-res grid
-- `RecalculationLog` - Audit trail
-- `ComplianceReport` - SLV 2026 reporting
+* `SoilSensorReading` - 2-depth + vertical profiling
+* `PumpTelemetry` - Operational metrics
+* `WeatherData` - Atmospheric conditions
+* `VirtualSensorGrid20m` - Edge computed grid
+* `VirtualSensorGrid1m` - Cloud high-res grid
+* `RecalculationLog` - Audit trail
+* `ComplianceReport` - SLV 2026 reporting
 
 **Features**:
 
-- PostGIS spatial types (POINT, POLYGON)
-- TimescaleDB hypertables
-- JSON vertical profiling
-- Quality flags & battery monitoring
+* PostGIS spatial types (POINT, POLYGON)
+* TimescaleDB hypertables
+* JSON vertical profiling
+* Quality flags & battery monitoring
 
 ---
 
@@ -4635,9 +4129,9 @@ farmsense-code/
 
 **Core Classes**:
 
-- `AdaptiveRecalculationEngine` - Main decision logic
-- `FieldCondition` - State representation
-- `RecalcDecision` - Output with reasoning
+* `AdaptiveRecalculationEngine` - Main decision logic
+* `FieldCondition` - State representation
+* `RecalcDecision` - Output with reasoning
 
 **Operational Modes**:
 
@@ -4651,20 +4145,20 @@ RecalcMode.OUT_OF_TURN # Immediate, event-driven
 **Decision Logic**:
 
 1. **Critical event check** → Immediate recalc
-   - Rapid moisture drops (>30% in 6h)
-   - Heat stress + low moisture
-   - Pump failures during irrigation
+   * Rapid moisture drops (>30% in 6h)
+   * Heat stress + low moisture
+   * Pump failures during irrigation
 
 2. **Out-of-turn triggers** → Event-driven
-   - Sensor anomalies detected
-   - Significant rainfall (>10mm/h)
-   - Extreme weather alerts
+   * Sensor anomalies detected
+   * Significant rainfall (>10mm/h)
+   * Extreme weather alerts
 
 3. **Trend-based mode selection** → Scheduled
-   - Volatility score calculation
-   - Moisture trends (1h, 6h windows)
-   - Irrigation status
-   - High ET conditions
+   * Volatility score calculation
+   * Moisture trends (1h, 6h windows)
+   * Irrigation status
+   * High ET conditions
 
 **Configurable Thresholds**:
 
@@ -4683,30 +4177,30 @@ RecalcMode.OUT_OF_TURN # Immediate, event-driven
 
 **Data Ingestion**:
 
-- `POST /api/v1/sensors/readings` - Single reading
-- `POST /api/v1/sensors/readings/batch` - Bulk ingestion (1000/request)
+* `POST /api/v1/sensors/readings` - Single reading
+* `POST /api/v1/sensors/readings/batch` - Bulk ingestion (1000/request)
 
 **Virtual Grid Queries**:
 
-- `GET /api/v1/fields/{field_id}/grid/20m` - Edge grid
-- `GET /api/v1/fields/{field_id}/grid/1m` - Cloud high-res
+* `GET /api/v1/fields/{field_id}/grid/20m` - Edge grid
+* `GET /api/v1/fields/{field_id}/grid/1m` - Cloud high-res
 
 **Analytics**:
 
-- `GET /api/v1/fields/{field_id}/analytics` - Field statistics
-- `GET /api/v1/fields/{field_id}/irrigation-recommendation` - Deterministic guidance
+* `GET /api/v1/fields/{field_id}/analytics` - Field statistics
+* `GET /api/v1/fields/{field_id}/irrigation-recommendation` - Deterministic guidance
 
 **Compliance**:
 
-- `GET /api/v1/compliance/reports` - List reports
-- `POST /api/v1/compliance/reports/generate` - Create SLV 2026 report
+* `GET /api/v1/compliance/reports` - List reports
+* `POST /api/v1/compliance/reports/generate` - Create SLV 2026 report
 
 **Features**:
 
-- Background task processing (FastAPI BackgroundTasks)
-- Automatic recalculation evaluation on data ingestion
-- Pydantic validation
-- OpenAPI/Swagger docs
+* Background task processing (FastAPI BackgroundTasks)
+* Automatic recalculation evaluation on data ingestion
+* Pydantic validation
+* OpenAPI/Swagger docs
 
 ---
 
@@ -4714,11 +4208,11 @@ RecalcMode.OUT_OF_TURN # Immediate, event-driven
 
 **Features**:
 
-- Dual database support (PostgreSQL + TimescaleDB)
-- Connection pooling (20 connections + 40 overflow)
-- Session management with FastAPI `Depends()`
-- Health checks (pool_pre_ping)
-- Auto-initialization script
+* Dual database support (PostgreSQL + TimescaleDB)
+* Connection pooling (20 connections + 40 overflow)
+* Session management with FastAPI `Depends()`
+* Health checks (pool_pre_ping)
+* Auto-initialization script
 
 ---
 
@@ -4728,11 +4222,11 @@ RecalcMode.OUT_OF_TURN # Immediate, event-driven
 
 **Core Functionality**:
 
-- **IDW Interpolation**: Inverse Distance Weighting with configurable power
-- **20m Grid Generation**: Automatic field boundary processing
-- **Offline Resilience**: Local SQLite cache when cloud unavailable
-- **Auto-Sync**: Periodic cloud synchronization (configurable interval)
-- **Real-time Processing**: Continuous computation loop
+* **IDW Interpolation**: Inverse Distance Weighting with configurable power
+* **20m Grid Generation**: Automatic field boundary processing
+* **Offline Resilience**: Local SQLite cache when cloud unavailable
+* **Auto-Sync**: Periodic cloud synchronization (configurable interval)
+* **Real-time Processing**: Continuous computation loop
 
 **Key Functions**:
 
@@ -4749,10 +4243,10 @@ syncToCloud()              // Offline data sync
 
 **Deployment**:
 
-- Raspberry Pi 4 / Jetson Nano compatible
-- Systemd service integration
-- Low memory footprint (<100MB)
-- Cross-compile for ARM64
+* Raspberry Pi 4 / Jetson Nano compatible
+* Systemd service integration
+* Low memory footprint (<100MB)
+* Cross-compile for ARM64
 
 ---
 
@@ -4762,16 +4256,16 @@ syncToCloud()              // Offline data sync
 
 **Advanced Interpolation**:
 
-- **Trend Model**: Linear regression on satellite covariates
-  - NDVI (vegetation index)
-  - NDWI (water index)
-  - LST (land surface temperature)
-  - Elevation & slope
+* **Trend Model**: Linear regression on satellite covariates
+  * NDVI (vegetation index)
+  * NDWI (water index)
+  * LST (land surface temperature)
+  * Elevation & slope
 
-- **Residual Kriging**: Ordinary kriging on detrended residuals
-  - Spherical variogram model
-  - Method of moments fitting
-  - Uncertainty quantification
+* **Residual Kriging**: Ordinary kriging on detrended residuals
+  * Spherical variogram model
+  * Method of moments fitting
+  * Uncertainty quantification
 
 **Core Classes**:
 
@@ -4790,9 +4284,9 @@ SatelliteProcessor
 
 **Output**:
 
-- 1m resolution moisture predictions
-- Kriging variance (uncertainty)
-- Multi-source data fusion
+* 1m resolution moisture predictions
+* Kriging variance (uncertainty)
+* Multi-source data fusion
 
 ---
 
@@ -4802,13 +4296,13 @@ SatelliteProcessor
 
 **Features**:
 
-- PostGIS extension setup
-- TimescaleDB hypertables (5 tables)
-- Spatial indices (GIST) for fast queries
-- Composite indices for common patterns
-- Retention policies (2-year auto-cleanup)
-- Continuous aggregates (hourly field stats)
-- Sample data insertion
+* PostGIS extension setup
+* TimescaleDB hypertables (5 tables)
+* Spatial indices (GIST) for fast queries
+* Composite indices for common patterns
+* Retention policies (2-year auto-cleanup)
+* Continuous aggregates (hourly field stats)
+* Sample data insertion
 
 **Hypertables**:
 
@@ -4849,11 +4343,11 @@ CREATE MATERIALIZED VIEW hourly_field_stats
 
 **Features**:
 
-- Health checks for all services
-- Volume persistence
-- Network isolation
-- Environment variable injection
-- Auto-restart policies
+* Health checks for all services
+* Volume persistence
+* Network isolation
+* Environment variable injection
+* Auto-restart policies
 
 **One-Command Startup**:
 
@@ -4870,12 +4364,12 @@ docker-compose up -d
 
 **Categories**:
 
-- Database credentials
-- STAC endpoints (Sentinel, Landsat) and self-hosted Maps
-- JWT security
-- Email/Push alerts (SMTP, ntfy.sh)
-- Sovereign Data Vault credentials
-- Feature flags
+* Database credentials
+* STAC endpoints (Sentinel, Landsat) and self-hosted Maps
+* JWT security
+* Email/Push alerts (SMTP, ntfy.sh)
+* Sovereign Data Vault credentials
+* Feature flags
 
 ---
 
@@ -4884,27 +4378,27 @@ docker-compose up -d
 #### 📚 Three Complete Guides
 
 1. **README.md** (500 lines)
-   - Architecture overview
-   - Quick start (5 commands)
-   - API documentation
-   - Testing strategies
-   - Production deployment
-   - Monitoring setup
+   * Architecture overview
+   * Quick start (5 commands)
+   * API documentation
+   * Testing strategies
+   * Production deployment
+   * Monitoring setup
 
 2. **IMPLEMENTATION_GUIDE.md** (400 lines)
-   - 20-week rollout plan
-   - Phase-by-phase tasks
-   - Technical setup details
-   - Performance targets
-   - Troubleshooting guide
-   - Success criteria
+   * 20-week rollout plan
+   * Phase-by-phase tasks
+   * Technical setup details
+   * Performance targets
+   * Troubleshooting guide
+   * Success criteria
 
 3. **PACKAGE_SUMMARY.md** (500 lines)
-   - Complete inventory
-   - Component details
-   - Code statistics
-   - Technology justifications
-   - Next steps
+   * Complete inventory
+   * Component details
+   * Code statistics
+   * Technology justifications
+   * Next steps
 
 ---
 
@@ -4927,51 +4421,51 @@ docker-compose up -d
 
 ### Data Ingestion ✅
 
-- [x] Multi-source sensor support
-- [x] Batch ingestion (1000/request)
-- [x] Real-time streaming
-- [x] Data quality validation
-- [x] Anomaly detection
+* [x] Multi-source sensor support
+* [x] Batch ingestion (1000/request)
+* [x] Real-time streaming
+* [x] Data quality validation
+* [x] Anomaly detection
 
 ### Virtual Sensor Networks ✅
 
-- [x] Edge 20m grid (IDW)
-- [x] Cloud 1m grid (Kriging)
-- [x] Satellite integration (Sentinel, Landsat)
-- [x] Offline edge operation
-- [x] Auto-sync mechanisms
+* [x] Edge 20m grid (IDW)
+* [x] Cloud 1m grid (Kriging)
+* [x] Satellite integration (Sentinel, Landsat)
+* [x] Offline edge operation
+* [x] Auto-sync mechanisms
 
 ### Adaptive Recalculation ✅
 
-- [x] 4 operational modes
-- [x] Trend-based decisions
-- [x] Event-driven triggers
-- [x] Configurable thresholds
-- [x] Audit logging
+* [x] 4 operational modes
+* [x] Trend-based decisions
+* [x] Event-driven triggers
+* [x] Configurable thresholds
+* [x] Audit logging
 
 ### Analytics ✅
 
-- [x] Water deficit calculation
-- [x] Crop stress detection
-- [x] Irrigation recommendations
-- [x] Field statistics
-- [x] Multi-field analysis
+* [x] Water deficit calculation
+* [x] Crop stress detection
+* [x] Irrigation recommendations
+* [x] Field statistics
+* [x] Multi-field analysis
 
 ### Compliance ✅
 
-- [x] SLV 2026 alignment
-- [x] Immutable audit logs
-- [x] Water usage tracking
-- [x] Report generation
-- [x] PDF/Excel export ready
+* [x] SLV 2026 alignment
+* [x] Immutable audit logs
+* [x] Water usage tracking
+* [x] Report generation
+* [x] PDF/Excel export ready
 
 ### Infrastructure ✅
 
-- [x] Docker containerization
-- [x] Sovereign monolithic deployment scripts
-- [x] Database optimization
-- [x] Monitoring (Prometheus/Grafana)
-- [x] CI/CD ready
+* [x] Docker containerization
+* [x] Sovereign monolithic deployment scripts
+* [x] Database optimization
+* [x] Monitoring (Prometheus/Grafana)
+* [x] CI/CD ready
 
 ---
 
@@ -5041,13 +4535,13 @@ ssh pi@field-device "sudo systemctl start farmsense-edge"
 
 ## 🔐 Security Features
 
-- ✅ JWT authentication (FastAPI security)
-- ✅ RBAC ready (role-based access)
-- ✅ TLS 1.3 enforcement
-- ✅ Input validation (Pydantic)
-- ✅ SQL injection protection (SQLAlchemy)
-- ✅ Rate limiting ready (Redis)
-- ✅ Audit logging (immutable)
+* ✅ JWT authentication (FastAPI security)
+* ✅ RBAC ready (role-based access)
+* ✅ TLS 1.3 enforcement
+* ✅ Input validation (Pydantic)
+* ✅ SQL injection protection (SQLAlchemy)
+* ✅ Rate limiting ready (Redis)
+* ✅ Audit logging (immutable)
 
 ---
 
@@ -5055,54 +4549,54 @@ ssh pi@field-device "sudo systemctl start farmsense-edge"
 
 ### Week 1: Infrastructure
 
-- [ ] Review architecture document in detail
-- [ ] Set up Regional Superstation (RSS) hardware and networking
-- [ ] Initialize Oracle Vault (PostgreSQL/TimescaleDB)
-- [ ] Configure Monolithic Core Services
+* [ ] Review architecture document in detail
+* [ ] Set up Regional Superstation (RSS) hardware and networking
+* [ ] Initialize Oracle Vault (PostgreSQL/TimescaleDB)
+* [ ] Configure Monolithic Core Services
 
 ### Week 2-4: Backend
 
-- [ ] Deploy FastAPI backend
-- [ ] Test data ingestion pipeline
-- [ ] Verify adaptive recalculation logic
-- [ ] Set up monitoring
+* [ ] Deploy FastAPI backend
+* [ ] Test data ingestion pipeline
+* [ ] Verify adaptive recalculation logic
+* [ ] Set up monitoring
 
 ### Week 5-8: Processing
 
-- [ ] Install edge processors on pilot fields
-- [ ] Configure Sentinel/Landsat pipelines
-- [ ] Test 1m grid generation
-- [ ] Validate accuracy
+* [ ] Install edge processors on pilot fields
+* [ ] Configure Sentinel/Landsat pipelines
+* [ ] Test 1m grid generation
+* [ ] Validate accuracy
 
 ### Week 9-12: Analytics & Modeling
 
-- [ ] Train analytics models with real data
-- [ ] Implement prediction APIs
-- [ ] Test irrigation recommendations
-- [ ] Optimize performance
+* [ ] Train analytics models with real data
+* [ ] Implement prediction APIs
+* [ ] Test irrigation recommendations
+* [ ] Optimize performance
 
 ### Week 13-16: Dashboards & Testing
 
-- [ ] Build React dashboards
-- [ ] Implement real-time alerts
-- [ ] Load testing (10K concurrent)
-- [ ] Security audit
+* [ ] Build React dashboards
+* [ ] Implement real-time alerts
+* [ ] Load testing (10K concurrent)
+* [ ] Security audit
 
 ### Week 17-20: Rollout
 
-- [ ] Pilot deployment (10 farms)
-- [ ] User training
-- [ ] Documentation finalization
-- [ ] National rollout
+* [ ] Pilot deployment (10 farms)
+* [ ] User training
+* [ ] Documentation finalization
+* [ ] National rollout
 
 ---
 
 ## 📞 Support
 
-- **Architecture**: [Technical Specifications](https://docs.FarmSense.com/architecture)
-- **API Docs**: <http://localhost:8000/docs>
-- **Issues**: GitHub Issues (after repo setup)
-- **Email**: <support@farmsense.io>
+* **Architecture**: [Technical Specifications](https://docs.FarmSense.com/architecture)
+* **API Docs**: <http://localhost:8000/docs>
+* **Issues**: GitHub Issues (after repo setup)
+* **Email**: <support@farmsense.io>
 
 ---
 
@@ -5110,27 +4604,27 @@ ssh pi@field-device "sudo systemctl start farmsense-edge"
 
 ### Technical ✅
 
-- All core components implemented
-- Production-ready code quality
-- Comprehensive test coverage ready
-- Deployment automation complete
-- Documentation thorough
+* All core components implemented
+* Production-ready code quality
+* Comprehensive test coverage ready
+* Deployment automation complete
+* Documentation thorough
 
 ### Functional ✅
 
-- Data ingestion pipeline working
-- Virtual grids generating accurately
-- Adaptive recalc logic validated
-- Compliance reports SLV 2026 aligned
-- APIs documented and tested
+* Data ingestion pipeline working
+* Virtual grids generating accurately
+* Adaptive recalc logic validated
+* Compliance reports SLV 2026 aligned
+* APIs documented and tested
 
 ### Scalability ✅
 
-- Designed for 100K+ sensors
-- Horizontal scaling ready
-- Database optimized
-- Edge compute distributed
-- Cloud processing parallelized
+* Designed for 100K+ sensors
+* Horizontal scaling ready
+* Database optimized
+* Edge compute distributed
+* Cloud processing parallelized
 
 ---
 
@@ -5147,15 +4641,15 @@ ssh pi@field-device "sudo systemctl start farmsense-edge"
 
 ### Next-Generation Software-Driven Expansions
 
-- **Predictive Maintenance**: Using Current Harmonic Analysis on the PFA (via 400A CT Clamps) to detect pump wear without physical dismantling.
-- **Dual-Layer Spatial Privacy**: Segregating localized cryptographic Water Ledger precision from cloud-level anonymized Federated Learning datasets.
-- **Edge Blockchain Logic**: Utilizing the DHU memory allocation for executing agricultural alliance-chain tokenized PBFT water-trading logic.
+* **Predictive Maintenance**: Using Current Harmonic Analysis on the PFA (via 400A CT Clamps) to detect pump wear without physical dismantling.
+* **Dual-Layer Spatial Privacy**: Segregating localized cryptographic Water Ledger precision from cloud-level anonymized Federated Learning datasets.
+* **Edge Blockchain Logic**: Utilizing the DHU memory allocation for executing agricultural alliance-chain tokenized PBFT water-trading logic.
 
 ### Strategic Infrastructure & Defense Dual-Use (ESTCP)
 
-- **FHSS Native LPI/LPD**: Incorporates inherently covert low probability of intercept communication networking architectures.
-- **Environmental Security Alignment**: Provides JADC2-transferrable Unattended Ground Sensor (UGS) matrices capable of Fully Homomorphic Encryption (FHE) processing on 64-Core secure Edge installations.
-- **Kinetic Hardware Scalability**: Tapered hardware parameters align with HALO-drop air-deliverable kinetic ground-penetrating sensor configurations.
+* **FHSS Native LPI/LPD**: Incorporates inherently covert low probability of intercept communication networking architectures.
+* **Environmental Security Alignment**: Provides JADC2-transferrable Unattended Ground Sensor (UGS) matrices capable of Fully Homomorphic Encryption (FHE) processing on 64-Core secure Edge installations.
+* **Kinetic Hardware Scalability**: Tapered hardware parameters align with HALO-drop air-deliverable kinetic ground-penetrating sensor configurations.
 
 ---
 
@@ -5182,7 +4676,6 @@ ssh pi@field-device "sudo systemctl start farmsense-edge"
 *Generated: 2026-02-12*  
 *Package Version: 1.0.0*  
 *Status: ✅ Complete and Deployment-Ready*
-
 
 <div style="page-break-after: always;"></div>
 
@@ -5593,13 +5086,13 @@ is handled via OAuth2/JWT.
 
 # Authorization Levels
 
-- Farmer: Read/Write access to own fields
+* Farmer: Read/Write access to own fields
 
-- Consultant: Read access to multiple farms (multi-tenant)
+* Consultant: Read access to multiple farms (multi-tenant)
 
-- Regulator: Read-only access to compliance logs (all farms)
+* Regulator: Read-only access to compliance logs (all farms)
 
-- Admin: Full system access
+* Admin: Full system access
 
 **8.2 Core API Endpoints**
 
@@ -5639,10 +5132,10 @@ Response: 202 Accepted
 GET /api/v1/fields/{field_id}/grid/latest
 Query Parameters:
 
-- resolution: "1m" | "20m"
-- layer: "moisture" | "ndvi" | "temperature"
-- format: "geojson" | "mvt" (Mapbox Vector Tiles)
-- bbox: "xmin,ymin,xmax,ymax" (optional, for spatial filtering)
+* resolution: "1m" | "20m"
+* layer: "moisture" | "ndvi" | "temperature"
+* format: "geojson" | "mvt" (Mapbox Vector Tiles)
+* bbox: "xmin,ymin,xmax,ymax" (optional, for spatial filtering)
 
 Response: 200 OK (GeoJSON example)
 {
@@ -5673,9 +5166,9 @@ Response: 200 OK (GeoJSON example)
 GET /api/v1/compliance/report/{field_id}
 Query Parameters:
 
-- start_date: "2023-01-01"
-- end_date: "2023-10-15"
-- format: "pdf" | "json" | "csv"
+* start_date: "2023-01-01"
+* end_date: "2023-10-15"
+* format: "pdf" | "json" | "csv"
 
 Response: 200 OK
 Content-Type: application/pdf (or JSON/CSV)
@@ -6762,15 +6255,15 @@ POSTGRES_USER: dev
 POSTGRES_PASSWORD: dev_password
 ports:
 
-- "5432:5432"
+* "5432:5432"
 volumes:
-- postgres_data:/var/lib/postgresql/data
+* postgres_data:/var/lib/postgresql/data
 
 redis:
 image: redis:7-alpine
 ports:
 
-- "6379:6379"
+* "6379:6379"
 
 kafka:
 image: confluentinc/cp-kafka:7.5.0
@@ -6780,7 +6273,7 @@ KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
 KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
 ports:
 
-- "9092:9092"
+* "9092:9092"
 
 zookeeper:
 image: confluentinc/cp-zookeeper:7.5.0
@@ -6979,7 +6472,7 @@ push:
 branches: [main, develop]
 paths:
 
-- 'services/**'
+* 'services/**'
 pull_request:
 branches: [main]
 
@@ -6998,24 +6491,24 @@ options: >--health-cmd pg_isready
 
 steps:
 
-- uses: actions/checkout@v3
+* uses: actions/checkout@v3
 
-- name: Set up Python
+* name: Set up Python
 uses: actions/setup-python@v4
 with:
 python-version: '3.11'
 
-- name: Install dependencies
+* name: Install dependencies
 run: |
 cd services/ingestion
 pip install -r requirements.txt -r requirements-dev.txt
 
-- name: Run tests
+* name: Run tests
 run: |
 cd services/ingestion
 pytest --cov=src --cov-report=xml
 
-- name: Upload coverage
+* name: Upload coverage
 uses: codecov/codecov-action@v3
 
 build-and-push:
@@ -7025,9 +6518,9 @@ if: github.ref == 'refs/heads/main'
 
 steps:
 
-- uses: actions/checkout@v3
+* uses: actions/checkout@v3
 
-- name: Configure AWS credentials
+* name: Configure AWS credentials
 uses: aws-actions/configure-aws-credentials@v2
 with:
 
@@ -7035,11 +6528,11 @@ aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
 aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 aws-region: us-west-2
 
-- name: Login to Amazon ECR
+* name: Login to Amazon ECR
 id: login-ecr
 uses: aws-actions/amazon-ecr-login@v1
 
-- name: Build and push Docker image
+* name: Build and push Docker image
 env:
 ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
 IMAGE_TAG: ${{ github.sha }}
@@ -7047,7 +6540,7 @@ run: |
 docker build -t $ECR_REGISTRY/farmsense-ingestion:$IMAGE_TAG servic
 docker push $ECR_REGISTRY/farmsense-ingestion:$IMAGE_TAG
 
-- name: Deploy to EKS
+* name: Deploy to EKS
 run: |
 aws eks update-kubeconfig --name farmsense-prod --region us-west-2
 kubectl set image deployment/ingestion ingestion=$ECR_REGISTRY/farm
@@ -7126,7 +6619,6 @@ tracing
 © 2026 FarmSense Initiative. Confidential Technical Architecture Document.
 
 Version 1.0 | Last Updated: February 12, 2026
-
 
 <div style="page-break-after: always;"></div>
 
@@ -7280,7 +6772,6 @@ Copyright © 2026 FarmSense. Developed for the San Luis Valley Groundwater Pilot
 
 **Built with ❤️ for a resilient agricultural future.** 🌾💧
 
-
 <div style="page-break-after: always;"></div>
 
 # FarmSense: Software & Firmware Ecosystem Specifications
@@ -7323,7 +6814,6 @@ The intelligence powering the frontends and edge-hardware relies on these deeply
 * **[Core Engine (Zo) Specification](backend/ZO_ENGINE_SPECIFICATION.md):** The overarching logic detailing the execution of Bayesian priors, the 1m Regression Kriging algorithms using Sentinel-2/Landsat data, and the orchestration of the Adaptive Recalculation Engine.
 * **[Database Architecture (PostgreSQL + TimescaleDB)](backend/DATABASE_SPECIFICATION.md):** The schema mapping for the Master Legal Ledger, contextual obfuscation (Privacy layer), and continuous temporal aggregations.
 
-
 <div style="page-break-after: always;"></div>
 
 # 🌾 FarmSense Precision Agriculture Platform
@@ -7332,8 +6822,8 @@ The intelligence powering the frontends and edge-hardware relies on these deeply
 
 This project is configured for a **Hybrid Cloud Deployment**:
 
-- **Core Platform (Zo.computer)**: Hosts the API, processing, and frontend applications.
-- **Map Stack (Oracle Cloud)**: Hosts the geospatial database and map tile services.
+* **Core Platform (Zo.computer)**: Hosts the API, processing, and frontend applications.
+* **Map Stack (Oracle Cloud)**: Hosts the geospatial database and map tile services.
 
 ### 1. Oracle Cloud (Map Stack) Setup
 
@@ -7347,12 +6837,12 @@ docker-compose -f docker-compose.oracle.yml up -d
 
 **Services Started:**
 
-- `postgis-map`: Review `docker-compose.oracle.yml` for credentials (Default: `map_user`/`changeme`).
-- `map-service`: Tile serving endpoint (Port 8001).
+* `postgis-map`: Review `docker-compose.oracle.yml` for credentials (Default: `map_user`/`changeme`).
+* `map-service`: Tile serving endpoint (Port 8001).
 
 **Network Config:**
 
-- Ensure Port `5432` is accessible from your Zo.computer IP (configure Oracle Security List / VCN).
+* Ensure Port `5432` is accessible from your Zo.computer IP (configure Oracle Security List / VCN).
 
 ### 2. Zo.computer (Core Platform) Setup
 
@@ -7368,9 +6858,9 @@ docker-compose -f docker-compose.zo.yml up -d
 
 **Services Started:**
 
-- `backend-api`: Main API (Port 8000).
-- `frontend-dashboard`: Farmer Dashboard (Port 3000).
-- Core DBs: Postgres, Timescale, Redis.
+* `backend-api`: Main API (Port 8000).
+* `frontend-dashboard`: Farmer Dashboard (Port 3000).
+* Core DBs: Postgres, Timescale, Redis.
 
 ### 3. Verification
 
@@ -7386,7 +6876,6 @@ For local development (single machine), use the standard compose file:
 ```bash
 docker-compose up -d
 ```
-
 
 <div style="page-break-after: always;"></div>
 
@@ -7420,7 +6909,6 @@ The Admin Dashboard is the centralized command and control interface for FarmSen
 ---
 *Return to [Master Software Index](../SOFTWARE_INDEX.md)*
 
-
 <div style="page-break-after: always;"></div>
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
@@ -7449,8 +6937,8 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+* [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
@@ -7459,7 +6947,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
 
 <div style="page-break-after: always;"></div>
 
@@ -7493,7 +6980,6 @@ The Docs Portal is the central repository for all FarmSense technical documentat
 ---
 *Return to [Master Software Index](../SOFTWARE_INDEX.md)*
 
-
 <div style="page-break-after: always;"></div>
 
 # React + TypeScript + Vite
@@ -7502,8 +6988,8 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+* [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 ## React Compiler
 
@@ -7569,7 +7055,6 @@ export default defineConfig([
   },
 ])
 ```
-
 
 <div style="page-break-after: always;"></div>
 
@@ -7615,7 +7100,6 @@ Provides a deterministic interpretation of system flags, rather than dumping raw
 ---
 *Return to [Master Software Index](../SOFTWARE_INDEX.md)*
 
-
 <div style="page-break-after: always;"></div>
 
 # React + TypeScript + Vite
@@ -7624,8 +7108,8 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+* [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 ## React Compiler
 
@@ -7692,7 +7176,6 @@ export default defineConfig([
 ])
 ```
 
-
 <div style="page-break-after: always;"></div>
 
 # Grant Portal Specification
@@ -7723,7 +7206,6 @@ The Grant Portal is a highly specialized, read-only data extraction interface. I
 
 ---
 *Return to [Master Software Index](../SOFTWARE_INDEX.md)*
-
 
 <div style="page-break-after: always;"></div>
 
@@ -7756,7 +7238,6 @@ The Investor Dashboard is a high-level, aggregate metric interface designed for 
 ---
 *Return to [Master Software Index](../SOFTWARE_INDEX.md)*
 
-
 <div style="page-break-after: always;"></div>
 
 # Marketing Site Specification
@@ -7787,7 +7268,6 @@ The Marketing Site is the primary public-facing portal for FarmSense. It acts as
 
 ---
 *Return to [Master Software Index](../SOFTWARE_INDEX.md)*
-
 
 <div style="page-break-after: always;"></div>
 
@@ -7821,7 +7301,6 @@ The Regulatory Portal is the immutable legal ledger of the FarmSense platform. I
 ---
 *Return to [Master Software Index](../SOFTWARE_INDEX.md)*
 
-
 <div style="page-break-after: always;"></div>
 
 # Research Portal Specification
@@ -7854,7 +7333,6 @@ The Research Portal is the deepest, most complex frontend within the FarmSense e
 ---
 *Return to [Master Software Index](../SOFTWARE_INDEX.md)*
 
-
 <div style="page-break-after: always;"></div>
 
 # Admin Dashboard — Frontend Specification V1.75
@@ -7884,11 +7362,11 @@ A real-time topology map of the entire deployed hardware mesh with signal-flow a
 
 **Key elements:**
 
-- **Network Topology Graph** — Force-directed graph visualization of the mesh hierarchy: RSS (orange node) → DHU nodes (blue) → PMT nodes (green) → VFA/LRZ/PFA leaf nodes (white). Edge thickness represents link quality (RSSI). Animated pulses show data packets flowing up the hierarchy.
-- **Per-Node Drill-Down Panel** — Click any node to expand: firmware version, battery voltage, last packet received timestamp, queue depth (packets pending sync), RSSI to parent node, GPS coordinates, and field assignment. Shows a 24-hour uptime sparkline.
-- **Silent Node Alerts** — Any node that has not transmitted in >15 minutes is highlighted red with an elapsed time counter. Configurable alert threshold per node type (e.g., LRZ nodes may sleep longer without alarming).
-- **Mesh Health Score** — Composite platform-wide health index: % of nodes reporting normally, average RSSI across all links, queue backlog depth, and sync lag to cloud. Updated every 60 seconds.
-- **Geographic Map Overlay** — Toggle from graph view to a geographic map showing node positions plotted on satellite imagery. Useful for field technicians verifying physical deployment.
+* **Network Topology Graph** — Force-directed graph visualization of the mesh hierarchy: RSS (orange node) → DHU nodes (blue) → PMT nodes (green) → VFA/LRZ/PFA leaf nodes (white). Edge thickness represents link quality (RSSI). Animated pulses show data packets flowing up the hierarchy.
+* **Per-Node Drill-Down Panel** — Click any node to expand: firmware version, battery voltage, last packet received timestamp, queue depth (packets pending sync), RSSI to parent node, GPS coordinates, and field assignment. Shows a 24-hour uptime sparkline.
+* **Silent Node Alerts** — Any node that has not transmitted in >15 minutes is highlighted red with an elapsed time counter. Configurable alert threshold per node type (e.g., LRZ nodes may sleep longer without alarming).
+* **Mesh Health Score** — Composite platform-wide health index: % of nodes reporting normally, average RSSI across all links, queue backlog depth, and sync lag to cloud. Updated every 60 seconds.
+* **Geographic Map Overlay** — Toggle from graph view to a geographic map showing node positions plotted on satellite imagery. Useful for field technicians verifying physical deployment.
 
 ---
 
@@ -7898,11 +7376,11 @@ A staged over-the-air firmware deployment and version tracking system for all ha
 
 **Key elements:**
 
-- **Firmware Version Registry** — Table of all available firmware releases per device type (RSS, DHU, PMT, VFA, LRZ, PFA). Shows: version number, release date, changelog summary, compatibility warnings, and whether it is the currently promoted stable release.
-- **Rollout Controller** — Define a deployment batch: select target device type + subdistrict filter + optional individual node selection. Set a deployment window (e.g., 02:00–04:00 local time to avoid irrigation cycles). Preview: estimated # of devices affected before confirming.
-- **Real-Time Deployment Progress** — Live progress bar per device batch. Individual device rows show: queued → downloading → installing → rebooting → verified. Failed devices flagged immediately with error code.
-- **Rollback Tool** — One-click revert to the previous firmware version for any individual device or cohort. Rollbacks require an admin justification note (logged for audit).
-- **Version Matrix** — Fleet-wide firmware version heatmap: for each device type, what percentage of the fleet is on each version. Identifies stale firmware concentrations.
+* **Firmware Version Registry** — Table of all available firmware releases per device type (RSS, DHU, PMT, VFA, LRZ, PFA). Shows: version number, release date, changelog summary, compatibility warnings, and whether it is the currently promoted stable release.
+* **Rollout Controller** — Define a deployment batch: select target device type + subdistrict filter + optional individual node selection. Set a deployment window (e.g., 02:00–04:00 local time to avoid irrigation cycles). Preview: estimated # of devices affected before confirming.
+* **Real-Time Deployment Progress** — Live progress bar per device batch. Individual device rows show: queued → downloading → installing → rebooting → verified. Failed devices flagged immediately with error code.
+* **Rollback Tool** — One-click revert to the previous firmware version for any individual device or cohort. Rollbacks require an admin justification note (logged for audit).
+* **Version Matrix** — Fleet-wide firmware version heatmap: for each device type, what percentage of the fleet is on each version. Identifies stale firmware concentrations.
 
 ---
 
@@ -7912,11 +7390,11 @@ Full multi-tenant account management and revenue operations panel.
 
 **Key elements:**
 
-- **Account Portfolio Table** — All registered farm accounts with: tier (Silas/Basic/Pro/Enterprise), MRR contribution, active hardware node count, grant subsidy flag and expiry, trial status, last login, and payment status. Sortable and filterable by any field.
-- **Tier Override Controls** — Admin can manually promote or demote any account's tier (for sales, support, or grant-program purposes). Tier changes are logged with a required reason note and admin identity.
-- **Revenue Waterfall Chart** — MRR breakdown by tier, with month-over-month trend. Separate lines for grant-subsidized vs. self-pay ARR to show organic vs. program-dependent revenue.
-- **Churn Risk Indicators** — ML-flagged accounts exhibiting churn signals: no login in >14 days, hardware going offline, compliance reports not being generated, or MRR payment failure. Admin action buttons: send re-engagement email, schedule support call, flag for account management.
-- **Subsidy Ledger** — For each grant program: total authorized subsidy budget, amount disbursed to date, accounts enrolled, per-account subsidy balance and burn rate. Linked to the Grant Portal for cross-reference.
+* **Account Portfolio Table** — All registered farm accounts with: tier (Silas/Basic/Pro/Enterprise), MRR contribution, active hardware node count, grant subsidy flag and expiry, trial status, last login, and payment status. Sortable and filterable by any field.
+* **Tier Override Controls** — Admin can manually promote or demote any account's tier (for sales, support, or grant-program purposes). Tier changes are logged with a required reason note and admin identity.
+* **Revenue Waterfall Chart** — MRR breakdown by tier, with month-over-month trend. Separate lines for grant-subsidized vs. self-pay ARR to show organic vs. program-dependent revenue.
+* **Churn Risk Indicators** — ML-flagged accounts exhibiting churn signals: no login in >14 days, hardware going offline, compliance reports not being generated, or MRR payment failure. Admin action buttons: send re-engagement email, schedule support call, flag for account management.
+* **Subsidy Ledger** — For each grant program: total authorized subsidy budget, amount disbursed to date, accounts enrolled, per-account subsidy balance and burn rate. Linked to the Grant Portal for cross-reference.
 
 ---
 
@@ -7926,11 +7404,11 @@ Unified system status dashboard for all backend services, infrastructure, and SL
 
 **Key elements:**
 
-- **Service Status Grid** — Live health panel for every deployed service: FastAPI backend (response time p50/p95, error rate), Celery workers (queue depth, job completion rate), TimescaleDB (connections, query latency, hypertable sizes), Redis (hit rate, memory usage), RabbitMQ (message rate, consumer lag), edge sync service (batch upload lag, sync failures).
-- **Historical Uptime Graphs** — 30-day rolling uptime graphs per service. Outage events annotated with root-cause tags (deployments, migrations, upstream API failures, hardware events).
-- **Active Incident Log** — Open incidents with: severity (P0/P1/P2/P3), affected services, start time, elapsed duration, assigned responder, and current status. Resolved incidents show MTTR and post-mortem link.
-- **SLA Tracker** — Per-customer-tier SLA dashboard. Enterprise accounts show contracted uptime % vs. actual. Breach risk alerts when a service is trending toward SLA violation in the current month.
-- **API Usage Analytics** — Time-series charts of API call volume by endpoint, error rates, authentication failures, and rate-limit events. Top consumers by account with anomaly flags for unusual spike patterns.
+* **Service Status Grid** — Live health panel for every deployed service: FastAPI backend (response time p50/p95, error rate), Celery workers (queue depth, job completion rate), TimescaleDB (connections, query latency, hypertable sizes), Redis (hit rate, memory usage), RabbitMQ (message rate, consumer lag), edge sync service (batch upload lag, sync failures).
+* **Historical Uptime Graphs** — 30-day rolling uptime graphs per service. Outage events annotated with root-cause tags (deployments, migrations, upstream API failures, hardware events).
+* **Active Incident Log** — Open incidents with: severity (P0/P1/P2/P3), affected services, start time, elapsed duration, assigned responder, and current status. Resolved incidents show MTTR and post-mortem link.
+* **SLA Tracker** — Per-customer-tier SLA dashboard. Enterprise accounts show contracted uptime % vs. actual. Breach risk alerts when a service is trending toward SLA violation in the current month.
+* **API Usage Analytics** — Time-series charts of API call volume by endpoint, error rates, authentication failures, and rate-limit events. Top consumers by account with anomaly flags for unusual spike patterns.
 
 ---
 
@@ -7940,11 +7418,11 @@ Privacy, data-sharing, and access-control management across the entire platform.
 
 **Key elements:**
 
-- **Data-Sharing Access Matrix** — Cross-reference table: rows are farmer accounts, columns are portal types (Regulatory, Investor, Research, Grant). Each cell shows the current sharing consent status (enabled/disabled), the date it was set, and who set it. Admins can view but not change farmer-owned consent.
-- **Data Access Event Audit Log** — Immutable log of every data access event across all portals: requesting officer identity, data scope requested, field(s) accessed, timestamp, and session duration. Filterable by portal, account, or date range. Exportable for compliance review.
-- **Legal Hold Manager** — Flag specific accounts or field datasets as under legal hold (e.g., active Water Court litigation). Hold prevents data deletion, tier downgrades, or consent changes until the hold is lifted by a named legal officer.
-- **GDPR / CCPA Request Tracker** — Queue of incoming privacy requests (access, deletion, portability). Workflow: intake → verification → fulfillment → confirmation. Tracks SLA compliance (legal deadlines per jurisdiction).
-- **Force-Revoke Console** — Admin can revoke a farmer's data-sharing grants on their behalf in an emergency (verified legal instruction required). Generates an automated notification to the farmer and the affected portal with the revocation timestamp and reason.
+* **Data-Sharing Access Matrix** — Cross-reference table: rows are farmer accounts, columns are portal types (Regulatory, Investor, Research, Grant). Each cell shows the current sharing consent status (enabled/disabled), the date it was set, and who set it. Admins can view but not change farmer-owned consent.
+* **Data Access Event Audit Log** — Immutable log of every data access event across all portals: requesting officer identity, data scope requested, field(s) accessed, timestamp, and session duration. Filterable by portal, account, or date range. Exportable for compliance review.
+* **Legal Hold Manager** — Flag specific accounts or field datasets as under legal hold (e.g., active Water Court litigation). Hold prevents data deletion, tier downgrades, or consent changes until the hold is lifted by a named legal officer.
+* **GDPR / CCPA Request Tracker** — Queue of incoming privacy requests (access, deletion, portability). Workflow: intake → verification → fulfillment → confirmation. Tracks SLA compliance (legal deadlines per jurisdiction).
+* **Force-Revoke Console** — Admin can revoke a farmer's data-sharing grants on their behalf in an emergency (verified legal instruction required). Generates an automated notification to the farmer and the affected portal with the revocation timestamp and reason.
 
 ---
 
@@ -7954,10 +7432,10 @@ Basin-level threshold editor for the deterministic decision engine.
 
 **Key elements:**
 
-- **Global Threshold Editor** — Edit the core decision-engine thresholds that govern the entire platform: moisture stable band, active threshold, critical threshold, trend volatile score, ET trigger coefficients, and minimum pump cycle intervals. Changes require a two-admin co-signature before going live.
-- **Threshold Change Preview** — Before committing a threshold change, the system simulates the effect on the last 30 days of field data across all enrolled farms. Shows: how many actuation decisions would have changed, estimated water savings impact, and any new critical-event triggers that would have fired.
-- **Reflex Message Broadcaster** — Send a mesh-wide Reflex message (emergency pump ceiling, drought advisory, Mandatory stop). Three severity levels: Advisory (informational), Warning (dashboard alert), Mandatory (automatically enforced by DHU Reflex Logic). Mandatory broadcasts require dual-officer co-signature with hardware-backed timestamp.
-- **Basin Drought Status Board** — Current declared drought status, active Reflex limits by subdistrict, and historical Reflex event log.
+* **Global Threshold Editor** — Edit the core decision-engine thresholds that govern the entire platform: moisture stable band, active threshold, critical threshold, trend volatile score, ET trigger coefficients, and minimum pump cycle intervals. Changes require a two-admin co-signature before going live.
+* **Threshold Change Preview** — Before committing a threshold change, the system simulates the effect on the last 30 days of field data across all enrolled farms. Shows: how many actuation decisions would have changed, estimated water savings impact, and any new critical-event triggers that would have fired.
+* **Reflex Message Broadcaster** — Send a mesh-wide Reflex message (emergency pump ceiling, drought advisory, Mandatory stop). Three severity levels: Advisory (informational), Warning (dashboard alert), Mandatory (automatically enforced by DHU Reflex Logic). Mandatory broadcasts require dual-officer co-signature with hardware-backed timestamp.
+* **Basin Drought Status Board** — Current declared drought status, active Reflex limits by subdistrict, and historical Reflex event log.
 
 ---
 
@@ -7967,11 +7445,11 @@ Track and administer all grant-funded hardware programs and account subsidies.
 
 **Key elements:**
 
-- **Grant Program Registry** — All active grant programs: program name, administering agency, total budget, accounts enrolled, hardware units covered, and program timeline. Each program links to the Grant Portal for detailed reporting.
-- **Hardware Fulfillment Tracker** — For each grant program: ordered hardware quantities, shipped to field, installed and online, and firmware-verified. Tracks deployment completion % against grant milestones.
-- **Per-Account Subsidy Detail** — Drill into any subsidized account: exact subsidy amount, monthly burn rate, hardware costs covered, subscription costs covered, remaining balance, and projected exhaustion date.
-- **Bulk Subsidy Operations** — Apply or extend subsidies to a cohort of accounts in one operation (e.g., "extend all Subdistrict 1 accounts by 90 days"). All bulk operations require admin sign-off and are logged.
-- **USDA/EPA Adoption Report Generator** — Auto-generate a structured report for grant administrators showing: # of farmers reached, total acres covered, system uptime, compliance report generation rate, and water savings metrics. Used to satisfy grant deliverable reporting requirements.
+* **Grant Program Registry** — All active grant programs: program name, administering agency, total budget, accounts enrolled, hardware units covered, and program timeline. Each program links to the Grant Portal for detailed reporting.
+* **Hardware Fulfillment Tracker** — For each grant program: ordered hardware quantities, shipped to field, installed and online, and firmware-verified. Tracks deployment completion % against grant milestones.
+* **Per-Account Subsidy Detail** — Drill into any subsidized account: exact subsidy amount, monthly burn rate, hardware costs covered, subscription costs covered, remaining balance, and projected exhaustion date.
+* **Bulk Subsidy Operations** — Apply or extend subsidies to a cohort of accounts in one operation (e.g., "extend all Subdistrict 1 accounts by 90 days"). All bulk operations require admin sign-off and are logged.
+* **USDA/EPA Adoption Report Generator** — Auto-generate a structured report for grant administrators showing: # of farmers reached, total acres covered, system uptime, compliance report generation rate, and water savings metrics. Used to satisfy grant deliverable reporting requirements.
 
 ---
 
@@ -7981,20 +7459,19 @@ Internal queue and workflow manager for all regulatory submissions across all te
 
 **Key elements:**
 
-- **Submission Queue** — All pending compliance submissions across every tenant account in a unified queue. Columns: account name, field, submission type, generated date, assigned officer, status (Drafted/In Review/Signed/Submitted/Acknowledged by DWR).
-- **Review & Flagging Console** — Open any submission draft, review the auto-generated content, and: approve as-is, flag for revision (with comment), or reject (with legal justification). Flagged items are returned to the tenant with admin comments.
-- **Officer Assignment** — Assign a named FarmSense compliance officer to any submission. Assignment is logged and the officer receives an in-app notification with the review deadline.
-- **DWR Submission Pipeline** — Track each submission's status through the state DWR ingestion pipeline. Status states: Submitted to DWR → Acknowledged → Under Review → Accepted / Returned for Revision.
-- **Compliance Analytics** — Platform-wide compliance metrics: submissions generated per month, average time from generation to DWR submission, rejection rate, and first-pass acceptance rate by submission type.
+* **Submission Queue** — All pending compliance submissions across every tenant account in a unified queue. Columns: account name, field, submission type, generated date, assigned officer, status (Drafted/In Review/Signed/Submitted/Acknowledged by DWR).
+* **Review & Flagging Console** — Open any submission draft, review the auto-generated content, and: approve as-is, flag for revision (with comment), or reject (with legal justification). Flagged items are returned to the tenant with admin comments.
+* **Officer Assignment** — Assign a named FarmSense compliance officer to any submission. Assignment is logged and the officer receives an in-app notification with the review deadline.
+* **DWR Submission Pipeline** — Track each submission's status through the state DWR ingestion pipeline. Status states: Submitted to DWR → Acknowledged → Under Review → Accepted / Returned for Revision.
+* **Compliance Analytics** — Platform-wide compliance metrics: submissions generated per month, average time from generation to DWR submission, rejection rate, and first-pass acceptance rate by submission type.
 
 ---
 
 ## Design Notes
 
-- **Permission Model:** All destructive actions (force-revoke, tier change, Reflex mandatory broadcast, legal hold) require at least one additional admin co-signature logged as a hardware-timestamped event.
-- **Audit Trail:** Every admin action in every view is logged to an immutable internal audit table (separate from farmer-facing ledgers) with admin identity, action type, affected resource, and timestamp.
-- **Performance:** The mesh network monitor supports up to 50,000 nodes; the topology graph uses a canvas-based renderer (not SVG) for performance at scale.
-
+* **Permission Model:** All destructive actions (force-revoke, tier change, Reflex mandatory broadcast, legal hold) require at least one additional admin co-signature logged as a hardware-timestamped event.
+* **Audit Trail:** Every admin action in every view is logged to an immutable internal audit table (separate from farmer-facing ledgers) with admin identity, action type, affected resource, and timestamp.
+* **Performance:** The mesh network monitor supports up to 50,000 nodes; the topology graph uses a canvas-based renderer (not SVG) for performance at scale.
 
 <div style="page-break-after: always;"></div>
 
@@ -8030,11 +7507,11 @@ A full Variable Rate Irrigation (VRI) control interface driven by the 1m Kriging
 
 **Key elements:**
 
-- **Zone Actuator Grid** — The field is divided into zones derived from the 1m Kriging output. Each zone card displays: current Soil Matric Potential (SMP), Volumetric Water Content (SWC), recommended dwell time (minutes), and actuate/hold status toggle.
-- **Decision Countdown Timer** — Live countdown to the next scheduled adaptive recalculation cycle. Mode indicator (STABLE / ACTIVE / CRITICAL / OUT_OF_TURN) with color-coded urgency.
-- **Rule Provenance Trace** — "Show Me The Math" drawer for any zone: expands to show full deterministic decision chain — every sensor input, threshold comparison, and the specific rule string that produced the actuate/hold decision. All labelled with CSU SLV RC Thresholds v2026.1 source reference.
-- **Manual Override Console** — Override individual zone decisions with two-tap confirmation and a mandatory reason log (for audit trail). Override events emit a signed entry to the DHU cryptographic ledger.
-- **Irrigation History Timeline** — 30-day rolling chart of zone-level actuation events overlaid with precipitation and ET data. Highlights events that deviated from the model recommendation.
+* **Zone Actuator Grid** — The field is divided into zones derived from the 1m Kriging output. Each zone card displays: current Soil Matric Potential (SMP), Volumetric Water Content (SWC), recommended dwell time (minutes), and actuate/hold status toggle.
+* **Decision Countdown Timer** — Live countdown to the next scheduled adaptive recalculation cycle. Mode indicator (STABLE / ACTIVE / CRITICAL / OUT_OF_TURN) with color-coded urgency.
+* **Rule Provenance Trace** — "Show Me The Math" drawer for any zone: expands to show full deterministic decision chain — every sensor input, threshold comparison, and the specific rule string that produced the actuate/hold decision. All labelled with CSU SLV RC Thresholds v2026.1 source reference.
+* **Manual Override Console** — Override individual zone decisions with two-tap confirmation and a mandatory reason log (for audit trail). Override events emit a signed entry to the DHU cryptographic ledger.
+* **Irrigation History Timeline** — 30-day rolling chart of zone-level actuation events overlaid with precipitation and ET data. Highlights events that deviated from the model recommendation.
 
 ---
 
@@ -8044,11 +7521,11 @@ Dedicated PFA (Pressure & Flow Anchor) dashboard replacing the sparse pump card 
 
 **Key elements:**
 
-- **Real-Time Waveform Display** — Live torque ripple waveform from the NXP Cortex-M7 CT Clamp analysis (400A, 3-phase). Rendered as a scrolling oscilloscope-style chart at 10Hz refresh.
-- **Health Scores Panel** — ML Current Harmonic Analysis outputs four continuous health indices: Bearing Wear (0–100), Cavitation Risk (0–100), Vibration Harmonic Distortion (% THD), and Efficiency Degradation (% vs. baseline). Each index has a warning threshold and a predicted days-to-failure estimate.
-- **Flow & Pressure Gauges** — Live GPM and PSI readings from the ultrasonic transit-time flow meter (Badger Meter). Trend sparklines for the last 24 hours.
-- **Predictive Maintenance Calendar** — ML-generated maintenance schedule: next recommended inspection date, estimated component lifetimes (impeller, bearings, motor windings), and history of past maintenance events.
-- **Emergency Stop / Start** — Large, prominent pump actuator button with two-step confirmation. Stop events are immediately broadcast to the DHU and logged in the cryptographic ledger with timestamp, GPS, and operator identity.
+* **Real-Time Waveform Display** — Live torque ripple waveform from the NXP Cortex-M7 CT Clamp analysis (400A, 3-phase). Rendered as a scrolling oscilloscope-style chart at 10Hz refresh.
+* **Health Scores Panel** — ML Current Harmonic Analysis outputs four continuous health indices: Bearing Wear (0–100), Cavitation Risk (0–100), Vibration Harmonic Distortion (% THD), and Efficiency Degradation (% vs. baseline). Each index has a warning threshold and a predicted days-to-failure estimate.
+* **Flow & Pressure Gauges** — Live GPM and PSI readings from the ultrasonic transit-time flow meter (Badger Meter). Trend sparklines for the last 24 hours.
+* **Predictive Maintenance Calendar** — ML-generated maintenance schedule: next recommended inspection date, estimated component lifetimes (impeller, bearings, motor windings), and history of past maintenance events.
+* **Emergency Stop / Start** — Large, prominent pump actuator button with two-step confirmation. Stop events are immediately broadcast to the DHU and logged in the cryptographic ledger with timestamp, GPS, and operator identity.
 
 ---
 
@@ -8058,10 +7535,10 @@ Visual crop stress monitoring fusing satellite multispectral data with drone 0.7
 
 **Key elements:**
 
-- **Dual-Source NDVI/NDWI Map** — Choropleth 1m grid layer combining Sentinel-2 spectral indices and drone multispectral mosaic data (Resolution Pop). Toggle between: Sentinel-only (20m), Kriging-interpolated (1m), and drone-fused (0.7cm where available).
-- **Time-Lapse Comparison Slider** — Side-by-side or blend-slider comparison of the current NDVI map vs. 14 days ago vs. same week last season. Highlights areas of significant decline (ΔNDVI > 0.1).
-- **Automated Stress Detection** — Background analysis flags 1m² zones with canopy decline. Each flagged zone is presented as a clickable alert: shows the zone coordinates, NDVI drop magnitude, linked VFA/LRZ sensor node readings for that zone, and a root-cause hypothesis (moisture stress, salinity, pest pressure, nutrient deficiency).
-- **Canopy Cover Trend Chart** — Field-level weekly NDVI trend over the growing season, overlaid with irrigation events and rainfall. Useful for demonstrating yield preservation impact to auditors or grant officers.
+* **Dual-Source NDVI/NDWI Map** — Choropleth 1m grid layer combining Sentinel-2 spectral indices and drone multispectral mosaic data (Resolution Pop). Toggle between: Sentinel-only (20m), Kriging-interpolated (1m), and drone-fused (0.7cm where available).
+* **Time-Lapse Comparison Slider** — Side-by-side or blend-slider comparison of the current NDVI map vs. 14 days ago vs. same week last season. Highlights areas of significant decline (ΔNDVI > 0.1).
+* **Automated Stress Detection** — Background analysis flags 1m² zones with canopy decline. Each flagged zone is presented as a clickable alert: shows the zone coordinates, NDVI drop magnitude, linked VFA/LRZ sensor node readings for that zone, and a root-cause hypothesis (moisture stress, salinity, pest pressure, nutrient deficiency).
+* **Canopy Cover Trend Chart** — Field-level weekly NDVI trend over the growing season, overlaid with irrigation events and rainfall. Useful for demonstrating yield preservation impact to auditors or grant officers.
 
 ---
 
@@ -8071,11 +7548,11 @@ Full blockchain-backed water accounting and PBFT peer-to-peer groundwater rights
 
 **Key elements:**
 
-- **Season Water Budget Gauge** — Visual "water budget" showing: seasonal cap (acre-inches allocated by subdistrict), consumed to date (from PFA flow meter, cryptographically verified), remaining budget, and projected end-of-season consumption based on current trajectory.
-- **Extraction Ledger** — Paginated, timestamped log of every extraction event. Each entry shows: date/time, GPM, acre-inches, verifying sensor node ID, and cryptographic hash signed by the DHU hardware key. Filterable by date range. Exportable as a court-ready PDF.
-- **PBFT Water Rights Marketplace** — Browse active buy/sell offers within the local alliance district. Each listing shows: seller farm ID (anonymized alias), volume offered (acre-inches), price ($/acre-inch), and cryptographic trade proof. One-click "Accept Offer" executes the PBFT consensus transaction and updates both parties' water budgets instantly.
-- **Trade History** — Complete record of executed trades with PBFT consensus hash, counterparty ID, volume, price, and settlement timestamp. Immutable and admissible in Water Court.
-- **Water Credit Dashboard** — Tracks SLV water credits earned this season (acre-inches conserved vs. historical baseline × credit rate). Shows pending vs. issued credits and estimated monetary value.
+* **Season Water Budget Gauge** — Visual "water budget" showing: seasonal cap (acre-inches allocated by subdistrict), consumed to date (from PFA flow meter, cryptographically verified), remaining budget, and projected end-of-season consumption based on current trajectory.
+* **Extraction Ledger** — Paginated, timestamped log of every extraction event. Each entry shows: date/time, GPM, acre-inches, verifying sensor node ID, and cryptographic hash signed by the DHU hardware key. Filterable by date range. Exportable as a court-ready PDF.
+* **PBFT Water Rights Marketplace** — Browse active buy/sell offers within the local alliance district. Each listing shows: seller farm ID (anonymized alias), volume offered (acre-inches), price ($/acre-inch), and cryptographic trade proof. One-click "Accept Offer" executes the PBFT consensus transaction and updates both parties' water budgets instantly.
+* **Trade History** — Complete record of executed trades with PBFT consensus hash, counterparty ID, volume, price, and settlement timestamp. Immutable and admissible in Water Court.
+* **Water Credit Dashboard** — Tracks SLV water credits earned this season (acre-inches conserved vs. historical baseline × credit rate). Shows pending vs. issued credits and estimated monetary value.
 
 ---
 
@@ -8085,11 +7562,11 @@ Full drone mission planning, dispatching, and post-flight analysis center.
 
 **Key elements:**
 
-- **Mission Planner** — Draw flight corridors directly on the field map. Define: target zones (drawn polygons), spectral payload (RGB, NIR, NDRE, thermal), flight altitude, and overlap percentage. System auto-calculates estimated flight time, battery requirements, and generated mosaic resolution.
-- **Live Drone Telemetry Feed** — During active missions: altitude, airspeed, battery %, GPS position tracked on map, ETA to completion, and real-time streaming thumbnail of nadir camera.
-- **Mission History Archive** — Completed missions listed with date, coverage area, and primary finding summary. View the full generated mosaic and Resolution Pop 1m grid output for each mission.
-- **Automated Dispatch Triggers** — Configurable rules that recommend drone dispatch: e.g., "NDVI drops >0.15 in any zone → suggest coverage scan." User confirms or dismisses the recommendation.
-- **Pre/Post-Treatment Comparison** — For any irrigation or treatment event, overlay the NDVI mosaic from just before and just after. Quantify the improvement in canopy health directly attributable to the action.
+* **Mission Planner** — Draw flight corridors directly on the field map. Define: target zones (drawn polygons), spectral payload (RGB, NIR, NDRE, thermal), flight altitude, and overlap percentage. System auto-calculates estimated flight time, battery requirements, and generated mosaic resolution.
+* **Live Drone Telemetry Feed** — During active missions: altitude, airspeed, battery %, GPS position tracked on map, ETA to completion, and real-time streaming thumbnail of nadir camera.
+* **Mission History Archive** — Completed missions listed with date, coverage area, and primary finding summary. View the full generated mosaic and Resolution Pop 1m grid output for each mission.
+* **Automated Dispatch Triggers** — Configurable rules that recommend drone dispatch: e.g., "NDVI drops >0.15 in any zone → suggest coverage scan." User confirms or dismisses the recommendation.
+* **Pre/Post-Treatment Comparison** — For any irrigation or treatment event, overlay the NDVI mosaic from just before and just after. Quantify the improvement in canopy health directly attributable to the action.
 
 ---
 
@@ -8099,11 +7576,11 @@ Full season-to-date financial performance derived directly from field telemetry.
 
 **Key elements:**
 
-- **Season P&L Breakdown** — Itemized financial summary: water pumping cost (GPM × hours × energy rate), yield preservation value (ΔNDVI × commodity price model), labor efficiency gain (automation hours saved), regulatory fee avoidance (water credits × fee rate), and net economic benefit. All sourced and traceable to specific telemetry readings.
-- **MAD Battery Visualization** — The soil profile presented as a "battery" metaphor: current % of the Management Allowable Depletion window remaining until irrigation becomes mandatory. Rendered as a large, intuitive gauge. Replaces all abstract moisture percentage displays for non-technical users.
-- **Cost-Benefit Analysis Live Feed** — Real-time CBA updating every recalculation cycle. Shows the marginal cost of pumping (energy + fees + equipment wear) vs. the marginal revenue of yield preservation at the current crop stage. A clear `PUMP` or `HOLD` boolean with supporting numbers beneath it.
-- **Benchmark Comparisons** — How does this field's water efficiency compare to: (a) the user's own historical baseline, (b) the anonymized regional average (from the federated pool), and (c) the best-performing similar farm in the anonymized dataset?
-- **Grant Subsidy Tracker** — If the account is grant-subsidized, shows the original grant amount, amount consumed by hardware/subscription costs, remaining balance and expiry date.
+* **Season P&L Breakdown** — Itemized financial summary: water pumping cost (GPM × hours × energy rate), yield preservation value (ΔNDVI × commodity price model), labor efficiency gain (automation hours saved), regulatory fee avoidance (water credits × fee rate), and net economic benefit. All sourced and traceable to specific telemetry readings.
+* **MAD Battery Visualization** — The soil profile presented as a "battery" metaphor: current % of the Management Allowable Depletion window remaining until irrigation becomes mandatory. Rendered as a large, intuitive gauge. Replaces all abstract moisture percentage displays for non-technical users.
+* **Cost-Benefit Analysis Live Feed** — Real-time CBA updating every recalculation cycle. Shows the marginal cost of pumping (energy + fees + equipment wear) vs. the marginal revenue of yield preservation at the current crop stage. A clear `PUMP` or `HOLD` boolean with supporting numbers beneath it.
+* **Benchmark Comparisons** — How does this field's water efficiency compare to: (a) the user's own historical baseline, (b) the anonymized regional average (from the federated pool), and (c) the best-performing similar farm in the anonymized dataset?
+* **Grant Subsidy Tracker** — If the account is grant-subsidized, shows the original grant amount, amount consumed by hardware/subscription costs, remaining balance and expiry date.
 
 ---
 
@@ -8113,10 +7590,10 @@ Dedicated view for fields equipped with Corner-Swing Auditor hardware variants.
 
 **Key elements:**
 
-- **Live Arc Geometry Visualizer** — The field boundary overlaid with the pivot circle and corner-swing arm geometry. Real-time position dot for both the Primary Span Tracker and the Swing-Arm Tracker nodes. Deviation from the programmed arc path shown in real-time (meters off-path).
-- **Arc Completion Progress** — Per-pass progress ring showing current arc completion percentage and estimated completion time. Historical pass log with start time, end time, and completion accuracy %.
-- **Water Application Heatmap** — 1m-resolution heatmap of water application rate across the corner swing zone for the most recent pass, derived from flow meter data and arc geometry. Identifies over- or under-application zones at the edge of the swing radius.
-- **Mechanical Health Alerts** — Monitors for irregular swing-arm deceleration patterns that may indicate drive motor issues. Flags anomalies for the pump operations suite maintenance calendar.
+* **Live Arc Geometry Visualizer** — The field boundary overlaid with the pivot circle and corner-swing arm geometry. Real-time position dot for both the Primary Span Tracker and the Swing-Arm Tracker nodes. Deviation from the programmed arc path shown in real-time (meters off-path).
+* **Arc Completion Progress** — Per-pass progress ring showing current arc completion percentage and estimated completion time. Historical pass log with start time, end time, and completion accuracy %.
+* **Water Application Heatmap** — 1m-resolution heatmap of water application rate across the corner swing zone for the most recent pass, derived from flow meter data and arc geometry. Identifies over- or under-application zones at the edge of the swing radius.
+* **Mechanical Health Alerts** — Monitors for irregular swing-arm deceleration patterns that may indicate drive motor issues. Flags anomalies for the pump operations suite maintenance calendar.
 
 ---
 
@@ -8126,11 +7603,11 @@ A full visual and UX redesign of the simplified mode for non-technical farm oper
 
 **Key elements:**
 
-- **Color-First Interface** — All metrics expressed as traffic-light colors with plain-English labels. No raw numbers shown (moisture percentages, GPM, SMP values all hidden). Green = Good, Yellow = Watch, Red = Act.
-- **"Today's Farm Report" Auto-Brief** — Generated each morning at 6:00 AM local. A plain-text 3-sentence summary: field water status, today's weather risk, and one recommended action. Deliverable by push notification or SMS.
-- **Full-Screen Action Cards** — Three categories only: `WATER STATUS`, `PUMP CONTROL`, `FIELD MAP`. Each card occupies the full viewport with massive text and one primary action button.
-- **Voice Assistant Command Library** — Pre-built command library with 20+ natural-language queries ("Is it going to rain?", "How much have I saved?", "When should I turn the pump on?", "What does Zone 4 look like?"). Responses delivered as plain-English sentences, not data tables.
-- **Print-to-Paper Field Card** — One-click export of a single A4 page with today's soil status, pump schedule, and field alert summary. Designed for operators who manage fields without a phone signal.
+* **Color-First Interface** — All metrics expressed as traffic-light colors with plain-English labels. No raw numbers shown (moisture percentages, GPM, SMP values all hidden). Green = Good, Yellow = Watch, Red = Act.
+* **"Today's Farm Report" Auto-Brief** — Generated each morning at 6:00 AM local. A plain-text 3-sentence summary: field water status, today's weather risk, and one recommended action. Deliverable by push notification or SMS.
+* **Full-Screen Action Cards** — Three categories only: `WATER STATUS`, `PUMP CONTROL`, `FIELD MAP`. Each card occupies the full viewport with massive text and one primary action button.
+* **Voice Assistant Command Library** — Pre-built command library with 20+ natural-language queries ("Is it going to rain?", "How much have I saved?", "When should I turn the pump on?", "What does Zone 4 look like?"). Responses delivered as plain-English sentences, not data tables.
+* **Print-to-Paper Field Card** — One-click export of a single A4 page with today's soil status, pump schedule, and field alert summary. Designed for operators who manage fields without a phone signal.
 
 ---
 
@@ -8151,10 +7628,9 @@ A full visual and UX redesign of the simplified mode for non-technical farm oper
 
 ## Design Notes
 
-- **Dual-Mode Architecture:** SILAS Mode V1.75 and Advanced Mode share the same backend data; the presentation layer is entirely separate. Switching modes is a single toggle in the sidebar.
-- **Offline Resilience:** All views degrade gracefully to local edge cache data when the DHU uplink is unavailable. A prominent banner indicates "Offline Mode — Edge Cache Active."
-- **Audit Trail:** Every actuator command (pump start/stop, zone override) writes a signed, immutable entry to the DHU ledger before the UI confirms the action.
-
+* **Dual-Mode Architecture:** SILAS Mode V1.75 and Advanced Mode share the same backend data; the presentation layer is entirely separate. Switching modes is a single toggle in the sidebar.
+* **Offline Resilience:** All views degrade gracefully to local edge cache data when the DHU uplink is unavailable. A prominent banner indicates "Offline Mode — Edge Cache Active."
+* **Audit Trail:** Every actuator command (pump start/stop, zone override) writes a signed, immutable entry to the DHU ledger before the UI confirms the action.
 
 <div style="page-break-after: always;"></div>
 
@@ -8187,11 +7663,11 @@ A Bloomberg-style real-time operational data terminal designed to make the platf
 
 **Key elements:**
 
-- **Live Counter Grid** — Six auto-refreshing counters, large and centered: Active Hardware Nodes, Acres Under Live Monitoring, Sensor Readings Ingested (today), Compliance Reports Filed (this year), Water Saved m³ (this season), and System Uptime %.
-- **Real-Time Ingestion Feed** — Scrolling live feed of sensor batch ingestion events: timestamp, field ID (anonymized), reading count, and processing time. Updates every 15 seconds with actual data throughput numbers.
-- **Network Status Map** — Miniaturized version of the mesh topology showing live node activity across all deployed subdistricts. Color-coded by region.
-- **Incident & Anomaly Feed** — Live stream of anomaly detection events as they fire across the basin. Each event shows: type, confidence score, regulatory escalation status. Demonstrates the forensic intelligence operating in real time.
-- **Platform Milestones Ticker** — Each time a new record is broken (new acres enrolled, highest single-day ingestion, etc.), a celebratory milestone banner fires.
+* **Live Counter Grid** — Six auto-refreshing counters, large and centered: Active Hardware Nodes, Acres Under Live Monitoring, Sensor Readings Ingested (today), Compliance Reports Filed (this year), Water Saved m³ (this season), and System Uptime %.
+* **Real-Time Ingestion Feed** — Scrolling live feed of sensor batch ingestion events: timestamp, field ID (anonymized), reading count, and processing time. Updates every 15 seconds with actual data throughput numbers.
+* **Network Status Map** — Miniaturized version of the mesh topology showing live node activity across all deployed subdistricts. Color-coded by region.
+* **Incident & Anomaly Feed** — Live stream of anomaly detection events as they fire across the basin. Each event shows: type, confidence score, regulatory escalation status. Demonstrates the forensic intelligence operating in real time.
+* **Platform Milestones Ticker** — Each time a new record is broken (new acres enrolled, highest single-day ingestion, etc.), a celebratory milestone banner fires.
 
 ---
 
@@ -8201,11 +7677,11 @@ Detailed breakdown of the Resolution Pop monetization funnel with full SaaS anal
 
 **Key elements:**
 
-- **Conversion Funnel Visualization** — End-to-end funnel from Free (Silas Tier) → Basic → Pro → Enterprise. Shows absolute counts, conversion rates between each step, and average time-to-convert. Overlays the grant-subsidy effect: what percentage of free users convert to paid after their subsidy expires.
-- **ARPU & MRR Waterfall** — Monthly chart of MRR broken out by tier. Net MRR movement month-over-month (new MRR, expansion MRR, contraction MRR, churned MRR). ARPU trend per tier.
-- **Cohort Retention Analysis** — Cohort retention table showing how each monthly sign-up cohort retains across months 1–12. Identifies which cohorts have the highest retention (likely grant-program cohorts) vs. organic.
-- **CAC vs. LTV by Channel** — Customer acquisition cost vs. lifetime value broken out by acquisition channel: grant program, direct outreach, regulatory referral, academic partnership. LTV:CAC ratio highlighted per channel.
-- **Grant-Subsidy Revenue Bridge** — Shows the transition from subsidy-dependent revenue to self-sustaining ARR as grant programs mature. Projects the inflection point where platform revenue exceeds subsidy dependency.
+* **Conversion Funnel Visualization** — End-to-end funnel from Free (Silas Tier) → Basic → Pro → Enterprise. Shows absolute counts, conversion rates between each step, and average time-to-convert. Overlays the grant-subsidy effect: what percentage of free users convert to paid after their subsidy expires.
+* **ARPU & MRR Waterfall** — Monthly chart of MRR broken out by tier. Net MRR movement month-over-month (new MRR, expansion MRR, contraction MRR, churned MRR). ARPU trend per tier.
+* **Cohort Retention Analysis** — Cohort retention table showing how each monthly sign-up cohort retains across months 1–12. Identifies which cohorts have the highest retention (likely grant-program cohorts) vs. organic.
+* **CAC vs. LTV by Channel** — Customer acquisition cost vs. lifetime value broken out by acquisition channel: grant program, direct outreach, regulatory referral, academic partnership. LTV:CAC ratio highlighted per channel.
+* **Grant-Subsidy Revenue Bridge** — Shows the transition from subsidy-dependent revenue to self-sustaining ARR as grant programs mature. Projects the inflection point where platform revenue exceeds subsidy dependency.
 
 ---
 
@@ -8215,11 +7691,11 @@ Full portfolio view of the FSN-CARBON and FSN-WATER derivative instruments gener
 
 **Key elements:**
 
-- **Live Asset Prices** — Real-time price charts for FSN-CARBON (Carbon Farming Standard credits, $/tonne) and FSN-WATER (verified acre-inch conservation credits, $/acre-inch). 1-day, 7-day, and 30-day price histories.
-- **Credit Generation Model** — Visual explanation of how credits are generated: verified water conservation (acre-inches saved vs. historical baseline) → PBFT-confirmed and officer-validated → issued as tradeable FSN-WATER credit. Same pipeline for carbon via soil carbon sequestration proxy estimates from the NDVI trend.
-- **Platform Credit Portfolio** — Total credits generated to date across all enrolled farms. Annual credit issuance trajectory. Current market value of all outstanding credits at spot price.
-- **Projected Annual Yield** — Based on current enrolled acreage, average conservation rate, and credit price trend: projected credit revenue for next 12 months. Sensitivity range (low/mid/high price scenario).
-- **Secondary Market Activity** — Trade volume, unique buyer/seller count, and liquidity metrics for the credit exchange. Supports the narrative of a functioning, liquid market for platform-generated assets.
+* **Live Asset Prices** — Real-time price charts for FSN-CARBON (Carbon Farming Standard credits, $/tonne) and FSN-WATER (verified acre-inch conservation credits, $/acre-inch). 1-day, 7-day, and 30-day price histories.
+* **Credit Generation Model** — Visual explanation of how credits are generated: verified water conservation (acre-inches saved vs. historical baseline) → PBFT-confirmed and officer-validated → issued as tradeable FSN-WATER credit. Same pipeline for carbon via soil carbon sequestration proxy estimates from the NDVI trend.
+* **Platform Credit Portfolio** — Total credits generated to date across all enrolled farms. Annual credit issuance trajectory. Current market value of all outstanding credits at spot price.
+* **Projected Annual Yield** — Based on current enrolled acreage, average conservation rate, and credit price trend: projected credit revenue for next 12 months. Sensitivity range (low/mid/high price scenario).
+* **Secondary Market Activity** — Trade volume, unique buyer/seller count, and liquidity metrics for the credit exchange. Supports the narrative of a functioning, liquid market for platform-generated assets.
 
 ---
 
@@ -8229,11 +7705,11 @@ Interactive stage-gated expansion roadmap visualization from regional pilot to g
 
 **Key elements:**
 
-- **Stage Map** — Four concentric rings or a linear stage diagram: Stage 1 (San Luis Valley Pilot) → Stage 2 (Colorado Statewide / DWR Integration) → Stage 3 (National — USDA/USGS / High Plains Aquifer) → Stage 4 (Sovereign Global — Australia, Brazil, UN Water Security). Each stage is clickable.
-- **Stage Detail Panels** — For each stage: required hardware node count, target enrolled acres, required regulatory milestones (e.g., "DWR Rule-Compliant designation"), projected ARR at stage completion, and current progress bars.
-- **Policy Risk Heatmap** — For each target jurisdiction: a color-coded risk score across: regulatory receptivity, water rights legal framework compatibility, existing competitor presence, and infrastructure (power/connectivity) availability. Helps investors understand where and why the expansion path is sequenced as it is.
-- **Timeline with Capital Requirements** — Gantt-style timeline showing each stage's projected start/end date alongside the capital deployment milestones required to achieve it. Clearly maps Series A proceeds to specific expansion outcomes.
-- **International G2G Status** — Government-to-government treaty discussion tracker: which countries have had preliminary discussions, who initiated contact, and what the proposed framework looks like.
+* **Stage Map** — Four concentric rings or a linear stage diagram: Stage 1 (San Luis Valley Pilot) → Stage 2 (Colorado Statewide / DWR Integration) → Stage 3 (National — USDA/USGS / High Plains Aquifer) → Stage 4 (Sovereign Global — Australia, Brazil, UN Water Security). Each stage is clickable.
+* **Stage Detail Panels** — For each stage: required hardware node count, target enrolled acres, required regulatory milestones (e.g., "DWR Rule-Compliant designation"), projected ARR at stage completion, and current progress bars.
+* **Policy Risk Heatmap** — For each target jurisdiction: a color-coded risk score across: regulatory receptivity, water rights legal framework compatibility, existing competitor presence, and infrastructure (power/connectivity) availability. Helps investors understand where and why the expansion path is sequenced as it is.
+* **Timeline with Capital Requirements** — Gantt-style timeline showing each stage's projected start/end date alongside the capital deployment milestones required to achieve it. Clearly maps Series A proceeds to specific expansion outcomes.
+* **International G2G Status** — Government-to-government treaty discussion tracker: which countries have had preliminary discussions, who initiated contact, and what the proposed framework looks like.
 
 ---
 
@@ -8243,10 +7719,10 @@ Complete intellectual property registry and competitive differentiation matrix.
 
 **Key elements:**
 
-- **Patent Portfolio Registry** — Catalogue of all filed and granted patents: algorithm patents (Regression Kriging workflow, EBK implementation), hardware design IP (kinetic penetrator geometry, HPC cold-start capacitor design, FHSS 128-bit frequency-hopping schema), and trade secrets (MAD threshold calibration constants, CU model coefficients). Filing dates, countries, and legal status.
-- **Moat Analysis Matrix** — Side-by-side competitive comparison. Rows: key differentiating capabilities (hardware-signed immutable ledger, 1m Kriging resolution, PBFT water trading, FHSS LPI, FHE capability, Water Court admissibility, Reflex offline autonomy). Columns: FarmSense vs. named competitors (Climate Corp, Trimble Ag, Arable, Planet Labs, Ag Leader). Binary or scored comparison cells with a source footnote for each claim.
-- **Trade Secret Classification** — Summary of what is patent-protected vs. trade-secret-protected vs. copyright-protected. Shows the legal strategy behind each protection mechanism.
-- **IP Defense Timeline** — Milestones for IP: pending patent approvals, continuation applications, PCT international filings. Shows which IP rights will strengthen the moat over the next 12–36 months.
+* **Patent Portfolio Registry** — Catalogue of all filed and granted patents: algorithm patents (Regression Kriging workflow, EBK implementation), hardware design IP (kinetic penetrator geometry, HPC cold-start capacitor design, FHSS 128-bit frequency-hopping schema), and trade secrets (MAD threshold calibration constants, CU model coefficients). Filing dates, countries, and legal status.
+* **Moat Analysis Matrix** — Side-by-side competitive comparison. Rows: key differentiating capabilities (hardware-signed immutable ledger, 1m Kriging resolution, PBFT water trading, FHSS LPI, FHE capability, Water Court admissibility, Reflex offline autonomy). Columns: FarmSense vs. named competitors (Climate Corp, Trimble Ag, Arable, Planet Labs, Ag Leader). Binary or scored comparison cells with a source footnote for each claim.
+* **Trade Secret Classification** — Summary of what is patent-protected vs. trade-secret-protected vs. copyright-protected. Shows the legal strategy behind each protection mechanism.
+* **IP Defense Timeline** — Milestones for IP: pending patent approvals, continuation applications, PCT international filings. Shows which IP rights will strengthen the moat over the next 12–36 months.
 
 ---
 
@@ -8256,10 +7732,10 @@ Investor-facing model of the defense contract revenue potential of the FarmSense
 
 **Key elements:**
 
-- **Node Qualification Counter** — Current count of hardware nodes that qualify for DoD/ESTCP programs based on: FHSS LPI/LPD capability, FHE-capable RSS units, JADC2-compatible mesh topology, and air-deliverable kinetic penetrator qualification.
-- **Program Pipeline Model** — Structured view of the ESTCP contract pipeline: program name, program office, contract type (R&D, pilot, production), estimated contract value range, and FarmSense's competitive positioning. Not binding — clearly labelled as projections for scenario modeling.
-- **Revenue Scenario Sliders** — Investor can adjust: % of FHSS-qualified nodes contracted by DoD, ESTCP R&D pilot award probability, and FHE RSS unit deployment count. Revenue model recalculates in real time showing notional contract values under each scenario.
-- **Civilian-to-Defense Handoff Narrative** — Visual timeline showing how civilian deployment milestones (Subdistrict 1 proof, Colorado DWR approval) create the validation record that enables DoD procurement. Explains why civilian revenue is the on-ramp to defense revenue.
+* **Node Qualification Counter** — Current count of hardware nodes that qualify for DoD/ESTCP programs based on: FHSS LPI/LPD capability, FHE-capable RSS units, JADC2-compatible mesh topology, and air-deliverable kinetic penetrator qualification.
+* **Program Pipeline Model** — Structured view of the ESTCP contract pipeline: program name, program office, contract type (R&D, pilot, production), estimated contract value range, and FarmSense's competitive positioning. Not binding — clearly labelled as projections for scenario modeling.
+* **Revenue Scenario Sliders** — Investor can adjust: % of FHSS-qualified nodes contracted by DoD, ESTCP R&D pilot award probability, and FHE RSS unit deployment count. Revenue model recalculates in real time showing notional contract values under each scenario.
+* **Civilian-to-Defense Handoff Narrative** — Visual timeline showing how civilian deployment milestones (Subdistrict 1 proof, Colorado DWR approval) create the validation record that enables DoD procurement. Explains why civilian revenue is the on-ramp to defense revenue.
 
 ---
 
@@ -8269,10 +7745,10 @@ Time-gated, watermarked investor document access with full engagement analytics.
 
 **Key elements:**
 
-- **Document Library** — Organized folders: Company Overview, Financials (cap table, audited P&L), Technical Diligence (architecture docs, patent filings, CSU validation reports), Regulatory (DWR MOU, SLV 2026 alignment docs), Legal (term sheet drafts, LOIs from government agencies). Each document has a classification level (Confidential / Highly Confidential).
-- **Watermarked PDF Delivery** — Every document opened or downloaded is automatically watermarked with the viewing investor's name, organization, and session timestamp. Prevents forwarding of uncontrolled copies.
-- **Invitation & Access Control** — Admins control which investors have access to which folder levels. Access invitations are time-limited (7/30/90 days). Admin can revoke access at any time.
-- **Engagement Analytics** — For each document: view count, time spent (minutes), last viewed date, and how many pages were read. Helps the FarmSense team identify which diligence topics investors are spending the most time on and tailor follow-up conversations accordingly.
+* **Document Library** — Organized folders: Company Overview, Financials (cap table, audited P&L), Technical Diligence (architecture docs, patent filings, CSU validation reports), Regulatory (DWR MOU, SLV 2026 alignment docs), Legal (term sheet drafts, LOIs from government agencies). Each document has a classification level (Confidential / Highly Confidential).
+* **Watermarked PDF Delivery** — Every document opened or downloaded is automatically watermarked with the viewing investor's name, organization, and session timestamp. Prevents forwarding of uncontrolled copies.
+* **Invitation & Access Control** — Admins control which investors have access to which folder levels. Access invitations are time-limited (7/30/90 days). Admin can revoke access at any time.
+* **Engagement Analytics** — For each document: view count, time spent (minutes), last viewed date, and how many pages were read. Helps the FarmSense team identify which diligence topics investors are spending the most time on and tailor follow-up conversations accordingly.
 
 ---
 
@@ -8282,20 +7758,19 @@ Post-investment portfolio tracking and deal structure management for committed i
 
 **Key elements:**
 
-- **Equity Position Dashboard** — Current ownership %, implied current valuation (using latest-round price), paper gain/loss vs. initial investment, and projected value at target exit multiples (3x, 5x, 10x).
-- **Pro-Forma Cap Table Modeler** — Interactive cap table: shows current structure (founder, seed investors, option pool). Adjust Series A raise amount and pre-money valuation to model dilution effect. Projects post-Series-A ownership for each existing shareholder.
-- **Liquidation Preference Waterfall** — For proposed exit valuations, shows the payout waterfall by share class and investor. Clearly shows at what exit price each investor class enters the money.
-- **Liquidity Event Timeline** — Projected milestones toward liquidity: Series A close target, DoD contract activation, Colorado DWR approval, Series B raise, and IPO runway model. Not binding — labelled as management projections.
-- **Investor Relations Feed** — Curated update feed: board meeting summaries, monthly KPI updates, milestone achievements, press mentions. Replaces ad-hoc email communication with a structured, searchable investor comms log.
+* **Equity Position Dashboard** — Current ownership %, implied current valuation (using latest-round price), paper gain/loss vs. initial investment, and projected value at target exit multiples (3x, 5x, 10x).
+* **Pro-Forma Cap Table Modeler** — Interactive cap table: shows current structure (founder, seed investors, option pool). Adjust Series A raise amount and pre-money valuation to model dilution effect. Projects post-Series-A ownership for each existing shareholder.
+* **Liquidation Preference Waterfall** — For proposed exit valuations, shows the payout waterfall by share class and investor. Clearly shows at what exit price each investor class enters the money.
+* **Liquidity Event Timeline** — Projected milestones toward liquidity: Series A close target, DoD contract activation, Colorado DWR approval, Series B raise, and IPO runway model. Not binding — labelled as management projections.
+* **Investor Relations Feed** — Curated update feed: board meeting summaries, monthly KPI updates, milestone achievements, press mentions. Replaces ad-hoc email communication with a structured, searchable investor comms log.
 
 ---
 
 ## Design Notes
 
-- **Authentication:** The Investor Terminal uses a separate, higher-assurance authentication pathway (MFA required) compared to the public landing page. All sessions are logged with IP, device fingerprint, and duration.
-- **Data Sensitivity:** All financial projections are clearly labelled as forward-looking estimates based on current trajectories. No guarantee language.
-- **Visual Identity:** Maintains the Bloomberg-terminal aesthetic from V1 — dark background, monospaced financial data, live tickers. The new views extend this language rather than departing from it.
-
+* **Authentication:** The Investor Terminal uses a separate, higher-assurance authentication pathway (MFA required) compared to the public landing page. All sessions are logged with IP, device fingerprint, and duration.
+* **Data Sensitivity:** All financial projections are clearly labelled as forward-looking estimates based on current trajectories. No guarantee language.
+* **Visual Identity:** Maintains the Bloomberg-terminal aesthetic from V1 — dark background, monospaced financial data, live tickers. The new views extend this language rather than departing from it.
 
 <div style="page-break-after: always;"></div>
 
@@ -8328,11 +7803,11 @@ A full-basin situational awareness map giving State Engineers a live, macro-leve
 
 **Key elements:**
 
-- **Choropleth Depletion Map** — The entire monitored basin rendered as an animated choropleth map where color intensity represents real-time aquifer drawdown rate. Colour scale from deep blue (stable, no draw) through amber (significant draw) to red (critical depletion pace). Animations show the depletion gradient spreading or contracting over user-selected time windows (24h / 7d / 30d / season).
-- **Layer Toggles** — Officers can overlay: groundwater elevation contours (interpolated from well depth sensors), registered well locations with permit status, FarmSense node density heatmap, active irrigation events (currently pumping nodes pulsing on the map), and annotated water rights boundary polygons.
-- **Basin Summary Statistics** — Live panel alongside the map: total active extraction rate (GPM basin-wide), cumulative season depletion vs. sustainable yield, estimated days until the seasonal allocation cap is reached at the current rate, and count of at-risk wells (within 10% of their permit ceiling).
-- **Field Drill-Down** — Click any field polygon to load a sidebar with that farm's current extraction rate, season-to-date usage vs. allocation, compliance status, last VFA reading timestamps, and direct link to their compliance report history.
-- **Basin Alert Feed** — Chronological list of basin-wide anomaly events, sorted by severity, with one-click escalation to the Enforcement Console.
+* **Choropleth Depletion Map** — The entire monitored basin rendered as an animated choropleth map where color intensity represents real-time aquifer drawdown rate. Colour scale from deep blue (stable, no draw) through amber (significant draw) to red (critical depletion pace). Animations show the depletion gradient spreading or contracting over user-selected time windows (24h / 7d / 30d / season).
+* **Layer Toggles** — Officers can overlay: groundwater elevation contours (interpolated from well depth sensors), registered well locations with permit status, FarmSense node density heatmap, active irrigation events (currently pumping nodes pulsing on the map), and annotated water rights boundary polygons.
+* **Basin Summary Statistics** — Live panel alongside the map: total active extraction rate (GPM basin-wide), cumulative season depletion vs. sustainable yield, estimated days until the seasonal allocation cap is reached at the current rate, and count of at-risk wells (within 10% of their permit ceiling).
+* **Field Drill-Down** — Click any field polygon to load a sidebar with that farm's current extraction rate, season-to-date usage vs. allocation, compliance status, last VFA reading timestamps, and direct link to their compliance report history.
+* **Basin Alert Feed** — Chronological list of basin-wide anomaly events, sorted by severity, with one-click escalation to the Enforcement Console.
 
 ---
 
@@ -8342,14 +7817,14 @@ Emergency drought response tool enabling State Engineers to issue basin-wide pum
 
 **Key elements:**
 
-- **Severity Level Selector** — Three broadcast tiers:
-  - **Advisory** — Informational notification pushed to all farmer dashboards. No automatic enforcement.
-  - **Warning** — Dashboard alert with 48-hour voluntary compliance window before escalation. Logged to the DHU ledger for each farm.
-  - **Mandatory** — DHU Reflex Logic enforces a hard pump ceiling automatically at the field edge level. GPM caps are encoded into the mesh-wide Reflex parameter and activated within 60 seconds of broadcast.
-- **Dual-Officer Co-Signature Requirement** — Mandatory broadcasts require two named officers to cryptographically co-sign using their hardware-backed credentials. The co-signature event is logged with both officer identities, badge numbers, and a hardware timestamp before the broadcast propagates to the mesh.
-- **Mesh Delivery Confirmation** — Real-time map showing which DHU nodes have acknowledged the Reflex message. Any node that has not acknowledged within 5 minutes is flagged for manual intervention.
-- **Broadcast History** — Full log of all Reflex broadcasts: who issued it, co-signer identity, severity, declared reason, geographic scope, mesh delivery rate, and lift date/lifting officer. Admissible record for regulatory and legal proceedings.
-- **Lift & Adjust Controls** — Modify or lift an active Reflex limit with the same dual-signature workflow. Supports partial lift (lift for specific subdistricts while maintaining restrictions elsewhere).
+* **Severity Level Selector** — Three broadcast tiers:
+  * **Advisory** — Informational notification pushed to all farmer dashboards. No automatic enforcement.
+  * **Warning** — Dashboard alert with 48-hour voluntary compliance window before escalation. Logged to the DHU ledger for each farm.
+  * **Mandatory** — DHU Reflex Logic enforces a hard pump ceiling automatically at the field edge level. GPM caps are encoded into the mesh-wide Reflex parameter and activated within 60 seconds of broadcast.
+* **Dual-Officer Co-Signature Requirement** — Mandatory broadcasts require two named officers to cryptographically co-sign using their hardware-backed credentials. The co-signature event is logged with both officer identities, badge numbers, and a hardware timestamp before the broadcast propagates to the mesh.
+* **Mesh Delivery Confirmation** — Real-time map showing which DHU nodes have acknowledged the Reflex message. Any node that has not acknowledged within 5 minutes is flagged for manual intervention.
+* **Broadcast History** — Full log of all Reflex broadcasts: who issued it, co-signer identity, severity, declared reason, geographic scope, mesh delivery rate, and lift date/lifting officer. Admissible record for regulatory and legal proceedings.
+* **Lift & Adjust Controls** — Modify or lift an active Reflex limit with the same dual-signature workflow. Supports partial lift (lift for specific subdistricts while maintaining restrictions elsewhere).
 
 ---
 
@@ -8359,11 +7834,11 @@ Historical time-travel scrub of any field's complete hydrological state — the 
 
 **Key elements:**
 
-- **Time Slider Interface** — Scrub any date and time within the stored data range (up to 5 years). The interface renders the 20m IDW grid and 1m Kriging grid as they existed at the selected timestamp, along with all active sensor readings and pump telemetry.
-- **Satellite Cross-Reference** — For any selected timestamp, the system fetches the nearest Sentinel-2 (optical) and Sentinel-1 SAR (radar) overpasses and overlays them alongside the ground sensor data for corroboration.
-- **"Frozen Moment" Legal Package Generator** — For any selected timestamp and field: auto-compile a court-ready evidence package. Contents: (a) 1m Kriging grid PDF map; (b) raw sensor readings table with hardware-signed hash; (c) pump flow telemetry for the period; (d) satellite imagery with source metadata; (e) Zo Kriging CU calculation for the period; (f) cryptographic hash chain proving data integrity from that exact moment. Package is watermarked with the generating officer's ID and session timestamp.
-- **Anomaly Replay** — Replays a flagged anomaly event in real time. Shows how the ground sensor readings and satellite moisture index diverged — the exact data that triggered the anomaly detection.
-- **Chain of Custody Trace** — For any data point in the playback, display the full provenance: which hardware node generated it, the hardware signing key used, the DHU that received and countersigned it, and the cloud timestamp — an unbroken chain from sensor to evidence package.
+* **Time Slider Interface** — Scrub any date and time within the stored data range (up to 5 years). The interface renders the 20m IDW grid and 1m Kriging grid as they existed at the selected timestamp, along with all active sensor readings and pump telemetry.
+* **Satellite Cross-Reference** — For any selected timestamp, the system fetches the nearest Sentinel-2 (optical) and Sentinel-1 SAR (radar) overpasses and overlays them alongside the ground sensor data for corroboration.
+* **"Frozen Moment" Legal Package Generator** — For any selected timestamp and field: auto-compile a court-ready evidence package. Contents: (a) 1m Kriging grid PDF map; (b) raw sensor readings table with hardware-signed hash; (c) pump flow telemetry for the period; (d) satellite imagery with source metadata; (e) Zo Kriging CU calculation for the period; (f) cryptographic hash chain proving data integrity from that exact moment. Package is watermarked with the generating officer's ID and session timestamp.
+* **Anomaly Replay** — Replays a flagged anomaly event in real time. Shows how the ground sensor readings and satellite moisture index diverged — the exact data that triggered the anomaly detection.
+* **Chain of Custody Trace** — For any data point in the playback, display the full provenance: which hardware node generated it, the hardware signing key used, the DHU that received and countersigned it, and the cloud timestamp — an unbroken chain from sensor to evidence package.
 
 ---
 
@@ -8388,11 +7863,11 @@ A transparency layer allowing officers to interrogate the Zo Kriging CU calculat
 
 **Key elements:**
 
-- **Dual CU Calculator** — Input any field, crop type, and date range. Left panel shows the traditional Blaney-Criddle CU estimate (static formula, historical averages). Right panel shows the Zo Kriging real-time CU (multi-layer: SMP, SWC, VPD, solar radiation, NDVI, NDWI, LST, elevation). Both produce a final acre-inches/day figure.
-- **Discrepancy Analysis** — Automatic comparison: how much does the Zo CU differ from Blaney-Criddle and why? Breakdown of which variables drove the difference (e.g., lower CU because VPD was suppressed by cloud cover; higher because anomalous soil temperature). Supports expert witness testimony on methodology superiority.
-- **Input Factor Decomposition** — Bar chart showing the contribution weight of each input variable to the final Zo CU estimate. Officers can verify that the model is using physically reasonable weights for local conditions.
-- **Confidence Interval Display** — The Kriging variance output is displayed as a confidence band around all CU estimates. Supports the argument that FarmSense CU calculations are statistically bounded to a defensible precision level.
-- **Methodology Citation Export** — One-click PDF export of the full methodology note: variogram model used, training data sources, seasonal calibration log, and CSU SLV RC 2026 validation reference. Ready for attachment to Water Court filings.
+* **Dual CU Calculator** — Input any field, crop type, and date range. Left panel shows the traditional Blaney-Criddle CU estimate (static formula, historical averages). Right panel shows the Zo Kriging real-time CU (multi-layer: SMP, SWC, VPD, solar radiation, NDVI, NDWI, LST, elevation). Both produce a final acre-inches/day figure.
+* **Discrepancy Analysis** — Automatic comparison: how much does the Zo CU differ from Blaney-Criddle and why? Breakdown of which variables drove the difference (e.g., lower CU because VPD was suppressed by cloud cover; higher because anomalous soil temperature). Supports expert witness testimony on methodology superiority.
+* **Input Factor Decomposition** — Bar chart showing the contribution weight of each input variable to the final Zo CU estimate. Officers can verify that the model is using physically reasonable weights for local conditions.
+* **Confidence Interval Display** — The Kriging variance output is displayed as a confidence band around all CU estimates. Supports the argument that FarmSense CU calculations are statistically bounded to a defensible precision level.
+* **Methodology Citation Export** — One-click PDF export of the full methodology note: variogram model used, training data sources, seasonal calibration log, and CSU SLV RC 2026 validation reference. Ready for attachment to Water Court filings.
 
 ---
 
@@ -8402,11 +7877,11 @@ Basin-wide view of all PBFT-verified peer-to-peer groundwater trading activity.
 
 **Key elements:**
 
-- **Active Credit Listings** — All open buy/sell offers for groundwater rights within the subdistrict. Each listing shows: listing farm (anonymized alias), volume (acre-inches), price, listing expiry, and PBFT proposal hash.
-- **Executed Trade Log** — Complete history of all settled trades: buyer, seller, volume, price, settlement timestamp, PBFT consensus round proof hash, and officer validation hash. Every trade requires regulatory acknowledgement before settlement is final.
-- **Officer Validation Workflow** — Proposed trades are held in a "pending officer review" state for up to 24 hours. Officers can approve with a cryptographic signature or block with a documented reason (e.g., trade would push buyer above their seasonal permit ceiling).
-- **Credit Issuance & Invalidation** — Officers can issue new credits (when a farm verifiably conserves beyond their baseline) or invalidate credits (if supporting data is found to be fraudulent). Both actions require a case reference and an officer signature.
-- **Basin Trading Volume Analytics** — Monthly and seasonal charts of trading volume (acre-inches exchanged), average price, number of participating farms, and total credit value in circulation. Trends inform future allocation policy decisions.
+* **Active Credit Listings** — All open buy/sell offers for groundwater rights within the subdistrict. Each listing shows: listing farm (anonymized alias), volume (acre-inches), price, listing expiry, and PBFT proposal hash.
+* **Executed Trade Log** — Complete history of all settled trades: buyer, seller, volume, price, settlement timestamp, PBFT consensus round proof hash, and officer validation hash. Every trade requires regulatory acknowledgement before settlement is final.
+* **Officer Validation Workflow** — Proposed trades are held in a "pending officer review" state for up to 24 hours. Officers can approve with a cryptographic signature or block with a documented reason (e.g., trade would push buyer above their seasonal permit ceiling).
+* **Credit Issuance & Invalidation** — Officers can issue new credits (when a farm verifiably conserves beyond their baseline) or invalidate credits (if supporting data is found to be fraudulent). Both actions require a case reference and an officer signature.
+* **Basin Trading Volume Analytics** — Monthly and seasonal charts of trading volume (acre-inches exchanged), average price, number of participating farms, and total credit value in circulation. Trends inform future allocation policy decisions.
 
 ---
 
@@ -8416,11 +7891,11 @@ Cross-spectral anomaly detection fusing Sentinel-1 SAR radar with Sentinel-2 opt
 
 **Key elements:**
 
-- **Cloud-Free Detection Architecture** — Sentinel-2 NDWI provides optical moisture anomalies when skies are clear. Sentinel-1 SAR (VV/VH backscatter) detects soil moisture anomalies through cloud cover. Both signals are fused; the system flags an anomaly only when at least one constellation corroborates the ground sensor data — or when they contradict each other in a way that implies the ground sensor may have been tampered with.
-- **Anomaly Confidence Scores** — Each flagged event receives a confidence score (0–100%) based on: number of corroborating data sources, delta magnitude, historical baseline deviation, and proximity to other confirmed events. High-confidence anomalies trigger automatic officer notification.
-- **Anomaly Event Cards** — Each event card shows: field ID, date/time, anomaly type (unexpected moisture gain, pump data vs. satellite divergence, sensor blackout), confidence score, satellite imagery thumbnail for the date, and ground sensor readings at the time. One-click escalation path to the Water Court Submission Workflow.
-- **False Positive Feedback Loop** — Officers can mark any anomaly as a false positive (with reason: known irrigation event, sensor maintenance, etc.). False positive data feeds back into model calibration to reduce future noise.
-- **Temporal Anomaly Patterns** — Long-range pattern detection: identifies fields with recurring anomaly events at similar intervals or conditions. Flags systematic patterns for potential systematic non-compliance investigation.
+* **Cloud-Free Detection Architecture** — Sentinel-2 NDWI provides optical moisture anomalies when skies are clear. Sentinel-1 SAR (VV/VH backscatter) detects soil moisture anomalies through cloud cover. Both signals are fused; the system flags an anomaly only when at least one constellation corroborates the ground sensor data — or when they contradict each other in a way that implies the ground sensor may have been tampered with.
+* **Anomaly Confidence Scores** — Each flagged event receives a confidence score (0–100%) based on: number of corroborating data sources, delta magnitude, historical baseline deviation, and proximity to other confirmed events. High-confidence anomalies trigger automatic officer notification.
+* **Anomaly Event Cards** — Each event card shows: field ID, date/time, anomaly type (unexpected moisture gain, pump data vs. satellite divergence, sensor blackout), confidence score, satellite imagery thumbnail for the date, and ground sensor readings at the time. One-click escalation path to the Water Court Submission Workflow.
+* **False Positive Feedback Loop** — Officers can mark any anomaly as a false positive (with reason: known irrigation event, sensor maintenance, etc.). False positive data feeds back into model calibration to reduce future noise.
+* **Temporal Anomaly Patterns** — Long-range pattern detection: identifies fields with recurring anomaly events at similar intervals or conditions. Flags systematic patterns for potential systematic non-compliance investigation.
 
 ---
 
@@ -8430,11 +7905,11 @@ Cross-spectral anomaly detection fusing Sentinel-1 SAR radar with Sentinel-2 opt
 
 **Key elements:**
 
-- **Depletion Forecast Charts** — Multi-horizon time-series forecast for basin-wide aquifer level. Three scenario lines: (a) Current Trajectory — no policy change; (b) Moderate Conservation — 10% extraction reduction (e.g., from Reflex Warnings); (c) Emergency Conservation — 25% reduction (Mandatory Reflex). Each line shows projected aquifer level vs. the legally designated critical drawdown threshold.
-- **Well-Level Projections** — Drill into any specific well to see its individual projected level under each scenario, given its current extraction rate and allocated permit ceiling.
-- **Policy Impact Simulator** — Adjust policy parameters (extraction reduction %, Reflex limit values, seasonal cap changes) and immediately see the effect on the forecast chart. Designed for use in planning meetings with legislators and DWR administrators.
-- **Precipitation Sensitivity Analysis** — The forecast incorporates NOAA seasonal precipitation outlooks. Show the projected depletion range under dry / average / wet precipitation scenarios to communicate forecast uncertainty.
-- **Regulatory Trigger Alerts** — Pre-set notification thresholds: when the forecast model predicts the aquifer will breach the critical drawdown level within a specified number of days, an automatic alert escalates to the Reflex Enforcement Console for proactive action.
+* **Depletion Forecast Charts** — Multi-horizon time-series forecast for basin-wide aquifer level. Three scenario lines: (a) Current Trajectory — no policy change; (b) Moderate Conservation — 10% extraction reduction (e.g., from Reflex Warnings); (c) Emergency Conservation — 25% reduction (Mandatory Reflex). Each line shows projected aquifer level vs. the legally designated critical drawdown threshold.
+* **Well-Level Projections** — Drill into any specific well to see its individual projected level under each scenario, given its current extraction rate and allocated permit ceiling.
+* **Policy Impact Simulator** — Adjust policy parameters (extraction reduction %, Reflex limit values, seasonal cap changes) and immediately see the effect on the forecast chart. Designed for use in planning meetings with legislators and DWR administrators.
+* **Precipitation Sensitivity Analysis** — The forecast incorporates NOAA seasonal precipitation outlooks. Show the projected depletion range under dry / average / wet precipitation scenarios to communicate forecast uncertainty.
+* **Regulatory Trigger Alerts** — Pre-set notification thresholds: when the forecast model predicts the aquifer will breach the critical drawdown level within a specified number of days, an automatic alert escalates to the Reflex Enforcement Console for proactive action.
 
 ---
 
@@ -8455,10 +7930,9 @@ Cross-spectral anomaly detection fusing Sentinel-1 SAR radar with Sentinel-2 opt
 
 ## Design Notes
 
-- **Access Control:** All views are read-only by default. Write actions (Reflex broadcast, court submission, trade validation, credit issuance) require hardware-backed officer credential co-signature.
-- **Evidence Integrity:** All evidence packages generated by this portal carry a portal-level countersignature separate from and in addition to the hardware-level sensor signatures. The dual-signature chain establishes both data origin and officer integrity.
-- **Privacy Architecture:** The Basin Command Map and Anomaly Engine display only anonymized or aggregated data. Individual farm data is visible only in the Forensic Playback and Court Submission views, which require case-level authorization logging.
-
+* **Access Control:** All views are read-only by default. Write actions (Reflex broadcast, court submission, trade validation, credit issuance) require hardware-backed officer credential co-signature.
+* **Evidence Integrity:** All evidence packages generated by this portal carry a portal-level countersignature separate from and in addition to the hardware-level sensor signatures. The dual-signature chain establishes both data origin and officer integrity.
+* **Privacy Architecture:** The Basin Command Map and Anomaly Engine display only anonymized or aggregated data. Individual farm data is visible only in the Forensic Playback and Court Submission views, which require case-level authorization logging.
 
 <div style="page-break-after: always;"></div>
 
@@ -8490,11 +7964,11 @@ Submit, monitor, and analyze distributed model training jobs over the anonymized
 
 **Key elements:**
 
-- **Experiment Builder** — Define a hypothesis and configure the training job: select target variable (e.g., predict NDVI decline at day+14), select input features (EC, SMP, VPD, ET, rainfall preceding days), choose anonymized field cohort (by geography, crop type, or sensor tier), and configure training parameters (epochs, learning rate, validation split).
-- **Privacy Compliance Gate** — Before submission, a required dual-layer privacy review confirms: (a) the job uses only contextually anonymized data, (b) no query could reconstruct an individual farm's GPS coordinates or identity, and (c) the output model parameters do not encode individual-level information. Research coordinator must acknowledge.
-- **Live Training Monitor** — Once a job is submitted to the Zo compute cluster, the researcher sees: real-time loss/accuracy curves, per-epoch metrics, estimated time to completion, and compute resource utilization.
-- **Results Review Board** — Completed experiment results: model performance metrics (RMSE, R², AUC), feature importance rankings, and a plain-English summary of the hypothesis test result. The researcher annotates findings, classifies the result (Confirmed / Rejected / Inconclusive), and submits for inclusion in the Zo Worksheet candidate review queue.
-- **Experiment Registry** — History of all experiments submitted by the researcher and by the broader research community (anonymized by researcher institution). Enables discovery of prior work and prevents duplication.
+* **Experiment Builder** — Define a hypothesis and configure the training job: select target variable (e.g., predict NDVI decline at day+14), select input features (EC, SMP, VPD, ET, rainfall preceding days), choose anonymized field cohort (by geography, crop type, or sensor tier), and configure training parameters (epochs, learning rate, validation split).
+* **Privacy Compliance Gate** — Before submission, a required dual-layer privacy review confirms: (a) the job uses only contextually anonymized data, (b) no query could reconstruct an individual farm's GPS coordinates or identity, and (c) the output model parameters do not encode individual-level information. Research coordinator must acknowledge.
+* **Live Training Monitor** — Once a job is submitted to the Zo compute cluster, the researcher sees: real-time loss/accuracy curves, per-epoch metrics, estimated time to completion, and compute resource utilization.
+* **Results Review Board** — Completed experiment results: model performance metrics (RMSE, R², AUC), feature importance rankings, and a plain-English summary of the hypothesis test result. The researcher annotates findings, classifies the result (Confirmed / Rejected / Inconclusive), and submits for inclusion in the Zo Worksheet candidate review queue.
+* **Experiment Registry** — History of all experiments submitted by the researcher and by the broader research community (anonymized by researcher institution). Enables discovery of prior work and prevents duplication.
 
 ---
 
@@ -8504,11 +7978,11 @@ An interactive multi-layer satellite data explorer for conducting spectral analy
 
 **Key elements:**
 
-- **Layer Selector** — Toggle individual satellite data layers: Sentinel-1 (VV backscatter, VH backscatter, VV/VH ratio), Sentinel-2 (NDVI B8/B4, NDWI B8A/B3, false-color composite), Landsat-8 (LST surface temperature), DEM derivatives (elevation, slope, aspect, TWI).
-- **Date-Range Comparison Slider** — Select any two dates within the archive. Renders both dates side by side with a blend-slider. Pixel-value tooltip shows the exact spectral value at the cursor position for each date.
-- **Pixel Inspector** — Click any map cell and get a full spectral profile: all available band values for that pixel at the selected date, plus a 12-month time series chart of that pixel's NDVI and SSM (surface soil moisture). Useful for identifying long-term trends at a single location.
-- **Spatial Correlation Analysis** — Draw a polygon over any area of interest. The system calculates a Pearson correlation matrix between all enabled satellite layers and all available ground sensor types (SMP, SWC, EC) for measurements within that polygon. Visualized as a heatmap.
-- **Cloud Mask Overlay** — Show the cloud/shadow mask applied to each Sentinel-2 overpass. Select alternate Sentinel-1 SAR passes (cloud-penetrating) for comparison.
+* **Layer Selector** — Toggle individual satellite data layers: Sentinel-1 (VV backscatter, VH backscatter, VV/VH ratio), Sentinel-2 (NDVI B8/B4, NDWI B8A/B3, false-color composite), Landsat-8 (LST surface temperature), DEM derivatives (elevation, slope, aspect, TWI).
+* **Date-Range Comparison Slider** — Select any two dates within the archive. Renders both dates side by side with a blend-slider. Pixel-value tooltip shows the exact spectral value at the cursor position for each date.
+* **Pixel Inspector** — Click any map cell and get a full spectral profile: all available band values for that pixel at the selected date, plus a 12-month time series chart of that pixel's NDVI and SSM (surface soil moisture). Useful for identifying long-term trends at a single location.
+* **Spatial Correlation Analysis** — Draw a polygon over any area of interest. The system calculates a Pearson correlation matrix between all enabled satellite layers and all available ground sensor types (SMP, SWC, EC) for measurements within that polygon. Visualized as a heatmap.
+* **Cloud Mask Overlay** — Show the cloud/shadow mask applied to each Sentinel-2 overpass. Select alternate Sentinel-1 SAR passes (cloud-penetrating) for comparison.
 
 ---
 
@@ -8518,11 +7992,11 @@ Full transparency into the mathematical pipeline of every Kriging computation �
 
 **Key elements:**
 
-- **Input Variable Panel** — For any field and timestamp, display all inputs fed into the Kriging model: SMP (per depth node), SWC (per VFA depth), EC, VPD (from weather station grid), solar radiation (from HUD/satellite), NDVI, NDWI, LST, elevation, slope, aspect. Each value shown with its source node ID and hardware signature hash.
-- **Trend Model Coefficients** — The fitted linear regression trend model displayed in full: coefficient values for each covariate, standard errors, t-statistics, p-values, and model R². Allows researchers to evaluate whether the trend model is well-conditioned for the current field conditions.
-- **Variogram Model Parameters** — The fitted spherical variogram: nugget, sill, and range parameters, plus the method-of-moments empirical variogram scatter plot vs. the fitted model curve. Critical for assessing spatial autocorrelation assumptions.
-- **Residual Kriging Predictions** — The interpolated residual surface after trend removal, rendered as a 1m grid. Variance map (kriging standard error) displayed alongside predictions. Researchers can identify spatial zones where uncertainty is high (sparse sensor coverage).
-- **End-to-End Prediction Grid** — The final combined 1m grid: trend + residual prediction at every grid cell. Downloadable as GeoTIFF, CSV, or NetCDF. Each file includes embedded metadata: model version, input data timestamps, and hash chain proof of input integrity.
+* **Input Variable Panel** — For any field and timestamp, display all inputs fed into the Kriging model: SMP (per depth node), SWC (per VFA depth), EC, VPD (from weather station grid), solar radiation (from HUD/satellite), NDVI, NDWI, LST, elevation, slope, aspect. Each value shown with its source node ID and hardware signature hash.
+* **Trend Model Coefficients** — The fitted linear regression trend model displayed in full: coefficient values for each covariate, standard errors, t-statistics, p-values, and model R². Allows researchers to evaluate whether the trend model is well-conditioned for the current field conditions.
+* **Variogram Model Parameters** — The fitted spherical variogram: nugget, sill, and range parameters, plus the method-of-moments empirical variogram scatter plot vs. the fitted model curve. Critical for assessing spatial autocorrelation assumptions.
+* **Residual Kriging Predictions** — The interpolated residual surface after trend removal, rendered as a 1m grid. Variance map (kriging standard error) displayed alongside predictions. Researchers can identify spatial zones where uncertainty is high (sparse sensor coverage).
+* **End-to-End Prediction Grid** — The final combined 1m grid: trend + residual prediction at every grid cell. Downloadable as GeoTIFF, CSV, or NetCDF. Each file includes embedded metadata: model version, input data timestamps, and hash chain proof of input integrity.
 
 ---
 
@@ -8532,11 +8006,11 @@ Define, run, and statistically analyze spatial A/B agronomic experiments within 
 
 **Key elements:**
 
-- **Treatment Zone Mapper** — Draw experimental and control zone polygons directly on the field map. Assign each zone a treatment label: irrigation protocol, fertilizer variant, cover crop species, or custom label. Minimum zone size enforced (must contain ≥3 sensor nodes) to ensure statistical validity.
-- **Pre-Trial Power Analysis** — Before the trial starts, calculate required sample size (sensor nodes × time periods) to detect a hypothesized effect size at a chosen power level (e.g., 80%) and significance level (α=0.05). Warns if the zone configuration is underpowered.
-- **Trial Dashboard** — Live tracking during the trial: sensor readings per zone, NDVI per zone (from satellite or drone), irrigation event log per zone, and soil health metrics per zone. Shows whether zones are diverging as expected.
-- **Statistical Analysis Suite** — At trial conclusion: automated Mann-Whitney U test (non-parametric, appropriate for small agricultural datasets), Cohen's d effect size, bootstrapped confidence intervals. Results table with interpretation labels (significant / not significant at chosen α). Option to download the raw data and statistical results as a structured CSV for publication.
-- **Results Visualization** — Box plots of primary outcome variables per zone, overlaid with NDVI treatment-effect maps at 1m resolution. Before/after composite views.
+* **Treatment Zone Mapper** — Draw experimental and control zone polygons directly on the field map. Assign each zone a treatment label: irrigation protocol, fertilizer variant, cover crop species, or custom label. Minimum zone size enforced (must contain ≥3 sensor nodes) to ensure statistical validity.
+* **Pre-Trial Power Analysis** — Before the trial starts, calculate required sample size (sensor nodes × time periods) to detect a hypothesized effect size at a chosen power level (e.g., 80%) and significance level (α=0.05). Warns if the zone configuration is underpowered.
+* **Trial Dashboard** — Live tracking during the trial: sensor readings per zone, NDVI per zone (from satellite or drone), irrigation event log per zone, and soil health metrics per zone. Shows whether zones are diverging as expected.
+* **Statistical Analysis Suite** — At trial conclusion: automated Mann-Whitney U test (non-parametric, appropriate for small agricultural datasets), Cohen's d effect size, bootstrapped confidence intervals. Results table with interpretation labels (significant / not significant at chosen α). Option to download the raw data and statistical results as a structured CSV for publication.
+* **Results Visualization** — Box plots of primary outcome variables per zone, overlaid with NDVI treatment-effect maps at 1m resolution. Before/after composite views.
 
 ---
 
@@ -8546,11 +8020,11 @@ An interactive environment for exploring and validating the Soil-Plant-Atmospher
 
 **Key elements:**
 
-- **7-Variable Input Panel** — Sliders or numeric inputs for all SPAC model variables: Soil Matric Potential (bars), Volumetric Water Content (%), Electrical Conductivity (dS/m), Vapor Pressure Deficit (kPa), Solar Radiation (W/m²), NDVI (0–1), and LSTM ET Forecast (mm/day). Each slider has a tooltip explaining the physical significance of the variable.
-- **Live Decision Recalculation** — As variables are adjusted, the model deterministic output updates in real time: the MAD battery % remaining, the irrigation recommendation (PUMP / HOLD boolean), the projected time-to-critical if HOLD is maintained, and the estimated water application rate if PUMP is triggered.
-- **Threshold Sensitivity Map** — Vary any single input while holding others constant. Renders a 1D sensitivity chart: x-axis is the input range, y-axis is the model output (e.g., MAD %). Identifies which variables most strongly control the decision boundary at current conditions.
-- **Calibration Mode** — Toggle into calibration mode: load actual sensor readings from a specified field and date, compare the model's prediction to actual measured outcomes (e.g., did soil moisture recover after irrigation as predicted?). Supports crop-specific and geography-specific model calibration.
-- **Export Configuration** — Save the current set of SPAC parameters as a named configuration file. Researchers can propose new configurations for evaluation against the global dataset, which then enters the Zo Worksheet candidate review process.
+* **7-Variable Input Panel** — Sliders or numeric inputs for all SPAC model variables: Soil Matric Potential (bars), Volumetric Water Content (%), Electrical Conductivity (dS/m), Vapor Pressure Deficit (kPa), Solar Radiation (W/m²), NDVI (0–1), and LSTM ET Forecast (mm/day). Each slider has a tooltip explaining the physical significance of the variable.
+* **Live Decision Recalculation** — As variables are adjusted, the model deterministic output updates in real time: the MAD battery % remaining, the irrigation recommendation (PUMP / HOLD boolean), the projected time-to-critical if HOLD is maintained, and the estimated water application rate if PUMP is triggered.
+* **Threshold Sensitivity Map** — Vary any single input while holding others constant. Renders a 1D sensitivity chart: x-axis is the input range, y-axis is the model output (e.g., MAD %). Identifies which variables most strongly control the decision boundary at current conditions.
+* **Calibration Mode** — Toggle into calibration mode: load actual sensor readings from a specified field and date, compare the model's prediction to actual measured outcomes (e.g., did soil moisture recover after irrigation as predicted?). Supports crop-specific and geography-specific model calibration.
+* **Export Configuration** — Save the current set of SPAC parameters as a named configuration file. Researchers can propose new configurations for evaluation against the global dataset, which then enters the Zo Worksheet candidate review process.
 
 ---
 
@@ -8560,12 +8034,12 @@ A publicly accessible, privacy-preserving catalog of research datasets generated
 
 **Key elements:**
 
-- **Dataset Catalog** — Full listing of available anonymized research datasets. Each entry: dataset name, geographic region, date range, sensor types included, spatial resolution, record count, file size, DOI (for publication citation), license (CC-BY for academic use), and version history.
-- **Filter & Discovery** — Filter datasets by: geography (basin, state, climate zone), date range, sensor type (soil, atmospheric, satellite, drone), crop category, and data completeness (% of expected readings present).
-- **Data Preview** — Before downloading, view a statistical summary: variable distributions, missing data rates, and a sample scatter plot of key variables. Helps researchers assess dataset fitness before investing in a full download.
-- **API Access** — For programmatic access: authenticated API endpoint for querying datasets with selectable spatial bounds, time windows, and output format (JSON / CSV / NetCDF-4 / GeoTIFF). Rate-limited per research institution credential.
-- **Citation & Attribution** — Auto-generated APA and BibTeX citation strings for each dataset. Tracks usage: how many papers have cited each dataset (based on DOI lookup). Builds FarmSense's academic impact profile.
-- **Data Quality Badges** — Each dataset carries quality indicators: sensor calibration status, field maintenance record completeness, percentage of readings that passed automated QA/QC flags, and whether the dataset has been independently validated by a university partner.
+* **Dataset Catalog** — Full listing of available anonymized research datasets. Each entry: dataset name, geographic region, date range, sensor types included, spatial resolution, record count, file size, DOI (for publication citation), license (CC-BY for academic use), and version history.
+* **Filter & Discovery** — Filter datasets by: geography (basin, state, climate zone), date range, sensor type (soil, atmospheric, satellite, drone), crop category, and data completeness (% of expected readings present).
+* **Data Preview** — Before downloading, view a statistical summary: variable distributions, missing data rates, and a sample scatter plot of key variables. Helps researchers assess dataset fitness before investing in a full download.
+* **API Access** — For programmatic access: authenticated API endpoint for querying datasets with selectable spatial bounds, time windows, and output format (JSON / CSV / NetCDF-4 / GeoTIFF). Rate-limited per research institution credential.
+* **Citation & Attribution** — Auto-generated APA and BibTeX citation strings for each dataset. Tracks usage: how many papers have cited each dataset (based on DOI lookup). Builds FarmSense's academic impact profile.
+* **Data Quality Badges** — Each dataset carries quality indicators: sensor calibration status, field maintenance record completeness, percentage of readings that passed automated QA/QC flags, and whether the dataset has been independently validated by a university partner.
 
 ---
 
@@ -8575,11 +8049,11 @@ Research-grade aggregated basin statistics for climate science and aquifer susta
 
 **Key elements:**
 
-- **Basin Extraction Time-Series** — Total groundwater extraction volume (acre-feet/day) across the monitored basin for the full data archive. Seasonally decomposed to show annual patterns and long-term trend. Compared against historical basin-level pumping permit data.
-- **ET Demand vs. Precipitation Surplus/Deficit** — Multi-year chart of basin-aggregated ET demand from the SPAC model vs. precipitation input from the weather grid. The gap between ET demand and precipitation is the "irrigation necessity signal" — shows why the basin depends on groundwater.
-- **Crop Health Basin Trends** — Average NDVI time-series for each major crop type in the basin. Identifies years or periods of basin-wide crop stress, correlated with precipitation, temperature, and aquifer drawdown data. Enables climate impact attribution research.
-- **Sensor Network Coverage Map** — Shows which areas of the basin have high node density (good coverage) vs. sparse coverage. Identifies geographic gaps where Kriging uncertainty is highest. Useful for guiding future hardware deployment strategy.
-- **Cross-Basin Comparison** — When multiple basins are monitored, researchers can overlay the extraction and crop health time-series from different basins. Supports comparative aquifer hydrology research.
+* **Basin Extraction Time-Series** — Total groundwater extraction volume (acre-feet/day) across the monitored basin for the full data archive. Seasonally decomposed to show annual patterns and long-term trend. Compared against historical basin-level pumping permit data.
+* **ET Demand vs. Precipitation Surplus/Deficit** — Multi-year chart of basin-aggregated ET demand from the SPAC model vs. precipitation input from the weather grid. The gap between ET demand and precipitation is the "irrigation necessity signal" — shows why the basin depends on groundwater.
+* **Crop Health Basin Trends** — Average NDVI time-series for each major crop type in the basin. Identifies years or periods of basin-wide crop stress, correlated with precipitation, temperature, and aquifer drawdown data. Enables climate impact attribution research.
+* **Sensor Network Coverage Map** — Shows which areas of the basin have high node density (good coverage) vs. sparse coverage. Identifies geographic gaps where Kriging uncertainty is highest. Useful for guiding future hardware deployment strategy.
+* **Cross-Basin Comparison** — When multiple basins are monitored, researchers can overlay the extraction and crop health time-series from different basins. Supports comparative aquifer hydrology research.
 
 ---
 
@@ -8589,10 +8063,10 @@ Connect and calibrate external laboratory instruments and measurement systems to
 
 **Key elements:**
 
-- **Integration Registry** — List of connected external data sources: soil spectrometers (LIBS, XRF), LIMS (Laboratory Information Management Systems), third-party weather station networks, eddy covariance flux towers, and custom IoT sensors. Each integration shows: last sync time, record count contributed, and data quality score.
-- **New Integration Wizard** — Step-by-step setup for connecting a new instrument: select instrument type, configure API endpoint or file upload format, map instrument data fields to FarmSense schema variables, set contribution frequency, and define geographic assignment (which fields this instrument acts as ground truth for).
-- **Calibration Dashboard** — For each integrated instrument: view the offset correction currently applied before data enters the model. See the residual error between the instrument's readings and the primary FarmSense sensor network for the same field. Accept or reject proposed auto-calibration corrections.
-- **Contribution Quality Scoring** — Each instrument's contributed data is scored on: timeliness (% of expected readings present), agreement with primary sensors (mean absolute error), drift detection (is the instrument calibration changing over time?). Instruments below a quality threshold are flagged and excluded from model training until recalibrated.
+* **Integration Registry** — List of connected external data sources: soil spectrometers (LIBS, XRF), LIMS (Laboratory Information Management Systems), third-party weather station networks, eddy covariance flux towers, and custom IoT sensors. Each integration shows: last sync time, record count contributed, and data quality score.
+* **New Integration Wizard** — Step-by-step setup for connecting a new instrument: select instrument type, configure API endpoint or file upload format, map instrument data fields to FarmSense schema variables, set contribution frequency, and define geographic assignment (which fields this instrument acts as ground truth for).
+* **Calibration Dashboard** — For each integrated instrument: view the offset correction currently applied before data enters the model. See the residual error between the instrument's readings and the primary FarmSense sensor network for the same field. Accept or reject proposed auto-calibration corrections.
+* **Contribution Quality Scoring** — Each instrument's contributed data is scored on: timeliness (% of expected readings present), agreement with primary sensors (mean absolute error), drift detection (is the instrument calibration changing over time?). Instruments below a quality threshold are flagged and excluded from model training until recalibrated.
 
 ---
 
@@ -8613,19 +8087,20 @@ Connect and calibrate external laboratory instruments and measurement systems to
 
 ## Design Notes
 
-- **Privacy Architecture:** All data accessible through this portal has passed through dual-layer contextual anonymization. Individual farm GPS coordinates, farmer identities, and specific field boundaries are not accessible. Research queries that attempt to reconstruct individual-level data through aggregation are rate-limited and flagged.
-- **Scientific Transparency:** The Zo Worksheet Inspector is designed specifically to enable peer review of the platform's scientific methodology. All model parameters and training data provenance are exposed at the level of detail required for a journal paper supplementary methods section.
-- **Collaboration:** Experiment results and dataset citations are cross-linked to the academic publication record wherever DOI references are available, building an evidence base for the platform's scientific impact.
-
+* **Privacy Architecture:** All data accessible through this portal has passed through dual-layer contextual anonymization. Individual farm GPS coordinates, farmer identities, and specific field boundaries are not accessible. Research queries that attempt to reconstruct individual-level data through aggregation are rate-limited and flagged.
+* **Scientific Transparency:** The Zo Worksheet Inspector is designed specifically to enable peer review of the platform's scientific methodology. All model parameters and training data provenance are exposed at the level of detail required for a journal paper supplementary methods section.
+* **Collaboration:** Experiment results and dataset citations are cross-linked to the academic publication record wherever DOI references are available, building an evidence base for the platform's scientific impact.
 
 <div style="page-break-after: always;"></div>
 
 # FarmSense Video Prompts for Google Flow
+
 ## *Optimized for Flow's capabilities (~8 sec clips, text/image-to-video, Veo 3)*
 
 ---
 
 ## Video 1: General Public (Website Landing Page)
+
 **Format:** Single 8-second clip for hero section
 
 **Prompt:**
@@ -8639,6 +8114,7 @@ Connect and calibrate external laboratory instruments and measurement systems to
 ---
 
 ## Video 2: Grant Writers (DoD ESTCP, USDA, etc.)
+
 **Format:** 3-4 clips to stitch in post-production
 
 **Clip 1 - The Problem:**
@@ -8658,6 +8134,7 @@ Connect and calibrate external laboratory instruments and measurement systems to
 ---
 
 ## Video 3: Potential Investors
+
 **Format:** 2-3 clips focused on scale and opportunity
 
 **Clip 1 - Market Opportunity:**
@@ -8674,6 +8151,7 @@ Connect and calibrate external laboratory instruments and measurement systems to
 ---
 
 ## Video 4: Farmers
+
 **Format:** 2 clips focused on relatability and benefits
 
 **Clip 1 - The Challenge:**
@@ -8690,6 +8168,7 @@ Connect and calibrate external laboratory instruments and measurement systems to
 ---
 
 ## Video 5: Researchers
+
 **Format:** 2-3 clips focused on precision and methodology
 
 **Clip 1 - The Data Collection:**
@@ -8706,6 +8185,7 @@ Connect and calibrate external laboratory instruments and measurement systems to
 ---
 
 ## Video 6: Regulators
+
 **Format:** 2 clips focused on compliance and auditability
 
 **Clip 1 - The Scope:**
@@ -8722,6 +8202,7 @@ Connect and calibrate external laboratory instruments and measurement systems to
 ---
 
 ## Video 7: Consolidated Overview
+
 **Format:** 4-5 clips to stitch into a 30-40 second overview
 
 **Clip 1 - The Problem:**
@@ -8745,25 +8226,27 @@ Connect and calibrate external laboratory instruments and measurement systems to
 
 ## Flow-Specific Production Guidelines
 
-### What Flow Does Well:
+### What Flow Does Well
+
 - ✅ Cinematic single-shot landscapes
-- ✅ Aerial perspectives (simulate with camera movement)
-- ✅ Environmental transformations (dry → wet, bare → green)
-- ✅ Character consistency via "Ingredients" feature
-- ✅ Atmospheric lighting and mood
-- ✅ Abstract visualizations (grids, particles, connections)
-- ✅ Camera movements (pan, tilt, push-in, pull-back)
+* ✅ Aerial perspectives (simulate with camera movement)
+* ✅ Environmental transformations (dry → wet, bare → green)
+* ✅ Character consistency via "Ingredients" feature
+* ✅ Atmospheric lighting and mood
+* ✅ Abstract visualizations (grids, particles, connections)
+* ✅ Camera movements (pan, tilt, push-in, pull-back)
 
-### What Flow Struggles With:
+### What Flow Struggles With
+
 - ❌ Complex data visualizations (charts, graphs, numbers)
-- ❌ Text overlays (add in post-production)
-- ❌ Voice-over (Flow audio is ambient only)
-- ❌ Multiple interacting characters
-- ❌ UI/dashboard demonstrations
-- ❌ Precise technical diagrams
-- ❌ Long-form content (>8 seconds)
+* ❌ Text overlays (add in post-production)
+* ❌ Voice-over (Flow audio is ambient only)
+* ❌ Multiple interacting characters
+* ❌ UI/dashboard demonstrations
+* ❌ Precise technical diagrams
+* ❌ Long-form content (>8 seconds)
 
-### Recommended Workflow:
+### Recommended Workflow
 
 1. **Generate clips in Flow** using prompts above
 2. **Export at 1080p** (highest quality available)
@@ -8773,21 +8256,25 @@ Connect and calibrate external laboratory instruments and measurement systems to
 6. **Add data visualizations** using motion graphics tools
 7. **Color grade** for consistent look across clips
 
-### Character Consistency (for Farmer video):
+### Character Consistency (for Farmer video)
+
 Use Flow's "Ingredients to Video" feature:
+
 1. Generate an image of your farmer character first
-2. Upload as an "Ingredient" 
+2. Upload as an "Ingredient"
 3. Reference the ingredient in subsequent prompts
 4. Flow will maintain consistent appearance across clips
 
-### Aspect Ratio:
-- All prompts set to 16:9 (standard widescreen)
-- For social media variations, regenerate at 9:16 or 1:1
+### Aspect Ratio
 
-### Quality Settings:
+- All prompts set to 16:9 (standard widescreen)
+* For social media variations, regenerate at 9:16 or 1:1
+
+### Quality Settings
+
 - Use "Highest Quality" for hero shots
-- Use "Quality" for background/b-roll clips
-- Use "Fast" only for rapid iteration/testing
+* Use "Quality" for background/b-roll clips
+* Use "Fast" only for rapid iteration/testing
 
 ---
 
@@ -8796,38 +8283,38 @@ Use Flow's "Ingredients to Video" feature:
 For each video, plan to add:
 
 **Video 1 (General Public):**
-- Text: "30% less water. 22% more yield."
-- Music: Hopeful, building
+* Text: "30% less water. 22% more yield."
+* Music: Hopeful, building
 
 **Video 2 (Grant Writers):**
-- Title cards: "The Challenge", "The Solution", "The Vision"
-- Data overlays: "700,000 acre-feet deficit", "117,000 acres"
-- Voice-over: Technical narration
+* Title cards: "The Challenge", "The Solution", "The Vision"
+* Data overlays: "700,000 acre-feet deficit", "117,000 acres"
+* Voice-over: Technical narration
 
 **Video 3 (Investors):**
-- Text: Market size, revenue tiers, growth timeline
-- Charts: Generate separately in motion graphics tool
-- Music: Confident, forward-looking
+* Text: Market size, revenue tiers, growth timeline
+* Charts: Generate separately in motion graphics tool
+* Music: Confident, forward-looking
 
 **Video 4 (Farmers):**
-- Voice-over: Relatable farmer narrative
-- Text: "28% less water. 15% higher yield."
-- Music: Acoustic, grounded
+* Voice-over: Relatable farmer narrative
+* Text: "28% less water. 15% higher yield."
+* Music: Acoustic, grounded
 
 **Video 5 (Researchers):**
-- Diagrams: Interpolation methodology
-- Text: Technical annotations
-- Music: Minimal, serious
+* Diagrams: Interpolation methodology
+* Text: Technical annotations
+* Music: Minimal, serious
 
 **Video 6 (Regulators):**
-- Text: "Cryptographic Chain of Custody", "Water Court Admissible"
-- Voice-over: Institutional authority
-- Music: Minimal, respectful
+* Text: "Cryptographic Chain of Custody", "Water Court Admissible"
+* Voice-over: Institutional authority
+* Music: Minimal, respectful
 
 **Video 7 (Overview):**
-- Full voice-over script
-- Text: Vision statement at end
-- Music: Orchestral, inspiring
+* Full voice-over script
+* Text: Vision statement at end
+* Music: Orchestral, inspiring
 
 ---
 
@@ -8843,7 +8330,6 @@ For clips requiring complex data visualization or UI demonstration, consider:
 
 *Revised for Google Flow capabilities*
 *Date: 2026-02-24*
-
 
 <div style="page-break-after: always;"></div>
 
@@ -8881,7 +8367,6 @@ The core firmware challenge for the CSA is resolving the physical folding geomet
 ---
 *Return to [Master Software Index](../../SOFTWARE_INDEX.md)*
 
-
 <div style="page-break-after: always;"></div>
 
 # Lateral Root-Zone Scout (LRZ) Firmware Specification
@@ -8917,7 +8402,6 @@ Like the VFA, the LRZ idles at a 4-hour chirp baseline. The firmware contains a 
 
 ---
 *Return to [Master Software Index](../../SOFTWARE_INDEX.md)*
-
 
 <div style="page-break-after: always;"></div>
 
@@ -8959,7 +8443,6 @@ The PFA has physical actuation authority over the well pump relay. If the Locali
 
 ---
 *Return to [Master Software Index](../../SOFTWARE_INDEX.md)*
-
 
 <div style="page-break-after: always;"></div>
 
@@ -9004,7 +8487,6 @@ If the PMT detects a loss of LoRaWAN ping-acknowledgment from the DHU:
 ---
 *Return to [Master Software Index](../../SOFTWARE_INDEX.md)*
 
-
 <div style="page-break-after: always;"></div>
 
 # Vertical Field Anchor (VFA) Firmware Specification
@@ -9039,46 +8521,44 @@ While fundamentally a "dumb chirp" node, the VFA firmware is governed by the PMT
 ---
 *Return to [Master Software Index](../../SOFTWARE_INDEX.md)*
 
-
 <div style="page-break-after: always;"></div>
 
 # FarmSense Actionable Task List
 
 ## Active Hardware & Architecture Remediation
 
-- [x] [x] Rectify District Hub (DHU) BOM to include 900MHz LoRaWAN gateway.
-- [x] [x] Rectify Pivot Motion Tracker (PMT) BOM to include 2.4GHz/BLE module for PFA communication.
-- [x] [x] Validate Thermal Loss capacity for 5W Kapton heater inside the PFA/DHU (-30°F extreme weather events).
-- [x] [x] Integrate Hybrid Pulse Capacitor (HPC) with the PMT's LiSOCl2 battery to bypass spring passivation.
-- [x] [x] Treat Polycarbonate enclosures with fluoropolymer coatings (PVDF) or UV inhibitors to prevent radiation embrittlement at 8,000ft altitude.
+* [x] [x] Rectify District Hub (DHU) BOM to include 900MHz LoRaWAN gateway.
+* [x] [x] Rectify Pivot Motion Tracker (PMT) BOM to include 2.4GHz/BLE module for PFA communication.
+* [x] [x] Validate Thermal Loss capacity for 5W Kapton heater inside the PFA/DHU (-30°F extreme weather events).
+* [x] [x] Integrate Hybrid Pulse Capacitor (HPC) with the PMT's LiSOCl2 battery to bypass spring passivation.
+* [x] [x] Treat Polycarbonate enclosures with fluoropolymer coatings (PVDF) or UV inhibitors to prevent radiation embrittlement at 8,000ft altitude.
 
 ## Software-Driven Expansions
 
-- [x] [x] Implement Predictive Maintenance via Current Harmonic Analysis on the Pressure & Flow Anchor (PFA).
-- [x] [x] Integrate k-means Machine-Learning Kriging algorithms into the Zo Core Compute Engine.
-- [ ] [ ] Implement PBFT Alliance-Chain Blockchain inside the DHU "Black Box" SSD for water rights trading.
-- [ ] [ ] Build DoD Federated Data Fabric Adapters.
-- [ ] [ ] Implement Dual-Layer Spatial Privacy (Contextual Anonymization) for cloud/federated machine learning.
-- [ ] [ ] Develop automated GLOBALG.A.P. compliance report generator.
+* [x] [x] Implement Predictive Maintenance via Current Harmonic Analysis on the Pressure & Flow Anchor (PFA).
+* [x] [x] Integrate k-means Machine-Learning Kriging algorithms into the Zo Core Compute Engine.
+* [ ] [ ] Implement PBFT Alliance-Chain Blockchain inside the DHU "Black Box" SSD for water rights trading.
+* [ ] [ ] Build DoD Federated Data Fabric Adapters.
+* [ ] [ ] Implement Dual-Layer Spatial Privacy (Contextual Anonymization) for cloud/federated machine learning.
+* [ ] [ ] Develop automated GLOBALG.A.P. compliance report generator.
 
 ## Advanced Dual-Use Enhancements (R&D)
 
-- [ ] [ ] Verify Low Probability of Intercept/Detection (LPI/LPD) logic on LRZ FHSS chirps.
-- [ ] [ ] Concept design for Air-Deliverable Kinetic Penetrator LRZ housings.
-- [ ] [ ] Upgrade Regional Superstation (RSS) compute layer to support Fully Homomorphic Encryption (FHE) Kriging operations.
+* [ ] [ ] Verify Low Probability of Intercept/Detection (LPI/LPD) logic on LRZ FHSS chirps.
+* [ ] [ ] Concept design for Air-Deliverable Kinetic Penetrator LRZ housings.
+* [ ] [ ] Upgrade Regional Superstation (RSS) compute layer to support Fully Homomorphic Encryption (FHE) Kriging operations.
 
 ## Non-Dilutive Grant Strategy & Execution
 
-- [ ] [ ] Draft DoD ESTCP "Water Resilience on DoD Installations" pre-proposal (Deadline: March 26, 2026).
-- [ ] [ ] Structure empirical pilot evidence framework for Bill & Melinda Gates Foundation COP30 smallholder adaptation pledges.
-- [ ] [ ] Prepare nominations/proposals incorporating empirical hydro-economic data for the World Food Prize and Earthshot Prize.
-
+* [ ] [ ] Draft DoD ESTCP "Water Resilience on DoD Installations" pre-proposal (Deadline: March 26, 2026).
+* [ ] [ ] Structure empirical pilot evidence framework for Bill & Melinda Gates Foundation COP30 smallholder adaptation pledges.
+* [ ] [ ] Prepare nominations/proposals incorporating empirical hydro-economic data for the World Food Prize and Earthshot Prize.
 
 <div style="page-break-after: always;"></div>
 
 # Bxthre3 Inc. Website
 
-This directory contains the source code for the Bxthre3 Inc. website hosted on Zo Space at https://brodiblanco.zo.space.
+This directory contains the source code for the Bxthre3 Inc. website hosted on Zo Space at <https://brodiblanco.zo.space>.
 
 ## Structure
 
