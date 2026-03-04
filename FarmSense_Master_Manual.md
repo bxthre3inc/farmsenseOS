@@ -90,13 +90,13 @@ The Vertical Field Anchor (VFA) serves as the primary data aggregation point for
 * **The Disconnect:** The proprietary Ubiquiti LTU 5GHz architecture cannot receive 900MHz LoRa modulations.1  
 * **Resolution:** Correcting this by upgrading the VFA to 5GHz is not agronomically viable. High-frequency 5GHz waves suffer from severe attenuation and multipath interference when attempting to penetrate dense, water-rich foliage. The DHU BOM must be immediately revised to include an enterprise-grade 900MHz LoRaWAN gateway alongside the existing Ubiquiti array.
 
-### **3.2 The PFA-to-VFA Communication Gap (2.4GHz Omission)**
+### **3.2 The PMT Field Hub Architecture (Telemetry Coordination)**
 
-The Pressure & Flow Anchor (PFA) is the critical safety actuator mounted at the wellhead.1
+The Pressure & Flow Anchor (PFA) is the critical safety actuator mounted at the wellhead. The Vertical Field Anchor (VFA) and its surrounding LRZs are buried in the soil. Initially, there were concerns about how these disparate ground-level devices would communicate through a dense, wet corn canopy.
 
-* **PFA Specification:** The PFA V1.9 requires a "2.4GHz High-Gain Link" to communicate directly with the field's VFA coordinator.1  
-* **VFA Specification:** The VFA V1.21 BOM and radio logic contain absolutely no 2.4GHz transceivers.1  
-* **The Disconnect:** Without a 2.4GHz receiver on the VFA, the PFA is isolated. The VFA hardware must be updated to include a 2.4GHz/BLE module.
+* **The PMT Solution:** The system solves this by elevating the Pivot Motion Tracker (PMT) 10-15 feet above the ground on the pivot span, acting as an \"umbrella\" receiver.
+* **Routing:** The VFA, LRZs, and the PFA all report upward directly to the PMT. The PMT then acts as the central \"Field Hub\", packaging the data and sending it down the line to the nearest active District Hub (DHU).
+* **Resolution:** This elevated topology entirely physically circumvents the dense water canopy that attenuates ground-level signals, ensuring a constant line of sight between the field sensors and the PMT field hub.
 
 ### **3.3 The LRZ Sub-Node Architecture: The FHSS Advantage**
 
@@ -222,7 +222,7 @@ To further position the FarmSense architecture for premier global infrastructure
 The FarmSense platform represents a highly sophisticated synthesis of edge computing and agronomic science. To secure the non-dilutive global funding targets and successfully intervene in the June 2026 Water Court trial, the following tactical improvements must be executed:
 
 1. **Execute the 2-Field Pilot Strategy:** Immediately build the minimum viable hardware stack (2 PMTs, 2 PFAs, 2 VFAs, and 16-20 LRZs) and deploy it at the CSU SLV Research Center. This circumvents the logistical "Blitz" bottleneck and provides independent academic validation of the MAD framework.  
-2. **Rectify Telemetry Specifications:** The engineering schematics must be overhauled prior to pilot manufacturing. The DHU (V1.1) must be upgraded to include an industrial 900MHz LoRaWAN gateway. Similarly, the VFA (V1.21) BOM must be updated to include a 2.4GHz transceiver to communicate with the PFA safety nodes.  
+2. **Rectify Telemetry Specifications:** The engineering schematics must be overhauled prior to pilot manufacturing. The DHU (V1.1) must be upgraded to include an industrial 900MHz LoRaWAN gateway. Similarly, the PMT must be explicitly defined as the primary 2.4GHz receiver for the PFA safety nodes, removing that processing burden from the ground-level VFAs.  
 3. **Target the DoD ESTCP Deadline:** Leverage the system's dual-use LPI/LPD architecture to submit a pre-proposal for the DoD's Environmental Security Technology Certification Program (ESTCP) "Water Resilience on DoD Installations" grant by the March 26, 2026 deadline.  
 4. **Implement Software-Driven Feature Expansions:** Deploy Current Harmonic Analysis to the PFA edge processors for predictive maintenance, and initiate the Dual-Layer Spatial Privacy architecture to ensure Colorado Privacy Act compliance while protecting the algorithmic ledger.  
 5. **Validate Thermodynamic Hardware:** Publish thermal loss calculations proving the 40Ah LiFePO4 battery can sustainably run the 5W Kapton heater during \-30°F events without depleting the system's power. Integrate a Hybrid Pulse Capacitor (HPC) with the PMT's LiSOCl2 battery to ensure reliable GNSS "Warm Starts" in extreme cold.  
@@ -1650,7 +1650,7 @@ The hydraulic flow stack is the primary engine for water rights verification and
 ## 4. Edge Processing & Winter Hibernation Logic
 
 * **Cortex-M4 Processing Sled**: Features an ATSAMD51 processing sled (sourced via Digi-Key). It buffers 1-second interval flow data and GNSS coordinates, applying a localized Kalman Filter to the IMU data to smooth out the intense vibration noise of the pivot spans.
-* **Comms (The Field Hub)**: Features a dual-radio stack. Transmits and receives via a High-Gain 900MHz FHSS antenna to act as the primary "listening post" for the field's LRZ & VFA mesh. It then intercepts this data, bundles it with its own 2.4GHz/BLE hydraulic payload, and blasts the entire field's encrypted payload via a 900MHz LoRaWAN transceiver to the District Hub (DHU).
+* **Comms (The Field Hub)**: Features a dual-radio stack. Transmits and receives via a High-Gain 900MHz FHSS antenna to act as the primary \"listening post\" for the field's LRZ & VFA mesh. It then intercepts this data, bundles it with its own 2.4GHz/BLE hydraulic payload received from the PFA, and blasts the entire field's encrypted payload via a 900MHz LoRaWAN transceiver to the District Hub (DHU).
 
 ### Empirical Bayesian Kriging (Edge-EBK) & VRI Failover Operations
 
@@ -2133,7 +2133,7 @@ By stripping the VFA down to pure routing and encryption functions, we have inte
 * **Interference Mitigation & FHSS**: The VFA utilizes a highly sensitive onboard FHSS mesh receiver to intercept the transmit-only "dumb" chirps from its fleet of 15-acre LRZs.
 * **Edge Decryption & Aggregation**: As the VFA catches these asynchronous chirps, it performs localized Edge Decryption, aggregating the raw electrical counts from the 15-acre lateral nodes with its own high-fidelity deep-soil data.
 * **AES-256 Security Architecture**: The aggregated payload is immediately re-encrypted using military-grade AES-256 protocols before leaving the VFA.
-* **Local 900MHz Uplink & 2.4GHz Transceiver**: The VFA utilizes a high-gain 900MHz LoRa uplink to bounce the secure payload directly to the District Farm Hub. It also incorporates a 2.4GHz/BLE Transceiver module to communicate with field safety nodes.
+* **Local 900MHz Uplink**: The VFA utilizes a high-gain 900MHz LoRa uplink to bounce the secure payload directly to the elevated PMT Field Hub.
 
 ## 3. The "Proxy Method" Sensor Array (48-Inch / 48U Sequence)
 
@@ -2598,7 +2598,8 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### Priority 1: Backend Deployment (Days 1-3)
 
-- [ ] Install Python dependencies
+* [ ] Install Python dependencies
+
 * [ ] Set up PostgreSQL database
 * [ ] Run database migrations
 * [ ] Start FastAPI backend
@@ -2607,7 +2608,8 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### Priority 2: Database Setup (Days 2-4)
 
-- [ ] Create PostgreSQL database
+* [ ] Create PostgreSQL database
+
 * [ ] Enable PostGIS extension
 * [ ] Run schema migrations
 * [ ] Seed test data
@@ -2615,14 +2617,16 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### Priority 3: Frontend Deployment (Days 3-5)
 
-- [ ] Build farmer-dashboard
+* [ ] Build farmer-dashboard
+
 * [ ] Deploy via nginx
 * [ ] Test farmer-dashboard loads
 * [ ] Verify API connection from frontend
 
 ### Priority 4: Hardware Documentation (Days 5-7)
 
-- [ ] Finalize PMT BOM with costs
+* [ ] Finalize PMT BOM with costs
+
 * [ ] Finalize VFA BOM with costs
 * [ ] Finalize LRZ BOM with costs
 * [ ] Finalize PFA BOM with costs
@@ -2630,7 +2634,8 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### Priority 5: Grant Preparation (Parallel)
 
-- [ ] Draft ESTCP pre-proposal outline
+* [ ] Draft ESTCP pre-proposal outline
+
 * [ ] Gather pilot metrics
 * [ ] Prepare budget justification
 
@@ -3201,11 +3206,13 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 ## Architecture Principle: Anti-AI / Deterministic
 
 FarmSense uses **deterministic, judgment-based algorithms** - NOT ML/AI black boxes.
+
 * Water courts don't accept AI decisions
 * All logic must be explainable and auditable
 * See `file 'farmsenseOS/GENUINELY_NOVEL_IP.md'` for defensible moats
 
 **Future AI**: Post-beta, sandboxed Digital Twin simulations only.
+
 * See `file 'farmsenseOS/AI_INTEGRATION_ROADMAP.md'`
 * **DO NOT ACT** until user says "begin to integrate AI per our previous discussions"
 
@@ -3237,6 +3244,7 @@ FarmSense as sovereign water infrastructure—legally recognized, cryptographica
 ## Dependency Reduction
 
 See `file 'farmsenseOS/DEPENDENCY_REDUCTION.md'` for full plan.
+
 * Phase 1 ✅: Removed numpy, pandas, scipy, scikit-learn, redis, celery, requests
 * Next: Phase 3 (clsx/tailwind-merge replacement)
 
@@ -3245,19 +3253,22 @@ See `file 'farmsenseOS/DEPENDENCY_REDUCTION.md'` for full plan.
 ## Project Overview
 
 **FarmSense** is a deterministic precision agriculture operating system designed for:
+
 * **Agronomic Output**: 20-30% reduction in irrigation water, 18-22% increase in ROI
 * **Economic Output**: Continuous Cost-Benefit Analysis preventing water deployment when costs exceed yield revenue
 * **Legal Output**: Cryptographically secure "Water Ledger" valid in State Water Courts
 
 ### Core Philosophy
 
-- **Deterministic, judgment-based algorithms** — NOT ML/AI black boxes
+* **Deterministic, judgment-based algorithms** — NOT ML/AI black boxes
+
 * All logic must be explainable and auditable for water court admissibility
 * Future AI: Post-beta, sandboxed Digital Twin simulations only
 
 ### Current Deployment Target
 
 **2-Field Pilot at CSU San Luis Valley (SLV) Research Center, Center, Colorado**
+
 * Purpose: Generate empirical Gold Standard data for June 2026 Subdistrict 1 Water Court
 * Hardware: 2 PMTs, 2 PFAs, 2 VFAs, 16-20 LRZs
 * Grant deadline: DoD ESTCP pre-proposal (March 26, 2026)
@@ -3461,8 +3472,10 @@ reference/
 
 ### Completed ✅
 
-- [x] Rectify DHU BOM for 900MHz LoRaWAN gateway
-* [x] Rectify VFA BOM for 2.4GHz/BLE module
+* [x] Rectify DHU BOM for 900MHz LoRaWAN gateway
+
+* [x] Rectify architecture so PFA communicates with PMT (Not VFA)
+
 * [x] Validate Thermal Loss capacity for 5W Kapton heater
 * [x] Integrate HPC with PMT LiSOCl2 battery
 * [x] Treat Polycarbonate with fluoropolymer coatings
@@ -3471,7 +3484,8 @@ reference/
 
 ### Pending 🔄
 
-- [ ] Implement PBFT Alliance-Chain Blockchain in DHU
+* [ ] Implement PBFT Alliance-Chain Blockchain in DHU
+
 * [ ] Build DoD Federated Data Fabric Adapters
 * [ ] Implement Dual-Layer Spatial Privacy
 * [ ] Develop automated GLOBALG.A.P. compliance reports
@@ -3509,6 +3523,7 @@ reference/
 ## Hardware BOM Summary
 
 **Minimum Viable Hardware Stack (2-Field Pilot):**
+
 * 2x PMT (Pivot Motion Tracker)
 * 2x PFA (Pressure & Flow Anchor)
 * 2x VFA (Vertical Field Anchor)
@@ -8228,7 +8243,8 @@ Connect and calibrate external laboratory instruments and measurement systems to
 
 ### What Flow Does Well
 
-- ✅ Cinematic single-shot landscapes
+* ✅ Cinematic single-shot landscapes
+
 * ✅ Aerial perspectives (simulate with camera movement)
 * ✅ Environmental transformations (dry → wet, bare → green)
 * ✅ Character consistency via "Ingredients" feature
@@ -8238,7 +8254,8 @@ Connect and calibrate external laboratory instruments and measurement systems to
 
 ### What Flow Struggles With
 
-- ❌ Complex data visualizations (charts, graphs, numbers)
+* ❌ Complex data visualizations (charts, graphs, numbers)
+
 * ❌ Text overlays (add in post-production)
 * ❌ Voice-over (Flow audio is ambient only)
 * ❌ Multiple interacting characters
@@ -8267,12 +8284,14 @@ Use Flow's "Ingredients to Video" feature:
 
 ### Aspect Ratio
 
-- All prompts set to 16:9 (standard widescreen)
+* All prompts set to 16:9 (standard widescreen)
+
 * For social media variations, regenerate at 9:16 or 1:1
 
 ### Quality Settings
 
-- Use "Highest Quality" for hero shots
+* Use "Highest Quality" for hero shots
+
 * Use "Quality" for background/b-roll clips
 * Use "Fast" only for rapid iteration/testing
 
@@ -8283,35 +8302,42 @@ Use Flow's "Ingredients to Video" feature:
 For each video, plan to add:
 
 **Video 1 (General Public):**
+
 * Text: "30% less water. 22% more yield."
 * Music: Hopeful, building
 
 **Video 2 (Grant Writers):**
+
 * Title cards: "The Challenge", "The Solution", "The Vision"
 * Data overlays: "700,000 acre-feet deficit", "117,000 acres"
 * Voice-over: Technical narration
 
 **Video 3 (Investors):**
+
 * Text: Market size, revenue tiers, growth timeline
 * Charts: Generate separately in motion graphics tool
 * Music: Confident, forward-looking
 
 **Video 4 (Farmers):**
+
 * Voice-over: Relatable farmer narrative
 * Text: "28% less water. 15% higher yield."
 * Music: Acoustic, grounded
 
 **Video 5 (Researchers):**
+
 * Diagrams: Interpolation methodology
 * Text: Technical annotations
 * Music: Minimal, serious
 
 **Video 6 (Regulators):**
+
 * Text: "Cryptographic Chain of Custody", "Water Court Admissible"
 * Voice-over: Institutional authority
 * Music: Minimal, respectful
 
 **Video 7 (Overview):**
+
 * Full voice-over script
 * Text: Vision statement at end
 * Music: Orchestral, inspiring

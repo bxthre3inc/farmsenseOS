@@ -3,7 +3,7 @@
 ## Active Hardware & Architecture Remediation
 
 - [x] [x] Rectify District Hub (DHU) BOM to include 900MHz LoRaWAN gateway.
-- [x] [x] Rectify Vertical Field Anchor (VFA) BOM to include 2.4GHz/BLE module for PFA communication.
+- [x] [x] Rectify Pivot Motion Tracker (PMT) BOM to include 2.4GHz/BLE module for PFA communication.
 - [x] [x] Validate Thermal Loss capacity for 5W Kapton heater inside the PFA/DHU (-30°F extreme weather events).
 - [x] [x] Integrate Hybrid Pulse Capacitor (HPC) with the PMT's LiSOCl2 battery to bypass spring passivation.
 - [x] [x] Treat Polycarbonate enclosures with fluoropolymer coatings (PVDF) or UV inhibitors to prevent radiation embrittlement at 8,000ft altitude.

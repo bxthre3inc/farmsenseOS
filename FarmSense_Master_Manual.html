@@ -540,12 +540,12 @@
 <li><strong>The Disconnect:</strong> The proprietary Ubiquiti LTU 5GHz architecture cannot receive 900MHz LoRa modulations.1  </li>
 <li><strong>Resolution:</strong> Correcting this by upgrading the VFA to 5GHz is not agronomically viable. High-frequency 5GHz waves suffer from severe attenuation and multipath interference when attempting to penetrate dense, water-rich foliage. The DHU BOM must be immediately revised to include an enterprise-grade 900MHz LoRaWAN gateway alongside the existing Ubiquiti array.</li>
 </ul>
-<h3 id="32-the-pfa-to-vfa-communication-gap-24ghz-omission"><strong>3.2 The PFA-to-VFA Communication Gap (2.4GHz Omission)</strong></h3>
-<p>The Pressure &amp; Flow Anchor (PFA) is the critical safety actuator mounted at the wellhead.1</p>
+<h3 id="32-the-pmt-field-hub-architecture-telemetry-coordination"><strong>3.2 The PMT Field Hub Architecture (Telemetry Coordination)</strong></h3>
+<p>The Pressure &amp; Flow Anchor (PFA) is the critical safety actuator mounted at the wellhead. The Vertical Field Anchor (VFA) and its surrounding LRZs are buried in the soil. Initially, there were concerns about how these disparate ground-level devices would communicate through a dense, wet corn canopy.</p>
 <ul>
-<li><strong>PFA Specification:</strong> The PFA V1.9 requires a "2.4GHz High-Gain Link" to communicate directly with the field's VFA coordinator.1  </li>
-<li><strong>VFA Specification:</strong> The VFA V1.21 BOM and radio logic contain absolutely no 2.4GHz transceivers.1  </li>
-<li><strong>The Disconnect:</strong> Without a 2.4GHz receiver on the VFA, the PFA is isolated. The VFA hardware must be updated to include a 2.4GHz/BLE module.</li>
+<li><strong>The PMT Solution:</strong> The system solves this by elevating the Pivot Motion Tracker (PMT) 10-15 feet above the ground on the pivot span, acting as an \"umbrella\" receiver.</li>
+<li><strong>Routing:</strong> The VFA, LRZs, and the PFA all report upward directly to the PMT. The PMT then acts as the central \"Field Hub\", packaging the data and sending it down the line to the nearest active District Hub (DHU).</li>
+<li><strong>Resolution:</strong> This elevated topology entirely physically circumvents the dense water canopy that attenuates ground-level signals, ensuring a constant line of sight between the field sensors and the PMT field hub.</li>
 </ul>
 <h3 id="33-the-lrz-sub-node-architecture-the-fhss-advantage"><strong>3.3 The LRZ Sub-Node Architecture: The FHSS Advantage</strong></h3>
 <p>In contrast to the backhaul failures, the communication protocol between the Lateral Root-Zone (LRZ) scouts and the VFA represents state-of-the-art IoT engineering.</p>
@@ -641,7 +641,7 @@
 <p>The FarmSense platform represents a highly sophisticated synthesis of edge computing and agronomic science. To secure the non-dilutive global funding targets and successfully intervene in the June 2026 Water Court trial, the following tactical improvements must be executed:</p>
 <ol>
 <li><strong>Execute the 2-Field Pilot Strategy:</strong> Immediately build the minimum viable hardware stack (2 PMTs, 2 PFAs, 2 VFAs, and 16-20 LRZs) and deploy it at the CSU SLV Research Center. This circumvents the logistical "Blitz" bottleneck and provides independent academic validation of the MAD framework.  </li>
-<li><strong>Rectify Telemetry Specifications:</strong> The engineering schematics must be overhauled prior to pilot manufacturing. The DHU (V1.1) must be upgraded to include an industrial 900MHz LoRaWAN gateway. Similarly, the VFA (V1.21) BOM must be updated to include a 2.4GHz transceiver to communicate with the PFA safety nodes.  </li>
+<li><strong>Rectify Telemetry Specifications:</strong> The engineering schematics must be overhauled prior to pilot manufacturing. The DHU (V1.1) must be upgraded to include an industrial 900MHz LoRaWAN gateway. Similarly, the PMT must be explicitly defined as the primary 2.4GHz receiver for the PFA safety nodes, removing that processing burden from the ground-level VFAs.  </li>
 <li><strong>Target the DoD ESTCP Deadline:</strong> Leverage the system's dual-use LPI/LPD architecture to submit a pre-proposal for the DoD's Environmental Security Technology Certification Program (ESTCP) "Water Resilience on DoD Installations" grant by the March 26, 2026 deadline.  </li>
 <li><strong>Implement Software-Driven Feature Expansions:</strong> Deploy Current Harmonic Analysis to the PFA edge processors for predictive maintenance, and initiate the Dual-Layer Spatial Privacy architecture to ensure Colorado Privacy Act compliance while protecting the algorithmic ledger.  </li>
 <li><strong>Validate Thermodynamic Hardware:</strong> Publish thermal loss calculations proving the 40Ah LiFePO4 battery can sustainably run the 5W Kapton heater during -30°F events without depleting the system's power. Integrate a Hybrid Pulse Capacitor (HPC) with the PMT's LiSOCl2 battery to ensure reliable GNSS "Warm Starts" in extreme cold.  </li>
@@ -690,7 +690,7 @@
 <p>B. Cryptographic Audit Trail &amp; The Forensic Water Record (Year 2–3)</p>
 <p>Hardware Signing: Every data packet from a Vertical Field Anchor (VFA) or Pump Sentry</p>
 <p>(PFA) is cryptographically signed at the hardware level using Secure Element (SE) chips.</p>
-<p>https://gemini.google.com/app/625852be44d61d17?is_sa=1&amp;is_sa=1&amp;android-min-version=301356232&amp;ios-min-version=322.0&amp;campaign_id=bkws&amp;… 1/3</p>
+<p><a href="https://gemini.google.com/app/625852be44d61d17?is_sa=1&amp;is_sa=1&amp;android-min-version=301356232&amp;ios-min-version=322.0&amp;campaign_id=bkws&amp;…">https://gemini.google.com/app/625852be44d61d17?is_sa=1&amp;is_sa=1&amp;android-min-version=301356232&amp;ios-min-version=322.0&amp;campaign_id=bkws&amp;…</a> 1/3</p>
 <p>2/16/26, 4:13 PM Google Gemini</p>
 <p>This ensures that the data is untampered from the moment it leaves the sensor, effectively</p>
 <p>"fingerprinting" every gallon of water measured.</p>
@@ -743,7 +743,7 @@ Treaties</p>
 <ol>
 <li>Technical Architecture for Sovereignty</li>
 </ol>
-<p>https://gemini.google.com/app/625852be44d61d17?is_sa=1&amp;is_sa=1&amp;android-min-version=301356232&amp;ios-min-version=322.0&amp;campaign_id=bkws&amp;… 2/3</p>
+<p><a href="https://gemini.google.com/app/625852be44d61d17?is_sa=1&amp;is_sa=1&amp;android-min-version=301356232&amp;ios-min-version=322.0&amp;campaign_id=bkws&amp;…">https://gemini.google.com/app/625852be44d61d17?is_sa=1&amp;is_sa=1&amp;android-min-version=301356232&amp;ios-min-version=322.0&amp;campaign_id=bkws&amp;…</a> 2/3</p>
 <p>2/16/26, 4:13 PM Google Gemini</p>
 <p>The Librarian/Scientist Split: By keeping storage (Oracle) and math (Zo) separate, national</p>
 <p>governments can audit the science without compromising the security of the data vault. If</p>
@@ -771,7 +771,7 @@ Treaties</p>
 <p>exports; international buyers will demand a "FarmSense Audit" to prove that the crops were</p>
 <p>grown within sustainable water envelopes.</p>
 <p>A th i d f l t t t i i l t ti</p>
-<p>https://gemini.google.com/app/625852be44d61d17?is_sa=1&amp;is_sa=1&amp;android-min-version=301356232&amp;ios-min-version=322.0&amp;campaign_id=bkws&amp;… 3/3</p>
+<p><a href="https://gemini.google.com/app/625852be44d61d17?is_sa=1&amp;is_sa=1&amp;android-min-version=301356232&amp;ios-min-version=322.0&amp;campaign_id=bkws&amp;…">https://gemini.google.com/app/625852be44d61d17?is_sa=1&amp;is_sa=1&amp;android-min-version=301356232&amp;ios-min-version=322.0&amp;campaign_id=bkws&amp;…</a> 3/3</p>
 <div style="page-break-after: always;"></div>
 
 <p>2/22/26, 6:05 AM Google Gemini</p>
@@ -805,7 +805,7 @@ Treaties</p>
 <p>pilot is intended to serve as a blueprint for the entire Rio Grande Basin.</p>
 <h2 id="2-system-architecture-component-hierarchy">2. System Architecture &amp; Component Hierarchy</h2>
 <p>A. Backend Intelligence (Cloud Layer)</p>
-<p>https://gemini.google.com/app/9fe738dfc0a70bee 1/5</p>
+<p><a href="https://gemini.google.com/app/9fe738dfc0a70bee">https://gemini.google.com/app/9fe738dfc0a70bee</a> 1/5</p>
 <p>2/22/26, 6:05 AM Google Gemini</p>
 <p>Map Servers (Distributed Data Library): These serve as the system’s "Long-Term</p>
 <p>Memory." They consist of distributed databases storing multi-temporal, multi-spectral</p>
@@ -843,7 +843,7 @@ Treaties</p>
 <p>connection is re-established.</p>
 <p>Field Relays: Signal aggregators that utilize low-power, long-range (LoRa) radio protocols</p>
 <p>to "wake up" sensors, collect their data, and hop the signal back to the District Hub. This</p>
-<p>https://gemini.google.com/app/9fe738dfc0a70bee 2/5</p>
+<p><a href="https://gemini.google.com/app/9fe738dfc0a70bee">https://gemini.google.com/app/9fe738dfc0a70bee</a> 2/5</p>
 <p>2/22/26, 6:05 AM Google Gemini</p>
 <p>multi-hop architecture allows the system to cover massive circular fields (120+ acres)</p>
 <p>without requiring high-power batteries in the sensors themselves.</p>
@@ -879,7 +879,7 @@ Treaties</p>
 <p>maximizing water efficiency.</p>
 <h2 id="4-operational-logic-data-integration">4. Operational Logic &amp; Data Integration</h2>
 <p>A. Data Sources</p>
-<p>https://gemini.google.com/app/9fe738dfc0a70bee 3/5</p>
+<p><a href="https://gemini.google.com/app/9fe738dfc0a70bee">https://gemini.google.com/app/9fe738dfc0a70bee</a> 3/5</p>
 <p>2/22/26, 6:05 AM Google Gemini</p>
 <p>Satellite APIs: Automated pipelines for Sentinel-2 and Landsat imagery, providing 10m to</p>
 <p>80m resolution multi-spectral data for biomass monitoring.</p>
@@ -925,7 +925,7 @@ Treaties</p>
 <p>construction, assembly, and deployment of the sensor hardware for the 2-field CSU pilot.</p>
 <p>This hardware procurement is the critical bottleneck preventing the transition from a digital</p>
 <p>framework to a physical, ground-truth validation system.</p>
-<p>https://gemini.google.com/app/9fe738dfc0a70bee 4/5</p>
+<p><a href="https://gemini.google.com/app/9fe738dfc0a70bee">https://gemini.google.com/app/9fe738dfc0a70bee</a> 4/5</p>
 <p>2/22/26, 6:05 AM Google Gemini</p>
 <p>Commercial Model: Data-as-a-Service (DaaS):</p>
 <p>Free (50m): Community-level insights for general trend monitoring.</p>
@@ -951,7 +951,7 @@ Treaties</p>
 <p>Scaling Risk: Computational Overhead: Maintaining a 1-meter resolution (Enterprise</p>
 <p>level) across the entirety of Subdistrict 1 (166,000 acres) will require a massive increase in</p>
 <p>parallel processing within the Core Compute Server. Researchers must evaluate the trade</p>
-<p>https://gemini.google.com/app/9fe738dfc0a70bee 5/5</p>
+<p><a href="https://gemini.google.com/app/9fe738dfc0a70bee">https://gemini.google.com/app/9fe738dfc0a70bee</a> 5/5</p>
 <div style="page-break-after: always;"></div>
 
 <h1 id="subdistrict-1-market-intelligence-20242025">Subdistrict 1 Market Intelligence: 2024–2025</h1>
@@ -1031,10 +1031,12 @@ Treaties</p>
 </ul>
 <hr />
 <h2 id="4-crop-mix">4. Crop Mix</h2>
-<p>Approximately <strong>85%</strong> of Subdistrict 1 fields grow three primary crops:
-* <strong>Potatoes</strong> (High ET demand: 4.5 – 7.7 mm/day)
-* <strong>Barley</strong> (Primary supply to Coors/Molson Brewery, Alamosa)
-* <strong>Alfalfa</strong> (Extremely high water use; primary fallowing target)</p>
+<p>Approximately <strong>85%</strong> of Subdistrict 1 fields grow three primary crops:</p>
+<ul>
+<li><strong>Potatoes</strong> (High ET demand: 4.5 – 7.7 mm/day)</li>
+<li><strong>Barley</strong> (Primary supply to Coors/Molson Brewery, Alamosa)</li>
+<li><strong>Alfalfa</strong> (Extremely high water use; primary fallowing target)</li>
+</ul>
 <hr />
 <h2 id="5-farmsense-tam-calculations-subdistrict-1">5. FarmSense TAM Calculations (Subdistrict 1)</h2>
 <p>Using the conservative pivot estimate of <strong>1,270 pivots</strong> (midpoint of 1,250–1,300 range):</p>
@@ -1065,11 +1067,9 @@ Treaties</p>
 <h3 id="bureau-of-reclamation-bor-watersmart-grants">Bureau of Reclamation (BoR): WaterSMART Grants</h3>
 <ul>
 <li><strong>Focus:</strong> Securing and managing water supplies in the American West.</li>
-<li><strong>Programs of Interest:</strong><ul>
+<li><strong>Programs of Interest:</strong></li>
 <li><strong>Applied Science Grants:</strong> (Up to $300K) Funds tools and modeling for water managers.</li>
 <li><strong>Water and Energy Efficiency Grants:</strong> Funds projects conserving water.</li>
-</ul>
-</li>
 </ul>
 <h3 id="dod-estcp-installation-energy-and-water-iew">DoD ESTCP: Installation Energy and Water (IEW)</h3>
 <ul>
@@ -1136,7 +1136,7 @@ Treaties</p>
 <p>the existence of an "unknown problem" via the 1m aerial ground-truth, the "Resolution</p>
 <p>Pop" converts the fear of missing out (FOMO) into an Enterprise-tier subscription upgrade.</p>
 <h2 id="1-phased-mobilization-hardware-selection">1. Phased Mobilization &amp; Hardware Selection</h2>
-<p>https://gemini.google.com/app/7d9f7fc3aa518d8b 1/5</p>
+<p><a href="https://gemini.google.com/app/7d9f7fc3aa518d8b">https://gemini.google.com/app/7d9f7fc3aa518d8b</a> 1/5</p>
 <p>2/22/26, 6:11 AM Google Gemini</p>
 <p>The fleet scales in three distinct phases designed to align with Subdistrict 1's adoption curve,</p>
 <p>regulatory milestones, and seasonal cash flow requirements.</p>
@@ -1172,7 +1172,7 @@ Treaties</p>
 <p>Role: Temporal Baseline Creation and Regional Trend Analysis.</p>
 <p>Capability: 90-minute endurance allows for mapping 1,200+ acres per flight at 400ft</p>
 <p>AGL.</p>
-<p>https://gemini.google.com/app/7d9f7fc3aa518d8b 2/5</p>
+<p><a href="https://gemini.google.com/app/7d9f7fc3aa518d8b">https://gemini.google.com/app/7d9f7fc3aa518d8b</a> 2/5</p>
 <p>2/22/26, 6:11 AM Google Gemini</p>
 <p>Logic: These units fly the entire subdistrict every 30 days to establish the "Seasonal</p>
 <p>Baseline." They detect regional "Anomalies"—such as a subdistrict-wide dip in NDRE</p>
@@ -1205,7 +1205,7 @@ Treaties</p>
 <p>Hardware CAPEX 4x eBee Ag + 7x Mavic 3M + Spares $110,000</p>
 <p>Support CAPEX RTK Ground Stations + Field Vehicles $26,500</p>
 <p>Technical Labor 3 FTE (Lead Pilot + 2 Field Technicians) $280,000 (Annual)</p>
-<p>https://gemini.google.com/app/7d9f7fc3aa518d8b 3/5</p>
+<p><a href="https://gemini.google.com/app/7d9f7fc3aa518d8b">https://gemini.google.com/app/7d9f7fc3aa518d8b</a> 3/5</p>
 <p>2/22/26, 6:11 AM Google Gemini</p>
 <p>Maintenance Hull Insurance + Component Overhauls $67,000 (Annual)</p>
 <p>Cloud Compute Zo Server Multispectral Processing &amp; Storage $32,500 (Annual)</p>
@@ -1235,9 +1235,9 @@ Treaties</p>
 <p>Map Manager, ensuring that only paid subscribers have access to their specific</p>
 <p>multispectral insights, while ensuring the "Digital Water Ledger" remains a secure, private</p>
 <p>asset for the district.</p>
-<p>https://gemini.google.com/app/7d9f7fc3aa518d8b 4/5</p>
+<p><a href="https://gemini.google.com/app/7d9f7fc3aa518d8b">https://gemini.google.com/app/7d9f7fc3aa518d8b</a> 4/5</p>
 <p>2/22/26, 6:11 AM Google Gemini</p>
-<p>https://gemini.google.com/app/7d9f7fc3aa518d8b 5/5</p>
+<p><a href="https://gemini.google.com/app/7d9f7fc3aa518d8b">https://gemini.google.com/app/7d9f7fc3aa518d8b</a> 5/5</p>
 <div style="page-break-after: always;"></div>
 
 <p>2/21/26, 1:19 AM Google Gemini</p>
@@ -1273,7 +1273,7 @@ Treaties</p>
 <p>effect of the swing-arm tires independently of the main span, identifying structural stress</p>
 <p>caused by mud or terrain slope in the corners.</p>
 <h2 id="2-advanced-hydraulic-auditing-end-gun-solenoid-pulse">2. Advanced Hydraulic Auditing (End-Gun &amp; Solenoid Pulse)</h2>
-<p>https://gemini.google.com/app/7d9f7fc3aa518d8b 1/4</p>
+<p><a href="https://gemini.google.com/app/7d9f7fc3aa518d8b">https://gemini.google.com/app/7d9f7fc3aa518d8b</a> 1/4</p>
 <p>2/21/26, 1:19 AM Google Gemini</p>
 <p>Corner spans often utilize high-pressure "End-Guns" that pulse on and off via solenoids as the</p>
 <p>arm swings. This creates massive pressure spikes and flow variability that a single meter cannot</p>
@@ -1310,7 +1310,7 @@ Treaties</p>
 <p>Enterprise Hook: The UI showcases the real-time angular movement of the swing arm</p>
 <p>(audited by the SAT) and offers a preview of the 1m-resolution "Application Map." This</p>
 <p>proves to the farmer that they are wasting water in the corners or missing critical zones</p>
-<p>https://gemini.google.com/app/7d9f7fc3aa518d8b 2/4</p>
+<p><a href="https://gemini.google.com/app/7d9f7fc3aa518d8b">https://gemini.google.com/app/7d9f7fc3aa518d8b</a> 2/4</p>
 <p>2/21/26, 1:19 AM Google Gemini</p>
 <p>due to end-gun malfunctions, providing a high-conversion incentive to upgrade to the</p>
 <p>Enterprise tier to unlock the full hydraulic audit.</p>
@@ -1354,7 +1354,7 @@ Meter</p>
 (Dual PMT)</p>
 <p>$2.00 $4.00</p>
 <p>$2,200.00</p>
-<p>https://gemini.google.com/app/7d9f7fc3aa518d8b 3/4</p>
+<p><a href="https://gemini.google.com/app/7d9f7fc3aa518d8b">https://gemini.google.com/app/7d9f7fc3aa518d8b</a> 3/4</p>
 <p>2/21/26, 1:19 AM Google Gemini</p>
 <p>Total CSA Project Financials (Per Corner Pivot):</p>
 <p>Hardware Total: $2,200.00</p>
@@ -1373,7 +1373,7 @@ Meter</p>
 <p>"Swing Worksheet." If the SAT detects that the swing arm is not extending fully, it informs</p>
 <p>the Zo Scientist, who then adjusts the virtual sensor grid values for the corner tiles,</p>
 <p>i th 1 E t i i th d fi iti "G d T th "</p>
-<p>https://gemini.google.com/app/7d9f7fc3aa518d8b 4/4</p>
+<p><a href="https://gemini.google.com/app/7d9f7fc3aa518d8b">https://gemini.google.com/app/7d9f7fc3aa518d8b</a> 4/4</p>
 <div style="page-break-after: always;"></div>
 
 <h1 id="master-specification-district-hub-dhu-v11">Master Specification: District Hub (DHU) V1.1</h1>
@@ -1710,7 +1710,7 @@ Meter</p>
 <h2 id="4-edge-processing-winter-hibernation-logic">4. Edge Processing &amp; Winter Hibernation Logic</h2>
 <ul>
 <li><strong>Cortex-M4 Processing Sled</strong>: Features an ATSAMD51 processing sled (sourced via Digi-Key). It buffers 1-second interval flow data and GNSS coordinates, applying a localized Kalman Filter to the IMU data to smooth out the intense vibration noise of the pivot spans.</li>
-<li><strong>Comms (The Field Hub)</strong>: Features a dual-radio stack. Transmits and receives via a High-Gain 900MHz FHSS antenna to act as the primary "listening post" for the field's LRZ &amp; VFA mesh. It then intercepts this data, bundles it with its own 2.4GHz/BLE hydraulic payload, and blasts the entire field's encrypted payload via a 900MHz LoRaWAN transceiver to the District Hub (DHU).</li>
+<li><strong>Comms (The Field Hub)</strong>: Features a dual-radio stack. Transmits and receives via a High-Gain 900MHz FHSS antenna to act as the primary \"listening post\" for the field's LRZ &amp; VFA mesh. It then intercepts this data, bundles it with its own 2.4GHz/BLE hydraulic payload received from the PFA, and blasts the entire field's encrypted payload via a 900MHz LoRaWAN transceiver to the District Hub (DHU).</li>
 </ul>
 <h3 id="empirical-bayesian-kriging-edge-ebk-vri-failover-operations">Empirical Bayesian Kriging (Edge-EBK) &amp; VRI Failover Operations</h3>
 <p>The PMT acts as an <strong>Autonomous Compute Engine</strong> continuously. Utilizing the ATSAMD51's 120MHz hardware Floating-Point Unit (FPU), the PMT intercepts the mesh data points and calculates a 50m-resolution spatial probability grid (a 16x16 matrix across the 160-acre quarter section) regardless of DHU connectivity. This native processing enables the 20m and 10m grids to be processed at the DHU, and the highly complex 1m grids to be processed downstream at the RSS or Cloud levels.</p>
@@ -2181,7 +2181,7 @@ Buffer</p>
 <li><strong>Interference Mitigation &amp; FHSS</strong>: The VFA utilizes a highly sensitive onboard FHSS mesh receiver to intercept the transmit-only "dumb" chirps from its fleet of 15-acre LRZs.</li>
 <li><strong>Edge Decryption &amp; Aggregation</strong>: As the VFA catches these asynchronous chirps, it performs localized Edge Decryption, aggregating the raw electrical counts from the 15-acre lateral nodes with its own high-fidelity deep-soil data.</li>
 <li><strong>AES-256 Security Architecture</strong>: The aggregated payload is immediately re-encrypted using military-grade AES-256 protocols before leaving the VFA.</li>
-<li><strong>Local 900MHz Uplink &amp; 2.4GHz Transceiver</strong>: The VFA utilizes a high-gain 900MHz LoRa uplink to bounce the secure payload directly to the District Farm Hub. It also incorporates a 2.4GHz/BLE Transceiver module to communicate with field safety nodes.</li>
+<li><strong>Local 900MHz Uplink</strong>: The VFA utilizes a high-gain 900MHz LoRa uplink to bounce the secure payload directly to the elevated PMT Field Hub.</li>
 </ul>
 <h2 id="3-the-proxy-method-sensor-array-48-inch-48u-sequence">3. The "Proxy Method" Sensor Array (48-Inch / 48U Sequence)</h2>
 <p>The VFA employs advanced non-contact sensing, shooting high-frequency dielectric fields directly through the removable 50mm sled wall, across the nitrogen gap, and straight through the permanent HDPE shell.</p>
@@ -2397,7 +2397,7 @@ Buffer</p>
 </ul>
 <hr />
 <h2 id="4-phase-2-regulatory-capture-q3-q4-2026">4. Phase 2: Regulatory Capture (Q3-Q4 2026)</h2>
-<p><strong>Goal:</strong> 100% SLV Subdistrict 1 coverage + PBFT Water Trading.</p>
+<p><strong>Goal:</strong> 100% SLV Subdistrict 1 coverage (1,280 fields, 25 DHUs) + PBFT Water Trading.</p>
 <h3 id="41-pbft-alliance-chain-implementation">4.1. PBFT Alliance-Chain Implementation</h3>
 <ul>
 <li>[ ] Develop decentralized PBFT consensus service in Go for the DHU "Black Box."</li>
@@ -2832,8 +2832,12 @@ Buffer</p>
 <h2 id="sprint-backlog">Sprint Backlog</h2>
 <h3 id="priority-1-backend-deployment-days-1-3">Priority 1: Backend Deployment (Days 1-3)</h3>
 <ul>
-<li>[ ] Install Python dependencies</li>
-<li>[ ] Set up PostgreSQL database</li>
+<li>
+<p>[ ] Install Python dependencies</p>
+</li>
+<li>
+<p>[ ] Set up PostgreSQL database</p>
+</li>
 <li>[ ] Run database migrations</li>
 <li>[ ] Start FastAPI backend</li>
 <li>[ ] Verify all API endpoints respond</li>
@@ -2841,31 +2845,47 @@ Buffer</p>
 </ul>
 <h3 id="priority-2-database-setup-days-2-4">Priority 2: Database Setup (Days 2-4)</h3>
 <ul>
-<li>[ ] Create PostgreSQL database</li>
-<li>[ ] Enable PostGIS extension</li>
+<li>
+<p>[ ] Create PostgreSQL database</p>
+</li>
+<li>
+<p>[ ] Enable PostGIS extension</p>
+</li>
 <li>[ ] Run schema migrations</li>
 <li>[ ] Seed test data</li>
 <li>[ ] Verify queries work</li>
 </ul>
 <h3 id="priority-3-frontend-deployment-days-3-5">Priority 3: Frontend Deployment (Days 3-5)</h3>
 <ul>
-<li>[ ] Build farmer-dashboard</li>
-<li>[ ] Deploy via nginx</li>
+<li>
+<p>[ ] Build farmer-dashboard</p>
+</li>
+<li>
+<p>[ ] Deploy via nginx</p>
+</li>
 <li>[ ] Test farmer-dashboard loads</li>
 <li>[ ] Verify API connection from frontend</li>
 </ul>
 <h3 id="priority-4-hardware-documentation-days-5-7">Priority 4: Hardware Documentation (Days 5-7)</h3>
 <ul>
-<li>[ ] Finalize PMT BOM with costs</li>
-<li>[ ] Finalize VFA BOM with costs</li>
+<li>
+<p>[ ] Finalize PMT BOM with costs</p>
+</li>
+<li>
+<p>[ ] Finalize VFA BOM with costs</p>
+</li>
 <li>[ ] Finalize LRZ BOM with costs</li>
 <li>[ ] Finalize PFA BOM with costs</li>
 <li>[ ] Create procurement spreadsheet</li>
 </ul>
 <h3 id="priority-5-grant-preparation-parallel">Priority 5: Grant Preparation (Parallel)</h3>
 <ul>
-<li>[ ] Draft ESTCP pre-proposal outline</li>
-<li>[ ] Gather pilot metrics</li>
+<li>
+<p>[ ] Draft ESTCP pre-proposal outline</p>
+</li>
+<li>
+<p>[ ] Gather pilot metrics</p>
+</li>
 <li>[ ] Prepare budget justification</li>
 </ul>
 <hr />
@@ -3350,7 +3370,7 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 <h1 id="part-v-appendices-internal-docs-portals-firmware">PART V: APPENDICES (INTERNAL DOCS, PORTALS, FIRMWARE)</h1>
 <h1 id="farmsense-project-memory">FarmSense Project Memory</h1>
 <h2 id="critical-instructions-for-ai-assistant">CRITICAL INSTRUCTIONS FOR AI ASSISTANT</h2>
-<h3 id="before-creating-anything">Before Creating ANYTHING:</h3>
+<h3 id="before-creating-anything">Before Creating ANYTHING</h3>
 <ol>
 <li><strong>CHECK EXISTING ROUTES FIRST</strong>: Use <code>list_space_routes</code> to see all current pages and APIs</li>
 <li><strong>CHECK EXISTING FILES</strong>: Use <code>grep_search</code> or <code>list_files</code> before creating new files</li>
@@ -3395,13 +3415,17 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 </ol>
 <hr />
 <h2 id="architecture-principle-anti-ai-deterministic">Architecture Principle: Anti-AI / Deterministic</h2>
-<p>FarmSense uses <strong>deterministic, judgment-based algorithms</strong> - NOT ML/AI black boxes.
-- Water courts don't accept AI decisions
-- All logic must be explainable and auditable
-- See <code>file 'farmsenseOS/GENUINELY_NOVEL_IP.md'</code> for defensible moats</p>
-<p><strong>Future AI</strong>: Post-beta, sandboxed Digital Twin simulations only.
-- See <code>file 'farmsenseOS/AI_INTEGRATION_ROADMAP.md'</code>
-- <strong>DO NOT ACT</strong> until user says "begin to integrate AI per our previous discussions"</p>
+<p>FarmSense uses <strong>deterministic, judgment-based algorithms</strong> - NOT ML/AI black boxes.</p>
+<ul>
+<li>Water courts don't accept AI decisions</li>
+<li>All logic must be explainable and auditable</li>
+<li>See <code>file 'farmsenseOS/GENUINELY_NOVEL_IP.md'</code> for defensible moats</li>
+</ul>
+<p><strong>Future AI</strong>: Post-beta, sandboxed Digital Twin simulations only.</p>
+<ul>
+<li>See <code>file 'farmsenseOS/AI_INTEGRATION_ROADMAP.md'</code></li>
+<li><strong>DO NOT ACT</strong> until user says "begin to integrate AI per our previous discussions"</li>
+</ul>
 <hr />
 <h2 id="vision-global-water-ledger_1">Vision: Global Water Ledger</h2>
 <p>FarmSense as sovereign water infrastructure—legally recognized, cryptographically secure, scientifically absolute.</p>
@@ -3452,26 +3476,36 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 </table>
 <hr />
 <h2 id="dependency-reduction">Dependency Reduction</h2>
-<p>See <code>file 'farmsenseOS/DEPENDENCY_REDUCTION.md'</code> for full plan.
-- Phase 1 ✅: Removed numpy, pandas, scipy, scikit-learn, redis, celery, requests
-- Next: Phase 3 (clsx/tailwind-merge replacement)</p>
+<p>See <code>file 'farmsenseOS/DEPENDENCY_REDUCTION.md'</code> for full plan.</p>
+<ul>
+<li>Phase 1 ✅: Removed numpy, pandas, scipy, scikit-learn, redis, celery, requests</li>
+<li>Next: Phase 3 (clsx/tailwind-merge replacement)</li>
+</ul>
 <hr />
 <h2 id="project-overview">Project Overview</h2>
-<p><strong>FarmSense</strong> is a deterministic precision agriculture operating system designed for:
-- <strong>Agronomic Output</strong>: 20-30% reduction in irrigation water, 18-22% increase in ROI
-- <strong>Economic Output</strong>: Continuous Cost-Benefit Analysis preventing water deployment when costs exceed yield revenue
-- <strong>Legal Output</strong>: Cryptographically secure "Water Ledger" valid in State Water Courts</p>
+<p><strong>FarmSense</strong> is a deterministic precision agriculture operating system designed for:</p>
+<ul>
+<li><strong>Agronomic Output</strong>: 20-30% reduction in irrigation water, 18-22% increase in ROI</li>
+<li><strong>Economic Output</strong>: Continuous Cost-Benefit Analysis preventing water deployment when costs exceed yield revenue</li>
+<li><strong>Legal Output</strong>: Cryptographically secure "Water Ledger" valid in State Water Courts</li>
+</ul>
 <h3 id="core-philosophy">Core Philosophy</h3>
 <ul>
-<li><strong>Deterministic, judgment-based algorithms</strong> — NOT ML/AI black boxes</li>
-<li>All logic must be explainable and auditable for water court admissibility</li>
+<li>
+<p><strong>Deterministic, judgment-based algorithms</strong> — NOT ML/AI black boxes</p>
+</li>
+<li>
+<p>All logic must be explainable and auditable for water court admissibility</p>
+</li>
 <li>Future AI: Post-beta, sandboxed Digital Twin simulations only</li>
 </ul>
 <h3 id="current-deployment-target">Current Deployment Target</h3>
-<p><strong>2-Field Pilot at CSU San Luis Valley (SLV) Research Center, Center, Colorado</strong>
-- Purpose: Generate empirical Gold Standard data for June 2026 Subdistrict 1 Water Court
-- Hardware: 2 PMTs, 2 PFAs, 2 VFAs, 16-20 LRZs
-- Grant deadline: DoD ESTCP pre-proposal (March 26, 2026)</p>
+<p><strong>2-Field Pilot at CSU San Luis Valley (SLV) Research Center, Center, Colorado</strong></p>
+<ul>
+<li>Purpose: Generate empirical Gold Standard data for June 2026 Subdistrict 1 Water Court</li>
+<li>Hardware: 2 PMTs, 2 PFAs, 2 VFAs, 16-20 LRZs</li>
+<li>Grant deadline: DoD ESTCP pre-proposal (March 26, 2026)</li>
+</ul>
 <hr />
 <h2 id="architecture-summary">Architecture Summary</h2>
 <pre><code>┌─────────────────────────────────────────────────────────────────┐
@@ -3811,9 +3845,15 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 <h2 id="current-task-status">Current Task Status</h2>
 <h3 id="completed">Completed ✅</h3>
 <ul>
-<li>[x] Rectify DHU BOM for 900MHz LoRaWAN gateway</li>
-<li>[x] Rectify VFA BOM for 2.4GHz/BLE module</li>
-<li>[x] Validate Thermal Loss capacity for 5W Kapton heater</li>
+<li>
+<p>[x] Rectify DHU BOM for 900MHz LoRaWAN gateway</p>
+</li>
+<li>
+<p>[x] Rectify architecture so PFA communicates with PMT (Not VFA)</p>
+</li>
+<li>
+<p>[x] Validate Thermal Loss capacity for 5W Kapton heater</p>
+</li>
 <li>[x] Integrate HPC with PMT LiSOCl2 battery</li>
 <li>[x] Treat Polycarbonate with fluoropolymer coatings</li>
 <li>[x] Implement Predictive Maintenance via Current Harmonic Analysis</li>
@@ -3821,8 +3861,12 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 </ul>
 <h3 id="pending">Pending 🔄</h3>
 <ul>
-<li>[ ] Implement PBFT Alliance-Chain Blockchain in DHU</li>
-<li>[ ] Build DoD Federated Data Fabric Adapters</li>
+<li>
+<p>[ ] Implement PBFT Alliance-Chain Blockchain in DHU</p>
+</li>
+<li>
+<p>[ ] Build DoD Federated Data Fabric Adapters</p>
+</li>
 <li>[ ] Implement Dual-Layer Spatial Privacy</li>
 <li>[ ] Develop automated GLOBALG.A.P. compliance reports</li>
 <li>[ ] Verify LPI/LPD logic on LRZ FHSS chirps</li>
@@ -3885,16 +3929,18 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 </table>
 <hr />
 <h2 id="hardware-bom-summary">Hardware BOM Summary</h2>
-<p><strong>Minimum Viable Hardware Stack (2-Field Pilot):</strong>
-- 2x PMT (Pivot Motion Tracker)
-- 2x PFA (Pressure &amp; Flow Anchor)
-- 2x VFA (Vertical Field Anchor)
-- 16-20x LRZ (Lateral Root-Zone Scout)</p>
+<p><strong>Minimum Viable Hardware Stack (2-Field Pilot):</strong></p>
+<ul>
+<li>2x PMT (Pivot Motion Tracker)</li>
+<li>2x PFA (Pressure &amp; Flow Anchor)</li>
+<li>2x VFA (Vertical Field Anchor)</li>
+<li>16-20x LRZ (Lateral Root-Zone Scout)</li>
+</ul>
 <p><strong>Total Investment</strong>: $5,382,940 (for Subdistrict 1: 19,466 devices)</p>
 <hr />
 <h2 id="regulatory-context">Regulatory Context</h2>
 <ul>
-<li><strong>Subdistrict 1</strong>: 117,000 acres, San Luis Valley, Colorado</li>
+<li><strong>Subdistrict 1</strong>: ~150,000 acres, San Luis Valley, Colorado</li>
 <li><strong>Water Court Deadline</strong>: June 2026</li>
 <li><strong>Compliance</strong>: SLV 2026 regulatory alignment</li>
 <li><strong>Audit Requirement</strong>: Immutable, cryptographically signed chain of custody</li>
@@ -8418,27 +8464,35 @@ export default defineConfig([
 <p><strong>Production Note:</strong> This is a montage approach - generate each clip independently, then stitch with transitions and voice-over in post-production. Flow handles individual clips beautifully; assembly is a post-production task.</p>
 <hr />
 <h2 id="flow-specific-production-guidelines">Flow-Specific Production Guidelines</h2>
-<h3 id="what-flow-does-well">What Flow Does Well:</h3>
+<h3 id="what-flow-does-well">What Flow Does Well</h3>
 <ul>
-<li>✅ Cinematic single-shot landscapes</li>
-<li>✅ Aerial perspectives (simulate with camera movement)</li>
+<li>
+<p>✅ Cinematic single-shot landscapes</p>
+</li>
+<li>
+<p>✅ Aerial perspectives (simulate with camera movement)</p>
+</li>
 <li>✅ Environmental transformations (dry → wet, bare → green)</li>
 <li>✅ Character consistency via "Ingredients" feature</li>
 <li>✅ Atmospheric lighting and mood</li>
 <li>✅ Abstract visualizations (grids, particles, connections)</li>
 <li>✅ Camera movements (pan, tilt, push-in, pull-back)</li>
 </ul>
-<h3 id="what-flow-struggles-with">What Flow Struggles With:</h3>
+<h3 id="what-flow-struggles-with">What Flow Struggles With</h3>
 <ul>
-<li>❌ Complex data visualizations (charts, graphs, numbers)</li>
-<li>❌ Text overlays (add in post-production)</li>
+<li>
+<p>❌ Complex data visualizations (charts, graphs, numbers)</p>
+</li>
+<li>
+<p>❌ Text overlays (add in post-production)</p>
+</li>
 <li>❌ Voice-over (Flow audio is ambient only)</li>
 <li>❌ Multiple interacting characters</li>
 <li>❌ UI/dashboard demonstrations</li>
 <li>❌ Precise technical diagrams</li>
 <li>❌ Long-form content (&gt;8 seconds)</li>
 </ul>
-<h3 id="recommended-workflow">Recommended Workflow:</h3>
+<h3 id="recommended-workflow">Recommended Workflow</h3>
 <ol>
 <li><strong>Generate clips in Flow</strong> using prompts above</li>
 <li><strong>Export at 1080p</strong> (highest quality available)</li>
@@ -8448,53 +8502,77 @@ export default defineConfig([
 <li><strong>Add data visualizations</strong> using motion graphics tools</li>
 <li><strong>Color grade</strong> for consistent look across clips</li>
 </ol>
-<h3 id="character-consistency-for-farmer-video">Character Consistency (for Farmer video):</h3>
-<p>Use Flow's "Ingredients to Video" feature:
-1. Generate an image of your farmer character first
-2. Upload as an "Ingredient" 
-3. Reference the ingredient in subsequent prompts
-4. Flow will maintain consistent appearance across clips</p>
-<h3 id="aspect-ratio">Aspect Ratio:</h3>
+<h3 id="character-consistency-for-farmer-video">Character Consistency (for Farmer video)</h3>
+<p>Use Flow's "Ingredients to Video" feature:</p>
+<ol>
+<li>Generate an image of your farmer character first</li>
+<li>Upload as an "Ingredient"</li>
+<li>Reference the ingredient in subsequent prompts</li>
+<li>Flow will maintain consistent appearance across clips</li>
+</ol>
+<h3 id="aspect-ratio">Aspect Ratio</h3>
 <ul>
-<li>All prompts set to 16:9 (standard widescreen)</li>
-<li>For social media variations, regenerate at 9:16 or 1:1</li>
+<li>
+<p>All prompts set to 16:9 (standard widescreen)</p>
+</li>
+<li>
+<p>For social media variations, regenerate at 9:16 or 1:1</p>
+</li>
 </ul>
-<h3 id="quality-settings">Quality Settings:</h3>
+<h3 id="quality-settings">Quality Settings</h3>
 <ul>
-<li>Use "Highest Quality" for hero shots</li>
-<li>Use "Quality" for background/b-roll clips</li>
+<li>
+<p>Use "Highest Quality" for hero shots</p>
+</li>
+<li>
+<p>Use "Quality" for background/b-roll clips</p>
+</li>
 <li>Use "Fast" only for rapid iteration/testing</li>
 </ul>
 <hr />
 <h2 id="post-production-asset-list">Post-Production Asset List</h2>
 <p>For each video, plan to add:</p>
-<p><strong>Video 1 (General Public):</strong>
-- Text: "30% less water. 22% more yield."
-- Music: Hopeful, building</p>
-<p><strong>Video 2 (Grant Writers):</strong>
-- Title cards: "The Challenge", "The Solution", "The Vision"
-- Data overlays: "700,000 acre-feet deficit", "117,000 acres"
-- Voice-over: Technical narration</p>
-<p><strong>Video 3 (Investors):</strong>
-- Text: Market size, revenue tiers, growth timeline
-- Charts: Generate separately in motion graphics tool
-- Music: Confident, forward-looking</p>
-<p><strong>Video 4 (Farmers):</strong>
-- Voice-over: Relatable farmer narrative
-- Text: "28% less water. 15% higher yield."
-- Music: Acoustic, grounded</p>
-<p><strong>Video 5 (Researchers):</strong>
-- Diagrams: Interpolation methodology
-- Text: Technical annotations
-- Music: Minimal, serious</p>
-<p><strong>Video 6 (Regulators):</strong>
-- Text: "Cryptographic Chain of Custody", "Water Court Admissible"
-- Voice-over: Institutional authority
-- Music: Minimal, respectful</p>
-<p><strong>Video 7 (Overview):</strong>
-- Full voice-over script
-- Text: Vision statement at end
-- Music: Orchestral, inspiring</p>
+<p><strong>Video 1 (General Public):</strong></p>
+<ul>
+<li>Text: "30% less water. 22% more yield."</li>
+<li>Music: Hopeful, building</li>
+</ul>
+<p><strong>Video 2 (Grant Writers):</strong></p>
+<ul>
+<li>Title cards: "The Challenge", "The Solution", "The Vision"</li>
+<li>Data overlays: "700,000 acre-feet deficit", "117,000 acres"</li>
+<li>Voice-over: Technical narration</li>
+</ul>
+<p><strong>Video 3 (Investors):</strong></p>
+<ul>
+<li>Text: Market size, revenue tiers, growth timeline</li>
+<li>Charts: Generate separately in motion graphics tool</li>
+<li>Music: Confident, forward-looking</li>
+</ul>
+<p><strong>Video 4 (Farmers):</strong></p>
+<ul>
+<li>Voice-over: Relatable farmer narrative</li>
+<li>Text: "28% less water. 15% higher yield."</li>
+<li>Music: Acoustic, grounded</li>
+</ul>
+<p><strong>Video 5 (Researchers):</strong></p>
+<ul>
+<li>Diagrams: Interpolation methodology</li>
+<li>Text: Technical annotations</li>
+<li>Music: Minimal, serious</li>
+</ul>
+<p><strong>Video 6 (Regulators):</strong></p>
+<ul>
+<li>Text: "Cryptographic Chain of Custody", "Water Court Admissible"</li>
+<li>Voice-over: Institutional authority</li>
+<li>Music: Minimal, respectful</li>
+</ul>
+<p><strong>Video 7 (Overview):</strong></p>
+<ul>
+<li>Full voice-over script</li>
+<li>Text: Vision statement at end</li>
+<li>Music: Orchestral, inspiring</li>
+</ul>
 <hr />
 <h2 id="alternative-when-flow-isnt-enough">Alternative: When Flow Isn't Enough</h2>
 <p>For clips requiring complex data visualization or UI demonstration, consider:</p>
@@ -8697,7 +8775,7 @@ export default defineConfig([
 <div style="page-break-after: always;"></div>
 
 <h1 id="bxthre3-inc-website">Bxthre3 Inc. Website</h1>
-<p>This directory contains the source code for the Bxthre3 Inc. website hosted on Zo Space at https://brodiblanco.zo.space.</p>
+<p>This directory contains the source code for the Bxthre3 Inc. website hosted on Zo Space at <a href="https://brodiblanco.zo.space">https://brodiblanco.zo.space</a>.</p>
 <h2 id="structure">Structure</h2>
 <p>```
 site/

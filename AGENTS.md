@@ -299,7 +299,7 @@ reference/
 ### Completed ✅
 
 - [x] Rectify DHU BOM for 900MHz LoRaWAN gateway
-- [x] Rectify VFA BOM for 2.4GHz/BLE module
+- [x] Rectify PMT BOM for 2.4GHz/BLE module
 - [x] Validate Thermal Loss capacity for 5W Kapton heater
 - [x] Integrate HPC with PMT LiSOCl2 battery
 - [x] Treat Polycarbonate with fluoropolymer coatings
