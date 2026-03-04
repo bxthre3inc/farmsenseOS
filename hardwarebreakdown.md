@@ -192,8 +192,16 @@ The LRZ uses a truncated Alpha-Sled designed for shallow root-zone monitoring:
 The LRZ utilizes a "Fringe Field" approach for non-contact measurement:
 
 * **Excitation Frequency**: 80MHz Oscillator.
-* **Dielectric Barrier**: PVC 2\" Shell + 2mm Nitrogen Gap.
+* **Dielectric Barrier**: PVC 2" Shell + 2mm Nitrogen Gap.
 * **Calibration Matrix**: 5-point factory curve mapped against SLV Soil Series 101-B.
+
+#### 4.2.4 Airborne Kinetic Penetrator Variant (AKP-LRZ)
+
+The AKP-LRZ is a specialized tactical and emergency-deployment variant of the standard 18U LRZ.
+
+* **Deployment Mechanism**: Air-dropped from UAVs or manned aircraft; utilizes a stabilized aerodynamic sabotage and a hardened Cr-Mo (Chromium-Molybdenum) steel nose cone to kinetically embed itself 4-8 inches into the soil upon impact.
+* **Shock Absorption**: The internal electronics are fully vacuum-potted in a low-durometer viscoelastic polyurethane resin to survive terminal 500G+ impacts.
+* **Tactical Advantage**: Enables rapid seeding of agricultural or contested environments without human-in-the-loop ground installation, instantly establishing a mesh of LPI/LPD sensors.
 
 ### 4.3 Pressure & Flow Anchor (PFA) V1.9
 

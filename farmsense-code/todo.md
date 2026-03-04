@@ -20,9 +20,9 @@
 
 ## Advanced Dual-Use Enhancements (R&D)
 
-- [ ] [ ] Verify Low Probability of Intercept/Detection (LPI/LPD) logic on LRZ FHSS chirps.
-- [ ] [ ] Concept design for Air-Deliverable Kinetic Penetrator LRZ housings.
-- [ ] [ ] Upgrade Regional Superstation (RSS) compute layer to support Fully Homomorphic Encryption (FHE) Kriging operations.
+- [x] [x] Verify Low Probability of Intercept/Detection (LPI/LPD) logic on LRZ FHSS chirps. (`backend/tests/verify_lpi_lpd.py` — Simulates and verifies constraints)
+- [x] [x] Concept design for Air-Deliverable Kinetic Penetrator LRZ housings. (`specifications/Master Specification: Airborne Kinetic Penetrator LRZ V1.0.md` — Complete)
+- [x] [x] Upgrade Regional Superstation (RSS) compute layer to support Fully Homomorphic Encryption (FHE) Kriging operations. (`edge-compute/src/edge_kriging_fhe.py` — Proof of concept complete)
 
 ## Non-Dilutive Grant Strategy & Execution
 
