@@ -71,7 +71,7 @@ FarmSense is the definitive sovereign water infrastructure—legally recognized,
 
 ## 4. Phase 2: Regulatory Capture (Q3-Q4 2026)
 
-**Goal:** 100% SLV Subdistrict 1 coverage + PBFT Water Trading.
+**Goal:** 100% SLV Subdistrict 1 coverage (1,280 fields, 25 DHUs) + PBFT Water Trading.
 
 ### 4.1. PBFT Alliance-Chain Implementation
 

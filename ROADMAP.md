@@ -113,7 +113,8 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### Infrastructure & Compliance
 
-- [ ] Deploy 20x 40ft Cedar Pole DHU nodes across Subdistrict 1.
+- [ ] Deploy 25x 40ft Cedar Pole DHU nodes across Subdistrict 1.
+- [ ] Instrument 1,280 fields (100% Subdistrict 1 coverage).
 - [ ] Implement PBFT AllianceChain validator for Water Court evidence.
 - [ ] Set up localized Faraday shielding for the RSS core compute.
 
