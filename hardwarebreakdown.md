@@ -30,7 +30,7 @@ The RSS is the primary command-and-control node for the subdistrict. It is house
 
 ### 2.1 Environmental Engineering & Linear Flow
 
-The interior is divided into three zones to facilitate the "Blitz" deployment model (48 fields/day).
+The interior is divided into three zones to facilitate the "Rapid Deployment" deployment model (48 fields/day).
 
 #### Zone A: Logistics & Refurbishment (The Sled Hospital)
 
@@ -311,7 +311,7 @@ Kinematic auditing provides the spatial proof of application, verifying where wa
 
 * **Consensus**: Practical Byzantine Fault Tolerance (PBFT) ensures that water transactions are immutable and consensus-driven across the DHU mesh.
 * **Security**: Every packet is cryptographically signed at the field node (VFA/PFA) before mesh entry.
-* **Decimation Window**: 15 minutes (Standard); 5 seconds (Blitz Mode).
+* **Decimation Window**: 15 minutes (Standard); 5 seconds (Rapid Mode).
 
 ### 6.2 The "Fisherman's Attention" Scale
 
@@ -320,7 +320,7 @@ The system uses adaptive update frequencies to optimize battery:
 1. **Dormant (4-hour)**: Stable soil + parked pivot.
 2. **Anticipatory (1-hour)**: Rising ET (Evapotranspiration).
 3. **Active (15-min)**: Water is moving or trend is detected.
-4. **Blitz (5-sec)**: Critical anomaly or C&C Deployment Mode active.
+4. **Rapid (5-sec)**: Critical anomaly or C&C Deployment Mode active.
 
 ---
 
@@ -503,7 +503,7 @@ This section provides a line-item breakdown for every circuit, sensor, and struc
 
 ### 11.1 Regional Superstation (RSS) V1.3 - Detailed BOM
 
-**Total System Cost (Estimate): $212,000.00**
+#### Total System Cost (Estimate): $212,000.00
 
 #### 11.1.1 Infrastructure & Civil
 
@@ -525,7 +525,7 @@ This section provides a line-item breakdown for every circuit, sensor, and struc
 
 ### 11.2 District Hub (DHU) V1.1 - Detailed BOM
 
-**Total System Cost (Estimate): $4,915.00**
+#### Total System Cost (Estimate): $4,594.00
 
 | Component | Spec/Part # | Qty | Unit Cost | Extended | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -542,7 +542,7 @@ This section provides a line-item breakdown for every circuit, sensor, and struc
 
 ### 11.3 Vertical Field Anchor (VFA) V1.21 - Technical Pulse
 
-**Total Unit Cost: $159.65**
+#### Total Unit Cost: $158.20
 
 #### 11.3.1 Sensor Physics & Reg Maps
 
@@ -568,7 +568,7 @@ The VFA "Multi-Depth" sequence uses a proprietary I2C bridge for the dielectric 
 
 ### 11.4 Pivot Motion Tracker (PMT) V1.6 - Detailed Specs
 
-**Total Unit Cost: $1,112.00**
+#### Total Unit Cost: $1,112.00
 
 #### 11.4.1 How it Works: Adaptive Kinematics
 
@@ -594,7 +594,7 @@ The PMT differentiates motion through **Sensor Fusion**:
 
 ### 11.5 Pressure & Flow Anchor (PFA) V1.9 - Deep Dive
 
-**Total Unit Cost: $750.00**
+#### Total Unit Cost: $750.00
 
 #### 11.5.1 The "Electrical Blueprint"
 
@@ -618,7 +618,7 @@ The PFA monitors pump health by sampling the 480V/3-Phase incoming line via spli
 
 ### 11.6 Lateral Root-Zone Scout (LRZ) V1.21 - Technical Pulse
 
-**Total Unit Cost: $60.80**
+#### Total Unit Cost: $59.30
 
 #### 11.6.1 Circuit & Pin Logic
 
@@ -647,7 +647,7 @@ The LRZ is a cost-optimized variant of the VFA, designed for massive spatial den
 
 ### 11.7 Corner-Swing Auditor (CSA) V1.0 - Multi-Node Spec
 
-**Total Unit Cost (PST + SAT): $2,224.00**
+#### Total Unit Cost (PST + SAT): $2,224.00
 
 #### 11.7.1 Kinematic Handshake
 
@@ -673,7 +673,7 @@ The CSA consists of two PMT-derived nodes that resolve the angle of the swing ar
 
 #### 11.8.1 eBee Ag (Fixed-Wing)
 
-**Total System Cost: $14,500.00**
+#### Total System Cost: $14,500.00
 
 | Component | Part Category | Qty | Unit Cost | Extended | MPN / Supplier | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -684,7 +684,7 @@ The CSA consists of two PMT-derived nodes that resolve the angle of the swing ar
 
 #### 11.8.2 DJI Mavic 3M (Multi-Rotor)
 
-**Total System Cost: $4,999.00**
+#### Total System Cost: $4,999.00
 
 | Component | Part Category | Qty | Unit Cost | Extended | MPN / Supplier | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -700,14 +700,14 @@ The CSA consists of two PMT-derived nodes that resolve the angle of the swing ar
 | Asset Class | Install Qty | Unit Cost | Total Capital |
 | :--- | :--- | :--- | :--- |
 | **RSS (Superstation)** | 1 | $212,000 | $212,000 |
-| **DHU (Hubs)** | 25 | $4,915 | $122,875 |
-| **VFA (Anchors)** | 1,280 | $159.65 | $204,352 |
-| **LRZ (Scouts)** | 10,240 | $61 | $624,640 |
+| **DHU (Hubs)** | 25 | $4,594 | $114,850 |
+| **VFA (Anchors)** | 1,280 | $158.20 | $202,496 |
+| **LRZ (Scouts)** | 10,240 | $59.30 | $607,232 |
 | **PMT (Pivot Trackers)** | 1,280 | $1,112 | $1,423,360 |
 | **PFA (Pump Anchors)** | 1,280 | $750 | $960,000 |
 | **CSA (Corner Auditors)** | 320 | $2,224 | $711,680 |
 | **Drones (Mixed Fleet)** | 2 | $19,499 | $19,499 |
-| **TOTAL HARDWARE CAPEX** | | | **$4,264,406.00** |
+| **TOTAL HARDWARE CAPEX** | | | **$4,251,117.00** |
 
 ### [END OF HYPER-EXPANDED SPECIFICATION]
 
@@ -723,10 +723,11 @@ This section details the procurement logic and unit costs for a standard Subdist
 | **LoRa Transceiver** | Semtech SX1262 | Included | Included |
 | **Dielectric Sensors** | Proprietary Fab-Direct | $50.00 (x5) | $4.00 (x2) |
 | **Battery Stack** | 21700 Li-ion Cartridge | $83.75 (x5) | $33.50 (x2) |
-| **Enclosure (Shell)** | 2\" UV-PVC Shell | $2.50 | $1.20 |
-| **Mounting (Tip)** | Tapered Driving Tip | $4.25 | $4.25 |
+| **Enclosure (Shell)** | UV-PVC Shell (18" to 48") | $3.25 | $0.85 |
+| **Mounting (Tip)** | PVC Tapered Tip | $3.50 | $1.20 |
 | **Antenna** | 3ft SS-304 Whip | $3.50 | $3.50 |
-| **TOTAL UNIT COST** | | **$159.65** | **$60.80** |
+| **Other Struct./Seals**| CPVC/Seals/Desiccant | $7.70 | $11.75 |
+| **TOTAL UNIT COST** | | **$158.20** | **$59.30** |
 
 ### 7.2 Tier 1.5: Kinematic & Audit Nodes (PMT, PFA, CSA)
 
@@ -752,10 +753,10 @@ The DHU and RSS utilizes **Passive Thermal Buffering**.
 * **Volumetric Air-Gap**: The oversized NEMA 4X enclosures (24"x20"x10") are designed to provide a massive internal air-gap. This prevents "battery cooking" during high-altitude solar peaks (7,600ft+) while providing space for resistive heating elements during winter.
 * **Gore-Tex Equalization**: Dual vents prevent "breathing" (vacuum-induced dust ingress) during rapid 40°F temperature drops.
 
-### 8.2 Civil Infrastructure & Vertical Blitz
+### 8.2 Civil Infrastructure & Vertical Integration
 
 * **Vertical Support**: 35ft Class 4 Timber Poles (Set 8ft deep) are the utility standard. Selected for "wind-shimmer" resistance, preventing the micro-vibrations that break high-bandwidth radio locks.
-* **The Band-It Blitz**: Installation teams utilize 304 Stainless Steel Band-It straps for all PMT/PFA mounts. This ensures a 40-year corrosion lifecycle in alkali-rich soils.
+* **The Band-It Rapid**: Installation teams utilize 304 Stainless Steel Band-It straps for all PMT/PFA mounts. This ensures a 40-year corrosion lifecycle in alkali-rich soils.
 * **Siting Density**: DHU coverage is designed with **Overlapping Redundancy** (5km radius). If a hub fails, 80% of its mesh can failover to a neighboring sector.
 
 ---
@@ -777,7 +778,7 @@ To achieve the $4.2M CAPEX target, FarmSense utilizes a tiered sourcing model:
 * **Tier 2 (Sensors)**: Strategic partnerships with Badger Meter and Dwyer.
 * **Tier 3 (Structural)**: Local SLV suppliers for timber poles and gravel backfill to minimize logistics weight.
 
-#### 11.9.1 The "Band-It Blitz" Logistic Workflow
+#### 11.9.1 The "Band-It Rapid" Logistic Workflow
 
 1. **Preparation**: RSS pre-configures sleds and assigns UID to field coordinates.
 2. **Deployment**: 3-person crews (Surveyor, Installer, Verifier) deploy 1 VFA + 10 LRZ in <60 minutes.

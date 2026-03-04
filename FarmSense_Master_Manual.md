@@ -16,11 +16,11 @@
 
 ## **Executive Summary**
 
-This report constitutes an exhaustive technical, operational, and financial due diligence assessment of the FarmSense agricultural technology and Internet of Things (IoT) platform, currently deployed as a conceptual design and advanced pilot in Subdistrict 1 of the San Luis Valley (SLV), Colorado. Engineered as a "Deterministic Farming Operating System," FarmSense seeks to replace stochastic, intuition-based agricultural practices with a high-fidelity, rule-based computational engine.1 The platform's ultimate objective is to optimize the Soil-Plant-Atmosphere Continuum (SPAC) using an expansive multi-layered sensor network, aiming for a 20–30% reduction in irrigation water consumption alongside an 18–22% increase in crop return on investment (ROI).1
+This document constitutes the exhaustive technical, operational, and financial specification of the FarmSense agricultural technology and Internet of Things (IoT) platform, currently deployed as a 2-field advanced pilot in Subdistrict 1 of the San Luis Valley (SLV), Colorado. Engineered as a "Deterministic Farming Operating System," FarmSense replaces stochastic, intuition-based agricultural practices with a high-fidelity, rule-based computational engine.1 The platform's ultimate objective is to optimize the Soil-Plant-Atmosphere Continuum (SPAC) using an expansive multi-layered sensor network, aiming for a 20–30% reduction in irrigation water consumption alongside an 18–22% increase in crop return on investment (ROI).1
 
 The primary economic catalyst for this deployment is the severe hydro-economic crisis characterizing the Rio Grande Basin. Driven by an 89,000 acre-foot annual aquifer depletion rate and stringent compliance mandates under the 1938 Rio Grande Compact, the local Rio Grande Water Conservation District (RGWCD) has imposed a highly punitive $500 per acre-foot groundwater pumping fee.1 In this extreme regulatory environment, FarmSense's value proposition shifts from a standard agronomic optimization tool to a critical legal and financial necessity, providing an immutable "Digital Water Ledger" capable of defending water rights in state Water Court.\[1, 1\]
 
-An uncompromising cross-examination of the provided system architecture, Master Specifications, and hydro-economic models reveals a project of immense ambition and sophisticated edge-computing design. By pivoting to a targeted, phased 2-field pilot specifically designed to provide empirical ground truth for the June 29, 2026, Subdistrict 1 water court trial, the project circumvents major logistical bottlenecks. This audit evaluates the architecture's readiness to bypass traditional venture capital entirely, positioning FarmSense for 100% non-dilutive funding through global infrastructure grants, the Department of Defense, and premier philanthropic organizations like the Bill & Melinda Gates Foundation.
+An uncompromising analysis of the provided system architecture, Master Specifications, and hydro-economic models reveals a project of immense ambition and sophisticated edge-computing design. By executing a targeted, phased 2-field pilot specifically designed to provide empirical ground truth for the June 29, 2026, Subdistrict 1 water court trial, the project ensures rigorous validation before maximum scale. This specification details the architecture's readiness to bypass traditional venture capital entirely, positioning FarmSense for 100% non-dilutive funding through global infrastructure grants, the Department of Defense, and premier philanthropic organizations like the Bill & Melinda Gates Foundation.
 
 ## ---
 
@@ -68,7 +68,7 @@ The cloud architecture is designed for heavy spatial analytics and operates loca
 
 Relying purely on external cloud connectivity in rural agricultural environments is a critical point of failure. FarmSense mitigates this by pushing heavy computational loads to the edge and utilizing the Regional Superstation as its own localized cloud.
 
-* **Regional Superstation (RSS):** Located in Monte Vista, this Level 3 node serves as the territory master and equal cloud counterpart to the backend intelligence. Operating as a decentralized monolithic grid, it ensures that heavy spatial analytics and the "Digital Water Ledger" remain intact and legally irrefutable even during total regional internet or cellular blackouts. Housed in a modified 40-foot High-Cube container, it contains a 64-Core AMD Threadripper PRO cluster with 256GB of ECC RAM and stores the master spatial database on a 50TB Enterprise NVMe array.\[1, 1\]  
+* **Regional Superstation (RSS):** Located in Monte Vista, this Level 3 node serves as the territory master and equal cloud counterpart to the backend intelligence. Operating as a decentralized monolithic grid, it ensures that heavy spatial analytics and the "Digital Water Ledger" remain intact and legally irrefutable even during total regional internet or cellular blackouts. Housed in a modified 40-foot High-Cube container, it contains a 64-Core AMD Threadripper PRO cluster with 256GB of ECC RAM and stores the master spatial database on a 50TB Enterprise NVme array.\[1, 1\]  
 * **District Hubs (DHU):** Acting as Level 2 Regional Mesh Managers, DHUs are true edge coordinators mounted on 35-foot Class 4 timber poles, covering a 10km line-of-sight radius.1 Powered by an OnLogic CL210 Industrial 8-Core ARM SOC, the DHU executes the Zo "Worksheets" locally, allowing for instantaneous "Reflex Logic" decisions (e.g., executing an emergency pump shutdown) without suffering from cellular latency.1
 
 ### **2.3 The "Black Box" Ledger and Legal Defensibility**
@@ -149,21 +149,21 @@ FarmSense explicitly mandates NEMA 4X-rated Polycarbonate enclosures (e.g., Poly
 
 ## ---
 
-**6\. Logistical Viability: Phased Rollout Pivot**
+**6\. Phased Deployment Strategy**
 
-A major operational risk identified in the initial assessment was the "Blitz" deployment bottleneck, which mandated the installation of 16,880 field units within a narrow 3-week window, severely straining labor budgets and RSS testing capacity.
+The FarmSense rollout is structured around a highly targeted, phased deployment methodology to ensure rigorous empirical validation before maximum scale.
 
-### **6.1 The Strategic Pivot to a Targeted 2-Field Pilot**
+### **6.1 Phase 1: The 2-Field Pilot (CSU SLV RC)**
 
-Management has initiated a highly strategic pivot, shifting from an immediate massive logistical blitz to a targeted, 2-field pilot project located in Center, Colorado, in collaboration with the CSU San Luis Valley Research Center (SLV RC).1
+The initial deployment is a targeted, 2-field pilot project located in Center, Colorado, executed in primary collaboration with the CSU San Luis Valley Research Center (SLV RC).
 
-By focusing resources on a high-fidelity pilot, FarmSense will provide the court and regulators with the exact empirical ground truth needed—specifically the ![][image2] accurate hydraulic data from the Pivot Trackers and the secure ledger from the District Hubs—to potentially pause the state's threats of mass well shutdowns while establishing unparalleled proof-of-concept for global scaling.
+By focusing initial resources on this high-fidelity pilot, FarmSense will immediately provide the court and regulators with the exact empirical ground truth needed—specifically the highly accurate hydraulic data from the PMTs and the secure ledger from the District Hubs. This establishes the critical proof-of-concept for the hardware, telemetry, and water data sovereignty prior to the massive 1,280-field Subdistrict 1 rollout.
 
 ## ---
 
-**7\. Non-Dilutive Capital Strategy & Global Infrastructure Grants**
+**7\. Non-Dilutive Capital & Global Infrastructure Strategy**
 
-By executing the strategic pivot, FarmSense completely bypasses the need for traditional, dilutive Series A venture capital. The system's architecture—functioning as a secure, decentralized network generating immutable water data—aligns perfectly with premier philanthropic and defense funding mechanisms for 2026\.
+The phased deployment strategy completely bypasses the need for traditional, dilutive Series A venture capital. The FarmSense architecture—functioning as a secure, decentralized network generating immutable water data—aligns perfectly with premier philanthropic and defense funding mechanisms for 2026\.
 
 ### **7.1 Department of Defense (DoD) & DARPA**
 
@@ -175,7 +175,7 @@ FarmSense possesses immense dual-use potential as a highly resilient, ruggedized
 
 At COP30, the Gates Foundation pledged $1.4 billion (2026-2029) to support innovations helping smallholder farmers adapt to climate change, with a specific focus on "digital advisory services" and tailored data-driven planting decisions.
 
-* **Value Proposition:** FarmSense acts as an automated "digital agronomist." By validating the ultra-lean $60.80 unit cost for the LRZ scout 1, FarmSense proves that advanced, deterministic resource optimization can be democratized and scaled affordably to smallholder farms in sub-Saharan Africa and South Asia.
+* **Value Proposition:** FarmSense acts as an automated \"digital agronomist.\" By validating the ultra-lean $59.30 unit cost for the LRZ scout 1, FarmSense proves that advanced, deterministic resource optimization can be democratized and scaled affordably to smallholder farms in sub-Saharan Africa and South Asia.
 
 ### **7.3 "Nobel Equivalent" Global Prizes**
 
@@ -199,7 +199,7 @@ To drastically improve the platform’s feature set and functionality without in
 
 ### **8.2 Dual-Layer Spatial Privacy and Federated Learning**
 
-A core operational risk is farmer trust and data sovereignty.1 Furthermore, the Colorado Privacy Act legally classifies precise geolocation data (GPS coordinates within a 1,850-foot radius) as "sensitive data," requiring strict handling and affirmative consent. To navigate this, FarmSense utilizes a bifurcated architecture:
+To ensure absolute farmer operator trust and data sovereignty, the network architecture is strictly bifurcated to comply with and exceed the Colorado Privacy Act, which legally classifies precise geolocation data (GPS coordinates within a 1,850-foot radius) as \"sensitive data.\"
 
 * **The Internal Legal Ledger (Absolute Precision):** Exact, unabridged GPS coordinates are strictly mandated for the localized District Hub "Black Box." This data is cryptographically locked, cannot be used, seen, or modified by anyone but the account user and the core algorithms, and exists solely to defend water rights as empirical evidence in Water Court.  
 * **Contextual Anonymization for Cloud & Federated Learning:** When data is utilized for broader analytics, research sharing, or Federated Learning (where DHUs train localized ML models at the edge and only send parameter updates back to the RSS), the system applies "contextual anonymization." This adds algorithmic spatial noise or aggregates points into larger regional grids, preserving the overall hydrologic and ET trends for the region while successfully masking the specific location and identity of the individual farmer.
@@ -221,7 +221,7 @@ To further position the FarmSense architecture for premier global infrastructure
 
 The FarmSense platform represents a highly sophisticated synthesis of edge computing and agronomic science. To secure the non-dilutive global funding targets and successfully intervene in the June 2026 Water Court trial, the following tactical improvements must be executed:
 
-1. **Execute the 2-Field Pilot Strategy:** Immediately build the minimum viable hardware stack (2 PMTs, 2 PFAs, 2 VFAs, and 16-20 LRZs) and deploy it at the CSU SLV Research Center. This circumvents the logistical "Blitz" bottleneck and provides independent academic validation of the MAD framework.  
+1. **Execute the 2-Field Pilot Strategy:** Immediately build the minimum viable hardware stack (2 PMTs, 2 PFAs, 2 VFAs, and 16-20 LRZs) and deploy it at the CSU SLV Research Center. This ensures independent academic validation of the MAD framework during the initial deployment phase.
 2. **Rectify Telemetry Specifications:** The engineering schematics must be overhauled prior to pilot manufacturing. The DHU (V1.1) must be upgraded to include an industrial 900MHz LoRaWAN gateway. Similarly, the PMT must be explicitly defined as the primary 2.4GHz receiver for the PFA safety nodes, removing that processing burden from the ground-level VFAs.  
 3. **Target the DoD ESTCP Deadline:** Leverage the system's dual-use LPI/LPD architecture to submit a pre-proposal for the DoD's Environmental Security Technology Certification Program (ESTCP) "Water Resilience on DoD Installations" grant by the March 26, 2026 deadline.  
 4. **Implement Software-Driven Feature Expansions:** Deploy Current Harmonic Analysis to the PFA edge processors for predictive maintenance, and initiate the Dual-Layer Spatial Privacy architecture to ensure Colorado Privacy Act compliance while protecting the algorithmic ledger.  
@@ -231,11 +231,11 @@ The FarmSense platform represents a highly sophisticated synthesis of edge compu
 #### **Works cited**
 
 1. FarmSense Research.pdf  
-2. Study warns of 'existential water crisis' in the Rio Grande Basin \- Alamosa Citizen, accessed February 22, 2026, [https://www.alamosacitizen.com/study-warns-of-existential-water-crisis-in-the-rio-grande-basin/](https://www.alamosacitizen.com/study-warns-of-existential-water-crisis-in-the-rio-grande-basin/)
+2. Study warns of 'existential water crisis' in the Rio Grande Basin - Alamosa Citizen, accessed February 22, 2026, [https://www.alamosacitizen.com/study-warns-of-existential-water-crisis-in-the-rio-grande-basin/](https://www.alamosacitizen.com/study-warns-of-existential-water-crisis-in-the-rio-grande-basin/)
 
 [image1]: <data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAYCAYAAAB5j+RNAAABbklEQVR4Xu3WyyuEURgG8DeXEOUuZWGjFDuF5L4dzYqFlEsIpSxQcikiNiJZsxrZjJ1r2VjZsLP2R/gPPK/znOZ0TJnC55R56rd43/PNzDtnvu+bTySbf5o9vxFKCmHHb4aSThjwm6Ek6OFWoMRvRpkC2KYriDlr9mJYpDtnLZKsQiXdwjjk0y6PaaVn1pEl6OHqoZzeoBr6yF4MdthD1ut0zvonsgWXflMzSnZxk8pYL1A76zGaYP2d9NIadHhrH5mlR8gTs0N2l5phmmzOqIr1FA1L6os0QIWY00YNwg3kkKYNHuhEzK3rU4IeTj9EvcIT3FMX1DnHaXLhmjQtYl6jJmGIiiEh5lRQRWKG83NBekF+GX1je06lSzdskO7qCCyRG/1ffnHqfjE39SaysRuRUWagkdJFd/OYeqBWzGuU1jqE0l9imT01D0eSuhNoSiFJGSXo4fb9xi+lBuIwR0HlAE7FPFj86cNFNpHmHWVcVXXUvM2RAAAAAElFTkSuQmCC>
 
-[image2]: <data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAXCAYAAABefIz9AAAB5ElEQVR4Xu3WvUscQRzG8TFKEgtNkcoqRkFBjRBNERstIr5iBCuLgCRWaiJ2kiJooYiSBFEEBbGxEUsrtdP8DYJvkMJCNIGUAUX0ebLPcHc/9u68gyAe+4UPhzN7sLvuzpxzUVFRUakrhFmZgW7IE98TGTPjaftsB5L0SDqhxsylqgo24LssQ1nCEc59gxYpgl3olSGYgAPp0XduXc5f4Fc7ENIILMoVvEmcDq1ADuFl3Phz2HOxG8ZO4JmwJX363sKCZBzvaiZduuBOp6tJ/toJdAatwvahVNi0Plk57MBjybj/dYH9cm4n0JELHj1i89AlfETHXWyR2YRKHZdVOXGBT+FLEnyh7RjxO2S7gGY7GNKgnNoJFzySXNz8AsdtggsNzUEJDMt7HfNJpqBOY7cqm/+gf3dS9U5+2wl0DAMSVgWsCOOi5vdJxr0yX9IWXaCJF9hmB0N6LdxWHpi5Py446bDthie9BsXCuD35R559gGpJWzYX2G4HXbBXkT9pv0j8hFf+IBcsGL/godi4LzeYMZ7jR2F8L1/Iv1ItMj9Cxuwi0weTcg3rccf5zXpbVvW3rxa2XLBSEvc0/ta0Ncq4GWcdLvZLiHExSnhEc/4C70N8rynZSft9cxTqzVxUVNQddgOZw4wQIvG8IAAAAABJRU5ErkJggg==>
+[image2]: <data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAXCAYAAABefIz9AAAB5ElEQVR4Xu3WvUscR4zG8TFKEgtNkcoqRkFBjRBNERstIr5iBCuLgCRWaiJ2kiJooYiSBFEEBbGxEUsrtdP8DYJvkMJCNIGUAUX0ebLPcHc/9u68gyAe+4UPhzN7sLvuzpxzUVFRUakrhFmZgW7IE98TGTPjaftsB5L0SDqhxsylqgo24LssQ1nCEc59gxYpgl3olSGYgAPp0XduXc5f4Fc7ENIILMoVvEmcDq1ADuFl3Phz2HOxG8ZO4JmwJX363sKCZBzvaiZduuBOp6tJ/toJdAatwvahVNi0Plk57MBjybj/dYH9cm4n0JELHj1i89AlfETHXWyR2YRKHZdVOXGBT+FLEnyh7RjxO2S7gGY7GNKgnNoJFzySXNz8AsdtggsNzUEJDMt7HfNJpqBOY7cqm/+gf3dS9U5+2wl0DAMSVgWsCOOi5vdJxr0yX9IWXaCJF9hmB0N6LdxWHpi5Py446bDthie9BsXCuD35R559gGpJWzYX2G4HXbBXkT9pv0j8hFf+IBcsGL/godi4LzeYMZ7jR2F8L1/Iv1ItMj9Cxuwi0weTcg3rccf5zXpbVvW3rxa2XLBSEvc0/ta0Ncq4GWcdLvZLiHExSnhEc/4C70N8rynZSft9cxTqzVxUVNQddgOZw4wQIvG8IAAAAABJRU5ErkJggg==>
 
 <div style="page-break-after: always;"></div>
 
@@ -448,7 +448,7 @@ A th i d f l t t t i i l t ti
 
 This document provides an exhaustive technical summary of the FarmSense project, specifically
 
-curated for scientific validation, gap analysis, and multi-dimensional risk assessment by
+curated for scientific validation and comprehensive deployment planning by
 
 research institutions, hydrologists, and agricultural stakeholders.
 
@@ -842,7 +842,7 @@ Using the conservative pivot estimate of **1,270 pivots** (midpoint of 1,250–1
 
 ### Per-Pivot Hardware Deployment (1x Standard PMT SFD)
 
-`1,270 × ( $1,112 PMT + $750 PFA + $154.15 VFA + ~$608 LRZ×10 ) = ~$3.07M one-time hardware market`
+`1,270 × ( $1,112 PMT + $750 PFA + $158.20 VFA + ~$593 LRZ×10 ) = ~$3.32M one-time hardware market`
 
 ### Annual Water Fee Savings Unlocked (20% reduction @ $500/AF)
 
@@ -1005,7 +1005,7 @@ led to minimize overhead while refining the Kriging algorithms that power the 1m
 
 "Resolution Pop."
 
-Phase 1: Regional Scaling (The Blitz Support)
+Phase 1: Regional Scaling (The Rapid Support)
 
 Goal: Support the first 100 high-value pivots (approx. 16,000 acres) with 10m Pro Tier
 
@@ -1305,7 +1305,7 @@ Zero-Impact Installation: Like the standard PMT, the CSA is 100% "Cut-Less." It 
 
 304-SS Band-It straps for mounting and clamp-on transducers for flow. This allows the
 
-District’s "Band-It Blitz" crews to install a full CSA system on a corner pivot in under 4 hours
+District’s "Band-It Rapid" crews to install a full CSA system on a corner pivot in under 4 hours
 
 without any welding or structural modifications.
 
@@ -1520,15 +1520,15 @@ This ledger reflects the civil engineering and hardware costs for the 25-hub "Um
 | Power | 200Ah Heated LiFePO4 Bank | Battle Born | $850.00 |
 | Tower | 35ft Class 4 Timber Pole | Local Utility | $1,500.00 |
 | Protection | Lightning Arrestor/Surge | L-com | $125.00 |
-| **TOTAL** | **Per Unit Hardware Cost** | | **$4,915.00** |
+| **TOTAL** | **Per Unit Hardware Cost** | | **$4,594.00** |
 
 **Subdistrict 1 Infrastructure Totals (25 Hubs)**:
 
-* Hardware Subtotal: $122,875
+* Hardware Subtotal: $114,850
 * Fiber Trenching/Drop Allowance: $25,000
 * Site Foundation & Concrete: $12,500
-* Labor (Vertical Blitz): $18,375
-* **DHU PROJECT TOTAL: $178,750**
+* Labor (Vertical Integration): $18,375
+* **DHU PROJECT TOTAL: $170,725**
 
 ## 5. Strategic Value & "Resolution Pop" Support
 
@@ -1586,7 +1586,7 @@ Like the VFA, the LRZ employs the advanced \"Proxy Method\" of non-contact sensi
 
 ## 4. The Seasonal Deployment Workflow & OEM Scale BOM
 
-**The "Blitz" Installation & Extraction Cycle**:
+**The "Rapid Deployment" Installation & Extraction Cycle**:
 
 1. **Post-Planting Insertion**: Utilizing a three-crew rotation, installation is calculated at under 10 minutes per unit. Crew A drills/sets the shell, Crew B drops/pressurizes the sled, and Crew C performs final compaction.
 2. **Harvest Extraction**: Prior to harvest, crews extract the internal sleds and cap the permanent shells with crush-proof blanking plugs.
@@ -1595,19 +1595,19 @@ Like the VFA, the LRZ employs the advanced \"Proxy Method\" of non-contact sensi
 
 | Category | Component Detail | Supplier / Scale Method | Unit Cost | Ext. Cost |
 | :--- | :--- | :--- | :--- | :--- |
-| Housing | 2\" SCH 40 UV-Stabilized PVC (18-inch) | Direct Extruder | $1.20 | $1.20 |
-| Housing | Friction Molded PVC Tapered Tip | Rotational Friction Formed | $3.50 | $3.50 |
-| Antenna | 3ft SS-304 Whip + Spring | Industrial Pultrusion | $3.50 | $3.50 |
+| Housing | 2\" SCH 40 UV-Stabilized PVC (18-inch) | Direct Extruder | $1.25 | $1.25 |
+| Housing | Friction Molded PVC Tapered Tip | Rotational Formed | $3.50 | $3.50 |
+| Antenna | 3ft SS-304 Whip + Spring | Hub-Mount Pultruded | $3.50 | $3.50 |
 | Adhesive | Industrial PVC Cement | Automated Bulk | $0.50 | $0.50 |
-| Board | Nordic nRF52840 Custom PCB | JLCPCB Assembled | $8.50 | $8.50 |
-| Sensor | Capacitive Dielectric Plate (FR4) | JLCPCB Integrated | $2.00 | $4.00 |
-| Hardware| Viton (FKM) 2\" O-Rings | Bulk Supplier | $1.20 | $4.80 |
-| Internal | Dry Nitrogen Gas Purge | Automated Assembly | $0.15 | $0.15 |
-| Energy | 21700 Lithium-Ion Cells (4000mAh)| Bulk Supplier | $3.00 | $18.00 |
-| Structure | Extruded Rigid CPVC Spacers (7U) | Recycled Bulk | $0.10 | $0.10 |
-| Power (x2) | 4U Battery Cartridges (21700x3) | Direct Cell Sourcing | $16.75/ea | $33.50 |
-| Basic Sensor (x2) | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | $2.00/ea | $4.00 |
-| **TOTAL** | **Per Unit Hardware Cost** | | | **$60.80** |
+| Computing| nRF52840 \"Chirp\" Logic Board | Tier-1 PCBA | $6.50 | $6.50 |
+| Seals | Viton (FKM) 2\" O-Rings (x2) | Bulk Supplier | $1.20 | $2.40 |
+| Purge | Dry Nitrogen Gas Shell Fill | Automated Assembly | $0.15 | $0.15 |
+| Climate | 1U Stamped Desiccant Matrix | Bulk Supply | $1.50 | $1.50 |
+| Structure| 18\" CPVC AlphaSled Chassis | Continuous Extrusion | $1.40 | $1.40 |
+| Structure| Extruded Rigid CPVC Spacers (7U)| Recycled Bulk | $0.10 | $0.10 |
+| Power | 4U Battery Cartridges (21700x3) | Direct Cell Sourcing | $16.75 | $33.50 |
+| Sensors | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | $2.50 | $5.00 |
+| **TOTAL** | **Per Unit Hardware Cost** | | | **$59.30** |
 | | **(Absolute OEM Scale)** | | | |
 
 <div style="page-break-after: always;"></div>
@@ -1661,7 +1661,7 @@ The PMT acts as an **Autonomous Compute Engine** continuously. Utilizing the ATS
 1. **Dormant Baseline (4-Hour Sweeps)**: When the weather is stable, soil moisture is high, and the pivot is parked, the PMT "relaxes," calculating the 16x16 field matrix only once every 4 hours.
 2. **Anticipatory Watch (1-Hour Sweeps)**: If the PMT knows active evaporation factors are rising, it pays closer attention, increasing the grid calculation to every 60 minutes.
 3. **Active Anomaly Tracking (15-Minute Sweeps)**: The moment the PMT gets a "nibble"—detecting the first sign of a rapid statistical trend—it scales updates to 15 minutes. This triggers a **"Focus Ripple,"** commanding peer nodes to increase reporting frequency.
-4. **Significant Event (5-Second Sweeps)**: When a critical threshold is breached or water is moving, the PMT triggers a **"Focus Collapse,"** ignoring dormant parts of the field to concentrate computational power on the path of the active event. During the "Blitz" deployment phase, the PMT enters **Command & Control (C&C) Deployment Mode**, providing live RTK-anchored XR overlays to field technicians for sub-meter "Pinning" of VFAs and LRZs.
+4. **Significant Event (5-Second Sweeps)**: When a critical threshold is breached or water is moving, the PMT triggers a **"Focus Collapse,"** ignoring dormant parts of the field to concentrate computational power on the path of the active event. During the "Rapid Deployment" deployment phase, the PMT enters **Command & Control (C&C) Deployment Mode**, providing live RTK-anchored XR overlays to field technicians for sub-meter "Pinning" of VFAs and LRZs.
 
 * **Failover Logic**: Because the PMT is already maintaining this dynamic 50m grid natively, if the DHU uplink drops, it seamlessly executes autonomous Variable Rate Irrigation (VRI) speed commands.
 * **Data Buffering**: During an outage, the PMT logs payloads to its onboard SPI Flash, burst-transmitting the backlog once the DHU connection is restored.
@@ -1672,7 +1672,7 @@ The PMT acts as an **Autonomous Compute Engine** continuously. Utilizing the ATS
 This ledger deconstructs the hardware costs for the initial 1,280-unit rollout.
 
 | Category | Component Description | Supplier Part # | Unit Cost | Ext. Cost |
-| :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- |
 | Housing | IP67 UV-Polycarbonate Puck | Polycase WP-21F | $45.00 | $45.00 |
 | Mounting | 304-SS Band-It Straps (x2) | McMaster 5530K34 | $12.50 | $12.50 |
 | Mounting | Neoprene Friction Pad | McMaster 8637K32 | $5.50 | $5.50 |
@@ -2016,11 +2016,11 @@ The Regional Superstation (RSS) is the absolute "Cortex" of the FarmSense networ
 
 ## 1. Facility Architecture: The Linear High-Cube Command Center
 
-The RSS utilizes a 40' High-Cube (HC) Modified Shipping Container as its structural foundation. To maintain thermal stability and operational flow within the narrow 7'8" (2.35m) internal width, the facility is divided into three distinct functional zones in a "Dirty-to-Clean" linear progression. This layout is specifically designed to facilitate the "Field Blitz" deployment model, where speed and precision are paramount.
+The RSS utilizes a 40' High-Cube (HC) Modified Shipping Container as its structural foundation. To maintain thermal stability and operational flow within the narrow 7'8" (2.35m) internal width, the facility is divided into three distinct functional zones in a "Dirty-to-Clean" linear progression. This layout is specifically designed to facilitate the "Field Rapid" deployment model, where speed and precision are paramount.
 
 ### Zone A: The Logistics & Refurbishment Bay (20' x 7.7')
 
-Located at the primary double-door end of the container, this zone handles the heavy physical movement of the "Blitz" deployment and serves as the primary intake for field hardware.
+Located at the primary double-door end of the container, this zone handles the heavy physical movement of the "Rapid Deployment" deployment and serves as the primary intake for field hardware.
 
 * **Tactical Fleet Dock**: Specifically dimensioned to house the Polaris Ranger-HD UTV and the Hydraulic Auger Trailer. With a 62" vehicle width, this leaves a 30" walk-aisle for personnel. The floor is reinforced with industrial-grade anti-slip diamond plating to withstand the weight of loaded UTVs and the constant tracking of SLV alkali dust.
 * **The Sled Hospital (The Circular Economy Hub)**: A longitudinal stainless steel workbench (12' long) equipped with automated JIGs. This is the heart of the hardware's 10-year survival strategy.
@@ -2030,7 +2030,7 @@ Located at the primary double-door end of the container, this zone handles the h
 
 ### Zone B: Inventory Staging & Ready-Rack (10' x 7.7')
 
-The intermediate zone acts as the supply chain buffer, ensuring the field crews are always equipped for maximum daily "Blitz" output.
+The intermediate zone acts as the supply chain buffer, ensuring the field crews are always equipped for maximum daily "Rapid Deployment" output.
 
 * **The Ready-Rack**: High-density vertical shelving designed to hold 3-5 days of installation inventory (approx. 500 units). These racks are organized by "Pivot Kits," pre-packaging the 1 VFA and 8-10 LRZs required for a standard 160-acre center-pivot deployment.
 * **Burn-in & Calibration Benches**: Before any sled is cleared for Zone A loading, it is placed on the "Burn-in Bench." Here, every sensor sled is GPS-tagged and undergoes a 24-hour verification cycle, syncing with the local DHU mesh to ensure the radio chipset and the u-blox GNSS module are achieving sub-meter locks before they ever hit the soil.
@@ -2056,7 +2056,7 @@ The RSS provides the local muscle for FarmSense’s primary software engine, ens
 ### The Oracle Vault (The Master Librarian)
 
 * **Storage Hardware**: 50TB WD Gold Enterprise NVMe Array in a RAID-10 configuration for maximum read/write performance and 100% data redundancy.
-* **Spatial Query Engine**: Oracle manages the master spatial database. It combines raw moisture chirps with localized context—NDVI maps from Satellite, the Aerial Fleet, 1m DEM (Digital Elevation Models), and historical soil texture maps. To support the **Command & Control (C&C) XR Toolkit**, Oracle implements **Frustum-Aware Streaming**, dynamically culling regional map tiles to serve only the high-resolution 1m data required for the technician's immediate visual field. This reduces XR device bandwidth by >90% during regional blitz deployments.
+* **Spatial Query Engine**: Oracle manages the master spatial database. It combines raw moisture chirps with localized context—NDVI maps from Satellite, the Aerial Fleet, 1m DEM (Digital Elevation Models), and historical soil texture maps. To support the **Command & Control (C&C) XR Toolkit**, Oracle implements **Frustum-Aware Streaming**, dynamically culling regional map tiles to serve only the high-resolution 1m data required for the technician's immediate visual field. This reduces XR device bandwidth by >90% during regional rapid deployments.
 * **Legal Integrity**: Every incoming data packet is cryptographically signed at the source (VFA/PFA) using 128-bit AES keys and verified at the RSS before being committed to. This creates an Immutable Audit Trail. In a Water Court dispute, this allows the district to present a minute-by-minute, tamper-proof record of water use that is virtually impossible to challenge.
 
 ## 3. Triple-Redundant Networking & Power
@@ -2077,7 +2077,7 @@ Following the "Fiber-First" mandate, the RSS acts as the primary backhaul hub fo
 
 ## 4. Hyper-Granular RSS CapEx & Procurement (Subdistrict 1)
 
-This ledger reflects the absolute cost for a fully operational 40' HC RSS hub, encompassing everything from the structural modifications to the specialized "Blitz" deployment fleet.
+This ledger reflects the absolute cost for a fully operational 40' HC RSS hub, encompassing everything from the structural modifications to the specialized "Rapid Deployment" deployment fleet.
 
 | Category | Component Description | Supplier / Detail | Unit Cost |
 | :--- | :--- | :--- | :--- |
@@ -2158,7 +2158,7 @@ The VFA employs advanced non-contact sensing, shooting high-frequency dielectric
 
 ## 4. The Seasonal Deployment Workflow & OEM BOM
 
-**The Post-Planting "Blitz" & Harvest Extraction**:
+**The Post-Planting "Rapid Deployment" & Harvest Extraction**:
 
 1. **Post-Planting Insertion**: Sensor sleds are dropped into the pre-located permanent PVC shells, locked, and pressurized in under 15 minutes.
 2. **Harvest Extraction**: Prior to harvest, crews pull the C&C caps, extract the sleds for warehouse charging, and cap the shells with blanking plugs.
@@ -2167,20 +2167,20 @@ The VFA employs advanced non-contact sensing, shooting high-frequency dielectric
 
 | Category | Component Detail | Supplier / Scale Method | Unit Cost | Ext. Cost |
 | :--- | :--- | :--- | :--- | :--- |
-| Housing | 2\" SCH 40 UV-Stabilized PVC (4ft) | Direct Extruder | $2.50 | $2.50 |
-| Housing | Friction Molded PVC Tapered Tip | Rotational Friction Formed | $3.50 | $3.50 |
-| Antenna | 3ft SS-304 Whip + Spring | Industrial Pultrusion | $3.50 | $3.50 |
+| Housing | 2\" SCH 40 UV-Stabilized PVC (4ft) | Direct Extruder | $3.25 | $3.25 |
+| Housing | Friction Molded PVC Tapered Tip | Rotational Formed | $3.50 | $3.50 |
+| Antenna | 3ft SS-304 Whip + Spring | Hub-Mount Pultruded | $3.50 | $3.50 |
 | Adhesive | Industrial PVC Cement | Automated Bulk | $0.50 | $0.50 |
-| Board | Nordic nRF52840 Custom PCB | JLCPCB Assembled | $8.50 | $8.50 |
-| Hardware| Viton (FKM) 2\" O-Rings | Bulk Supplier | $1.20 | $4.80 |
-| Internal | Dry Nitrogen Gas Purge | Automated Assembly | $0.25 | $0.25 |
+| Computing| nRF52840 \"Routing\" Board | Tier-1 PCBA | $8.50 | $8.50 |
+| Seals | Viton (FKM) 2\" O-Rings (x2) | Bulk Supplier | $1.20 | $2.40 |
+| Purge | Dry Nitrogen Gas Shell Fill | Automated Assembly | $0.15 | $0.15 |
 | Climate | 1U Stamped Desiccant Matrix | Bulk Supply | $1.50 | $1.50 |
-| Structure | 48\" CPVC AlphaSled Chassis | Continuous Extrusion | $3.25 | $3.25 |
-| Structure | Extruded Rigid CPVC Spacers (22U) | Recycled Bulk | $0.35 | $0.35 |
-| Power (x5) | 4U Battery Cartridges (21700x3) | Direct Cell Sourcing | $16.75/ea | $83.75 |
-| Adv. Sensor (x3) | 1U Advanced Sensor (NPK/EC/pH) | Fab-Direct Assembly | $14.00/ea | $42.00 |
-| Basic Sensor (x2) | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | $2.00/ea | $4.00 |
-| **TOTAL** | **Per Unit Hardware Cost** | | | **$159.65** |
+| Structure| 48\" CPVC AlphaSled Chassis | Continuous Extrusion | $3.75 | $3.75 |
+| Structure| Extruded Rigid CPVC Spacers(22U)| Recycled Bulk | $0.35 | $0.35 |
+| Power | 4U Battery Cartridges (21700x3) | Direct Cell Sourcing | $16.75 | $83.75 |
+| Sensors | 1U Adv Sensor (NPK/EC/pH) | Fab-Direct Assembly | $14.00 | $42.00 |
+| Sensors | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | $2.50 | $5.00 |
+| **TOTAL** | **Per Unit Hardware Cost** | | | **$158.20** |
 | | **(Absolute OEM Scale)** | | | |
 
 <div style="page-break-after: always;"></div>
@@ -3241,7 +3241,7 @@ FarmSense as sovereign water infrastructure—legally recognized, cryptographica
 
 ## Dependency Reduction
 
-See `file 'farmsenseOS/DEPENDENCY_REDUCTION.md'` for full plan.
+See `file 'farmsenseOS/DEPENDENCY_REDUCTION.0md'` for full plan.
 
 * Phase 1 ✅: Removed numpy, pandas, scipy, scikit-learn, redis, celery, requests
 * Next: Phase 3 (clsx/tailwind-merge replacement)
@@ -3630,7 +3630,7 @@ Welcome to FarmSense. This document serves as the introductory roadmap for engin
 
 ## Immediate Deployment Scope
 
-Our immediate operational objective centers on the specialized 2-Field Pilot at the CSU San Luis Valley (SLV) Research Center in Center, Colorado. This deployment bypasses traditional venture-capital mass rollout bottlenecks (i.e. equipping 1,280 pivots or the prior 16,880 unit blitz) to generate strictly empirical, Gold Standard verifiable hydrodynamic "Proof of Concept" data for the upcoming June 2026 Subdistrict 1 Water Court trials.
+Our immediate operational objective centers on the specialized 2-Field Pilot at the CSU San Luis Valley (SLV) Research Center in Center, Colorado. This targeted deployment generates strictly empirical, Gold Standard verifiable hydrodynamic "Proof of Concept" data for the upcoming June 2026 Subdistrict 1 Water Court trials, bypassing traditional mass rollout requirements.
 
 ## Reading and Documentation Flow
 

@@ -4,7 +4,7 @@ Welcome to FarmSense. This document serves as the introductory roadmap for engin
 
 ## Immediate Deployment Scope
 
-Our immediate operational objective centers on the specialized 2-Field Pilot at the CSU San Luis Valley (SLV) Research Center in Center, Colorado. This deployment bypasses traditional venture-capital mass rollout bottlenecks (i.e. equipping 1,280 pivots or the prior 16,880 unit blitz) to generate strictly empirical, Gold Standard verifiable hydrodynamic "Proof of Concept" data for the upcoming June 2026 Subdistrict 1 Water Court trials.
+Our immediate operational objective centers on the specialized 2-Field Pilot at the CSU San Luis Valley (SLV) Research Center in Center, Colorado. This targeted deployment validates the architecture before executing the wider Subdistrict 1 rollout, generating strictly empirical, Gold Standard verifiable hydrodynamic "Proof of Concept" data for the upcoming June 2026 Subdistrict 1 Water Court trials.
 
 ## Reading and Documentation Flow
 

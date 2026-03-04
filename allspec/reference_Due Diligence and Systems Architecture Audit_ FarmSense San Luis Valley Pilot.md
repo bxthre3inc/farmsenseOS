@@ -135,9 +135,9 @@ FarmSense explicitly mandates NEMA 4X-rated Polycarbonate enclosures (e.g., Poly
 
 ## ---
 
-**6\. Logistical Viability: Phased Rollout Pivot**
+**6\. Scalability & Implementation: Phased Rollout Strategy**
 
-A major operational risk identified in the initial assessment was the "Blitz" deployment bottleneck, which mandated the installation of 16,880 field units within a narrow 3-week window, severely straining labor budgets and RSS testing capacity.
+The deployment strategy shifts from a rapid blanket installation to a highly targeted, phased integration, beginning with a definitive 2-field pilot. This ensures maximum operational efficiency and eliminates initial labor stress before the massive Subdistrict 1 scaling.
 
 ### **6.1 The Strategic Pivot to a Targeted 2-Field Pilot**
 
