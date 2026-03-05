@@ -43,6 +43,7 @@
 | DHU v1.1 | [`Master Specification: District Hub (DHU) V1.1.md`](specifications/Master%20Specification:%20District%20Hub%20%28DHU%29%20V1.1.md) |
 | RSS v1.3 | [`Master Specification: Regional Superstation (RSS) V1.3.md`](specifications/Master%20Specification:%20Regional%20Superstation%20%28RSS%29%20V1.3.md) |
 | Aerial Fleet v1.3 | [`Master Specification: Aerial Fleet Strategy V1.3.md`](specifications/Master%20Specification:%20Aerial%20Fleet%20Strategy%20V1.3.md) |
+| AKP-LRZ v1.0 | [`Master Specification: Airborne Kinetic Penetrator LRZ V1.0.md`](specifications/Master%20Specification:%20Airborne%20Kinetic%20Penetrator%20LRZ%20V1.0.md) |
 
 ---
 
