@@ -12,7 +12,9 @@ To achieve the $32.00 target unit cost, the LRZ1 utilizes a fixed-function inter
 
 - **Unified Housing**: 2" Schedule 40 UV-Stabilized PVC (18-inch length).
 - **Non-Modular PCBA**: The internal electronics are mounted to a rigid internal PET spine, eliminating the expensive Co-Extruded Alpha-Sled used in higher tier nodes.
-- **Permanent Core**: Vacuum-sealed internal cavity, factory-potted for absolute moisture defense.
+- **Permanent Core**: The HDPE pipe remains in the soil as a permanent "Hole Anchor."
+- **Sensing Spine**: The internal electronics (ASR6601 + Battery + Sensors) are mounted on a removable PET spine, sealed with a **Threaded High-Density Urethane (T-HDU) Plug**.
+- **Refurbishment Workflow**: After 7-10 years, the internal spine is extracted via a standard pulling tool. The factory swaps the Li-SOCl2 cell and re-potts the spine for reuse, saving 70% of the hardware value.
 - **Battery Interface**: Maintains the same **Viton-sealed battery cap** as the LRZ2, allowing for centralized maintenance using the standard 21700 battery packs.
 
 ## 2. Sensing Physics (Single-Depth Grounding)
