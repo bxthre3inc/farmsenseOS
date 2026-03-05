@@ -18,7 +18,7 @@ Phase 1 reviewed the core directives and structural artifacts of the FarmSense p
    *We will need to check the codebase to see how these disjointed telemetry paths are handled logically.*
 2. **Computational Overhead at the Edge**:
    - The PMT runs Empirical Bayesian Kriging natively on a Cortex-M4 (120MHz).
-   - The DHU runs 10m/20m Kriging on a Jetson Nano.
+   - The DHU runs 10m/20m Kriging on an **NVIDIA Jetson Orin Nano (8GB)**.
    *We will heavily audit the `backend/` and `edge-compute/` components to see if these intensive geostatistical operations are truly optimized or just placeholder logic.*
 3. **Audit Overrides**: The script `verify_audit_override.py` models Tiered SaaS access, indicating that the backend APIs enforce access based on Roles (FARMER vs AUDITOR) and Tiers (FREE vs PRO).
 

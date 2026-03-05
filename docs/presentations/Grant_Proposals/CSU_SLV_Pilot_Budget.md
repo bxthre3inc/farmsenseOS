@@ -33,7 +33,7 @@ The central aggregator that runs the Alliance-Chain ledger and routes data to th
 
 | Item | Use Case | Qty | Unit Price | Total |
 | :--- | :--- | :--- | :--- | :--- |
-| NVIDIA Jetson Nano Dev Kit (4 GB) | DHU Kriging Engine | 1 | $120.00 | $120.00 |
+| NVIDIA Jetson Orin Nano (8GB) | DHU Kriging Engine | 1 | $499.00 | $499.00 |
 | SanDisk Max Endurance 128GB MicroSD | DHU File System | 1 | $35.00 | $35.00 |
 | RAK Wireless WisGate Edge Lite | DHU LoRaWAN Gateway | 1 | $185.00 | $185.00 |
 | Sixfab 4G/LTE Cellular Base HAT for Jetson | DHU Internet Backhaul | 1 | $80.00 | $80.00 |
@@ -42,7 +42,7 @@ The central aggregator that runs the Alliance-Chain ledger and routes data to th
 | LMR-400 Low Loss Coax Cable (10ft) | DHU Antenna Run | 1 | $40.00 | $40.00 |
 | 915MHz LoRa Dipole + U.FL to SMA Pigtails | VFA/LRZ/PFA Antennas | 14 | $10.00 | $140.00 |
 | 2.4GHz BLE Whip Antennas | PMT/VFA Local Link | 4 | $10.00 | $40.00 |
-| **Subtotal: Edge Compute & RF** | | | | **$735.00** |
+| **Subtotal: Edge Compute & RF** | | | | **$1,114.00** |
 
 ---
 
@@ -51,11 +51,11 @@ The central aggregator that runs the Alliance-Chain ledger and routes data to th
 | Item | Use Case | Qty | Unit Price | Total |
 | :--- | :--- | :--- | :--- | :--- |
 | Renogy 50W Monocrystalline Solar Panel | PMT / DHU Harvesting | 3 | $50.00 | $150.00 |
-| Renogy Wanderer 10A PWM Charge Controller| PMT / DHU Regulation | 3 | $15.00 | $45.00 |
+| Renogy Wanderer 10A PWM Charge Controller | PMT / DHU Regulation | 3 | $15.00 | $45.00 |
 | 12V 50Ah SLA Deep Cycle Battery | DHU Storage | 1 | $100.00 | $100.00 |
 | 12V 9Ah SLA Battery | PMT Storage | 2 | $20.00 | $40.00 |
 | Saft LS33600 D-Cell (3.6V LiSOCl2) | VFA/LRZ/PFA Primary | 14 | $15.00 | $210.00 |
-| LM2596 DC-DC Buck Converters (Pack of 10)| 12V to 5V/3.3V Step | 1 | $15.00 | $15.00 |
+| LM2596 DC-DC Buck Converters (Pack of 10) | 12V to 5V/3.3V Step | 1 | $15.00 | $15.00 |
 | Inline ATO Fuse Holders & 5A Fuses (Pack) | Battery Protection | 1 | $15.00 | $15.00 |
 | **Subtotal: Power Systems** | | | | **$575.00** |
 
@@ -68,10 +68,10 @@ The central aggregator that runs the Alliance-Chain ledger and routes data to th
 | NEMA 3R/4X Polycarbonate Junction Box (12x12) | DHU Enclosure | 1 | $45.00 | $45.00 |
 | NEMA 4X Polycarbonate Junction Box (8x6) | PMT/PFA Enclosures | 4 | $25.00 | $100.00 |
 | 10-foot 2" Schedule 40 PVC Pipe Stems | VFA/LRZ Housings | 4 | $15.00 | $60.00 |
-| 2" PVC Slip Caps (Dome Top, Flat Bottom)| VFA/LRZ Seal | 28 | $1.50 | $42.00 |
-| Waterproof Cable Glands (PG9/PG11 Pack) | Sensor Pass-throughs| 1 | $20.00 | $20.00 |
+| 2" PVC Slip Caps (Dome Top, Flat Bottom) | VFA/LRZ Seal | 28 | $1.50 | $42.00 |
+| Waterproof Cable Glands (PG9/PG11 Pack) | Sensor Pass-throughs | 1 | $20.00 | $20.00 |
 | Marine-Grade Silicone RTV Sealant (Tubes) | PMT/PFA Sealing | 3 | $8.00 | $24.00 |
-| Oatey PVC Primer and High-Strength Cement| VFA/LRZ Sealing | 1 | $15.00 | $15.00 |
+| Oatey PVC Primer and High-Strength Cement | VFA/LRZ Sealing | 1 | $15.00 | $15.00 |
 | 10' Galvanized TV Mast w/ Guy Wire Kit | DHU Tower | 1 | $75.00 | $75.00 |
 | Stainless Steel Band-It Straps & Clamp Kit | PMT Pivot Mounting | 1 | $45.00 | $45.00 |
 | **Subtotal: Mechanical** | | | | **$426.00** |
@@ -85,10 +85,10 @@ The central aggregator that runs the Alliance-Chain ledger and routes data to th
 | 22 AWG Solid Core Hookup Wire Kit (6 Color) | PCB Breadboarding | 1 | $25.00 | $25.00 |
 | 18 AWG Stranded Marine Wire (100ft Spool) | Solar / Power Runs | 1 | $30.00 | $30.00 |
 | 3M VHB Double-Sided Tape Assortment | Sled Mounting | 1 | $15.00 | $15.00 |
-| Heat Shrink Tubing (Marine Adhesive-Lined)| Splice Waterproofing | 1 | $20.00 | $20.00 |
+| Heat Shrink Tubing (Marine Adhesive-Lined) | Splice Waterproofing | 1 | $20.00 | $20.00 |
 | MG Chemicals Silicone Conformal Coating | Humidity PCB Defense | 2 | $17.50 | $35.00 |
 | 63/37 Rosin Core Solder (1lb Spool) | Joint Fabrication | 1 | $15.00 | $15.00 |
-| 1g Silica Gel Desiccant Packets (Bag of 100)| Enclosure Drying | 1 | $15.00 | $15.00 |
+| 1g Silica Gel Desiccant Packets (Bag of 100) | Enclosure Drying | 1 | $15.00 | $15.00 |
 | UV-Resistant Nylon Zip Ties (Assorted Bag) | Cable Management | 1 | $15.00 | $15.00 |
 | **Subtotal: Consumables** | | | | **$170.00** |
 
@@ -101,7 +101,7 @@ The central aggregator that runs the Alliance-Chain ledger and routes data to th
 | Item | Use Case | Qty | Unit Price | Total |
 | :--- | :--- | :--- | :--- | :--- |
 | Hakko FX-888D Soldering Station | PCB Assembly | 1 | $120.00 | $120.00 |
-| Wire Strippers, Flush Cutters, Precision Kit| Wiring Fabrication | 1 | $45.00 | $45.00 |
+| Wire Strippers, Flush Cutters, Precision Kit | Wiring Fabrication | 1 | $45.00 | $45.00 |
 | Fluke 101 Digital Multimeter | Power Debugging | 1 | $60.00 | $60.00 |
 | Ratcheting PVC Pipe Cutter | VFA/LRZ Cutting | 1 | $20.00 | $20.00 |
 | Handheld 20V Power Drill & Step-Bit Set | NEMA Box Drilling | 1 | $80.00 | $80.00 |
@@ -135,7 +135,7 @@ The central aggregator that runs the Alliance-Chain ledger and routes data to th
 | **Agronomic Core Testing** | Paying a local SLV lab to physically test soil cores to validate the VFA/LRZ Kriging algorithms twice during the season. | N/A | $1,000.00 |
 | **Unforeseen Spares Bank** | 10% buffer for broken PVC, bad solder joints, or damaged sensors over the season. | N/A | $350.00 |
 | **6-Month Operational Reserves** | A designated financial cushion to absorb unforeseen pilot execution costs (e.g. broken hardware, travel spikes) and provide a lean living stipend so the solo founder can focus 100% full-time on deployment. | N/A | $8,619.00 |
-| **Subtotal: 6-Month OpEx** | | | | **$12,459.00** |
+| **Subtotal: 6-Month OpEx** | | | **$12,459.00** |
 
 ---
 
@@ -163,19 +163,19 @@ Executing the pilot requires a two-step localized supply chain:
 Summing the exhaustive list of individual components, parts, tools, and wire down to the single-unit retail price levels:
 
 * **Electronics & Processing:** $1,020.00
-* **DHU Edge Compute & RF:** $735.00
+* **DHU Edge Compute & RF:** $1,114.00
 * **Power Systems:** $575.00
 * **Mechanical & Civil:** $426.00
 * **Wiring & Consumables:** $170.00
 * **Workshop Tools:** $355.00
 * **Cloud & Developer Compute:** $2,350.00
 
-### **Total Ground-Up Pilot Procurement Budget:** $5,631.00
+### **Total Ground-Up Pilot Procurement Budget:** $6,010.00
 
 **Total Seed Funding Calculation:**
 
-* **CapEx (Hardware Procurement & Workshop Tools):** $5,631.00
+* **CapEx (Hardware Procurement & Workshop Tools):** $6,010.00
 * **OpEx (6-Month Growing Season Operations + Reserves):** $12,459.00
 * **Phase 1 Legal (Patents & Dual Incorporation):** $6,910.00
 
-### **Total FarmSense Seed Funding Request:** $25,000.00
+### **Total FarmSense Seed Funding Request:** $25,379.00

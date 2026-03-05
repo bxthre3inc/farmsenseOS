@@ -42,7 +42,7 @@ To achieve this absolute, 1m truth, FarmSense requires deploying physical hardwa
 
 Deploying to the full 150,000 acreage of Subdistrict 1 requires strategic hub infrastructure:
 
-* **District Hubs (DHU):** $15,300 per 10-mile radius. (x25 required = $382,500). Features NVIDIA Jetson Nano edge-processing and dual Starlink/Cellular backhauls.
+* **District Hubs (DHU):** $15,679 per 10-mile radius. (x25 required = $391,975). Features **NVIDIA Jetson Orin Nano (8GB)** edge-processing and dual Starlink/Cellular backhauls.
 * **Regional Superstation (RSS):** $187,699. The core data repository. Features 64-Core AMD Threadripper PRO, dual RTX A6000 GPUs, and 50TB NVMe storage. Serves as the localized Oracle for generating Kriging maps and storing the Digital Ledger.
 * **Aerial Fleet Mobilization:** $136,500 initial CapEx (4x AgEagle eBee + 7x DJI Mavic 3M). Monthly OpEx run-rate of ~$34,800.
 

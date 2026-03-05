@@ -27,9 +27,9 @@ By stripping the VFA down to pure routing and encryption functions, we have inte
 * **Interference Mitigation & FHSS**: The VFA utilizes a highly sensitive onboard FHSS mesh receiver to intercept the transmit-only "dumb" chirps from its fleet of 15-acre LRZs.
 * **Firmware Logic & Interrupts**: Operates an RTOS prioritizing pressure transients (Priority 0) over mesh coordination (Priority 1) and ADC dielectric sampling (Priority 2).
 * **Edge Decryption & Aggregation**: As the VFA catches these asynchronous chirps, it performs localized Edge Decryption, aggregating the raw electrical counts from the 15-acre lateral nodes with its own high-fidelity deep-soil data.
-* **Hardware Security & Root of Trust (RoT)**: Private Keys are generated within the ESP32-C6's secure hardware enclave. It is injected at the RSS and never leaves the silicon.
-* **Integrated LoRa Mesh & 2.4GHz Transceiver**: The VFA utilizes an **ESP32-C6** (RISC-V) combined with a **Semtech SX1262** transceiver. This enables participation in the district-wide LoRa Mesh managed by the PMT. It also incorporates WiFi 6 and BLE 5.3 for localized research access and PFA safety coordination.
-  * **Processing**: ESP32-C6 (RISC-V 160MHz) for ultra-low power soil profiling.
+* **Hardware Security & Root of Trust (RoT)**: Private Keys are generated within the nRF52840's secure hardware enclave (CryptoCell). It is injected at the RSS and never leaves the silicon.
+* **Integrated LoRa Mesh & 2.4GHz Transceiver**: The VFA utilizes a **Nordic nRF52840** combined with a **Semtech SX1262** transceiver. This enables participation in the district-wide LoRa Mesh managed by the PMT. It also incorporates BLE 5.0 for localized research access and PFA safety coordination.
+  * **Processing**: nRF52840 (Cortex-M4F @ 64MHz) for ultra-low power soil profiling.
   * **Protocol**: 900MHz LoRa Mesh (Spread Spectrum).
   * **Encryption**: AES-256 (ESP32 Hardware Accelerator).
   * **Networking Ability**: Synchronized 1:1 with PMT/DHU for uniform field-layer data reporting.
@@ -80,7 +80,7 @@ The VFA employs advanced non-contact sensing, shooting high-frequency dielectric
 | **Antenna** | 3ft SS-304 Whip + Spring | Industrial Pultrusion | 2 Weeks | $3.50 |
 | **Adhesive** | Structural HDPE Acrylic Epoxy | Automated Bulk | 1 Week | $4.50 |
 | **Seals** | Viton O-Rings + Nitrogen Check Valve | FS-SEAL-V1 (316-SS) | 3 Weeks | $15.00 |
-| Computing | ESP32-C6 Mainboard PCBA | FS-VFA-C6-V2 | 8 Weeks | $18.50 |
+| Computing | nRF52840 Mainboard PCBA | FS-VFA-nRF-V2 | 8 Weeks | $18.50 |
 | **Climate** | 1U Stamped Desiccant Matrix | Bulk Supply | 1 Week | $1.50 |
 | **Structure** | 48" AlphaSled Chassis | Continuous Extrusion | 3 Weeks | $3.25 |
 | **Structure** | Injection-Molded EndCaps | High-Cavity Mold | 4 Weeks | $0.60 |
@@ -114,7 +114,7 @@ The firmware calculates Management Allowable Depletion (MAD) status locally on t
 
 | Part Class | Model/Manufacturer | Qty | Role |
 | :--- | :--- | :--- | :--- |
-| **Main SoC** | ESP32-C6 (RISC-V) | 1 | Logic/Comms |
+| **Main SoC** | Nordic nRF52840 | 1 | Logic/Comms |
 | **LoRa Radio** | Semtech SX1262 | 1 | LoRa Mesh |
 | **Moisture** | Tensiometric (Custom) | 3 | Deep Profiling |
 | **VWC Sensor** | Dielectric Ring | 2 | VWC/Temp/EC |

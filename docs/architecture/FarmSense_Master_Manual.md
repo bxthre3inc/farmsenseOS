@@ -126,7 +126,7 @@ The primary engine for water rights verification is the PMT's hydraulic flow sta
 
 ### **4.3 Lateral Root-Zone (LRZ) and Vertical Field Anchors (VFA)**
 
-* **The \"Invisible Presence\" Architecture:** Both units utilize a two-phase seasonal deployment model. Permanent **HDPE SDR9 or 11** outer shells remain buried flush with the soil surface year-round, while internal \"Alpha-Sleds\" containing the electronics are extracted pre-harvest.
+* **The \"Invisible Presence\" Architecture:** Both units utilize a two-phase seasonal deployment model. Permanent **HDPE SDR9** outer shells remain buried flush with the soil surface year-round, while internal \"Alpha-Sleds\" containing the electronics are extracted pre-harvest.
 * **The Proxy Method:** The sensors utilize an advanced non-contact capacitive method, shooting high-frequency dielectric fields through the 50mm sled wall and across a \+5 psi dry nitrogen gap directly into the soil. Aggregated Layer 1 data (LRZ/VFA) is "chirped" via **900MHz FHSS AES-128** to the elevated PMT hub for 100% canopy penetration.
 
 ## ---

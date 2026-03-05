@@ -7,9 +7,9 @@ from .base import Base
 
 class SubscriptionTier(str, enum.Enum):
     FREE = "FREE"             # 50 meters
-    BASIC = "BASIC"           # + 20 meters
-    PRO = "PRO"               # + 1 meter
-    ENTERPRISE = "ENTERPRISE" # + 1 meter + Drone
+    BASIC = "BASIC"           # 20 meters
+    PRO = "PRO"               # 10 meters
+    ENTERPRISE = "ENTERPRISE" # 1 meter + Drone
 
 class UserRole(str, enum.Enum):
     FARMER = "FARMER"

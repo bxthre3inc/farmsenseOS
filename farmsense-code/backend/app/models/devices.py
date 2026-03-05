@@ -6,6 +6,16 @@ import enum
 from .base import Base
 
 class DeviceType(str, enum.Enum):
+    # Fleet HW Nodes
+    VFA = "vfa"
+    LRZ = "lrz"
+    PMT = "pmt"
+    PFA = "pfa"
+    PST = "pst"
+    SAT = "sat"
+    DHU = "dhu"
+    RSS = "rss"
+    # Legacy Categories
     SENSOR = "sensor"
     MACHINERY = "machinery"
     ROBOTICS = "robotics"

@@ -170,7 +170,7 @@ The VFA runs a Real-Time Operating System (RTOS) designed for high-availability 
 
 #### 4.2.1 Edge Logic & Chirp Protocol
 
-* **Core SoC**: ESP32-C6 (RISC-V 160MHz).
+* **Core SoC**: Nordic nRF52811 (Cortex-M4 @ 64MHz).
 * **Encryption**: AES-256 (Hardware-accelerated).
 * **Protocol**: 900MHz LoRa Mesh (SX1262).
 * **State Machine**:
@@ -222,7 +222,7 @@ The AKP-LRZ is a specialized tactical and emergency-deployment variant of the st
 #### 4.3.3 Edge Compute
 
 * **Processor**: ESP32-S3 (Dual-Core 240MHz). Selected for high-speed sampling and motor health FFTs via AI acceleration.
-* **Buffer**: 40,000mAh LiFePO4 battery array (7-day blackout resilience).
+* **Buffer**: 40Ah LiFePO4 battery array (7-day blackout resilience).
 
 #### 4.3.4 Motor Signature Analysis (The "Zo" Engine Integration)
 
@@ -338,7 +338,7 @@ This section provides the "Circuit-to-Code" mapping for the primary field and hu
 
 ### 7.1 VFA/LRZ "AlphaSled" Internal PCBA
 
-**Main SoC**: ESP32-C6 (RISC-V) with integrated LoRa Mesh (SX1262).
+**Main SoC**: Nordic nRF52840 (Cortex-M4F) with integrated LoRa Mesh (via SPI to SX1262).
 
 #### 7.1.1 GPIO Pinout Map
 
@@ -535,9 +535,9 @@ This section provides a line-item breakdown for every circuit, sensor, and struc
 
 #### Total System Cost (Estimate): $4,594.00
 
-| Category | Component Description | MPN / Supplier | Lead Time | Unit Cost |
-| :--- | :--- | :--- | :--- | :--- |
-| **Edge Compute** | NVIDIA Jetson Orin Nano (8GB) | 945-13766-0000-000 | 4 Weeks | $499 |
+| Category | Component Description | Qty | Unit Cost | Extended | Lead Time |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Edge Compute** | NVIDIA Jetson Orin Nano (8GB) | 1 | $499 | $499 | 4 Weeks |
 | **Storage** | 128GB Swissbit X-75 | 1 | $185 | $185 | 2 Weeks |
 | **Radio Array** | 120° Sector Array | 3 | $283 | $850 | 4 Weeks |
 | **LoRa Gateway** | RAK7289V2 Enterprise LoRaWAN | 1 | $650 | $650 | 6 Weeks |
@@ -734,7 +734,7 @@ This section details the procurement logic and unit costs for a standard Subdist
 | **Enclosure (Shell)** | UV-PVC Shell (18" to 48") | $3.25 | $0.85 |
 | **Mounting (Tip)** | PVC Tapered Tip | $3.50 | $1.20 |
 | **Antenna** | 3ft SS-304 Whip | $3.50 | $3.50 |
-| **Other Struct./Seals**| CPVC/Seals/Desiccant | $7.70 | $11.75 |
+| **Other Struct./Seals** | CPVC/Seals/Desiccant | $7.70 | $11.75 |
 | **TOTAL UNIT COST** | | **$158.20** | **$59.30** |
 
 ### 7.2 Tier 1.5: Kinematic & Audit Nodes (PMT, PFA, CSA)

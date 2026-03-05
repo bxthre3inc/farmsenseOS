@@ -42,7 +42,7 @@ FarmSense utilizes a tiered architecture to balance low-latency edge reflex with
 | Layer | Description | Hardware Class |
 | :--- | :--- | :--- |
 | **Field (L0)** | Raw Sensing (LoRaWAN/FHSS) | Cortex-M4/M7, nRF52840 |
-| **Grid (L1)** | 20m Grid Compute, Reflex Logic | OnLogic CL210 (ARM) / NVIDIA Jetson |
+| **Grid (L1)** | 20m Grid Compute, Reflex Logic | NVIDIA Jetson Orin Nano (8GB) |
 | **District (L2)** | Mesh Coordination, Localized Cloud | Regional Superstation (RSS) |
 | **Cloud (L3)** | 1m Grid Kriging, Historical Analytics | AWS EKS (Kubernetes), TimescaleDB |
 
@@ -139,7 +139,7 @@ The engine shifts monitoring intensity based on real-time risk:
 
 ### **5.1 DHU: District Hub (Mesh Coordinator)**
 
-- **Processor:** OnLogic CL210 Industrial 8-Core ARM.
+- **Processor:** NVIDIA Jetson Orin Nano (8GB).
 - **Storage:** 128GB Swissbit PSLC Industrial SSD (30-Day "Black Box" Ledger).
 - **Networking:** Ubiquiti LTU Sector Radio Spine (5GHz) + 900MHz LoRaWAN Gateway.
 
