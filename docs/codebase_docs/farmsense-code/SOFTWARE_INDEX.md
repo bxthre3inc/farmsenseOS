@@ -1,39 +1,56 @@
 # FarmSense: Software & Firmware Ecosystem Specifications
 
-This document serves as the master index for the FarmSense deterministic operations platform. It maps out the technical specifications for all 8 frontend software portals, the backend infrastructure, and the edge-processing firmware operating on the 5 distinct hardware nodes.
+This document serves as the master index for the FarmSense deterministic operations platform. It maps out the technical specifications for all frontend portals, backend infrastructure, and the firmware logic operating on each hardware node.
+
+> See also: [`docs/00_NAVIGATION.md`](../../00_NAVIGATION.md) — full role-based navigation index.
 
 ---
 
 ## 🖥️ Frontend Software Specifications
 
-The FarmSense platform utilizes a unified backend REST API and decentralized database architecture (PostgreSQL/TimescaleDB) to feed 8 distinct, containerized frontend portals. Each portal presents a specialized lens into the 1m Kriging grid.
+> **Architecture Note (2026-03-05):** FarmSense has transitioned from **8 separate containerized portals (Gen 1)** to a **single unified React app with RBAC (Gen 2)**. The `farmsense-portal/` directory is the active unified portal. The 8 legacy SPECIFICATION.md files below now serve as **role-specific requirements documents** (what each view should contain), not independent app specs.
+>
+> See [`farmsense-portal/README.md`](frontend/farmsense-portal/README.md) for the full transition details.
 
-1. **[Farmer Dashboard Specification](frontend/farmer-dashboard/SPECIFICATION.md):** The primary daily-driver application. Real-time MapLibre visualization of the 50m, 20m, and 1m virtual sensor grids, irrigation scheduling, and crop stress alerts.
-2. **[Regulatory Portal Specification](frontend/regulatory-portal/SPECIFICATION.md):** The immutable audit ledger. Generates cryptographically secure water extraction reporting for the State Engineer and SLV Subdistrict compliance.
-3. **[Admin Dashboard Specification](frontend/admin-dashboard/SPECIFICATION.md):** System-wide administrative controls, tenant management, billing, and global alert configurations.
-4. **[Investor Dashboard Specification](frontend/investor-dashboard/SPECIFICATION.md):** High-level aggregate metrics, Water-ROI (Return on Investment per acre-foot), and regional impact analytics.
-5. **[Grant Portal Specification](frontend/grant-portal/SPECIFICATION.md):** Dedicated data-extraction portal for academic and foundation partners (e.g., LOR Foundation) tracking the efficacy of grant-funded deployments.
-6. **[Research Portal Specification](frontend/research-portal/SPECIFICATION.md):** Deep-dive interface for agronomists and CSU SLV Research Center Zones. Provides access to raw variogram data, detrended residuals, and historical Kriging calibration sets.
-7. **[Docs Portal Specification](frontend/docs-portal/SPECIFICATION.md):** The static-site generator housing all public and internal engineering documentation, API references, and installation guides.
-8. **[Marketing Site Specification](frontend/marketing-site/SPECIFICATION.md):** The public-facing landing page outlining the FarmSense architecture, Federal dual-use case studies, and contact forms.
+### Active Unified Portal
+
+- **[farmsense-portal](frontend/farmsense-portal/README.md)** — Single React/Vite app with JWT-scoped RBAC. Consolidates all 8 role views into one deployment at `brodiblanco.zo.computer/farmsense/`.
+
+### Legacy Role Requirements (Use as feature input for unified portal)
+
+1. **[Farmer Dashboard](frontend/farmer-dashboard/SPECIFICATION.md)** — Real-time MapLibre, irrigation scheduling, crop stress alerts.
+2. **[Regulatory Portal](frontend/regulatory-portal/SPECIFICATION.md)** — Immutable audit ledger, State Engineer reporting, SLV Subdistrict compliance.
+3. **[Admin Dashboard](frontend/admin-dashboard/SPECIFICATION.md)** — System-wide controls, tenant management, billing, alert configurations.
+4. **[Investor Dashboard](frontend/investor-dashboard/SPECIFICATION.md)** — Aggregate metrics, Water-ROI per acre-foot, regional impact analytics.
+5. **[Grant Portal](frontend/grant-portal/SPECIFICATION.md)** — Data-extraction for LOR Foundation and academic partners.
+6. **[Research Portal](frontend/research-portal/SPECIFICATION.md)** — Raw variogram data, detrended residuals, historical Kriging calibration sets.
+7. **[Docs Portal](frontend/docs-portal/SPECIFICATION.md)** — Static-site engineering docs, API references, installation guides.
+8. **[Marketing Site](frontend/marketing-site/SPECIFICATION.md)** — Public landing page, dual-use case studies, contact forms.
 
 ---
 
 ## 📡 Hardware Firmware Specifications
 
-Unlike traditional static IoT networks, FarmSense pushes intense computational processing natively to the edge. The following firmware specifications detail the specific logic loops, spatial interpolation capabilities, and failover behavior of each bare-metal node.
+> **Note (2026-03-05):** Firmware supplement files have been merged into their canonical Master Specifications in `docs/specifications/`. The links below point to the appropriate section of each Master Spec.
 
-1. **[Pivot Motion Tracker (PMT) Firmware Specification](../specifications/firmware/PMT_Firmware_Spec.md):** The autonomous Level 1.5 Field Hub. Details the continuous execution of the 50m Empirical Bayesian Kriging (Edge-EBK) matrix and the "Fisherman's Attention" update scaling.
-2. **[Vertical Field Anchor (VFA) Firmware Specification](../specifications/firmware/VFA_Firmware_Spec.md):** The Level 1 Advanced Peer Node. Details the deep-profile ground truth telemetry generation processes and 900MHz FHSS routing.
-3. **[Lateral Root-Zone Scout (LRZ) Firmware Specification](../specifications/firmware/LRZ_Firmware_Spec.md):** The mass-produced "dumb node." Details the LPI/LPD capacitive telemetry sweeps and high-frequency chirp protocols.
-4. **[Pressure & Flow Anchor (PFA) Firmware Specification](../specifications/firmware/PFA_Firmware_Spec.md):** The "Sentry of the Source." Details the Cortex-M7 Current Harmonic Analysis of the wellhead motor, cavitation detection, and 2.4GHz High-Gain linking.
-5. **[Corner-Swing Auditor (CSA) Firmware Specification](../specifications/firmware/CSA_Firmware_Spec.md):** Details the dual-node kinematics required to resolve swing-arm transit and overlap matrices.
+| Hardware Node | Master Specification | Firmware Section |
+|---|---|---|
+| Pivot Motion Tracker (PMT) | [PMT V1.6](../../../../specifications/Master%20Specification:%20Pivot%20Motion%20Tracker%20(PMT)%20V1.6.md) | §7 Firmware Details |
+| Vertical Field Anchor (VFA) | [VFA V1.21](../../../../specifications/Master%20Specification:%20Vertical%20Field%20Anchor%20(VFA)%20V1.21.md) | §6 Firmware Details |
+| Lateral Root-Zone Scout (LRZ) | [LRZ V1.21](../../../../specifications/Master%20Specification:%20Lateral%20Root-Zone%20Scout%20(LRZ)%20V1.21.md) | §6 Firmware Details |
+| Pressure & Flow Anchor (PFA) | [PFA V1.9](../../../../specifications/Master%20Specification:%20Pressure%20&%20Flow%20Anchor%20(PFA)%20V1.9.md) | Firmware & Control Details |
+| Corner-Swing Auditor (CSA) | [CSA V1.0](../../../../specifications/Master%20Specification:%20Corner-Swing%20Auditor%20(CSA)%20V1.0.md) | Firmware & Protocol Details |
+| District Hub (DHU) | [DHU V1.1](../../../../specifications/Master%20Specification:%20District%20Hub%20(DHU)%20V1.1.md) | Hardware & BOM Details |
+| Regional Superstation (RSS) | [RSS V1.3](../../../../specifications/Master%20Specification:%20Regional%20Superstation%20(RSS)%20V1.3.md) | Facility & Infrastructure Details |
 
 ---
 
 ## 🧠 Backend Engine Specifications
 
-The intelligence powering the frontends and edge-hardware relies on these deeply integrated cloud and multi-tier databases.
+- **[Core Engine (CSE) Specification](backend/cse_ENGINE_SPECIFICATION.md)** — Bayesian priors, 1m Regression Kriging with Sentinel-2/Landsat, Adaptive Recalculation Engine.
+- **[Database Architecture](backend/DATABASE_SPECIFICATION.md)** — PostgreSQL + TimescaleDB schema, Master Legal Ledger, spatial privacy obfuscation layer.
 
-* **[Core Engine (CSE) Specification](backend/cse_ENGINE_SPECIFICATION.md):** The overarching logic detailing the execution of Bayesian priors, the 1m Regression Kriging algorithms using Sentinel-2/Landsat data, and the orchestration of the Adaptive Recalculation Engine.
-* **[Database Architecture (PostgreSQL + TimescaleDB)](backend/DATABASE_SPECIFICATION.md):** The schema mapping for the Master Legal Ledger, contextual obfuscation (Privacy layer), and continuous temporal aggregations.
+---
+
+*Last updated: 2026-03-05*
+

@@ -91,3 +91,42 @@ This ledger deconstructs the hardware costs for the initial 1,280-unit rollout.
 By deploying the PMT at this scale, FarmSense moves the needle from "estimated water use" to "audited water reality."
 
 * **Water Court Integrity**: In the event of an aquifer depletion dispute, the PMT's unbroken, ±1.0% accurate log serves as the absolute "Gold Standard" of evidence, proving that every gallon was applied exactly where the **Oracle Compute Layer** calculated it was needed.
+
+---
+
+## 7. Firmware Details & Protocol
+
+> *Source: consolidated from `codebase_docs/.../specifications/firmware/PMT_Firmware_Spec.md`*
+
+### 6.1 Edge-EBK Engine (Empirical Bayesian Kriging)
+
+The ATSAMD51J20A executes a simplified EBK model locally at the field hub level:
+
+* **Baseline Windowing:** 4-hour rolling baseline for steady-state computation.
+* **Focus Collapse (Pivot Active):** If IMU/GNSS detects pivot movement, sampling collapses to a 5-second "Ripple" window for real-time application mapping.
+* **Failover Mode:** If DHU uplink is lost, PMT executes the VRI speed-map worksheet internally using cached 50m priors — no cloud dependency for emergency reflex logic.
+
+### 6.2 Connectivity Details
+
+| Mode | Radio | Payload | Failover |
+|------|-------|---------|---------|
+| **Primary backhaul** | 5GHz LTU → DHU | 187-byte AES-256 field state vector | — |
+| **Secondary backhaul** | LTE-M / NB-IoT | Same payload | Auto-failover |
+| **Sensor sink** | nRF52840 (2.4GHz) | Aggregated LRZ/VFA/PFA chirps | — |
+
+### 6.3 Core BOM Summary
+
+| Part Class | Model/Manufacturer | Role |
+|---|---|---|
+| **Main SoC** | Microchip ATSAMD51J20A | Core logic / EBK |
+| **GNSS SoC** | u-blox ZED-F9P | RTK positioning (±2cm) |
+| **IMU** | Bosch BNO055 | Kinematics / strut fatigue |
+| **Mesh Radio** | Nordic nRF52840 | Sensor aggregator sink |
+| **Backhaul** | LTE-M Bridge | Failover cellular link |
+| **Storage** | 16MB QSPI Flash | 72-hr telemetry black box |
+| **Unit Cost** | **$1,112.00** | — |
+
+---
+
+*Infrastructure Classification: Permanent Command & Control Asset*
+*Spec Version: V1.6 | Firmware: ATSAMD51 SDK + nRF SDK*

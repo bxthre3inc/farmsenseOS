@@ -91,3 +91,47 @@ The DHU is the final staging area for the Enterprise (1m) Resolution Tier.
 
 * **The Resolution Engine**: By aggregating the high-fidelity GNSS and flow data from the PMT with the subsurface pings from the LRZ mesh, the DHU facilitates the "Resolution Pop" in the farmer’s UI.
 * **The Sales Funnel**: If a user on a lower tier attempts to view 1m granular data, the DHU triggers the blurred preview funnel. This proves the value of the Enterprise subscription by demonstrating the DHU's ability to sync data in real-time, even during regional internet outages. Furthermore, the DHU provides the high-fidelity spatial data stream required for the **Command & Control (C&C)** XR deployment tools used by field technicians.
+
+---
+
+## Hardware & BOM Details (Consolidated from DHU_Hardware_Spec.md)
+
+> *Source: consolidated from `codebase_docs/.../specifications/firmware/DHU_Hardware_Spec.md` — 2026-03-05*
+
+### Infrastructure & Siting
+
+- **Mount:** 40ft Class 1 Cedar Poles or existing grain silos (30–40ft AGL).
+- **Fresnel Zone:** Clears 60% Fresnel over 10km span; timber poles rated for 40-year lifespan.
+- **Enclosure:** NEMA 4X Polycarbonate (24×20×10in), passive air-gap thermal buffer for 200Ah battery bank. Dual Gore-Tex vents for alkali dust exclusion.
+
+### Edge Compute
+
+- **SoC:** OnLogic CL210 8-Core ARM (formerly NVIDIA Jetson Nano variant).
+- **Local Kriging:** 10m and 20m spatial grids for up to 100 fields — no cloud round-trip for district-level decisions.
+- **Black Box Ledger:** 128GB Swissbit PSLC SSD; 30-day write-endurance for legal audit preservation during internet outages.
+- **Reflex Logic:** Instant pump stop commands via PFA relay, bypassing cloud latency.
+
+### Radio Spine & Power
+
+- **Sector Antennas:** 3× Ubiquiti LTU Sector (120° coverage each = 360° total).
+- **LoRaWAN Gateway:** Enterprise-grade 900MHz for SFD mesh sink.
+- **Backhaul:** Fiber ONT (primary) + Telit ME910G1 LTE-M (backup).
+- **Solar:** 200W High-Tilt Rigid Array.
+- **Storage:** Battle Born 200Ah Heated LiFePO4 Bank.
+- **Lightning Protection:** L-com GDT Arrestors on all Sector lines.
+
+### Hyper-Granular BOM (Subdistrict 1 Batch)
+
+| Component | Detail | Unit Cost |
+|---|---|---|
+| **Computing** | OnLogic CL210 ARM Cluster | $299.00 |
+| **Storage** | 128GB PSLC SSD | $185.00 |
+| **Radio Array** | 120° Sector Array (×3) | $850.00 |
+| **Backhaul** | Fiber ONT + LTE-M Backup | $465.00 |
+| **Housing** | NEMA 4X Polycarbonate Buffer | $180.00 |
+| **Power** | 200W Array + 200Ah Heated LFP | $1,190.00 |
+| **Structure** | 40ft Class 1 Cedar Pole (Installed) | $2,250.00 |
+| **Labor** | Vertical Blitz Crew (Site Prep) | $450.00 |
+| **TOTAL** | **DHU Infrastructure Cost** | **$5,869.00** |
+
+*Infrastructure Classification: Permanent Mesh Director*

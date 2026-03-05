@@ -67,3 +67,47 @@ Like the VFA, the LRZ employs the advanced "Proxy Method" of non-contact sensing
 | **Power (x2)** | 4U Battery Cartridges (18650x2) | LFP-18650-1500 | 6 Weeks | $13.00 |
 | **Basic Sensor** | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | 4 Weeks | $4.00 |
 | **TOTAL** | **Per Unit Hardware Cost (Absolute OEM Scale)** | | | **$67.80** |
+
+---
+
+## 6. Firmware Details (v2.4.1)
+
+> *Source: consolidated from `codebase_docs/.../specifications/firmware/LRZ_Firmware_Spec.md`*
+
+### 6.1 Boot & Initialization
+
+1. **Cold Start:** 750ms wake-up from deep sleep via RTC interrupt.
+2. **BIST (Built-In Self Test):** Verifies capacitor charge and antenna VSWR.
+3. **Sensor Read:** 10-point mean of raw ADC soil tension + canopy ambient temp.
+
+### 6.2 The "Dumb Chirp" Protocol (LPI/LPD)
+
+* **Modulation:** GFSK (Gaussian Frequency Shift Keying).
+* **Frequency Hopping:** 128-bit pseudo-random seed synced to PMT epoch — 75 channels, zero packet collisions in high-density fields.
+* **Packet Structure:**
+  * `[4B Preamble] | [8B NodeID] | [2B Tension] | [2B Temp] | [16B AES-MAC] | [4B CRC]`
+* **Encryption:** Hardware-accelerated AES-128 in CCM mode (factory-burned key).
+
+### 6.3 Power-Managed Duty Cycle
+
+| State | Current | Duration |
+|-------|---------|---------|
+| Deep sleep (RTC active) | 0.8µA | Continuous baseline |
+| Sensor ingest | 4.5mA | 50ms window |
+| RF chirp (+8dBm) | 14mA | 12ms window |
+
+**Life Expectancy:** 36,400 cycles ≈ 5.2 years at 4-hour sampling intervals.
+
+### 6.4 "Ripple" Mode — Adaptive Sampling
+
+The LRZ passively monitors for a "Sub-Beacon" from the PMT. If detected:
+
+* **Trigger:** PMT broadcasts Sub-Beacon on anomaly detection.
+* **Action:** Transition from 4-hour → 15-minute sampling intervals.
+* **Duration:** 12 hours or until "Stable" beacon received.
+* **Objective:** Real-time mapping of propagating soil anomaly epicenters.
+
+---
+
+*Infrastructure Classification: Permanent Ground-Truth Asset*  
+*Spec Version: V1.21 | Firmware Version: 2.4.1*

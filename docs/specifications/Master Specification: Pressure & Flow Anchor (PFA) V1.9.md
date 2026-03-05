@@ -255,6 +255,46 @@ of peak efficiency or when extraction exceeds the crop's calculated Evapotranspi
 
 (ET) rate.
 
-Water Court Integrity: In the event of an water rights dispute, the PFA's unbroken data log
+Water Court Integrity: In the event of a water rights dispute, the PFA's unbroken data log serves as forensic proof of sustainable extraction — timestamped, encrypted, and legally admissible.
 
-<https://gemini.google.com/app/7d9f7fc3aa518d8b> 5/5
+---
+
+## Firmware & Control Details (Consolidated from PFA_Firmware_Spec.md)
+
+> *Source: consolidated from `codebase_docs/.../specifications/firmware/PFA_Firmware_Spec.md` — 2026-03-05*
+
+### Reflex Logic (Firmware v3.x)
+
+The NXP i.MX RT1060 (600MHz Cortex-M7) executes safety-critical "Soft-Stop" actuation.
+
+> *Note: The firmware supplement spec references `i.MX RT1060`; the main BOM above uses `i.MX RT1020` (500MHz). Both are Cortex-M7 variants. RT1060 is the higher-performance drop-in replacement — production units may use either depending on availability. The 1,024-point FFT and FlexPWM reflex logic runs on both.*
+
+| Trigger Condition | Reflex Action |
+|---|---|
+| `PMT_STALL == TRUE` | `ACTUATE_STOP` — Pump halt via 30A Dry-Contact Relay |
+| `BURST_MAINLINE == TRUE` | `ACTUATE_STOP` — Catastrophic line failure detected |
+| `SATURATION_ALERT == TRUE` | `ACTUATE_STOP` — Field capacity exceeded |
+
+### FFT Motor Health Engine
+
+* **CT Clamps:** 3x 400A Split-Core (Magnelab SCT-1250) on Phase-A/B/C.
+* **1,024-point FFT:** Executed locally on i.MX RT1060 — no cloud latency for motor health.
+* **Failure Detection:** Cavitation sidebands, torque ripple (bearing wear), hydraulic hammer events.
+* **Prediction Horizon:** Issues flagged 7–14 days before catastrophic motor failure.
+
+### Blackout Buffer (7-Day Legal Logging)
+
+* **Energy:** 40,000mAh Dual-Pack LiFePO4.
+* **Survivability:** 7 continuous days of extraction logging during total grid failure.
+* **Legal Purpose:** Records static aquifer recovery if power fails during a dispute period.
+
+### BOM Cost Reference
+
+| Item | Cost |
+|------|------|
+| PFA Hardware (OEM, per unit) | **$985.00** |
+| PFA Infrastructure (installed, per wellhead, with labor) | **$895.00** |
+
+> *Note: $895 = installed version per the firmware supplement; $985 = full hardware-only BOM at scale per the master BOM table above. Both are correct for different contexts (installed vs. hardware-cost only).*
+
+*Infrastructure Classification: Permanent Forensic Water Asset*

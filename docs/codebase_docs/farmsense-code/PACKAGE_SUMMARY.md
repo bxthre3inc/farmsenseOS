@@ -1,4 +1,8 @@
-# FarmSense - Implementation Package Summary
+# FarmSense Platform: Implementation Package Summary
+
+> ⚠️ **PARTIALLY STALE** — References V1.0 delivery architecture (AWS hosting, 11 Docker services, RDC/CSE naming). Current deployment is Zo-unified (see [`SPLIT_DEPLOYMENT_README.md`](SPLIT_DEPLOYMENT_README.md) and [`Zo_Computer_Deployment_Architecture.md`](../../reference/Zo_Computer_Deployment_Architecture.md)). Use [`BLUEPRINT.md`](BLUEPRINT.md) for authoritative architecture.
+
+---
 
 ## 🎉 Package Contents
 

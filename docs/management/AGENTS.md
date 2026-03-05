@@ -1,11 +1,14 @@
 # FarmSense Project Memory
 
+> **AI Agents:** See `docs/00_NAVIGATION.md` for the full documentation map by audience/role.
+
 ## Document Map
 
 | Document | Purpose | Audience |
 |----------|---------|----------|
-| `FarmSense_Master_Manual.md` | Comprehensive system documentation (7,936 lines) | External: investors, grants, water court, partners |
-| `FarmSense_Internal_Guide.md` | Development workflow & AI assistant instructions | Internal: developers, AI assistants |
+| `docs/00_NAVIGATION.md` | Master doc index — start here | All |
+| `FarmSense_Master_Manual.md` | PDF-source composite (build artifact, not editable) | External reference only |
+| `FarmSense_Internal_Guide.md` | Dev/AI reference + appended hardware specs | Internal: developers, AI assistants |
 | `RECONCILIATION_CHECKLIST.md` | Code ↔ documentation alignment tracker | Internal: project management |
 
 ---
@@ -184,6 +187,7 @@ FarmSense includes a water trading system for federal water market integration:
 | `water_rights.py` model | Water rights ownership, allocations, transfers |
 
 **Features:**
+
 - Water allocation buy/sell orders
 - Transfer verification & chain of custody
 - Market price tracking
@@ -352,6 +356,8 @@ reference/
 
 ## Current Task Status
 
+> **Canonical task board:** `docs/codebase_docs/farmsense-code/todo.md` — always check that file first.
+
 ### Completed ✅
 
 - [x] Rectify DHU BOM for 900MHz LoRaWAN gateway
@@ -361,17 +367,17 @@ reference/
 - [x] Treat Polycarbonate with fluoropolymer coatings
 - [x] Implement Predictive Maintenance via Current Harmonic Analysis
 - [x] Integrate k-means ML Kriging algorithms
+- [x] PBFT Alliance-Chain Blockchain (DHU) — implemented
+- [x] Federal Federated Data Fabric Adapters (`federated.py`) — implemented
+- [x] Dual-Layer Spatial Privacy (`spatial_privacy.py`) — implemented
+- [x] Automated GLOBALG.A.P. compliance reports (`globalGAP_compliance.py`) — implemented
+- [x] LPI/LPD logic verified on LRZ FHSS chirps
 
 ### Pending 🔄
 
-- [ ] Implement PBFT Alliance-Chain Blockchain in DHU
-- [ ] Build Federal Federated Data Fabric Adapters
-- [ ] Implement Dual-Layer Spatial Privacy
-- [ ] Develop automated GLOBALG.A.P. compliance reports
-- [ ] Verify LPI/LPD logic on LRZ FHSS chirps
-- [ ] Concept design for Rapid Deployment Housing
-- [ ] Upgrade RSS for FHE Kriging operations
-- [ ] Draft Federal Federal ESG pre-proposal (Deadline: March 26, 2026)
+- [ ] Draft Federal ESG pre-proposal **(Deadline: March 26, 2026)** — CRITICAL
+- [ ] Concept design for Rapid Deployment Housing (HALO variant)
+- [ ] Upgrade RSS for FHE Kriging operations (Phase 3 item)
 
 ---
 
@@ -414,10 +420,11 @@ reference/
 
 ## Regulatory Context
 
-- **Subdistrict 1**: 117,000 acres, San Luis Valley, Colorado
+- **Subdistrict 1**: ~160,000 acres / ~1,270 active center-pivot fields, San Luis Valley, Colorado
 - **Water Court Deadline**: June 2026
 - **Compliance**: SLV 2026 regulatory alignment
 - **Audit Requirement**: Immutable, cryptographically signed chain of custody
+- **Canonical Market Data**: See `docs/reference/Subdistrict_1_Market_Intelligence.md`
 
 ---
 
@@ -452,6 +459,6 @@ The `federated.py` router enables integration with Department of Defense data sh
 
 ---
 
-*Last updated: 2026-03-03*
+*Last updated: 2026-03-05*
 *Repository: github.com/bxthre3inc/farmsenseOS*
 *Server: brodiblanco.zo.computer*

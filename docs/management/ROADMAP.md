@@ -200,6 +200,29 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ---
 
+## Technical Architecture Baseline
+
+> *Absorbed from `MASTER_DEVELOPMENT_PLAN.md` (2026-03-05). That file is now a redirect stub.*
+
+### Hierarchical Processing Stack
+
+| Level | Hardware | Processing | Grid |
+|-------|----------|-----------|------|
+| **Field** | LRZ/VFA (FHSS chirps) → PMT Hub | EBK baseline | 50m |
+| **District** | DHUs (OnLogic ARM SoC) | Go-based IDW | 20m / 10m |
+| **Regional** | RSS (64-Core Threadripper) | Python Regression Kriging + FHE | 1m |
+| **Global** | Zo.computer Cloud | Multi-field analytics, Federated queries | All tiers |
+
+### Core Software Components
+
+- **Backend:** FastAPI (async), PostgreSQL + TimescaleDB, PostGIS, RabbitMQ
+- **Edge Computing:** Go-optimized IDW interpolation with offline SQLite resilience
+- **Cloud Analytics:** Regression Kriging incorporating Sentinel-2/Landsat-9 imagery
+- **Security:** JWT auth, 128-bit AES payload encryption, FHSS, Spatial Privacy layer
+- **Advanced (Phase 2–3):** PBFT AllianceChain, FHE Kriging, Federated Data Fabric adapters
+
+---
+
 ## UI/UX Feature: Resolution Pop
 
 | Tier | Resolution | Price | Target User |
@@ -244,17 +267,16 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ## Non-Dilutive Funding Strategy
 
-| Grant | Deadline | Status | Amount |
-|-------|----------|--------|--------|
-| Federal Federal ESG | March 26, 2026 | 🔄 Drafting | $500K-$2M |
-| NSF SBIR Phase I | Q2 2026 | 📋 Planned | $275K |
-| CWCB Water Plan Grant | July 1, 2026 | 📋 Planned | $500K-$2M |
-| BoR WaterSMART | July 31, 2026 | 📋 Planned | $300K |
-| USDA NRCS CIG | Q3 2026 | 📋 Planned | $1M-$2M |
-| Bill & Melinda Gates | Q3 2026 | 📋 Planned | TBD |
-| World Food Prize | Q3 2026 | 📋 Planned | $250K |
-| Earthshot Prize | Q4 2026 | 📋 Planned | £1M |
+> See **[`docs/management/FUNDING_PIPELINE.md`](FUNDING_PIPELINE.md)** for the canonical grant tracking table with full deadlines, amounts, and statuses.
+
+**Active submission (CRITICAL):**
+
+| Grant | Deadline | Status |
+|-------|----------|--------|
+| **Federal ESG / DoD ESTCP** | **March 26, 2026** | 🔴 Drafting |
+
+Full pipeline (NSF SBIR, CWCB, BoR WaterSMART, USDA NRCS, Gates, Earthshot) listed in `FUNDING_PIPELINE.md`.
 
 ---
 
-*Last updated: 2026-02-24*
+*Last updated: 2026-03-05*

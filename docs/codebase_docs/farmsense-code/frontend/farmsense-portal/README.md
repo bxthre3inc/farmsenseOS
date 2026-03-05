@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# FarmSense Unified Portal — Architecture Note
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Status (2026-03-05):** This directory contains the active React/Vite scaffold for the **unified FarmSense portal app** — a single application with RBAC (Role-Based Access Control) that consolidates all role-specific views into one deployment.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Architecture Decision: Unified vs. Separate Portals
 
-## React Compiler
+FarmSense has **two generations** of frontend portal specifications:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Generation 1 (Legacy) — Separate Apps
 
-## Expanding the ESLint configuration
+Located in `frontend/specs/` and each portal's `SPECIFICATION.md`:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `admin-dashboard/` — Admin interface
+- `farmer-dashboard/` — Farmer-facing dashboard
+- `investor-dashboard/` — Investor portal
+- `regulatory-portal/` — Regulator/compliance portal
+- `research-portal/` — Research data access
+- `grant-portal/` — Grant management
+- `docs-portal/` — Documentation portal
+- `marketing-site/` — Public marketing page
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+These 8 separate apps were the original architecture — one React app per audience role, deployed independently.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Generation 2 (Current) — This Directory
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**`farmsense-portal/`** is the unified replacement: **one app, one deployment, all roles accessible via JWT-scoped RBAC.** The farmer sees farmer views; the regulator sees regulator views; the admin sees everything.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Rationale:**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Single deployment to Zo server (`brodiblanco.zo.computer`)
+- Simplified Nginx configuration (one app, multiple route scopes)
+- Consistent UX across all roles
+- Easier to maintain than 8 separate React builds
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## Status of Legacy Specs
+
+The `SPECIFICATION.md` files in the 8 legacy portal dirs are **still useful as feature references** — they define what each role's view should contain. They should be treated as **role-specific requirements documents**, not as independent app specs.
+
+When building out the unified portal, use those files as feature input:
+> "What does the farmer role need?" → see `farmer-dashboard/SPECIFICATION.md`
+
+---
+
+## Deployment
+
+The unified portal deploys at:
+
+- **Dev:** `localhost:5173` (via `npm run dev`)
+- **Production:** `brodiblanco.zo.computer/farmsense/` (see Zo routing config)
+
+See [`docs/reference/Zo_Computer_Deployment_Architecture.md`](../../../../reference/Zo_Computer_Deployment_Architecture.md) for full routing configuration.
+
+---
+
+*Last updated: 2026-03-05*

@@ -85,3 +85,40 @@ The VFA employs advanced non-contact sensing, shooting high-frequency dielectric
 | **Adv. Sensor** | Proprietary 10-Unit Stack (NPK/EC/pH) | FS-DE-48U | 12 Weeks | $120.00 |
 | **Basic Sensor** | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | 4 Weeks | $4.00 |
 | **TOTAL** | **Per Unit Hardware Cost (Absolute OEM Scale)** | | | **$159.65** |
+
+---
+
+## 6. Firmware Details & Protocol
+
+> *Source: consolidated from `codebase_docs/.../specifications/firmware/VFA_Firmware_Spec.md`*
+
+### 6.1 The MAD Battery Metaphor (Core Firmware Logic)
+
+The firmware calculates Management Allowable Depletion (MAD) status locally on the nRF52840:
+
+* **Logic:** Aggregates Soil Matric Potential (SMP) across all 3 depths to determine the "Remaining Charge" in the soil water battery profile.
+* **Primary Telemetry:** MAD percentage transmitted as the highest-priority field in every chirp.
+* **Upstream Use:** The PMT EBK engine uses the aggregated MAD value as the ground-truth anchor for 50m grid interpolation.
+
+### 6.2 Seasonal Dormancy (Winter Sleep)
+
+* **Trigger:** Soil temperature < 33°F for 48 consecutive hours.
+* **Sleep State:** 8µA draw, 1-week heartbeat chirps only.
+* **Wake Conditions:** Thermal rise above 38°F, or PMT "Spring Wake" radio pulse.
+
+### 6.3 Supplemental BOM (Firmware Hardware)
+
+| Part Class | Model/Manufacturer | Qty | Role |
+|---|---|---|---|
+| **Main SoC** | Nordic nRF52840 | 1 | Logic/Radio |
+| **Moisture** | Tensiometric (Custom) | 3 | Deep Profiling |
+| **VWC Sensor** | Dielectric Ring | 2 | VWC/Temp/EC |
+| **Cells** | Samsung 50E (21700) | 12 | Energy Storage |
+| **Solar** | 5W Custom Panel + MPPT | 1 | MPPT Harvesting |
+
+*Note: costs included in master BOM above.*
+
+---
+
+*Infrastructure Classification: Permanent Ground-Truth Asset*
+*Spec Version: V1.21 | Firmware: nRF52840 SDK v17*

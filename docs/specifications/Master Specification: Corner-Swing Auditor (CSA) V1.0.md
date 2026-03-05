@@ -193,3 +193,45 @@ delivered only within the permitted swing-arm boundaries and was not "overspraye
 non-irrigated land.
 
 Integration: The Zo Server uses the dual-node data to update the field's "Swing Worksheet." If the SAT detects that the swing arm is not extending fully, it informs the Zo Scientist, who then adjusts the virtual sensor grid values for the corner tiles, maintaining the 1m Enterprise definition "Gold Truth."
+
+---
+
+## Firmware & Protocol Details (Consolidated from CSA_Firmware_Spec.md)
+
+> *Source: consolidated from `codebase_docs/.../specifications/firmware/CSA_Firmware_Spec.md` — 2026-03-05*
+
+### Kinematic Estimation Engine (Firmware v4.1.0)
+
+The PST executes a real-time Law of Cosines resolver to determine swing-arm angle (θ):
+
+- **C1 (PST):** Absolute RTK coordinate of the main outer span.
+- **C2 (SAT):** Absolute RTK coordinate of the articulating swing-arm.
+- **R1:** Fixed pivot-center coordinate.
+- **Formula:** `θ = arccos((d1²+d2²-d3²) / (2·d1·d2))` where d3 = variable chord length between trackers.
+
+### "Wiper Effect" Resolution Compensation
+
+- **Linear Velocity Scaling:** As the arm extends, arc-length per degree increases. CSA applies a dynamic scale factor to PFA flow readings to calculate Gallons/Acre applied at the 1m field edge.
+- **End-gun Pulse:** SAT BNO055 tap-detection verifies "Water-On" state — audits extraction vs. application spatially.
+
+### SAT-to-PST Communication
+
+| Parameter | Value |
+|---|---|
+| Sync frequency | 10Hz |
+| Packet | `[RTK-Lon] | [RTK-Lat] | [IMU-Yaw] | [Gun-Status] | [Checksum]` |
+| Latency budget | Fixed 24ms buffer for timestamp-aligned geostatistical fusion |
+| Radio | 2.4GHz GFSK peer link (PST ↔ SAT) |
+
+### ZVRI Decision Loop
+
+If swing-arm θ > 120° (fully extended):
+- Speed-map worksheet automatically boosts pivot transit speed by `X.YZ%` to normalize volumetric application across the increased spatial radius.
+
+### BOM Cost Reference
+
+| Item | Cost |
+|------|------|
+| CSA Dual-Node Unit (installed, includes mounting/labor) | **$2,514.88** |
+
+*Infrastructure Classification: Permanent Forensic Kinematic Asset*

@@ -94,3 +94,57 @@ By investing $212,000 in a centralized RSS, FarmSense dramatically lowers the pe
 * **Maintenance ROI (The Sled Hospital Effect)**: The centralized refurbishment model allows the district to treat sensors as long-term assets rather than disposables. A failed $167 VFA sled can be brought to the Sled Hospital and repaired for less than $15 in parts (new O-rings and a fresh cell), allowing the district to recycle hardware indefinitely and preserving the initial capital investment.
 * **The "Digital Twin" Revenue Multiplier**: The RSS is what makes the 1m Enterprise resolution possible. By hosting the Oracle compute layer locally, the RSS facilitates the "Resolution Pop" feature in the farmer's app. This high-conversion UI feature is the primary driver for SaaS upgrades, effectively paying for the RSS infrastructure through increased subscription revenue within the first 24 months.
 * **Legal Defensibility & Aquifer Security**: In the high-stakes environment of Subdistrict 1, data is a weapon. The RSS provides the "Empirical Fortress" required to win Water Court disputes. By storing signed, encrypted data locally in the Oracle Vault, the district can prove its water stewardship regardless of global cloud outages or geopolitical instability, securing the seniority of its members' water rights for the next generation of farmers.
+
+---
+
+## Facility & Infrastructure Details (Consolidated from RDC_Hardware_Spec.md)
+
+> *Source: consolidated from `codebase_docs/.../specifications/firmware/RDC_Hardware_Spec.md` (formerly named "RDC") — 2026-03-05*
+> *Note: "RDC" (Regional Data Center) was the legacy name for the RSS facility. The canonical name is RSS.*
+
+### Facility Architecture (40' High-Cube Container)
+
+The RSS is housed in a 40ft modified High-Cube container for rural resilience — operates independently of public clouds.
+
+**Zone Progression:**
+
+| Zone | Function |
+|------|---------|
+| **Zone A: Logistics Hub** | Polaris Ranger-HD staging, Auger Trailers, Sled Hospital (re-pressurization + pressure-decay testing) |
+| **Zone B: Inventory Staging** | 500-unit Ready-Rack, 24-hour GPS/Mesh burn-in benches |
+| **Zone C: The Clean Vault** | Hermetically sealed server room, Mitsubishi Hyper-Heat HVAC (±1°F), HEPA filtration |
+
+### Computational Infrastructure (Oracle Engine)
+
+- **Hardware:** 96-Core AMD Threadripper Pro + 512GB ECC RAM.
+- **Primary Function:** Bayesian Localized Regression Kriging (1m grid).
+- **FHE:** Fully Homomorphic Encryption overhead management for secure long-term vaulting.
+- **Storage:** 50TB Enterprise NVMe array (RAID-10).
+- **XR Streaming:** Frustum-Aware Tile Streaming for Command & Control portal.
+
+### Resilient Networking & Power
+
+| Layer | Technology |
+|-------|-----------|
+| **Primary** | Fiber ONT (Symmetrical Gigabit) |
+| **Secondary** | Starlink Business (High-Performance Dish) |
+| **Tertiary** | 900MHz mesh peering with regional DHUs (Soft-Stop propagation) |
+| **Solar** | 1.2kW Ground-Mounted at 55° "Snow Shed" tilt |
+| **Storage** | 800Ah 48V Heated LiFePO4 bank |
+| **Generator** | 5kW Honda EU7000iS (auto-start) |
+
+### Hyper-Granular Project Costs (Subdistrict 1)
+
+| Category | Component | Cost |
+|---|---|---|
+| **Structure** | 40' HC Container + HVAC + HEPA | $22,500 |
+| **Compute** | 96-Core Threadripper Cluster | $22,000 |
+| **Storage** | 50TB Enterprise NVMe RAID | $12,500 |
+| **Power** | 1.2kW Array + 800Ah LFP | $14,000 |
+| **Backup** | 5kW Gen + Auto-Start | $5,500 |
+| **Fleet** | Polaris Ranger-HD + Auger Lab | $43,500 |
+| **Networking** | Fiber + Starlink + 900MHz Mesh | $6,500 |
+| **Security** | AI Perimeter + Verkada Fence | $15,000 |
+| **TOTAL** | **RSS Facility Total** | **$142,000** |
+
+*Infrastructure Classification: Permanent Territory Cortex*
