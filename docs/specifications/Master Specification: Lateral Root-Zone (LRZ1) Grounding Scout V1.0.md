@@ -1,6 +1,6 @@
 # Master Specification: Lateral Root-Zone (LRZ1) Grounding Scout V1.0
 
-**Role**: Level 1 "Grounding" Node | **Network Density**: 20 units per 150-acre Field (Radial Stratification)
+**Role**: Level 1 "Grounding" Node | **Network Density**: 12 units per 140-160 acre Field (Radial Stratification)
 
 The Lateral Root-Zone 1 (LRZ1) is a specialized, ultra-low-cost "Validation Truth Node." Unlike the modular LRZ2 scouts, the LRZ1 is designed for high-density permanent deployment to scientifically verify the accuracy of the **Virtual Sensor Grid** (50m, 20m, 10m, and 1m resolutions).
 
@@ -23,7 +23,7 @@ The LRZ1 focuses on the primary active root zone to provide high-density spatial
 
 - **Depth**: Fixed at **10 inches (250mm)**.
 - **Sensor Type**: Single-depth Dielectric Capacitance (High-Frequency).
-- **Update Frequency**: 1 chirp per day (Grounding check).
+- **Update Frequency**: 1-4 chirps per day (Grounding). In **Low Power Mode**: 4-8 per day.
 - **Lifespan**: **10+ Years**. The ultra-low duty cycle (4x lower than LRZ2) enables a "Decade Deployment" model.
 
 ## 3. Communication & Intelligence
@@ -43,9 +43,10 @@ The LRZ1 focuses on the primary active root zone to provide high-density spatial
 | **PCBA** | ASR6601 High-Integration LoRa PCBA | $4.00 |
 | **Sensing** | 1U Basic Dielectric Ring (10") | $4.00 |
 | **Power** | 10-Year Li-SOCl2 or LFP Cell | $8.50 |
-| **Solar Option** | Integrated 20mm Solar Cap (Opt) | +$1.50 |
-| **Seals** | Viton O-Rings + blanking cap | $4.80 |
-| **TOTAL** | **Target Unit Hardware Cost** | **$16.50** |
+| **Solar Cap** | Wide-Brim Flexible Solar Panel (4"-5" dia) | $2.80 |
+| **Seals** | Viton O-Rings + T-HDU Spine Plug | $4.80 |
+| **Sensing Spine** | Removable PET Spine Assembly | $1.20 |
+| **TOTAL** | **Target Unit Hardware Cost** | **$29.00** |
 
 ---
 *Infrastructure Classification: High-Density Spatial Grounding Node*
