@@ -459,6 +459,21 @@ The `federated.py` router enables integration with Department of Defense data sh
 
 ---
 
+## Scripts Reference (`scripts/`)
+
+Four utility scripts live at the repo root `scripts/` directory. They are not part of the main application but are critical for development and validation:
+
+| Script | Purpose | Usage |
+|--------|---------|-------|
+| `verify_audit_override.py` | Tests RBAC/tier enforcement on the `/grid` API — verifies that Free tier farmers are blocked from 1m grids and that Auditor role can override | `python scripts/verify_audit_override.py` (requires running backend at `localhost:8000`) |
+| `verify_tiers.py` | End-to-end validation of all subscription tier access gates (FREE → BASIC → PRO → ENTERPRISE) | `python scripts/verify_tiers.py` |
+| `xr_latency_model.py` | Simulates the FarmSense XR Protocol (FXRP) motion-to-photon latency stack. Validates sub-30ms target for XR field deployment (PMT→DHU→XR-device hops, 5GHz mesh jitter modeling) | `python scripts/xr_latency_model.py` |
+| `parse_pdfs.py` | PDF text extraction utility — used for ingesting PDF spec documents into the documentation system | `python scripts/parse_pdfs.py <pdf_path>` |
+
+> Run `verify_audit_override.py` and `verify_tiers.py` after any change to the `dependencies.py` auth layer or `grid_renderer.py` tier logic.
+
+---
+
 *Last updated: 2026-03-05*
 *Repository: github.com/bxthre3inc/farmsenseOS*
 *Server: brodiblanco.zo.computer*

@@ -16,7 +16,8 @@
 | 2 | [`docs/codebase_docs/farmsense-code/BLUEPRINT.md`](codebase_docs/farmsense-code/BLUEPRINT.md) | Vision, architecture, feature set, strategic mandate |
 | 3 | [`docs/codebase_docs/farmsense-code/ARCHITECTURE.md`](codebase_docs/farmsense-code/ARCHITECTURE.md) | System layers, Lambda architecture, data flow |
 | 4 | [`docs/codebase_docs/farmsense-code/todo.md`](codebase_docs/farmsense-code/todo.md) | **Canonical task board** — check before creating anything |
-| 5 | [`docs/reference/Subdistrict_1_Market_Intelligence.md`](reference/Subdistrict_1_Market_Intelligence.md) | All market numbers (TAM, acres, pivots) — cite this, don't copy it |
+| 5 | [`docs/codebase_docs/farmsense-code/backend/BACKEND_SERVICE_MAP.md`](codebase_docs/farmsense-code/backend/BACKEND_SERVICE_MAP.md) | All 15 backend services: algorithms, hardware links, router map |
+| 6 | [`docs/reference/Subdistrict_1_Market_Intelligence.md`](reference/Subdistrict_1_Market_Intelligence.md) | All market numbers (TAM, acres, pivots) — cite this, don't copy it |
 
 > ⚠️ **Before creating any file or route:** run `grep_search` and `list_dir` first. AGENTS.md §"Before Creating ANYTHING" has the rule.
 
@@ -139,7 +140,7 @@ All 9 files are ✅ Current and versioned. These are the canonical source of tru
 | `FEATURESET.md` | ✅ Current | Feature inventory |
 | `README.md` | ✅ Current | Project overview |
 | `ONBOARDING.md` | ✅ Current | Reading order for new devs |
-| `SOFTWARE_INDEX.md` | ✅ Current | Master index of software specs |
+| `SOFTWARE_INDEX.md` | ✅ Current | Master index of software specs (portals + firmware links) |
 | `todo.md` | ✅ Current | **Canonical task board** |
 | `IMPLEMENTATION_GUIDE.md` | ⚠️ Partial | Good troubleshooting, but weekly plan assumes old scale |
 | `PACKAGE_SUMMARY.md` | ⚠️ Partial | V1.0 delivery framing (AWS, 11 services) — partially stale |
@@ -147,6 +148,12 @@ All 9 files are ✅ Current and versioned. These are the canonical source of tru
 | `SPLIT_DEPLOYMENT_README.md` | ⚠️ Partial | Uses old CSE.computer/RDC naming |
 | `marketing-video-prompts.md` | ✅ Current | Video scripts |
 | `Project FarmSense Precision Agriculture Technical Architecture.md` | ❌ Stale | Redundant with Master Manual + BLUEPRINT |
+
+#### `docs/codebase_docs/farmsense-code/backend/`
+
+| File | Status | Purpose |
+|------|--------|---------|
+| `BACKEND_SERVICE_MAP.md` | ✅ Current | All 15 service modules: algorithms, hardware connections, router mapping |
 
 ### `docs/reference/` — Research and strategic reference
 

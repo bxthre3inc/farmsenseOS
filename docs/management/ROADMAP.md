@@ -279,4 +279,9 @@ Full pipeline (NSF SBIR, CWCB, BoR WaterSMART, USDA NRCS, Gates, Earthshot) list
 
 ---
 
+## See Also
+
+- **Long-Term Vision:** [`docs/reference/FarmSense Long Term Roadmap.md`](../reference/FarmSense%20Long%20Term%20Roadmap.md) — sovereign water infrastructure, global expansion, treaty compliance
+- **Backend Services:** [`docs/codebase_docs/farmsense-code/backend/BACKEND_SERVICE_MAP.md`](../codebase_docs/farmsense-code/backend/BACKEND_SERVICE_MAP.md) — all 15 service modules documented
+
 *Last updated: 2026-03-05*

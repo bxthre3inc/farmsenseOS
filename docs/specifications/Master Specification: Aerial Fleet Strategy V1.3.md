@@ -66,10 +66,6 @@ Pop" converts the fear of missing out (FOMO) into an Enterprise-tier subscriptio
 
 ## 1. Phased Mobilization & Hardware Selection
 
-<https://gemini.google.com/app/7d9f7fc3aa518d8b> 1/5
-
-2/22/26, 6:11 AM Google Gemini
-
 The fleet scales in three distinct phases designed to align with Subdistrict 1's adoption curve,
 
 regulatory milestones, and seasonal cash flow requirements.
@@ -137,10 +133,6 @@ Role: Temporal Baseline Creation and Regional Trend Analysis.
 Capability: 90-minute endurance allows for mapping 1,200+ acres per flight at 400ft
 
 AGL.
-
-<https://gemini.google.com/app/7d9f7fc3aa518d8b> 2/5
-
-2/22/26, 6:11 AM Google Gemini
 
 Logic: These units fly the entire subdistrict every 30 days to establish the "Seasonal
 
