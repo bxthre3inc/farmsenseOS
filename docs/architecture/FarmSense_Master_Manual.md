@@ -3411,7 +3411,7 @@ reference/
 
 * 2x PMT (Pivot Motion Tracker)
 * 2x PFA (Pressure & Flow Anchor)
-* 2x VFA (Vertical Field Anchor)
+* 2x VFA (Foundation)
 * 16-20x LRZ (Lateral Root-Zone Surveyor)
 
 **Total Investment**: $5,382,940 (for Subdistrict 1: 19,466 devices)

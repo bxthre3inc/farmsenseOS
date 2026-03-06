@@ -168,7 +168,7 @@ The VFA runs a Real-Time Operating System (RTOS) designed for high-availability 
 ### 4.2 Lateral Root-Zone Surveyor (LRZ) V1.21
 
 **Role**: High-density "Surveyor" node for spatial variability.
-**Density**: 4 units per 140-160 acre field (2:4:12 Stereo: LRZ2 Surveyor tier) plus 12 units per 140-160 acre field (LRZ1 Grounding Raster).
+**Density**: 4 units per 140-160 acre field (2:4:12 Stereo: LRZ2 Reference tier) plus 12 units per 140-160 acre field (LRZ1 Grounding Raster).
 
 #### 4.2.1 Edge Logic & Chirp Protocol
 

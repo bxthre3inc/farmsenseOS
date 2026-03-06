@@ -1,4 +1,4 @@
-# Master Specification: Lateral Root-Zone (LRZ1) Grounding Surveyor V1.0
+# Master Specification: Lateral Root-Zone (LRZ1) Truth Node V1.0
 
 **Role**: Level 1 "Truth" Node | **Network Density**: 12 units per 140-160 acre Field (Radial Stratification)
 
@@ -17,7 +17,7 @@ To achieve the $32.00 target unit cost, the LRZ1 utilizes a fixed-function inter
 - **Refurbishment Workflow**: After 7-10 years, the internal spine is extracted via a standard pulling tool. The factory swaps the Li-SOCl2 cell and re-potts the spine for reuse, saving 70% of the hardware value.
 - **Battery Interface**: Maintains the same **Viton-sealed battery cap** as the LRZ2, allowing for centralized maintenance using the standard 21700 battery packs.
 
-## 2. Sensing Physics (Single-Depth Grounding)
+## 2. Sensing Physics (Single-Depth Truth)
 
 The LRZ1 focuses on the primary active root zone to provide high-density spatial truth.
 
@@ -33,7 +33,7 @@ The LRZ1 focuses on the primary active root zone to provide high-density spatial
 - **Network Optimization**: Due to the high node density, the LRZ1 utilizes optimized Spreading Factors (SF7/SF8) for local hops, reducing "on-air" time and extending battery lifecycle by ~25% compared to the legacy V1.x long-range modes.
 - **State Machine**:
   - **Hibernation**: 1.5µA.
-  - **Grounding Burst**: 4x less often than the LRZ2's unless "Rapid Mode" is triggered by PMT during active irrigation.
+  - **Truth Burst**: 4x less often than the LRZ2's unless "Rapid Mode" is triggered by PMT during active irrigation.
 
 ## 4. Line-Item BOM (Absolute OEM Scale)
 
@@ -49,5 +49,5 @@ The LRZ1 focuses on the primary active root zone to provide high-density spatial
 | **TOTAL** | **Target Unit Hardware Cost** | **$29.00** |
 
 ---
-*Infrastructure Classification: High-Density Spatial Grounding Node*
+*Infrastructure Classification: High-Density Spatial Truth Node*
 *Spec Version: V1.0 | Protocol: LoRa Mesh 2.1*

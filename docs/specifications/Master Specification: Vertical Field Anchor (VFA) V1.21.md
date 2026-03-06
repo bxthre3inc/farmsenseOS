@@ -124,5 +124,5 @@ The firmware calculates Management Allowable Depletion (MAD) status locally on t
 
 ---
 
-*Infrastructure Classification: Permanent Ground-Truth Asset*
+*Infrastructure Classification: Permanent Ground-Foundation Asset*
 *Spec Version: V1.21 | Firmware: nRF52840 SDK v17*

@@ -1,8 +1,8 @@
-# Master Specification: Lateral Root-Zone (LRZ2) Surveyor V1.21
+# Master Specification: Lateral Root-Zone (LRZ2) Reference V1.21
 
 **Role**: Layer 1 Lateral Root-Zone **Reference** | **Network Density**: 4 units per 140-160 acre Field (2:4:12 Stereo Standard)
 
-The Lateral Root-Zone **Reference** (LRZ2) serves as the high-density spatial mapper of the FarmSense network. Deployed at a density of 5 units per 150-acre field, these mass-produced **Dumb Node** Surveyors provide the granular moisture and temperature counts required to translate field-wide trends into sub-meter soil variability maps.
+The Lateral Root-Zone **Reference** (LRZ2) serves as the high-density spatial mapper of the FarmSense network. Deployed at a density of 5 units per 150-acre field, these mass-produced **Dumb Node** References provide the granular moisture and temperature counts required to translate field-wide trends into sub-meter soil variability maps.
  They do not process complex Worksheets or execute localized Bayesian math. They do not carry on-board GPS; instead, they are "Pinned" to the regional map by the PMT's RTK-GNSS anchor as it transits the field. This "Pin Mapping" ensures that every moisture data point is accurately geofenced with sub-meter precision. Their sole operational imperative is to capture raw dielectric and electrical conductivity (EC) counts across their specific zone, encrypt them, and "chirp" them back to the **PMT Field Aggregator** anchored on the pivot. This massive density of spatial data is what ultimately powers the FarmSense UI and **Command & Control (C&C)** logic—allowing the system to mathematically transition from the Free (50m) and Basic (20m) tiers to the highly lucrative Pro (10m) and Enterprise (1m) resolution "pops."
 
 **The Seasonal Deployment Model**: To protect the LRZ's internal electronics and guarantee a 10-year hardware lifecycle, FarmSense utilizes a two-phase seasonal deployment strategy. The outer structural shells act as ultra-cheap, geo-located permanent docking stations that remain buried in the field year-round. The internal, highly sensitive sensor sleds are dropped into these shells after spring planting and physically extracted just prior to harvest. This workflow entirely eliminates the risk of deep-freeze winter battery degradation while perfectly preserving the exact physical/spatial baseline required by the **RSS RDC Compute**. By maintaining this permanent sub-surface coordinate, the Oracle engine can flawlessly integrate the seasonal LRZ telemetry with the static **Soil Variability Maps** during the 1m Kriging generation.
@@ -33,7 +33,7 @@ The LRZ is an exercise in extreme power efficiency. It lacks the eMMC storage an
 d. By scattering micro-transmissions across 75 different frequencies, the system ensures superior penetration through dense crop canopies and mitigates co-channel interference, completely eliminating the probability of packet collisions within the confines of a single high-density farm field.
 
 * **128-Bit Edge Encryption**: Before the chirp leaves the antenna, the payload is signed and encrypted with a factory-burned 128-bit AES key. The **PMT aggregator** intercepts and decrypts this packet for routing. (Transmit draws 55mA for 50ms).
-* **Oracle Unified Compute Remote Calibration**: The LRZ2 requires zero manual calibration. Its baseline is established remotely by the **Oracle Unified Compute** using the high-fidelity Bayesian math from the field's VFA "Truth Node."
+* **Oracle Unified Compute Remote Calibration**: The LRZ2 requires zero manual calibration. Its baseline is established remotely by the **Oracle Unified Compute** using the high-fidelity Bayesian math from the field's VFA "Foundation Node."
 
 ## 3. The High-Density Sensor Array (18-Inch / 18U Sequence)
 
@@ -115,5 +115,5 @@ The LRZ passively monitors for a "Sub-Beacon" from the PMT. If detected:
 
 ---
 
-*Infrastructure Classification: Permanent Ground-Truth Asset*  
+*Infrastructure Classification: Permanent Ground-Foundation Asset*  
 *Spec Version: V1.21 | Firmware Version: 2.4.1*
