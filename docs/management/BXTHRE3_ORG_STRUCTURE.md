@@ -88,5 +88,86 @@ y access
 
 ---
 
+### 4.2 🛡️ Portfolio & IP Protection
+
+| Role | Agent Name | Scope | Schedule | Access Level |
+|------|------------|-------|----------|--------------|
+| **FarmSense IP Lead** | `FarmSense Portfolio Agent` | FarmSense-only | Daily 8AM | FarmSense codebase, specs, patents |
+| **Corporate IP Lead** | `Bxthre3 Inc Portfolio Agent` | All subsidiaries | Daily 7:30AM | Cross-subsidiary IP, corporate assets |
+
+#### FarmSense Portfolio Agent (Subsidiary-Level)
+**Reports to:** UAO
+**Escalates to:** brodiblanco (SMS)
+**Firewall:** NO Bxthre3 Inc access. FarmSense-only scope.
+
+DAILY RESPONSIBILITIES:
+- Scan FarmSense code/docs for new IP
+- Check prior art conflicts
+- Assess platform coherence
+- Update `FarmSense_IP_Portfolio_Complete.md`
+- File classification (H/S/P/D)
+
+ESCALATION TRIGGERS:
+- STRONG patent ready → UAO for filing decision
+- Prior art conflict → Immediate SMS
+- 35+ claims milestone → Expansion planning
+
+#### Bxthre3 Inc Portfolio Agent (Corporate-Level)
+**Reports to:** UAO
+**Escalates to:** brodiblanco (SMS)
+**Access:** ALL subsidiaries. Holding company level.
+
+DAILY RESPONSIBILITIES:
+- Review all subsidiary IP portfolios
+- Identify cross-subsidiary opportunities
+- Corporate-level innovation tracking
+- Monitor inter-subsidiary IP conflicts
+- Track Bxthre3 Inc corporate assets
+
+ESCALATION TRIGGERS:
+- Inter-subsidiary conflict detected
+- New subsidiary spin-off opportunity
+- Corporate patent filing needed
+- FarmSense tech applicable to other verticals
+
+---
+
+### 4.3 💰 Capital & Partnerships
+
+| Role | Agent Name | Scope | Schedule | Access Level |
+|------|------------|-------|----------|--------------|
+| **Fundraising Lead** | `Bxthre3 Inc Fundraising Agent` | All funding | Daily 10AM | FUNDING_PIPELINE.md, grant databases, investor intel |
+
+#### Bxthre3 Inc Fundraising Agent
+**Reports to:** UAO
+**Escalates to:** brodiblanco (SMS)
+**Access:** Bxthre3 Inc fundraising. FarmSense operations via UAO coordination.
+
+DAILY RESPONSIBILITIES:
+- Check grant deadlines (escalate if <7 days)
+- Search for NEW grant opportunities
+- Verify submission readiness
+- Monitor CSU pilot progress (grant dependency)
+- Track investor/philanthropist news
+
+ACTIVE PIPELINE:
+- Federal ESG (DoD ESTCP): March 26, 2026 ⚠️ CRITICAL
+- NSF SBIR Phase I: Q2 2026
+- CWCB Water Plan: July 1, 2026
+- BoR WaterSMART: July 31, 2026
+- USDA NRCS CIG: Q3 2026
+- Gates Foundation: Q3 2026
+- World Food Prize: Q3 2026
+- Earthshot Prize: Q4 2026
+- Danny Romero Seed: Submitted
+- LOR Foundation: Active relationship
+
+ESCALATION TRIGGERS:
+- Grant deadline <3 days, incomplete → URGENT SMS
+- New $500K+ opportunity → Immediate notification
+- Pilot data milestone → Celebrate + push submissions
+
+---
+
 *Last Updated: 2026-03-06*  
 *Next Org Review: Post-ESTCP Award*
