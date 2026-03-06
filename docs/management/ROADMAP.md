@@ -282,6 +282,7 @@ Full pipeline (NSF SBIR, CWCB, BoR WaterSMART, USDA NRCS, Gates, Earthshot) list
 
 ## See Also
 
+- **V1 & Beta Milestones:** [`docs/management/MILESTONES.md`](MILESTONES.md) — exact deliverables for the CSU Pilot and initial V1 launch.
 - **Long-Term Vision:** [`docs/reference/FarmSense Long Term Roadmap.md`](../reference/FarmSense%20Long%20Term%20Roadmap.md) — sovereign water infrastructure, global expansion, treaty compliance
 - **Backend Services:** [`docs/codebase_docs/farmsense-code/backend/BACKEND_SERVICE_MAP.md`](../codebase_docs/farmsense-code/backend/BACKEND_SERVICE_MAP.md) — all 15 service modules documented
 

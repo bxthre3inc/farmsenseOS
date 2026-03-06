@@ -1,6 +1,8 @@
 # FarmSense Actionable Task List
 
-## Active Hardware & Architecture Remediation
+> **See [`../management/MILESTONES.md`](../management/MILESTONES.md) for full definitions of the Beta and V1 Milestones.**
+
+## Path to Beta Milestone (March 10, 2026)
 
 - [x] [x] Rectify District Hub (DHU) BOM to include 900MHz LoRaWAN gateway.
 - [x] [x] Rectify Pivot Motion Tracker (PMT) BOM to include 2.4GHz/BLE module for PFA communication.
@@ -8,7 +10,13 @@
 - [x] [x] Integrate Hybrid Pulse Capacitor (HPC) with the PMT's LiSOCl2 battery to bypass spring passivation.
 - [x] [x] Treat Polycarbonate enclosures with fluoropolymer coatings (PVDF) or UV inhibitors to prevent radiation embrittlement at 8,000ft altitude.
 
-## Software-Driven Expansions
+- [ ] [ ] Deploy core ingestion pipeline for Zo Server.
+- [ ] [ ] Implement Farmer Dashboard (Beta) for field metrics.
+- [ ] [ ] Validate Hydrodynamic evidence for Water Court (margin of error `<5%`).
+
+## Path to V1 Milestone (Spring 2027)
+
+*Advanced Dual-Use Enhancements & Software-Driven Expansions:*
 
 - [x] [x] Implement Predictive Maintenance via Current Harmonic Analysis on the Pressure & Flow Anchor (PFA).
 - [x] [x] Integrate k-means Machine-Learning Kriging algorithms into the CSE Core Compute Engine.
@@ -17,6 +25,8 @@
 - [x] [x] Build Federal Federated Data Fabric Adapters. (`app/services/jadc2_adapter.py` — CoT v2.0 translation + LPI/LPD metadata complete)
 - [x] [x] Implement Dual-Layer Spatial Privacy (Contextual Anonymization) for cloud/federated machine learning. (`app/services/spatial_privacy.py` — GPS jitter + k-anonymity + Laplace DP complete)
 - [x] [x] Develop automated GLOBALG.A.P. compliance report generator. (`app/services/globalGAP_compliance.py` — all 6 IFA v6 control points + SHA-256 audit hash complete)
+- [ ] [ ] Implement Resolution Pop UI & Regulatory Portal integrations.
+- [ ] [ ] Scale Production to 100% Subdistrict 1 coverage (1,280 fields, 25x DHUs).
 
 ## Advanced Dual-Use Enhancements (R&D)
 
