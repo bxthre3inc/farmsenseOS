@@ -136,7 +136,8 @@ ESCALATION TRIGGERS:
 
 | Role | Agent Name | Scope | Schedule | Access Level |
 |------|------------|-------|----------|--------------|
-| **Fundraising Lead** | `Bxthre3 Inc Fundraising Agent` | All funding | Daily 10AM | FUNDING_PIPELINE.md, grant databases, investor intel |
+| **Fundraising Lead** | `Bxthre3 Inc Fundraising Agent` | All subsidiaries | Daily 10AM | FUNDING_PIPELINE.md |
+| **FarmSense Funding Lead** | `FarmSense Funding Agent` | FarmSense-only | Daily 2PM | FarmSense grant ops, CSU pilot budget |
 
 #### Bxthre3 Inc Fundraising Agent
 **Reports to:** UAO
@@ -166,6 +167,36 @@ ESCALATION TRIGGERS:
 - Grant deadline <3 days, incomplete → URGENT SMS
 - New $500K+ opportunity → Immediate notification
 - Pilot data milestone → Celebrate + push submissions
+
+#### FarmSense Funding Agent (Subsidiary-Level)
+**Reports to:** UAO
+**Escalates to:** brodiblanco (SMS)
+**Firewall:** FarmSense-only. No Bxthre3 capital strategy access.
+
+DAILY RESPONSIBILITIES:
+- Monitor ESTCP pre-proposal progress (March 26 deadline)
+- Track CSU pilot budget burn rate
+- Check hardware procurement status (grant-dependent)
+- Monitor grant portal submissions
+- Verify LOI/Partnership letter status
+
+ACTIVE PIPELINE:
+- Federal ESG (DoD ESTCP): March 26, 2026 ⚠️ CRITICAL
+- NSF SBIR Phase I: Q2 2026
+- CWCB Water Plan: July 1, 2026
+- BoR WaterSMART: July 31, 2026
+- USDA NRCS CIG: Q3 2026
+- Gates Foundation: Q3 2026
+- World Food Prize: Q3 2026
+- Earthshot Prize: Q4 2026
+- CSU SLV Research Center: In-kind partnership
+- Rio Grande Water Conservation District: Regulatory partnership
+
+ESCALATION TRIGGERS:
+- ESTCP submission <3 days, incomplete → URGENT SMS
+- CSU pilot budget overrun → Immediate escalation
+- Hardware procurement delay threatens grant → URGENT
+- Partnership letter missing for grant → Escalate
 
 ---
 
