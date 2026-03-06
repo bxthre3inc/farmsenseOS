@@ -130,7 +130,7 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### Federal / Inter-agency Integration (Federal ESG)
 
-- [ ] Align FHSS encryption for LPI/LPD military requirements.
+- [ ] Align LoRa Mesh encryption for LPI/LPD military requirements.
 - [ ] Pilot HALO-dropped "Ballistic-grade Penetrator" sensor shells.
 - [ ] Deploy Federated Data Fabric adapters for Inter-agency compliance.
 
@@ -209,7 +209,7 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 | Level | Hardware | Processing | Grid |
 |-------|----------|-----------|------|
-| **Field** | LRZ/VFA (FHSS chirps) → PMT Hub | EBK baseline | 50m |
+| **Field** | LRZ/VFA (LoRa bursts) → PMT Hub | EBK baseline | 50m |
 | **District** | DHUs (OnLogic ARM SoC) | Go-based IDW | 20m / 10m |
 | **Regional** | RSS (64-Core Threadripper) | Python Regression Kriging + FHE | 1m |
 | **Global** | Zo.computer Cloud | Multi-field analytics, Federated queries | All tiers |
@@ -219,7 +219,7 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 - **Backend:** FastAPI (async), PostgreSQL + TimescaleDB, PostGIS, RabbitMQ
 - **Edge Computing:** Go-optimized IDW interpolation with offline SQLite resilience
 - **Cloud Analytics:** Regression Kriging incorporating Sentinel-2/Landsat-9 imagery
-- **Security:** JWT auth, 128-bit AES payload encryption, FHSS, Spatial Privacy layer
+- **Security:** JWT auth, 128-bit AES payload encryption, LoRa Mesh, Spatial Privacy layer
 - **Advanced (Phase 2–3):** PBFT AllianceChain, FHE Kriging, Federated Data Fabric adapters
 
 ---

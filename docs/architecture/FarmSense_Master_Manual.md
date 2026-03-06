@@ -88,7 +88,7 @@ The Vertical Field Anchor (VFA) serves as the primary **sub-surface truth node**
 * **VFA Specification:** The VFA V1.21 specification explicitly mandates the use of a "local high-gain 900MHz LoRa uplink" to bypass expensive cellular modems and transmit secure payloads to the District Hub.1  
 * **DHU Specification:** The DHU V1.1 specification dictates a "Triple-Sector Radio Spine" consisting of three Ubiquiti LTU Sector Antennas (120°) operating exclusively on the 5GHz frequency band.1  
 * **The Disconnect:** The proprietary Ubiquiti LTU 5GHz architecture cannot receive 900MHz LoRa modulations.1  
-* **Resolution:** Correcting this by upgrading the VFA to 5GHz is not agronomically viable. High-frequency 5GHz waves suffer from severe attenuation and multipath interference when attempting to penetrate dense, water-rich foliage. The DHU BOM must be immediately revised to include an enterprise-grade 900MHz LoRaWAN gateway alongside the existing Ubiquiti array.
+* **Resolution:** Correcting this by upgrading the VFA to 5GHz is not agronomically viable. High-frequency 5GHz waves suffer from severe attenuation and multipath interference when attempting to penetrate dense, water-rich foliage. The DHU BOM must be immediately revised to include an enterprise-grade 900MHz LoRa Mesh gateway alongside the existing Ubiquiti array.
 
 ### **3.2 The PMT Field Hub Architecture (Telemetry Coordination)**
 
@@ -98,11 +98,11 @@ The Pressure & Flow Anchor (PFA) is the critical safety actuator mounted at the 
 * **Routing:** The VFA, LRZs, and the PFA all report upward directly to the PMT over the 900MHz LoRa Mesh. The PMT then acts as the central \"Field Hub\", packaging the data and sending it to the nearest active District Hub (DHU).
 * **Resolution:** This elevated topology entirely physically circumvents the dense water canopy that attenuates ground-level signals, ensuring a constant line of sight between the field mesh and the PMT field hub.
 
-### **3.3 The LRZ Sub-Node Architecture: The FHSS Advantage**
+### **3.3 The LRZ Sub-Node Architecture: The LoRa Mesh Advantage**
 
 In contrast to the backhaul failures, the communication protocol between the Lateral Root-Zone (LRZ) scouts and the VFA represents state-of-the-art IoT engineering.
 
-* **LR-FHSS Implementation:** The LRZ units execute 128-bit encrypted Frequency-Hopping Spread Spectrum (FHSS) "dumb chirps".1 By scattering micro-transmissions across 75 different frequencies, the system mitigates co-channel interference, completely eliminating the probability of packet collisions within the confines of a single high-density farm field.\[1, 1\]
+* **LR-LoRa Mesh Implementation:** The LRZ units execute 128-bit encrypted Frequency-Hopping Spread Spectrum (LoRa Mesh) "dumb chirps".1 By scattering micro-transmissions across 75 different frequencies, the system mitigates co-channel interference, completely eliminating the probability of packet collisions within the confines of a single high-density farm field.\[1, 1\]
 
 ## ---
 
@@ -169,13 +169,13 @@ The phased deployment strategy completely bypasses the need for traditional, dil
 
 FarmSense possesses immense dual-use potential as a highly resilient, ruggedized environmental sensing network capable of operating in contested environments. This directly aligns with the Federal's Joint All-Domain Command and Control (Inter-agency) network priorities.
 
-* **Value Proposition:** FarmSense's ability to execute localized "Reflex Logic" without relying on external cloud connectivity, its 128-bit AES encryption, and its FHSS interference mitigation provide the exact secure edge-computing data transport the military requires.
+* **Value Proposition:** FarmSense's ability to execute localized "Reflex Logic" without relying on external cloud connectivity, its 128-bit AES encryption, and its LoRa Mesh interference mitigation provide the exact secure edge-computing data transport the military requires.
 
 ### **7.2 The Bill & Melinda Gates Foundation**
 
 At COP30, the Gates Foundation pledged $1.4 billion (2026-2029) to support innovations helping smallholder farmers adapt to climate change, with a specific focus on "digital advisory services" and tailored data-driven planting decisions.
 
-* **Value Proposition:** FarmSense acts as an automated \"digital agronomist.\" By validating the ultra-lean $59.30 unit cost for the LRZ scout 1, FarmSense proves that advanced, deterministic resource optimization can be democratized and scaled affordably to smallholder farms in sub-Saharan Africa and South Asia.
+* **Value Proposition:** FarmSense acts as an automated \"digital agronomist.\" By validating the ultra-lean $54.30 OEM-scale unit cost for the LRZ scout 1, FarmSense proves that advanced, deterministic resource optimization can be democratized and scaled affordably to smallholder farms in sub-Saharan Africa and South Asia.
 
 ### **7.3 "Nobel Equivalent" Global Prizes**
 
@@ -210,7 +210,7 @@ To ensure absolute farmer operator trust and data sovereignty, the network archi
 
 To solidify the FarmSense architecture for premier global infrastructure grants and defense funding, the following advanced capabilities and zero-cost software frameworks are integrated into the deployment roadmap:
 
-* **LPI/LPD Positioning (FHSS):** The Lateral Root-Zone (LRZ) network's existing Frequency-Hopping Spread Spectrum (FHSS) architecture should be explicitly pitched as a "Low Probability of Intercept" (LPI) and "Low Probability of Detection" (LPD) asset. In tactical scenarios, rapidly switching frequencies makes the sensor grid highly resistant to adversarial jamming and interception.  
+* **LPI/LPD Positioning (LoRa Mesh):** The Lateral Root-Zone (LRZ) network's existing Frequency-Hopping Spread Spectrum (LoRa Mesh) architecture should be explicitly pitched as a "Low Probability of Intercept" (LPI) and "Low Probability of Detection" (LPD) asset. In tactical scenarios, rapidly switching frequencies makes the sensor grid highly resistant to adversarial jamming and interception.  
 * **Rapid Deployment Housings:** To dramatically expand the Federal dual-use appeal, the LRZ physical housing concept can be adapted for high-altitude (HALO) or low-orbit kinetic deployment. By engineering the 18-inch HDPE SDR9 shell to withstand high-G impacts and utilizing the existing 15-degree friction molded tapered driving tip, the sensors could act as kinetic penetrators that are air-dropped to autonomously bury themselves flush with the ground. This fulfills military requirements for covert, rapidly deployable unattended ground sensor (UGS) networks in contested environments.  
 * **Fully Homomorphic Encryption (FHE):** Upgrade the Regional Superstation (RSS) from standard AES encryption to Fully Homomorphic Encryption (FHE). FHE is a groundbreaking cryptographic technology that allows the Zo engine's complex Kriging algorithms to be executed directly on encrypted data without ever decrypting it first. This ensures absolute data confidentiality during processing.  
 * **Automated GLOBALG.A.P. Compliance:** Develop a software module that translates the platform's certified flow and moisture data into automated GLOBALG.A.P. compliance reports. This allows farmers to effortlessly prove sustainable water management to international standards, unlocking premium supply chain markets globally.
@@ -222,7 +222,7 @@ To solidify the FarmSense architecture for premier global infrastructure grants 
 The FarmSense platform represents a highly sophisticated synthesis of edge computing and agronomic science. To lock in non-dilutive global funding targets and successfully define the June 2026 Water Court trial parameters, the following tactical milestones are executed:
 
 1. **Execute the 2-Field Pilot Strategy:** Deploy the finalized hardware stack (2 PMTs, 2 PFAs, 2 VFAs, and 20 LRZs) at the CSU SLV Research Center. This guarantees independent academic validation of the MAD framework.
-2. **Scale Optimized Telemetry:** The DHU (V1.1) is deployed with an industrial 900MHz LoRaWAN gateway, while the PMT operates as the primary 2.4GHz receiver for the PFA safety nodes, optimizing processing efficiency across the field network.  
+2. **Scale Optimized Telemetry:** The DHU (V1.1) is deployed with an industrial 900MHz LoRa Mesh gateway, while the PMT operates as the primary 2.4GHz receiver for the PFA safety nodes, optimizing processing efficiency across the field network.  
 3. **Target the Federal Federal ESG Deadline:** Leverage the system's dual-use LPI/LPD architecture to submit the final proposal for the Federal's Environmental Security Technology Certification Program (Federal ESG) "Water Resilience on Federal Installations" grant.  
 4. **Implement Software-Driven Feature Expansions:** Activate Current Harmonic Analysis on the PFA edge processors for predictive maintenance, and enforce the Dual-Layer Spatial Privacy architecture for absolute ledger protection.  
 5. **Validate Thermodynamic Hardware:** Utilize the published thermal loss metrics confirming the 40Ah LiFePO4 battery securely runs the 5W Kapton heater through \-30°F events. The PMT's LiSOCl2 battery, integrated with an HPC, ensures relentless GNSS "Warm Starts."  
@@ -818,7 +818,7 @@ To fund FarmSense hardware, deployment, and ongoing operations 100% through gran
 ### Federal Federal ESG: Installation Energy and Water (IEW)
 
 * **Focus:** Demonstrating innovative energy and water technologies on military installations.
-* **Relevance:** Dual-use AES-256 / FHSS mesh network and LPI/LPD characteristics.
+* **Relevance:** Dual-use AES-256 / LoRa Mesh mesh network and LPI/LPD characteristics.
 * **Funding Profile:** $500K to $1.5M+, no strict cost-share required for private industry.
 
 ### National Science Foundation (NSF): SBIR/STTR (AgTech & Environment)
@@ -1392,7 +1392,7 @@ The DHU maintains a mission-critical, containerized environment to support local
 
 To provide 360-degree high-bandwidth coverage across the basin, the DHU utilizes a specialized carrier-grade radio stack.
 
-* **Sector Radio Array & LoRaWAN Gateway**: Three (3) Ubiquiti LTU Sector Antennas (120°). This configuration allows the hub to handle high-bandwidth 5GHz connections while mitigating multipath interference caused by heat-shimmer and the massive metallic surfaces of center-pivot spans. Additionally, the DHU incorporates an Enterprise-Grade 900MHz LoRaWAN Gateway to receive secure payloads directly from the Vertical Field Anchors (VFAs).
+* **Sector Radio Array & LoRa Mesh Gateway**: Three (3) Ubiquiti LTU Sector Antennas (120°). This configuration allows the hub to handle high-bandwidth 5GHz connections while mitigating multipath interference caused by heat-shimmer and the massive metallic surfaces of center-pivot spans. Additionally, the DHU incorporates an Enterprise-Grade 900MHz LoRa Mesh Gateway to receive secure payloads directly from the Vertical Field Anchors (VFAs).
 
 ### Redundant Backhaul Spine
 
@@ -1472,7 +1472,7 @@ The LRZ housing is engineered for an "Invisible Presence"—a ruggedized subterr
 The LRZ is an exercise in extreme power efficiency. It lacks the eMMC storage and heavy compute processors found in edge coordinators. It is a "Set and Forget" asset that awakens, acts, and sleeps.
 
 * **Ultra-Low Power nRF Logic**: The compute board relies on a Nordic nRF52840 SoC. This chip stays in a deep micro-amp sleep state for 99% of its life, waking only to capture raw dielectric counts before immediately cutting power.
-* **Interference Mitigation (FHSS)**: The LRZ chirp utilizes a Frequency-Hopping Spread Spectrum (FHSS) approach, scattering micro-transmissions across 75 different frequencies to ensure zero packet collisions in high-density fields.
+* **Interference Mitigation (LoRa Mesh)**: The LRZ chirp utilizes a Frequency-Hopping Spread Spectrum (LoRa Mesh) approach, scattering micro-transmissions across 75 different frequencies to ensure zero packet collisions in high-density fields.
 * **128-Bit Edge Encryption**: Before the chirp leaves the antenna, the payload is signed and encrypted with a factory-burned 128-bit AES key. The PMT Field Hub intercepts and decrypts this packet for routing.
 * **Oracle Unified Compute Feedback Loop**: The LRZ system utilizes a closed-loop verification strategy. While LRZ2 nodes provide the spatial data for the **Virtual Sensor Grid** (1m-50m resolution), the LRZ1 truth nodes wake 1-4 times daily to compare their physical readings against the virtual grid. If a discrepancy exists, the system automatically recalibrates the underlying **Soil Variability Maps** to maintain absolute geostatistical integrity.
 
@@ -1513,7 +1513,7 @@ Like the VFA, the LRZ employs the advanced \"Proxy Method\" of non-contact sensi
 | Structure| Extruded Rigid CHDPE SDR9 Spacers (7U)| Recycled Bulk | $0.10 | $0.10 |
 | Power | 4U Battery Cartridges (21700x3) | Direct Cell Sourcing | $16.75 | $33.50 |
 | Sensors | 1U Basic Sensor (VWC/Temp) | Fab-Direct Assembly | $2.50 | $5.00 |
-| **TOTAL** | **Per Unit Hardware Cost** | | | **$59.30** |
+| **TOTAL** | **Per Unit Cost (OEM Scale)** | | | **$54.30** |
 | | **(Absolute OEM Scale)** | | | |
 
 <div style="page-break-after: always;"></div>
@@ -1556,7 +1556,7 @@ The hydraulic flow stack is the primary engine for water rights verification and
 ## 4. Edge Processing & Winter Hibernation Logic
 
 * **ESP32-S3 Unified Compute Platform**: Features a dual-core Xtensa® 32-bit LX7 microprocessor with integrated hardware vector acceleration. It replaces the separate processing sled and radio, acting as a unified core for both positioning math and field mesh aggregation.
-* **Comms (The Field Hub)**: Features a dual-radio stack. Transmits and receives via a High-Gain 900MHz FHSS antenna to act as the primary \"listening post\" for the field's LRZ & VFA mesh. It then intercepts this data, bundles it with its own 2.4GHz/BLE hydraulic payload received from the PFA, and blasts the entire field's encrypted payload via a 900MHz LoRaWAN transceiver to the District Hub (DHU).
+* **Comms (The Field Hub)**: Features a dual-radio stack. Transmits and receives via a High-Gain 900MHz LoRa Mesh antenna to act as the primary \"listening post\" for the field's LRZ & VFA mesh. It then intercepts this data, bundles it with its own 2.4GHz/BLE hydraulic payload received from the PFA, and blasts the entire field's encrypted payload via a 900MHz LoRa Mesh transceiver to the District Hub (DHU).
 
 ### Empirical Bayesian Kriging (Edge-EBK) & VRI Failover Operations
 
@@ -1590,7 +1590,7 @@ This ledger deconstructs the hardware costs for the initial 1,280-unit rollout.
 | Power | LiSOCl2 5yr Hibernation Pack | Saft LS14500 | $25.00 | $25.00 |
 | Fasteners | SS M4 Security Screws (x4) | McMaster Security-M4 | $2.00 | $2.00 |
 | Radio | High-Gain BLE Whip Antenna | Linx ANT-BLE | $30.00 | $30.00 |
-| Radio | 900MHz LoRaWAN Transceiver | Semtech SX1262 | $12.00 | $12.00 |
+| Radio | 900MHz LoRa Mesh Transceiver | Semtech SX1262 | $12.00 | $12.00 |
 | **TOTAL** | **Per Unit Hardware Cost** | | **$1,112.00** | |
 
 **Total Subdistrict 1 Project Financials (1,280 Units)**:
@@ -2093,7 +2093,7 @@ FarmSense is the definitive sovereign water infrastructure—legally recognized,
 
 ### 2.1. Hierarchical Processing Stack
 
-1. **Level 1 (Field):** **LRZ/VFA** (FHSS chirps) -> **PMT Hub** (50m Grid, EBK baseline).
+1. **Level 1 (Field):** **LRZ/VFA** (LoRa bursts) -> **PMT Hub** (50m Grid, EBK baseline).
 2. **Level 2 (District):** **DHUs** (NVIDIA Jetson Orin Nano) -> 1m/10m/20m Grid (Go-based Kriging).
 3. **Level 3 (Regional):** **RSS** (64-Core Threadripper) -> 1m Grid (Python-based Regression Kriging + FHE).
 4. **Level 4 (Global):** **Zo.computer Cloud** -> Multi-field analytics, Federated Learning.
@@ -2120,7 +2120,7 @@ FarmSense is the definitive sovereign water infrastructure—legally recognized,
 
 ### M1.2: Hardware Finalization & BOM (Weeks 5-8)
 
-* [ ] **PMT:** Finalize LoRaWAN 900MHz gateway & u-blox ZED-F9P RTK logic.
+* [ ] **PMT:** Finalize LoRa Mesh 900MHz gateway & u-blox ZED-F9P RTK logic.
 * [ ] **PFA:** Implement Current Harmonic Analysis for predictive pump maintenance.
 * [ ] **VFA/LRZ:** Finalize PVDF enclosure coating and HPC battery integration for -30°F survivability.
 * [ ] Order prototype components for the CSU SLV pilot.
@@ -2580,7 +2580,7 @@ Sensors and actuators deployed below and above ground across field zones. Equipm
 * **Lateral Root-Zone Truth (LRZ1) [Level 1 - Truth Node]:** The primary physical verification anchor. Unlike the Foundation/Reference nodes, the LRZ1 is a **Monolithic, single-depth unit** designed for permanent spatial grounding.
 * **Pressure & Flow Anchor (PFA) [Level 1 - Sentry of the Source]:** Mounts at the wellhead and pivot station. A **Non-invasive** monitor of vibration torque ripple, cavitation, and line pressure. Acts as the primary safety actuator (Soft-Stop) for the infrastructure.
 * **Pivot Motion Trackers (PMT) [Level 1.5 - Field Hub & Edge-EBK Engine]:** The command center and Nervous System of the field, mounted 10-15 feet high on the pivot span.
-  * **RF Umbrella:** Receives 900MHz FHSS chirps from the VFA/LRZs and 2.4GHz payloads from the PFA, bundling the entire field state into a single ~187-byte AES-256 payload and blasting it to the DHU via 900MHz LoRaWAN.
+  * **RF Umbrella:** Receives 900MHz LoRa Mesh chirps from the VFA/LRZs and 2.4GHz payloads from the PFA, bundling the entire field state into a single ~187-byte AES-256 payload and blasting it to the DHU via 900MHz LoRa Mesh.
   * **Sensors:** Generates +/- 1% flow accuracy non-invasively using Badger Meter ultrasonic transit-time components. Contains u-blox ZED-F9P RTK GNSS modules for sub-2.5m horizontal spatial resolution and Bosch BNO055 9-Axis IMUs for vibration harmonics.
   * **Edge IQ:** Constant Edge-EBK processing utilizing an onboard ESP32-S3 dual-core processor to continuously calculate a **50m spatial fidelity** EBK spatial probability grid using "Fisherman's Attention" and Ripple/Collapse logic. This constant baseline enables hierarchical processing upstream (1m/10m/20m grids at the Orin-powered DHU). It inherently serves as zero-downtime VRI failover guidance if the DHU uplink drops.
   * **Corner-Swing Auditor (CSA)** variants utilize dual-node configurations (Primary Span Tracker and Swing-Arm Tracker) to resolve swing-arm irrigation mechanics mathematically.
@@ -2625,7 +2625,7 @@ FarmSense synthesizes weather forecasts, localized soil properties, and vegetati
 ## Phased Approach & Dual-Use
 
 * **Civilian Scaling**: Targeting immediate 2-field pilot validations to freeze punitive regulatory mandates, while building momentum for Earthshot and World Food Prize grants.
-* **Defense/Federal (Dual-Use)**: Designing infrastructure to serve as a Highly resilient, Environmental Unattended Ground Sensor (UGS) network (Inter-agency compliant), leveraging native FHSS architecture for Low Probability of Intercept (LPI) properties.
+* **Defense/Federal (Dual-Use)**: Designing infrastructure to serve as a Highly resilient, Environmental Unattended Ground Sensor (UGS) network (Inter-agency compliant), leveraging native LoRa Mesh architecture for Low Probability of Intercept (LPI) properties.
 
 <div style="page-break-after: always;"></div>
 
@@ -2654,7 +2654,7 @@ Zero-cost, OTA software-only framework upgrades activating extreme analytical po
 
 Aligning FarmSense hardware to operate optimally under contested deployment and military environments to support Environmental Security Technology Certification Program (Federal ESG) investments:
 
-* **Low Probability of Intercept / Detection (LPI/LPD)**: Applying the LRZ's native 128-bit Frequency-Hopping Spread Spectrum (FHSS) framework to mitigate co-channel interference and adversarial jamming.
+* **Low Probability of Intercept / Detection (LPI/LPD)**: Applying the LRZ's native 128-bit Frequency-Hopping Spread Spectrum (LoRa Mesh) framework to mitigate co-channel interference and adversarial jamming.
 * **Rapid Deployment Housings**: Leveraging high-density Polycarbonate geometries and 15-degree tapered impact tips to enable airdrops (HALO/Low-Orbit). Allows the sensor fleet to auto-bury during sudden deployment as a covert, Unattended Ground Sensor (UGS) grid.
 * **Fully Homomorphic Encryption (FHE)**: Upgrading the Central Zo Kriging Algorithms to calculate geostatistical processes directly upon encrypted incoming environmental data, maintaining military-grade confidentiality without requiring intermediary decryption loops.
 * **Federated Data Fabric Adapters**: Software layers directly translating localized deterministic agricultural reads into standardized Joint All-Domain Command and Control (Inter-agency) networking protocols.
@@ -3175,7 +3175,7 @@ See `file 'farmsenseOS/DEPENDENCY_REDUCTION.0md'` for full plan.
 │                           │                                     │
 │                    ┌──────▼───────┐                            │
 │                    │  PMT (Edge)  │  10-15ft pivot span mount   │
-│                    │  50m Grid    │  Edge-EBK, FHSS hub         │
+│                    │  50m Grid    │  Edge-EBK, LoRa Mesh hub         │
 │                    └──────┬───────┘                            │
 │                           │                                     │
 │                    ┌──────▼───────┐                            │
@@ -3357,7 +3357,7 @@ reference/
 
 ### Completed ✅
 
-* [x] Rectify DHU BOM for 900MHz LoRaWAN gateway
+* [x] Rectify DHU BOM for 900MHz LoRa Mesh gateway
 
 * [x] Rectify architecture so PFA communicates with PMT (Not VFA)
 
@@ -3374,7 +3374,7 @@ reference/
 * [ ] Build Federal Federated Data Fabric Adapters
 * [ ] Implement Dual-Layer Spatial Privacy
 * [ ] Develop automated GLOBALG.A.P. compliance reports
-* [ ] Verify LPI/LPD logic on LRZ FHSS chirps
+* [ ] Verify LPI/LPD logic on LRZ LoRa bursts
 * [ ] Concept design for Rapid Deployment Housing
 * [ ] Upgrade RSS for FHE Kriging operations
 * [ ] Draft Federal Federal ESG pre-proposal (Deadline: March 26, 2026)
@@ -3431,7 +3431,7 @@ reference/
 
 * JWT authentication for API
 * 128-bit AES encryption for field data
-* FHSS (Frequency-Hopping Spread Spectrum) for LRZ communications
+* LoRa Mesh (Frequency-Hopping Spread Spectrum) for LRZ communications
 * Dual-layer spatial privacy (exact GPS locked, cloud data anonymized)
 * FHE (Fully Homomorphic Encryption) planned for RSS
 
@@ -3439,7 +3439,7 @@ reference/
 
 ## Dual-Use (Federal) Features
 
-* LPI/LPD native FHSS architecture
+* LPI/LPD native LoRa Mesh architecture
 * Inter-agency-compliant UGS network
 * Air-deliverable kinetic penetrator housings
 * FHE Kriging on encrypted data
@@ -3987,7 +3987,7 @@ High-Level System Topology
 
 Sensors | Pumps | Weather Stations
 
-⬇ (LoRaWAN / MQTT)
+⬇ (LoRa Mesh / MQTT)
 
 [ EDGE GATEWAY ]
 
@@ -4027,8 +4027,8 @@ series data and high-volume geospatial rasters.
 
 |Source|Protocol|Frequency|Data Type|
 |---|---|---|---|
-|Soil Moisture<br>Probes|MQTT / LoRaWAN|15 min|Volumetric Water Content (2<br>depths)|
-|Vertical<br>Profling<br>Sensors|MQTT / LoRaWAN|30 min|Multi-depth moisture profle (4-<br>8 levels)|
+|Soil Moisture<br>Probes|MQTT / LoRa Mesh|15 min|Volumetric Water Content (2<br>depths)|
+|Vertical<br>Profling<br>Sensors|MQTT / LoRa Mesh|30 min|Multi-depth moisture profle (4-<br>8 levels)|
 |Pump<br>Telemetry|2.4GHz RF /<br>BLE|Real-time (1-5<br>sec)|Flow rate, Power status,<br>Pressure, Voltage|
 |Weather<br>Stations|REST API / MQTT|10 min|Temperature, Humidity,<br>Rainfall, Wind, Solar Radiation|
 |Sentinel-1<br>(SAR)|Copernicus Open<br>Access Hub API|6 days (with both<br>satellites)|Backscatter coefcient (soil<br>moisture proxy)|
@@ -4074,7 +4074,7 @@ visibility even if the cloud connection is severed.
 |Compute<br>Module|NVIDIA Jetson<br>Orin Nano (8GB)|Main processing unit for high-resolution edge<br>computation|
 |Storage|64GB Industrial microSD + 128GB<br>SSD|OS, application, 30-day data buffer|
 |Connectivity|4G LTE modem + Ethernet backup|Cloud synchronization and remote<br>monitoring|
-|Sensor<br>Interface|LoRaWAN Gateway (8-channel) +<br>MQTT broker|Collect data from feld sensors|
+|Sensor<br>Interface|LoRa Mesh Gateway (8-channel) +<br>MQTT broker|Collect data from feld sensors|
 |Power|12V DC with UPS backup (6hr<br>capacity)|Continuous operation during power<br>outages|
 
 **4.2 Edge Processing Architecture**
@@ -6060,7 +6060,7 @@ The FarmSense platform utilizes a unified backend REST API and decentralized dat
 Unlike traditional static IoT networks, FarmSense pushes intense computational processing natively to the edge. The following firmware specifications detail the specific logic loops, spatial interpolation capabilities, and failover behavior of each bare-metal node.
 
 1. **[Pivot Motion Tracker (PMT) Firmware Specification](../specifications/firmware/PMT_Firmware_Spec.md):** The autonomous Level 1.5 Field Hub. Details the continuous execution of the 50m Empirical Bayesian Kriging (Edge-EBK) matrix and the "Fisherman's Attention" update scaling.
-2. **[Vertical Field Anchor (VFA) Firmware Specification](../specifications/firmware/VFA_Firmware_Spec.md):** The Level 1 Advanced Peer Node. Details the deep-profile ground truth telemetry generation processes and 900MHz FHSS routing.
+2. **[Vertical Field Anchor (VFA) Firmware Specification](../specifications/firmware/VFA_Firmware_Spec.md):** The Level 1 Advanced Peer Node. Details the deep-profile ground truth telemetry generation processes and 900MHz LoRa Mesh routing.
 3. **[Lateral Root-Zone Surveyor (LRZ) Firmware Specification](../specifications/firmware/LRZ_Firmware_Spec.md):** The mass-produced "dumb node." Details the LPI/LPD capacitive telemetry sweeps and high-frequency chirp protocols.
 4. **[Pressure & Flow Anchor (PFA) Firmware Specification](../specifications/firmware/PFA_Firmware_Spec.md):** The "Sentry of the Source." Details the Cortex-M7 Current Harmonic Analysis of the wellhead motor, cavitation detection, and 2.4GHz High-Gain linking.
 5. **[Corner-Swing Auditor (CSA) Firmware Specification](../specifications/firmware/CSA_Firmware_Spec.md):** Details the dual-node kinematics required to resolve swing-arm transit and overlap matrices.
@@ -6154,7 +6154,7 @@ The Admin Dashboard is the centralized command and control interface for FarmSen
 ## 2. Tenant & Gateway Management
 
 * **Organization Provisioning:** Create and manage distinct farming organizations, setting up their billing, access control lists (RBAC), and user onboarding.
-* **DHU Gateway Configuration:** Management of the physical District Hubs, including LoRaWAN channel assignment, payload routing, and backhaul connectivity (Cellular vs. Starlink).
+* **DHU Gateway Configuration:** Management of the physical District Hubs, including LoRa Mesh channel assignment, payload routing, and backhaul connectivity (Cellular vs. Starlink).
 
 ## 3. Global Edge Computation Monitoring
 
@@ -6230,7 +6230,7 @@ The Docs Portal is the central repository for all FarmSense technical documentat
 ## 3. Platform Policies & Standards
 
 * **Spatial Privacy Policy:** Clear, public-facing documentation on how the system implements Contextual Obfuscation and federated learning to protect farmer data from public exposure or FOIA requests.
-* **Security Architecture:** Detailed overviews of the 128-bit AES encryption schemas, FHSS protocols, and LoRaWAN backhauls utilized to meet Federal Federal ESG and Inter-agency standards.
+* **Security Architecture:** Detailed overviews of the 128-bit AES encryption schemas, LoRa Mesh protocols, and LoRa Mesh backhauls utilized to meet Federal Federal ESG and Inter-agency standards.
 
 ## 4. Architectural Integration
 
@@ -6519,7 +6519,7 @@ The Marketing Site is the primary public-facing portal for FarmSense. It acts as
 
 ## 3. Dual-Use & Federal Applicability
 
-* **Federal ESG & Inter-agency Relevance:** A dedicated silo highlighting the military applications of the technology. This section emphasizes the Low Probability of Intercept/Detection (LPI/LPD) features of the LRZ chirps, the 128-bit AES FHSS protocols, and the potential for the Regional Superstations (RSS) to utilize Fully Homomorphic Encryption (FHE).
+* **Federal ESG & Inter-agency Relevance:** A dedicated silo highlighting the military applications of the technology. This section emphasizes the Low Probability of Intercept/Detection (LPI/LPD) features of the LRZ chirps, the 128-bit AES LoRa Mesh protocols, and the potential for the Regional Superstations (RSS) to utilize Fully Homomorphic Encryption (FHE).
 
 ## 4. Architectural Integration
 
@@ -6979,8 +6979,8 @@ Complete intellectual property registry and competitive differentiation matrix.
 
 **Key elements:**
 
-* **Patent Portfolio Registry** — Catalogue of all filed and granted patents: algorithm patents (Regression Kriging workflow, EBK implementation), hardware design IP (kinetic penetrator geometry, HPC cold-start capacitor design, FHSS 128-bit frequency-hopping schema), and trade secrets (MAD threshold calibration constants, CU model coefficients). Filing dates, countries, and legal status.
-* **Moat Analysis Matrix** — Side-by-side competitive comparison. Rows: key differentiating capabilities (hardware-signed immutable ledger, 1m Kriging resolution, PBFT water trading, FHSS LPI, FHE capability, Water Court admissibility, Reflex offline autonomy). Columns: FarmSense vs. named competitors (Climate Corp, Trimble Ag, Arable, Planet Labs, Ag Leader). Binary or scored comparison cells with a source footnote for each claim.
+* **Patent Portfolio Registry** — Catalogue of all filed and granted patents: algorithm patents (Regression Kriging workflow, EBK implementation), hardware design IP (kinetic penetrator geometry, HPC cold-start capacitor design, LoRa Mesh 128-bit frequency-hopping schema), and trade secrets (MAD threshold calibration constants, CU model coefficients). Filing dates, countries, and legal status.
+* **Moat Analysis Matrix** — Side-by-side competitive comparison. Rows: key differentiating capabilities (hardware-signed immutable ledger, 1m Kriging resolution, PBFT water trading, LoRa Mesh LPI, FHE capability, Water Court admissibility, Reflex offline autonomy). Columns: FarmSense vs. named competitors (Climate Corp, Trimble Ag, Arable, Planet Labs, Ag Leader). Binary or scored comparison cells with a source footnote for each claim.
 * **Trade Secret Classification** — Summary of what is patent-protected vs. trade-secret-protected vs. copyright-protected. Shows the legal strategy behind each protection mechanism.
 * **IP Defense Timeline** — Milestones for IP: pending patent approvals, continuation applications, PCT international filings. Shows which IP rights will strengthen the moat over the next 12–36 months.
 
@@ -6992,9 +6992,9 @@ Investor-facing model of the defense contract revenue potential of the FarmSense
 
 **Key elements:**
 
-* **Node Qualification Counter** — Current count of hardware nodes that qualify for Federal/Federal ESG programs based on: FHSS LPI/LPD capability, FHE-capable RSS units, Inter-agency-compatible mesh topology, and air-deliverable kinetic penetrator qualification.
+* **Node Qualification Counter** — Current count of hardware nodes that qualify for Federal/Federal ESG programs based on: LoRa Mesh LPI/LPD capability, FHE-capable RSS units, Inter-agency-compatible mesh topology, and air-deliverable kinetic penetrator qualification.
 * **Program Pipeline Model** — Structured view of the Federal ESG contract pipeline: program name, program office, contract type (R&D, pilot, production), estimated contract value range, and FarmSense's competitive positioning. Not binding — clearly labelled as projections for scenario modeling.
-* **Revenue Scenario Sliders** — Investor can adjust: % of FHSS-qualified nodes contracted by Federal, Federal ESG R&D pilot award probability, and FHE RSS unit deployment count. Revenue model recalculates in real time showing notional contract values under each scenario.
+* **Revenue Scenario Sliders** — Investor can adjust: % of LoRa Mesh-qualified nodes contracted by Federal, Federal ESG R&D pilot award probability, and FHE RSS unit deployment count. Revenue model recalculates in real time showing notional contract values under each scenario.
 * **Civilian-to-Defense Handoff Narrative** — Visual timeline showing how civilian deployment milestones (Subdistrict 1 proof, Colorado DWR approval) create the validation record that enables Federal procurement. Explains why civilian revenue is the on-ramp to defense revenue.
 
 ---
@@ -7659,7 +7659,7 @@ The LRZ firmware represents absolute deterministic simplicity. It executes no sp
 
 * **Micro-Payload:** Reads the singular soil tension value and ambient canopy data.
 * **Encryption:** Applies AES-128 encryption.
-* **FHSS Burst:** Pulses the payload via the integrated 3-foot antenna utilizing 900MHz FHSS. The RF path is a direct vertical connection to the overhead PMT Field Hub umbrella.
+* **LoRa Mesh Burst:** Pulses the payload via the integrated 3-foot antenna utilizing 900MHz LoRa Mesh. The RF path is a direct vertical connection to the overhead PMT Field Hub umbrella.
 
 ## 3. Defense Protocol Adherence
 
@@ -7746,11 +7746,11 @@ The PMT continuously executes Empirical Bayesian Kriging (Edge-EBK) to generate 
 
 * **Payload Bundling:** The PMT bundles its own High-Fidelity kinematic data, the processed 50m Edge-EBK arrays, and the intercepted VFA/LRZ intelligence.
 * **PFA Aggregation:** Intercepts the 2.4GHz Current Harmonic Analysis payload from the wellhead PFA.
-* **LoRaWAN Backhaul:** Blasts the unified, heavily encrypted ~187-byte Field State Payload to the District Hub (DHU) via 900MHz LoRaWAN.
+* **LoRa Mesh Backhaul:** Blasts the unified, heavily encrypted ~187-byte Field State Payload to the District Hub (DHU) via 900MHz LoRa Mesh.
 
 ## 4. Zero-Downtime VRI Failover Execution
 
-If the PMT detects a loss of LoRaWAN ping-acknowledgment from the DHU:
+If the PMT detects a loss of LoRa Mesh ping-acknowledgment from the DHU:
 
 * **Autonomous VRI:** Because the PMT is *already* calculating the 50m EBK grid natively, it instantly switches to executing autonomous Variable Rate Irrigation commands (speeding/slowing the pivot or actuating safety valves) based *only* on its localized intelligence, bypassing the offline DHU/Zo engines entirely.
 * **Audit Buffering:** Stores all 187-byte payload state changes to onboard SPI Flash, burst-transmitting the backlog upon DHU reconnection to preserve the State Engineer audit ledger.
@@ -7779,7 +7779,7 @@ The VFA was deliberately downgraded from an AES-routing hub to a highly efficien
 
 * **Data Aggregation:** The firmware reads 4 specific depths along the 48-inch profile (8", 16", 24", 36") to determine total matric potential and deep percolation loss.
 * **Encryption at the Edge:** The processor applies AES-128 bit encryption independently to its localized payload before it ever leaves the component.
-* **Transmission:** Actuates the flush 3-foot low-profile antenna to chirp the encrypted payload via 900MHz Frequency-Hopping Spread Spectrum (FHSS) directly to the overhead Pivot Motion Tracker (PMT) acting as the Field Hub.
+* **Transmission:** Actuates the flush 3-foot low-profile antenna to chirp the encrypted payload via 900MHz Frequency-Hopping Spread Spectrum (LoRa Mesh) directly to the overhead Pivot Motion Tracker (PMT) acting as the Field Hub.
 
 ## 3. Dynamic "Ripple" Responsiveness
 
@@ -7787,7 +7787,7 @@ While fundamentally a "dumb chirp" node, the VFA firmware is governed by the PMT
 
 * **Baseline Chirp:** Every 4 hours.
 * **Triggered Ripple:** When the PMT detects a rapid statistical shift and initiates a "Focus Ripple," it pings the VFA. The VFA firmware must immediately scale its chirp frequency to every 15 minutes to provide the PMT Kriging engine with real-time ground truth data regarding the spatial expansion of the anomaly.
-* **LPI/LPD Constraints:** The firmware ensures that even at elevated 15-minute chirp rates, the FHSS frequency hopping conforms to Federal Low Probability of Intercept/Detection standards.
+* **LPI/LPD Constraints:** The firmware ensures that even at elevated 15-minute chirp rates, the LoRa Mesh frequency hopping conforms to Federal Low Probability of Intercept/Detection standards.
 
 ---
 *Return to [Master Software Index](../../SOFTWARE_INDEX.md)*
@@ -7798,7 +7798,7 @@ While fundamentally a "dumb chirp" node, the VFA firmware is governed by the PMT
 
 ## Active Hardware & Architecture Integration
 
-* [x] [x] Rectify District Hub (DHU) BOM to include 900MHz LoRaWAN gateway.
+* [x] [x] Rectify District Hub (DHU) BOM to include 900MHz LoRa Mesh gateway.
 * [x] [x] Rectify Pivot Motion Tracker (PMT) BOM to include 2.4GHz/BLE module for PFA communication.
 * [x] [x] Validate Thermal Loss capacity for 5W Kapton heater inside the PFA/DHU (-30°F extreme weather events).
 * [x] [x] Integrate Hybrid Pulse Capacitor (HPC) with the PMT's LiSOCl2 battery to bypass spring passivation.
@@ -7815,7 +7815,7 @@ While fundamentally a "dumb chirp" node, the VFA firmware is governed by the PMT
 
 ## Advanced Dual-Use Enhancements (R&D)
 
-* [ ] [ ] Verify Low Probability of Intercept/Detection (LPI/LPD) logic on LRZ FHSS chirps.
+* [ ] [ ] Verify Low Probability of Intercept/Detection (LPI/LPD) logic on LRZ LoRa bursts.
 * [ ] [ ] Concept design for Rapid Deployment Housing LRZ housings.
 * [ ] [ ] Upgrade Regional Superstation (RSS) compute layer to support Fully Homomorphic Encryption (FHE) Kriging operations.
 

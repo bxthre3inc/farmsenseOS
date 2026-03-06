@@ -24,7 +24,7 @@ The VFA housing has been radically re-engineered using a dual-cylinder architect
 
 By stripping the VFA down to pure sensing and encryption functions, we have intentionally offloaded all heavy cellular backhaul requirements and complex computations to the elevated **PMT Field Aggregator**.
 
-* **Interference Mitigation & FHSS**: The VFA utilizes a highly sensitive onboard FHSS radio to chirp its high-fidelity data to the PMT.
+* **Interference Mitigation & LoRa Mesh**: The VFA utilizes a highly sensitive onboard LoRa Mesh radio to chirp its high-fidelity data to the PMT.
 * **Firmware Logic & Interrupts**: Operates an RTOS prioritizing pressure transients (Priority 0) over sensor sampling (Priority 1) and ADC dielectric readings (Priority 2).
 * **Hardware Security & Root of Trust (RoT)**: Private Keys are generated within the nRF52840's secure hardware enclave (CryptoCell). It is injected at the RSS and never leaves the silicon.
 * **Integrated LoRa Mesh & 2.4GHz Transceiver**: The VFA utilizes a **Nordic nRF52840** combined with a **Semtech SX1262** transceiver. This enables participation in the district-wide LoRa Mesh managed by the PMT.

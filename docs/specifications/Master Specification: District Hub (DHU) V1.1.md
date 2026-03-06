@@ -45,7 +45,7 @@ The DHU maintains a mission-critical, containerized environment to support local
 
 To provide 360-degree high-bandwidth coverage across the basin, the DHU utilizes a specialized carrier-grade radio stack.
 
-* **Sector Radio Array & LoRaWAN Gateway**: Three (3) Ubiquiti LTU Sector Antennas (120°). This configuration allows the hub to handle high-bandwidth 5GHz connections while mitigating multipath interference caused by heat-shimmer and the massive metallic surfaces of center-pivot spans. Additionally, the DHU incorporates an Enterprise-Grade 900MHz LoRaWAN Gateway to receive secure payloads directly from the Vertical Field Anchors (VFAs).
+* **Sector Radio Array & LoRa Mesh Gateway**: Three (3) Ubiquiti LTU Sector Antennas (120°). This configuration allows the hub to handle high-bandwidth 5GHz connections while mitigating multipath interference caused by heat-shimmer and the massive metallic surfaces of center-pivot spans. Additionally, the DHU incorporates an Enterprise-Grade 900MHz LoRa Mesh Gateway to receive secure payloads directly from the Vertical Field Anchors (VFAs).
 
 ### Redundant Backhaul Spine
 
@@ -115,7 +115,7 @@ The DHU is the final staging area for the Enterprise (1m) Resolution Tier.
 ### Radio Spine & Power
 
 * **Sector Antennas:** 3× Ubiquiti LTU Sector (120° coverage each = 360° total).
-* **LoRaWAN Gateway:** Enterprise-grade 900MHz for SFD mesh sink.
+* **LoRa Mesh Gateway:** Enterprise-grade 900MHz for SFD mesh sink.
 * **Backhaul:** Fiber ONT (primary) + Telit ME910G1 LTE-M (backup).
 * **Solar:** 200W High-Tilt Rigid Array.
 * **Storage:** Battle Born 200Ah Heated LiFePO4 Bank.

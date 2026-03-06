@@ -17,7 +17,7 @@ The Marketing Site is the primary public-facing portal for FarmSense. It acts as
 
 ## 3. Dual-Use & Federal Applicability
 
-* **Federal ESG & Inter-agency Relevance:** A dedicated silo highlighting the military applications of the technology. This section emphasizes the Low Probability of Intercept/Detection (LPI/LPD) features of the LRZ chirps, the 128-bit AES FHSS protocols, and the potential for the Regional Superstations (RSS) to utilize Fully Homomorphic Encryption (FHE).
+* **Federal ESG & Inter-agency Relevance:** A dedicated silo highlighting the military applications of the technology. This section emphasizes the Low Probability of Intercept/Detection (LPI/LPD) features of the LRZ chirps, the 128-bit AES LoRa Mesh protocols, and the potential for the Regional Superstations (RSS) to utilize Fully Homomorphic Encryption (FHE).
 
 ## 4. Architectural Integration
 

@@ -139,7 +139,7 @@ See `file 'farmsenseOS/DEPENDENCY_REDUCTION.md'` for full plan.
 │                           │                                     │
 │                    ┌──────▼───────┐                            │
 │                    │  PMT (Edge)  │  10-15ft pivot span mount   │
-│                    │  50m Grid    │  Edge-EBK, FHSS hub         │
+│                    │  50m Grid    │  Edge-EBK, LoRa Mesh hub         │
 │                    └──────┬───────┘                            │
 │                           │                                     │
 │                    ┌──────▼───────┐                            │
@@ -368,7 +368,7 @@ reference/
 
 ### Completed ✅
 
-- [x] Rectify DHU BOM for 900MHz LoRaWAN gateway
+- [x] Rectify DHU BOM for 900MHz LoRa Mesh gateway
 - [x] Rectify VFA BOM for 2.4GHz/BLE module
 - [x] Validate Thermal Loss capacity for 5W Kapton heater
 - [x] Integrate HPC with PMT LiSOCl2 battery
@@ -382,7 +382,7 @@ reference/
 - [ ] Build Federal Federated Data Fabric Adapters
 - [ ] Implement Dual-Layer Spatial Privacy
 - [ ] Develop automated GLOBALG.A.P. compliance reports
-- [ ] Verify LPI/LPD logic on LRZ FHSS chirps
+- [ ] Verify LPI/LPD logic on LRZ LoRa bursts
 - [ ] Concept design for Rapid Deployment Housing
 - [ ] Upgrade RSS for FHE Kriging operations
 - [ ] Draft Federal Federal ESG pre-proposal (Deadline: March 26, 2026)
@@ -439,7 +439,7 @@ reference/
 
 - JWT authentication for API
 - 128-bit AES encryption for field data
-- FHSS (Frequency-Hopping Spread Spectrum) for LRZ communications
+- LoRa Mesh (Frequency-Hopping Spread Spectrum) for LRZ communications
 - Dual-layer spatial privacy (exact GPS locked, cloud data anonymized)
 - FHE (Fully Homomorphic Encryption) planned for RSS
 
@@ -447,7 +447,7 @@ reference/
 
 ## Dual-Use (Federal) Features
 
-- LPI/LPD native FHSS architecture
+- LPI/LPD native LoRa Mesh architecture
 - Inter-agency-compliant UGS network
 - Air-deliverable kinetic penetrator housings
 - FHE Kriging on encrypted data

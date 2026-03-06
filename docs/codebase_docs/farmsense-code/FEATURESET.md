@@ -23,7 +23,7 @@ Zero-cost, OTA software-only framework upgrades activating extreme analytical po
 
 Aligning FarmSense hardware to operate optimally under contested deployment and military environments to support Environmental Security Technology Certification Program (Federal ESG) investments:
 
-- **Low Probability of Intercept / Detection (LPI/LPD)**: Applying the LRZ's native 128-bit Frequency-Hopping Spread Spectrum (FHSS) framework to mitigate co-channel interference and adversarial jamming.
+- **Low Probability of Intercept / Detection (LPI/LPD)**: Applying the LRZ's native 128-bit Frequency-Hopping Spread Spectrum (LoRa Mesh) framework to mitigate co-channel interference and adversarial jamming.
 - **Rapid Deployment Housings**: Leveraging high-density Polycarbonate geometries and 15-degree tapered impact tips to enable airdrops (HALO/Low-Orbit). Allows the sensor fleet to auto-bury during sudden deployment as a covert, Unattended Ground Sensor (UGS) grid.
 - **Fully Homomorphic Encryption (FHE)**: Upgrading the Central CSE Kriging Algorithms to calculate geostatistical processes directly upon encrypted incoming environmental data, maintaining military-grade confidentiality without requiring intermediary decryption loops.
 - **Federated Data Fabric Adapters**: Software layers directly translating localized deterministic agricultural reads into standardized Joint All-Domain Command and Control (Inter-agency) networking protocols.

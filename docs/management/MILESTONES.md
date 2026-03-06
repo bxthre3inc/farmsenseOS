@@ -34,7 +34,7 @@ This document clearly defines the "Beta Milestone" and "V1 Milestone" for FarmSe
 
 - [ ] **Prototype Hardware Built:** 16-20 LRZs, 2 PMTs, 2 PFAs, and localized DHU logic manufactured and tested.
 - [ ] **Firmware Stabilized:** PMT, VFA, LRZ, and PFA nodes capable of reliable connection and data transfer in the field.
-- [ ] **LPI/LPD Validated:** Basic FHSS radio stealth confirmed in the field.
+- [ ] **LPI/LPD Validated:** Basic LoRa Mesh radio stealth confirmed in the field.
 
 ### Validation & Outcomes
 

@@ -20,7 +20,7 @@ The Bill & Melinda Gates Foundation's COP30 climate adaptation pledges require e
 The FarmSense domestic model relies on the Pivot Motion Tracker (PMT) serving as an edge-compute hub. For smallholder environments lacking center pivots and reliable power grids, this architecture must be inverted.
 
 **The Solution:** Democratizing the LRZ architecture.
-Currently, the OEM scale cost of an LRZ unit is $67.80. Through volume scaling and component optimization (e.g., stripping the PMT dependency and integrating direct-to-swarm communications), we seek to achieve a **$50.80 target cost per unit**.
+Currently, the prototype cost of an LRZ unit is $67.80, scaling down to $54.30 at OEM volumes (>15,000 units/year). Through volume scaling and component optimization (e.g., stripping the PMT dependency and integrating direct-to-swarm communications), we seek to achieve a **$50.80 target cost per unit**.
 
 * **Subsidized Deployment:** For smallholder cooperatives, the hardware is heavily subsidized by the Enterprise tiers established in domestic and ESG markets.
 * **Advisory Mode:** Instead of actuating physical pumps (which requires the expensive PFA node), the smallholder mesh provides deterministic *Advisory Commands* directly to farmers' mobile devices via low-bandwidth SMS or local mesh relays, indicating precisely when and where to deploy manual surface irrigation.

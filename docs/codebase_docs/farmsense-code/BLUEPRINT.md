@@ -41,7 +41,7 @@ FarmSense utilizes a tiered architecture to balance low-latency edge reflex with
 
 | Layer | Description | Hardware Class |
 | :--- | :--- | :--- |
-| **Field (L0)** | Raw Sensing (LoRaWAN/FHSS) | Cortex-M4/M7, nRF52840 |
+| **Field (L0)** | Raw Sensing (LoRa Mesh/LoRa Mesh) | Cortex-M4/M7, nRF52840 |
 | **Grid (L1)** | 20m Grid Compute, Reflex Logic | NVIDIA Jetson Orin Nano (8GB) |
 | **District (L2)** | Mesh Coordination, Localized Cloud | Regional Superstation (RSS) |
 | **Cloud (L3)** | 1m Grid Kriging, Historical Analytics | AWS EKS (Kubernetes), TimescaleDB |
@@ -50,7 +50,7 @@ FarmSense utilizes a tiered architecture to balance low-latency edge reflex with
 
 ```mermaid
 graph TD
-    A[SENSORS: LRZ/VFA/PFA] -- LoRaWAN/FHSS --> B[FIELD HUB: PMT]
+    A[SENSORS: LRZ/VFA/PFA] -- LoRa Mesh/LoRa Mesh --> B[FIELD HUB: PMT]
     B -- 5GHz LTU / 900MHz --> C[DISTRICT HUB: DHU]
     C -- Starlink / Fiber --> D[REGIONAL DATA CENTER: RDC]
     D -- Secure Sync --> E[AWS CORE: EKS/TimescaleDB]
@@ -103,7 +103,7 @@ CREATE TABLE compliance_logs (
 
 | Source | Protocol | Frequency | Data Type |
 | :--- | :--- | :--- | :--- |
-| **Soil Probes** | MQTT / LoRaWAN | 15 min | VWC, kPa, EC |
+| **Soil Probes** | MQTT / LoRa Mesh | 15 min | VWC, kPa, EC |
 | **Pump Telemetry** | Modbus / MQTT | 1-5 sec | Flow, Pressure, Power |
 | **Satellite (S2)** | REST API | 5 Days | Multispectral (NDVI, NDWI) |
 | **Weather** | REST API/MQTT | 10 min | ET0 Parameters |
@@ -141,7 +141,7 @@ The engine shifts monitoring intensity based on real-time risk:
 
 - **Processor:** NVIDIA Jetson Orin Nano (8GB).
 - **Storage:** 128GB Swissbit PSLC Industrial SSD (30-Day "Black Box" Ledger).
-- **Networking:** Ubiquiti LTU Sector Radio Spine (5GHz) + 900MHz LoRaWAN Gateway.
+- **Networking:** Ubiquiti LTU Sector Radio Spine (5GHz) + 900MHz LoRa Mesh Gateway.
 
 ### **5.2 PMT: Pivot Motion Tracker (Field Hub)**
 
@@ -158,8 +158,8 @@ The engine shifts monitoring intensity based on real-time risk:
 ### **5.4 LRZ: Lateral Root-Zone Surveyor (Mass Spatial Node)**
 
 - **Design:** \"Invisible Presence\" physical housing. Permanent HDPE SDR9 shell;Seasonal Electronic Alpha-Sled.
-- **Protocol:** LR-FHSS (Frequency-Hopping Spread Spectrum) "Dumb Chirp".
-- **Unit Cost:** **$67.80** (Industrial Scale target).
+- **Protocol:** LR-LoRa Mesh (Frequency-Hopping Spread Spectrum) "Dumb Chirp".
+- **Unit Cost:** **$54.30** (OEM Scale target). *(Tiered: Prototype<100: $67.80 | Pilot: $59.30)*
 
 ---
 
@@ -203,7 +203,7 @@ The engine shifts monitoring intensity based on real-time risk:
 
 ### **8.1 Defense Alignment (Federal/ARPA-E)**
 
-- **LPI/LPD Positioning:** The FHSS radio stack provides "Low Probability of Intercept" for contested environments.
+- **LPI/LPD Positioning:** The LoRa Mesh radio stack provides "Low Probability of Intercept" for contested environments.
 - **Ballistic-grade Penetrators:** The LRZ's HDPE SDR9 housing is air-drop capable for rapid UGS (Unattended Ground Sensor) deployment.
 
 ### **8.2 Global Philanthropy (Gates Foundation)**

@@ -9,7 +9,7 @@
 
 ## Path to Beta Launch (March 10, 2026)
 
-- [x] [x] Rectify District Hub (DHU) BOM to include 900MHz LoRaWAN gateway.
+- [x] [x] Rectify District Hub (DHU) BOM to include 900MHz LoRa Mesh gateway.
 - [x] [x] Rectify Pivot Motion Tracker (PMT) BOM to include 2.4GHz/BLE module for PFA communication.
 - [x] [x] Validate Thermal Loss capacity for 5W Kapton heater inside the PFA/DHU (-30°F extreme weather events).
 - [x] [x] Integrate Hybrid Pulse Capacitor (HPC) with the PMT's LiSOCl2 battery to bypass spring passivation.
@@ -33,7 +33,7 @@
 
 ## Advanced Dual-Use Enhancements (R&D)
 
-- [x] [x] Verify Low Probability of Intercept/Detection (LPI/LPD) logic on LRZ FHSS chirps. (`backend/tests/verify_lpi_lpd.py` — Simulates and verifies constraints)
+- [x] [x] Verify Low Probability of Intercept/Detection (LPI/LPD) logic on LRZ LoRa bursts. (`backend/tests/verify_lpi_lpd.py` — Simulates and verifies constraints)
 - [x] [x] Concept design for Rapid Deployment Housing LRZ housings. (`specifications/Master Specification: Airborne Ballistic-grade Penetrator LRZ V1.0.md` — Complete)
 - [x] [x] Upgrade Regional Superstation (RSS) compute layer to support Fully Homomorphic Encryption (FHE) Kriging operations. (`edge-compute/src/edge_kriging_fhe.py` — Proof of concept complete)
 

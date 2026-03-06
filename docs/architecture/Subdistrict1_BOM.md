@@ -9,7 +9,7 @@ This document outlines the capital expenditure (CAPEX) requirements for the Farm
 | **Tier 3** | Regional Cortex | Regional Superstation (RSS) | $212,000.00 |
 | **Tier 2** | District Manager | District Hub (DHU) | $4,594.00 |
 | **Tier 1** | Foundation Node | VFA (48U Sled/Shell) | $159.65 |
-| **Tier 1** | Reference Node | LRZ2 (18U Sled/Shell) | $59.30 |
+| **Tier 1** | Reference Node | LRZ2 (18U Sled/Shell) | $54.30 |
 | **Tier 1** | Truth Node | LRZ1 (10" Monolithic) | $29.00 |
 | **Tier 1.5** | Primary Aggregator | PMT (Field Hub) | $985.50 |
 | **Tier 1.5** | Source Sentry | PFA (Well Sentry) | $961.50 |
@@ -26,7 +26,7 @@ Estimated for 1,280 pivots (Standard 160-acre circles).
 | Component | Qty per Field | Total Qty | Unit Cost | Extended Cost |
 | :--- | :---: | :---: | :---: | :---: |
 | VFA Foundation | 2 | 2,560 | $159.65 | $408,704 |
-| LRZ2 Reference | 4 | 5,120 | $59.30 | $303,616 |
+| LRZ2 Reference | 4 | 5,120 | $54.30 | $278,016 |
 | LRZ1 Truth Node | 12 | 15,360 | $29.00 | $445,440 |
 | PMT Field Hub | 1 | 1,280 | $985.50 | $1,261,440 |
 | PFA Well Sentry | 1 | 1,280 | $961.50 | $1,230,720 |

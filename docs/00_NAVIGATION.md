@@ -184,7 +184,7 @@ All files in `Grant_Proposals/` and `Uncle_David_Dossier/` are ✅ Current inves
 | Groundwater pumping fee | $500/AF |
 | Per-pivot annual savings (20% reduction) | $26,000 |
 | Enterprise SaaS price | $499/month |
-| LRZ unit cost (OEM scale) | $67.80 |
+| LRZ unit cost (OEM scale) | $54.30 (Prototype: $67.80) |
 | PMT unit cost | $1,112 |
 | 2-Field Pilot seed ask | $25,000 |
 

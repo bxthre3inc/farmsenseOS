@@ -18,7 +18,7 @@ The Docs Portal is the central repository for all FarmSense technical documentat
 ## 3. Platform Policies & Standards
 
 * **Spatial Privacy Policy:** Clear, public-facing documentation on how the system implements Contextual Obfuscation and federated learning to protect farmer data from public exposure or FOIA requests.
-* **Security Architecture:** Detailed overviews of the 128-bit AES encryption schemas, FHSS protocols, and LoRaWAN backhauls utilized to meet Federal Federal ESG and Inter-agency standards.
+* **Security Architecture:** Detailed overviews of the 128-bit AES encryption schemas, LoRa Mesh protocols, and LoRa Mesh backhauls utilized to meet Federal Federal ESG and Inter-agency standards.
 
 ## 4. Architectural Integration
 

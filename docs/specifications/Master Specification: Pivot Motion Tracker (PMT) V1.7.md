@@ -1,4 +1,4 @@
-# Master Specification: Pivot Motion Tracker (PMT) V1.6
+# Master Specification: Pivot Motion Tracker (PMT) V1.7
 
 **Role**: Layer 1.5 Field Hub & **Primary System Aggregator** | **Network Density**: 1 per Pivot
 
@@ -39,7 +39,7 @@ The hydraulic flow stack is the primary engine for water rights verification and
 ## 4. Edge Processing & Winter Hibernation Logic
 
 * **ESP32-S3 Unified Compute Platform**: Features a dual-core Xtensa® 32-bit LX7 microprocessor (up to 240MHz) with integrated AI acceleration and a dedicated low-power coprocessor. It replaces the separate processing sled and BLE radio, acting as a unified core for both positioning math and field mesh aggregation.
-* **Comms (The Field Hub)**: Features a unified radio stack. Transmits and receives via a High-Gain **LoRa Mesh** antenna (SX1262) to act as the primary "listening post" for the field's **LRZ, VFA, & PFA** mesh. This LoRa link is mandated for 100% penetration through potato/corn canopies. The PMT then bundles the entire field's encrypted state into a single ~187-byte **AES-256** payload and blasts it via its integrated **2.4GHz WiFi/Direct** link (or optional LTE-M bridge) to the District Hub (DHU).
+* **Comms (The Field Hub)**: Features a unified radio stack. Transmits and receives via a High-Gain **LoRa Mesh** antenna (SX1262) to act as the primary "listening post" for the field's **LRZ, VFA, & PFA** mesh. This LoRa link is mandated for 100% penetration through potato/corn canopies. The PMT then bundles the entire field's encrypted state into a single ~187-byte **AES-256** payload and blasts it via its primary **5GHz Ubiquiti LTU** backhaul link (or optional LTE-M failover) to the District Hub (DHU).
 
 * **Encryption**: AES-256 (via ESP32-S3 Hardware Encryption Engine) for aggregated field-state payloads.
 ecs (ATSAMD51 Interface)
@@ -79,15 +79,16 @@ This ledger deconstructs the hardware costs for the initial 1,280-unit rollout.
 | **Power** | 10W Solar Lid + LiFePO4 | Renogy-10W-Kit | 2 Weeks | $95.00 |
 | **Power** | LiSOCl2 5yr Hibernation Pack | Saft-LS14500 | 4 Weeks | $25.00 |
 | **Fasteners** | SS M4 Security Screws (x4) | McMaster Sec-M4 | 1 Week | $2.00 |
+| **Radio** | 5GHz Ubiquiti LTU Module | UBIQ-LTU-PMT | 2 Weeks | $45.00 |
 | **Radio** | SX1262 LoRa Transceiver Sub-module | FS-LORA-CHIP | 6 Weeks | $12.00 |
-| **TOTAL** | **Per Unit Hardware Cost** | | | **$1,035.50** |
+| **TOTAL** | **Per Unit Hardware Cost** | | | **$1,080.50** |
 
 **Total Subdistrict 1 Project Financials (1,280 Units)**:
 
-* Hardware Subtotal: $1,325,440
+* Hardware Subtotal: $1,383,040
 * Calibration & Field Audit: $57,440
 * Labor (Installation): $100,000
-* **TOTAL PROJECT COST: $1,482,880**
+* **TOTAL PROJECT COST: $1,540,480**
 
 ## 6. Strategic Value & Legal Defensibility
 
@@ -113,23 +114,24 @@ The ESP32-S3 executes a simplified EBK model locally at the field hub level:
 
 | Mode | Radio | Payload | Failover |
 |------|-------|---------|---------|
-| **Primary backhaul** | 5GHz LTU → DHU / LoRaWAN | 187-byte AES-256 field state vector | — |
+| **Primary backhaul** | 5GHz Ubiquiti LTU | 187-byte AES-256 field state vector | — |
 | **Secondary backhaul** | Telit ME910G1 LTE-M | Same payload | Auto-failover |
-| **Sensor sink** | nRF52840 (900MHz FHSS) | Aggregated LRZ/VFA/PFA chirps | — |
+| **Sensor sink** | Semtech SX1262 (900MHz LoRa Mesh) | Aggregated LRZ/VFA/PFA chirps | — |
 
 ### 6.3 Core BOM Summary
 
 | Part Class | Model/Manufacturer | Role |
 | :--- | :--- | :--- |
-| **Main SoC** | ESP32-S3-WROOM-1 | Core logic / EBK / WiFi |
+| **Main SoC** | ESP32-S3-WROOM-1 | Core logic / EBK |
 | **GNSS SoC** | u-blox ZED-F9P | RTK positioning (±2cm) |
 | **IMU** | Bosch BNO055 | Kinematics / strut fatigue |
+| **Backhaul Primary** | 5GHz Ubiquiti LTU | High bandwidth comms to DHU |
 | **LoRa Radio** | Semtech SX1262 | LoRa Mesh aggregator sink |
-| **Backhaul** | Telit ME910G1 (Optional) | Failover cellular link |
+| **Backhaul Failover** | Telit ME910G1 (Optional) | Failover cellular link |
 | **Storage** | 8MB Flash + 2MB PSRAM | 72-hr telemetry black box |
-| **Unit Cost** | **$1,035.50** | — |
+| **Unit Cost** | **$1,080.50** | — |
 
 ---
 
 *Infrastructure Classification: Permanent Command & Control Asset*
-*Spec Version: V1.6 | Firmware: ATSAMD51 SDK + nRF SDK*
+*Spec Version: V1.7 | Firmware: ATSAMD51 SDK + Semtech SX1262 SDK*

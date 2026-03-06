@@ -25,7 +25,7 @@ The LRZ is an exercise in extreme power efficiency. It lacks the eMMC storage an
 
 * **Ultra-Low Power ASR6601 Logic**: The compute board relies on the ASR6601 LoRa SoC (Cortex-M4 + Semtech SX1262 LoRa). This chip stays in a deep 1.5µA sleep state for 99% of its life.
 * **Fringe Field Physics**: Wakens to sample the dielectric interface using a direct analog measurement via P0.02 (AIN0) and P0.03 (AIN1), pulling 5mA for 1.0ms.
-* **900MHz FHSS Implementation:** The LRZ units execute 128- **Protocol**: 900MHz FHSS (Frequency-Hopping Spread Spectrum)
+* **900MHz LoRa Mesh Implementation:** The LRZ units execute 128- **Protocol**: 900MHz LoRa Mesh (Frequency-Hopping Spread Spectrum)
 
 * **Encryption**: AES-128 CCM (Authenticated Encryption)
 

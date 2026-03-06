@@ -67,7 +67,7 @@ The interior is divided into three zones to facilitate the "Rapid Deployment" de
 
 The RDC Compute cluster executes a multi-stage spatial pipeline:
 
-1. **Ingestion**: Normalizes FHSS chirps from 25 DHUs (up to 1.2M points/day).
+1. **Ingestion**: Normalizes LoRa bursts from 25 DHUs (up to 1.2M points/day).
 2. **Trend-Filtering**: Uses NVIDIA CUDA kernels to remove moisture noise from pivot "splash-zone" artifacts.
 3. **Variogram Cloud Analysis**: Calculates the spatial auto-correlation of soil moisture against the **baseline Soil Variability Maps**.
 4. **Kriging Map Generation**: Renders the 1m-resolution Enterprise Tile (Layer 12 PNGs) every 15 minutes, synthesizing the live physical telemetry with the underlying soil texture boundaries to generate the 15,600-pixel Virtual Sensor Map.
@@ -99,7 +99,7 @@ The DHU provides the "Umbrella" of connectivity, positioned on 35-foot timber po
 ### 3.2 Radio Spine
 
 * **Sector Array**: Three (3) Ubiquiti LTU Sector Antennas (120° x 3) for 360° coverage.
-* **Mesh Gateway**: Enterprise-grade 900MHz LoRaWAN gateway.
+* **Mesh Gateway**: Enterprise-grade 900MHz LoRa Mesh gateway.
 * **Modem**: Telit ME910G1 LTE-M/NB-IoT failover modem.
 * **Mesh Protocol Stack**: Implements PBFT (Practical Byzantine Fault Tolerance) consensus for regional water credit validation.
 
@@ -156,7 +156,7 @@ The VFA utilizes **Non-Contact Dielectric Sensing**.
 The VFA runs a Real-Time Operating System (RTOS) designed for high-availability relay operations.
 
 * **Interrupt Priority 0 (Emergency)**: High-speed pressure transients from PFA (soft-stop triggers).
-* **Priority 1 (Mesh Coordination)**: FHSS window synchronization for associated LRZ scouts.
+* **Priority 1 (Mesh Coordination)**: LoRa Mesh window synchronization for associated LRZ scouts.
 * **Priority 2 (Dielectric Sampling)**: ADC conversions and thermal compensation math.
 
 #### 4.1.5 Sub-Component Manufacturing Details
@@ -360,7 +360,7 @@ This section provides the "Circuit-to-Code" mapping for the primary field and hu
 * **Operating Frequency**: 902-928 MHz (ISM Band).
 * **Output Power**: +22 dBm (Max).
 * **Sensitivity**: −148 dBm.
-* **Protocol Logic**: Implements the "Chirp" FHSS state machine.
+* **Protocol Logic**: Implements the "Chirp" LoRa Mesh state machine.
 
 #### 7.1.3 Internal Register Mapping (Semtech SX1262)
 
@@ -489,7 +489,7 @@ Every FarmSense node operates on a deterministic Event-Driven architecture.
 3. **CHIRP-WAIT**: Listen for sync beacon from PMT.
 4. **SAMPLE**: Execute synchronized dielectric ping across 48U stack.
 5. **ENCRYPT**: Sign payload with local Private Key.
-6. **TRANSMIT**: Execute FHSS burst to field VFA.
+6. **TRANSMIT**: Execute LoRa Mesh burst to field VFA.
 7. **SLEEP**: Enter 1.5µA Deep Sleep until next trigger.
 
 ### 10.2 PMT "Auditor" Reflex Hierarchy
@@ -535,15 +535,15 @@ This section provides a line-item breakdown for every circuit, sensor, and struc
 
 ### 11.2 District Hub (DHU) V1.1 - Detailed BOM
 
-#### Total System Cost (Estimate): $4,594.00
+#### Total System Cost (Estimate): $5,041.00
 
 | Category | Component Description | Qty | Unit Cost | Extended | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Edge Compute** | NVIDIA Jetson Orin Nano (8GB) | 1 | $499 | $499 | 4 Weeks |
-| **Storage** | 128GB Swissbit X-75 | 1 | $185 | $185 | 2 Weeks |
-| **Radio Array** | 120° Sector Array | 3 | $283 | $850 | 4 Weeks |
-| **LoRa Gateway** | RAK7289V2 Enterprise LoRaWAN | 1 | $650 | $650 | 6 Weeks |
-| **LTE Modem** | Telit ME910G1 + SIM | 1 | $110 | $110 | 4 Weeks |
+| **Edge Compute** | NVIDIA Jetson Orin Nano (8GB) (Kriging Engine) | 1 | $499.00 | $499.00 | 4 Weeks |
+| **Sensor Gateway** | ESP32-S3 Logic Board (LoRa Mesh/Comms) | 1 | $18.50 | $18.50 | 12 Weeks |
+| **Storage** | 128GB Swissbit pSLC Industrial | 1 | $82.50 | $82.50 | 4 Weeks |
+| **Radio Array** | Ubiquiti LTU Sector (5GHz) | 3 | $399.00 | $1,197.00 | 2 Weeks |
+| **LTE Modem** | Telit ME910G1 + SIM | 1 | $110.00 | $110.00 | 4 Weeks |
 | **Solar Panel** | 100W Mono-Crystalline | 2 | $125 | $250 | 2 Weeks |
 | **Battery** | Battle Born 200Ah LiFePO4 (Heated) | 1 | $850 | $850 | 6 Weeks |
 | **Pole** | 35' Class 4 Treated Timber | 1 | $1,500 | $1,500 | 3 Weeks |
@@ -576,9 +576,9 @@ The VFA "Multi-Depth" sequence uses a proprietary I2C bridge for the dielectric 
 
 ---
 
-### 11.4 Pivot Motion Tracker (PMT) V1.6 - Detailed Specs
+### 11.4 Pivot Motion Tracker (PMT) V1.7 - Detailed Specs
 
-#### Total Unit Cost: $985.50
+#### Total Unit Cost: $1,140.50
 
 #### 11.4.1 How it Works: Adaptive Kinematics
 
@@ -598,7 +598,9 @@ The PMT differentiates motion through **Sensor Fusion**:
 | **Orientation** | Bosch BNO055 IMU | 1 | $32.00 | $32.00 | 0273141114 | 4 Weeks |
 | **Power Set** | 10W Solar + Saft LS14500 | 1 | $120.00 | $120.00 | Renogy-10W-Kit | 2 Weeks |
 | **Housing** | Polycase IP67 UV-Polycarbonate | 1 | $45.00 | $45.00 | Polycase-WP-21F | 6 Weeks |
-| **Radio Hub** | SX1262 LoRa Module | 1 | $12.00 | $12.00 | FS-LORA-CHIP | 6 Weeks |
+| **Radio Hub** | SX1262 LoRa Module (Sensor Mesh) | 1 | $12.00 | $12.00 | FS-LORA-CHIP | 6 Weeks |
+| **Backhaul Pri** | 5GHz Ubiquiti LTU Module | 1 | $45.00 | $45.00 | UBIQ-LTU-PMT | 2 Weeks |
+| **Backhaul Sec** | Telit ME910G1 LTE-M | 1 | $110.00 | $110.00 | Telit-ME910G1 | 4 Weeks |
 
 ---
 
@@ -628,7 +630,9 @@ The PFA monitors pump health by sampling the 480V/3-Phase incoming line via spli
 
 ### 11.6 Lateral Root-Zone Surveyor (LRZ) V1.21 - Technical Pulse
 
-#### Total Unit Cost: $51.50
+#### Total Unit Cost (OEM Scale): $54.30
+
+*(Pricing Tier: Prototype <100: $67.80 | Pilot 100-1000: $59.30 | OEM 15,000+: $54.30)*
 
 #### 11.6.1 Circuit & Pin Logic
 
@@ -645,7 +649,7 @@ The LRZ is a cost-optimized variant of the VFA, designed for massive spatial den
 
 | Component | Part Category | Qty | Unit Cost | Extended | MPN / Supplier | Lead Time |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **PCBA** | nRF52840 Embedded Sled | 1 | $12.50 | $12.50 | Nordic-FS-V1.0 | 8 Weeks |
+| **PCBA** | nRF52840 Embedded Sled | 1 | $13.80 | $13.80 | Nordic-FS-V1.0 | 8 Weeks |
 | **Logic Board** | Proprietary 18U PCBA | 1 | $8.00 | $8.00 | FS-LRZ-18U | 12 Weeks |
 | **Battery** | LiFePO4 18650 (1.5Ah) Cell | 2 | $6.50 | $13.00 | LFP-18650-1500 | 6 Weeks |
 | **HDPE SDR9 Shell** | 2\" x 18\" HDPE SDR9 | 1 | $1.20 | $1.20 | FS-HDPE-18 | 2 Weeks |
@@ -725,28 +729,30 @@ This section details the procurement logic and unit costs for a standard Subdist
 
 | Component | Supplier / Part # | VFA Cost (48U) | LRZ Cost (18U) |
 | :--- | :--- | :--- | :--- |
-| **Logic Board** | Nordic nRF52840 PCBA | $6.50 | $4.50 |
+| **Logic Board** | Nordic nRF52840 PCBA | $6.50 | $3.50 |
 | **LoRa Transceiver** | Semtech SX1262 | Included | Included |
 | **Dielectric Sensors** | Proprietary Fab-Direct | $50.00 (x5) | $4.00 (x2) |
-| **Battery Stack** | 21700 Li-ion Cartridge | $83.75 (x5) | $33.50 (x2) |
+| **Battery Stack** | 21700 Li-ion Cartridge | $83.75 (x5) | $30.00 (x2) |
 | **Enclosure (Shell)** | UV-HDPE SDR9 Shell (18" to 48") | $3.25 | $0.85 |
 | **Mounting (Tip)** | HDPE SDR9 Tapered Tip | $3.50 | $1.20 |
 | **Antenna** | 3ft SS-304 Whip | $3.50 | $3.50 |
-| **Other Struct./Seals** | CHDPE SDR9/Seals/Desiccant | $7.70 | $11.75 |
-| **TOTAL UNIT COST** | | **$159.65** | **$59.30** |
+| **Other Struct./Seals** | CHDPE SDR9/Seals/Desiccant | $7.70 | $11.25 |
+| **TOTAL UNIT COST** | | **$159.65** | **$54.30** |
 
 ### 7.2 Tier 1.5: Kinematic & Audit Nodes (PMT, PFA, CSA)
 
 | Component | Supplier / Part # | PMT (Field Hub) | PFA (Well) |
 | :--- | :--- | :--- | :--- |
-| **MCU Sled** | ESP32-S3 / C6 (Mesh) | $45.00 | $65.00 |
+| **MCU Sled** | ESP32-S3 / C6 (Mesh) | $18.50 | $65.00 |
 | **GNSS Module** | u-blox ZED-F9P | $140.00 | N/A |
-| **Ultrasonic Flow** | Badger Meter TFX | $548.00 | N/A |
+| **Ultrasonic Flow** | Badger Meter TFX | $648.00 | N/A |
 | **Energy Monitor** | Magnelab CT Clamps | N/A | $110.00 |
 | **Well Sounder** | Dwyer PBLTX | N/A | $185.00 |
-| **Solar / Battery** | Renogy 10W / 40Ah | $95.00 | $115.00 (AC/DC) |
+| **Radios/Backhaul** | SX1262 + LTU + LTE-M | $167.00 | N/A |
+| **Solar / Battery** | Renogy 10W / 40Ah | $120.00 | $115.00 (AC/DC) |
 | **Housing** | Polycase IP67 / NEMA | $45.00 | $55.00 |
-| **TOTAL UNIT COST** | | **$985.50** | **$961.50** |
+| **Other** | Mount/Sensors | $2.00 | N/A |
+| **TOTAL UNIT COST** | | **$1,140.50** | **$961.50** |
 
 ---
 
