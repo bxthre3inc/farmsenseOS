@@ -18,8 +18,8 @@ I don't want to accidentally ruin the company's future before we even launch.
 **The Offer:**
 I want you as my Founding Advisor. In exchange for funding the **$25,000.00** runway to physically get the CSU pilot built, and potentially letting me use your shop space in Monte Vista as our staging ground, I am offering you a clean **1% stake** in FarmSense, Inc. (via a standard SAFE agreement).
 
-Furthermore, because you are the first money in, I want to give you the exclusive option to buy up to **5% total for $100,000** if you decide you want a larger piece of the company.
+-Furthermore, because you are the first money in, I want to give you an exclusive one-time deal: you can buy **1% for $25,000** or **5% for $100,000**. If you opt for the initial 1%, you will have an exclusive **12-month window** to secure the remaining **$75,000** to purchase the other 4% and solidify your 5% stake.
 
-This structure gives me the exact cash I need to survive the 6-month pilot, legally protects the invention I've spent so much time building, and keeps the corporate structure completely clean so we qualify for the massive DoD grants next year.
+ This structure gives me the exact cash I need to survive the 6-month pilot, legally protects the invention I've spent so much time building, and keeps the corporate structure completely clean so we qualify for the massive DoD grants next year.
 
 Let’s grab a beer or coffee soon. If you want to see the nuts and bolts, I can share the actual Technical Seed Dossier containing the line-by-line budgets and the **Architecture 2.1 high-density deployment map**.

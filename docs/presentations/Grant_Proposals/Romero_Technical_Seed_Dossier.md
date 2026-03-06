@@ -17,7 +17,7 @@ This runway covers three strictly budgeted pillars:
 
 The explicit strategy of offering 1% equity for the initial $25k Seed round (via a Y-Combinator SAFE) mathematically anchors the company at a $2.5M valuation. Because FarmSense integrates DoD-grade communications and spatial encryption (Kriging interpolation), it acts as a dual-use Trojan Horse. By deploying on just 1% of global agricultural pivots, the physical sensors allow our algorithmic engine to map the remaining 99% of global underground aquifer reserves. We have secured **35 novel Intellectual Property assets** to defend this valuation. To scale this strategic intelligence asset, the company must secure multi-million dollar Phase 2 Federal & VC grants next year. Grant boards automatically disqualify startups where the founder has surrendered excessive early equity (e.g., >10-15%).
 
-This 1% SAFE structure protects the founder's control, while granting the Founding Advisor an exclusive option to purchase up to 5% total for $100,000. This mathematically guarantees the earliest investor buys into a legally viable, highly fundable Deep-Tech entity.
+This 1% SAFE structure protects the founder's control, while granting the Founding Advisor an exclusive one-time deal: **1% for $25,000 or 5% for $100,000**. If the advisor opts for the 1% entry, they retain an exclusive **12-month window** to secure the additional **$75,000** to buy the remaining 4%. This ensures the earliest investor buys into a legally viable, highly fundable Deep-Tech entity.
 
 ---
 
