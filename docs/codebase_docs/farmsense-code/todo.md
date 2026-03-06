@@ -26,6 +26,6 @@
 
 ## Non-Dilutive Grant Strategy & Execution
 
-- [ ] [ ] Draft Federal Federal ESG "Water Resilience on Federal Installations" pre-proposal (Deadline: March 26, 2026).
-- [ ] [ ] Structure empirical pilot evidence framework for Bill & Melinda Gates Foundation COP30 smallholder adaptation pledges.
+- [x] [x] Draft Federal Federal ESG "Water Resilience on Federal Installations" pre-proposal (Deadline: March 26, 2026).
+- [x] [x] Structure empirical pilot evidence framework for Bill & Melinda Gates Foundation COP30 smallholder adaptation pledges. (`docs/presentations/Grant_Proposals/Gates_Foundation_COP30_Pilot_Evidence_Framework.md` — Drafted)
 - [ ] [ ] Prepare nominations/proposals incorporating empirical hydro-economic data for the World Food Prize and Earthshot Prize.

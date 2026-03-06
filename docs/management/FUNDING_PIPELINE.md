@@ -10,7 +10,7 @@
 
 | Grant | Program | Deadline | Status | Ask |
 |-------|---------|----------|--------|-----|
-| **Federal ESG** | DoD ESTCP "Water Resilience on Federal Installations" | **March 26, 2026** | 🔴 Drafting — CRITICAL PATH | $500K–$2M |
+| **Federal ESG** | DoD ESTCP "Water Resilience on Federal Installations" | **March 26, 2026** | 🟢 Drafted — Ready for Review | $500K–$2M |
 
 **Supporting docs:**
 
@@ -54,6 +54,10 @@
 | Earthshot Prize | "Fix Our Climate" / "Protect Nature" | Q4 2026 | 📋 Planned | £1M |
 
 **Grant qualification rationale:** The 2-field CSU pilot is specifically designed to generate the empirical data (certified hydraulic measurements, Kriging accuracy metrics) required by these grant criteria. All applications depend on pilot validation data.
+
+**Supporting docs:**
+
+- [`docs/presentations/Grant_Proposals/Gates_Foundation_COP30_Pilot_Evidence_Framework.md`](../presentations/Grant_Proposals/Gates_Foundation_COP30_Pilot_Evidence_Framework.md)
 
 ---
 

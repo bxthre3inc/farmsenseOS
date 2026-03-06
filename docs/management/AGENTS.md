@@ -372,12 +372,13 @@ reference/
 - [x] Dual-Layer Spatial Privacy (`spatial_privacy.py`) — implemented
 - [x] Automated GLOBALG.A.P. compliance reports (`globalGAP_compliance.py`) — implemented
 - [x] LPI/LPD logic verified on LRZ FHSS chirps
+- [x] Draft Federal ESG pre-proposal **(Deadline: March 26, 2026)** — CRITICAL
+- [x] Concept design for Rapid Deployment Housing (HALO variant)
+- [x] Upgrade RSS for FHE Kriging operations (Phase 3 item)
 
 ### Pending 🔄
 
-- [ ] Draft Federal ESG pre-proposal **(Deadline: March 26, 2026)** — CRITICAL
-- [ ] Concept design for Rapid Deployment Housing (HALO variant)
-- [ ] Upgrade RSS for FHE Kriging operations (Phase 3 item)
+*(No items currently pending)*
 
 ---
 

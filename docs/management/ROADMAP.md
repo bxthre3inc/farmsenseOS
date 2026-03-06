@@ -56,7 +56,7 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 #### Week 7-8: Grant & Documentation
 
-- [ ] Draft Federal Federal ESG pre-proposal
+- [x] Draft Federal Federal ESG pre-proposal
 - [ ] Create pilot hardware BOM with costs
 - [ ] Document Kriging validation methodology
 - [ ] Prepare Water Court evidence template
@@ -136,8 +136,9 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 ### Global Philanthropy (Gates Foundation)
 
-- [ ] Democratize LRZ architecture for smallholder farmer advisory ($50.80 target).
-- [ ] Pilot low-bandwidth satellite backhauls for trans-boundary water conflict areas.
+- [x] Democratize LRZ architecture for smallholder farmer advisory ($50.80 target).
+- [x] Pilot low-bandwidth satellite backhauls for trans-boundary water conflict areas.
+*(See: `docs/presentations/Grant_Proposals/Gates_Foundation_COP30_Pilot_Evidence_Framework.md`)*
 
 ### Colorado River Compact Compliance
 
@@ -273,7 +274,7 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 | Grant | Deadline | Status |
 |-------|----------|--------|
-| **Federal ESG / DoD ESTCP** | **March 26, 2026** | 🔴 Drafting |
+| **Federal ESG / DoD ESTCP** | **March 26, 2026** | 🟢 Drafted |
 
 Full pipeline (NSF SBIR, CWCB, BoR WaterSMART, USDA NRCS, Gates, Earthshot) listed in `FUNDING_PIPELINE.md`.
 
