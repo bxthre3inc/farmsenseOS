@@ -48,10 +48,10 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 #### Week 5-6: Hardware Integration
 
-- [ ] Finalize PMT firmware spec
-- [ ] Finalize VFA firmware spec
-- [ ] Finalize LRZ firmware spec
-- [ ] Finalize PFA firmware spec
+- [x] Finalize PMT firmware spec
+- [x] Finalize VFA firmware spec
+- [x] Finalize LRZ firmware spec
+- [x] Finalize PFA firmware spec
 - [ ] Order prototype components
 
 #### Week 7-8: Grant & Documentation
@@ -115,7 +115,7 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 
 - [ ] Deploy 25x 40ft Cedar Pole DHU nodes across Subdistrict 1.
 - [ ] Instrument 1,280 fields (100% Subdistrict 1 coverage).
-- [ ] Implement PBFT AllianceChain validator for Water Court evidence.
+- [ ] Implement PBFT AllianceChain validator for Water Court evidence. *(Note: Underlying software ledger is complete; physical node deployment is pending)*
 - [ ] Set up localized Faraday shielding for the RSS core compute.
 
 ### SaaS & Monetization (Subsidized Hardware)

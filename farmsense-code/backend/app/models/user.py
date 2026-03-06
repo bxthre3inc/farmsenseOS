@@ -29,6 +29,7 @@ class User(Base):
     organization = Column(String, nullable=True)
     phone = Column(String, nullable=True)
     api_key = Column(String, unique=True, index=True, nullable=False)
+    hashed_password = Column(String, nullable=True)
     tier = Column(Enum(SubscriptionTier), default=SubscriptionTier.FREE, nullable=False)
     role = Column(Enum(UserRole), default=UserRole.FARMER, nullable=False)
     is_active = Column(Boolean, default=True)

@@ -13,7 +13,7 @@ from app.api.integration import router as integration_router
 from app.api import tiles
 from app.core.websocket import manager
 
-from app.api.routers import hardware, users, metrics, grants, analytics, compliance, trading, federated
+from app.api.routers import hardware, users, metrics, grants, analytics, compliance, trading, federated, auth
 
 # Skip auto-create in production - use Alembic migrations
 # Base.metadata.create_all(bind=engine)
@@ -43,6 +43,7 @@ async def startup_event():
 
 
 # === Include APIRouters ===
+app.include_router(auth.router, prefix="/api/v1/auth", tags=["Authentication"])
 app.include_router(hardware.router, prefix="/api/v1/hardware", tags=["Hardware Ingestion"])
 app.include_router(users.router, prefix="/api/v1/users", tags=["Admin User Management"])
 app.include_router(metrics.router, prefix="/api/v1/metrics", tags=["Stakeholders and Metrics"])
