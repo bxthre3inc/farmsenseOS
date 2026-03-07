@@ -24,7 +24,7 @@ FarmSense is a "Deterministic Farming Operating System" — not a sensor company
 ## 2-Field CSU Pilot Details
 
 - **Location**: Center, Colorado — CSU San Luis Valley Research Center.
-- **Hardware**: 2× PMT, 2× PFA, 2× VFA, 16–20× LRZ.
+- **Hardware**: 2× PMT, 2× PFA, 2× VFA, 4–6× LRZ2 (Reference), 12–16× LRZ1 (Truth).
 - **Purpose**: Generate empirical hydraulic ground truth for the June 2026 Subdistrict 1 Water Court trial.
 - **Partners**: CSU SLV RC (research-grade lysimeters, weather stations, historical soil records).
 

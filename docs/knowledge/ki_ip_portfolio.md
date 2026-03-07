@@ -9,7 +9,7 @@
 | H1 | Seasonal Sled Architecture | P1 — File Now |
 | H2 | 2:4:12 Stereo Sensor Ratio | P1 — File Now |
 | H3 | 48U Modular Alpha-Sled (VFA) | P2 |
-| H4 | 18U Scout Alpha-Sled (LRZ) | P2 |
+| H4 | 18U Scout Alpha-Sled (LRZ2) | P2 |
 | H5 | Cut-Less Band-It Mounting System | P1 — File Now |
 | H6 | Nitrogen +5 PSI Active Defense | P2 |
 | H7 | Invisible Presence Housing | P2 |
