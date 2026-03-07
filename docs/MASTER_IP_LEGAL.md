@@ -30,15 +30,21 @@ The FarmSense architecture operates on the principle that every sensor reading i
 | **H12** | 30-Day Physical "Black Box" SSD Cache (DHU) | File Now |
 | **H14** | Sled Hospital Refurbishment (N2 Purge/Pressure Decay) | File Now |
 
-### 2.2 Software & Process Patents (Priority P1)
+### 2.2 Core IP Deep Dives (Priority P1)
 
-| ID | Claim | Priority |
-| :--- | :--- | :--- |
-| **S1** | Fisherman's Attention Engine (Adaptive Recalc) | File Now |
-| **S3** | Empirical Bayesian Kriging (EBK) Spatial Interpolation | File Now |
-| **S5** | Dual-Layer Spatial Privacy (Geometric + Contextual) | File Now |
-| **P1** | "Resolution Pop" UI Sales Funnel | File Now |
-| **P2** | Digital Water Ledger (AllianceChain Traceability) | File Now |
+| ID | Claim Name | Category | Innovation Strategy |
+| :--- | :--- | :--- | :--- |
+| **H1** | **Seasonal Sled Architecture** | Hardware | Permanent outer shells with seasonally extracted internal electronics. Nitrogen +5 PSI pressurization prevents groundwater ingress during storage. |
+| **H2** | **2:4:12 Stereo Ratio** | Hardware | Stratified density (2 VFA Truth, 4 LRZ2 Scout, 12 LRZ1 Ground) for 1m accuracy at 1/10th the cost of uniform grids. |
+| **H12** | **30-Day Black Box Cache** | Hardware | 128GB Swissbit pSLC Industrial SSD maintains cryptographically signed audit packets during total backhaul failure. |
+| **S1** | **Fisherman's Attention** | Algorithm | Adaptive recalculation (Dormant → Collapse) based on real-time field volatility scoring and hydraulic anomalies. |
+| **S3** | **Empirical Bayesian Kriging** | Algorithm | Spatial interpolation combining sparse ground-truth sensors with satellite NDVI priors for 1m moisture mastering. |
+| **S5** | **Dual-Layer Spatial Privacy** | Algorithm | Layer 1: Geometric jitter/grid-snapping. Layer 2: Contextual k-anonymity and differential privacy (ε=0.5). |
+| **P1** | **Resolution Pop UI** | Process | Zoom-triggered preview of 1m data with Enterprise CTA—converting high-resolution demand to revenue via "FOMO" mechanics. |
+| **P2** | **Digital Water Ledger** | Process | Immutable blockchain-style audit chain for every gallon of water, admissible as empirical evidence without human testimony. |
+
+> [!NOTE]
+> The full 50-claim inventory, including Tier 3 and "Potential" claims, is maintained in the internal Legal Vault and tracked via the `ip-portfolio-agent`.
 
 ---
 

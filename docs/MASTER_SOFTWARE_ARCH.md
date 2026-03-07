@@ -182,4 +182,42 @@ Sub-cloud orchestrator evaluation field-state conditions.
 | **System Uptime** | 99.9% | 99.5% |
 
 ---
+
+## 10. CI/CD & Deployment Strategy
+
+Automated deployment is managed via GitHub Actions to the CSE/Zo stack.
+
+### 10.1 Environment Configuration
+
+- **RDC (Oracle)**: Public IP for Map Database. Requires `POSTGRES_USER`, `POSTGRES_PASSWORD`.
+- **Zo.computer**: Core Application Server. Requires `MAP_DATABASE_URL` pointing to the RDC.
+
+### 10.2 Deployment Workflow
+
+1. **Push to `main`**: Triggers GitHub Action.
+2. **Step 1 (Validate)**: Lints and unit tests (Pytest/Jest).
+3. **Step 2 (Deploy-RDC)**: Deploys `docker-compose.oracle.yml` to the map stack.
+4. **Step 3 (Deploy-Zo)**: Deploys `docker-compose.zo.yml` to the core platform.
+
+---
+
+## 11. AI Agent Coordination (SOP)
+
+This section contains critical invariants for AI Assistants (antigravity/cortex) operating within the FarmSense codebase.
+
+### 11.1 The "Before Creating" Rule
+
+Before creating ANY new file, route, or service:
+
+1. **Audit Documentation**: Start at `README.md` → 4 Masters.
+2. **Verify Routes**: Check `app/api/main.py` for existing endpoint definitions.
+3. **Grep Search**: Sweep the workspace for similar logic/classes. **Assumption is always that it already exists.**
+
+### 11.2 Core Invariants
+
+- **No Dependencies**: Do not add external Python or JS libraries without explicit architectural review.
+- **Deterministic Logic**: Never propose or implement black-box ML for irrigation or ledger decision points.
+- **Version Integrity**: Maintain the Master Documents as the *only* authoritative technical specifications. Any engineering change must be reflected in the relevant Master first.
+
+---
 *Classification: Master Software Asset | Single Source of Truth | Approved 2026-03-07*
