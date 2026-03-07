@@ -3,8 +3,6 @@
 > **The Single Source of Truth for Hardware, Network, and Infrastructure**
 > Consolidates: 14 Master Specs, 10 Knowledge Items, 2 EDRs, and the Comprehensive Hardware breakdown.
 
----
-
 ## 1. Executive Summary & Philosophy
 
 The FarmSense system is a utility-grade hydrological infrastructure project designed for 10-40 year operational lifecycles. It employs a **Heterogeneous Tiered Architecture** that ensures data integrity and mechanical safety even during total regional internet failures.
