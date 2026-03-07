@@ -36,14 +36,14 @@ The Gates Foundation requires empirical proof of concept before scaling to sub-S
 The SLV Pilot (June 2026) operates with intensive hardware density:
 
 * **Truth Nodes:** 2 Vertical Field Anchors (VFA) providing 48-inch deep-profile absolute moisture truth.
-* **Validation Mesh:** 16-20 LRZs per 126 acres evaluating surface and shallow-root conditions.
+* **Validation Mesh:** 4–6× LRZ2 (Reference Nodes) + 12–16× LRZ1 (Truth Nodes) per 126 acres evaluating surface and shallow-root moisture conditions.
 
 ### 3.2 Machine Learning Kriging Validation
 
 The core premise of the FarmSense Global Expansion is the "1% Interpolation Physics". We must mathematically prove that by sensing a fraction of a regional footprint, the Regional Superstation can accurately infer the rest.
 
 * **Success Metric 1 (Kriging Error):** Cross-validation of interpolated points vs. physical VFA truth nodes must consistently demonstrate an error margin of **< 5%** over the pilot duration.
-* **Success Metric 2 (Mesh Resilience):** The 900MHz FHSS network must maintain a 99.5% uptime despite center-pivot shadowing and crop canopy attenuation.
+* **Success Metric 2 (Mesh Resilience):** The 900MHz LoRa Mesh network must maintain a 99.5% uptime despite center-pivot shadowing and crop canopy attenuation.
 
 ### 3.3 Hydro-Economic Output
 
@@ -59,7 +59,7 @@ In contested regions (e.g., the Nile Basin, the Indus River system), physical in
 
 The democratized FarmSense mesh will incorporate **low-bandwidth satellite backhauls**.
 
-* **Asynchronous Uplink:** The local District Hubs (DHU) or equivalent cooperative master nodes aggregate the encrypted FHSS telemetry from the $50.80 LRZs.
+* **Asynchronous Uplink:** The local District Hubs (DHU) or equivalent cooperative master nodes aggregate the encrypted LoRa Mesh telemetry from the $50.80 LRZ nodes.
 * **Zero-Trust Ledgers:** Data is committed to the AllianceChain PBFT blockchain natively on the edge before being burst-transmitted via satellite linkage.
 * **Conflict Resolution:** This provides neutral, mathematically immutable hydro-data mapping the aquifer depletion across borders, offering an objective baseline for trans-boundary water treaty negotiations.
 

@@ -2,7 +2,7 @@
 
 This document outlines the **exact, hyper-granular procurement costs** to build two (2) Single-Field Deployments (SFDs) and one (1) District Hub (DHU) from scratch.
 
-This is the "Lean Tracker" MVP strategy: we use the exact silicon specified in the Master Blueprints (NVIDIA Jetson Nano, Nordic nRF52840, Microchip ATSAMD51), but mounted on Commercial Off-The-Shelf (COTS) developer breakout boards. We substitute high-cost industrial mechanicals for hardware-store equivalents (e.g., standard HDPE SDR9 vs. custom extrusions) and account for every tool, wire, and zip-tie needed to execute the pilot.
+This is the "Lean Tracker" MVP strategy: we use production-equivalent silicon (NVIDIA Jetson Orin Nano for the DHU, Nordic nRF52840 for VFA field nodes, ASR6601 LoRa SoC for LRZ nodes, Microchip ATSAMD51 for PMT pilot logic) mounted on Commercial Off-The-Shelf (COTS) developer breakout boards. We substitute high-cost industrial mechanicals for hardware-store equivalents (e.g., standard HDPE SDR9 vs. custom extrusions) and account for every tool, wire, and zip-tie needed to execute the pilot.
 
 **Logistics & Build Strategy:** All sensors and hardware will be fabricated, soldered, and pre-tested at the investor-provided workshop in **Monte Vista, CO**, before being deployed for live pilot operations in **Center, CO** with CSU SLV RC.
 

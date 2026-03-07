@@ -7,7 +7,7 @@ This document details the hardware hierarchy and specific component rationale th
 Standard cellular IoT approaches fail in dense corn/potato canopies. FarmSense utilizes a tiered "Deep Edge" architectural approach, progressively bumping data up the chain from subterranean physics to orbital satellite links.
 
 1. **Tier 1 (Subsurface/Canopy Edge)**: **Architecture 2.1 "Stereo Standard"**. Two (2) VFAs at hydraulic extremes, four (4) LRZ2 deep scouts, and twelve (12) LRZ1 grounding raster nodes per 160-acre field.
-2. **Tier 2 (The Gateway Anchor)**: The VFA acts as the master truth node. It packages localized mesh data and utilizes high-power **900MHz FHSS (Frequency Hopping Spread Spectrum)** to transmit above the crop canopy.
+2. **Tier 2 (The Gateway Anchor)**: The VFA acts as the master truth node. It packages localized mesh data and utilizes high-power **900MHz LoRa Mesh** (Semtech SX1262, CSS modulation) to transmit above the crop canopy.
 3. **Tier 3 (The Cell-Tower Substation)**: District Hubs (DHUs), mounted on 40ft agricultural towers, act as the mesh coordinators for a 10-mile radius.
 4. **Tier 4 (The RDC & The Virtual Mesh)**: The DHU processes payloads via an **NVIDIA Jetson Orin Nano (8GB)** edge-computer. At the Regional Superstation (RSS), 64-Core Threadrippers fuse telemetry with **static Soil Variability Maps**. Architecture 2.1 reduces Mean Absolute Error (MAE) from ~15% to **<5% at 1m**, with an uncertainty envelope of **<2% at "Precision Query" coordinates**.
 
@@ -17,7 +17,7 @@ The LRZ and VFA nodes live brutal lives. They endure constant freeze-thaw cycles
 
 ### 2.1 The Silicon Core: Nordic Semiconductor nRF52 Series
 
-We standardized our Tier-1 architecture on the Nordic nRF52 family (nRF52840 for the VFA master, nRF52811 for the LRZ slaves).
+We use two SoCs for Tier-1: the **Nordic nRF52840** in the VFA (for its CryptoCell-310 HSM and BLE mesh coordination), and the **ASR6601** (Cortex-M4 + integrated LoRa) in the LRZ1 and LRZ2 nodes to hit the cost and density targets.
 
 * **Integrated Multi-Protocol RF**: The nRF52840 (VFA) supports BLE 5.0 and manages the Semtech SX1262 LoRa transceiver. The **ASR6601 LoRa SoC** (Cortex-M4) is used for high-density LRZ nodes to hit the target price point without sacrificing mesh reliability.
 * **Extreme Low-Power Regimes**: Nodes survive on a 10W **Wide-Brim Solar Cap**. The nRF52 and ASR6601 boast micro-amp sleep states ensuring 10-year field persistence.
