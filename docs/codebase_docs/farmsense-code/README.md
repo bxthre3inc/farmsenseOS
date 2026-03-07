@@ -133,7 +133,7 @@ FarmSense is compatible with the following specialized sensors (specifications f
 * **VFA**: Vertical Field Anchor (multi-depth soil moisture).
 * **PMT**: Pivot Motion Tracker (pump flow volumes).
 * **PFA**: Pressure & Flow Anchor (distribution uniformity).
-* **LRZ**: Lateral Root-Zone Scout (atmospheric boundary sensors).
+* **LRZ**: Lateral Root-Zone Surveyor (subsurface soil moisture mapping, LRZ1 Truth + LRZ2 Reference).
 * **CSA**: Corner-Swing Auditor (GPS alignment for non-standard pivot corners).
 
 ---

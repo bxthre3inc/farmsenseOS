@@ -29,7 +29,7 @@ To achieve this absolute, 1m truth, FarmSense requires deploying physical hardwa
 ### 3.1 Representative Per-Node Hardware Costs (OEM Bulk Volume)
 
 * **Vertical Field Anchor (VFA) [The Truth Anchor]:** **$159.65** / unit
-  * *Core Silicon*: Nordic nRF52840 (Compute/BLE Mesh) + Semtech SX1262 (LoRaWAN).
+  * *Core Silicon*: Nordic nRF52840 (Compute/BLE Mesh) + Semtech SX1262 (LoRa Mesh).
   * *Key Cost Drivers*: Polycase IP67 Housing, multi-horizon dielectric stack.
 * **Lateral Root-Zone Scout (LRZ) [The Spatial Scout]:** **$54.30** / unit (Deployed in 2:4:12 ratio per field).
   * *Core Silicon*: ASR6601 LoRa SoC.

@@ -41,7 +41,7 @@ FarmSense utilizes a tiered architecture to balance low-latency edge reflex with
 
 | Layer | Description | Hardware Class |
 | :--- | :--- | :--- |
-| **Field (L0)** | Raw Sensing (LoRa Mesh/LoRa Mesh) | Cortex-M4/M7, nRF52840 |
+| **Field (L0)** | Raw Sensing (LoRa Mesh) | nRF52840 (VFA), ASR6601 (LRZ1/LRZ2), ESP32-S3 (PMT) |
 | **Grid (L1)** | 20m Grid Compute, Reflex Logic | NVIDIA Jetson Orin Nano (8GB) |
 | **District (L2)** | Mesh Coordination, Localized Cloud | Regional Superstation (RSS) |
 | **Cloud (L3)** | 1m Grid Kriging, Historical Analytics | AWS EKS (Kubernetes), TimescaleDB |
@@ -158,8 +158,8 @@ The engine shifts monitoring intensity based on real-time risk:
 ### **5.4 LRZ: Lateral Root-Zone Surveyor (Mass Spatial Node)**
 
 - **Design:** \"Invisible Presence\" physical housing. Permanent HDPE SDR9 shell;Seasonal Electronic Alpha-Sled.
-- **Protocol:** LR-LoRa Mesh (Frequency-Hopping Spread Spectrum) "Dumb Chirp".
-- **Unit Cost:** **$54.30** (OEM Scale target). *(Tiered: Prototype<100: $67.80 | Pilot: $59.30)*
+- **Protocol:** 900MHz LoRa Mesh (Chirp Spread Spectrum, AES-128) "Dumb Chirp".
+- **Variants:** LRZ1 (Truth Node, 5-depth, $29.00 OEM) / LRZ2 (Reference Node, 2-depth, $54.30 OEM).
 
 ---
 
