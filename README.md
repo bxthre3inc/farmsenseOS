@@ -5,18 +5,21 @@ Pilot: San Luis Valley, Subdistrict 1 — CSU Partnership | June 2026
 
 ---
 
-## 📂 Documentation
+## 📂 Master Documentation (Single Source of Truth)
 
-**Start here:** [`docs/00_NAVIGATION.md`](docs/00_NAVIGATION.md)
+Every piece of project documentation has been consolidated into four authoritative Master Documents. **Start here** based on your role:
 
-The navigation index routes you to the right documents by role:
+- 🤖 **Developer / AI Agent**  
+  👉 [`docs/MASTER_SOFTWARE_ARCH.md`](docs/MASTER_SOFTWARE_ARCH.md) — *Architecture, Service Maps, Schemas, Roadmap.*
+  
+- 🏗️ **Hardware / RF Engineer**  
+  👉 [`docs/MASTER_SYSTEM_SPEC.md`](docs/MASTER_SYSTEM_SPEC.md) — *Specs, Network, Hierarchy, BOM, Pinouts.*
 
-- 🤖 **AI Agent / Developer** — Architecture, API specs, task board
-- 🏗️ **Hardware Engineer** — Master Specs, hardwarebreakdown, firmware details
-- 💼 **Investor** — Business plan, market intel, seed proposals
-- 🏛️ **Grant / DoD Reviewer** — Active proposals, funding pipeline
-- ⚖️ **Regulator / Water Court** — Master Manual, due diligence
-- 🌾 **Project Manager** — Roadmap, pilot milestones
+- 🌾 **Project Manager / Founder**  
+  👉 [`docs/MASTER_PROJECT_ROADMAP.md`](docs/MASTER_PROJECT_ROADMAP.md) — *Development Phases, Funding, Market, Milestones.*
+
+- ⚖️ **Regulator / Legal / IP**  
+  👉 [`docs/MASTER_IP_LEGAL.md`](docs/MASTER_IP_LEGAL.md) — *Water Court Evidence, Patents, AllianceChain, Ledger.*
 
 ---
 
@@ -25,15 +28,16 @@ The navigation index routes you to the right documents by role:
 ```
 farmsense-main/
 ├── docs/
-│   ├── 00_NAVIGATION.md          ← Start here
-│   ├── architecture/             ← FarmSense_Internal_Guide, hardwarebreakdown
-│   ├── specifications/           ← 9 canonical Master Specs (hardware + firmware)
-│   ├── management/               ← AGENTS.md, ROADMAP.md, FUNDING_PIPELINE.md
-│   └── reference/                ← Deployment, regulatory, IP docs
-├── backend/                      ← FastAPI, PostgreSQL, PostGIS
-├── edge-processing/              ← Go-based IDW interpolation
-├── cloud-processing/             ← Python Regression Kriging, FHE
-└── farmsense-portal/             ← Unified React/Vite frontend (RBAC)
+│   ├── MASTER_SYSTEM_SPEC.md      ← Hardware & Infrastructure
+│   ├── MASTER_SOFTWARE_ARCH.md    ← Backend & Software Logic
+│   ├── MASTER_PROJECT_ROADMAP.md  ← Funding & Milestones
+│   ├── MASTER_IP_LEGAL.md         ← Legal & Patent Portfolio
+│   ├── 00_NAVIGATION.md           ← Comprehensive Index
+│   └── ARCHIVE/                   ← Superseded legacy documents
+├── backend/                       ← FastAPI, PostgreSQL, PostGIS
+├── edge-processing/               ← Go-based IDW interpolation
+├── cloud-processing/              ← Python Regression Kriging, FHE
+└── farmsense-portal/              ← Unified React/Vite frontend (RBAC)
 ```
 
 ---
