@@ -1,7 +1,15 @@
 from fastapi.testclient import TestClient
 from app.api.main import app
+from app.core.database import get_db
+from unittest.mock import MagicMock
 import pytest
 
+def override_get_db():
+    db = MagicMock()
+    db.query.return_value.filter.return_value.first.return_value = None
+    yield db
+
+app.dependency_overrides[get_db] = override_get_db
 client = TestClient(app)
 
 def test_root():
