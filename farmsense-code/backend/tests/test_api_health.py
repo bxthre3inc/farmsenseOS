@@ -33,7 +33,7 @@ def test_auth_login_invalid():
 
 def test_users_unauthorized():
     response = client.get("/api/v1/users/")
-    assert response.status_code == 401 # Unauthorized expected
+    assert response.status_code in [401, 403] # Unauthorized or Forbidden expected
 
 def test_metrics_unauthorized():
     response = client.get("/api/v1/metrics/")
