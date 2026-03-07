@@ -221,7 +221,7 @@ To solidify the FarmSense architecture for premier global infrastructure grants 
 
 The FarmSense platform represents a highly sophisticated synthesis of edge computing and agronomic science. To lock in non-dilutive global funding targets and successfully define the June 2026 Water Court trial parameters, the following tactical milestones are executed:
 
-1. **Execute the 2-Field Pilot Strategy:** Deploy the finalized hardware stack (2 PMTs, 2 PFAs, 2 VFAs, and 20 LRZs) at the CSU SLV Research Center. This guarantees independent academic validation of the MAD framework.
+1. **Execute the 2-Field Pilot Strategy:** Deploy the finalized hardware stack (2 PMTs, 2 PFAs, 2 VFAs, 4–6× LRZ2 + 12–16× LRZ1) at the CSU SLV Research Center. This guarantees independent academic validation of the MAD framework.
 2. **Scale Optimized Telemetry:** The DHU (V1.1) is deployed with an industrial 900MHz LoRa Mesh gateway, while the PMT operates as the primary 2.4GHz receiver for the PFA safety nodes, optimizing processing efficiency across the field network.  
 3. **Target the Federal Federal ESG Deadline:** Leverage the system's dual-use LPI/LPD architecture to submit the final proposal for the Federal's Environmental Security Technology Certification Program (Federal ESG) "Water Resilience on Federal Installations" grant.  
 4. **Implement Software-Driven Feature Expansions:** Activate Current Harmonic Analysis on the PFA edge processors for predictive maintenance, and enforce the Dual-Layer Spatial Privacy architecture for absolute ledger protection.  
@@ -2134,7 +2134,7 @@ FarmSense is the definitive sovereign water infrastructure—legally recognized,
 
 ### M1.4: Pilot Deployment & Data Ingestion (Weeks 13-16)
 
-* [ ] Physical installation at CSU SLV (2 PMTs, 2 PFAs, 2 VFAs, 20 LRZs).
+* [ ] Physical installation at CSU SLV (2 PMTs, 2 PFAs, 2 VFAs, 4–6× LRZ2 + 12–16× LRZ1).
 * [ ] Continuous data flowing to Zo via DHU backhaul.
 * [ ] Verify 99.9% uptime and <5% Kriging error.
 
@@ -2436,7 +2436,7 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 ### Pilot Phase (June 2026)
 
 * [ ] 2 fields instrumented
-* [ ] 16-20 LRZs deployed
+* [ ] 4–6× LRZ2 + 12–16× LRZ1 deployed
 * [ ] 2 PMTs operational
 * [ ] 2 PFAs at wellheads
 * [ ] Continuous data flowing to Zo
@@ -2827,7 +2827,7 @@ Aligning FarmSense hardware to operate optimally under contested deployment and 
 #### Week 20: 2-Field Production Pilot Rollout
 
 * [ ] Abandon generic 10-farm scaling deployment in favor of targeted high-fidelity 2-Field Pilot at CSU SLV Research Center, Center Colorado.
-* [ ] Build & install Minimum Viable Hardware Stack under 2-Field constraints (2 PMTs, 2 PFAs, 2 VFAs, and 16-20 LRZs).
+* [ ] Build & install Minimum Viable Hardware Stack under 2-Field constraints (2 PMTs, 2 PFAs, 2 VFAs, 4–6× LRZ2 + 12–16× LRZ1).
 * [ ] Capture empirical Phase-1 data for the June 2026 Subdistrict 1 Water Court evidence submission.
 * [ ] Submit Federal Federal ESG pre-proposal grant application by the March 26, 2026 deadline.
 * [ ] Begin structuring metrics framing for the World Food Prize and Earthshot Prize packages.
@@ -3155,7 +3155,7 @@ See `file 'farmsenseOS/DEPENDENCY_REDUCTION.0md'` for full plan.
 **2-Field Pilot at CSU San Luis Valley (SLV) Research Center, Center, Colorado**
 
 * Purpose: Generate empirical Gold Standard data for June 2026 Subdistrict 1 Water Court
-* Hardware: 2 PMTs, 2 PFAs, 2 VFAs, 16-20 LRZs
+* Hardware: 2 PMTs, 2 PFAs, 2 VFAs, 4–6× LRZ2 + 12–16× LRZ1
 * Grant deadline: Federal Federal ESG pre-proposal (March 26, 2026)
 
 ---
@@ -3412,7 +3412,7 @@ reference/
 * 2x PMT (Pivot Motion Tracker)
 * 2x PFA (Pressure & Flow Anchor)
 * 2x VFA (Foundation)
-* 16-20x LRZ (Lateral Root-Zone Surveyor)
+* 4–6× LRZ2 (Reference) + 12–16× LRZ1 (Truth)
 
 **Total Investment**: $5,382,940 (for Subdistrict 1: 19,466 devices)
 
@@ -7734,7 +7734,7 @@ The Pivot Motion Tracker (PMT) operates as the **Level 1.5 Field Hub**. It is th
 
 The PMT continuously executes Empirical Bayesian Kriging (Edge-EBK) to generate a 50m-resolution spatial probability grid (16x16 matrix). This is **not a failover state**, but the baseline operational mode of the PMT.
 
-* **Data Ingestion:** The PMT intercepts the 128-bit AES encrypted payload chirps from the 2 VFAs and 20 LRZs traversing its 900MHz RF Umbrella.
+* **Data Ingestion:** The PMT intercepts the 128-bit AES encrypted payload chirps from the 2 VFAs and 16–22 LRZ nodes (LRZ1/LRZ2) traversing its 900MHz RF Umbrella.
 * **FPU Calculation:** The hardware FPU processes this spatial data into the 16x16 matrix, quantifying the exact soil moisture probability curve across the 160-acre quarter section.
 * **The "Fisherman's Attention" Scale:** The execution frequency of this calculation is dynamically governed:
   * *Dormant Baseline:* Every 4 Hours (High soil moisture, pivot parked).

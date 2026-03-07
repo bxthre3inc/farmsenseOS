@@ -246,7 +246,7 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 ### Pilot Phase (June 2026)
 
 - [ ] 2 fields instrumented
-- [ ] 16-20 LRZs deployed
+- [ ] 4–6× LRZ2 (Reference) + 12–16× LRZ1 (Truth) deployed
 - [ ] 2 PMTs operational
 - [ ] 2 PFAs at wellheads
 - [ ] Continuous data flowing to Zo

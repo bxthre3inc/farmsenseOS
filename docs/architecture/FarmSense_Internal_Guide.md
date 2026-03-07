@@ -119,7 +119,7 @@ See `file 'farmsenseOS/DEPENDENCY_REDUCTION.md'` for full plan.
 **2-Field Pilot at CSU San Luis Valley (SLV) Research Center, Center, Colorado**
 
 - Purpose: Generate empirical Gold Standard data for June 2026 Subdistrict 1 Water Court
-- Hardware: 2 PMTs, 2 PFAs, 2 VFAs, 16-20 LRZs
+- Hardware: 2 PMTs, 2 PFAs, 2 VFAs, 4–6× LRZ2 (Reference), 12–16× LRZ1 (Truth)
 - Grant deadline: Federal Federal ESG pre-proposal (March 26, 2026)
 
 ---
@@ -420,7 +420,7 @@ reference/
 - 2x PMT (Pivot Motion Tracker)
 - 2x PFA (Pressure & Flow Anchor)
 - 2x VFA (Vertical Field Anchor)
-- 16-20x LRZ (Lateral Root-Zone Surveyor)
+- 4–6× LRZ2 (Reference Node) + 12–16× LRZ1 (Truth Node) = 16–22 total LRZ nodes per 2-field pilot
 
 **Total Investment**: $5,382,940 (for Subdistrict 1: 19,466 devices)
 
@@ -470,9 +470,9 @@ The `federated.py` router enables integration with Department of Defense data sh
 *Repository: github.com/bxthre3inc/farmsenseOS*
 *Server: brodiblanco.zo.computer*
 
-
 ---
 
 > **Note (2026-03-05):** Part II of this document (lines 473–5862) contained all 9 Master Hardware Specifications appended verbatim. That content has been removed from this file — it was duplicating the authoritative `/docs/specifications/` directory. For hardware specs, see:
+>
 > - [`docs/specifications/`](../specifications/) — canonical, versioned Master Specs for all 9 devices
 > - [`docs/architecture/hardwarebreakdown.md`](hardwarebreakdown.md) — circuit-level detail, GPIO maps, register tables, BOM

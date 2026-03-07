@@ -8,7 +8,7 @@ def simulate_fxrp_latency(packets=1000):
     results = []
     
     # Constants (ms)
-    PMT_SERIALIZATION = 0.5    # Protobuf serialization on ATSAMD51 (120MHz)
+    PMT_SERIALIZATION = 0.5    # Protobuf serialization on ESP32-S3 (240MHz dual-core)
     DHU_PROCESSING = 1.5       # Jetson Orin Nano frame intercept & re-route
     XR_DECODING = 2.0          # Decoding/rendering on XR device (e.g. Magic Leap)
     

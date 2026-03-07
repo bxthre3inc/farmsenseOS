@@ -30,7 +30,7 @@ type EdgeConfig struct {
 	ComputeInterval int     `json:"compute_interval_sec"`
 
 	// Mesh Peering
-	PeerDHUAddresses []string `json:"peer_dhu_addresses"` // 10km LoRaWAN mesh peers
+	PeerDHUAddresses []string `json:"peer_dhu_addresses"` // 10km LoRa Mesh peers
 	LoadThreshold    float64  `json:"load_threshold"`    // CPU utilization to start offloading
 
 	// AllianceChain HTTP Bridge

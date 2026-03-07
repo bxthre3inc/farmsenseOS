@@ -109,7 +109,7 @@ See `file 'farmsenseOS/DEPENDENCY_REDUCTION.md'` for full plan.
 **2-Field Pilot at CSU San Luis Valley (SLV) Research Center, Center, Colorado**
 
 - Purpose: Generate empirical Gold Standard data for June 2026 Subdistrict 1 Water Court
-- Hardware: 2 PMTs, 2 PFAs, 2 VFAs, 16-20 LRZs
+- Hardware: 2 PMTs, 2 PFAs, 2 VFAs, 4–6× LRZ2 (Reference), 12–16× LRZ1 (Truth)
 - Grant deadline: Federal Federal ESG pre-proposal (March 26, 2026)
 
 ---
@@ -413,7 +413,7 @@ reference/
 - 2x PMT (Pivot Motion Tracker)
 - 2x PFA (Pressure & Flow Anchor)
 - 2x VFA (Vertical Field Anchor)
-- 16-20x LRZ (Lateral Root-Zone Scout)
+- 4–6× LRZ2 (Reference Node) + 12–16× LRZ1 (Truth Node)
 
 **Total Investment**: $5,382,940 (for Subdistrict 1: 19,466 devices)
 

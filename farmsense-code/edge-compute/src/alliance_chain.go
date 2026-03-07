@@ -1,6 +1,6 @@
 // Alliance Chain - PBFT Consensus for Water Rights Trading
 // Runs on DHU (8-Core ARM SoC) inside the Black Box SSD
-// Ensures immutable ledger of water transfers across the 10km LoRaWAN mesh
+// Ensures immutable ledger of water transfers across the 10km LoRa Mesh
 
 package main
 
@@ -115,7 +115,7 @@ func (ac *AllianceChain) broadcast(phase Phase, payload interface{}) {
 		Payload:  payload,
 	}
 	
-	// Simulation: Send over LoRaWAN 900MHz mesh
+	// Simulation: Send over LoRa Mesh 900MHz
 	log.Printf("[AllianceChain] Broadcasting %s phase to %d peers", phase, len(ac.Peers))
 	
 	// In a real implementation, this would trigger HandleMessage on peers

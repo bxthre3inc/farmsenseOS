@@ -32,7 +32,7 @@ This document clearly defines the "Beta Milestone" and "V1 Milestone" for FarmSe
 
 ### Hardware Minimum Viable Product (MVP)
 
-- [ ] **Prototype Hardware Built:** 16-20 LRZs, 2 PMTs, 2 PFAs, and localized DHU logic manufactured and tested.
+- [ ] **Prototype Hardware Built:** 4–6× LRZ2 + 12–16× LRZ1 (Truth/Reference), 2 PMTs, 2 PFAs, and localized DHU logic manufactured and tested.
 - [ ] **Firmware Stabilized:** PMT, VFA, LRZ, and PFA nodes capable of reliable connection and data transfer in the field.
 - [ ] **LPI/LPD Validated:** Basic LoRa Mesh radio stealth confirmed in the field.
 

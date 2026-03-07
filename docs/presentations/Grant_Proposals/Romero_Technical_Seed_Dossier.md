@@ -27,7 +27,7 @@ This 1% SAFE structure protects the founder's control, while granting the Foundi
 
 | Procurement Category | Cost Allocated | Component Examples |
 | :--- | :--- | :--- |
-| **Edge Compute & RF Logic** | $1,755.00 | NVIDIA Jetson Nano core, **Architecture 2.1 "Stereo Standard"** pilot pack (2 VFA, 4 LRZ2, 12 LRZ1). |
+| **Edge Compute & RF Logic** | $1,755.00 | NVIDIA Jetson Orin Nano core, **Architecture 2.1 "Stereo Standard"** pilot pack (2 VFA, 4 LRZ2, 12 LRZ1). |
 | **Power Systems** | $575.00 | 25W Monocrystalline solar panels, LiSOCl2 extreme-weather battery cells, Hybrid Pulse Capacitors (HPC). |
 | **Mechanical & Civil** | $426.00 | 4" Schedule 40 PVC, NEMA-rated weather enclosures, Friction-Formed HDPE driving tips. |
 | **Workshop Procurement** | $525.00 | Consumables (wire, solder, marine silicone) and fabrication tools (Hakko irons, heat guns, ratchet cutters). |

@@ -166,7 +166,7 @@
 #### Week 20: 2-Field Production Pilot Rollout
 
 - [ ] Abandon generic 10-farm scaling deployment in favor of targeted high-fidelity 2-Field Pilot at CSU SLV Research Center, Center Colorado.
-- [ ] Build & install Minimum Viable Hardware Stack under 2-Field constraints (2 PMTs, 2 PFAs, 2 VFAs, and 16-20 LRZs).
+- [ ] Build & install Minimum Viable Hardware Stack under 2-Field constraints (2 PMTs, 2 PFAs, 2 VFAs, 4–6× LRZ2 + 12–16× LRZ1).
 - [ ] Capture empirical Phase-1 data for the June 2026 Subdistrict 1 Water Court evidence submission.
 - [ ] Submit Federal Federal ESG pre-proposal grant application by the March 26, 2026 deadline.
 - [ ] Begin structuring metrics framing for the World Food Prize and Earthshot Prize packages.
