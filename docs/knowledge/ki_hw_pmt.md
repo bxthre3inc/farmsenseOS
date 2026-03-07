@@ -1,8 +1,8 @@
-# Knowledge Item: PMT (Pivot Motion Tracker) V1.6
+# Knowledge Item: PMT (Pivot Motion Tracker) V1.7
 
 ## Role: Primary Field & Kinematic Aggregator (Layer 1.5)
 
-The PMT aggregates data from all field Source Nodes (LRZ1, LRZ2, VFA, CSA) via 900MHz FHSS **AND** captures its own internal kinematic, hydraulic, and positional telemetry before performing unified backhaul to the DHU.
+The PMT aggregates data from all field Source Nodes (LRZ1, LRZ2, VFA, CSA) via **900MHz LoRa Mesh (SX1262, CSS modulation)** AND captures its own internal kinematic, hydraulic, and positional telemetry before performing unified backhaul to the DHU via **5GHz Ubiquiti LTU (primary) / LTE-M failover**.
 
 - **Mounting**: Cut-Less (Band-It stainless steel straps) on the main galvanized pivot span.
 

@@ -12,7 +12,7 @@
 
 ## Communication Standards by Layer
 
-- **L1→L1.5**: 900MHz FHSS LoRa Mesh (100% corn/potato canopy penetration).
+- **L1→L1.5**: 900MHz LoRa Mesh — CSS (Chirp Spread Spectrum) modulation, NOT FHSS. AES-128 encrypted. 100% corn/potato canopy penetration.
 - **L1.5→L2**: 5GHz Ubiquiti LTU Point-to-Point (High bandwidth backhaul). LTE-M/NB-IoT failover.
 - **L2→L3**: Fiber ONT primary + Starlink Business failover.
 - **Security**: AES-128 encrypted at node; HSM block signing at RSS.
