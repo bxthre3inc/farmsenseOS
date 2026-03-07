@@ -355,10 +355,11 @@ Estimated coverage for Subdistrict 1 territory.
 | Aerial Fleet (Mavic) | Multi-Rotor | 4 | $4,999.00 | $19,996 |
 | **Subtotal (Regional Assets)** | | | | **$320,718** |
 
-### 11.3 Total CAPEX Estimate
+### 11.3 Total CAPEX Estimates
 
-- **Total Investment**: **$3,970,638**
-- **Density**: ~18 Nodes Per Field.
+- **PHASE 1 (Compliance Foundation)**: **$1,580,800** (1,280 PMTs + Installation + Base RSS). Focus: Immediate Water Court Defensibility.
+- **PHASE 2 (Full Ecosystem Saturation)**: **$3,970,638** (18-node Stereo Density: VFAs + LRZs + PFAs + Fleet).
+- **Density**: ~18 Nodes Per Field (Phase 2).
 - **Data Standard**: 1m-pixel high-resolution spatial moisture grid.
 
 ## 12. Maintenance & "Sled Hospital" SOP

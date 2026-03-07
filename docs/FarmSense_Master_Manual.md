@@ -222,7 +222,7 @@ To solidify the FarmSense architecture for premier global infrastructure grants 
 The FarmSense platform represents a highly sophisticated synthesis of edge computing and agronomic science. To lock in non-dilutive global funding targets and successfully define the June 2026 Water Court trial parameters, the following tactical milestones are executed:
 
 1. **Execute the 2-Field Pilot Strategy:** Deploy the finalized hardware stack (2 PMTs, 2 PFAs, 2 VFAs, 4–6× LRZ2 + 12–16× LRZ1) at the CSU SLV Research Center. This guarantees independent academic validation of the MAD framework.
-2. **Scale Optimized Telemetry:** The DHU (V1.1) is deployed with an industrial 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh gateway, while the PMT operates as the primary 2.4GHz receiver for the PFA safety nodes, optimizing processing efficiency across the field network.  
+2. **Scale Optimized Telemetry:** The DHU (V1.1) is deployed with an industrial 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh gateway, while the PMT operates as the primary **900MHz CSS** receiver for the PFA safety nodes, optimizing processing efficiency across the field network.  
 3. **Target the Federal Federal ESG Deadline:** Leverage the system's dual-use LPI/LPD architecture to submit the final proposal for the Federal's Environmental Security Technology Certification Program (Federal ESG) "Water Resilience on Federal Installations" grant.  
 4. **Implement Software-Driven Feature Expansions:** Activate Current Harmonic Analysis on the PFA edge processors for predictive maintenance, and enforce the Dual-Layer Spatial Privacy architecture for absolute ledger protection.  
 5. **Validate Thermodynamic Hardware:** Utilize the published thermal loss metrics confirming the 40Ah LiFePO4 battery securely runs the 5W Kapton heater through \-30°F events. The PMT's LiSOCl2 battery, integrated with an HPC, ensures relentless GNSS "Warm Starts."  
@@ -1558,7 +1558,7 @@ The hydraulic flow stack is the primary engine for water rights verification and
 ## 4. Edge Processing & Winter Hibernation Logic
 
 * **ESP32-S3 Unified Compute Platform**: Features a dual-core Xtensa® 32-bit LX7 microprocessor with integrated hardware vector acceleration. It replaces the separate processing sled and radio, acting as a unified core for both positioning math and field mesh aggregation.
-* **Comms (The Field Hub)**: Features a dual-radio stack. Transmits and receives via a High-Gain 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh antenna to act as the primary \"listening post\" for the field's LRZ1/LRZ2 & VFA mesh. It then intercepts this data, bundles it with its own 2.4GHz/BLE hydraulic payload received from the PFA, and blasts the entire field's encrypted payload via a 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh transceiver to the District Hub (DHU).
+* **Comms (The Field Hub)**: Features a dual-radio stack. Transmits and receives via a High-Gain 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh antenna to act as the primary \"listening post\" for the field's LRZ1/LRZ2 & VFA mesh. It then intercepts this data, bundles it with its own **900MHz CSS** hydraulic payload received from the PFA, and blasts the entire field's encrypted payload via a 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh transceiver to the District Hub (DHU).
 
 ### Empirical Bayesian Kriging (Edge-EBK) & VRI Failover Operations
 
@@ -1600,7 +1600,8 @@ This ledger deconstructs the hardware costs for the initial 1,280-unit rollout.
 * Hardware Subtotal: $1,423,360
 * Calibration & Field Audit: $57,440
 * Labor (Installation): $100,000
-* **TOTAL PROJECT COST: $1,580,800**
+* **TOTAL PHASE 1 PROJECT COST: $1,580,800** (Compliance Foundation)
+* *Note: Phase 2 Full Ecosystem Saturation (18-node) follows at $3,970,638.*
 
 ## 6. Strategic Value & Legal Defensibility
 
@@ -1666,7 +1667,7 @@ resistance and absolute defense against dust, water spray, and aggressive corros
 
 in damp, unventilated pump pits. Unlike metal boxes, polycarbonate is RF-transparent,
 
-allowing the internal 2.4GHz high-gain antenna to maintain a solid, uninterrupted link to the
+allowing the internal 900MHz CSS high-gain antenna to maintain a solid, uninterrupted link to the
 
 field's VFA without the need for fragile externalized antenna "pucks."
 
@@ -1784,7 +1785,7 @@ is critical for capturing the milliseconds of transients that occur during motor
 
 hydraulic water hammer events.
 
-Networking & Mesh Protocol: Utilizes a 2.4GHz High-Gain Link to communicate directly
+Networking & Mesh Protocol: Utilizes a 900MHz CSS High-Gain Link to communicate directly
 
 with the elevated PMT Field Hub. It is programmed with "Critical Packet Priority"—if the line
 
@@ -2582,7 +2583,7 @@ Sensors and actuators deployed below and above ground across field zones. Equipm
 * **Lateral Root-Zone Truth (LRZ1/LRZ21) [Level 1 - Truth Node]:** The primary physical verification anchor. Unlike the Foundation/Reference nodes, the LRZ1/LRZ21 is a **Monolithic, single-depth unit** designed for permanent spatial grounding.
 * **Pressure & Flow Anchor (PFA) [Level 1 - Sentry of the Source]:** Mounts at the wellhead and pivot station. A **Non-invasive** monitor of vibration torque ripple, cavitation, and line pressure. Acts as the primary safety actuator (Soft-Stop) for the infrastructure.
 * **Pivot Motion Trackers (PMT) [Level 1.5 - Field Hub & Edge-EBK Engine]:** The command center and Nervous System of the field, mounted 10-15 feet high on the pivot span.
-  * **RF Umbrella:** Receives 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh chirps from the VFA/LRZ1/LRZ2s and 2.4GHz payloads from the PFA, bundling the entire field state into a single ~187-byte AES-256 payload and blasting it to the DHU via 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh.
+  * **RF Umbrella:** Receives 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh chirps from the VFA/LRZ1/LRZ2s and 900MHz CSS payloads from the PFA, bundling the entire field state into a single ~187-byte AES-256 payload and blasting it to the DHU via 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh.
   * **Sensors:** Generates +/- 1% flow accuracy non-invasively using Badger Meter ultrasonic transit-time components. Contains u-blox ZED-F9P RTK GNSS modules for sub-2.5m horizontal spatial resolution and Bosch BNO055 9-Axis IMUs for vibration harmonics.
   * **Edge IQ:** Constant Edge-EBK processing utilizing an onboard ESP32-S3 dual-core processor to continuously calculate a **50m spatial fidelity** EBK spatial probability grid using "Fisherman's Attention" and Ripple/Collapse logic. This constant baseline enables hierarchical processing upstream (1m/10m/20m grids at the Orin-powered DHU). It inherently serves as zero-downtime VRI failover guidance if the DHU uplink drops.
   * **Corner-Swing Auditor (CSA)** variants utilize dual-node configurations (Primary Span Tracker and Swing-Arm Tracker) to resolve swing-arm irrigation mechanics mathematically.
@@ -4030,7 +4031,7 @@ series data and high-volume geospatial rasters.
 |---|---|---|---|
 |Volumetric Water Content (VWC)<br>Probes|MQTT / Chirp Spread Spectrum (CSS) LoRa Mesh|15 min|Volumetric Water Content (2<br>depths)|
 |Vertical<br>Profling<br>Sensors|MQTT / Chirp Spread Spectrum (CSS) LoRa Mesh|30 min|Multi-depth moisture profle (4-<br>8 levels)|
-|Pump<br>Telemetry|2.4GHz RF /<br>BLE|Real-time (1-5<br>sec)|Flow rate, Power status,<br>Pressure, Voltage|
+|Pump<br>Telemetry|900MHz CSS RF /<br>BLE|Real-time (1-5<br>sec)|Flow rate, Power status,<br>Pressure, Voltage|
 |Weather<br>Stations|REST API / MQTT|10 min|Temperature, Humidity,<br>Rainfall, Wind, Solar Radiation|
 |Sentinel-1<br>(SAR)|Copernicus Open<br>Access Hub API|6 days (with both<br>satellites)|Backscatter coefcient (soil<br>moisture proxy)|
 |Sentinel-2<br>(Optical)|Copernicus Open<br>Access Hub API|5 days (with both<br>satellites)|Multispectral (NDVI, NDRE,<br>NDWI, LAI)|
@@ -4108,7 +4109,7 @@ Local Web Server: Embedded HTTP server for local dashboard access via farm
 
 WiFi.
 
-Sensor Drivers: 2.4GHz RF/BLE, MQTT client libraries for diverse sensor
+Sensor Drivers: 900MHz CSS RF/BLE, MQTT client libraries for diverse sensor
 
 integration.
 
@@ -6063,7 +6064,7 @@ Unlike traditional static IoT networks, FarmSense pushes intense computational p
 1. **[Pivot Motion Tracker (PMT) Firmware Specification](../specifications/firmware/PMT_Firmware_Spec.md):** The autonomous Level 1.5 Field Hub. Details the continuous execution of the 50m Empirical Bayesian Kriging (Edge-EBK) matrix and the "Fisherman's Attention" update scaling.
 2. **[Vertical Field Anchor (VFA) Firmware Specification](../specifications/firmware/VFA_Firmware_Spec.md):** The Level 1 Advanced Peer Node. Details the deep-profile ground truth telemetry generation processes and 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh routing.
 3. **[Lateral Root-Zone Surveyor (LRZ1/LRZ2) Firmware Specification](../specifications/firmware/LRZ1/LRZ2_Firmware_Spec.md):** The mass-produced "dumb node." Details the LPI/LPD capacitive telemetry sweeps and high-frequency chirp protocols.
-4. **[Pressure & Flow Anchor (PFA) Firmware Specification](../specifications/firmware/PFA_Firmware_Spec.md):** The "Sentry of the Source." Details the Cortex-M7 Current Harmonic Analysis of the wellhead motor, cavitation detection, and 2.4GHz High-Gain linking.
+4. **[Pressure & Flow Anchor (PFA) Firmware Specification](../specifications/firmware/PFA_Firmware_Spec.md):** The "Sentry of the Source." Details the Cortex-M7 Current Harmonic Analysis of the wellhead motor, cavitation detection, and 900MHz CSS High-Gain linking.
 5. **[Corner-Swing Auditor (CSA) Firmware Specification](../specifications/firmware/CSA_Firmware_Spec.md):** Details the dual-node kinematics required to resolve swing-arm transit and overlap matrices.
 
 ---
@@ -7628,7 +7629,7 @@ The core firmware challenge for the CSA is resolving the physical folding geomet
 
 ## 3. Telemetry Integration
 
-* The Swing-Arm Tracker transmits its precise 187-byte GNSS/IMU payload directly to the Primary Span Tracker via a localized 2.4GHz High-Gain link (similar to the PFA uplink).
+* The Swing-Arm Tracker transmits its precise 187-byte GNSS/IMU payload directly to the Primary Span Tracker via a localized 900MHz CSS High-Gain link (similar to the PFA uplink).
 * The Primary Span Tracker consolidates both kinematic streams, aggregates the VFA/LRZ1/LRZ2 peer mesh, and executes the 50m Edge-EBK grid exactly like a standard PMT Field Hub.
 
 ## 4. VRI Failover Overrides
@@ -7702,12 +7703,14 @@ The PFA firmware runs two highly specialized logic loops concurrently:
 
 * Continuously samples the 400A CT clamps on the pump's 3-phase power line at extremely high frequencies.
 * Executes localized Fast Fourier Transforms (FFTs) on the Cortex-M7 to calculate "Current Harmonic Analysis" and "Voltage Ripple" signatures.
+* Continuously samples the 400A CT clamps on the pump's 3-phase power line at extremely high frequencies.
+* Executes localized Fast Fourier Transforms (FFTs) on the Cortex-M7 to calculate "Current Harmonic Analysis" and "Voltage Ripple" signatures.
 * These localized FFT models allow the PFA to mathematically detect cavitation (air pockets in the pump), impending bearing failure, or voltage sag *before* a catastrophic $25,000 pump explosion occurs.
 
 ## 3. Telemetry & PMT Bouncing
 
 * The PFA generates a highly condensed payload combining the strict GPM flow audit and the predictive mechanical hazard flags.
-* Unlike the field sensors, the PFA transmits this data via **2.4GHz High-Gain links** directly to the elevated PMT Field Hub. This physically circumvents the dense water canopy of a full-grown corn crop, which would otherwise attenuate a standard 900MHz signal emitted from the ground-level well pump.
+* Unlike the field sensors, the PFA transmits this data via **900MHz CSS High-Gain links** directly to the elevated PMT Field Hub. This physically circumvents the ground-level Fresnel zone obstructions and ensures 100% penetration of the dense water canopy of a full-grown corn crop, which would otherwise attenuate higher-frequency signals.
 
 ## 4. Autonomous Fail-Safe Actuation
 
@@ -7746,7 +7749,7 @@ The PMT continuously executes Empirical Bayesian Kriging (Edge-EBK) to generate 
 ## 3. Telemetry & Routing (The "Field Hub")
 
 * **Payload Bundling:** The PMT bundles its own High-Fidelity kinematic data, the processed 50m Edge-EBK arrays, and the intercepted VFA/LRZ1/LRZ2 intelligence.
-* **PFA Aggregation:** Intercepts the 2.4GHz Current Harmonic Analysis payload from the wellhead PFA.
+* **PFA Aggregation:** Intercepts the 900MHz CSS Current Harmonic Analysis payload from the wellhead PFA.
 * **Chirp Spread Spectrum (CSS) LoRa Mesh Backhaul:** Blasts the unified, heavily encrypted ~187-byte Field State Payload to the District Hub (DHU) via 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh.
 
 ## 4. Zero-Downtime VRI Failover Execution

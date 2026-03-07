@@ -23,7 +23,7 @@ FarmSense functions as a decentralized monolithic grid, balancing low-latency ed
 
 ### 2.1 Hierarchical Processing Stack
 
-1. **Level 1 (Field):** **LRZ1/LRZ2/VFA/PFA** (LoRa bursts) -> **PMT Hub** (50m Grid, Edge-EBK baseline). 900MHz frequency hopping security.
+1. **Level 1 (Field):** **LRZ1/LRZ2/VFA/PFA** (LoRa bursts) -> **PMT Hub** (50m Grid, Edge-EBK baseline). 900MHz **Chirp Spread Spectrum (CSS)** security.
 2. **Level 2 (District):** **DHUs** (NVIDIA Jetson Orin Nano) -> 1m/10m/20m Grid (Go-based Bayesian Kriging). Localized reflex autonomy.
 3. **Level 3 (Regional):** **RSS** (64-Core Threadripper) -> 1m Grid (Python-based Regression Kriging + FHE). Regional DIL vaulting.
 4. **Level 4 (Global):** **Zo.computer Cloud** -> Multi-field analytics, Federated Learning, global hydro-economics.
@@ -127,7 +127,7 @@ The VFA firmware is optimized for a 10-year battery life under snowpack:
 - **AES-128 Encryption at the Edge**: Independently encrypts the localized 4-depth profile payload before transmission.
 - **Dumb Chirp Mode**: Minimizes CPU cycles by transmitting a fixed-length encrypted burst to the overhead PMT Field Hub.
 - **Dynamic Ripple Scaling**: While fundamentally "dumb," the firmware responds to PMT "Ripple" pings, scaling chirp frequency from 4 hours to 15 minutes during detected anomalies.
-- **LPI/LPD Constraints**: Firmware ensures frequency-hopping spread spectrum (FHSS) conforms to Federal Low Probability of Intercept/Detection standards.
+- **LPI/LPD Constraints**: Firmware ensures **Chirp Spread Spectrum (CSS)** conforms to Federal Low Probability of Intercept/Detection standards.
 
 #### Volatility Score Logic (Decision Engine)
 
