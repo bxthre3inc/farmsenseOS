@@ -221,7 +221,7 @@ To solidify the FarmSense architecture for premier global infrastructure grants 
 
 The FarmSense platform represents a highly sophisticated synthesis of edge computing and agronomic science. To lock in non-dilutive global funding targets and successfully define the June 2026 Water Court trial parameters, the following tactical milestones are executed:
 
-1. **Execute the 2-Field Pilot Strategy:** Deploy the finalized hardware stack (2 PMTs, 2 PFAs, 2 VFAs, 4–6× LRZ1/LRZ22 + 12–16× LRZ1/LRZ21) at the CSU SLV Research Center. This guarantees independent academic validation of the MAD framework.
+1. **Execute the 2-Field Pilot Strategy:** Deploy the finalized hardware stack (2 PMTs, 2 PFAs, 2 VFAs, 4–6× LRZ2 + 12–16× LRZ1) at the CSU SLV Research Center. This guarantees independent academic validation of the MAD framework.
 2. **Scale Optimized Telemetry:** The DHU (V1.1) is deployed with an industrial 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh gateway, while the PMT operates as the primary 2.4GHz receiver for the PFA safety nodes, optimizing processing efficiency across the field network.  
 3. **Target the Federal Federal ESG Deadline:** Leverage the system's dual-use LPI/LPD architecture to submit the final proposal for the Federal's Environmental Security Technology Certification Program (Federal ESG) "Water Resilience on Federal Installations" grant.  
 4. **Implement Software-Driven Feature Expansions:** Activate Current Harmonic Analysis on the PFA edge processors for predictive maintenance, and enforce the Dual-Layer Spatial Privacy architecture for absolute ledger protection.  
@@ -775,14 +775,14 @@ Using the conservative pivot estimate of **1,270 pivots** (midpoint of 1,250–1
 
 `1,270 pivots × $5,988/year = $7,604,760 ARR`
 
-### Per-Pivot Hardware Deployment (1x Standard PMT SFD)
+### Per-Pivot Hardware Deployment (Standard Stack)
 
-`1,270 × ( $985.50 PMT + $961.50 PFA + $159.65 VFA + $257.50 LRZ1/LRZ22 + $520 LRZ1/LRZ21 ) = ~$3.66M one-time hardware market`
+`1,280 pivots × ($1,112 per field cluster) = ~$1.42M Hardware CapEx`
 
 ### Annual Water Fee Savings Unlocked (20% reduction @ $500/AF)
 
 Standard pivot: 126 acres × ~2 AF/acre/season = 252 AF. 20% savings = **50.4 AF/pivot/year**.
-`1,270 pivots × 50.4 AF × $500 = $31.9M in annual regulatory fees returned to farmers`
+`1,280 pivots × 50.4 AF × $500 = $32.2M in annual regulatory fees returned to farmers`
 
 ---
 
@@ -1437,18 +1437,20 @@ The DHU is the final staging area for the Enterprise (1m) Resolution Tier.
 
 * **The Resolution Engine**: By aggregating the high-fidelity GNSS and flow data from the PMT with the subsurface pings from the LRZ1/LRZ2 mesh, the DHU facilitates the "Resolution Pop" in the farmer’s UI.
 * **The Sales Funnel**: If a user on a lower tier attempts to view 1m granular data, the DHU triggers the blurred preview funnel. This proves the value of the Enterprise subscription by demonstrating the DHU's ability to sync data in real-time, even during regional internet outages. Furthermore, the DHU provides the high-fidelity spatial data stream required for the **Command & Control (C&C)** XR deployment tools used by field technicians.
+* **The Resolution Engine**: By aggregating the high-fidelity GNSS and flow data from the PMT with the subsurface pings from the LRZ1/LRZ2 mesh, the DHU facilitates the "Resolution Pop" in the farmer’s UI.
+* **The Sales Funnel**: If a user on a lower tier attempts to view 1m granular data, the DHU triggers the blurred preview funnel. This proves the value of the Enterprise subscription by demonstrating the DHU's ability to sync data in real-time, even during regional internet outages. Furthermore, the DHU provides the high-fidelity spatial data stream required for the **Command & Control (C&C)** XR deployment tools used by field technicians.
 
 <div style="page-break-after: always;"></div>
 
 # Master Specification: Lateral Root-Zone Surveyor (LRZ1/LRZ2) V1.21
 
-**Role**: Lateral Variability \"Surveyor,\" High-Density Dumb Node, & Spatial Mapper | **Network Density**: 1 LRZ1/LRZ2 per 15 Acres (Reporting directly to the PMT Field Hub)
+**Role**: Lateral Variability "Surveyor," High-Density Dumb Node, & Spatial Mapper | **Network Density**: 1 LRZ1/LRZ2 node per 15 Acres (Reporting directly to the PMT Field Hub)
 
 While the Vertical Field Anchor (VFA) serves as the high-fidelity calibration anchor, the standard deployment for Architecture 2.1 utilizes the **2:4:12 "Stereo" Model**. This places **two VFAs** at the field's **Hydraulic Extremes** (the highest and lowest moisture-holding soil zones). This "Boundary Calibration" ensures the Oracle engine can accurately interpolate the virtual grid across the entire moisture spectrum.
 
 **Application Infrastructure**: Accuracy in sensing mandates accuracy in application. The **"Grid-Flow" Custom Pivot** and accompanying **Conversion Kits** provide a tiered migration path from legacy sector-based irrigation to 1m grid-based prescriptions using **Smart Section Nodes (SSN)** and **Integrated Smart Nozzles (ISN)**.
 
-**Network Topology**: On a standard 125-160 acre center pivot, a fleet of **18 units** (2 VFA + 4 LRZ1/LRZ22 + 12 LRZ1/LRZ21) forms the calibration mesh.
+**Network Topology**: On a standard 125-160 acre center pivot, a fleet of **18 units** (2 VFA + 4 LRZ2 + 12 LRZ1) forms the calibration mesh.
  They do not process complex Worksheets or execute localized Bayesian math. They do not carry on-board GPS; instead, they are "Pinned" to the regional map by the PMT's RTK-GNSS anchor as it transits the field. This massive density of spatial data is what ultimately powers the FarmSense UI and **Command & Control (C&C)** logic—allowing the system to mathematically transition from the 10m "Pro" resolution to the **1m "Enterprise"** resolution and the **1cm "Precision Query"** for plant-level intelligence.
 
 **Accuracy Benchmarking**: Architecture 2.1 achieves a **<5% Mean Absolute Error (MAE)** across the 1m grid, representing a 300% improvement over the legacy V1.x architecture (15% MAE).
@@ -2436,7 +2438,7 @@ FarmSense as the definitive sovereign water infrastructure—legally recognized,
 ### Pilot Phase (June 2026)
 
 * [ ] 2 fields instrumented
-* [ ] 4–6× LRZ1/LRZ22 + 12–16× LRZ1/LRZ21 deployed
+* [ ] 4–6× LRZ2 + 12–16× LRZ1 deployed
 * [ ] 2 PMTs operational
 * [ ] 2 PFAs at wellheads
 * [ ] Continuous data flowing to Zo
