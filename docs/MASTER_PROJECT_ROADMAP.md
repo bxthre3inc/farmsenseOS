@@ -17,14 +17,17 @@ FarmSense is the definitive sovereign water infrastructure for the 21st century.
 
 ---
 
-## 2. Market Intelligence: San Luis Valley (SLV)
+### 2.1 Subdistrict 1 Hyper-Local Financial Dossier
 
-The SLV Subdistrict 1 is the primary deployment theater and legal proving ground.
+This constitutes the authoritative statistical grounding for all market sizing and procurement.
 
-- **The Hydro-Economic Crisis**: Aquifer depletion of 89,000 acre-feet/year. Groundwater fees at **$500/acre-foot**.
-- **Financial Justification**: 52 AF savings per pivot = **$26,000/year savings** directly justifying Enterprise SaaS.
-- **TAM (Subdistrict 1)**: $7.6M ARR (SaaS) + $3.66M One-time Hardware (1,280 pivots).
-- **Crop Mix**: 85% Potatoes, Malting Barley (Coors/Molson), and Alfalfa.
+- **Infrastructure Footprint**: **1,280 active pivots** (~160,000 irrigated acres).
+- **The Hydro-Economic Crisis**: Aquifer depletion of 89,000 acre-feet/year. Groundwater extraction fees at **$500/acre-foot**.
+- **Financial Savings**: 52 AF average savings per pivot = **$26,000/year operational savings** per field.
+- **TAM (Subdistrict 1 Bulk Rollout)**:
+  - **Hardware CapEx (One-time)**: $1,423,360 (at $1,112/PMT and $158.20/VFA scale).
+  - **SaaS ARR (Gold Truth)**: $7.6M/year at Enterprise rates ($30/acre).
+  - **Total Subdistrict 1 Deployment Cost**: **$1,580,800** (inclusive of $100K installation labor).
 
 ### 2.1 The Revenue Model: The "Resolution Pop"
 
@@ -45,11 +48,19 @@ FarmSense captures market share via a tiered spatial fidelity model, driving con
 
 | Phase | Timeline | Primary Objective | Geopolitical Goal |
 | :--- | :--- | :--- | :--- |
-| **I: Pilot** | Now – June 2026 | 2-Field CSU Pilot | Establish "Rule-Compliant" digital subdistrict. |
-| **II: Regional** | Q3–Q4 2026 | 100% SLV Subdistrict 1 | "Front Range Radar" baseline for CO Water Plan. |
-| **III: State** | 2027 | Colorado Statewide | Primary tool for Colorado River Compact compliance. |
-| **IV: National** | 2028 | High Plains Aquifer | Standardize "Federal Water Credits" with USDA/USGS. |
-| **V: Sovereign** | 2029+ | International G2G | Trans-boundary conflict mitigation (Nile/Indus). |
+| **I: Pilot** | Q1-Q2 2026 | 2-Field CSU Pilot | Establish "Rule-Compliant" digital subdistrict. |
+| **II: Regulatory Capture** | Q3-Q4 2026 | DWR Integration | Establish "Presumed Compliant" well status workflow. |
+| **III: State Standard** | 2027 | Colorado Statewide | Primary tool for Colorado River Compact compliance. |
+| **IV: National Layer** | 2028 | High Plains Aquifer | Standardize "Federal Water Credits" with USDA/USGS. |
+| **V: Sovereign Global** | 2029+ | International G2G | Trans-boundary conflict mitigation (Nile/Indus). |
+
+### 3.4 The Seasonal "Rapid Deployment" Lifecycle
+
+To maximize hardware lifecycle (10 years), FarmSense operates on a two-phase seasonal deployment model:
+
+1. **Post-Planting Insertion**: Once spring planting is complete, crews drop high-value sensor sleds into the permanent HDPE SDR9 shells. Insertion, locking, and +5 PSI Nitrogen re-pressurization are completed in **under 15 minutes per field**.
+2. **Harvest Extraction**: Prior to fall harvest, crews pull the C&C caps and extract the sensitive electronics for storage in the **RSS Sled Hospital**.
+3. **Winter Hibernation**: Blanking plugs seal the permanent in-ground shells, while batteries undergo trickle-charging and diagnostics at the RSS hub, preventing sub-zero degradation.
 
 ---
 
@@ -63,7 +74,7 @@ FarmSense captures market share via a tiered spatial fidelity model, driving con
 ### 4.2 Beta Launch (CSU SLV Pilot - March 10, 2026)
 
 - **Deployment**: 2 Fields at CSU Research Center (Center, CO).
-- **Hardware**: 2 PMTs, 2 PFAs, 2 VFAs, 16-20 LRZ Nodes.
+- **Hardware**: 2 PMTs, 2 PFAs, 2 VFAs, 16-20 LRZ1/LRZ2 Nodes.
 - **Goal**: `<5%` Kriging Error validation for Water Court.
 
 ### 4.3 V1 Master Standard (Spring 2027)
@@ -74,15 +85,7 @@ FarmSense captures market share via a tiered spatial fidelity model, driving con
 
 ---
 
-## 5. Funding Pipeline & Grant Strategy
-
-### 5.1 Active / Immediate (CRITICAL)
-
-| Grant | Focus | Deadline | Ask | Status |
-| :--- | :--- | :--- | :---: | :--- |
-| **Federal ESG (ESTCP)** | DoD Water Resilience | **March 26, 2026** | $500K–$2M | 🟢 Drafted |
-| **Danny Romero** | Angel Seed Lead | Immediate | $25K | 🔵 Submitted |
-| **CSU SLV RC** | Academic Partnership | Immediate | In-Kind | 🟢 In-Progress |
+%-SAME%
 
 ### 5.2 Mid-2026 Scaling (Requires Pilot Data)
 
@@ -92,22 +95,28 @@ FarmSense captures market share via a tiered spatial fidelity model, driving con
 
 ### 5.3 Global Impact Grants (Q3–Q4 2026)
 
-- **Gates Foundation**: COP30 COP30 Smallholder Advisory Mesh ($50.80 LRZ target).
+- **Gates Foundation**: COP30 COP30 Smallholder Advisory Mesh ($50.80 LRZ1 target).
 - **World Food Prize**: $250,000 nomination for food-security impact.
 - **Earthshot Prize**: £1M for climate/nature protection.
 
 ---
 
-## 6. Strategic Monetization: "Resolution Pop"
+## 6. Economic Logic: The "Resolution Pop"
 
-FarmSense uses a tiered spatial fidelity model to ensure 100% market participation while driving high-margin revenue.
+FarmSense captures market share via a tiered spatial fidelity model, driving conversion through high-resolution data visualization.
 
-| Tier | Grid Res | Target User | Focus |
-| :--- | :--- | :--- | :--- |
-| **FREE** | 50m | Gov / Compliance | Baseline state mandate. |
-| **BASIC ($49/mo)** | 20m | Small Farmers | Basic optimization. |
-| **PRO ($199/mo)** | 10m | Commercial | Daily VRI optimization. |
-| **ENTERPRISE** | 1m | Legal / ESG | Water Court & Trade Evidence. |
+| Tier | Resolution | Cost | Focus | Target User |
+| :--- | :--- | :--- | :--- | :--- |
+| **FREE** | 50m | $0 | macro-Truth | Gov / Baseline Baseline Enrollment |
+| **BASIC** | 20m | $49/mo | Optimization | Small Family Farmers |
+| **PRO** | 10m | $199/mo | Daily Gain | Commercial Ag / 24hr VRI |
+| **ENTERPRISE** | 1m | Custom | **Legal Fortress** | Water Court / ESG / Trade |
+
+### 6.1 The "FOMO" UI Trigger
+
+- **Resolution Pop**: When a free/basic user zooms into a field anomaly, the 1m grid blurs and renders a "Locked" overlay.
+- **Audited Proof**: The UI showcases a snippet of the SAT angular movement or VFA deep-percolation anchor to prove the system has "Ground Truth" the user doesn't.
+- **Conversion**: High-margin Enterprise upgrades occur precisely during high-stress hydrological events (Nozzle drops, irrigation surges).
 
 ---
 
@@ -122,7 +131,7 @@ FarmSense acts as a distributed "hydrological radar." Funding from civilian AgTe
 
 ### 7.2 Global Philanthropy (Advisory Mesh)
 
-For smallholders ($50.80 LRZ), the "Advisory Mesh" provides deterministic SMS commands without requiring expensive pump actuation hardware, subsidized by domestic Enterprise tiers.
+For smallholders ($50.80 LRZ1), the "Advisory Mesh" provides deterministic SMS commands without requiring expensive pump actuation hardware, subsidized by domestic Enterprise tiers.
 
 ---
 

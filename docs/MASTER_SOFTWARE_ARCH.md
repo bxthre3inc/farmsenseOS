@@ -21,12 +21,21 @@ FarmSense is a **Deterministic Farming Operating System**. It is engineered to r
 
 FarmSense functions as a decentralized monolithic grid, balancing low-latency edge reflex with high-capacity cloud geostatistics.
 
+### 2.1 Hierarchical Processing Stack
+
+1. **Level 1 (Field):** **LRZ1/LRZ2/VFA/PFA** (LoRa bursts) -> **PMT Hub** (50m Grid, Edge-EBK baseline). 900MHz frequency hopping security.
+2. **Level 2 (District):** **DHUs** (NVIDIA Jetson Orin Nano) -> 1m/10m/20m Grid (Go-based Bayesian Kriging). Localized reflex autonomy.
+3. **Level 3 (Regional):** **RSS** (64-Core Threadripper) -> 1m Grid (Python-based Regression Kriging + FHE). Regional DIL vaulting.
+4. **Level 4 (Global):** **Zo.computer Cloud** -> Multi-field analytics, Federated Learning, global hydro-economics.
+
+### 2.2 Core Software Tier Stack
+
 | Layer | Node | Engine Grade | Role |
 | :--- | :--- | :--- | :--- |
 | **L0 (Field)** | Sensors | Bare-Metal C | Raw sensing & local deep-sleep management. |
-| **L1 (Hub)** | PMT | RTOS / ESP32 | Reflex Logic (IMU Stall → Stop), 50m grid compute. |
-| **L2 (District)** | DHU | Edge Linux (Jetson) | 20m/10m Grid Kriging, AllianceChain PBFT Consensus. |
-| **L3 (Cortex)** | RSS / Cloud | Python / CUDA / FHE | 1m Master Grid, Long-term DIL, Legal Vault. |
+| **L1 (Hub)** | PMT | ESP32-S3 | Reflex Logic (IMU Stall → Stop), 50m Grid Compute. |
+| **L2 (District)** | DHU | Orin Nano / Go | 20m/10m Grid Kriging, AllianceChain PBFT Consensus. |
+| **L3 (Cortex)** | RSS / Cloud | Python / FastAPI | 1m Master Grid, Long-term DIL, Legal Vault. |
 
 ---
 
@@ -66,28 +75,67 @@ CREATE TABLE compliance_logs (
 );
 ```
 
+### 3.3 TimescaleDB Table: `soil_sensor_readings`
+
+(Hypertable chunked by 7 days)
+
+| Column | Type | Index |
+| :--- | :--- | :--- |
+| `sensor_id` | `UUID` | `BTREE` |
+| `timestamp` | `TIMESTAMPTZ` | **Clustered** |
+| `field_id` | `VARCHAR(32)` | `HASH` |
+| `moisture_surface` | `FLOAT4` | — |
+| `moisture_root` | `FLOAT4` | — |
+| `location` | `GEOGRAPHY(POINT)` | `GIST` |
+
 ---
 
 ## 4. Core Software Engines
 
-### 4.1 The Zo Engine ("The Scientist")
+### 4.1 The Zo Engine (Soil-Plant-Atmosphere Continuum Synthesis)
 
-Hosted at `brodiblanco.zo.computer`. Responsible for the Soil-Plant-Atmosphere Continuum (SPAC) synthesis.
+Hosted at `brodiblanco.zo.computer`. Responsible for the **Soil-Plant-Atmosphere Continuum (SPAC)** synthesis and high-fidelity moisture mastering.
 
-- **Bayesian Priors**: Establishes moisture probability using historical Soil Functional Domain (SFD) profiles.
-- **Regression Kriging**: Ordinary Kriging corrects Sentinel-2 trend bias using ground-truth LRZ/VFA nodes.
-- **MAD Framework**: Management Allowable Depletion — uses the soil profile as a "Water Battery" to delay pumping.
+- **Bayesian Priors**: Establishes moisture probability using historical **Soil Functional Domain (SFD)** profiles and multispectral NDVI baselines.
+- **Regression Kriging**: Ordinary Kriging corrects Sentinel-2 trend bias using ground-truth LRZ1/LRZ2/VFA **Dielectric Telemetry**.
+- **MAD Framework**: **Management Allowable Depletion (MAD)** — utilizes the soil profile as a "Water Battery" to optimize pumping schedules and prevent permanent wilting points.
 
 ### 4.2 Adaptive Recalculation Engine ("Fisherman's Attention")
 
-Controls when and at what resolution the spatial grid recalculates.
+The PMT continuously executes **Edge-EBK** to generate a 50m-resolution spatial probability grid (16x16 matrix). The execution frequency is dynamically governed by environmental volatility:
 
-| Mode | Trigger | Interval | Action |
-| :--- | :--- | :--- | :--- |
-| **DORMANT** | Variance < 5% / Parked | 4-12 hours | Low-power background trend. |
-| **ANTICIPATORY** | Rising ET / Rain < 2mm | 1 hour | Hourly predictive sweep. |
-| **RIPPLE** | Pump = ON / Active flow | 15 min | Standard active grid recalculation. |
-| **COLLAPSE** | PMT IMU > 5.0g / Anomaly | 5 sec - 1 min | Primary reflex logic & alert dispatch. |
+| Mode | Trigger Threshold | Logic Execution Frequency |
+| :--- | :--- | :--- |
+| **Dormant** | Stable soil moisture + Pivot Parked | Every 4 Hours |
+| **Anticipatory** | Sunrise / $T > 5^\circ$C rise/hr | Every 60 Minutes |
+| **Focus Ripple** | Anomaly detected (>5% deviation) | Every 15 Minutes |
+| **Focus Collapse** | Mainline Pressure > 1 PSI / Tower Motion | Every 5 Seconds |
+
+#### Autonomous Edge-EBK Logic
+
+- **FPU Calculation**: The hardware FPU processes 128-bit AES chirps from LRZ1/LRZ2/VFA nodes into a localized 16x16 probability matrix.
+- **Trajectory Collapse**: In "Collapse" mode, the FPU zeroes calculations on dormant sections, focusing 100% of compute on the active pivot span trajectory.
+- **Payload Bundling**: The PMT bundles its own High-Fidelity kinematic data, the processed 50m Edge-EBK arrays, and the intercepted VFA/LRZ intelligence into a unified, encrypted **~187-byte Field State Payload**.
+- **LoRa Mesh Backhaul**: Blasts the unified payload to the District Hub (DHU) via 900MHz LoRa Mesh.
+- **Zero-Downtime VRI Failover**: Upon loss of DHU mesh-ping, the PMT instantly executes autonomous Variable Rate Irrigation based onlocalized intelligence.
+- **Audit Buffering**: Stores all payload state changes to onboard SPI Flash, burst-transmitting the backlog upon reconnection to preserve the State Engineer audit ledger.
+
+### 4.3 VFA Firmware: "Dumb Chirp" Transformation
+
+The VFA firmware is optimized for a 10-year battery life under snowpack:
+
+- **AES-128 Encryption at the Edge**: Independently encrypts the localized 4-depth profile payload before transmission.
+- **Dumb Chirp Mode**: Minimizes CPU cycles by transmitting a fixed-length encrypted burst to the overhead PMT Field Hub.
+- **Dynamic Ripple Scaling**: While fundamentally "dumb," the firmware responds to PMT "Ripple" pings, scaling chirp frequency from 4 hours to 15 minutes during detected anomalies.
+- **LPI/LPD Constraints**: Firmware ensures frequency-hopping spread spectrum (FHSS) conforms to Federal Low Probability of Intercept/Detection standards.
+
+#### Volatility Score Logic (Decision Engine)
+
+`Volatility = (Moisture_Δ_1h * 0.4) + (Irrigation_Active * 0.3) + (VPD_Stress * 0.2) + (Wind_Stress * 0.1)`
+
+- **Score > 0.7** → COLLAPSE
+- **Score > 0.3** → ANTICIPATORY
+- **Default**    → DORMANT
 
 ### 4.3 Decision Engine (Reflex Logic)
 
@@ -103,14 +151,15 @@ Sub-cloud orchestrator evaluation field-state conditions.
 
 | Service Module | Function | Algorithm/Tech |
 | :--- | :--- | :--- |
-| `rss_kriging.py` | 1m Mastering | Scikit-learn GPR (RBF + WhiteKernel). |
-| `csa_alignment.py` | Corner Resolver | Law of Cosines: `θ = arccos((d1²+d2²-d3²)/(2·d1·d2))`. |
-| `trading_service.py` | Water Market | PBFT AllianceChain Consensus. |
-| `predictive_maint.py` | Pump Health | 1,024-point FFT on Phase harmonics. |
-| `spatial_privacy.py` | Data Obfuscation | Differential Privacy (ε=0.5) + k-anonymity. |
-| `globalGAP_compliance` | Certification | Automated GLOBALG.A.P. Audit Trails. |
-| `jadc2_adapter.py` | Inter-agency | JADC2 STANAG-aligned data tactical translation. |
-| `satellite_service` | NDVI/NDWI | Sentinel-2 / Landsat-9 STAC Catalog Fusion. |
+| `rss_kriging.py` | 1m Mastering | Scikit-learn GPR (RBF + WhiteKernel) + Spatial Prior Fusion. |
+| `csa_alignment.py` | Corner Resolver | Law of Cosines Kinematic Handshake resolving joint elbow to ±0.1°. |
+| `trading_service.py` | Water Market | PBFT AllianceChain Consensus on DHU Industrial SSDs. |
+| `predictive_maint.py` | Pump Health | Current Harmonic Analysis (NXP M7) detecting torque ripple & cavitation. |
+| `spatial_privacy.py` | Data Obfuscation | Contextual Anonymization segregating Legal Ledger from Global Analytics. |
+| `globalGAP_compliance` | Certification | Automated 1-click sustainability audit trail generation. |
+| `jadc2_adapter.py` | Inter-agency | JADC2 / LPI / LPD tactical environmental tactical translation. |
+| `satellite_service` | NDVI/NDWI | Sentinel-2 / Landsat-9 Multi-temporal stack with atmospheric correction. |
+| `decision_engine.py` | Reflex Logic | Deterministic rule-based boolean actuation (MAD Framework). |
 
 ---
 

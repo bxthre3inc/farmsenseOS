@@ -24,7 +24,7 @@ The FarmSense system is a utility-grade hydrological infrastructure project desi
 | Layer | Node | Role | Protocol |
 | :--- | :--- | :--- | :--- |
 | **L0 (Air)** | eBee Ag / Mavic 3M | Multispectral Spatial Priors | DJI/SenseFly proprietary |
-| **L1 (Source)** | VFA, LRZ, PFA, CSA | Raw Ground Truth Telemetry | 900MHz LoRa Mesh |
+| **L1 (Source)** | VFA, LRZ1, LRZ2, PFA, CSA | Raw Ground Truth Telemetry | 900MHz LoRa Mesh |
 | **L1.5 (Hub)** | PMT | Field Aggregator & Kinematic Auditor | 5GHz LTU / LoRa Sink |
 | **L2 (District)** | DHU | Edge Coordinator & PBFT Ledger | 5GHz LTU / Fiber / LTE-M |
 | **L3 (Cortex)** | RSS | Regional Master DIL & Sled Hospital | Fiber / Starlink Business |
@@ -49,18 +49,41 @@ The FarmSense system is a utility-grade hydrological infrastructure project desi
 **Role**: Territory Cortex, Master DIL, and Sled Hospital.
 **Infrastructure**: Modified 40' High-Cube Container (R-21 Insulation).
 
-### 3.1 Facility Zones
+### 3.1 Facility Architecture: The 40' HC Command Center
 
-- **Zone A: Logistics Hub (20')**: Features a 12' SS workbench, **Nitrogen Manifold** (+5 PSI purge), and digital **Pressure-Decay QC** station ($<0.1$ PSI drop/15 min). Stores Polaris Ranger-HD and auger fleet.
-- **Zone B: Staging (10')**: Industrial Ready-Rack (500 unit capacity). Burn-in bench for u-blox ZED-F9P RTK verification.
-- **Zone C: Clean Vault (10')**: Hermetically sealed room with Mitsubishi Hyper-Heat HVAC (operational to −40°F), HEPA scrubbing, and spring-dampened server racks.
+The RSS utilizes a 40' High-Cube (HC) Modified Shipping Container divided into three distinct functional zones in a "Dirty-to-Clean" linear progression.
+
+#### Zone A: The Logistics & Refurbishment Bay (20' x 7.7')
+
+Primary intake for field hardware and rapid deployment fleet docking.
+
+- **Tactical Fleet Dock**: Dimensioned for Polaris Ranger-HD UTV (62" width) and Hydraulic Auger Trailer. Floor reinforced with **Industrial Diamond Plate** to withstand SLV alkali tracking.
+- **The Sled Hospital JIGs**: 12-foot stainless steel longitudinal workbench with automated fixation JIGs for high-volume sled processing.
+- **Nitrogen Station**: Automated manifold flushing internal sensor cavities to **+5 PSI Dry Nitrogen** (+/- 0.1 PSI). Creates an active environmental defense against groundwater ingress.
+- **Seal Validation & QC**: Digital **Pressure-Decay Tester** ($<0.1$ PSI drop/15 min). All extracted sleds must pass this gate before storage.
+- **Environmental Barrier**: Industrial clear-strip curtains provide a thermal and dust barrier between Zone A and Zone B.
+
+#### Zone B: Inventory Staging & Ready-Rack (10' x 7.7')
+
+Supply chain buffer for maximum daily "Rapid Deployment" output.
+
+- **The Ready-Rack**: Vertical high-density shelving organizing 500 units into "Pivot Kits" (1 VFA + 16 LRZ1/LRZ2 nodes per kits).
+- **Burn-In Bench**: u-blox ZED-F9P RTK verification station for ensuring hardware-silicon parity prior to field dispatch.
+
+#### Zone C: The Clean Vault (10' x 7.7')
+
+Hermetically sealed high-density compute and legal data repository.
+
+- **Climate Control**: Mitsubishi Hyper-Heat HVAC (operational to −40°F) with HEPA scrubbing and positive-pressure airlock.
+- **Structural Integrity**: Spring-dampened server racks to isolate vibrational shock from nearby freight rail or seismic events.
+- **Power Sentry**: 5kW Honda EU7000iS dual-fuel auto-start generator provides SOC failover for the rack if the 100kWh LFP bank drops below 30%.
 
 ### 3.2 Oracle Unified Compute Cluster
 
 - **Compute**: 64-Core AMD Threadripper PRO 5995WX, 512GB ECC RAM, Dual NVIDIA RTX A6000 (48GB).
 - **Storage**: 50TB WD Gold Enterprise NVMe (RAID-10).
 - **Operations**:
-  - **Kriging Engine**: Renders 1m-resolution Enterprise Tile (Layer 12 PNGs) every 15 mins.
+  - **Kriging Engine**: Renders 10,000 sensor readings/sec toward 1m-resolution Enterprise Tiles. Accounts for spatial autocorrelation and Bayesian priors (historical SFD profiles).
   - **FHE**: Manages Fully Homomorphic Encryption for long-term legal vaulting.
   - **XR Streaming**: Frustum-aware tile streaming for C&C portal technicians.
 
@@ -83,11 +106,12 @@ The FarmSense system is a utility-grade hydrological infrastructure project desi
 
 ### 4.1 Technical Architecture
 
-- **Edge Module**: NVIDIA Jetson Orin Nano (8GB). 1024-core Ampere GPU for local reflex-kriging.
-- **Backhaul**: Triple-Sector Ubiquiti LTU (120°) + Telit LTE-M Failover.
-- **Storage**: 128GB Swissbit pSLC Industrial SSD.
-- **OS**: JetPack 5.x/6.x with Docker containerized radio/logic layers.
-- **Watchdog**: Hardware power-cycle trigger on 5-min heartbeat failure.
+- **Edge Processing Engine**: **NVIDIA Jetson Orin Nano (8GB)**. 1024-core Ampere GPU. Enables true 1m resolution support at the edge.
+- **Backhaul Spine**:
+  - **Primary**: Fiber ONT (G-PON) "Fiber-First" mandate.
+  - **Secondary**: Telit ME910G1 LTE-M Modem (Pay-As-You-Go IoT).
+- **The "Black Box" Ledger**: 128GB Swissbit pSLC Industrial SSD. Write-endurance for 30-day secure cache of every water transaction.
+- **Watchdog Sentry**: Hardware power-cycle trigger on 5-min heartbeat failure. Dual Gore-Tex vents for pressure equalization.
 
 ### 4.2 DHU BOM (Subdistrict 1 Batch)
 
@@ -107,26 +131,31 @@ The FarmSense system is a utility-grade hydrological infrastructure project desi
 
 **Role**: Field Hub & Hydraulic/Kinematic Auditor.
 
-- **Positioning**: **u-blox ZED-F9P RTK GNSS** (<5cm error). **Warm Start** <5s via Saft LS14500 backup.
-- **Kinematics**: **Bosch BNO055 9-Axis IMU** (Quaternions). Detects "Crabbing" (structural tower misalignment).
-- **Flow**: **Badger Meter TFX-5000** Ultrasonic Clamp-on (±1.0% accuracy). Non-invasive.
-- **Compute**: **ESP32-S3-WROOM-1** (Dual-core 240MHz). Calculates 16x16 failover grid natively.
+- **Non-Invasive Flow Stack**: **Badger Meter TFX-5000** Ultrasonic Transit-Time (±1.0% accuracy). Employs dual-path transducers to verify **Volumetric Hydraulic Reality** and suppress kinetic noise.
+- **Kinematic Positioning**: **u-blox ZED-F9P RTK GNSS** (<5cm error). Integrated with Bosch BNO055 9-Axis IMU to detect "Crabbing" and **Structural Cantilever Deviations**.
+- **Edge IQ (ESP32-S3)**: Dual-core 240MHz + Hardware Vector Acceleration. Executes **Autonomous Edge-EBK** (50m spatial grid) natively for zero-downtime **Precision VRI**.
+- **Fisherman's Attention (Adaptive Updates)**:
+  - **Dormant**: 4-hour sweeps (Stable).
+  - **Anticipatory**: 1-hour sweeps (Forecasted change).
+  - **Focus Ripple**: 15-min sweeps (Active anomaly detection).
+  - **Focus Collapse**: 5-second sweeps (Critical event / Water moving).
 - **VRI Logic**: Executes 1m-pixel prescriptions delivered from DHU/RSS.
 
-#### PMT Bus & Pin Mapping
+#### PMT Bus & Pin Mapping (Cortex-M4/ESP32-S3)
 
-| Bus | Peripheral | Address/Baud |
-| :--- | :--- | :--- |
-| I2C | Bosch BNO055 | 0x28 (400kHz) |
-| UART1 | ZED-F9P | 921,600 bps |
-| UART2 | TFX-5000 | 9600-8-N-1 |
-| SPI | SX1262 LoRa | Sensor Sink |
+| Bus | Peripheral | Pin (GPIO) | Address/Baud |
+| :--- | :--- | :---: | :--- |
+| **I2C** | Bosch BNO055 | SDA(21)/SCL(22) | 0x28 (400kHz) |
+| **UART1** | ZED-F9P | TX(17)/RX(16) | 921,600 bps |
+| **UART2** | TFX-5000 | TX(18)/RX(19) | 9600-8-N-1 |
+| **SPI** | SX1262 LoRa | SCK(5)/MISO(19)/MOSI(27) | Sensor Sink |
+| **GPIO** | Pulse Output | 34 (Ext. Interrupt) | High-Precision |
 
 ### 5.2 Pressure & Flow Anchor (PFA) V1.9
 
 **Role**: Source/Well Sentry & Safety Actuator.
 
-- **Motor Audit**: 3x Magnelab split-core CT clamps. FFT analysis for cavitation/bearing wear.
+- **Motor Audit**: 3x Magnelab split-core CT clamps. **Machine Learning Current Harmonic Analysis** (400A) detects torque ripples, bearing wear, or cavitation prior to failure.
 - **Hydrology**: Dwyer Vented 316-SS sounder (PBLTX). Barometric compensated depth.
 - **Actuation**: Omron 30A Industrial Relay for remote pump "Soft-Stop."
 - **Logic**: NXP i.MX RT1020 (Cortex-M7 @ 500MHz).
@@ -135,42 +164,80 @@ The FarmSense system is a utility-grade hydrological infrastructure project desi
   - `BURST_MAINLINE` → ACTUATE_STOP
   - `SATURATION_ALERT` (48") → ACTUATE_STOP
 
+#### PFA Register Table (i.MX RT1020)
+
+| Register | Value | Description |
+| :--- | :---: | :--- |
+| `0x400C` | `0x01` | Pump Interlock State (1=Closed) |
+| `0x4010` | `FLOAT` | Line Pressure (PSI) |
+| `0x4018` | `UINT32` | Frequency Domain Harmonic Peak (Hz) |
+
 ### 5.3 Corner-Swing Auditor (CSA) V1.0
 
 **Role**: Dual-node kinematic resolver for articulate swing-arms.
 
 - **Layout**: PST (Primary Span Tracker) + SAT (Swing-Arm Tracker).
 - **Sync**: BLE 5.2 Distance Ranging resolves joint elbow to ±0.1°.
-- **Trigonometry**: `θ = arccos((d1²+d2²-d3²) / (2·d1·d2))` for variable chord analysis.
 
 ---
 
-## 6. Layer 1: Subsurface Sensor Fleet
+## 6. Layer 4: Vertical Field Anchor (VFA) V1.21
 
-### 6.1 Vertical Field Anchor (VFA) V1.21 - "The Foundation"
+**Role**: Subsurface "Truth" Node & Deep Percolation Auditor.
+**Housing**: 48" HDPE SDR9 Outer Shell (Permanent) + 50mm CHDPE SDR9 Alpha-Sled (Removable).
 
-**Density**: 1 (Primary) or 2 (High-Stakes Pilot) per field.
-**Housing**: 48" HDPE SDR9 Outer Shell (Permanent) + 50mm Alpha-Sled (Removable).
+### 6.1 Structural Resilience & The Docking Station
 
-#### 48U Modular Sequence
+- **Outer Shell**: 2" HDPE SDR9 (High-Albedo White). Stays in-ground year-round. Yield strength optimized to resist sub-zero frost-shatter and SLV soil compaction warping.
+- **Friction-Molded Tapered Tip**: The drive tip is created via **high-speed friction molding**—spinning the HDPE SDR9 pipe at extreme RPM while pressing into a tapered mold to create a monolithic, molecularly-welded high-penetration tip.
+- **The Seasonal Purge**: Sleds are inhabitied with Viton (FKM) 2" O-rings. Upon insertion, the cavity is pressurized to **+5 PSI with Dry Nitrogen**, creating an active environmental buffer against micro-fractures and groundwater ingress.
+- **Whip Antenna**: 3-foot SS-304 stainless steel whip with heavy-duty spring mount. Mounts to the C&C Cap, providing a 3-foot elevated signature for line-of-sight backhaul to the PMT.
 
-- **Slot 10**: **Advanced** (10") - NPK / EC / pH.
-- **Slot 18**: **Basic** (18") - VWC / Temp.
-- **Slot 25**: **Advanced** (25") - Root Anchor.
-- **Slot 35**: **Basic** (35") - Wetting Front.
-- **Slot 48**: **Advanced** (48") - **Deep Percolation / Waste Audit**.
+### 6.2 The "Proxy Method" 48U Physical Stack Sequence
 
-### 6.2 Lateral Root-Zone (LRZ) Variants
+The VFA shoots high-frequency dielectric fields through the sled wall to measure the Soil-Plant-Atmosphere Continuum (SPAC). Sensors are inhabitied in a **locked physical stack sequence** of 48 Units (1U = 1 inch).
+
+| U-Slot | Component | Function |
+| :--- | :--- | :--- |
+| **Slot 1** | 1U Desiccant Pack | Apex moisture trap and atmospheric protection. |
+| **Slots 2-5** | 4U Battery Cartridge #1 | 3x 21700 Li-ion cells + Thermal Defense heater. |
+| **Slots 6-9** | 4U Extruded Spacer | Rigid structural separation. |
+| **Slot 10** | 1U Advanced Sensor | 10" Depth: High-resolution **Root Zone Ingest**. |
+| **Slots 11-14** | 4U Battery Cartridge #2 | Distributed power supply. |
+| **Slots 15-17** | 3U Extruded Spacer | Rigid structural separation. |
+| **Slot 18** | 1U Basic Sensor | 18" Depth: Volumetric Water Content (VWC) / Temp. |
+| **Slots 19-24** | 6U Extruded Spacer | Rigid structural separation. |
+| **Slot 25** | 1U Advanced Sensor | 25" Depth: Root Anchor (Pivot Point Analysis). |
+| **Slots 26-29** | 4U Battery Cartridge #3 | Distributed power supply. |
+| **Slots 30-34** | 5U Extruded Spacer | Rigid structural separation. |
+| **Slot 35** | 1U Basic Sensor | 35" Depth: Wetting Front Propagation tracking. |
+| **Slots 36-39** | 4U Battery Cartridge #4 | Distributed power supply. |
+| **Slots 40-43** | 4U Extruded Spacer | Rigid structural separation. |
+| **Slots 44-47** | 4U Battery Cartridge #5 | Distributed power supply. |
+| **Slot 48** | 1U Advanced Sensor | 48" Depth: The Deep Percolation Anchor (Aquifer Auditing). |
+
+### 6.3 VFA Hyper-Granular OEM BOM (1,280 Unit Tier)
+
+| Category | Component Detail | Supplier Strategy | Unit Cost |
+| :--- | :--- | :--- | :--- |
+| **Housing** | 2" SCH 40 UV-Stabilized HDPE SDR9 | Direct Extruder | $3.25 |
+| **Housing** | Friction-Molded HDPE Tapered Tip | Custom Rotational JIG | $3.50 |
+| **Antenna** | 3ft SS-304 Whip + Spring | Hub-Mount Pultruded | $3.50 |
+| **Adhesive** | Industrial HDPE SDR9 Cement | Automated Bulk | $0.50 |
+| **Compute** | nRF52840 "Routing" Board | Tier-1 PCBA | $8.50 |
+| **Seals** | Viton (FKM) 2" O-Rings (x2) | Industrial Bulk | $2.40 |
+| **Purge** | Dry Nitrogen Gas Fill | Sled Hospital Assembly | $0.15 |
+| **Climate** | 1U Stamped Desiccant Matrix | Bulk Supply | $1.50 |
+| **Structure**| 48" Rigid CHDPE SDR9 AlphaSled | Continuous Extrusion | $3.75 |
+| **Structure**| Extruded Rigid Spacers (22U) | Recycled Bulk | $0.35 |
+| **Power** | 5x 4U Battery Cartridges (21700) | Direct Cell Sourcing | $83.75 |
+| **Sensors** | 3x Advanced + 2x Basic | Fab-Direct Assembly | $47.00 |
+| **TOTAL** | **Per Unit Hardware Cost** | **Absolute OEM Scale** | **$158.20** |
+
+### 6.4 Lateral Root-Zone (LRZ) Variants
 
 **Density**: 16 per field (4x LRZ2 Reference + 12x LRZ1 Truth).
 
-- **LRZ1 (Truth Node)**: Monolithic 18" HDPE. Fixed 10" and 18" sensors. $29.00 target.
-- **LRZ2 (Reference)**: Removable mapping sled. 10"/18" depths. $54.30 target.
-- **AKP-LRZ (Tactical)**: Airborne Ballistic Kinetic Penetrator. Hardened Cr-Mo steel nose. Survives 500G impact for air-deployment.
-
-### 6.3 "AlphaSled" PCBA Standard (Shared)
-
-- **SoC**: Nordic nRF52840 + Semtech SX1262 SPI module.
 - **PCBA GPIO**:
   - P0.02 / P0.03: 12-bit Analog Dielectric Ingest.
   - P0.28-P0.31: LoRa Radio SPI.
@@ -265,18 +332,16 @@ The FarmSense system is a utility-grade hydrological infrastructure project desi
 
 Based on the established **2:4:12 Stereo Ratio** and edge-compute density requirements for a subdistrict-wide rollout.
 
-### 11.1 Field-Level Infrastructure
-
-Estimated for 1,280 pivots (Standard 160-acre circles).
+### 11.1 Field-Level Infrastructure (1,280 Fields)
 
 | Component | Qty per Field | Total Qty | Unit Cost | Extended Cost |
 | :--- | :---: | :---: | :---: | :---: |
 | VFA Foundation | 2 | 2,560 | $159.65 | $408,704 |
 | LRZ2 Reference | 4 | 5,120 | $54.30 | $278,016 |
 | LRZ1 Truth Node | 12 | 15,360 | $29.00 | $445,440 |
-| PMT Field Hub | 1 | 1,280 | $985.50 | $1,261,440 |
+| PMT Field Hub | 1 | 1,280 | $1,140.50 | $1,459,840 |
 | PFA Well Sentry | 1 | 1,280 | $961.50 | $1,230,720 |
-| **Subtotal (Field Assets)** | | | | **$3,649,920** |
+| **Subtotal (Field Assets)** | | | | **$3,822,720** |
 
 ### 11.2 Regional-Level Infrastructure
 

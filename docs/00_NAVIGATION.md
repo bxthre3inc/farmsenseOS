@@ -21,7 +21,7 @@ The FarmSense documentation suite has been consolidated into four authoritative 
 
 **MASTER**: [`docs/MASTER_SYSTEM_SPEC.md`](MASTER_SYSTEM_SPEC.md)
 
-- Device Master Specifications (LRZ, VFA, PMT, PFA, DHU, RSS)
+- Device Master Specifications (LRZ1, LRZ2, VFA, PMT, PFA, DHU, RSS)
 - Hardware Hierarchy & 2:4:12 Ratios
 - Network Protocols (LoRa Mesh vs. LTU)
 - BOM (Bill of Materials) & Pinout Maps
@@ -43,6 +43,21 @@ The FarmSense documentation suite has been consolidated into four authoritative 
 - 50-Claim Patent Portfolio
 - AllianceChain PBFT Consensus Protocols
 - Cryptographic Proof (HSM Signing)
+
+---
+
+### 1. Master System Specifications (The Core Four)
+
+- [**MASTER_SYSTEM_SPEC.md**](file:///home/bxthre3/Desktop/farmsense-main/docs/MASTER_SYSTEM_SPEC.md): Hardware, BOMs, and structural engineering.
+- [**MASTER_SOFTWARE_ARCH.md**](file:///home/bxthre3/Desktop/farmsense-main/docs/MASTER_SOFTWARE_ARCH.md): Backend, algorithms, and security protocols.
+- [**MASTER_PROJECT_ROADMAP.md**](file:///home/bxthre3/Desktop/farmsense-main/docs/MASTER_PROJECT_ROADMAP.md): Phasing, financials, and grant strategy.
+- [**MASTER_IP_LEGAL.md**](file:///home/bxthre3/Desktop/farmsense-main/docs/MASTER_IP_LEGAL.md): Patent pipeline and cryptographic chain of truth.
+
+---
+
+### 🟢 THE OMNIBUS SOURCE
+
+- [**FarmSense_Master_Manual.md**](file:///home/bxthre3/Desktop/farmsense-main/docs/FarmSense_Master_Manual.md): **The Absolute Source of Truth.** Reconstructed from 7,875 lines of legacy data and synchronized with current 2026-03-07 high-fidelity standards.
 
 ---
 
@@ -72,7 +87,7 @@ farmsense-main/
 | :--- | :--- | :--- |
 | **Pivots (Subdistrict 1)** | 1,270 | MASTER_PROJECT_ROADMAP |
 | **Water Court Trial** | June 29, 2026 | MASTER_PROJECT_ROADMAP |
-| **LRZ OEM Cost** | $54.30 | MASTER_SYSTEM_SPEC |
+| **LRZ2 OEM Cost** | $54.30 | MASTER_SYSTEM_SPEC |
 | **Kriging Error Bar** | < 5% | MASTER_SOFTWARE_ARCH |
 | **ESTCP Deadline** | March 26, 2026 | MASTER_PROJECT_ROADMAP |
 
