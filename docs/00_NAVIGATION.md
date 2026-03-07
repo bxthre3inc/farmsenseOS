@@ -55,12 +55,13 @@ farmsense-main/
 │   ├── MASTER_SOFTWARE_ARCH.md    ← Backend & Software Logic
 │   ├── MASTER_PROJECT_ROADMAP.md  ← Funding & Milestones
 │   ├── MASTER_IP_LEGAL.md         ← Legal & Patent Portfolio
-│   ├── 00_NAVIGATION.md           ← This Index
-│   └── ARCHIVE/                   ← 54 superseded legacy documents
-├── backend/                       ← FastAPI, PostgreSQL, PostGIS
-├── edge-processing/               ← Go-based IDW interpolation
-├── cloud-processing/              ← Python Regression Kriging, FHE
-└── farmsense-portal/              ← Unified React/Vite frontend (RBAC)
+│   └── 00_NAVIGATION.md           ← This Index
+├── farmsense-code/                ← Core Implementation Root
+│   ├── backend/                   ← FastAPI (Py), PostgreSQL
+│   ├── cloud-processing/          ← GPR Kriging, Fusion
+│   ├── edge-compute/              ← Go-based IDW & PBFT Ledger
+│   └── frontend/                  ← Reach/Vite Portals
+└── scripts/                       ← Deployment & Sync Utilities
 ```
 
 ---

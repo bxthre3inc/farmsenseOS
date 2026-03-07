@@ -219,5 +219,24 @@ Before creating ANY new file, route, or service:
 - **Deterministic Logic**: Never propose or implement black-box ML for irrigation or ledger decision points.
 - **Version Integrity**: Maintain the Master Documents as the *only* authoritative technical specifications. Any engineering change must be reflected in the relevant Master first.
 
+## 12. Hybrid Cloud Deployment (Zo + RDC)
+
+FarmSense utilizes a split-deployment architecture to separate compute-heavy processing from geospatial data services.
+
+### 12.1 RDC Cloud (Map Stack)
+
+Hosts the PostGIS database and tile-service engine.
+
+- **Port 5432**: Database access.
+- **Port 8001**: Tile serving.
+- **Path**: `farmsense-code/deployment/docker/docker-compose.rdc.yml`
+
+### 12.2 Zo Server (Core Platform)
+
+Hosts the FastAPI engine, React frontend, and Audit ledger.
+
+- **Environment**: `MAP_DATABASE_URL` must point to the RDC instance.
+- **Path**: `farmsense-code/deployment/docker/docker-compose.cse.yml`
+
 ---
 *Classification: Master Software Asset | Single Source of Truth | Approved 2026-03-07*

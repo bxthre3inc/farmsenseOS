@@ -296,5 +296,17 @@ Estimated coverage for Subdistrict 1 territory.
 - **Density**: ~18 Nodes Per Field.
 - **Data Standard**: 1m-pixel high-resolution spatial moisture grid.
 
+## 12. Maintenance & "Sled Hospital" SOP
+
+To ensure a 10-year hardware survival curve and maximize SaaS margins, FarmSense utilizes a circular "Sled Exchange" economy.
+
+### 12.1 SOP-09: Post-Harvest Recovery
+
+1. **Retrieval**: At harvest-end (November), internal electronic "Sleds" are extracted from their permanent field housings.
+2. **Decontamination**: Sleds undergo an ultrasonic cleansing bath to remove mineral scaling.
+3. **Seal Verification**: 15-minute digital pressure-decay test ensures Viton seals remain integral.
+4. **Nitrogen Purge**: Sleds are re-pressurized with Dry Nitrogen (+5 PSI) before winter storage.
+5. **Silicon Lifecycle**: High-value components (nRF52, ESP32-S3) are bench-tested for signal-floor stability.
+
 ---
 *Classification: Master Project Asset | Single Source of Truth | Approved 2026-03-07*

@@ -26,17 +26,30 @@ The SLV Subdistrict 1 is the primary deployment theater and legal proving ground
 - **TAM (Subdistrict 1)**: $7.6M ARR (SaaS) + $3.66M One-time Hardware (1,280 pivots).
 - **Crop Mix**: 85% Potatoes, Malting Barley (Coors/Molson), and Alfalfa.
 
+### 2.1 The Revenue Model: The "Resolution Pop"
+
+FarmSense captures market share via a tiered spatial fidelity model, driving conversion through high-resolution data visualization.
+
+| Tier | Grid Res | Cost | Focus | Behavioral Trigger |
+| :--- | :--- | :--- | :--- | :--- |
+| **FREE** | 50m | $0 | Gov / Compliance | "Macro-Truth" onboarding magnet. |
+| **BASIC** | 20m | $15/acre | Small Farmers | Initial Sentinel-2 processing. |
+| **PRO** | 10m | $22/acre | Commercial Ag | Broad-acre drone/sensor fusion. |
+| **ENTERPRISE** | 1m | $30/acre | Legal / Legal | **Gold Truth**: Sub-meter legal evidence. |
+
+**The "FOMO" Trigger**: When a user zooms in on a suspected anomaly (e.g., nozzle leak), the UI generates a high-contrast, blurred preview of the 1m grid with the overlay: *"High-Resolution Proof Available."* This converts technical curiosity into Immediate Enterprise upgrades.
+
 ---
 
 ## 3. Phased Deployment Roadmap (2026–2030)
 
-| Phase | Timeline | Primary Objective | Key Milestone |
+| Phase | Timeline | Primary Objective | Geopolitical Goal |
 | :--- | :--- | :--- | :--- |
-| **I: Pilot** | Now – June 2026 | CSU SLV 2-Field Pilot | Water Court Evidence Submission |
-| **II: Regional** | Q3–Q4 2026 | 100% SLV Subdistrict 1 | "Ogallala Radar" Baseline |
-| **III: State** | 2027 | Colorado Statewide Adoption | DWR Official Standard |
-| **IV: National** | 2028 | USDA/USGS Partnership | High Plains Aquifer Coverage |
-| **V: Sovereign** | 2029+ | International G2G Treaties | Nile/Indus Basin Conflict Mitigation |
+| **I: Pilot** | Now – June 2026 | 2-Field CSU Pilot | Establish "Rule-Compliant" digital subdistrict. |
+| **II: Regional** | Q3–Q4 2026 | 100% SLV Subdistrict 1 | "Front Range Radar" baseline for CO Water Plan. |
+| **III: State** | 2027 | Colorado Statewide | Primary tool for Colorado River Compact compliance. |
+| **IV: National** | 2028 | High Plains Aquifer | Standardize "Federal Water Credits" with USDA/USGS. |
+| **V: Sovereign** | 2029+ | International G2G | Trans-boundary conflict mitigation (Nile/Indus). |
 
 ---
 
