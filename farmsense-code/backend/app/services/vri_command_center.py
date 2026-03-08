@@ -12,7 +12,7 @@ from datetime import datetime
 
 from app.services.grid_renderer import GridRenderingService
 from app.services.adaptive_recalc_engine import AdaptiveRecalculationEngine, AttentionMode
-from app.models.sensor_data import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m
+from app.models.sensor_data import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m, RecalculationLog
 
 logger = logging.getLogger(__name__)
 
@@ -23,12 +23,19 @@ class VRICommandCenter:
         Determines the optimal resolution for the current field state.
         BAR (Best Available Resolution) logic.
         """
-        # 1. Check current attention mode
-        # In a real app, this would query the latest RecalculationLog
-        # For now, we'll instantiate the engine or query a mock state
-        attention = AdaptiveRecalculationEngine(field_id)
-        # Mocking mode retrieval
-        current_mode = AttentionMode.DORMANT 
+        # 1. Check current attention mode from the latest RecalculationLog
+        latest_log = db.query(RecalculationLog).filter(
+            RecalculationLog.field_id == field_id
+        ).order_by(RecalculationLog.timestamp.desc()).first()
+        
+        if not latest_log:
+            current_mode = AttentionMode.DORMANT
+        else:
+            # Map string back to AttentionMode enum
+            try:
+                current_mode = AttentionMode(latest_log.new_mode)
+            except ValueError:
+                current_mode = AttentionMode.DORMANT
         
         # 2. Logic for BAR
         # Collapse mode (emergency/high-action) -> Prefers 1m if possible, or 10m/20m

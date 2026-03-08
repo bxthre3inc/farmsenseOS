@@ -13,6 +13,7 @@ import hashlib
 import json
 import logging
 from sqlalchemy.orm import Session
+from app.models.fields import Field
 from app.models.sensor_data import VFAReading, LRZReading, PFAReading, VirtualSensorGrid1m, AuditLog
 
 logger = logging.getLogger(__name__)
@@ -162,8 +163,9 @@ class FieldDecisionEngine:
         rules_applied = []
         response = ""
 
-        # Strategy Context
-        crop_type = "potato"  # Simplifcation - in prod query from field metadata
+        # Strategy Context - Load from Field Metadata
+        field = db.query(Field).filter(Field.field_id == field_id).first()
+        crop_type = field.crop_type if field and field.crop_type else "potato"
         mapping_model = "Model-A (Even-Grid)"
         
         # Load Crop-Specific Thresholds
@@ -186,9 +188,14 @@ class FieldDecisionEngine:
 
         moisture_vaps_36in = latest_vfa.slot_35_moisture if latest_vfa else 0.35
         well_extraction_rate = latest_pfa.flow_rate_gpm if latest_pfa else 850.0
-        ndvi = 0.78  # Mock satellite integration
-        temp = 28.5
-        savings = 4280
+        # Fetch latest deterministic NDVI from the 1m Kriging Master
+        latest_grid = db.query(VirtualSensorGrid1m).filter(
+            VirtualSensorGrid1m.field_id == field_id
+        ).order_by(VirtualSensorGrid1m.timestamp.desc()).first()
+        
+        ndvi = latest_grid.ndvi if latest_grid and latest_grid.ndvi else 0.78 
+        temp = 28.5 # In production, this would be the latest WeatherData temperature
+        savings = 4280 # Cumulative ROI tracking logic would be placed here
 
         # ── MOISTURE & IRRIGATION QUERIES ──
         if any(w in query_lc for w in ["water", "dry", "moisture", "irrigat", "pump", "haps", "vaps"]):

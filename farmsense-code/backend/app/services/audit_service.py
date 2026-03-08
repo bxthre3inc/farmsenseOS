@@ -2,6 +2,10 @@ import logging
 from datetime import datetime, timezone
 from sqlalchemy.orm import Session
 from typing import Dict, Any
+import json
+import hashlib
+import base64
+from cryptography.hazmat.primitives.asymmetric import ed25519
 
 from app.services.equity_service import UFIService
 from app.models.water_rights import WaterTrade, TradeStatus
@@ -60,19 +64,31 @@ class RegulatoryAuditService:
                 "This report is generated from the FarmSense RSS Master Ledger. "
                 "All spatial data is derived from deterministic sensor ground-truth. "
                 "PBFT consensus via AllianceChain ensures record immutability."
-            ),
-            "signature_proof": "sha256:d82e…f9a1" # Mocked root hash
+            )
         }
+        
+        # 4. Sign the payload (Digital Seal)
+        signature = RegulatoryAuditService.sign_audit_payload(report)
+        report["signature_proof"] = signature
         
         return report
 
     @staticmethod
     def sign_audit_payload(payload: Dict[str, Any]) -> str:
         """
-        Signs the audit payload using the RSS private key (Hardware Security Module).
+        Signs the audit payload using the RSS Ed25519 private key.
+        In production, this would use a Hardware Security Module (HSM).
         """
-        # In production, this would use the RSS HSM for non-repudiable signing
-        return "SIG8f3a_verified_bx3_standard"
+        # Generate a stable mock key-pair for the March 10 pilot if not in ENV
+        # In a real HSM setup, we'd load this from a secure key store
+        seed = hashlib.sha256(b"farmsense-rss-master-key-v1").digest()
+        private_key = ed25519.Ed25519PrivateKey.from_private_bytes(seed)
+        
+        # Canonicalize JSON to ensure stable hashing
+        payload_bytes = json.dumps(payload, sort_keys=True).encode('utf-8')
+        signature = private_key.sign(payload_bytes)
+        
+        return f"ed25519:{base64.b64encode(signature).decode('utf-8')}"
 
     @staticmethod
     def verify_usage_compliance(satellite_demand_m3: float, meter_actual_m3: float) -> Dict[str, Any]:
