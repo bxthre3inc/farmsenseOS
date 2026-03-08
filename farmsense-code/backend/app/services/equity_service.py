@@ -44,6 +44,47 @@ class EquityService:
         db.refresh(stake)
         return stake
 
+class DilutionModelingService:
+    """
+    Simulates the impact of funding rounds on the cap table.
+    Essential for defending the $100B valuation thesis.
+    """
+    @staticmethod
+    def simulate_round(
+        current_total_shares: int,
+        pre_money_valuation: float,
+        investment_amount: float
+    ) -> Dict[str, any]:
+        """
+        Calculates dilution for a given round.
+        Post-Money = Pre-Money + Investment
+        New Shares = Current * (Investment / Pre-Money)
+        """
+        post_money = pre_money_valuation + investment_amount
+        dilution_pct = investment_amount / post_money
+        new_shares = int(current_total_shares * (investment_amount / pre_money_valuation))
+        
+        return {
+            "pre_money": pre_money_valuation,
+            "investment": investment_amount,
+            "post_money": post_money,
+            "dilution_pct": round(dilution_pct * 100, 2),
+            "new_shares_issued": new_shares,
+            "total_shares_post": current_total_shares + new_shares
+        }
+
+    @staticmethod
+    def get_100b_series_a_impact(current_total_shares: int) -> Dict[str, any]:
+        """
+        Specific simulation for the $100B Series A target.
+        Assumes a $20B raise at a $80B pre-money valuation.
+        """
+        return DilutionModelingService.simulate_round(
+            current_total_shares,
+            pre_money_valuation=80_000_000_000.0,
+            investment_amount=20_000_000_000.0
+        )
+
 class SignatureService:
     """
     Manages the royalty-free Digital Signature flow.

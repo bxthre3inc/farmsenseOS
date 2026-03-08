@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Float, DateTime, ForeignKey, Enum as sqlalchemy_enum
 from sqlalchemy.dialects.postgresql import UUID
-from datetime import datetime
+from datetime import datetime, timezone
 import uuid
 import enum
 from .base import Base
@@ -18,7 +18,7 @@ class WaterAllocation(Base):
     field_id = Column(String(50), nullable=False, unique=True, index=True)
     quota_m3 = Column(Float, default=0.0)
     consumed_m3 = Column(Float, default=0.0)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
 
 class WaterTrade(Base):
     """Immutable log of water rights transfers"""
@@ -29,7 +29,8 @@ class WaterTrade(Base):
     from_field_id = Column(String(50), nullable=False, index=True)
     to_field_id = Column(String(50), nullable=False, index=True)
     amount_m3 = Column(Float, nullable=False)
+    price_per_m3 = Column(Float, nullable=True) # For tokenized trading
     status = Column(sqlalchemy_enum(TradeStatus), default=TradeStatus.PENDING)
     block_hash = Column(String(255), nullable=True) # PBFT block hash for audit
     committed_at = Column(DateTime)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))

@@ -117,6 +117,20 @@ The **AllianceChain** is a localized blockchain providing peer-to-peer water rig
 
 ---
 
+## 8. Valuation-Contingent IP Hardening ($100B Roadmap)
+
+To defend the $100B Series A valuation, the IP strategy must shift from defensive to **aggressive market dominance**.
+
+### 8.1 IP "Kill-Switch" Protocol
+- **Conditional Licensing**: If ownership changes due to a hostile takeover or unauthorized dilution beyond 40%, the core Kriging engine (S3) licenses automatically expire, rendering the network data inadmissible in court.
+- **Sovereign Veto**: Founders retain "Golden Share" IP rights across all Series A-D rounds to prevent corporate capture of water rights logic.
+
+### 8.2 Patent Aggression (The Ag-Moat)
+- **Sector Blocking**: Filing 50+ secondary "Method of Use" patents covering every foreseeable use of 1m-fidelity Kriging data in carbon markets, real estate, and municipal planning.
+- **Enforcement War-Chest**: Allocating 15% of the $5M Power Seed for proactive patent litigation against imitators.
+
+---
+
 ## 7. Historical Reconciliation: Conflict Resolutions
 
 The following ambiguities from V1 legacy documentation have been officially resolved via the **Engineering Review Plan (2026-03-07)**:

@@ -1,0 +1,61 @@
+from typing import List, Dict, Optional
+from datetime import datetime, timezone
+from uuid import UUID, uuid4
+from sqlalchemy.orm import Session
+from app.models.water_rights import WaterTrade
+
+class WaterCreditExchange:
+    """
+    The financial engine of the AllianceChain.
+    Commoditizes water rights into tradable 'Water Credits' (WCR).
+    """
+    
+    WCR_DECIMALS = 4 # 1.0000 m3 precision
+    
+    @staticmethod
+    def mint_credits(db: Session, field_id: UUID, amount_m3: float) -> float:
+        """
+        Mints WCRs based on verified ground-truth pumping capacity or MAD headroom.
+        Only allowed if the DHU consensus confirms the hydrological state.
+        """
+        # TODO: Integrate with Ground-Truth sensor data (VFA/PFA)
+        # For now, we simulate the minting onto the ledger
+        return round(amount_m3, WaterCreditExchange.WCR_DECIMALS)
+
+    @staticmethod
+    def create_trade_order(
+        db: Session, 
+        seller_id: UUID, 
+        amount_wcr: float, 
+        price_per_wcr: float
+    ) -> Dict[str, any]:
+        """
+        Creates a new trade order on the AllianceChain.
+        Triggers PBFT consensus across DHUs for settlement.
+        """
+        order_id = uuid4()
+        # In a real implementation, this would broadcast to the Go-based AllianceChain
+        return {
+            "order_id": order_id,
+            "seller_id": seller_id,
+            "amount": amount_wcr,
+            "price": price_per_wcr,
+            "status": "PENDING_CONSENSUS",
+            "timestamp": datetime.now(timezone.utc)
+        }
+
+    @staticmethod
+    def finalize_settlement(db: Session, trade_id: UUID, block_hash: str):
+        """
+        Finalizes a trade after the DHU ledger returns a PBFT block hash.
+        This provides the "Standard of Admissibility" for Water Court.
+        """
+        trade = db.query(WaterTrade).filter(WaterTrade.id == trade_id).first()
+        if not trade:
+            raise ValueError("Trade not found")
+            
+        trade.status = "COMPLETED"
+        trade.block_hash = block_hash
+        trade.finalized_at = datetime.now(timezone.utc)
+        db.commit()
+        return trade
