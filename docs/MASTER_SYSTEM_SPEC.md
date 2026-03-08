@@ -33,8 +33,9 @@ The FarmSense system is a utility-grade hydrological infrastructure project desi
 
 - **L1 → L1.5**: 900MHz LoRa Mesh (**CSS modulation**, NOT FHSS). **AES-256** encrypted. 100% canopy penetration.
 - **L1.5 → L2**: 2.4GHz High-Gain (Primary). Telit ME910G1 LTE-M (Failover).
-- **L2 → L3**: Fiber ONT Primary. Starlink Business Failover.
-- **L3 → Cloud**: Symmetrical Gigabit Fiber.
+- **Diagnostics**: **BLE 5.0 Wireless Console**. Allows ground-level calibration/diagnostics from 50m range (no ladder required).
+- **Security**: **AES-256 Hardware Root-of-Trust**. All outbound LoRa chirps are signed to prevent "Refractive Denial-of-Service" or spoofed VRI commands.
+- **Sleep**: 400mA Deep-Sleep (Winter Mode). Prevents LiSOCl2 passivation while maintaining RTC for "Warm Starts."
 
 ### 2.3 RF Coexistence & Standards
 
@@ -144,7 +145,7 @@ Hermetically sealed high-density compute and legal data repository.
 #### PMT Bus & Pin Mapping (Cortex-M4/ESP32-S3)
 
 | Bus | Peripheral | Pin (GPIO) | Address/Baud |
-| :--- | :--- | :---: | :--- |
+| :--- | :---: | :---: | :--- |
 | **I2C** | Bosch BNO055 | SDA(21)/SCL(22) | 0x28 (400kHz) |
 | **UART1** | ZED-F9P | TX(17)/RX(16) | 921,600 bps |
 | **UART2** | TFX-5000 | TX(18)/RX(19) | 9600-8-N-1 |
@@ -158,7 +159,7 @@ Hermetically sealed high-density compute and legal data repository.
 - **Motor Audit**: 3x Magnelab split-core CT clamps. **Machine Learning Harmonic Analysis** (400A) is shifted to the **PMT Hub** to preserve Level 1 silicon consistency.
 - **Hydrology**: Dwyer Vented 316-SS sounder (PBLTX). Barometric compensated depth.
 - **Actuation**: Omron 30A Industrial Relay for remote pump "Soft-Stop."
-- **Logic**: **nRF52840** (Cortex-M4F @ 64MHz). Provides secure AES-256 signing and basic threshold reflex logic.
+- **Logic**: **nRF52840** (Cortex-M4F @ 64MHz). Provides secure **AES-256** signing, **BLE 5.4** maintenance, and basic threshold reflex logic.
 - **Reflex Logic Table**:
   - `PMT_STALL` → ACTUATE_STOP (Command from PMT)
   - `BURST_MAINLINE` → ACTUATE_STOP (Local Threshold)

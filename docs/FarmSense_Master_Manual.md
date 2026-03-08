@@ -1558,6 +1558,9 @@ The hydraulic flow stack is the primary engine for water rights verification and
 ## 4. Edge Processing & Winter Hibernation Logic
 
 * **ESP32-S3 Unified Compute Platform**: Features a dual-core Xtensa® 32-bit LX7 microprocessor with integrated hardware vector acceleration. It replaces the separate processing sled and radio, acting as a unified core for both positioning math and field mesh aggregation.
+* **Security (AES-256 Hardware Cluster)**: Utilizes the S3's hardware crypto-accelerators to sign the aggregate **Field State Payload**. This ensures that the data sent to the District Hub is immutable and verifiable, forming the basis of the "Digital Water Ledger."
+* **Diagnostics (BLE 5.0 Wireless Console)**: The PMT acts as a BLE beacon and console. This allows technicians in the "Sled Hospital" (a Polaris UTV equipped with a diagnostic tablet) to pull high-fidelity debug logs, calibrate the ultrasonic transducers, or push firmware updates to the PMT without needing to climb 15 feet up the pivot span.
+* **Winter Sleep Logic**: During the non-irrigation season, the PMT enters a "Dormant" state (~400µA), utilizing its RTC to wake up once per week for a "warm start" health ping, preserving the dual Saft LiSOCl2 batteries for a 10-year lifespan.
 * **Comms (The Field Hub)**: Features a dual-radio stack. Transmits and receives via a High-Gain 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh antenna to act as the primary \"listening post\" for the field's LRZ1/LRZ2 & VFA mesh. It then intercepts this data, bundles it with its own **900MHz CSS** hydraulic payload received from the PFA, and blasts the entire field's encrypted payload via a 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh transceiver to the District Hub (DHU).
 
 ### Empirical Bayesian Kriging (Edge-EBK) & VRI Failover Operations
@@ -7705,6 +7708,9 @@ The PFA firmware is optimized for high-fidelity data acquisition and secure tele
 **Phase B: Dumb Chirp Telemetry (Uplink)**
 
 * Transmits the encrypted "Raw Wave Descriptor" upward to the **PMT Field Hub** over the 900MHz LoRa Mesh.
+* **Security (nRF Cryptocell-310)**: Every chirp is signed with a unique hardware-locked key, ensuring "Evidence-Grade" data integrity for the pump audit.
+* **Diagnostics (BLE 5.4)**: Allows ground-level motor calibration and waveform viewing via the **Sled Hospital** diagnostic interface.
+* **Power Optimization**: The nRF52840's ultra-low sleep ensures the PFA can maintain legal flow-auditing continuity on internal battery backup if the 480V wellhead power is interrupted.
 * The PMT Field Hub (ESP32-S3) then executes the **Fast Fourier Transform (FFT)** and Machine Learning analysis to detect cavitation or bearing wear before a catastrophic failure occurs.
 
 ## 3. Telemetry & PMT Bouncing
