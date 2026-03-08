@@ -162,6 +162,16 @@ The FarmSense stack is designed to be the "Enforcement Ledger" for state/subdist
 - **Unmetered Usage Detection**: The RSS Master Grid compares satellite-derived crop demand against real-time pumping ground-truth. Discrepancies >15% trigger an automated **Mandate Violation Alert**.
 - **Conservation Triggers**: UFI Stress Scores > 0.85 can be used to trigger **Automated Subdistrict Curtailment**, where vVRI (Variable Variable Rate Irrigation) rules are enforced by the DHU to prevent aquifer collapse.
 
+#### 1.6.3 Field Boundary Definition (Statutory Onboarding)
+
+Farmers define their geographic legal boundaries through three primary vectors:
+
+1. **Native Interface Drawing**: Farmers use the `AgriMap` drawing suite to outline polygons directly on high-resolution Sentinel-2/L8/NAIP imagery. Polygons are validated for topology (no self-intersections) at the Edge.
+2. **GeoJSON/KML/Shapefile Ingestion**: Standard geographic data formats can be uploaded directly to the DHU.
+3. **CLU/RPID Synchronization**: Automated ingestion of Common Land Unit (CLU) or RPID data from USDA/FSA or state agricultural databases ensures legal alignment with registered water rights.
+
+Once defined, boundaries are stored as **PostGIS WGS-84 Polygons** and hashed into the **AllianceChain Compliance Ledger** to prevent "Boundary Creep" (unauthorized expansion of irrigated acreage).
+
 #### PMT Bus & Pin Mapping (Cortex-M4/ESP32-S3)
 
 | Bus | Peripheral | Pin (GPIO) | Address/Baud |
