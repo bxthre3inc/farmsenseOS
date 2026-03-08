@@ -108,11 +108,16 @@ class RSSKrigingEngine:
         X = np.array([[s['lat'], s['lon']] for s in sensors])
         y = np.array([s['moisture'] for s in sensors])
 
+        # 1. Verification: Perform Cross-Validation for Legal Evidence
+        validation_results = self.perform_cross_validation(sensors)
+        mape = validation_results.get('mape', 0.0)
+        
+        logger.info(f"[RSS Engine] Field {field_id} Kriging Validation: MAPE={mape:.2f}%")
+        if mape > 5.0:
+            logger.warning(f"[RSS Engine] Validation warning: Error rate {mape:.2f}% exceeds CSU Pilot threshold (5%)")
+
         # 2. Fit and Predict
         # 1m approx 0.000009 degrees
-        # BUG FIX: Mandate requires 1m fidelity. 
-        # range was too small (-10*step to +10*step is only 20m total)
-        # We assume typical pivot radius (approx 400m) or at least 100m for a 'grid'.
         grid_radius = 50 # 100m square total
         center_lat, center_lon = np.mean(X[:, 0]), np.mean(X[:, 1])
         step = 0.000009 
@@ -137,6 +142,8 @@ class RSSKrigingEngine:
         else:
             raise ImportError("Scikit-Learn not found in RSS context.")
 
+        results = []
+        for i, (lat, lon) in enumerate(X_grid):
             # Fusion logic: if NDVI prior exists, adjust moisture estimate
             moisture = float(y_pred[i])
             if ndvis is not None:
@@ -151,7 +158,46 @@ class RSSKrigingEngine:
                 "longitude": float(lon),
                 "moisture_surface": moisture,
                 "confidence_score": float(1.0 - sigma[i]),
+                "error_margin_pct": mape, # Report cross-validation error margin
                 "computation_mode": "RSS_FHE_1M" if fhe_enabled else "RSS_1M"
             })
 
         return results
+
+    def perform_cross_validation(self, sensors: List[Dict[str, Any]]) -> Dict[str, float]:
+        """
+        Performs Leave-One-Out Cross-Validation (LOOCV) to determine Kriging accuracy.
+        Required for Water Court evidence-grade reporting.
+        """
+        if len(sensors) < 3:
+            return {"mape": 0.0, "rmse": 0.0}
+
+        X = np.array([[s['lat'], s['lon']] for s in sensors])
+        y = np.array([s['moisture'] for s in sensors])
+        
+        errors = []
+        for i in range(len(sensors)):
+            # Split data
+            X_train = np.delete(X, i, axis=0)
+            y_train = np.delete(y, i, axis=0)
+            X_test = X[i].reshape(1, -1)
+            y_test = y[i]
+            
+            # Fit and predict
+            self.gp.fit(X_train, y_train)
+            y_pred = self.gp.predict(X_test)[0]
+            
+            # Calculate absolute percentage error
+            if abs(y_test) > 1e-5:
+                errors.append(abs(y_pred - y_test) / y_test * 100)
+            else:
+                errors.append(0.0)
+        
+        mape = float(np.mean(errors))
+        rmse = float(np.sqrt(np.mean(np.square(errors)))) # Strictly this is RMSE of percentages here
+        
+        return {
+            "mape": mape,
+            "rmse": rmse,
+            "sample_count": len(sensors)
+        }
