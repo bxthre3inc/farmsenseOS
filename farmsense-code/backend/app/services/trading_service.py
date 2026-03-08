@@ -1,4 +1,5 @@
 import os
+import math
 from sqlalchemy.orm import Session
 from datetime import datetime, timezone
 import uuid
@@ -8,6 +9,7 @@ from typing import Optional
 import httpx
 
 from app.models.water_rights import WaterAllocation, WaterTrade, TradeStatus
+from app.models.sensor_data import WeatherData
 from app.models.user import User
 
 logger = logging.getLogger(__name__)
@@ -127,17 +129,33 @@ class WaterTradingService:
         return trade
 
     @staticmethod
-    def get_current_vpd(region: str = "SLV") -> float:
+    def get_current_vpd(db: Session, region: str = "SLV") -> float:
         """
-        Fetches the real-time Vapor Pressure Deficit (VPD) for the region.
-        In a live environment, this would call a weather API or analytics service.
+        Calculates the real-time Vapor Pressure Deficit (VPD) based on WeatherData.
+        VPD = es - ea (Saturation - Actual Vapor Pressure)
         """
-        # Mocking real-time VPD signal logic
         try:
-            # Placeholder for actual external fetch logic
-            return 1.82 # Normal-High for SLV in March
-        except Exception:
-            return 1.0
+            # Query the latest weather reading for the subdistrict/region
+            latest_weather = db.query(WeatherData).filter(
+                WeatherData.data_type == 'observed'
+            ).order_by(WeatherData.timestamp.desc()).first()
+
+            if not latest_weather:
+                return 1.2 # Fallback moderate stress
+
+            # Simple VPD calculation from RH and Temp
+            T = latest_weather.temperature_c
+            RH = latest_weather.humidity_pct / 100.0
+            
+            # Saturation Vapor Pressure (es) in kPa
+            es = 0.61078 * math.exp((17.27 * T) / (T + 237.3))
+            # Actual Vapor Pressure (ea)
+            ea = es * RH
+            
+            return round(es - ea, 3)
+        except Exception as e:
+            logger.error(f"[TradingService] VPD calculation failed: {e}")
+            return 1.0 # Safe fallback
 
     @staticmethod
     def get_recent_committed_trades_count(db: Session, region: str = "SLV") -> int:

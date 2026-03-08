@@ -8,6 +8,7 @@ from sqlalchemy.orm import Session
 from app.models.equity import EquityStake
 from app.models.user import User
 from app.models.water_rights import WaterTrade, TradeStatus
+from app.models.sensor_data import SoilSensorReading
 from app.services.trading_service import WaterTradingService
 
 logger = logging.getLogger(__name__)
@@ -32,10 +33,8 @@ class UFIService:
         # 2. Leading Indicators (12.0% VPD) - Fetch from Analytics
         # Vapor Pressure Deficit (kPa) - Scale 0.0 to 1.0 (Critical at >2.5 kPa)
         try:
-            # Fetch real-time VPD from analytics service
-            # For demonstration, we'll use a mock or a simple placeholder
-            # In a real system, this would be an API call to an analytics platform
-            V_VPD_raw = WaterTradingService.get_current_vpd(region) # Example call
+            # Fetch real-time VPD using the updated db-connected method
+            V_VPD_raw = WaterTradingService.get_current_vpd(db, region) 
             V_VPD = min(1.0, V_VPD_raw / 2.5) 
         except Exception as e:
             logger.warning(f"Failed to fetch real-time VPD for region {region}: {e}. Using fallback.")
@@ -54,8 +53,22 @@ class UFIService:
             L_AC = 0.45
         
         # 4. Sovereign Variable (60.0% FarmSense Ground-Truth)
-        # Highest fidelity signal from the 1m Kriging Master
-        G_FS = 0.95  
+        # Highest fidelity signal: Recalculated from latest 100 soil readings
+        try:
+            latest_readings = db.query(SoilSensorReading.moisture_surface).filter(
+                SoilSensorReading.quality_flag == 'valid'
+            ).order_by(SoilSensorReading.timestamp.desc()).limit(100).all()
+            
+            if latest_readings:
+                # Average moisture (normalized 0.1 to 0.5 -> 0.0 to 1.0 stress)
+                avg_moisture = sum([r[0] for r in latest_readings]) / len(latest_readings)
+                # UFI stress is inverse of moisture (0.5 moisture -> 0.0 stress, 0.1 moisture -> 1.0 stress)
+                G_FS = max(0.0, min(1.0, (0.5 - avg_moisture) / 0.4))
+            else:
+                G_FS = 0.5
+        except Exception as e:
+            logger.error(f"[UFI] Ground-Truth aggregation failed: {e}")
+            G_FS = 0.5
         
         # Hex-Fusion V2.2 Calculation
         score = (

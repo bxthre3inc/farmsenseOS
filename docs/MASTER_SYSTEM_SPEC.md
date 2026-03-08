@@ -178,7 +178,27 @@ To reduce friction in statutory compliance, FarmSense utilizes **Computer Vision
 - **Vision Propose (Mock-Informed)**: The subdistrict-wide 50m layer is analyzed using edge-detection algorithms to identify apparent field boundaries around the geocoded point.
 - **Claim-and-Edit**: Farmers are presented with "Proposed Polygons" which they can click to claim, tweak, or reject, replacing manual drawing with high-fidelity validation.
 
-Once defined, boundaries are stored as **PostGIS WGS-84 Polygons** and hashed into the **AllianceChain Compliance Ledger** to prevent "Boundary Creep" (unauthorized expansion of irrigated acreage).
+Once defined, boundaries are stored as **PostGIS WGS-84 Polygons** and hashed into the **AllianceChain Compliance Ledger**.
+
+### 1.7 Operations, Maintenance & Field Staffing
+
+While the RSS handles the computational load (~658 fields/hr/core), the physical resilience of the "Edge of the Edge" requires a dedicated **Field Operations Team**.
+
+#### 1.7.1 Field Staff Requirements
+
+To support a subdistrict-wide mandate and ensure 99.9% sensor up-time for Water Court evidence:
+
+- **Autonomous Scale (99.9%)**: All data layers, including the **1cm "Point Zoom"**, are **100% autonomous**.
+  - **1cm Surgical Precision**: The 1cm tier is a "Point Zoom" computational optimization. It renders high-fidelity Kriging residuals ONLY in the immediate vicinity of the user's click/query. This provides hyper-accurate diagnostics without the overhead of rendering a full subdistrict at 1cm resolution.
+- **Physical Trust Operations**: The **6-man Field Operations Team** is responsible for the **Physical Layer**, not the data layer.
+  - **Hardware Integrity**: Installation, calibration, and repair of PMT/VFA units.
+  - **Power Resilience**: Managing solar/battery hygiene across remote sectors.
+  - **Legal Chain-of-Custody**: Periodically certifying that physical hardware is untampered and correctly positioned, which "anchors" the autonomous data to legal standards.
+- **Baseline Staffing**: Minimum **6 Full-Time Field Technicians** on a rotational "on-the-clock" basis.
+
+#### 1.7.2 Operational Scale
+
+The RSS is designed to scale horizontally via clusters, but the Field Staff is the primary bottleneck for "Digital Twin" expansion. Pricing tiers (e.g., the $500 monthly Enterprise minimum) are designed to subsidize this high-touch human operational layer.
 
 #### PMT Bus & Pin Mapping (Cortex-M4/ESP32-S3)
 
