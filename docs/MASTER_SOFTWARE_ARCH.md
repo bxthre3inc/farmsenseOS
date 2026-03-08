@@ -26,7 +26,7 @@ FarmSense functions as a decentralized monolithic grid, balancing low-latency ed
 1. **Level 1 (Field):** **LRZ1/LRZ2/VFA/PFA** (LoRa bursts) -> **PMT Hub** (50m Grid, Edge-EBK baseline). 900MHz **Chirp Spread Spectrum (CSS)** security.
 2. **Level 2 (District):** **DHUs** (NVIDIA Jetson Orin Nano) -> 1m/10m/20m Grid (Go-based Bayesian Kriging). Localized reflex autonomy.
 3. **Level 3 (Regional):** **RSS** (64-Core Threadripper) -> 1m Grid (Python-based Regression Kriging + FHE). Regional DIL vaulting.
-4. **Level 4 (Global):** **Zo.computer Cloud** -> Multi-field analytics, Federated Learning, global hydro-economics.
+4. **Level 4 (Global):** **Core Compute Cloud** -> Multi-field analytics, Federated Learning, global hydro-economics.
 
 ### 2.2 Core Software Tier Stack
 
@@ -35,7 +35,7 @@ FarmSense functions as a decentralized monolithic grid, balancing low-latency ed
 | **L0 (Field)** | Sensors | Bare-Metal C | Raw sensing & local deep-sleep management. |
 | **L1 (Hub)** | PMT | ESP32-S3 | Reflex Logic (IMU Stall → Stop), 50m Grid Compute. |
 | **L2 (District)** | DHU | Orin Nano / Go | 20m/10m Grid Kriging, AllianceChain PBFT Consensus. |
-| **L3 (Cortex)** | RSS / Cloud | Python / FastAPI | 1m Master Grid, Long-term DIL, Legal Vault. |
+| **L3 (Core Compute Engine)** | RSS / Cloud | Python / FastAPI | 1m Master Grid, Long-term DIL, Legal Vault. |
 
 ---
 
@@ -92,7 +92,7 @@ CREATE TABLE compliance_logs (
 
 ## 4. Core Software Engines
 
-### 4.1 The Zo Engine (Soil-Plant-Atmosphere Continuum Synthesis)
+### 4.1 The Core Compute Engine (Soil-Plant-Atmosphere Continuum Synthesis)
 
 Hosted at `brodiblanco.zo.computer`. Responsible for the **Soil-Plant-Atmosphere Continuum (SPAC)** synthesis and high-fidelity moisture mastering.
 
@@ -240,7 +240,7 @@ Automated deployment is managed via GitHub Actions to the CSE/Zo stack.
 ### 10.1 Environment Configuration
 
 - **RDC (Oracle)**: Public IP for Map Database. Requires `POSTGRES_USER`, `POSTGRES_PASSWORD`.
-- **Zo.computer**: Core Application Server. Requires `MAP_DATABASE_URL` pointing to the RDC.
+- **Core Compute Engine**: Core Application Server. Requires `MAP_DATABASE_URL` pointing to the RDC.
 
 ### 10.2 Deployment Workflow
 

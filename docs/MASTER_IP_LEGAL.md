@@ -11,7 +11,7 @@ The FarmSense architecture operates on the principle that every sensor reading i
 
 - **Non-Repudiation**: Data is "Self-Authenticating." No human witness is required to verify the integrity of the PFA wellhead readings.
 - **Evidence-Grade Accuracy**: Standardized ±1.0% flow and <5% Kriging error bars provide the empirical backbone for groundwater limit enforcement.
-- **Admissibility**: All decision logic (Zo Engine, Recalc) is deterministic and auditable, explicitly avoiding "Black-Box" AI to ensure survival under legal cross-examination.
+- **Admissibility**: All decision logic (Core Compute Engine, Recalc) is deterministic and auditable, explicitly avoiding "Black-Box" AI to ensure survival under legal cross-examination.
 
 ---
 

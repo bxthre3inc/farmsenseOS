@@ -34,7 +34,7 @@ The SLV floor, situated at 7,500 to 8,000 feet in altitude, is a high-desert env
 
 To combat a legacy of over-consumption, Subdistrict 1 treats water as a public good. The implementation of the $500 per acre-foot (AF) groundwater pumping fee represents a quadrupling of previous costs ($75–$150/AF).1 This fee acts as the primary economic multiplier for the FarmSense system. The platform performs a continuous Cost-Benefit Analysis (CBA): if the marginal cost of a "last minute" irrigation event (the $500/AF fee plus associated electrical and labor costs) exceeds the marginal revenue of the yield protected, the system deterministically recommends withholding the resource.1
 
-For a standard 130-acre center pivot consuming roughly 260 AF per season, achieving the stated 20% water reduction saves 52 AF.1 At $500/AF, this translates to $26,000 in direct savings per pivot, effortlessly justifying the platform's $499/month ($5,988/year) Enterprise Tier SaaS subscription.1
+For a standard 126-acre center pivot consuming roughly 252 AF per season, achieving the stated 20% water reduction saves 50.4 AF.1 At $500/AF, this translates to $25,200 in direct savings per pivot, effortlessly justifying the platform's $499/month ($5,988/year) Enterprise Tier SaaS subscription.1
 
 ### **1.2 SPAC Modeling and Edaphic Variability**
 
@@ -68,8 +68,8 @@ The cloud architecture is designed for heavy spatial analytics and operates loca
 
 Relying purely on external cloud connectivity in rural agricultural environments is a critical point of failure. FarmSense mitigates this by pushing heavy computational loads to the edge and utilizing the Regional Superstation as its own localized cloud.
 
-* **Regional Superstation (RSS):** Located in Monte Vista, this Level 3 node serves as the territory master and equal cloud counterpart to the backend intelligence. Operating as a decentralized monolithic grid, it ensures that heavy spatial analytics and the "Digital Water Ledger" remain intact and legally irrefutable even during total regional internet or cellular blackouts. Housed in a modified 40-foot High-Cube container, it contains a 64-Core AMD Threadripper PRO cluster with 256GB of ECC RAM and stores the master spatial database on a 50TB Enterprise NVme array.\[1, 1\]
-* **District Hubs (DHU):** Acting as Level 2 Regional Mesh Managers, DHUs are true edge coordinators mounted on 35-foot Class 4 timber poles, covering a 5km radius with extreme overlapping redundancy. Powered by an **NVIDIA Jetson Orin Nano (8GB)**, the DHU executes the Zo "Worksheets" locally, allowing for instantaneous "Reflex Logic" decisions (e.g., executing an emergency pump shutdown) without suffering from cellular latency. Using high-gain 2.4GHz sector antennas, the DHU Mesh provides the district-wide backbone for the "Digital Water Ledger."
+* **Regional Superstation (RSS):** Located in Monte Vista, this Level 3 node serves as the territory master and equal cloud counterpart to the backend intelligence. Operating as a decentralized monolithic grid, it ensures that heavy spatial analytics and the "Digital Water Ledger" remain intact and legally irrefutable even during total regional internet or cellular blackouts. Housed in a modified 40-foot High-Cube container, it contains a 64-Core AMD Threadripper PRO cluster with 512GB of ECC RAM and stores the master spatial database on a 50TB Enterprise NVme array.\[1, 1\]
+* **District Hubs (DHU):** Acting as Level 2 Regional Mesh Managers, DHUs are true edge coordinators mounted on 35-foot Class 4 timber poles, covering a 100-pivot radius with extreme overlapping redundancy. Powered by an **NVIDIA Jetson Orin Nano (8GB)**, the DHU executes the Zo "Worksheets" locally, allowing for instantaneous "Reflex Logic" decisions (e.g., executing an emergency pump shutdown) without suffering from cellular latency. Using high-gain 2.4GHz sector antennas, the DHU Mesh provides the district-wide backbone for the "Digital Water Ledger."
 
 ### **2.3 The "Black Box" Ledger and Legal Defensibility**
 
@@ -114,7 +114,7 @@ The realization of the "Digital Water Ledger" relies on the mechanical accuracy 
 
 The PMT (V1.6) is the "Nervous System" of the center pivot.1
 
-* **GNSS Architecture:** The PMT utilizes a u-blox ZED-F9P RTK GNSS module, achieving **sub-cm** horizontal accuracy.1 This precision allows the Zo engine to calculate precisely which 1-meter spatial tile received water.\[1, 1\]
+* **GNSS Architecture:** The PMT utilizes a u-blox ZED-F9P RTK GNSS module, achieving **sub-cm** horizontal accuracy.1 This precision allows the Core Compute Engine to calculate precisely which 1-meter spatial tile received water.\[1, 1\]
 * **Structural Auditing:** The unit incorporates a Bosch BNO055 9-Axis Inertial Measurement Unit (IMU) to continuously monitor vibration harmonics and detect dangerous "crabbing".1
 
 ### **4.2 Hydraulic Auditing: Transit-Time Ultrasonic Flow Sensors**
@@ -188,13 +188,13 @@ The pilot's focus on generating legally defensible, basin-saving metrics qualifi
 
 **8\. Software-Driven Feature Expansion and Privacy Architecture**
 
-To drastically improve the platform's feature set and functionality without increasing hardware capital expenditure, FarmSense leverages the massive computational overhead already engineered into its edge devices (the PFA's ESP32-S3, the DHU's Nvidia Jetson Orin Nano, and the RSS's Threadripper cluster).
+To drastically improve the platform's feature set and functionality without increasing hardware capital expenditure, FarmSense leverages the massive computational overhead already engineered into its edge devices (the PFA's nRF52840, the DHU's Nvidia Jetson Orin Nano, and the RSS's Threadripper cluster).
 
 ### **8.1 Zero-CapEx Edge Enhancements**
 
-* **Predictive Maintenance via Current Harmonic Analysis (PFA):** Using the existing non-invasive 400A CT Clamps, the PFA can deploy machine learning to analyze the well pump's energy signature (vibration, torque ripple). This "short-horizon forecasting" elevates the PFA into an enterprise-grade predictive maintenance tool, detecting cavitation or bearing wear before a $20,000 motor burnout occurs.  
-* **Machine-Learning Kriging (Zo Engine):** The 1m Enterprise resolution is enhanced by integrating k-means clustering algorithms that combine the sparse proximal sensor data with high-frequency satellite data (Landsat/Sentinel-2), boosting mapping accuracy without adding physical sensors.  
-* **Blockchain Water Trading Ledger (DHU):** The DHU's 2TB NVMe SSD can be leveraged via software to run an alliance-chain blockchain utilizing a practical Byzantine fault tolerance (PBFT) consensus mechanism. This actively aligns the "Black Box" to serve as a secure, decentralized agricultural water rights trading platform for neighboring farmers.  
+* **Predictive Maintenance via Current Harmonic Analysis (PFA/PMT):** Using the existing non-invasive 400A CT Clamps, the PFA collects high-fidelity current waveforms. This data is transmitted to the **PMT Hub**, which deploys machine learning (via hardware vector acceleration) to analyze the well pump's energy signature (vibration, torque ripple). This "short-horizon forecasting" elevates the PFA into an enterprise-grade predictive maintenance tool, detecting cavitation or bearing wear before a $20,000 motor burnout occurs.
+* **Machine-Learning Kriging (Core Compute Engine):** The 1m Enterprise resolution is enhanced by integrating k-means clustering algorithms that combine the sparse proximal sensor data with high-frequency satellite data (Landsat/Sentinel-2), boosting mapping accuracy without adding physical sensors.  
+* **Blockchain Water Trading Ledger (DHU):** The DHU's 128GB Industrial pSLC SSD can be leveraged via software to run an alliance-chain blockchain utilizing a practical Byzantine fault tolerance (PBFT) consensus mechanism. This actively aligns the "Black Box" to serve as a secure, decentralized agricultural water rights trading platform for neighboring farmers.  
 * **Federal "Federated Data Fabric" Adapters:** To secure military grants, software adapters can be deployed that format the environmental data gathered by the network into military-standard communication protocols, feeding directly into the Federal's Joint All-Domain Command and Control (Inter-agency) network priorities.
 
 ### **8.2 Dual-Layer Spatial Privacy and Federated Learning**
@@ -212,12 +212,45 @@ To solidify the FarmSense architecture for premier global infrastructure grants 
 
 * **LPI/LPD Positioning (Chirp Spread Spectrum (CSS) LoRa Mesh):** The Lateral Root-Zone (LRZ1/LRZ2) network's existing Frequency-Hopping Spread Spectrum (Chirp Spread Spectrum (CSS) LoRa Mesh) architecture should be explicitly pitched as a "Low Probability of Intercept" (LPI) and "Low Probability of Detection" (LPD) asset. In tactical scenarios, rapidly switching frequencies makes the sensor grid highly resistant to adversarial jamming and interception.  
 * **Rapid Deployment Housings:** To dramatically expand the Federal dual-use appeal, the LRZ1/LRZ2 physical housing concept can be adapted for high-altitude (HALO) or low-orbit kinetic deployment. By engineering the 18-inch HDPE SDR9 shell to withstand high-G impacts and utilizing the existing 15-degree friction molded tapered driving tip, the sensors could act as kinetic penetrators that are air-dropped to autonomously bury themselves flush with the ground. This fulfills military requirements for covert, rapidly deployable unattended ground sensor (UGS) networks in contested environments.  
-* **Fully Homomorphic Encryption (FHE):** Upgrade the Regional Superstation (RSS) from standard AES encryption to Fully Homomorphic Encryption (FHE). FHE is a groundbreaking cryptographic technology that allows the Zo engine's complex Kriging algorithms to be executed directly on encrypted data without ever decrypting it first. This ensures absolute data confidentiality during processing.  
+* **Fully Homomorphic Encryption (FHE):** Upgrade the Regional Superstation (RSS) from standard AES encryption to Fully Homomorphic Encryption (FHE). FHE is a groundbreaking cryptographic technology that allows the Core Compute Engine's complex Kriging algorithms to be executed directly on encrypted data without ever decrypting it first. This ensures absolute data confidentiality during processing.  
 * **Automated GLOBALG.A.P. Compliance:** Develop a software module that translates the platform's certified flow and moisture data into automated GLOBALG.A.P. compliance reports. This allows farmers to effortlessly prove sustainable water management to international standards, unlocking premium supply chain markets globally.
 
 ## ---
 
-**10\. Immediate Strategic Roadmap**
+**10. Single Field Deployment (SFD) Canonical Configurations**
+
+To ensure repeatable precision and ease of auditing for the "Digital Water Ledger," FarmSense standardizes on three canonical Single Field Deployment (SFD) models. These configurations define the hardware density and topological placement required to achieve ±1.0% flow accuracy and 1m Enterprise spatial resolution.
+
+### **10.1 SFD-P: Standard Pivot (126-Acre Circular)**
+
+Used for standard center-pivot machines without articulate corner-swing arms. This is the baseline "Subdistrict 1" deployment model ($1,235 Hardware CapEx).
+
+* **L1.5 Field Hub**: 1× **PMT (V1.7)** mounted on the main span.
+* **L1 Safety Actuator**: 1× **PFA (V1.9)** at the wellhead.
+* **L1 Sub-Surface Stereo Array**: 2× **VFA**, 4× **LRZ2**, 12× **LRZ1**.
+* **Total Node Count**: 20 Nodes.
+
+### **10.2 SFD-C: Articulate Corner-Swing Arm (150+ Acre)**
+
+Required for center-pivots equipped with a swing-arm extension. Utilizes dual-resolver kinematic logic ($2,470 Hardware CapEx).
+
+* **L1.5 Field Hub (Sync)**: 1× **PMT (Primary)** + 1× **CSA (Secondary Resolver)**.
+* **L1 Safety Actuator**: 1× **PFA (V1.9)** at the wellhead.
+* **L1 Sub-Surface Array**: 4× **VFA**, 6× **LRZ2**, 18× **LRZ1**.
+* **Total Node Count**: 30 Nodes.
+
+### **10.3 SFD-F: Flood / Surface Irrigation (60-160 Acre)**
+
+The definitive configuration for furrow or flood irrigation where no moving pivot hardware is present.
+
+* **L1.5 Field Hub (Static)**: 1× **Static-PMT Gateway** on a 15ft mast.
+* **L1 Source Monitor**: 1× **PFA (V1.9)** or Ultrasonic Flume Auditor at the headgate.
+* **L1 Sub-Surface Array**: 4× **VFA**, 8× **LRZ2**, 20× **LRZ1**.
+* **Total Node Count**: 34 Nodes (Higher density required to account for stochastic infiltration).
+
+## ---
+
+**11\. Immediate Strategic Roadmap**
 
 The FarmSense platform represents a highly sophisticated synthesis of edge computing and agronomic science. To lock in non-dilutive global funding targets and successfully define the June 2026 Water Court trial parameters, the following tactical milestones are executed:
 
@@ -745,7 +778,7 @@ The 126-acre average is not arbitrary. It is the precise geometric result of fit
 | **Partial (Half-Circle)** | ~63 Acres | **~15%** |
 | **Small / Specialty** | ~31 – 40 Acres | **~5%** |
 
-> **Engineering Note:** The 8% Double/Large Unit figure is particularly significant for the FarmSense hardware BOM. These fields represent a likely requirement for a Corner-Swing Auditor (CSA) dual-PMT configuration, increasing the per-field deployment cost from $1,112 to $2,224.
+> **Engineering Note:** The 8% Double/Large Unit figure is particularly significant for the FarmSense hardware BOM. These fields represent a likely requirement for a Corner-Swing Auditor (CSA) dual-PMT configuration, increasing the per-field deployment cost from $1,235 to $2,470.
 
 ---
 
@@ -777,7 +810,7 @@ Using the conservative pivot estimate of **1,270 pivots** (midpoint of 1,250–1
 
 ### Per-Pivot Hardware Deployment (Standard Stack)
 
-`1,280 pivots × ($1,112 per field cluster) = ~$1.42M Hardware CapEx`
+`1,280 pivots × ($1,235 per field cluster) = ~$1.58M Hardware CapEx`
 
 ### Annual Water Fee Savings Unlocked (20% reduction @ $500/AF)
 
@@ -786,7 +819,7 @@ Standard pivot: 126 acres × ~2 AF/acre/season = 252 AF. 20% savings = **50.4 AF
 
 ---
 
-*This document supersedes earlier population estimates used in prior FarmSense feasibility documents, which referenced 166,000 acres or 130-acre average fields.*
+*This document supersedes earlier population estimates used in prior FarmSense feasibility documents, which referenced 166,000 acres or 126-acre average fields.*
 
 <div style="page-break-after: always;"></div>
 
@@ -990,7 +1023,7 @@ Baseline." They detect regional "Anomalies"—such as a subdistrict-wide dip in 
 
 (Normalized Difference Red Edge) that might indicate a regional pest outbreak or a
 
-shifting water table—allowing the Zo Engine to prioritize which individual fields require
+shifting water table—allowing the Core Compute Engine to prioritize which individual fields require
 
 immediate subsurface sensor attention.
 
@@ -1000,7 +1033,7 @@ Role: Targeted "Resolution Pops," Irrigation Failure Audits, and Plant-Level Ver
 
 Capability: 0.7cm/pixel GSD (Ground Sample Distance) at 50m AGL.
 
-Logic: Dispatched only when the Zo Engine detects anomalous variability between LRZ1/LRZ2
+Logic: Dispatched only when the Core Compute Engine detects anomalous variability between LRZ1/LRZ2
 
 scouts (e.g., Slot 10 is "dry" while Slot 18 is "wet," indicating a potential surface
 
@@ -1160,7 +1193,7 @@ Kinematic Synchronization: Both units utilize a sub-second BLE handshake. The SA
 
 feeds its angular displacement data to the PST, which then packages a unified "Double
 
-Kinematic" payload for the VFA. This allows the Zo Engine to calculate the "Crabbing"
+Kinematic" payload for the VFA. This allows the Core Compute Engine to calculate the "Crabbing"
 
 effect of the swing-arm tires independently of the main span, identifying structural stress
 
@@ -1263,7 +1296,7 @@ Mounting 304-SS Band-It Straps (x4) McMaster 5530K34 $12.50 $25.00
 
 Mounting Neoprene Friction Pad (x2) McMaster 8637K32 $5.50 $11.00
 
-Computing Cortex-M4 Processing Sled
+Computing Core Compute Engine-M4 Processing Sled
 (x2)
 
 Position u-blox ZED-F9P RTK GNSS
@@ -1596,7 +1629,7 @@ This ledger deconstructs the hardware costs for the initial 1,280-unit rollout.
 | Fasteners | SS M4 Security Screws (x4) | McMaster Security-M4 | $2.00 | $2.00 |
 | Radio | High-Gain BLE Whip Antenna | Linx ANT-BLE | $30.00 | $30.00 |
 | Radio | 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh Transceiver | Semtech SX1262 | $12.00 | $12.00 |
-| **TOTAL** | **Per Unit Hardware Cost** | | **$1,112.00** | |
+| **TOTAL** | **Per Unit Hardware Cost** | | **$1,235.00** | |
 
 **Total Subdistrict 1 Project Financials (1,280 Units)**:
 
@@ -1716,7 +1749,7 @@ pump warranties remain fully intact.
 
 Predictive Logic: By analyzing the "Energy Signature" (harmonics, phase balance, and
 
-torque ripple), the Zo Engine (the Scientist) can detect early-stage cavitation, bearing
+torque ripple), the Core Compute Engine (the Scientist) can detect early-stage cavitation, bearing
 
 wear, or impeller inefficiency. This enables "Predictive Maintenance," allowing the
 
@@ -1780,7 +1813,7 @@ The PFA logic is designed for extreme resilience, ensuring that data integrity i
 
 during total grid failures or utility-mandated Public Safety Power Shutoffs (PSPS).
 
-Processing Sled: Features an NXP i.MX RT (Cortex-M7) high-speed processing sled. This
+Processing Sled: Features an NXP i.MX RT (Core Compute Engine-M7) high-speed processing sled. This
 
 MCU is chosen for its ability to handle rapid, synchronous sampling of analog inputs, which
 
@@ -1831,7 +1864,7 @@ Housing NEMA 4X EMI-Shielded Enclosure Hoffman
 
 $55.00 $55.00
 
-Computing NXP i.MX RT (Cortex-M7) Sled Digi-Key (RT1020) $95.00 $95.00
+Computing NXP i.MX RT (Core Compute Engine-M7) Sled Digi-Key (RT1020) $95.00 $95.00
 
 Diagnosis 400A Split-Core CT Clamps (x3) Magnelab (SCT-1250) $110.00 $110.00
 
@@ -1900,9 +1933,9 @@ Water Court Integrity: In the event of an water rights dispute, the PFA's unbrok
 
 # Master Specification: Regional Superstation (RSS) V1.3
 
-**Role**: Regional Cortex & Master DIL | **Tier**: Layer 3 (Territory Master) | **Location**: Monte Vista Hub, SLV
+**Role**: Regional Core Compute Engine & Master DIL | **Tier**: Layer 3 (Territory Master) | **Location**: Monte Vista Hub, SLV
 
-The Regional Superstation (RSS) is the absolute "Cortex" of the FarmSense network for Subdistrict 1. It serves as the physical high-performance computing anchor, the master data repository, and the primary logistics staging ground for the regional Digital Water Ledger. Unlike the field-level VFA or the district-level DHU, the RSS is designed for heavy-lift spatial analytics and long-term legal data vaulting. It houses the **Oracle Multi-Core Compute Layer** and the RDC, providing the computational horsepower required to turn hundreds of millions of raw sensor "chirps" into hyper-accurate 1m-resolution Enterprise maps, while managing the heavy Fully Homomorphic Encryption (FHE) overhead for long-term secure vaulting.
+The Regional Superstation (RSS) is the absolute "Core Compute Engine" of the FarmSense network for Subdistrict 1. It serves as the physical high-performance computing anchor, the master data repository, and the primary logistics staging ground for the regional Digital Water Ledger. Unlike the field-level VFA or the district-level DHU, the RSS is designed for heavy-lift spatial analytics and long-term legal data vaulting. It houses the **Oracle Multi-Core Compute Layer** and the RDC, providing the computational horsepower required to turn hundreds of millions of raw sensor "chirps" into hyper-accurate 1m-resolution Enterprise maps, while managing the heavy Fully Homomorphic Encryption (FHE) overhead for long-term secure vaulting.
 
 **Operational Philosophy**: The RSS is the bridge between field-level IoT hardware and cloud-scale scientific modeling. It serves as the physical backbone for the **Command & Control (C&C)** portal, providing the internal workforce with a unified interface for subdistrict-wide monitoring and fleet deployment, including XR workforce role support. It is engineered to ensure that even during total regional internet failures or cellular blackouts, the subdistrict's water accounting data remains intact, auditable, and legally irrefutable. Furthermore, the RSS acts as the "Sled Hospital" for the seasonal extraction program, ensuring the 10-year hardware lifecycle is maintained through precision maintenance, trickle-charging, and nitrogen re-pressurization. By centralizing the intelligence and maintenance of the subdistrict, the RSS reduces the marginal cost of data management while maximizing the legal "Seniority" of the members' water rights.
 
@@ -1931,7 +1964,7 @@ The intermediate zone acts as the supply chain buffer, ensuring the field crews 
 
 The most protected, hermetically sealed section at the far end of the container, accessible only to tier-1 technical staff.
 
-* **Oracle Cortex & Vault Storage**: Houses the multi-core compute clusters and the high-density storage arrays. The server racks are mounted on specialized vibration-dampening feet to protect the spinning storage media from the rumble of passing heavy farm equipment.
+* **Oracle Core Compute Engine & Vault Storage**: Houses the multi-core compute clusters and the high-density storage arrays. The server racks are mounted on specialized vibration-dampening feet to protect the spinning storage media from the rumble of passing heavy farm equipment.
 * **Precision HVAC & Thermal Dynamics**: Utilizes a Mitsubishi Hyper-Heat Mini-Split with an integrated low-ambient kit. In a room only 77 sq. ft in size, the HVAC system can cycle the entire air volume every 90 seconds. This creates a hyper-stable thermal environment, maintaining exactly 68°F ± 1° even when external SLV ambient temperatures plunge to a "Polar Vortex" low of −40°F.
 * **Air Scrubbing**: A dual-stage HEPA filtration system runs 24/7. This is non-negotiable in the San Luis Valley, where the fine alkali dust can be highly conductive and corrosive; even a microscopic layer on a high-speed NVMe contact can lead to data corruption in the RDC.
 
@@ -2102,7 +2135,7 @@ FarmSense is the definitive sovereign water infrastructure—legally recognized,
 1. **Level 1 (Field):** **LRZ1/LRZ2/VFA** (Chirp Spread Spectrum (CSS) LoRa bursts) -> **PMT Hub** (50m Grid, EBK baseline).
 2. **Level 2 (District):** **DHUs** (NVIDIA Jetson Orin Nano) -> 1m/10m/20m Grid (Go-based Kriging).
 3. **Level 3 (Regional):** **RSS** (64-Core Threadripper) -> 1m Grid (Python-based Regression Kriging + FHE).
-4. **Level 4 (Global):** **Zo.computer Cloud** -> Multi-field analytics, Federated Learning.
+4. **Level 4 (Global):** **zo.computer Cloud** -> Multi-field analytics, Federated Learning.
 
 ### 2.2. Core Software Components
 
@@ -2215,7 +2248,7 @@ FarmSense is the definitive sovereign water infrastructure—legally recognized,
 ---
 
 *Last Updated: 2026-02-28*
-*Contact: <support@farmsense.io>*
+*Contact: <support@zo.computer>*
 
 <div style="page-break-after: always;"></div>
 
@@ -2651,7 +2684,7 @@ FarmSense encompasses a complete suite of precision agriculture optimization met
 
 Zero-cost, OTA software-only framework upgrades activating extreme analytical potential from existing Level-1/2 hardware processors:
 
-* **Predictive Well Maintenance [PFA]**: Implementing Machine Learning Current Harmonic Analysis. The NXP Cortex-M7 utilizes 400A CT Clamps to detect minute "torque ripples," bearing wear, or cavitation prior to a catastrophic pump motor failure.
+* **Predictive Well Maintenance [PFA]**: Implementing Machine Learning Current Harmonic Analysis. The NXP Core Compute Engine-M7 utilizes 400A CT Clamps to detect minute "torque ripples," bearing wear, or cavitation prior to a catastrophic pump motor failure.
 * **Machine-Learning Kriging [Zo]**: K-means clustering algorithms unifying sparse proximal data with high-frequency satellite integrations, massively increasing predictive model accuracy without additional sensors.
 * **PBFT Alliance Blockchain Ledger [DHU]**: Transforming the 128GB passive "Black Box" memory module into an active, Byzantine fault tolerance consensus mechanism for executing hyper-local peer-to-peer groundwater trading rights.
 * **Dual-Layer Contextual Anonymization**: Systematically dividing hyper-accurate, unmodifiable legal ledger data (for private court use) from anonymized, federally-shared machine learning analytics (obfuscating individual farmers).
@@ -2673,13 +2706,13 @@ Aligning FarmSense hardware to operate optimally under contested deployment and 
 
 ### Phase 1: Foundation (Weeks 1-4)
 
-#### Week 1-2: Infrastructure Setup (Zo.computer Pivot)
+#### Week 1-2: Infrastructure Setup (zo.computer Pivot)
 
-* [ ] Provision custom Zo.computer server ($18 paid tier)
-* [ ] Install Docker & Docker Compose on Zo.computer
+* [ ] Provision custom zo.computer server ($18 paid tier)
+* [ ] Install Docker & Docker Compose on zo.computer
 * [ ] Deploy unified `docker-compose.zo-unified.yml` (Postgres, Timescale, Redis, RabbitMQ)
 * [ ] Configure Nginx reverse proxy for the 7 frontend portals
-* [ ] Set up CI/CD pipeline deployment hooks for Zo.computer
+* [ ] Set up CI/CD pipeline deployment hooks for zo.computer
 * [ ] Set up monitoring stack (Prometheus + Grafana) inside Zo
 
 **Deliverables:**
@@ -2866,7 +2899,7 @@ psql -h your-rds-host -U farmsense_user -d farmsense
 ### 2. Backend Deployment
 
 ```bash
-# SSH into Zo.computer
+# SSH into zo.computer
 ssh ubuntu@your-zo-ip
 
 # Run the deployment script
@@ -2900,7 +2933,7 @@ sudo systemctl status farmsense-edge
 
 ### 4. Frontend Deployment
 
-Frontends are now automatically containerized and routed via Nginx within the Zo.computer unified stack. No manual AWS S3/CloudFront invalidations are required for Phase 1.
+Frontends are now automatically containerized and routed via Nginx within the zo.computer unified stack. No manual AWS S3/CloudFront invalidations are required for Phase 1.
 
 ```bash
 # If developing locally, rebuild a specific portal:
@@ -3027,9 +3060,9 @@ docker-compose -f deployment/docker/docker-compose.zo-unified.yml up -d --scale 
 
 ## 📞 Support Contacts
 
-* **Technical Lead**: <tech-lead@farmsense.io>
-* **DevOps**: <devops@farmsense.io>
-* **Support**: <support@farmsense.io>
+* **Technical Lead**: <tech-lead@zo.computer>
+* **DevOps**: <devops@zo.computer>
+* **Support**: <support@zo.computer>
 * **Emergency**: +1-800-FARM-911
 
 ---
@@ -3461,7 +3494,7 @@ reference/
 
 # 🚀 FarmSense CI/CD Setup Guide
 
-This guide explains how to connect your GitHub repository to your **Oracle** and **Zo.computer** instances for automated deployment.
+This guide explains how to connect your GitHub repository to your **Oracle** and **zo.computer** instances for automated deployment.
 
 ## 1. Prepare Your Servers
 
@@ -3492,7 +3525,7 @@ Add the following secrets:
 | `ORACLE_SSH_KEY` | Private SSH Key (Content of your `.pem` file) |
 | `ENV_FILE_ORACLE` | The full content of your `.env` file for Oracle. Must include: `POSTGRES_USER`, `POSTGRES_PASSWORD`, etc. |
 
-### 🧠 Zo.computer (Core Platform)
+### 🧠 zo.computer (Core Platform)
 
 | Secret Name | Value Description |
 | ------------- | ------------------- |
@@ -3898,7 +3931,7 @@ docker-compose exec backend python -m app.core.database
 * **Architecture Doc**: [View Full Architecture Document](https://docs.FarmSense.com/architecture)
 * **API Documentation**: <http://localhost:8000/docs> (after deployment)
 * **GitHub Issues**: For bug reports
-* **Email**: <support@farmsense.io>
+* **Email**: <support@zo.computer>
 
 ---
 
@@ -6032,7 +6065,7 @@ FarmSense is compatible with the following specialized sensors (specifications f
 
 Copyright © 2026 FarmSense. Developed for the San Luis Valley Groundwater Pilot. All rights reserved.
 
-**Security Vulnerabilities**: Report to <security@farmsense.io>
+**Security Vulnerabilities**: Report to <security@zo.computer>
 
 ---
 
@@ -6068,7 +6101,7 @@ Unlike traditional static IoT networks, FarmSense pushes intense computational p
 1. **[Pivot Motion Tracker (PMT) Firmware Specification](../specifications/firmware/PMT_Firmware_Spec.md):** The autonomous Level 1.5 Field Hub. Details the continuous execution of the 50m Empirical Bayesian Kriging (Edge-EBK) matrix and the "Fisherman's Attention" update scaling.
 2. **[Vertical Field Anchor (VFA) Firmware Specification](../specifications/firmware/VFA_Firmware_Spec.md):** The Level 1 Advanced Peer Node. Details the deep-profile ground truth telemetry generation processes and 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh routing.
 3. **[Lateral Root-Zone Surveyor (LRZ1/LRZ2) Firmware Specification](../specifications/firmware/LRZ1/LRZ2_Firmware_Spec.md):** The mass-produced "dumb node." Details the LPI/LPD capacitive telemetry sweeps and high-frequency chirp protocols.
-4. **[Pressure & Flow Anchor (PFA) Firmware Specification](../specifications/firmware/PFA_Firmware_Spec.md):** The "Sentry of the Source." Details the Cortex-M7 Current Harmonic Analysis of the wellhead motor, cavitation detection, and 900MHz CSS High-Gain linking.
+4. **[Pressure & Flow Anchor (PFA) Firmware Specification](../specifications/firmware/PFA_Firmware_Spec.md):** The "Sentry of the Source." Details the Core Compute Engine-M7 Current Harmonic Analysis of the wellhead motor, cavitation detection, and 900MHz CSS High-Gain linking.
 5. **[Corner-Swing Auditor (CSA) Firmware Specification](../specifications/firmware/CSA_Firmware_Spec.md):** Details the dual-node kinematics required to resolve swing-arm transit and overlap matrices.
 
 ---
@@ -6088,7 +6121,7 @@ The intelligence powering the frontends and edge-hardware relies on these deeply
 
 This project is configured for a **Hybrid Cloud Deployment**:
 
-* **Core Platform (Zo.computer)**: Hosts the API, processing, and frontend applications.
+* **Core Platform (zo.computer)**: Hosts the API, processing, and frontend applications.
 * **Map Stack (RDC)**: Hosts the geospatial database and map tile services.
 
 ### 1. RDC (Map Stack) Setup
@@ -6108,9 +6141,9 @@ docker-compose -f docker-compose.oracle.yml up -d
 
 **Network Config:**
 
-* Ensure Port `5432` is accessible from your Zo.computer IP (configure Oracle Security List / VCN).
+* Ensure Port `5432` is accessible from your zo.computer IP (configure Oracle Security List / VCN).
 
-### 2. Zo.computer (Core Platform) Setup
+### 2. zo.computer (Core Platform) Setup
 
 ```bash
 # On your Zo Instance
@@ -6345,7 +6378,7 @@ The dashboard centers around a high-performance web-mapping interface built on `
 
 The interface provides direct (but secure) controls over the pivot's Variable Rate Irrigation systems.
 
-* **Deterministic Worksheet Generation:** The UI surfaces the "Worksheets" automatically generated by the Zo Engine. These are mathematically optimized speed maps defining the exact % speed the pivot should travel at specific degrees of its rotation to resolve identified crop stress.
+* **Deterministic Worksheet Generation:** The UI surfaces the "Worksheets" automatically generated by the Core Compute Engine. These are mathematically optimized speed maps defining the exact % speed the pivot should travel at specific degrees of its rotation to resolve identified crop stress.
 * **Review & Execute/Modify:** The farmer reviews the proposed Worksheet. They can approve it for execution (sending the speed envelope payload to the PMT), or manually adjust specific sectors using an interactive arc-drawing tool.
 * **Kinematic Auditing Viewer:** A secondary display tracks the real-time physical position of the pivot against its prescribed Worksheet using the PMT's u-blox RTK GNSS feed.
 
@@ -6788,7 +6821,7 @@ Dedicated PFA (Pressure & Flow Anchor) dashboard replacing the sparse pump card 
 
 **Key elements:**
 
-* **Real-Time Waveform Display** — Live torque ripple waveform from the NXP Cortex-M7 CT Clamp analysis (400A, 3-phase). Rendered as a scrolling oscilloscope-style chart at 10Hz refresh.
+* **Real-Time Waveform Display** — Live torque ripple waveform from the NXP Core Compute Engine-M7 CT Clamp analysis (400A, 3-phase). Rendered as a scrolling oscilloscope-style chart at 10Hz refresh.
 * **Health Scores Panel** — ML Current Harmonic Analysis outputs four continuous health indices: Bearing Wear (0–100), Cavitation Risk (0–100), Vibration Harmonic Distortion (% THD), and Efficiency Degradation (% vs. baseline). Each index has a warning threshold and a predicted days-to-failure estimate.
 * **Flow & Pressure Gauges** — Live GPM and PSI readings from the ultrasonic transit-time flow meter (Badger Meter). Trend sparklines for the last 24 hours.
 * **Predictive Maintenance Calendar** — ML-generated maintenance schedule: next recommended inspection date, estimated component lifetimes (impeller, bearings, motor windings), and history of past maintenance events.
@@ -7655,7 +7688,7 @@ The Lateral Root-Zone Surveyor (LRZ1/LRZ2) is the ultimate **Level 1 Spatial Map
 
 ## 1. Hardware Initialization Routine
 
-* **Processor:** nRF52840 (Ultra-low power ARM Cortex-M4F).
+* **Processor:** nRF52840 (Ultra-low power ARM Core Compute Engine-M4F).
 * **Sensors:** Single-depth lateral soil tension and canopy ambient temperature sensors.
 * **Power:** Internal prolonged lithium core (Designed for 5-year multi-season survival without solar tracking).
 * **Enclosure Rating:** IP68/IP69K (Hermetically sealed polycarbonate).
@@ -7691,7 +7724,7 @@ The Pressure & Flow Anchor (PFA) operates as the **Sentry of the Source**. Attac
 
 ## 1. Hardware Initialization Routine
 
-* **Processor:** nRF52840 (Cortex-M4F). Standardized across all Level 1 nodes.
+* **Processor:** nRF52840 (Core Compute Engine-M4F). Standardized across all Level 1 nodes.
 * **Sensors:** Badger Meter TFX-5000 ultrasonic transit-time components, 400A Current Transformer (CT) Clamps, high-frequency internal accelerometers.
 * **Power:** Stepped down directly from the 480V wellhead power block.
 
@@ -7762,7 +7795,7 @@ The PMT continuously executes Empirical Bayesian Kriging (Edge-EBK) to generate 
 
 If the PMT detects a loss of Chirp Spread Spectrum (CSS) LoRa Mesh ping-acknowledgment from the DHU:
 
-* **Autonomous VRI:** Because the PMT is *already* calculating the 50m EBK grid natively, it instantly switches to executing autonomous Variable Rate Irrigation commands (speeding/slowing the pivot or actuating safety valves) based *only* on its localized intelligence, bypassing the offline DHU/Zo engines entirely.
+* **Autonomous VRI:** Because the PMT is *already* calculating the 50m EBK grid natively, it instantly switches to executing autonomous Variable Rate Irrigation commands (speeding/slowing the pivot or actuating safety valves) based *only* on its localized intelligence, bypassing the offline DHU/Core Compute Engines entirely.
 * **Audit Buffering:** Stores all 187-byte payload state changes to onboard SPI Flash, burst-transmitting the backlog upon DHU reconnection to preserve the State Engineer audit ledger.
 
 ---
@@ -7778,7 +7811,7 @@ The Vertical Field Anchor (VFA) operates as a **Level 1 Advanced Peer Node**. It
 
 ## 1. Hardware Initialization Routine
 
-* **Processor:** nRF52840 (Ultra-low power ARM Cortex-M4F).
+* **Processor:** nRF52840 (Ultra-low power ARM Core Compute Engine-M4F).
 * **Sensors:** GroPoint Profile multivariant soil moisture, temperature, and salinity probe.
 * **Power:** Flush 5W Polycarbonate Solar Lid + Hybrid Pulse Capacitor (HPC).
 * **Telemetry Range:** 50mm non-contact capacitive telemetry field for physical diagnostics.

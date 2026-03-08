@@ -363,6 +363,55 @@ Estimated coverage for Subdistrict 1 territory.
 - **Density**: ~18 Nodes Per Field (Phase 2).
 - **Data Standard**: 1m-pixel high-resolution spatial moisture grid.
 
+---
+
+## **11. Single Field Deployment (SFD) Canonical Configurations**
+
+To ensure repeatable precision and ease of auditing for the "Digital Water Ledger," FarmSense standardizes on three canonical Single Field Deployment (SFD) models. These configurations define the hardware density and topological placement required to achieve ±1.0% flow accuracy and 1m Enterprise spatial resolution.
+
+### **11.1 SFD-P: Standard Pivot (126-Acre Circular)**
+
+Used for standard center-pivot machines without articulate corner-swing arms. This is the baseline "Subdistrict 1" deployment model.
+
+- **L1.5 Field Hub**: 1× **PMT (V1.7)** mounted on the main span (typically tower 2 or 3).
+- **L1 Safety Actuator**: 1× **PFA (V1.9)** at the wellhead for source auditing.
+- **L1 Sub-Surface Stereo Array**:
+  - 2× **VFA (V1.21)** Deep Percolation Anchors (placed at 1/3 and 2/3 radii).
+  - 4× **LRZ2** Spatial Reference Nodes (cardinal directions).
+  - 12× **LRZ1** High-Density Truth Nodes (stochastic placement within SFD zones).
+- **Total Node Count**: 20 Nodes.
+- **Target Accuracy**: ±1.0% Volumetric, 1m Spatial.
+
+### **11.2 SFD-C: Articulate Corner-Swing Arm (150+ Acre)**
+
+Required for center-pivots equipped with a swing-arm extension to irrigate the field corners. Utilizes the "CSA" dual-resolver logic.
+
+- **L1.5 Field Hub (Sync)**:
+  - 1× **PMT (V1.7)** on the Primary Span (Standard Hub).
+  - 1× **CSA (V1.0)** on the Swing-Arm (Secondary Resolver).
+- **L1 Safety Actuator**: 1× **PFA (V1.9)** at the wellhead.
+- **L1 Sub-Surface Stereo Array**:
+  - 4× **VFA (V1.21)** (Increased density to cover corner-swing transitions).
+  - 6× **LRZ2** Spatial Reference Nodes.
+  - 16× **LRZ1** High-Density Truth Nodes.
+- **Total Node Count**: 28 Nodes.
+- **Logic**: BLE 5.2 Distance Ranging resolves the swing-arm joint to ±0.1°.
+
+### **11.3 SFD-F: Flood / Surface Irrigation (60-160 Acre)**
+
+The definitive configuration for surface irrigation (furrow, flood, or gated pipe) where no moving pivot hardware is present.
+
+- **L1.5 Field Hub (Static)**: 1× **DHU-Lite / Static-PMT**. Mounted on a 15ft mast at the highest elevation point of the field (Ditch Intake).
+- **L1 Source Monitor**: 1× **PFA (V1.9)** (or Ultrasonic Flume Auditor) at the headgate or ditch turnout.
+- **L1 Sub-Surface Array**:
+  - 4× **VFA (V1.21)** (Linear placement along the primary drainage gradient).
+  - 8× **LRZ2** Spatial Reference Nodes (placed at head, middle, and tail of runs).
+  - 20× **LRZ1** High-Density Truth Nodes.
+- **Total Node Count**: 34 Nodes (Higher density required to account for the lack of kinematic kinematic "continuous sweeping" data).
+- **Logic**: Relies on "Wetting Front Propagation" algorithms to calculate virtual depth without movement trackers.
+
+---
+
 ## 12. Maintenance & "Sled Hospital" SOP
 
 To ensure a 10-year hardware survival curve and maximize SaaS margins, FarmSense utilizes a circular "Sled Exchange" economy.
