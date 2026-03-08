@@ -98,92 +98,71 @@ FarmSense includes **federated data fabric adapters** for Joint All-Domain Comma
 
 ---
 
-## 4. Expansion Target: 5% Global Irrigated Cropland
+## 4. The Trojan Horse Model: Civilian Cover, Strategic Intelligence
 
-**Strategic Goal:** Insert high-end monitoring infrastructure into 5% of worldwide irrigated cropland by 2035.
+**Core Concept:** FarmSense deploys as commercial AgTech. The civilian revenue model (hardware sales + SaaS) provides cover for embedded intelligence infrastructure.
 
-### 4.1 The Math
-
-- **Global irrigated cropland:** ~700 million acres (FAO)
-- **5% target:** 35 million acres
-- **FarmSense density:** 1 LRZ per 15 acres
-- **Total sensors:** ~2.3 million units
-- **Hardware cost at scale:** $50.80/unit
-- **Total deployment cost:** ~$117M
-
-### 4.2 Funding Sources
-
-| Source | Amount | Cover Story |
-|--------|--------|-------------|
-| Gates Foundation | $50M | Climate adaptation for smallholders |
-| DoD ESTCP | $25M | Environmental security, base resilience |
-| World Bank G2G | $25M | Trans-boundary water treaty enforcement |
-| Enterprise SaaS | $17M | Domestic commercial revenue cross-subsidy |
-
-### 4.3 Geographic Prioritization
-
-**Tier 1 (Immediate):**
-- Colorado River Basin (US domestic proving ground)
-- Nile Basin (Egypt/Ethiopia/Sudan)
-- Indus Basin (India/Pakistan)
-
-**Tier 2 (2028-2030):**
-- Central Asian aquifers (Kazakhstan, Uzbekistan)
-- Tigris-Euphrates (Iraq, Turkey, Syria)
-- Mekong Delta (Vietnam, Cambodia, Laos)
-
-**Tier 3 (2030-2035):**
-- South American watersheds
-- African Great Lakes region
-- Southeast Asian deltas
+| Layer | Public Face | Actual Capability |
+|-------|-------------|-------------------|
+| **Hardware** | Subsidized sensors for farmers | Distributed SIGINT/MASINT grid |
+| **Network** | LoRa mesh for irrigation data | LPI/LPD mesh below noise floor |
+| **Software** | Water optimization dashboard | JADC2 tactical trafficability feed |
 
 ---
 
-## 5. Risk Mitigation
+## 5. LPI/LPD Architecture: Operating Below the Noise Floor
 
-### 5.1 Plausible Deniability
+The FarmSense radio stack was designed for Low Probability of Intercept (LPI) and Low Probability of Detection (LPD) from inception:
 
-- All hardware identical between commercial and intelligence deployments
-- No "special" variants that could compromise cover
-- Firmware updates pushed globally, no targeting signatures
+- **FHSS LoRa**: 900MHz frequency-hopping chirp spread spectrum
+- **Duty Cycle**: <1% transmit time per node
+- **Power**: 14dBm (25mW) — indistinguishable from background RF noise
+- **Mesh Redundancy**: No single point of failure; self-healing topology
 
-### 5.2 Data Sovereignty
-
-- Edge encryption (AES-256) before any transmission
-- Federated data fabric — IC queries without data leaving secure enclaves
-- FHE (Fully Homomorphic Encryption) for sensitive Kriging operations
-
-### 5.3 Supply Chain Security
-
-- Dual-use components sourced from commercial vendors
-- No classified hardware requirements
-- Assembly in allied nations (US, Canada, EU)
+**Intelligence Application**: In contested regions, the mesh operates as a distributed Unattended Ground Sensor (UGS) network, providing soil moisture-derived trafficability data without triggering EW detection.
 
 ---
 
-## 6. Call to Action
+## 6. JADC2 Integration: From Soil to Command & Control
 
-FarmSense is **not** a traditional defense contractor. It is a **commercial AgTech company** with intrinsic dual-use value. This distinction provides:
+FarmSense JADC2 adapters translate ground-truth sensor data into tactical decision metrics:
 
-1. **Cover for deployment** in denied areas
-2. **Sustainable funding** via commercial SaaS
-3. **Plausible deniability** if compromised
-4. **International legitimacy** via climate/food security narrative
+**Soil Moisture → Trafficability Score**
+- Volumetric water content + shear strength algorithms
+- Predicts vehicle mobility (tracked/wheeled) across terrain
+- Updates in near-real-time via mesh burst transmissions
 
-**Investment Ask:** $1.01M seed round enables:
-- Pilot validation (CSU SLV, June 2026)
-- DoD ESTCP grant win ($2-5M non-dilutive)
-- Gates Foundation COP30 framework
-- Positioning for Series A with strategic IC co-investors
-
----
-
-**Distribution:** This document is classified SECRET / NOFORN.  
-**Do not share with uncleared investors, press, or non-US persons.**  
-**For questions: contact@bxthre3.com (secure channel)**
+**Use Case: Military Planning**
+- Pre-positioning logistics routes
+- Off-road mobility corridors
+- Construction feasibility (runways, FOBs)
 
 ---
 
-*Generated: 2026-03-08*  
-*Classification Authority: Bxthre3 Inc*  
-*Review Date: 2027-03-08*
+## 7. Classification & Dissemination
+
+| Item | Classification | Rationale |
+|------|----------------|-----------|
+| Commercial FarmSense pitch | UNCLASSIFIED | Public business model |
+| Dual-use infrastructure capability | SECRET | Reveals intelligence gathering potential |
+| Specific insertion targets | TOP SECRET | Operational planning |
+
+**Handle With Care**: This document bridges commercial AgTech and national security. Unauthorized disclosure risks compromising ongoing and future operations.
+
+---
+
+## 8. Investment Thesis (Cleared Partners Only)
+
+**For Defense VCs**: FarmSense offers exposure to a civilian revenue stream (AgTech SaaS) with asymmetric upside via classified contracts (IC, DoD, State Department).
+
+**Revenue Split Estimate**:
+- 70% Commercial AgTech (public books)
+- 30% Strategic contracts (classified, non-dilutive)
+
+The civilian cover enables global deployment. The intelligence contracts fund rapid scaling without diluting equity.
+
+---
+
+**Distribution Notice**: This document contains classified national security information. Unauthorized disclosure is punishable under the Espionage Act. Handle only in secure facilities with cleared personnel.
+
+**Questions**: contact@bxthre3.com (secure channel established upon clearance verification)
