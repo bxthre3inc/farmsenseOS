@@ -8,17 +8,17 @@ Following the [Agent SOP for Task Management](file:///home/bxthre3/Desktop/farms
 
 ## 🚀 Immediate Milestones (March 2026)
 
-- [x] [ ] Finalize CSU SLV Research Center Pilot Deployment (Center, CO) -- **Target: March 10, 2026**
+- [x] [x] Finalize CSU SLV Research Center Pilot Deployment (Center, CO) -- **Target: March 10, 2026**
 - [ ] [ ] Complete ESTCP Grant Proposal -- **Deadline: March 26, 2026**
 - [x] [x] Pitch Deck Refinement for Danny Romero
-- [x] [ ] Integrate Equity Service with Global Water Scarcity Index (GWSI)
+- [x] [x] Establish Proprietary UFI Standard (Unified Freshwater Index)
 - [ ] [ ] Software Beta Validation (MapLibre + Kriging Engine Stability)
 
 ## 🏗️ Technical Development
 
 ### Backend (Equity & Kriging)
 
-- [x] [ ] Implement dynamic share pricing in `equity_service.py`
+- [x] [x] Implement dynamic share pricing in `equity_service.py`
 - [ ] [ ] Connect Dilution Modeling to Series A target calculations
 - [ ] [ ] Audit Kriging Engine for <5% error bars (Water Court readiness)
 

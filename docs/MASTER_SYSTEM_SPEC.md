@@ -134,13 +134,17 @@ Hermetically sealed high-density compute and legal data repository.
 
 - **Non-Invasive Flow Stack**: **Badger Meter TFX-5000** Ultrasonic Transit-Time (±1.0% accuracy). Employs dual-path transducers to verify **Volumetric Hydraulic Reality** and suppress kinetic noise.
 - **Kinematic Positioning**: **u-blox ZED-F9P RTK GNSS** (<5cm error). Integrated with Bosch BNO055 9-Axis IMU to detect "Crabbing" and **Structural Cantilever Deviations**.
-- **Edge IQ (ESP32-S3)**: Dual-core 240MHz + Hardware Vector Acceleration. Executes **Autonomous Edge-EBK** (50m spatial grid) natively for zero-downtime **Precision VRI**.
-- **Fisherman's Attention (Adaptive Updates)**:
-  - **Dormant**: 4-hour sweeps (Stable).
-  - **Anticipatory**: 1-hour sweeps (Forecasted change).
-  - **Focus Ripple**: 15-min sweeps (Active anomaly detection).
-  - **Focus Collapse**: 5-second sweeps (Critical event / Water moving).
-- **VRI Logic**: Executes 1m-pixel prescriptions delivered from DHU/RSS.
+- **Edge Computation (L1.5/PMT)**:
+  - Generates initial **50m Spatial Grid** (Compliance Level) natively for zero-downtime Local-VRI.
+  - Passes 50m grid + RAW sensor telemetry for redundant auditing.
+- **District Computation (L2/DHU)**:
+  - Receives L1.5 50m grid.
+  - Computes secondary **20m and 10m Resolution Tiles** for territory-level optimization.
+  - Passes 50m, 20m, 10m, and RAW telemetry to RSS.
+- **Cortex Computation (L3/RSS)**:
+  - Consolidates all tiers for the **Master Compliance Ledger**.
+  - Renders the definitive **1m Enterprise Raster** (Enterprise Level) using Regression Kriging.
+  - **Point Zoom (1cm Hyper-Accuracy)**: On-demand diagnostic zoom. Renders 1cm resolution for any specific coordinate within the 1m grid using raw ultrasonic/dielectric telemetry and IMU-kinematic correction.
 
 #### PMT Bus & Pin Mapping (Cortex-M4/ESP32-S3)
 
@@ -380,7 +384,7 @@ Used for standard center-pivot machines without articulate corner-swing arms. Th
   - 4× **LRZ2** Spatial Reference Nodes (cardinal directions).
   - 12× **LRZ1** High-Density Truth Nodes (stochastic placement within SFD zones).
 - **Total Node Count**: 20 Nodes.
-- **Target Accuracy**: ±1.0% Volumetric, 1m Spatial.
+- **Target Accuracy**: ±1.0% Volumetric, 50m Spatial (Compliance) / 1m Spatial (Enterprise).
 
 ### **11.2 SFD-C: Articulate Corner-Swing Arm (150+ Acre)**
 
