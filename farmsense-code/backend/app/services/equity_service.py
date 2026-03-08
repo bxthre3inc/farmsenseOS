@@ -9,6 +9,7 @@ from app.models.equity import EquityStake
 from app.models.user import User
 from app.models.water_rights import WaterTrade, TradeStatus
 from app.models.sensor_data import SoilSensorReading
+from sqlalchemy import func
 from app.services.trading_service import WaterTradingService
 
 logger = logging.getLogger(__name__)
@@ -164,9 +165,9 @@ class DilutionModelingService:
         Specific simulation for the $100B Series A target.
         Assumes a $20B raise at a $80B pre-money valuation.
         """
-        current_total_shares = db.query(EquityStake).count()
+        current_total_shares = db.query(func.sum(EquityStake.shares)).scalar() or 0
         if current_total_shares == 0:
-            current_total_shares = 1 # Avoid division by zero
+            current_total_shares = 1000000 # Default seed for modeling if empty
             
         return DilutionModelingService.simulate_round(
             current_total_shares,

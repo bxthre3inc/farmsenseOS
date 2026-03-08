@@ -74,14 +74,18 @@ def process_investor_buy_in(
 ):
     """Processes a stock buy-in for a logged-in investor"""
     from app.services.equity_service import EquityService
-    equity_service = EquityService(db)
     
     try:
-        equity_service.allocate_shares(user.id, amount)
+        stake = EquityService.process_buy_in(db, user, amount)
         # In MVP, tier is a string. Update to Enum later if needed.
         user.tier = "ENTERPRISE"
         db.commit()
-        return {"status": "success", "message": f"Successfully processed ${amount} buy-in. Account upgraded to Enterprise."}
+        return {
+            "status": "success", 
+            "message": f"Successfully processed ${amount} buy-in. Issued {stake.shares} shares.",
+            "shares_issued": stake.shares,
+            "purchase_price": stake.purchase_price
+        }
     except Exception as e:
         from fastapi import HTTPException
         db.rollback()
