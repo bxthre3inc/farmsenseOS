@@ -135,16 +135,32 @@ Hermetically sealed high-density compute and legal data repository.
 - **Non-Invasive Flow Stack**: **Badger Meter TFX-5000** Ultrasonic Transit-Time (±1.0% accuracy). Employs dual-path transducers to verify **Volumetric Hydraulic Reality** and suppress kinetic noise.
 - **Kinematic Positioning**: **u-blox ZED-F9P RTK GNSS** (<5cm error). Integrated with Bosch BNO055 9-Axis IMU to detect "Crabbing" and **Structural Cantilever Deviations**.
 - **Edge Computation (L1.5/PMT)**:
-  - Generates initial **50m Spatial Grid** (Compliance Level) natively for zero-downtime Local-VRI.
+  - Generates initial **50m Spatial Grid** (Compliance Level) natively. This is the **Free Compliance Base**, subsidized by SFD grants.
   - Passes 50m grid + RAW sensor telemetry for redundant auditing.
 - **District Computation (L2/DHU)**:
   - Receives L1.5 50m grid.
-  - Computes secondary **20m and 10m Resolution Tiles** for territory-level optimization.
-  - Passes 50m, 20m, 10m, and RAW telemetry to RSS.
+  - Computes secondary **20m and 10m Resolution Tiles** (Paid / Paid Plus tiers) for territory-level optimization.
 - **Cortex Computation (L3/RSS)**:
   - Consolidates all tiers for the **Master Compliance Ledger**.
-  - Renders the definitive **1m Enterprise Raster** (Enterprise Level) using Regression Kriging.
-  - **Point Zoom (1cm Hyper-Accuracy)**: On-demand diagnostic zoom. Renders 1cm resolution for any specific coordinate within the 1m grid using raw ultrasonic/dielectric telemetry and IMU-kinematic correction.
+  - Renders the definitive **1m Enterprise Raster** (Enterprise Tier - **$500/mo min**).
+  - **Point Zoom (1cm Hyper-Accuracy)**: Quality-focused spot check (audit-grade by design). Enterprise Exclusive.
+
+#### 1.6.1 Software Pricing & Volume Discounts
+
+FarmSense employs a "Scale-Out" pricing model to incentivize large-scale subdistrict adoption:
+
+- **Base Units**: Pricing is calculated per-field. Single field is at the standard rate.
+- **Initial Volume Boot**: Triggers at **5% off** for 2 or more fields, increasing by **2.5% per field** until **15%** (Field 6).
+- **Growth Accelerator**: 1% discount for every **2 additional fields** until **20%** (Field 16).
+- **Subdistrict Scale**: 1% discount for every **10 additional fields** until a **25% lifetime cap**.
+
+#### 1.6.2 Statutory Mandate Integration
+
+The FarmSense stack is designed to be the "Enforcement Ledger" for state/subdistrict mandates (e.g., Colorado SB23-295 compliance):
+
+- **Mandatory 50m Audit**: The Free 50m Compliance Base provides a "Blanket Audit" for the entire subdistrict.
+- **Unmetered Usage Detection**: The RSS Master Grid compares satellite-derived crop demand against real-time pumping ground-truth. Discrepancies >15% trigger an automated **Mandate Violation Alert**.
+- **Conservation Triggers**: UFI Stress Scores > 0.85 can be used to trigger **Automated Subdistrict Curtailment**, where vVRI (Variable Variable Rate Irrigation) rules are enforced by the DHU to prevent aquifer collapse.
 
 #### PMT Bus & Pin Mapping (Cortex-M4/ESP32-S3)
 

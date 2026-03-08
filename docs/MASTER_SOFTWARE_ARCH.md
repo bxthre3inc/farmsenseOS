@@ -223,6 +223,7 @@ Sub-cloud orchestrator evaluation field-state conditions.
 
 - **UFI (Unified Freshwater Index)**: Proprietary bx3 standard for Fresh Water Availability. Uses Hex-Fusion to prioritize hardware Ground-Truth (60%).
 - **Resolution Pop**: Dynamic UI blur/unlock between **50m Compliance (Free/Base)** and **1m Enterprise (Global/Premium)** spatial tiers based on UFI stress levels.
+- **Mandate Enforcement Layer**: Automated cross-validation of satellite ET (Evapotranspiration) vs. Badger Meter ground-truth to detect unmetered water "leakage" or unauthorized usage across the subdistrict.
 - **AllianceChain**: Peer-to-peer water credit trading rights executed via DHU PBFT consensus.
 - **Rapid Deployment/Dual-Use**: JADC2 adapters translate soil trafficability into tactical terrain maps.
 

@@ -20,7 +20,7 @@ Following the [Agent SOP for Task Management](file:///home/bxthre3/Desktop/farms
 
 - [x] [x] Implement dynamic share pricing in `equity_service.py`
 - [ ] [ ] Connect Dilution Modeling to Series A target calculations
-- [ ] [ ] Audit Kriging Engine for <5% error bars (Water Court readiness)
+- [x] [x] Audit Kriging Engine for <5% error bars (Water Court readiness)
 
 ### Frontend (Farmer Dashboard)
 

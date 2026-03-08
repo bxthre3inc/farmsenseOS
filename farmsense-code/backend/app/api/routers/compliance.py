@@ -8,6 +8,7 @@ from app.models.user import User, UserRole
 from app.models.sensor_data import ComplianceReport
 
 from app.schemas.metrics import ComplianceReportResponse
+from app.services.audit_service import RegulatoryAuditService
 
 router = APIRouter()
 
@@ -59,6 +60,21 @@ def generate_compliance_report(
         # Synchronous execution if no background tasks provided
         generate_compliance_report_task(field_id, period_start, period_end, report_type, db)
         return {"status": "completed", "message": "Report generated synchronously"}
+
+
+@router.get("/audit/field/{field_id}", tags=["Regulatory"], dependencies=[Depends(RequireRole([UserRole.REGULATOR, UserRole.INTERNAL]))])
+def get_field_audit_report(
+    field_id: str,
+    db: Session = Depends(get_db),
+    user: User = Depends(get_current_user)
+):
+    """
+    Generate a non-repudiable Water Court Audit Report (bx3 Standard).
+    Consolidates UFI scores, high-res kriging metadata, and AllianceChain proofs.
+    Requires REGULATOR or INTERNAL role.
+    """
+    report = RegulatoryAuditService.generate_field_audit_report(db, field_id, user)
+    return report
 
 
 # ──────────────────────────────────────────────────────────

@@ -73,3 +73,20 @@ class RegulatoryAuditService:
         """
         # In production, this would use the RSS HSM for non-repudiable signing
         return "SIG8f3a_verified_bx3_standard"
+
+    @staticmethod
+    def verify_usage_compliance(satellite_demand_m3: float, meter_actual_m3: float) -> Dict[str, Any]:
+        """
+        Mandate Enforcement: Cross-validates satellite ET demand vs. Ground-Truth pumping.
+        Used by the Subdistrict to detect 'Unmetered Leakage'.
+        """
+        discrepancy_pct = abs(satellite_demand_m3 - meter_actual_m3) / max(satellite_demand_m3, 1.0) * 100.0
+        is_compliant = discrepancy_pct <= 15.0 # Mandate threshold
+        
+        return {
+            "satellite_estimate_m3": satellite_demand_m3,
+            "meter_ground_truth_m3": meter_actual_m3,
+            "discrepancy_pct": round(discrepancy_pct, 2),
+            "compliance_status": "VALIDATED" if is_compliant else "AUDIT_REQUIRED",
+            "enforcement_action": "NONE" if is_compliant else "MANDATE_VIOLATION_NOTICE"
+        }
