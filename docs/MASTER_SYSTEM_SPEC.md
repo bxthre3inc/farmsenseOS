@@ -1,4 +1,4 @@
-# MASTER SYSTEM SPECIFICATION: FarmSense Systems & Infrastructure (V2.1)
+i# MASTER SYSTEM SPECIFICATION: FarmSense Systems & Infrastructure (V2.1)
 
 > **The Single Source of Truth for Hardware, Network, and Infrastructure**
 > Consolidates: 14 Master Specs, 10 Knowledge Items, 2 EDRs, and the Comprehensive Hardware breakdown.
@@ -119,10 +119,10 @@ Hermetically sealed high-density compute and legal data repository.
 | Category | Component | Cost |
 | :--- | :--- | :--- |
 | Compute | Jetson Orin Nano + 128GB pSLC SSD | $581 |
-| Comms | 3x LTU Sectors + LTE-M Modem | $1,307 |
+| Comms | 3x LTU Sectors + LTE-M Modem + **900MHz Gateway** | $1,427 |
 | Infrastructure | 35ft Pole + NEMA 4X Enclosure | $1,542 |
 | Power | 200W Array + 200Ah Heated LFP | $1,190 |
-| **TOTAL** | **Per Unit Hardware Cost** | **$5,041** |
+| **TOTAL** | **Per Unit Hardware Cost** | **$5,161** |
 
 ---
 

@@ -109,13 +109,13 @@ class WaterTradingService:
             if block_hash:
                 trade.block_hash = block_hash  # store for audit verification
 
-            # Update water allocations atomically
+            # Update water allocations atomically with a row-level lock
             from_alloc = db.query(WaterAllocation).filter(
                 WaterAllocation.field_id == trade.from_field_id
-            ).first()
+            ).with_for_update().first()
             to_alloc = db.query(WaterAllocation).filter(
                 WaterAllocation.field_id == trade.to_field_id
-            ).first()
+            ).with_for_update().first()
 
             if from_alloc:
                 from_alloc.quota_m3 -= trade.amount_m3

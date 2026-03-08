@@ -1,6 +1,6 @@
 
 from typing import Dict, Optional
-from datetime import datetime
+from datetime import datetime, timezone
 import math
 from sqlalchemy.orm import Session
 from app.models.grant import EquityStake
@@ -21,6 +21,7 @@ class EquityService:
         """Calculates the current share price based on total seats claimed"""
         count = db.query(EquityStake).count()
         # Price curve: Each new investor pays slightly more
+        # TODO: Integrate with Global Water Scarcity Index (GWSI) for dynamic valuation
         return EquityService.BASE_PRICE_USD * math.pow((1 + EquityService.RATE_INCREMENT), count)
 
     @staticmethod
@@ -36,7 +37,7 @@ class EquityService:
             user_id=user.id,
             shares=shares,
             purchase_price=price,
-            purchased_at=datetime.utcnow()
+            purchased_at=datetime.now(timezone.utc)
         )
         db.add(stake)
         db.commit()
@@ -57,6 +58,6 @@ class SignatureService:
     def verify_token(db: Session, token: str):
         from app.models.grant import SupportLetter
         letter = db.query(SupportLetter).filter(SupportLetter.token == token).first()
-        if letter and letter.token_expires_at and letter.token_expires_at < datetime.utcnow():
+        if letter and letter.token_expires_at and letter.token_expires_at < datetime.now(timezone.utc):
             return None # Token expired
         return letter

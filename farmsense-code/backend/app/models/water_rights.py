@@ -30,5 +30,6 @@ class WaterTrade(Base):
     to_field_id = Column(String(50), nullable=False, index=True)
     amount_m3 = Column(Float, nullable=False)
     status = Column(sqlalchemy_enum(TradeStatus), default=TradeStatus.PENDING)
+    block_hash = Column(String(255), nullable=True) # PBFT block hash for audit
     committed_at = Column(DateTime)
     created_at = Column(DateTime, default=datetime.utcnow)
