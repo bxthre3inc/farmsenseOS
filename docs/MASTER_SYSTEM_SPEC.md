@@ -170,6 +170,14 @@ Farmers define their geographic legal boundaries through three primary vectors:
 2. **GeoJSON/KML/Shapefile Ingestion**: Standard geographic data formats can be uploaded directly to the DHU.
 3. **CLU/RPID Synchronization**: Automated ingestion of Common Land Unit (CLU) or RPID data from USDA/FSA or state agricultural databases ensures legal alignment with registered water rights.
 
+#### 1.6.4 Vision-Assisted "Zero-Touch" Onboarding
+
+To reduce friction in statutory compliance, FarmSense utilizes **Computer Vision (CV)** to accelerate field registration:
+
+- **Auto-Geolocate**: Addresses provided at signup are geocoded to seed the map viewport.
+- **Vision Propose (Mock-Informed)**: The subdistrict-wide 50m layer is analyzed using edge-detection algorithms to identify apparent field boundaries around the geocoded point.
+- **Claim-and-Edit**: Farmers are presented with "Proposed Polygons" which they can click to claim, tweak, or reject, replacing manual drawing with high-fidelity validation.
+
 Once defined, boundaries are stored as **PostGIS WGS-84 Polygons** and hashed into the **AllianceChain Compliance Ledger** to prevent "Boundary Creep" (unauthorized expansion of irrigated acreage).
 
 #### PMT Bus & Pin Mapping (Cortex-M4/ESP32-S3)

@@ -9,6 +9,7 @@ from app.api.dependencies import get_current_user
 from app.models.fields import Field
 from app.models.user import User
 from app.schemas.fields import FieldCreate, FieldResponse
+from app.services.vision_service import FieldVisionService
 
 router = APIRouter()
 
@@ -70,3 +71,16 @@ def get_field(
     if not field:
         raise HTTPException(status_code=404, detail="Field not found")
     return field
+
+@router.get("/onboarding/proposals", tags=["Onboarding"])
+def get_vision_proposals(
+    lat: float,
+    lon: float,
+    current_user: User = Depends(get_current_user)
+):
+    """
+    Proposes initial field boundaries based on coordinates.
+    Used during onboarding to accelerate 'Digital Twin' creation.
+    """
+    proposals = FieldVisionService.propose_nearby_boundaries(lat, lon)
+    return {"proposals": proposals}

@@ -12,21 +12,21 @@ Following the [Agent SOP for Task Management](file:///home/bxthre3/Desktop/farms
 - [ ] [ ] Complete ESTCP Grant Proposal -- **Deadline: March 26, 2026**
 - [x] [x] Pitch Deck Refinement for Danny Romero
 - [x] [x] Establish Proprietary UFI Standard (Unified Freshwater Index)
-- [ ] [ ] Software Beta Validation (MapLibre + Kriging Engine Stability)
+- [x] [x] Software Beta Validation (MapLibre + Kriging Engine Stability)
 
 ## 🏗️ Technical Development
 
 ### Backend (Equity & Kriging)
 
 - [x] [x] Implement dynamic share pricing in `equity_service.py`
-- [ ] [ ] Connect Dilution Modeling to Series A target calculations
+- [x] [/] Connect Dilution Modeling to Series A target calculations
 - [x] [x] Audit Kriging Engine for <5% error bars (Water Court readiness)
 
 ### Frontend (Farmer Dashboard)
 
-- [x] [ ] MapLibre GL JS integration for 1m grid rendering
+- [x] [x] MapLibre GL JS integration for 1m grid rendering
 - [x] [x] Implement Dashboard filtering for phone/contact mapping
-- [ ] [ ] Finalize "Resolution Pop" UI trigger for Enterprise conversion
+- [x] [x] Finalize "Resolution Pop" UI trigger for Enterprise conversion
 
 ## ⚖️ Legal & Regulatory (Sovereignty)
 
