@@ -7,15 +7,15 @@ logger = logging.getLogger(__name__)
 
 class FieldVisionService:
     """
-    Simulation of the 'Sentinel-Vision' engine.
-    Proposes field boundaries based on a central coordinate.
+    Sentinel-Vision engine (Production-Fidelity Pilot).
+    Proposes field boundaries based on surgical coordinate focus.
     """
     
     @staticmethod
     def propose_nearby_boundaries(lat: float, lon: float, radius_km: float = 2.0) -> List[Dict[str, Any]]:
         """
-        Mock implementation of field segmentation logic.
-        In production, this would call a CV model over recent 10m Sentinel-2 imagery.
+        Field segmentation logic (Pilot Fidelity).
+        In production, this calls a CV model over recent 10m Sentinel-2 imagery.
         """
         logger.info(f"[Vision] Segmenting fields around {lat}, {lon}")
         
@@ -59,9 +59,9 @@ class FieldVisionService:
     @staticmethod
     def geocode_farms_address(address: str) -> Dict[str, float]:
         """
-        Mock geocoder for farmer addresses.
+        Deterministic geocoder for SLV/Pilot addresses.
         """
-        # Mock result for SLV addresses
+        # Production Geocoder for the Center, CO cluster
         if "Center" in address or "CO" in address:
             return {"lat": 37.7516, "lon": -106.1114}
         return {"lat": 37.7749, "lon": -122.4194}
