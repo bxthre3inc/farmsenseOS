@@ -25,22 +25,22 @@ The FarmSense system is a utility-grade hydrological infrastructure project desi
 | :--- | :--- | :--- | :--- |
 | **L0 (Air)** | eBee Ag / Mavic 3M | Multispectral Spatial Priors | DJI/SenseFly proprietary |
 | **L1 (Source)** | VFA, LRZ1, LRZ2, PFA, CSA | Raw Ground Truth Telemetry | 900MHz LoRa Mesh |
-| **L1.5 (Hub)** | PMT | Field Aggregator & Kinematic Auditor | 5GHz LTU / LoRa Sink |
-| **L2 (District)** | DHU | Edge Coordinator & PBFT Ledger | 5GHz LTU / Fiber / LTE-M |
+| **L1.5 (Hub)** | PMT | Field Aggregator & Kinematic Auditor | 2.4GHz / LoRa Sink |
+| **L2 (District)** | DHU | Edge Coordinator & PBFT Ledger | 2.4GHz High-Gain / Fiber / LTE-M |
 | **L3 (Cortex)** | RSS | Regional Master DIL & Sled Hospital | Fiber / Starlink Business |
 
 ### 2.2 Connectivity Standards
 
-- **L1 → L1.5**: 900MHz LoRa Mesh (**CSS modulation**, NOT FHSS). AES-128/256 encrypted. 100% canopy penetration.
-- **L1.5 → L2**: 5GHz Ubiquiti LTU Sector (Primary). Telit ME910G1 LTE-M (Failover).
+- **L1 → L1.5**: 900MHz LoRa Mesh (**CSS modulation**, NOT FHSS). **AES-256** encrypted. 100% canopy penetration.
+- **L1.5 → L2**: 2.4GHz High-Gain (Primary). Telit ME910G1 LTE-M (Failover).
 - **L2 → L3**: Fiber ONT Primary. Starlink Business Failover.
 - **L3 → Cloud**: Symmetrical Gigabit Fiber.
 
 ### 2.3 RF Coexistence & Standards
 
 - **Standardized Terminology**: Use "**LoRa Bursts**" (CSS), not "FHSS Chirps."
-- **Coexistence**: PMT enclosure houses both 5GHz LTU and 900MHz SX1262. Study (CSU Pilot) validates <1% packet loss at full power.
-- **DHU Requirements**: Requires both 5GHz LTU Sector array (3x120°) and a dedicated 900MHz LoRa Mesh Gateway sink.
+- **Coexistence**: PMT enclosure houses both 2.4GHz High-Gain and 900MHz SX1262. Study (CSU Pilot) validates <1% packet loss at full power.
+- **DHU Requirements**: Requires both 2.4GHz High-Gain array and a dedicated 900MHz LoRa Mesh Gateway sink.
 
 ---
 
@@ -155,16 +155,16 @@ Hermetically sealed high-density compute and legal data repository.
 
 **Role**: Source/Well Sentry & Safety Actuator.
 
-- **Motor Audit**: 3x Magnelab split-core CT clamps. **Machine Learning Current Harmonic Analysis** (400A) detects torque ripples, bearing wear, or cavitation prior to failure.
+- **Motor Audit**: 3x Magnelab split-core CT clamps. **Machine Learning Harmonic Analysis** (400A) is shifted to the **PMT Hub** to preserve Level 1 silicon consistency.
 - **Hydrology**: Dwyer Vented 316-SS sounder (PBLTX). Barometric compensated depth.
 - **Actuation**: Omron 30A Industrial Relay for remote pump "Soft-Stop."
-- **Logic**: NXP i.MX RT1020 (Cortex-M7 @ 500MHz).
+- **Logic**: **nRF52840** (Cortex-M4F @ 64MHz). Provides secure AES-256 signing and basic threshold reflex logic.
 - **Reflex Logic Table**:
-  - `PMT_STALL` → ACTUATE_STOP
-  - `BURST_MAINLINE` → ACTUATE_STOP
-  - `SATURATION_ALERT` (48") → ACTUATE_STOP
+  - `PMT_STALL` → ACTUATE_STOP (Command from PMT)
+  - `BURST_MAINLINE` → ACTUATE_STOP (Local Threshold)
+  - `SATURATION_ALERT` (48") → ACTUATE_STOP (Local Threshold)
 
-#### PFA Register Table (i.MX RT1020)
+#### PFA Register Table (nRF52840)
 
 | Register | Value | Description |
 | :--- | :---: | :--- |

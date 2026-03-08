@@ -27,7 +27,7 @@ This constitutes the authoritative statistical grounding for all market sizing a
 - **TAM (Subdistrict 1 Bulk Rollout)**:
   - **Hardware CapEx (One-time)**: $1,423,360 (at $1,112/PMT and $158.20/VFA scale).
   - **SaaS ARR (Gold Truth)**: $7.6M/year at Enterprise rates ($30/acre).
-  - **Total Phase 1 Deployment Cost**: **$1,580,800** (inclusive of $100K installation labor).
+  - **Total Phase 1/2 Pilot Cost (2 Fields)**: **$12,450** (Estimated Single-Unit BOM).
 - **Phase 2 Expansion (Full Truth)**: Estimated **$3,970,638** (total CAPEX for 18-node density).
 
 ### 2.1 The Revenue Model: The "Resolution Pop"
@@ -39,7 +39,7 @@ FarmSense captures market share via a tiered spatial fidelity model, driving con
 | **FREE** | 50m | $0 | Gov / Compliance | "Macro-Truth" onboarding magnet. |
 | **BASIC** | 20m | $15/acre | Small Farmers | Initial Sentinel-2 processing. |
 | **PRO** | 10m | $22/acre | Commercial Ag | Broad-acre drone/sensor fusion. |
-| **ENTERPRISE** | 1m | $30/acre | Legal / Legal | **Gold Truth**: Sub-meter legal evidence. |
+| **ENTERPRISE** | 1m | $30/acre | Legal Fortress | **Gold Truth**: Sub-cm legal evidence. |
 
 **The "FOMO" Trigger**: When a user zooms in on a suspected anomaly (e.g., nozzle leak), the UI generates a high-contrast, blurred preview of the 1m grid with the overlay: *"High-Resolution Proof Available."* This converts technical curiosity into Immediate Enterprise upgrades.
 

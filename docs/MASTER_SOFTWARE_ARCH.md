@@ -12,7 +12,7 @@ FarmSense is a **Deterministic Farming Operating System**. It is engineered to r
 ### 1.1 The Deterministic Mandate
 
 - **No Black-Box AI**: All irrigation and trading decisions are deterministic and judgment-based. This is a non-negotiable requirement for **Water Court Admissibility**.
-- **Evidence-Grade Tech**: Every packet is signed at the edge (AES-128/256), and every decision is logged in a SHA-256 hash-chained compliance ledger.
+- **Evidence-Grade Tech**: Every packet is signed at the edge (**AES-256**), and every decision is logged in a SHA-256 hash-chained compliance ledger.
 - **Explainable Logic**: Operators must be able to audit why a "Soft-Stop" or "VRI-Update" was issued back to raw sensor telemetry.
 
 ---
@@ -113,20 +113,21 @@ The PMT continuously executes **Edge-EBK** to generate a 50m-resolution spatial 
 
 #### Autonomous Edge-EBK Logic
 
-- **FPU Calculation**: The hardware FPU processes 128-bit AES chirps from LRZ1/LRZ2/VFA nodes into a localized 16x16 probability matrix.
+- **FPU Calculation**: The hardware FPU processes **AES-256** chirps from LRZ1/LRZ2/VFA nodes into a localized 16x16 probability matrix.
 - **Trajectory Collapse**: In "Collapse" mode, the FPU zeroes calculations on dormant sections, focusing 100% of compute on the active pivot span trajectory.
 - **Payload Bundling**: The PMT bundles its own High-Fidelity kinematic data, the processed 50m Edge-EBK arrays, and the intercepted VFA/LRZ intelligence into a unified, encrypted **~187-byte Field State Payload**.
 - **LoRa Mesh Backhaul**: Blasts the unified payload to the District Hub (DHU) via 900MHz LoRa Mesh.
 - **Zero-Downtime VRI Failover**: Upon loss of DHU mesh-ping, the PMT instantly executes autonomous Variable Rate Irrigation based onlocalized intelligence.
+- **Aggregate Harmonic Analysis**: Ingests raw current wave descriptors from the **PFA (Level 1)** and executes **Fast Fourier Transform (FFT)** via vector instructions to detect motor cavitation or bearing failure.
 - **Audit Buffering**: Stores all payload state changes to onboard SPI Flash, burst-transmitting the backlog upon reconnection to preserve the State Engineer audit ledger.
 
-### 4.3 VFA Firmware: "Dumb Chirp" Transformation
+### 4.3 Level 1 "Dumb Chirp" Transformation (VFA & PFA)
 
-The VFA firmware is optimized for a 10-year battery life under snowpack:
+The Level 1 "Source" nodes (VFA/PFA/LRZ) are optimized for a 10-year battery life and unified silicon (nRF52840):
 
-- **AES-128 Encryption at the Edge**: Independently encrypts the localized 4-depth profile payload before transmission.
+- **AES-256 Encryption at the Edge**: Independently encrypts the localized payload (Soil Moisture or Wellhead Waveform) before transmission.
 - **Dumb Chirp Mode**: Minimizes CPU cycles by transmitting a fixed-length encrypted burst to the overhead PMT Field Hub.
-- **Dynamic Ripple Scaling**: While fundamentally "dumb," the firmware responds to PMT "Ripple" pings, scaling chirp frequency from 4 hours to 15 minutes during detected anomalies.
+- **Dynamic Ripple Scaling**: Responds to PMT "Ripple" pings, scaling chirp frequency during detected anomalies.
 - **LPI/LPD Constraints**: Firmware ensures **Chirp Spread Spectrum (CSS)** conforms to Federal Low Probability of Intercept/Detection standards.
 
 #### Volatility Score Logic (Decision Engine)

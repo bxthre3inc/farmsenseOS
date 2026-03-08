@@ -68,12 +68,12 @@ The cloud architecture is designed for heavy spatial analytics and operates loca
 
 Relying purely on external cloud connectivity in rural agricultural environments is a critical point of failure. FarmSense mitigates this by pushing heavy computational loads to the edge and utilizing the Regional Superstation as its own localized cloud.
 
-* **Regional Superstation (RSS):** Located in Monte Vista, this Level 3 node serves as the territory master and equal cloud counterpart to the backend intelligence. Operating as a decentralized monolithic grid, it ensures that heavy spatial analytics and the "Digital Water Ledger" remain intact and legally irrefutable even during total regional internet or cellular blackouts. Housed in a modified 40-foot High-Cube container, it contains a 64-Core AMD Threadripper PRO cluster with 256GB of ECC RAM and stores the master spatial database on a 50TB Enterprise NVme array.\[1, 1\]  
-* **District Hubs (DHU):** Acting as Level 2 Regional Mesh Managers, DHUs are true edge coordinators mounted on 35-foot Class 4 timber poles, covering a 5km radius with extreme overlapping redundancy. Powered by an **NVIDIA Jetson Orin Nano (8GB)**, the DHU executes the Zo "Worksheets" locally, allowing for instantaneous "Reflex Logic" decisions (e.g., executing an emergency pump shutdown) without suffering from cellular latency. Using high-gain MIMO sector antennas, the DHU Mesh provides the district-wide backbone for the "Digital Water Ledger."
+* **Regional Superstation (RSS):** Located in Monte Vista, this Level 3 node serves as the territory master and equal cloud counterpart to the backend intelligence. Operating as a decentralized monolithic grid, it ensures that heavy spatial analytics and the "Digital Water Ledger" remain intact and legally irrefutable even during total regional internet or cellular blackouts. Housed in a modified 40-foot High-Cube container, it contains a 64-Core AMD Threadripper PRO cluster with 256GB of ECC RAM and stores the master spatial database on a 50TB Enterprise NVme array.\[1, 1\]
+* **District Hubs (DHU):** Acting as Level 2 Regional Mesh Managers, DHUs are true edge coordinators mounted on 35-foot Class 4 timber poles, covering a 5km radius with extreme overlapping redundancy. Powered by an **NVIDIA Jetson Orin Nano (8GB)**, the DHU executes the Zo "Worksheets" locally, allowing for instantaneous "Reflex Logic" decisions (e.g., executing an emergency pump shutdown) without suffering from cellular latency. Using high-gain 2.4GHz sector antennas, the DHU Mesh provides the district-wide backbone for the "Digital Water Ledger."
 
 ### **2.3 The "Black Box" Ledger and Legal Defensibility**
 
-A standout engineering feature of the DHU is the 30-Day "Black Box" Cache, utilizing a 128GB Swissbit PSLC (Pseudo-Single Level Cell) Industrial SSD.1 If a total regional backhaul failure occurs (fiber cut and cellular blackout), the DHU continuously records cryptographically signed (128-bit AES) "Audit Packets".\[1, 1\] This guarantees that the unbroken chain of custody required for the "Digital Water Ledger" is preserved, ensuring the data remains admissible as empirical evidence in Colorado Water Court.\[1, 1\]
+A standout engineering feature of the DHU is the 30-Day "Black Box" Cache, utilizing a 128GB Swissbit PSLC (Pseudo-Single Level Cell) Industrial SSD.1 If a total regional backhaul failure occurs (fiber cut and cellular blackout), the DHU continuously records cryptographically signed (**AES-256**) "Audit Packets".\[1, 1\] This guarantees that the unbroken chain of custody required for the "Digital Water Ledger" is preserved, ensuring the data remains admissible as empirical evidence in Colorado Water Court.\[1, 1\]
 
 ## ---
 
@@ -81,14 +81,14 @@ A standout engineering feature of the DHU is the 30-Day "Black Box" Cache, utili
 
 With the data integrity architecture established, cross-examination of the Master Specifications guided the optimization of the radio telemetry stack, executed directly within the finalized engineering phase.
 
-### **3.1 The VFA-to-DHU Backhaul Failure (900MHz vs. 5GHz)**
+### **3.1 The VFA-to-DHU Backhaul Failure (900MHz vs. 2.4GHz)**
 
 The Vertical Field Anchor (VFA) serves as the primary **sub-surface truth node** for an individual field.1
 
-* **VFA Specification:** The VFA V1.21 specification explicitly mandates the use of a "local high-gain 900MHz Chirp Spread Spectrum (CSS) LoRa uplink" to bypass expensive cellular modems and transmit secure payloads to the District Hub.1  
-* **DHU Specification:** The DHU V1.1 specification dictates a "Triple-Sector Radio Spine" consisting of three Ubiquiti LTU Sector Antennas (120°) operating exclusively on the 5GHz frequency band.1  
-* **The Disconnect:** The proprietary Ubiquiti LTU 5GHz architecture cannot receive 900MHz Chirp Spread Spectrum (CSS) LoRa modulations.1  
-* **Resolution:** Correcting this by upgrading the VFA to 5GHz is not agronomically viable. High-frequency 5GHz waves suffer from severe attenuation and multipath interference when attempting to penetrate dense, water-rich foliage. The DHU BOM must be immediately revised to include an enterprise-grade 900MHz Chirp Spread Spectrum (CSS) LoRa Mesh gateway alongside the existing Ubiquiti array.
+* **VFA Specification:** The VFA V1.21 specification explicitly mandates the use of a "local high-gain 900MHz Chirp Spread Spectrum (CSS) LoRa uplink" to bypass expensive cellular modems and transmit secure payloads to the District Hub.1
+* **DHU Specification:** The DHU V1.1 specification dictates a "Triple-Sector Radio Spine" consisting of three Ubiquiti LTU Sector Antennas (120°) operating exclusively on the 2.4GHz frequency band.1
+* **The Disconnect:** The proprietary Ubiquiti LTU 2.4GHz architecture cannot receive 900MHz Chirp Spread Spectrum (CSS) LoRa modulations.1
+* **Resolution:** Correcting this by upgrading the VFA to 2.4GHz is not agronomically viable. High-frequency 2.4GHz waves suffer from severe attenuation and multipath interference when attempting to penetrate dense, water-rich foliage. The DHU BOM has been officially revised to include an enterprise-grade 900MHz **Chirp Spread Spectrum (CSS)** LoRa Mesh gateway alongside the existing array.
 
 ### **3.2 The PMT Field Hub Architecture (Telemetry Coordination)**
 
@@ -102,7 +102,7 @@ The Pressure & Flow Anchor (PFA) is the critical safety actuator mounted at the 
 
 In contrast to the backhaul failures, the communication protocol between the Lateral Root-Zone (LRZ1/LRZ2) scouts and the VFA represents state-of-the-art IoT engineering.
 
-* **LR-Chirp Spread Spectrum (CSS) LoRa Mesh Implementation:** The LRZ1/LRZ2 units execute 128-bit encrypted Frequency-Hopping Spread Spectrum (Chirp Spread Spectrum (CSS) LoRa Mesh) "dumb chirps".1 By scattering micro-transmissions across 75 different frequencies, the system mitigates co-channel interference, completely eliminating the probability of packet collisions within the confines of a single high-density farm field.\[1, 1\]
+* **LR-Chirp Spread Spectrum (CSS) LoRa Mesh Implementation:** The LRZ1/LRZ2 units execute 128-bit encrypted Chirp Spread Spectrum (CSS) LoRa Mesh "dumb chirps".1 By scattering micro-transmissions across 75 different frequencies, the system mitigates co-channel interference, completely eliminating the probability of packet collisions within the confines of a single high-density farm field.\[1, 1\]
 
 ## ---
 
@@ -114,7 +114,7 @@ The realization of the "Digital Water Ledger" relies on the mechanical accuracy 
 
 The PMT (V1.6) is the "Nervous System" of the center pivot.1
 
-* **GNSS Architecture:** The PMT utilizes a u-blox ZED-F9P RTK GNSS module, achieving sub-2.5m horizontal accuracy.1 This precision allows the Zo engine to calculate precisely which 1-meter spatial tile received water.\[1, 1\]  
+* **GNSS Architecture:** The PMT utilizes a u-blox ZED-F9P RTK GNSS module, achieving **sub-cm** horizontal accuracy.1 This precision allows the Zo engine to calculate precisely which 1-meter spatial tile received water.\[1, 1\]
 * **Structural Auditing:** The unit incorporates a Bosch BNO055 9-Axis Inertial Measurement Unit (IMU) to continuously monitor vibration harmonics and detect dangerous "crabbing".1
 
 ### **4.2 Hydraulic Auditing: Transit-Time Ultrasonic Flow Sensors**
@@ -199,7 +199,7 @@ To drastically improve the platform's feature set and functionality without incr
 
 ### **8.2 Dual-Layer Spatial Privacy and Federated Learning**
 
-To ensure absolute farmer operator trust and data sovereignty, the network architecture is strictly bifurcated to comply with and exceed the Colorado Privacy Act, which legally classifies precise geolocation data (GPS coordinates within a 1,850-foot radius) as \"sensitive data.\"
+To ensure absolute farmer operator trust and data sovereignty, the network architecture is strictly bifurcated and encrypted with **AES-256** to comply with and exceed the Colorado Privacy Act.
 
 * **The Internal Legal Ledger (Absolute Precision):** Exact, unabridged GPS coordinates are strictly mandated for the localized District Hub "Black Box." This data is cryptographically locked, cannot be used, seen, or modified by anyone but the account user and the core algorithms, and exists solely to defend water rights as empirical evidence in Water Court.  
 * **Contextual Anonymization for Cloud & Federated Learning:** When data is utilized for broader analytics, research sharing, or Federated Learning (where DHUs train localized ML models at the edge and only send parameter updates back to the RSS), the system applies "contextual anonymization." This adds algorithmic spatial noise or aggregates points into larger regional grids, preserving the overall hydrologic and ET trends for the region while successfully masking the specific location and identity of the individual farmer.
@@ -1413,7 +1413,7 @@ This ledger reflects the civil engineering and hardware costs for the 25-hub "Um
 | :--- | :--- | :--- | :--- |
 | Computing | NVIDIA Jetson Orin Nano (8GB) | NVIDIA | $499.00 |
 | Storage | 128GB PSLC SSD | Swissbit X-75 | $185.00 |
-| Radio | 120° 5GHz Sector (x3) | Ubiquiti UISP | $850.00 |
+| Radio | 120° 2.4GHz Sector (x3) | Ubiquiti UISP | $850.00 |
 | Backhaul A | Fiber ONT (Primary) | Local ISP | $350.00 |
 | Backhaul B | IoT LTE-M/NB-IoT (Backup) | Telit ME910G1 | $115.00 |
 | Housing | NEMA 4X Polycarbonate Box | Polycase ML | $180.00 |
@@ -3549,7 +3549,8 @@ Please familiarize yourself with the FarmSense project documentation in the foll
 
 ## Important Operational & Policy Context
 
-* **Federal Funding and ARPA-E**: We are tailoring architectures to qualify for the Federal Environmental Security Technology Certification Program (Federal ESG) (Deadline: March 26, 2026). Ensure any Edge communication protocol changes (e.g. 5GHz/900MHz backhaul adjustments) maintain secure 128-bit encryption constraints.
+Secure Edge-Reflex communication protocol shifts (e.g. 2.4GHz/900MHz backhaul adjustments) maintain secure **AES-256** encryption constraints.
+
 * **Privacy Policy**: Our Spatial Privacy Framework requires all individual geographic point parameters sent to the Global Cloud to be contextually obfuscated. Do not bypass the Differential Privacy protocols applied downstream of the District Hub "Black Box".
 
 <div style="page-break-after: always;"></div>
@@ -6541,7 +6542,8 @@ The Regulatory Portal is the immutable legal ledger of the FarmSense platform. I
 
 ## 1. Immutable Ledger
 
-* **Cryptographic "Black Box" Verification:** Displays the cryptographically signed (128-bit AES) flow data extracted directly from the District Hub's secure cache. This data represents the exact volumetric flow measured by the Pressure & Flow Anchor (PFA) and kinematic movement verified by the PMT.
+* **Cryptographic "Black Box" Verification:** Displays the cryptographically signed (**AES-256**) flow data extracted directly from the District Hub's secure cache.
+    This data represents the exact volumetric flow measured by the Pressure & Flow Anchor (PFA L1) and kinematic movement verified by the PMT.
 * **Audit Trail:** An unalterable history of every drop pumped, mapped against the specific water right allocated to the field or subdistrict.
 * **Tamper Alerts:** Automatic flagging of any hardware anomalies that suggest tampering (e.g., sudden loss of PFA telemetry, unapproved movement of the PMT, or abnormal vibration signatures).
 
@@ -7686,26 +7688,24 @@ The Pressure & Flow Anchor (PFA) operates as the **Sentry of the Source**. Attac
 
 ## 1. Hardware Initialization Routine
 
-* **Processor:** NXP i.MX RT (Cortex-M7). Required for localized high-frequency analog-to-digital (ADC) conversion.
+* **Processor:** nRF52840 (Cortex-M4F). Standardized across all Level 1 nodes.
 * **Sensors:** Badger Meter TFX-5000 ultrasonic transit-time components, 400A Current Transformer (CT) Clamps, high-frequency internal accelerometers.
 * **Power:** Stepped down directly from the 480V wellhead power block.
 
-## 2. Dual-Core Operations Loop
+## 2. Operational Logic
 
-The PFA firmware runs two highly specialized logic loops concurrently:
+The PFA firmware is optimized for high-fidelity data acquisition and secure telemetry:
 
-**Loop A: Hydrodynamic Auditing (The Legal Truth)**
+**Phase A: Hydrodynamic & Waveform Sampling**
 
-* Calculates volumetric flow (Gallons per Minute) utilizing the ultrasonic transit-time differentials across the well pipe.
-* Must maintain rigorous calibration offsets (updated via the Regulatory Portal) to ensure the State Engineer mandated +/- 1% accuracy.
+* Calculates volumetric flow (GPM) from ultrasonic transit-time differentials (PF_DATA).
+* High-frequency sampling of the 400A CT clamps (WAVE_AUDIT).
+* Independently encrypts the combined payload using the nRF52840's **Cryptocell-310 (AES-256)**.
 
-**Loop B: Current Harmonic Analysis (Predictive Maintenance)**
+**Phase B: Dumb Chirp Telemetry (Uplink)**
 
-* Continuously samples the 400A CT clamps on the pump's 3-phase power line at extremely high frequencies.
-* Executes localized Fast Fourier Transforms (FFTs) on the Cortex-M7 to calculate "Current Harmonic Analysis" and "Voltage Ripple" signatures.
-* Continuously samples the 400A CT clamps on the pump's 3-phase power line at extremely high frequencies.
-* Executes localized Fast Fourier Transforms (FFTs) on the Cortex-M7 to calculate "Current Harmonic Analysis" and "Voltage Ripple" signatures.
-* These localized FFT models allow the PFA to mathematically detect cavitation (air pockets in the pump), impending bearing failure, or voltage sag *before* a catastrophic $25,000 pump explosion occurs.
+* Transmits the encrypted "Raw Wave Descriptor" upward to the **PMT Field Hub** over the 900MHz LoRa Mesh.
+* The PMT Field Hub (ESP32-S3) then executes the **Fast Fourier Transform (FFT)** and Machine Learning analysis to detect cavitation or bearing wear before a catastrophic failure occurs.
 
 ## 3. Telemetry & PMT Bouncing
 
