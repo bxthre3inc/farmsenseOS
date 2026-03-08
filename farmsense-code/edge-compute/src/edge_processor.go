@@ -12,6 +12,11 @@ import (
 	"math"
 	"time"
 
+	"crypto/aes"
+	"crypto/cipher"
+	"crypto/rand"
+	"io"
+
 	_ "github.com/lib/pq"
 	"github.com/paulmach/orb"
 	"github.com/paulmach/orb/geo"
@@ -36,6 +41,8 @@ type EdgeConfig struct {
 	// AllianceChain HTTP Bridge
 	AllianceHTTPPort       int    `json:"alliance_http_port"`       // Port for the DHU HTTP API (default 8080)
 	BackendCallbackURL     string `json:"backend_callback_url"`     // FastAPI backend base URL for finalization callbacks
+	// Crypto
+	AESKey []byte `json:"-"` // 32-byte key for AES-256-GCM (Passed via environment)
 }
 
 // DHU Orchestrator manages multiple fields and mesh coordination
@@ -122,6 +129,55 @@ func NewEdgeProcessor(config EdgeConfig, deviceID string) (*EdgeProcessor, error
 	}
 
 	return processor, nil
+}
+
+// DecryptTelemetry handles AES-GCM decryption of incoming L1 sensor packets
+func (ep *EdgeProcessor) decryptTelemetry(encryptedData []byte) ([]byte, error) {
+	if len(ep.config.AESKey) == 0 {
+		return encryptedData, nil // Pass-through if no key (Dev mode)
+	}
+
+	block, err := aes.NewCipher(ep.config.AESKey)
+	if err != nil {
+		return nil, err
+	}
+
+	gcm, err := cipher.NewGCM(block)
+	if err != nil {
+		return nil, err
+	}
+
+	nonceSize := gcm.NonceSize()
+	if len(encryptedData) < nonceSize {
+		return nil, fmt.Errorf("ciphertext too short")
+	}
+
+	nonce, ciphertext := encryptedData[:nonceSize], encryptedData[nonceSize:]
+	return gcm.Open(nil, nonce, ciphertext, nil)
+}
+
+// EncryptTelemetry handles AES-GCM encryption for cloud sync or local storage
+func (ep *EdgeProcessor) encryptTelemetry(data []byte) ([]byte, error) {
+	if len(ep.config.AESKey) == 0 {
+		return data, nil
+	}
+
+	block, err := aes.NewCipher(ep.config.AESKey)
+	if err != nil {
+		return nil, err
+	}
+
+	gcm, err := cipher.NewGCM(block)
+	if err != nil {
+		return nil, err
+	}
+
+	nonce := make([]byte, gcm.NonceSize())
+	if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
+		return nil, err
+	}
+
+	return gcm.Seal(nonce, nonce, data, nil), nil
 }
 
 // Main processing loop

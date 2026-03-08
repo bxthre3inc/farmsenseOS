@@ -2,7 +2,7 @@
 Adaptive Recalculation Engine - Judgment-based timing logic
 Determines when to recompute virtual sensor grids based on field conditions
 """
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass
 from enum import Enum
@@ -107,7 +107,7 @@ class AdaptiveRecalculationEngine:
         new_mode = self._determine_mode(condition)
         
         # 4. Check if recalculation is due based on current mode
-        time_since_last = datetime.utcnow() - condition.last_recalc
+        time_since_last = datetime.now(timezone.utc) - condition.last_recalc
         is_due, next_scheduled = self._is_recalc_due(
             condition.current_mode, 
             new_mode, 
@@ -166,7 +166,7 @@ class AdaptiveRecalculationEngine:
                 should_recalculate=True,
                 new_mode=AttentionMode.COLLAPSE,
                 reason=" | ".join(reasons),
-                next_scheduled=datetime.utcnow() + timedelta(minutes=1),
+                next_scheduled=datetime.now(timezone.utc) + timedelta(minutes=1),
                 priority=5,
                 trigger_type='critical_event'
             )
@@ -206,7 +206,7 @@ class AdaptiveRecalculationEngine:
                 should_recalculate=True,
                 new_mode=AttentionMode.RIPPLE,
                 reason=" | ".join(reasons),
-                next_scheduled=datetime.utcnow() + timedelta(minutes=15),  # Resume normal after event
+                next_scheduled=datetime.now(timezone.utc) + timedelta(minutes=15),  # Resume normal after event
                 priority=4,
                 trigger_type='out_of_turn_event'
             )
@@ -286,7 +286,7 @@ class AdaptiveRecalculationEngine:
         )
         
         is_due = time_since_last >= interval
-        next_scheduled = datetime.utcnow() + interval
+        next_scheduled = datetime.now(timezone.utc) + interval
         
         return is_due, next_scheduled
     

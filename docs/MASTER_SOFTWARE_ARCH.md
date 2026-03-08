@@ -28,6 +28,43 @@ FarmSense functions as a decentralized monolithic grid, balancing low-latency ed
 3. **Level 3 (Regional):** **RSS** (64-Core Threadripper) -> 1m Grid (Python-based Regression Kriging + FHE). Regional DIL vaulting.
 4. **Level 4 (Global):** **Core Compute Cloud** -> Multi-field analytics, Federated Learning, global hydro-economics.
 
+```mermaid
+graph TD
+    subgraph "Level 4: Global Cloud"
+        Cloud[Core Compute Cloud]
+    end
+    
+    subgraph "Level 3: Regional"
+        RSS[Regional Superstation - Threadripper]
+    end
+    
+    subgraph "Level 2: District"
+        DHU[District Hub - Jetson Orin]
+    end
+    
+    subgraph "Level 1.5: Field Hub"
+        PMT[Pivot Motion Tracker - ESP32]
+    end
+    
+    subgraph "Level 1: Source Nodes"
+        VFA[Vertical Field Anchor]
+        PFA[Pressure & Flow Anchor]
+        LRZ[Lateral Root Zone]
+    end
+
+    VFA -- "LoRa (900MHz)" --> PMT
+    PFA -- "LoRa (900MHz)" --> PMT
+    LRZ -- "LoRa (900MHz)" --> PMT
+    
+    PMT -- "2.4GHz / LTE-M" --> DHU
+    DHU -- "Fiber / LTE-M" --> RSS
+    RSS -- "Fiber" --> Cloud
+    
+    Cloud -. "Federated Learning" .-> RSS
+    RSS -. "Kriging Matrix" .-> DHU
+    DHU -. "VRI Worksheet" .-> PMT
+```
+
 ### 2.2 Core Software Tier Stack
 
 | Layer | Node | Engine Grade | Role |

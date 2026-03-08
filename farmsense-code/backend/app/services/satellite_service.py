@@ -1,7 +1,7 @@
 import logging
 from typing import List, Dict, Any
 from app.core.env_wrapper import platform_wrapper
-from datetime import datetime, timedelta
+from datetime import datetime, timezone, timedelta
 
 logger = logging.getLogger(__name__)
 
@@ -25,7 +25,7 @@ class SatelliteDataService:
             for i in range(2):
                 scenes.append({
                     "id": f"{collection}_scene_{i}",
-                    "datetime": (datetime.utcnow() - timedelta(days=i*5)).isoformat(),
+                    "datetime": (datetime.now(timezone.utc) - timedelta(days=i*5)).isoformat(),
                     "cloud_cover": 5.0 * i,
                     "assets": {
                         "visual": {"href": f"https://example.com/satellite/{collection}/visual_{i}.tif"},

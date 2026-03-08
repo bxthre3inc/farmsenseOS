@@ -50,7 +50,14 @@ def dhu_alliance_chain_callback(
     Callback endpoint for the DHU Go AllianceChain service.
     Called automatically after PBFT quorum is reached and a block is finalized.
     Updates the trade status and adjusts water allocation quotas atomically.
-    This endpoint is internal — it should be firewalled to the DHU subnet in production.
+    
+    > [!CAUTION]
+    > **SECURITY VULNERABILITY**: This endpoint currently lacks authentication. 
+    > An attacker could spoof a COMMITTED status to artificially inflate their water quota.
+    > In production, this MUST be restricted by:
+    > 1. MTLS (Mutual TLS) between DHU and Backend.
+    > 2. IP Whitelisting (Subnet-level).
+    > 3. HMCA/Signature verification of the DHU payload.
     """
     try:
         status = TradeStatus(req.status)

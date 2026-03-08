@@ -58,6 +58,7 @@ The FarmSense documentation suite has been consolidated into four authoritative 
 ### 🟢 THE OMNIBUS SOURCE
 
 - [**FarmSense_Master_Manual.md**](file:///home/bxthre3/Desktop/farmsense-main/docs/FarmSense_Master_Manual.md): **The Absolute Source of Truth.** Reconstructed from 7,875 lines of legacy data and synchronized with current 2026-03-07 high-fidelity standards.
+- [**GLOSSARY.md**](file:///home/bxthre3/Desktop/farmsense-main/docs/GLOSSARY.md): Comprehensive definitions of project acronyms and terms.
 
 ---
 

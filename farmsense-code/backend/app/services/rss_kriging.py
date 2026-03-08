@@ -31,7 +31,7 @@ class FHEVector:
     Production-grade container for encrypted spatial telemetry.
     Interface for Microsoft SEAL backend via TenSEAL.
     """
-    def __init__(self, data: np.ndarray, context=None):
+    def __init__(self, data: np.ndarray, context=None, already_encrypted=False):
         if context is None and TENSEAL_AVAILABLE:
             # Create a CKKS context optimized for spatial coordinate floating-point math
             self.context = ts.context(
@@ -46,9 +46,13 @@ class FHEVector:
 
         self.is_encrypted = True
         if TENSEAL_AVAILABLE:
-            # Fully homomorphic encryption of the high-res 1m Kriging tensor
-            self.encrypted_tensor = ts.ckks_vector(self.context, data.flatten().tolist())
-            self.size = data.size
+            if already_encrypted:
+                self.encrypted_tensor = data
+            else:
+                # Fully homomorphic encryption of the high-res 1m Kriging tensor
+                self.encrypted_tensor = ts.ckks_vector(self.context, data.flatten().tolist())
+            # For size, we'd ideally track the original shape
+            self.size = "compressed_cipher"
         else:
             self.encrypted_tensor = data # Fallback stub
             self.size = data.size
@@ -57,6 +61,20 @@ class FHEVector:
         if TENSEAL_AVAILABLE:
             return np.array(self.encrypted_tensor.decrypt())
         return self.encrypted_tensor
+
+    def __add__(self, other):
+        """Simulate homomorphic addition in ciphertext space"""
+        if TENSEAL_AVAILABLE and isinstance(other, FHEVector):
+            result = self.encrypted_tensor + other.encrypted_tensor
+            return FHEVector(result, context=self.context, already_encrypted=True)
+        return self.encrypted_tensor + other
+
+    def __mul__(self, other):
+        """Simulate homomorphic multiplication in ciphertext space"""
+        if TENSEAL_AVAILABLE and isinstance(other, (int, float)):
+            result = self.encrypted_tensor * other
+            return FHEVector(result, context=self.context, already_encrypted=True)
+        return self.encrypted_tensor * other
 
     def __repr__(self):
         engine = "TenSEAL/SEAL FHE" if TENSEAL_AVAILABLE else "Stub FHE"
@@ -92,10 +110,14 @@ class RSSKrigingEngine:
 
         # 2. Fit and Predict
         # 1m approx 0.000009 degrees
+        # BUG FIX: Mandate requires 1m fidelity. 
+        # range was too small (-10*step to +10*step is only 20m total)
+        # We assume typical pivot radius (approx 400m) or at least 100m for a 'grid'.
+        grid_radius = 50 # 100m square total
         center_lat, center_lon = np.mean(X[:, 0]), np.mean(X[:, 1])
         step = 0.000009 
-        lats = np.arange(center_lat - 10*step, center_lat + 10*step, step)
-        lons = np.arange(center_lon - 10*step, center_lon + 10*step, step)
+        lats = np.arange(center_lat - grid_radius*step, center_lat + grid_radius*step, step)
+        lons = np.arange(center_lon - grid_radius*step, center_lon + grid_radius*step, step)
         mesh_lat, mesh_lon = np.meshgrid(lats, lons)
         X_grid = np.vstack([mesh_lat.ravel(), mesh_lon.ravel()]).T
 

@@ -228,7 +228,9 @@ def _opaque_cluster_id(field_id: str, grid_lat: float, grid_lon: float) -> str:
     Different field + same cell = different cluster_id.
     Reveals nothing about field identity.
     """
-    raw = f"{field_id}:{grid_lat:.5f}:{grid_lon:.5f}:FARMSENSE_SALT_V1"
+    # Round to 3 decimal places (~100m) to match researchers' grid snap precision
+    # This prevents leaking high-fidelity 1m resolution coordinates via the hash digest
+    raw = f"{field_id}:{grid_lat:.3f}:{grid_lon:.3f}:FARMSENSE_SALT_V1"
     digest = hashlib.sha256(raw.encode()).hexdigest()[:16]
     return f"clstr_{digest}"
 
@@ -268,8 +270,8 @@ class SpatialPrivacyService:
             audit_records     — append to immutable audit store.
         """
         cfg = config or TIER_DEFAULTS[tier]
-        from datetime import datetime, timeZone
-        now = datetime.now(timeZone.utc).isoformat()
+        from datetime import datetime, timezone
+        now = datetime.now(timezone.utc).isoformat()
 
         # ── Layer 1: Geometric ──────────────────────────────────────────
         stage1: list[tuple[SensorPoint, float, float]] = []

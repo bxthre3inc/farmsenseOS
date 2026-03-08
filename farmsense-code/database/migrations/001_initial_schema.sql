@@ -45,6 +45,7 @@ CREATE INDEX IF NOT EXISTS idx_soil_sensors_location
 CREATE INDEX IF NOT EXISTS idx_grid_20m_location 
     ON virtual_sensor_grid_20m USING GIST (location);
 
+CREATE INDEX IF NOT EXISTS idx_grid_1m_location 
     ON virtual_sensor_grid_1m USING GIST (location);
 
 CREATE INDEX IF NOT EXISTS idx_grid_50m_location 

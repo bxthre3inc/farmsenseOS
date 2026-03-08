@@ -78,9 +78,11 @@ def process_investor_buy_in(
     
     try:
         equity_service.allocate_shares(user.id, amount)
-        user.tier = SubscriptionTier.ENTERPRISE
+        # In MVP, tier is a string. Update to Enum later if needed.
+        user.tier = "ENTERPRISE"
         db.commit()
         return {"status": "success", "message": f"Successfully processed ${amount} buy-in. Account upgraded to Enterprise."}
     except Exception as e:
+        from fastapi import HTTPException
         db.rollback()
         raise HTTPException(status_code=400, detail=str(e))

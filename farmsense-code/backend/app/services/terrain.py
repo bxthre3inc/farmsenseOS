@@ -1,7 +1,7 @@
 import numpy as np
 import logging
 from typing import List, Dict, Any
-from datetime import datetime
+from datetime import datetime, timezone
 
 logger = logging.getLogger(__name__)
 
@@ -26,8 +26,10 @@ class TerrainService:
         # or call a LiDAR/DEM API (e.g., USGS 3DEP).
         # For the V1 MVP, we generate a high-fidelity deterministic topographic mesh.
         
-        # Use a seed based on field_id for consistency
-        seed = int(hash(field_id) % 2**32)
+        # Use a deterministic seed based on field_id for cross-process consistency
+        import hashlib
+        seed_hex = hashlib.sha256(field_id.encode()).hexdigest()
+        seed = int(seed_hex[:8], 16) # Use first 8 chars as 32-bit seed
         np.random.seed(seed)
         
         x = np.linspace(-size/2, size/2, size)
@@ -57,5 +59,5 @@ class TerrainService:
             "resolution": "1m",
             "size": size,
             "elevation": elevation,
-            "timestamp": datetime.utcnow().isoformat()
+            "timestamp": datetime.now(timezone.utc).isoformat()
         }

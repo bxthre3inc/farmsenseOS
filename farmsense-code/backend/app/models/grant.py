@@ -1,7 +1,7 @@
 from sqlalchemy import Column, String, DateTime, ForeignKey, Text, Boolean, Float, Integer, Enum as sqlalchemy_enum
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
-from datetime import datetime
+from datetime import datetime, timezone
 import uuid
 import enum
 from pydantic import BaseModel, EmailStr
@@ -31,7 +31,7 @@ class SupportLetter(Base):
     token_expires_at = Column(DateTime)
     signed_at = Column(DateTime)
     verified_at = Column(DateTime)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 class EquityStake(Base):
     __tablename__ = 'equity_stakes'
@@ -40,7 +40,7 @@ class EquityStake(Base):
     user_id = Column(UUID(as_uuid=True), ForeignKey('users.id'), nullable=False)
     shares = Column(Integer, default=0)
     purchase_price = Column(Float)
-    purchased_at = Column(DateTime, default=datetime.utcnow)
+    purchased_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     
     user = relationship("User", backref="equity_stakes")
 
