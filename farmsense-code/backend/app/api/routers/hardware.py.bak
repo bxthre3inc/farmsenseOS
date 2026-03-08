@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 
 from app.core.database import get_db
 from app.core.websocket import manager
-from app.models.sensor_data import VFAReading, PFAReading, PMTReading, LRZReading, VirtualSensorGrid50m, VirtualSensorGrid1m
+from app.models import VFAReading, PFAReading, PMTReading, LRZReading, VirtualSensorGrid50m, VirtualSensorGrid1m
 
 from app.schemas.hardware import (
     VFAReadingCreate, PFAReadingCreate, PMTReadingCreate,

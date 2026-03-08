@@ -1,6 +1,6 @@
 from datetime import datetime
 from sqlalchemy.orm import Session
-from app.models.sensor_data import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m, SoilSensorReading
+from app.models import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m, SoilSensorReading
 from app.services.external_data_service import ExternalDataService
 from app.services.satellite_service import SatelliteDataService
 from app.services.rss_kriging import RSSKrigingEngine

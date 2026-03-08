@@ -1,7 +1,7 @@
 import pytest
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from unittest.mock import MagicMock
-from app.services.adaptive_recalc_engine import (
+from app.services.adaptive_recalc import (
     AdaptiveRecalculationEngine, 
     FieldCondition, 
     AttentionMode, 
@@ -21,7 +21,7 @@ def stable_condition():
     return FieldCondition(
         field_id="field_001",
         current_mode=AttentionMode.DORMANT,
-        last_recalc=datetime.utcnow() - timedelta(hours=1),
+        last_recalc=datetime.now(timezone.utc) - timedelta(hours=1),
         avg_moisture_surface=0.30,
         avg_moisture_root=0.30,
         moisture_std_dev=0.02,
@@ -86,7 +86,7 @@ def test_active_irrigation_mode_transition(engine, stable_condition):
 def test_scheduled_recalc_due(engine, stable_condition):
     """If last_recalc is older than mode interval, should_recalculate should be True."""
     # DORMANT interval is 4h
-    stable_condition.last_recalc = datetime.utcnow() - timedelta(hours=5)
+    stable_condition.last_recalc = datetime.now(timezone.utc) - timedelta(hours=5)
     decision = engine.evaluate_field(stable_condition)
     
     assert decision.should_recalculate is True

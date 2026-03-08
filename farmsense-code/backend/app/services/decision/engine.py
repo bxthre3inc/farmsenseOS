@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from app.models.fields import Field
-from app.models.sensor_data import VFAReading, LRZReading, PFAReading, VirtualSensorGrid1m
+from app.models import VFAReading, LRZReading, PFAReading, VirtualSensorGrid1m
 from .constants import CROP_MODELS, NDVI_THRESHOLDS
 from .audit import DecisionAuditLog
 

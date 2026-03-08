@@ -2,8 +2,8 @@ import time
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
 
-from app.services.adaptive_recalc_engine import AdaptiveRecalculationEngine, FieldCondition, AttentionMode
-from app.models.sensor_data import RecalculationLog, ComplianceReport
+from app.services.adaptive_recalc import AdaptiveRecalculationEngine, FieldCondition, AttentionMode
+from app.models import RecalculationLog, ComplianceReport
 
 def evaluate_field_recalculation(field_id: str, db: Session):
     """

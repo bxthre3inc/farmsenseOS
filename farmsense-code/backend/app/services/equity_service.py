@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from app.models.equity import EquityStake
 from app.models.user import User
 from app.models.water_rights import WaterTrade, TradeStatus
-from app.models.sensor_data import SoilSensorReading
+from app.models import SoilSensorReading
 from sqlalchemy import func
 from app.services.trading_service import WaterTradingService
 

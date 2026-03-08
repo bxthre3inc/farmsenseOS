@@ -4,7 +4,7 @@ import logging
 from datetime import datetime
 from typing import List
 from sqlalchemy.orm import Session
-from app.models.sensor_data import AuditLog
+from app.models import AuditLog
 
 logger = logging.getLogger(__name__)
 

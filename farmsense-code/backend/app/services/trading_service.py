@@ -13,7 +13,7 @@ import httpx
 from cryptography.hazmat.primitives.asymmetric import ed25519
 
 from app.models.water_rights import WaterAllocation, WaterTrade, TradeStatus
-from app.models.sensor_data import WeatherData, AuditLog
+from app.models import WeatherData, AuditLog
 from app.models.user import User
 
 logger = logging.getLogger(__name__)

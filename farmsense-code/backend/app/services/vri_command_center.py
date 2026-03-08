@@ -11,8 +11,8 @@ from sqlalchemy.orm import Session
 from datetime import datetime
 
 from app.services.grid_renderer import GridRenderingService
-from app.services.adaptive_recalc_engine import AdaptiveRecalculationEngine, AttentionMode
-from app.models.sensor_data import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m, RecalculationLog
+from app.services.adaptive_recalc import AdaptiveRecalculationEngine, AttentionMode
+from app.models import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m, RecalculationLog
 
 logger = logging.getLogger(__name__)
 
