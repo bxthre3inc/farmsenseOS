@@ -1,13 +1,24 @@
 {
-  "name": "pdf_build",
+  "name": "farmsense-investor-pdfs",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Beautiful investor materials generator for FarmSense",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node build.js",
+    "build:pdf": "node build.js --format=pdf",
+    "build:html": "node build.js --format=html",
+    "build:all": "node build.js --format=both",
+    "serve": "npx serve dist",
+    "watch": "node build.js --watch"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs"
+  "dependencies": {
+    "playwright": "^1.42.0",
+    "markdown-it": "^14.0.0",
+    "markdown-it-attrs": "^4.1.6",
+    "markdown-it-table-of-contents": "^0.6.0",
+    "glob": "^10.3.10"
+  },
+  "devDependencies": {
+    "chokidar": "^3.6.0"
+  }
 }

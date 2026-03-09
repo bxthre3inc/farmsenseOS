@@ -1,0 +1,61 @@
+<!-- Cover Page Template -->
+<div class="min-h-[297mm] flex flex-col justify-between bg-slate-950 relative overflow-hidden">
+    <!-- Background gradients -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_#064e3b_0%,_#020617_60%)] opacity-60"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-emerald-950/30 to-transparent"></div>
+    
+    <!-- Grid pattern -->
+    <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
+    
+    <div class="relative z-10 flex-1 flex flex-col px-16 py-20">
+        <!-- Top badge -->
+        <div class="flex items-center gap-3 mb-12">
+            <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 rounded-xl flex items-center justify-center">
+                <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i>
+            </div>
+            <span class="text-emerald-400 font-bold text-xs uppercase tracking-[0.2em]">Strategic Capital Portal</span>
+        </div>
+        
+        <!-- Title -->
+        <div class="flex-1 flex flex-col justify-center">
+            <p class="text-slate-500 font-medium tracking-wider uppercase text-sm mb-4">{{subtitle}}</p>
+            <h1 class="text-6xl font-black text-white tracking-tighter leading-[0.95]">
+                {{title}}
+            </h1>
+            <div class="h-1 w-32 bg-gradient-to-r from-emerald-500 to-cyan-400 mt-8 rounded-full"></div>
+        </div>
+        
+        <!-- Metadata -->
+        <div class="grid grid-cols-3 gap-8 pt-12 border-t border-white/5">
+            <div>
+                <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-1">Document Type</p>
+                <p class="text-slate-300 font-medium">{{docType}}</p>
+            </div>
+            <div>
+                <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-1">Classification</p>
+                <p class="text-emerald-400 font-medium">{{classification}}</p>
+            </div>
+            <div>
+                <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-1">Date</p>
+                <p class="text-slate-300 font-medium">{{date}}</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="relative z-10 px-16 py-8 bg-slate-900/50 backdrop-blur border-t border-white/5">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="sprout" class="w-5 h-5 text-slate-950"></i>
+                </div>
+                <span class="text-white font-bold">FarmSense</span>
+                <span class="text-slate-600">|</span>
+                <span class="text-slate-500 text-sm">FS-1 Deterministic Agriculture OS</span>
+            </div>
+            <p class="text-slate-600 text-sm">CONFIDENTIAL</p>
+        </div>
+    </div>
+</div>
+
+<div class="page-break"></div>
