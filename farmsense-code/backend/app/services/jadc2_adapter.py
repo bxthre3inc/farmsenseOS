@@ -10,6 +10,7 @@ class JADC2Adapter:
     """
     Translates FarmSense agricultural sensor data into Inter-agency-compatible
     Cursor on Target (CoT) XML messages, featuring robust LPI/LPD metadata.
+    Supports autonomous Mesh-Failover for localized tactical resilience.
     """
 
     @staticmethod
@@ -40,7 +41,16 @@ class JADC2Adapter:
         }
 
     @staticmethod
-    def to_cot_xml(grid_point: Dict[str, Any]) -> str:
+    def _is_wan_online() -> bool:
+        """
+        Mock check for primary Starlink/Cellular connectivity.
+        In production, this pings the DHU heartbeats.
+        """
+        import os
+        return os.getenv("WAN_STATUS", "online") == "online"
+
+    @staticmethod
+    def to_cot_xml(grid_point: Dict[str, Any], is_emergency: bool = False) -> str:
         """
         Translates a VirtualSensorGrid1m point into a CoT <event> element.
         CoT Type: a-f-G-E-O (Atom-Friendly-Ground-Equipment-Other/Environmental)
@@ -55,7 +65,9 @@ class JADC2Adapter:
             event = ET.Element("event")
             event.set("version", "2.0")
             event.set("uid", event_id)
-            event.set("type", "a-f-G-E-O")
+            # a-f-G-E-O (Friendly) or a-h-G-E-O (Hostile/Emergency)
+            event_type = "a-h-G-E-O" if is_emergency else "a-f-G-E-O"
+            event.set("type", event_type)
             event.set("how", "m-g") # Machine generated
             event.set("time", now.isoformat())
             event.set("start", now.isoformat())
@@ -82,12 +94,18 @@ class JADC2Adapter:
             tactical.set("source", "FarmSense-UGS-Matrix")
             tactical.set("dual_use", "true")
 
-            # LPI/LPD Verified Metadata
             lpi_data = JADC2Adapter._verify_lpi_lpd_logic(event_id)
             lpi = ET.SubElement(detail, "lpi_lpd")
             for key, val in lpi_data.items():
                 lpi.set(key, val)
 
+            # Routing Metadata (Tactical Moat)
+            routing = ET.SubElement(detail, "routing")
+            wan_status = "PRIMARY_WAN" if JADC2Adapter._is_wan_online() else "LOCAL_LORA_MESH"
+            routing.set("link_path", wan_status)
+            if is_emergency:
+                routing.set("priority", "flash") # Tactical Flash message
+            
             return ET.tostring(event, encoding="unicode")
         except Exception as e:
             logger.error(f"CoT Translation failed: {e}")

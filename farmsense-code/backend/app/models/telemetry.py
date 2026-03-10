@@ -8,6 +8,8 @@ from .base import Base
 
 class HardwareModel(str, PyEnum):
     LRZ = "LRZ"
+    LRZ1 = "LRZ1"
+    LRZ2 = "LRZ2"
     VFA = "VFA"
     DHU = "DHU"
     RSS = "RSS"
@@ -48,14 +50,14 @@ class SoilSensorReading(Base):
     # Geospatial
     location = Column(Geometry('POINT', srid=4326), nullable=False)
     
-    # Dual-depth readings
-    moisture_surface = Column(Float)  # 0-30cm
-    moisture_root = Column(Float)     # 30-60cm
+    # Dual-depth readings (inches)
+    moisture_surface = Column(Float)  # 0-12in
+    moisture_root = Column(Float)     # 12-24in
     temp_surface = Column(Float)
     temp_root = Column(Float)
     
-    # Vertical profiling
-    vertical_profile = Column(JSON)  # [{depth_cm: 10, moisture: 0.25, temp: 18.5}, ...]
+    # Vertical profiling (inches)
+    vertical_profile = Column(JSON)  # [{depth_in: 10, moisture: 0.25, temp: 18.5}, ...]
     
     # Salinity and nutrients
     ec_surface = Column(Float)

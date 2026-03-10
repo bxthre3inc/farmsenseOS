@@ -5,6 +5,7 @@ class PredictiveMaintenanceService:
     """
     Analyzes Current Harmonic Analysis (FFT) signatures from the Pressure & Flow Anchor (PFA)
     via 400A CT Clamps to detect pump wear (cavitation, bearing wear) without physical dismantling.
+    Includes Fleet-level correlation to identify Regional Aquifer Drawdown.
     """
 
     # Typical threshold parameters for a 3-phase pump motor (e.g. 480V)
@@ -12,9 +13,10 @@ class PredictiveMaintenanceService:
     BEARING_WEAR_THRESHOLD = 0.12    # Specific high-frequency harmonic ratio
     
     @classmethod
-    def analyze_harmonics(cls, harmonics: Optional[List[float]]) -> Dict[str, any]:
+    def analyze_harmonics(cls, harmonics: Optional[List[float]], fleet_tail_avg: float = 0.0) -> Dict[str, any]:
         """
         Takes an array of FFT harmonic amplitudes.
+        fleet_tail_avg: Average cavitation baseline for the sub-district.
         Returns a diagnostic dictionary.
         """
         if not harmonics or len(harmonics) < 5:
@@ -61,10 +63,20 @@ class PredictiveMaintenanceService:
         if anomaly_score > 1.0:
             status = "critical_warning" if anomaly_score > 3.0 else "warning"
 
+        # REGIONAL CORRELATION MOAT
+        # If cavitation is high BUT aligns with the fleet average, it's a regional aquifer signal
+        regional_event = False
+        if cavitation_indicator > cls.CAVITATION_THRESHOLD:
+            if fleet_tail_avg > (cls.CAVITATION_THRESHOLD * 0.8):
+                regional_event = True
+                anomalies.append("REGIONAL_DRAWDOWN: Shared spectral noise across fleet sub-district")
+                status = "regional_alert"
+
         return {
             "status": status,
             "anomaly_score": round(anomaly_score, 2),
             "diagnostics": anomalies if anomalies else ["Normal operation"],
             "bearing_indicator": round(bearing_indicator, 3),
-            "cavitation_indicator": round(cavitation_indicator, 3)
+            "cavitation_indicator": round(cavitation_indicator, 3),
+            "is_regional_event": regional_event
         }

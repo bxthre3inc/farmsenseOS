@@ -1,9 +1,13 @@
 import time
+import logging
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session
 
 from app.services.adaptive_recalc import AdaptiveRecalculationEngine, FieldCondition, AttentionMode
+from app.services.vri_command_center import VRICommandCenter
 from app.models import RecalculationLog, ComplianceReport
+
+logger = logging.getLogger(__name__)
 
 def evaluate_field_recalculation(field_id: str, db: Session):
     """
@@ -27,7 +31,10 @@ def evaluate_field_recalculation(field_id: str, db: Session):
         rainfall_forecast_6h=0.0,
         wind_speed=3.5,
         pumps_running=0,
-        irrigation_active=False
+        irrigation_active=False,
+        sensor_coverage_pct=98.5,
+        sensor_anomalies=[],
+        extreme_weather_alerts=[]
     )
     
     decision = engine.evaluate_field(condition)
@@ -52,7 +59,15 @@ def evaluate_field_recalculation(field_id: str, db: Session):
     db.commit()
     
     if decision.should_recalculate:
-        pass
+        # Phase 3: Automated Dispatch Loop
+        # If the engine signals high attention (Collapse or Ripple), 
+        # instantly push the best resolution prescription to the hardware.
+        if decision.new_mode in [AttentionMode.COLLAPSE, AttentionMode.RIPPLE]:
+            logger.info(f"HIGH_ATTENTION_TRIGGER: Auto-dispatching VRI for field {field_id}")
+            VRICommandCenter.dispatch_prescription(db, field_id)
+        else:
+            # Low priority update: just render the grid for cache without dispatch
+            VRICommandCenter.fetch_vri_grid(db, field_id)
 
 
 def generate_compliance_report_task(

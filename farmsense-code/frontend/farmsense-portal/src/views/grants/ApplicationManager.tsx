@@ -15,6 +15,8 @@ export const ApplicationManager: React.FC = () => {
     const [apps, setApps] = useState<Application[]>(SEED_APPS);
     const [selected, setSelected] = useState<Application | null>(null);
     const [showNew, setShowNew] = useState(false);
+    const [autonomousMode, setAutonomousMode] = useState(false);
+    const [waterQuota, setWaterQuota] = useState(1500000);
     const { field: profileField, setField: setProfileField } = useGrantProfile();
 
     // Form state — prefilled from grant profile
@@ -123,12 +125,45 @@ export const ApplicationManager: React.FC = () => {
 
     return (
         <div className="space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between bg-[#111420] p-4 rounded-xl border border-slate-800">
+                <div className="flex items-center gap-6">
+                    <div className="flex flex-col">
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Autonomous Sync (AIM)</span>
+                        <div className="flex items-center gap-2 mt-1">
+                            <div className={`w-2 h-2 rounded-full ${autonomousMode ? 'bg-emerald-500 animate-pulse' : 'bg-slate-700'}`} />
+                            <span className={`text-[11px] font-bold ${autonomousMode ? 'text-emerald-400' : 'text-slate-500'}`}>
+                                {autonomousMode ? 'ACTIVE' : 'STANDBY'}
+                            </span>
+                        </div>
+                    </div>
+                    <div className="h-8 w-px bg-slate-800" />
+                    <div className="flex flex-col">
+                        <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Daily SLV Quota</span>
+                        <input
+                            type="number"
+                            value={waterQuota}
+                            onChange={(e) => setWaterQuota(Number(e.target.value))}
+                            className="bg-transparent text-white font-mono text-xs focus:outline-none focus:text-blue-400 mt-1"
+                        />
+                    </div>
+                </div>
+                <div className="flex gap-3">
+                    <button
+                        onClick={() => setAutonomousMode(!autonomousMode)}
+                        className={`px-4 py-1.5 rounded-lg text-[11px] font-bold border transition-all ${autonomousMode ? 'bg-emerald-500/10 border-emerald-500 text-emerald-400' : 'bg-slate-900 border-slate-700 text-slate-500 hover:border-slate-500'}`}
+                    >
+                        {autonomousMode ? 'DISABLE AIM' : 'ENABLE AIM'}
+                    </button>
+                    <button onClick={openNewForm}
+                        className="flex items-center gap-1.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-500 px-3 py-1.5 rounded-lg transition-colors">
+                        <Plus className="w-3.5 h-3.5" /> Add Application
+                    </button>
+                </div>
+            </div>
+
+            <div className="flex items-center justify-between px-1">
+                <p className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter italic">Phase 7: SLV Fleet Orchestration Enabled</p>
                 <p className="text-xs text-slate-500">{apps.length} applications tracked · {getDraftIds().length} drafts saved</p>
-                <button onClick={openNewForm}
-                    className="flex items-center gap-1.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-500 px-3 py-1.5 rounded-lg transition-colors">
-                    <Plus className="w-3.5 h-3.5" /> Add Application
-                </button>
             </div>
 
             {showNew && (
