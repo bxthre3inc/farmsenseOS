@@ -7,6 +7,7 @@ import uuid
 
 from app.api.dependencies import get_db
 from app.models.devices import Device, DeviceType, RoboticsMission
+from app.services.protection.provisioning_service import ProvisioningService
 
 router = APIRouter(prefix="/api/v1/integration", tags=["Vendor Integration"])
 
@@ -23,6 +24,12 @@ class MissionUpdate(BaseModel):
     path_data: Optional[List[Dict[str, float]]] = None
     coverage_area_m2: Optional[float] = None
     report: Optional[Dict[str, Any]] = None
+
+class ProvisioningHandshake(BaseModel):
+    external_id: str
+    field_id: str
+    device_type: DeviceType
+    firmware_version: str
 
 # --- Endpoints ---
 
@@ -88,6 +95,41 @@ async def ingest_csa_kinematics(payload: TelemetryPayload, db: Session = Depends
     # 2. Extract Hydraulic Hammer pulses
     # 3. Create high-resolution surge mapping volume
     return {"status": "success", "csa_node_received": True}
+
+# --- Provisioning Endpoints ---
+
+@router.post("/provision/helo")
+async def hardware_handshake(payload: ProvisioningHandshake, db: Session = Depends(get_db)):
+    """Stage 3: Initial HELO from unprovisioned hardware"""
+    try:
+        device = ProvisioningService.auto_register_node(
+            db, 
+            payload.external_id, 
+            payload.field_id, 
+            payload.device_type
+        )
+        return {
+            "status": "handshake_accepted",
+            "device_id": device.id,
+            "next_step": "PRESS_CONNECT_BUTTON"
+        }
+    except ValueError as e:
+        raise HTTPException(status_code=403, detail=str(e))
+
+@router.post("/provision/connect")
+async def connect_button_trigger(external_id: str, db: Session = Depends(get_db)):
+    """Stage 4: "The Boom Moment" - Pushes final deep-moat config"""
+    device = db.query(Device).filter(Device.external_id == external_id).first()
+    if not device:
+        raise HTTPException(status_code=404, detail="Device not found. Perform HELO first.")
+    
+    config_blob = ProvisioningService.generate_provisioning_blob(device)
+    db.commit()
+    
+    return {
+        "status": "PROVISIONED",
+        "configuration": config_blob
+    }
 
 @router.post("/kriging/trigger")
 async def trigger_kriging_interpolation(field_id: str, db: Session = Depends(get_db)):
