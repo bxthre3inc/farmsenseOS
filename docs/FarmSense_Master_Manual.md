@@ -942,9 +942,59 @@ The LRZ firmware (nRF52811) utilizes **Frequency Hopping Spread Spectrum (FHSS)*
 The FarmSense Interface Layer is a multi-tenant, high-performance web architecture built on **React 19**, **Three.js**, and **TailwindCSS**. It is designed to visualize the complex, multi-layered "Digital Twin" of the San Luis Valley in real-time.
 
 ### **5.0.1 Foundational Tech Stack & Design System**
+## PART VI: THE INTERFACE LAYER (PORTAL BLUEPRINT)
 
-*   **Core Framework**: React 19 (Concurrent Mode enabled) for responsive UI state management.
-*   **3D Visualization**: `react-three-fiber` + `drei`. Utilized for the 1m-resolution terrain rendering.
+The FarmSense Portal is a "High-Resolution Decision Engine" designed to convert multi-dimensional hydrologic data into actionable variable-rate irrigation (VRI) commands. Built with **React 19**, **Three.js**, and **TailwindCSS**, the interface provides a "Zero-Lag" visualization of the moisture-state of the sovereign basin.
+
+---
+
+## 6.1 The Farmer Dashboard (3D VRI Control)
+
+The centerpiece of the software ecosystem is the 3D Center-Pivot Visualizer, allowing producers to interact with their fields as a holistic digital twin.
+
+### **6.1.1 3D Visualization Pipeline (Three.js)**
+*   **Layer 1: The Terrain (Ground-Truth Mesh)**: Generated from 1m PostGIS vector tiles. The mesh is draped with a high-resolution NDVI satellite covariate texture.
+*   **Layer 2: The Moisture Plane**: A dynamic heat-map layer that interpolates Kriging residuals in real-time. Shaders are optimized for WebGL to ensure smooth panning on mobile devices.
+*   **Layer 3: The Pivot Proxy**: A real-time 3D model of the Reinke/Zimmatic pivot, synchronized to the PMT (Pivot Motion Tracker) GPS telemetry.
+
+### **6.1.2 The "Resolution Pop" Interface**
+When a producer clicks on any 10m x 10m grid cell, an "Edaphic Pop-up" appears, detailing:
+1.  **Soil Matric Potential (kPa)**: The energy required for the plant to extract water.
+2.  **Saturation Percentage**: Distance to the refill point.
+3.  **Prescription Command**: "Apply 0.25 inches" or "Withhold Resource."
+
+---
+
+## 6.2 Frontend Tech Stack & Component Hierarchy
+
+FarmSense utilizes a strictly modular component library to ensure rapid UI iteration across regional pilots.
+
+### **6.2.1 Core Component Tree**
+1.  **`<ApplicationShell />`**: Manages the high-level layout, role-based navigation, and global context (Water Rights Ledger).
+2.  **`<FieldExplorer />`**:
+    *   **`<MapCanvas />`**: Three.js viewport for the 3D field model.
+    *   **`<TelemetryOverlay />`**: Real-time ticker for PFA (Pressure/Flow) and VFA (Vertical) nodes.
+3.  **`<VRICommandCenter />`**:
+    *   **`<PrescriptionGenerator />`**: Logic to push 1m worksheets to the PMT hardware via the Nexus API.
+4.  **`<RegulatoryAuditView />`**: Read-only interface for water districts, displaying SHA-256 Merkle-linked consumption logs.
+
+### **6.2.2 State Management & Real-Time Sync**
+*   **Library**: `Zustand` for lightweight, store-based state.
+*   **Sync**: `React Query` for managing the TimescaleDB hypertable ingestion.
+*   **Latency**: WebSockets (`Socket.io`) for sub-second updates from the PMT during active "Movement Commands."
+
+---
+
+## 6.3 Admin Dashboard (Fleet C&C & Sled Hospital Monitor)
+
+The Admin interface is designed for the Basin Logistics Squads (BLS) to manage thousands of active nodes across the SLV.
+
+### **6.3.1 Node Health Matrix**
+*   **Battery Vitality**: Color-coded heatmap showing node voltage. Alerts trigger at <3.4V.
+*   **Signal Integrity**: LoRa RSSI/SNR monitoring. Identifies "Blind Spots" created by seasonal corn-canopy growth.
+*   **Anomaly Red-Line**: Automatic flagging of sensors that deviate by >3.5 Standard Deviations from their neighbors.
+
+---
 *   **State Management**: `TanStack Query` (React Query) for telemetry ingestion and `Zustand` for global UI state (e.g., active field selection).
 *   **Design Tokens**:
     *   *Primary Blue*: HSL(210, 100%, 50%) - "Hydrologic Integrity"
@@ -1215,9 +1265,56 @@ To bridge the gap between complex geostatistics and human intuition, FarmSense u
 The "Oracle" is the core analytical engine of FarmSense. it converts raw sensor telemetry and multispectral satellite imagery into deterministic irrigation prescriptions. It is a hierarchical geostatistical system designed to resolve the "Hydrologic Uncertainty" of the San Luis Valley.
 
 ---
+## PART VII: THE HYDROLOGIC ORACLE (THE SCIENCE OF TRUTH)
 
-## 6.1 The Soil-Plant-Atmosphere (SPAC) Thermodynamics Deep-Dive
+The "Oracle" is the mathematical core of FarmSense, utilizing first-principles physics and Bayesian geostatistics to eliminate the "Black Box" of traditional agricultural AI.
 
+---
+
+## 7.1 SPAC Thermodynamics: Surface Energy Balance Modeling
+
+FarmSense models the Soil-Plant-Atmosphere Continuum (SPAC) using the **Surface Energy Balance (SEB)** equation:
+$$R_n = G + H + \lambda E T$$
+Where:
+*   **$R_n$**: Net radiation (Solar flux).
+*   **$G$**: Soil heat flux.
+*   **$H$**: Sensible heat flux to the air.
+*   **$\lambda E T$**: Latent heat flux (The energy used for Evapotranspiration).
+
+### **7.1.1 The "Soil-as-a-Battery" Differential**
+By monitoring the change in Soil Matric Potential over 24-hour cycles, the Oracle treats the root zone as a dynamic battery.
+1.  **Charging**: Irrigation or Precipitation events.
+2.  **Discharging**: ET demand and deep percolation.
+3.  **Deep-Truth Calibration**: The VFA probe's 1.2m profile ensures the model accounts for "Voluntary Root-Mining"—where plants pull water from sub-30cm depths not captured by surface-only sensors.
+
+---
+
+## 7.2 Mathematical Derivation: Cokriging with Matern Kernels
+
+To generate the 1m Consumptive Use (CU) maps, the Oracle executes **Regression Cokriging**.
+
+### **7.2.1 The Kernel Choice: Why Matern?**
+Unlike the standard Gaussian kernel, the **Matern Kernel** allows for non-integer smoothness parameters ($
+u$). 
+*   **Logic**: Soil moisture is rarely "smooth"; it features localized discontinuities due to compaction ridges and wheel tracks. 
+*   **Smoothness ($
+u$)**: Automatically tuned between 0.5 (Rough/Exponential) and 1.5 (Smooth) based on the "Field Roughness Index" (FRI).
+
+### **7.2.2 Covariate Fusion (Sentinel-2 & LiDAR)**
+The kriging engine utilizes satellite NDVI (Normalized Difference Vegetation Index) as the primary covariate. 
+*   **Residual Calculation**: $Z(s) = m(s) + \epsilon(s)$
+*   Where $m(s)$ is the deterministic trend (Satellite) and $\epsilon(s)$ is the spatially correlated residual (Ground-Truth Sensors).
+
+---
+
+## 7.3 Forecasting Architecture: LSTM & Transformers
+
+### **7.3.1 14-Day Predictive VRI**
+FarmSense utilizes a "Transformer-based Sequence Model" to forecast CWSI (Canopy Water Stress Index).
+*   **Input Tensors**: 10-year historical SLV weather patterns + Real-time ensemble forecasts.
+*   **Output**: A probabilistic "Refill Probability" map, allowing farmers to delay irrigation until the exact threshold of stomatal closure.
+
+---
 To achieve the "Gold Standard" of evidence, the Oracle must model the movement of energy and water through the environment with thermodynamic precision.
 
 ### **6.1.1 The Surface Energy Balance (SEB) Equation**
@@ -1669,9 +1766,62 @@ Physical reliability is the bedrock of the "Evidence-Prime" model. The RSS Zone 
 The global FarmSense backbone is managed via a "Sovereign Infrastructure" philosophy—minimizing dependency on public cloud providers while maximizing regional resilience.
 
 ### **9.1 AWS EKS & GitOps Strategy**
+## PART X: INFRASTRUCTURE & DEVOPS (GLOBAL BACKBONE)
 
-* **Cluster Configuration**: Utilizes an AWS EKS (Elastic Kubernetes Service) cluster with "Fargate" profiles for the API layer and "P4d" GPU instances for the Kriging engine.
-* **ArgoCD & GitOps**: All infrastructure changes are defined in Terraform and managed via ArgoCD. This ensures that the RSS in Monte Vista is a perfect "Mirror" of the cloud-based research clusters.
+The FarmSense Infrastructure is engineered for "Sovereign Persistence"—ensuring that the hydrologic ledger remains accessible and immutable even during large-scale network disruptions. Our DevOps strategy utilizes GitOps principles to maintain hardware-locked security across every compute layer.
+
+---
+
+## 10.1 Multi-Cloud & Hybrid Topology (Architecture 3.0)
+
+To avoid "Cloud Monopoly" risk and satisfy international data residency laws, FarmSense utilizes a hybrid architecture combining AWS EKS with on-premise Regional Superstations (RSS).
+
+### **10.1.1 AWS EKS Reference Architecture**
+*   **Cluster**: Amazon EKS (Kubernetes v1.29) across US-CENTRAL-1 and US-WEST-2.
+*   **Compute Nodes**: Graviton3 (m7g) instances for optimal price-performance in processing the Kriging residual chains.
+*   **Storage**: Amazon RDS for PostgreSQL (with PostGIS) + TimescaleDB extension for telemetry.
+
+### **10.1.2 On-Premise Sink: The Regional Superstation (RSS)**
+Every major basin (e.g., San Luis Valley) hosts a Tier-4 hardened RSS unit.
+*   **Function**: Acts as a "Hydraulic Blackout" failover. If the global cloud is unreachable, the RSS maintains the local 1m grid and continues to issue variable-rate irrigation (VRI) prescriptions over the 5GHz sector mesh.
+*   **Sync Logic**: Bi-directional Merkle-tree synchronization ensuring that the local ledger and cloud vault remain cryptographically consistent.
+
+---
+
+## 10.2 GitOps & CI/CD Strategy: The Sovereign Audit
+
+### **10.2.1 Infrastructure as Code (IaC)**
+*   **Tooling**: Terraform (HCP) and Crossplane.
+*   **Manifests**: Every VPC, Security Group, and RDS instance is defined in the `farmsense-infra` repository. No "Manual Clicks" are allowed in the production console.
+
+### **10.2.2 Automated Deployment Pipeline**
+1.  **Commit**: Code is pushed to the sovereign GitLab instance.
+2.  **Lint & Scan**: Checkmarx (SAST) and Trivy (Container Scanning) must pass with zero "Critical" findings.
+3.  **Deploy**: ArgoCD synchronized the Kubernetes state.
+4.  **Hardware Handshake**: Before a firmware update is pushed to the field (PMTs), the deployment must be signed by the CTO's YubiKey.
+
+---
+
+## 10.3 Disaster Recovery: RPO/RTO & "Hydraulic Blackout" Logic
+
+We define three Disaster Tiers based on hydrologic impact.
+
+| Tier | Scenario | RPO (Data Loss) | RTO (Dowtime) | Protocol |
+| :--- | :--- | :--- | :--- | :--- |
+| **Tier 1** | Cloud Region Failure | 1 Min | 5 Mins | Failover to secondary AWS region; RSS persists locally. |
+| **Tier 2** | Fiber Backhaul Cut | 1 Sec | 0 Mins | RSS automatically enters "Island Mode" issuing prescriptions via LoRa. |
+| **Tier 3** | Global Grid Failure | 0 Sec | N/A | Hardware-locked "Drought Reflex" triggers autonomous shutdown. |
+
+---
+
+## 10.4 Observability & Fleet Diagnostics
+
+FarmSense utilizes the **ELK Stack (Elasticsearch, Logstash, Kibana)** combined with **Prometheus/Grafana** for component-level monitoring.
+*   **Metric 1**: "Mesh Latency" (P99 < 250ms).
+*   **Metric 2**: "Sensor Variance" (Alert if > 5.0% deviation between neighbors).
+*   **Metric 3**: "Sled Vitality" (Battery health and dielectric signal-to-noise ratio).
+
+---
 
 ### **9.2 Disaster Recovery (RPO/RTO)**
 
@@ -1705,9 +1855,40 @@ pytest tests/integration/test_adaptive_recalc.py
 For the San Luis Valley, and ultimately for the global water market, the FarmSense platform is more than a sensor network; it is a **Legal Instrument**. The "Water Court Ledger" is the architectural component responsible for ensuring that every data point generated by the system is legally admissible, cryptographically secure, and ethically transparent.
 
 ---
+## PART XI: CYBERSECURITY & SOVEREIGN HARDENING
 
-## 8.1 Legal Admissibility Framework: The NREP Standard
+As a platform managing critical national infrastructure (Water), FarmSense is a high-value target for state-sponsored and criminal actors. We utilize a **Zero-Trust Architecture (ZTA)** that treats every sensor, hub, and API call as potentially hostile.
 
+---
+
+## 11.1 Zero-Trust Architecture: The "Nerve Guard"
+
+### **11.1.1 Endpoint Hardening (Field Sensors)**
+*   **Hardware-Locked Identity**: Every PMT and VFA contains a Secure Element (ATECC608A). The private key never leaves the silicon.
+*   **Mutual TLS (mTLS)**: Every LoRa and Wi-Fi packet is encrypted and authenticated. Anonymous "Chirp" injection is mathematically impossible.
+
+### **11.1.2 Kernel-Level Auditing (eBPF)**
+We utilize **Tetragon (eBPF)** on all Regional Superstations to monitor process execution in real-time.
+*   **Enforcement**: Any unauthorized networking attempt or file write outside the `/opt/farmsense/data` directory triggers an immediate "Panic Halt" of the local mesh.
+
+---
+
+## 11.2 Threat Modeling & Attack Vectors
+
+### **11.2.1 Identified Attack Vectors**
+1.  **"False Saturation" Injection**: An attacker attempts to spoof VWC data to trick the system into NOT irrigating, causing crop death. *Mitigation: Spatial cross-correlation with satellite covariates.*
+2.  **"Ledger Manipulation"**: An attacker attempts to delete water-pumping logs before an audit. *Mitigation: SHA-256 Merkle-linking in the Sovereign Ledger.*
+3.  **"Pivot Hijacking"**: An attacker gains access to the PMT C2 (Command & Control) to physically move the pivot. *Mitigation: Dual-Factor Biometric authentication for all movement commands.*
+
+---
+
+## 11.3 Data Sovereignty & Search Warrant Protocols
+
+FarmSense is designed with "Technical Privacy."
+*   **Differential Privacy**: Producer boundaries are fuzzified on the regulatory portal. 
+*   **Sovereign Keys**: bxthre3 inc. does not hold the master encryption keys for private field data. These are held in escrow by the producer, ensuring that law enforcement or regulatory bodies cannot "Backdoor" the data without legal due process.
+
+---
 ### **8.1.3 The 50-Step Forensic Compliance Checklist**
 
 To ensure absolute legal admissibility for the June 2026 Trial, the following "Digital Signature Chain" is audited daily by the Regional Superstation (RSS).
