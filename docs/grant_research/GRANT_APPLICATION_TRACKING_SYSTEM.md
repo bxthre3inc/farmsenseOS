@@ -143,7 +143,7 @@ Funding Secured (YTD): $[TOTAL]
 - Linked pages for application workspaces
 - Templates for common grant types
 
-### Option C: Custom Web App
+### Option C: Custom Web App/Add to Admin Console
 - React + Supabase (scales to any size)
 - API integrations with Grants.gov, foundations
 - Custom reporting dashboards

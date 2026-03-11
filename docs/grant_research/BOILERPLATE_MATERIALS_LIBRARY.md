@@ -7,9 +7,7 @@
 
 ### Standard Bio (250 words)
 ```
-Bxthre3 Inc. is a Colorado-based venture studio building deterministic 
-infrastructure systems for agriculture, water, and logistics. Founded in 
-2024, we develop technology that solves resource scarcity through AI, 
+Bxthre3 Inc. is a Colorado-based venture studio building deterministic infrastructure systems for agriculture, water, and logistics. Founded in 2026, we develop technology that solves resource scarcity through AI, 
 robotics, and edge computing.
 
 Our flagship program, FarmSense, is a precision agriculture operating 
