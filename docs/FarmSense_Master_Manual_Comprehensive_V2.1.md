@@ -3,50 +3,34 @@
 
 ---
 
-## Table of Contents (Detailed)
+## Table of Contents (High-Level)
 
-| Part | Section | Title | Subsections |
-|------|---------|-------|-------------|
-| I | 1.0 | Executive Foundation | 1.1 Hydro-Economic Logic; 1.2 SPAC Modeling; 1.3 MAD Framework; 1.4 Architecture; 1.5 Telemetry; 1.6 Risk; 1.7 Roadmap |
-| II | 2.0 | Market Intelligence | 2.1 TAM/SAM/SOM; 2.2 Competitive Moat; 2.3 Federal Funding; 2.4 Global Expansion |
-| III | 3.0 | Human Capital | 3.1 Executive Leadership; 3.2 Technical Org; 3.3 Advisory Board; 3.4 Recruitment |
-| IV | 4.0 | Technical Core | 4.1 Compute Topology; 4.2 SQL Schema; 4.3 API Specs; 4.4 Interpolation; 4.5 Adaptive Engine; 4.6 Security |
-| V | 5.0 | Hardware Ecosystem | 5.1 RSS; 5.2 DHU; 5.3 PMT; 5.4 PFA; 5.5 VFA; 5.6 LRZ1/LRZ2; 5.7 SFD Configs; 5.8 Subdistrict Scale |
-| VI | 6.0 | Interface Layer | 6.1 Farmer Dashboard; 6.2 Regulatory Portal; 6.3 Admin Dashboard; 6.4 Investor Dashboard; 6.5 Research Portals |
-| VII | 7.0 | Hydrologic Oracle | 7.1 SPAC Thermodynamics; 7.2 Cokriging; 7.3 Crop Libraries; 7.4 Forecasting; 7.5 Global Basins |
-| VIII | 8.0 | Pilot Mission | 8.1 CSU SLV Specification; 8.2 Timeline; 8.3 Hardware Manifest; 8.4 Success Criteria |
-| IX | 9.0 | Operations | 9.1 Seasonal Cycle; 9.2 Sled Hospital; 9.3 Fleet Ops; 9.4 Maintenance |
-| X | 10.0 | Infrastructure | 10.1 AWS EKS; 10.2 GitOps; 10.3 DR; 10.4 Monitoring |
-| XI | 11.0 | Cybersecurity | 11.1 Zero-Trust; 11.2 eBPF; 11.3 Lateral Prevention; 11.4 Compliance |
-| XII | 12.0 | Water Court Ledger | 12.1 NREP Standard; 12.2 Chain of Custody; 12.3 Sovereignty; 12.4 Legal Framework |
-| XIII | 13.0 | Global Standards | 13.1 GlobalG.A.P.; 13.2 Nitrogen; 13.3 Carbon MRV |
-| XIV | 14.0 | Financial Backbone | 14.1 10-Year Projections; 14.2 CAPEX/OPEX; 14.3 Exit Strategy |
-| XV | 15.0 | Federal Grant Registry | 15.1 USDA/NRCS; 15.2 NSF/DOE; 15.3 Gates Foundation; 15.4 ARPA-E |
-| XVI | 16.0 | SLV Case Study | 16.1 Pilot Results; 16.2 Reflex Discovery; 16.3 Legal Validation |
-| XVII | 17.0 | Appendices | A. BOM Catalog; B. Tolerances; C. Radio Models; D. Soil Tables; E. QA Results; F. Basin Registry |
-| — | 18.0 | Glossary & Index | Comprehensive terminology dictionary with cross-references |
+| Part | Title | Key Contents (3 per Part) |
+|------|-------|---------------------------|
+| I | Executive Foundation | Hydro-Economic Logic; MAD Framework; PMT Field Hub Architecture |
+| II | Market Intelligence | TAM/SAM/SOM Analysis; Competitive Moat; Federal Grant Environment |
+| III | Human Capital | Executive Leadership; Technical Org Chart; Recruitment Roadmap |
+| IV | Technical Core | Tri-Layer Compute; SQL Schema; API Specifications |
+| V | Hardware Ecosystem | RSS/DHU/PMT/PFA; VFA/LRZ1/LRZ2; SFD Configurations |
+| VI | Interface Layer | Farmer Dashboard; Regulatory Portal; Admin Dashboard |
+| VII | Hydrologic Oracle | SPAC Thermodynamics; Crop Libraries; Global Basin Expansion |
+| VIII | Pilot Mission | CSU SLV Specification; Timeline; Success Criteria |
+| IX | Operations | Seasonal Cycle; Sled Hospital; Fleet Maintenance |
+| X | Infrastructure | AWS EKS; GitOps; Disaster Recovery |
+| XI | Cybersecurity | Zero-Trust Architecture; eBPF Auditing; Lateral Prevention |
+| XII | Water Court Ledger | NREP Standard; Chain of Custody; Data Sovereignty |
+| XIII | Global Standards | GlobalG.A.P.; Nitrogen Prevention; Carbon MRV |
+| XIV | Financial Backbone | 10-Year Projections; CAPEX/OPEX; Exit Strategy |
+| XV | Federal Grant Registry | USDA/NRCS; NSF/DOE; Gates Foundation/ARPA-E |
+| XVI | SLV Case Study | Pilot Results; Reflex Discovery; Legal Validation |
+| XVII | Appendices | BOM Catalog; Soil Tables; Basin Registry |
 
 ---
 
+*For complete subsection structure, see Appendix Z: Detailed Navigation Index*
+*For terminology definitions, see Appendix Y: Comprehensive Glossary & Dictionary*
 
-# PART I: EXECUTIVE FOUNDATION
-
-## 1.0 Executive Summary
-FarmSense constitutes the definitive technical, operational, and financial deployment blueprint of a Deterministic Farming Operating System (DFOS), integrating across Subdistrict 1 of the San Luis Valley (SLV), Colorado.
-
-### 1.0.1 Primary Objectives
-- 20–30% reduction in irrigation water consumption
-- 18–22% increase in crop return on investment (ROI)
-- Legally defensible Digital Water Ledger for Water Court admissibility
-
-### 1.0.2 Core Innovation
-Replace stochastic, intuition-based agricultural practices with a high-fidelity, rule-based computational engine optimizing the Soil-Plant-Atmosphere Continuum (SPAC) using a multi-layered sensor network.
-
-### 1.0.3 Economic Catalyst
-The Rio Grande Basin faces severe hydro-economic crisis. With 89,000 acre-foot annual aquifer depletion and $500/AF groundwater pumping fees (quadrupled from $75-150/AF), FarmSense shifts from agronomic optimization tool to legal necessity.
-
-### 1.0.4 Leadership
-Jeremy Beebe serves as Chief Executive Officer of bxthre3 inc., with successful startup exit track record (Hempvada).
+---
 
 ## 1.1 Hydro-Economic Logic and The Deterministic Paradigm
 
