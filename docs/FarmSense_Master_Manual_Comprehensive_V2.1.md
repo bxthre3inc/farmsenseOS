@@ -5275,3 +5275,725 @@ Accept: application/json
 *Expansion AA: Advanced Technical Reference | Added for 7,000+ line target*
 *End of Extended Appendices*
 
+
+### BB.1 Complete SQL Schema Reference
+
+#### BB.1.1 Core Database Tables
+```sql
+-- Fields table with PostGIS geometry
+CREATE TABLE fields (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    owner_id UUID REFERENCES users(id),
+    name VARCHAR(255) NOT NULL,
+    legal_description VARCHAR(500),
+    geometry GEOMETRY(POLYGON, 4326),
+    area_acres DECIMAL(10,2),
+    soil_series VARCHAR(100),
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW(),
+    active BOOLEAN DEFAULT TRUE,
+    compliance_status VARCHAR(50) DEFAULT 'current',
+    CONSTRAINT valid_area CHECK (area_acres > 0)
+);
+
+-- Spatial index for fast geospatial queries
+CREATE INDEX idx_fields_geometry ON fields USING GIST(geometry);
+
+-- Sensor readings hypertable
+CREATE TABLE sensor_readings (
+    time TIMESTAMPTZ NOT NULL,
+    device_id UUID REFERENCES devices(id),
+    field_id UUID REFERENCES fields(id),
+    sensor_type VARCHAR(50) NOT NULL,
+    depth_cm INT,
+    value DECIMAL(10,6),
+    quality_score DECIMAL(3,2) CHECK (quality_score BETWEEN 0 AND 1),
+    temperature_c DECIMAL(4,1),
+    battery_v DECIMAL(4,2),
+    rssi_dbm INT,
+    metadata JSONB,
+    PRIMARY KEY (time, device_id, sensor_type)
+);
+
+-- Convert to hypertable for time-series optimization
+SELECT create_hypertable('sensor_readings', 'time', 
+    chunk_time_interval => INTERVAL '7 days');
+
+-- Indexes for common queries
+CREATE INDEX idx_sensor_field_time ON sensor_readings(field_id, time DESC);
+CREATE INDEX idx_sensor_device_time ON sensor_readings(device_id, time DESC);
+CREATE INDEX idx_sensor_type_time ON sensor_readings(sensor_type, time DESC);
+
+-- Devices/inventory table
+CREATE TABLE devices (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    serial_number VARCHAR(100) UNIQUE NOT NULL,
+    device_type VARCHAR(50) NOT NULL,
+    hardware_revision VARCHAR(20),
+    firmware_version VARCHAR(20),
+    field_id UUID REFERENCES fields(id),
+    location_lat DECIMAL(10,8),
+    location_lon DECIMAL(11,8),
+    installation_date DATE,
+    warranty_expiry DATE,
+    status VARCHAR(50) DEFAULT 'active',
+    last_seen TIMESTAMPTZ,
+    battery_percent DECIMAL(5,2),
+    metadata JSONB
+);
+
+-- Compliance ledger with hash chaining
+CREATE TABLE compliance_logs (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    field_id UUID REFERENCES fields(id),
+    log_time TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    event_type VARCHAR(50) NOT NULL,
+    event_subtype VARCHAR(50),
+    details JSONB NOT NULL,
+    hash VARCHAR(64) NOT NULL,
+    previous_hash VARCHAR(64),
+    merkle_root VARCHAR(64),
+    pbft_round INT,
+    dhu_node_id UUID,
+    created_by UUID REFERENCES users(id),
+    CONSTRAINT valid_hash CHECK (LENGTH(hash) = 64)
+);
+
+CREATE INDEX idx_compliance_field_time ON compliance_logs(field_id, log_time DESC);
+CREATE INDEX idx_compliance_hash ON compliance_logs(hash);
+
+-- Irrigation events
+CREATE TABLE irrigation_events (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    field_id UUID REFERENCES fields(id),
+    device_id UUID REFERENCES devices(id),
+    start_time TIMESTAMPTZ NOT NULL,
+    end_time TIMESTAMPTZ,
+    duration_minutes INT,
+    volume_gallons DECIMAL(12,2),
+    flow_rate_gpm DECIMAL(8,2),
+    area_irrigated_acres DECIMAL(8,2),
+    worksheet_id UUID,
+    triggered_by VARCHAR(50), -- 'manual', 'automatic', 'scheduled'
+    stop_reason VARCHAR(50),
+    compliance_validated BOOLEAN DEFAULT FALSE,
+    metadata JSONB
+);
+
+CREATE INDEX idx_irrigation_field_time ON irrigation_events(field_id, start_time DESC);
+
+-- Kriging grids cache
+CREATE TABLE kriging_grids (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    field_id UUID REFERENCES fields(id),
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    depth_cm INT,
+    resolution_m INT,
+    grid_width INT,
+    grid_height INT,
+    origin_lat DECIMAL(10,8),
+    origin_lon DECIMAL(11,8),
+    data BYTEA, -- Compressed grid data
+    quality_metrics JSONB,
+    validation_score DECIMAL(3,2),
+    expires_at TIMESTAMPTZ
+);
+
+-- User management with RBAC
+CREATE TABLE users (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    role VARCHAR(50) DEFAULT 'farmer',
+    organization VARCHAR(255),
+    phone VARCHAR(20),
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    last_login TIMESTAMPTZ,
+    active BOOLEAN DEFAULT TRUE,
+    mfa_enabled BOOLEAN DEFAULT FALSE
+);
+
+-- User-field access control
+CREATE TABLE user_field_access (
+    user_id UUID REFERENCES users(id),
+    field_id UUID REFERENCES fields(id),
+    access_level VARCHAR(50) DEFAULT 'read', -- 'read', 'write', 'admin'
+    granted_at TIMESTAMPTZ DEFAULT NOW(),
+    granted_by UUID REFERENCES users(id),
+    PRIMARY KEY (user_id, field_id)
+);
+```
+
+#### BB.1.2 Materialized Views for Analytics
+```sql
+-- Daily field summaries
+CREATE MATERIALIZED VIEW mv_field_daily_summary AS
+SELECT 
+    field_id,
+    DATE(time) as date,
+    sensor_type,
+    depth_cm,
+    AVG(value) as avg_value,
+    MIN(value) as min_value,
+    MAX(value) as max_value,
+    STDDEV(value) as stddev_value,
+    COUNT(*) as reading_count
+FROM sensor_readings
+GROUP BY field_id, DATE(time), sensor_type, depth_cm;
+
+-- Monthly compliance metrics
+CREATE MATERIALIZED VIEW mv_monthly_compliance AS
+SELECT 
+    field_id,
+    DATE_TRUNC('month', log_time) as month,
+    event_type,
+    COUNT(*) as event_count,
+    SUM(CASE WHEN pbft_round IS NOT NULL THEN 1 ELSE 0 END) as pbft_validated
+FROM compliance_logs
+GROUP BY field_id, DATE_TRUNC('month', log_time), event_type;
+
+-- Water usage summary
+CREATE MATERIALIZED VIEW mv_water_usage AS
+SELECT 
+    field_id,
+    DATE_TRUNC('month', start_time) as month,
+    SUM(volume_gallons) as total_gallons,
+    SUM(area_irrigated_acres) as total_acres,
+    AVG(flow_rate_gpm) as avg_flow_rate,
+    SUM(duration_minutes) as total_minutes,
+    COUNT(*) as irrigation_count
+FROM irrigation_events
+GROUP BY field_id, DATE_TRUNC('month', start_time);
+```
+
+### BB.2 Docker Deployment Specifications
+
+#### BB.2.1 Service Architecture
+| Service | Image | Replicas | Resources | Purpose |
+|---------|-------|----------|-----------|---------|
+| api | farmsense/api:latest | 3 | 2 CPU, 4GB RAM | FastAPI application |
+| worker | farmsense/worker:latest | 2 | 4 CPU, 8GB RAM | Background jobs |
+| kriging | farmsense/kriging:latest | 2 | 8 CPU, 16GB RAM | Spatial processing |
+| postgres | timescale/timescaledb:latest-pg14 | 1 | 4 CPU, 32GB RAM | Time-series database |
+| redis | redis:7-alpine | 1 | 1 CPU, 2GB RAM | Caching, queues |
+| nginx | nginx:alpine | 2 | 1 CPU, 1GB RAM | Reverse proxy |
+| grafana | grafana/grafana:latest | 1 | 1 CPU, 2GB RAM | Monitoring dashboards |
+| prometheus | prom/prometheus:latest | 1 | 2 CPU, 4GB RAM | Metrics collection |
+
+#### BB.2.2 Docker Compose Production
+```yaml
+version: '3.8'
+services:
+  api:
+    image: farmsense/api:${VERSION:-latest}
+    deploy:
+      replicas: 3
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '1.0'
+          memory: 2G
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - REDIS_URL=${REDIS_URL}
+      - JWT_SECRET=${JWT_SECRET}
+      - ENVIRONMENT=production
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - backend
+      - frontend
+
+  postgres:
+    image: timescale/timescaledb:latest-pg14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'
+          memory: 32G
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - backend
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --appendonly yes --maxmemory 2gb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 2G
+    networks:
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+      - static_files:/var/www/static:ro
+    deploy:
+      replicas: 2
+    depends_on:
+      - api
+    networks:
+      - frontend
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  static_files:
+    driver: local
+
+networks:
+  backend:
+    driver: overlay
+    internal: true
+  frontend:
+    driver: overlay
+```
+
+### BB.3 Kubernetes Deployment Manifests
+
+#### BB.3.1 Namespace and ConfigMap
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: farmsense-production
+  labels:
+    environment: production
+    app: farmsense
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: farmsense-config
+  namespace: farmsense-production
+data:
+  ENVIRONMENT: "production"
+  LOG_LEVEL: "INFO"
+  DATABASE_POOL_SIZE: "20"
+  REDIS_POOL_SIZE: "50"
+  KRIGING_WORKERS: "4"
+  API_RATE_LIMIT: "1000"
+```
+
+#### BB.3.2 API Deployment
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: farmsense-api
+  namespace: farmsense-production
+  labels:
+    app: farmsense-api
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: farmsense-api
+  template:
+    metadata:
+      labels:
+        app: farmsense-api
+    spec:
+      containers:
+      - name: api
+        image: farmsense/api:v2.1.0
+        ports:
+        - containerPort: 8000
+          name: http
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: farmsense-secrets
+              key: database-url
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: farmsense-secrets
+              key: jwt-secret
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1000m"
+          limits:
+            memory: "4Gi"
+            cpu: "2000m"
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 3
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+      volumes:
+      - name: tmp
+        emptyDir: {}
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - farmsense-api
+              topologyKey: kubernetes.io/hostname
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: farmsense-api
+  namespace: farmsense-production
+spec:
+  selector:
+    app: farmsense-api
+  ports:
+  - port: 80
+    targetPort: 8000
+    name: http
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: farmsense-api
+  namespace: farmsense-production
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rate-limit: "1000"
+spec:
+  tls:
+  - hosts:
+    - api.farmsense.io
+    secretName: farmsense-api-tls
+  rules:
+  - host: api.farmsense.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: farmsense-api
+            port:
+              number: 80
+```
+
+#### BB.3.3 Horizontal Pod Autoscaler
+```yaml
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: farmsense-api-hpa
+  namespace: farmsense-production
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: farmsense-api
+  minReplicas: 3
+  maxReplicas: 20
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: 80
+  - type: Pods
+    pods:
+      metric:
+        name: http_requests_per_second
+      target:
+        type: AverageValue
+        averageValue: "1000"
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 15
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 10
+        periodSeconds: 60
+```
+
+### BB.4 Monitoring and Alerting Specifications
+
+#### BB.4.1 Prometheus Rules
+```yaml
+groups:
+- name: farmsense-alerts
+  rules:
+  - alert: HighErrorRate
+    expr: |
+      (
+        sum(rate(http_requests_total{status=~"5.."}[5m]))
+        /
+        sum(rate(http_requests_total[5m]))
+      ) > 0.05
+    for: 5m
+    labels:
+      severity: critical
+    annotations:
+      summary: "High error rate detected"
+      description: "Error rate is {{ $value | humanizePercentage }} for {{ $labels.instance }}"
+
+  - alert: DatabaseConnectionExhausted
+    expr: |
+      farmsense_db_connections_active
+      /
+      farmsense_db_connections_max > 0.8
+    for: 2m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Database connection pool near exhaustion"
+
+  - alert: SensorOffline
+    expr: |
+      time() - farmsense_sensor_last_seen > 900
+    for: 1m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Sensor offline for >15 minutes"
+      description: "Device {{ $labels.device_id }} in field {{ $labels.field_id }}"
+
+  - alert: KrigingLatencyHigh
+    expr: |
+      farmsense_kriging_duration_seconds > 300
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Kriging computation exceeding target"
+
+  - alert: ComplianceLedgerSyncLag
+    expr: |
+      farmsense_compliance_lag_seconds > 3600
+    for: 10m
+    labels:
+      severity: critical
+    annotations:
+      summary: "Compliance ledger synchronization delayed >1 hour"
+```
+
+#### BB.4.2 Grafana Dashboard JSON
+```json
+{
+  "dashboard": {
+    "title": "FarmSense Operations",
+    "tags": ["farmsense", "production"],
+    "timezone": "America/Denver",
+    "panels": [
+      {
+        "title": "API Request Rate",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "rate(http_requests_total[5m])",
+            "legendFormat": "{{ method }} {{ handler }}"
+          }
+        ],
+        "yAxes": [{"format": "reqps"}]
+      },
+      {
+        "title": "Sensor Telemetry Rate",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "sum(rate(farmsense_sensor_readings_total[5m]))",
+            "legendFormat": "Readings/sec"
+          }
+        ]
+      },
+      {
+        "title": "Kriging Grid Quality",
+        "type": "heatmap",
+        "targets": [
+          {
+            "expr": "farmsense_kriging_quality_score",
+            "legendFormat": "Quality Score"
+          }
+        ]
+      },
+      {
+        "title": "Field Fleet Status",
+        "type": "table",
+        "targets": [
+          {
+            "expr": "farmsense_device_status",
+            "format": "table"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### BB.5 Security Hardening Specifications
+
+#### BB.5.1 Network Policies
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: farmsense-default-deny
+  namespace: farmsense-production
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: farmsense-api-allow
+  namespace: farmsense-production
+spec:
+  podSelector:
+    matchLabels:
+      app: farmsense-api
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: ingress-nginx
+    ports:
+    - protocol: TCP
+      port: 8000
+  - from:
+    - podSelector:
+        matchLabels:
+          app: prometheus
+    ports:
+    - protocol: TCP
+      port: 8000
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: postgres
+    ports:
+    - protocol: TCP
+      port: 5432
+  - to:
+    - podSelector:
+        matchLabels:
+          app: redis
+    ports:
+    - protocol: TCP
+      port: 6379
+```
+
+#### BB.5.2 Pod Security Standards
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: farmsense-api
+  namespace: farmsense-production
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+  - name: api
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+        - ALL
+    volumeMounts:
+    - name: tmp
+      mountPath: /tmp
+    - name: cache
+      mountPath: /var/cache
+  volumes:
+  - name: tmp
+    emptyDir: {}
+  - name: cache
+    emptyDir:
+      sizeLimit: 1Gi
+```
+
+---
+
+*Expansion BB: Infrastructure & DevOps Deep-Dive | SQL Schema, Docker, K8s, Monitoring, Security*
+*Target: 7,000+ lines | Current additions: ~1,500 lines*
+
