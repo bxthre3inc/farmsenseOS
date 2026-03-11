@@ -6,13 +6,14 @@ field context, attention modes, and hardware availability.
 """
 
 import logging
-from typing import List, Any
+from typing import List, Any, Dict
 from sqlalchemy.orm import Session
 from datetime import datetime
 
 from app.services.grid_renderer import GridRenderingService
-from app.services.adaptive_recalc_engine import AdaptiveRecalculationEngine, AttentionMode
-from app.models.sensor_data import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m
+from app.services.adaptive_recalc import AdaptiveRecalculationEngine, AttentionMode
+from app.services.vri_hardware_gateway import VRIHardwareGateway
+from app.models import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m, RecalculationLog
 
 logger = logging.getLogger(__name__)
 
@@ -23,12 +24,19 @@ class VRICommandCenter:
         Determines the optimal resolution for the current field state.
         BAR (Best Available Resolution) logic.
         """
-        # 1. Check current attention mode
-        # In a real app, this would query the latest RecalculationLog
-        # For now, we'll instantiate the engine or query a mock state
-        attention = AdaptiveRecalculationEngine(field_id)
-        # Mocking mode retrieval
-        current_mode = AttentionMode.DORMANT 
+        # 1. Check current attention mode from the latest RecalculationLog
+        latest_log = db.query(RecalculationLog).filter(
+            RecalculationLog.field_id == field_id
+        ).order_by(RecalculationLog.timestamp.desc()).first()
+        
+        if not latest_log:
+            current_mode = AttentionMode.DORMANT
+        else:
+            # Map string back to AttentionMode enum
+            try:
+                current_mode = AttentionMode(latest_log.new_mode)
+            except ValueError:
+                current_mode = AttentionMode.DORMANT
         
         # 2. Logic for BAR
         # Collapse mode (emergency/high-action) -> Prefers 1m if possible, or 10m/20m
@@ -55,3 +63,25 @@ class VRICommandCenter:
         logger.info(f"VRICommandCenter: Delivering {resolution} resolution for field {field_id}")
         
         return GridRenderingService.get_or_render_grid(db, field_id, resolution)
+
+    @staticmethod
+    def dispatch_prescription(db: Session, field_id: str) -> Dict[str, Any]:
+        """
+        Fetches the latest high-res 1m grid and dispatches it to the hardware gateway.
+        """
+        # 1. Fetch the 1m grid with predictive mode (to proactive optimize)
+        grid = GridRenderingService.get_or_render_grid(db, field_id, "1m", predictive_mode=True)
+        
+        # 2. Extract prescriptions (the grid objects now have enriched attributes from phase 2)
+        prescriptions = []
+        for point in grid:
+            prescriptions.append({
+                "grid_id": point.grid_id,
+                "vri_nozzle_setting": getattr(point, 'vri_nozzle_setting', 1.0)
+            })
+            
+        # 3. Dispatch to Hardware
+        hw_response = VRIHardwareGateway.dispatch_commands(field_id, prescriptions)
+        
+        logger.info(f"VRICommandCenter: Dispatch successful. Hardware Result: {hw_response['status']}")
+        return hw_response

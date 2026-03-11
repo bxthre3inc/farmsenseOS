@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.api.dependencies import get_current_user, RequireRole
 from app.models.user import UserRole, User, SubscriptionTier
-from app.models.sensor_data import ComplianceReport, VirtualSensorGrid1m, HardwareNode
+from app.models import ComplianceReport, VirtualSensorGrid1m, HardwareNode
 from sqlalchemy import func
 
 from app.schemas.metrics import (

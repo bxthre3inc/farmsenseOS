@@ -33,16 +33,7 @@ class SupportLetter(Base):
     verified_at = Column(DateTime)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
-class EquityStake(Base):
-    __tablename__ = 'equity_stakes'
-
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    user_id = Column(UUID(as_uuid=True), ForeignKey('users.id'), nullable=False)
-    shares = Column(Integer, default=0)
-    purchase_price = Column(Float)
-    purchased_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
-    
-    user = relationship("User", backref="equity_stakes")
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 # Pydantic Schemas
 class SupportLetterBase(BaseModel):

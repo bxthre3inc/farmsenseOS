@@ -23,9 +23,9 @@ FarmSense functions as a decentralized monolithic grid, balancing low-latency ed
 
 ### 2.1 Hierarchical Processing Stack
 
-1. **Level 1 (Field):** **LRZ1/LRZ2/VFA/PFA** (LoRa bursts) -> **PMT Hub** (50m Grid, Edge-EBK baseline). 900MHz **Chirp Spread Spectrum (CSS)** security.
-2. **Level 2 (District):** **DHUs** (NVIDIA Jetson Orin Nano) -> 1m/10m/20m Grid (Go-based Bayesian Kriging). Localized reflex autonomy.
-3. **Level 3 (Regional):** **RSS** (64-Core Threadripper) -> 1m Grid (Python-based Regression Kriging + FHE). Regional DIL vaulting.
+1. **Level 1 (Field):** **LRZ1/LRZ2/VFA/PFA** (LoRa bursts) -> **PMT Hub** (50m Grid, Compliance Baseline). 900MHz **Chirp Spread CSS** security.
+2. **Level 2 (District):** **DHUs** (NVIDIA Jetson) -> 20m/10m Grid (Optimization Layer). Localized reflex autonomy.
+3. **Level 3 (Regional):** **RSS** (64-Core Threadripper) -> 1m Master Grid + 1cm Point Zoom (Enterprise Tier). Regional DIL vaulting.
 4. **Level 4 (Global):** **Core Compute Cloud** -> Multi-field analytics, Federated Learning, global hydro-economics.
 
 ```mermaid
@@ -131,8 +131,9 @@ CREATE TABLE compliance_logs (
 
 ### 4.1 The Core Compute Engine (Soil-Plant-Atmosphere Continuum Synthesis)
 
-Hosted at `brodiblanco.zo.computer`. Responsible for the **Soil-Plant-Atmosphere Continuum (SPAC)** synthesis and high-fidelity moisture mastering.
+Hosted at `brodiblanco.zo.computer`. Responsible for the **Soil-Plant-Atmosphere Continuum (SPAC)** synthesis and generating the **Unified Freshwater Index (UFI)**.
 
+- **UFI Hex-Fusion**: Real-time synthesis of UN Regulatory Stress, Satellite Moisture, Vapor Pressure Deficit (VPD), AllianceChain Liquidity, and FarmSense Ground-Truth (60% weight).
 - **Bayesian Priors**: Establishes moisture probability using historical **Soil Functional Domain (SFD)** profiles and multispectral NDVI baselines.
 - **Regression Kriging**: Ordinary Kriging corrects Sentinel-2 trend bias using ground-truth LRZ1/LRZ2/VFA **Dielectric Telemetry**.
 - **MAD Framework**: **Management Allowable Depletion (MAD)** — utilizes the soil profile as a "Water Battery" to optimize pumping schedules and prevent permanent wilting points.
@@ -220,9 +221,10 @@ Sub-cloud orchestrator evaluation field-state conditions.
 
 ## 7. Strategic Feature Set
 
-- **Resolution Pop**: Dynamic UI blur/unlock between 50m (Free) and 1m (Enterprise) spatial tiers.
+- **UFI (Unified Freshwater Index)**: Proprietary bx3 standard for Fresh Water Availability. Uses Hex-Fusion to prioritize hardware Ground-Truth (60%).
+- **Resolution Pop**: Dynamic UI blur/unlock between **50m Compliance (Free/Base)** and **1m Enterprise (Global/Premium)** spatial tiers based on UFI stress levels.
+- **Mandate Enforcement Layer**: Automated cross-validation of satellite ET (Evapotranspiration) vs. Badger Meter ground-truth to detect unmetered water "leakage" or unauthorized usage across the subdistrict.
 - **AllianceChain**: Peer-to-peer water credit trading rights executed via DHU PBFT consensus.
-- **Dual-Layer Contextual Anonymization**: Segregates Hyper-accurate Legal Ledger (Private) from Federated Learning Models (Public/Aggregate).
 - **Rapid Deployment/Dual-Use**: JADC2 adapters translate soil trafficability into tactical terrain maps.
 
 ---

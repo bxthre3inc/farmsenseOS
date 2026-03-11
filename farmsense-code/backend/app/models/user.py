@@ -19,6 +19,8 @@ class UserRole(str, enum.Enum):
     INVESTOR = "INVESTOR"
     REVIEWER = "REVIEWER"
     PARTNER = "PARTNER"
+    REGULATOR = "REGULATOR"
+    INTERNAL = "INTERNAL"
 
 class User(Base):
     __tablename__ = "users"

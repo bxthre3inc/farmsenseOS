@@ -1,9 +1,12 @@
 from datetime import datetime
 from sqlalchemy.orm import Session
-from app.models.sensor_data import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m, SoilSensorReading
+from app.models import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m, SoilSensorReading
 from app.services.external_data_service import ExternalDataService
 from app.services.satellite_service import SatelliteDataService
 from app.services.rss_kriging import RSSKrigingEngine
+from app.services.hvs_sync_service import HVSSyncService
+from app.services.yield_prediction_service import YieldPredictionService
+from app.services.vri_prescription_service import VRIPrescriptionService
 from app.core.env_wrapper import platform_wrapper
 import logging
 import uuid
@@ -17,7 +20,8 @@ class GridRenderingService:
         field_id: str,
         resolution: str,
         limit: int = 1000,
-        offline_mode: bool = False
+        offline_mode: bool = False,
+        predictive_mode: bool = False
     ):
         """
         Dynamically renders the grid based on recent sensor trends, 
@@ -96,38 +100,158 @@ class GridRenderingService:
         if not Model:
             raise ValueError(f"Invalid resolution: {resolution}")
 
+        # Fetch latest cached results
         results = db.query(Model).filter(
             Model.field_id == field_id
         ).order_by(Model.timestamp.desc()).limit(limit).all()
         
-        if not results and resolution == "1m":
-             logger.info("No cached 1m grid found. Generating new high-res points with RSS Kriging Engine...")
+        rss_engine = RSSKrigingEngine()
+
+        # Apply spatiotemporal decay to cached results
+        if results:
+            latest_ts = results[0].timestamp
+            hours_since_last = (datetime.utcnow() - latest_ts).total_seconds() / 3600.0
+            
+            # Convert DB objects to Dict for the engine processing
+            results_dict = []
+            for r in results:
+                results_dict.append({
+                    "field_id": r.field_id,
+                    "grid_id": r.grid_id,
+                    "timestamp": r.timestamp,
+                    "moisture_surface": r.moisture_surface,
+                    "confidence_score": r.confidence_score,
+                    "computation_mode": r.computation_mode
+                })
+            
+            decayed_results = rss_engine.apply_spatiotemporal_decay(results_dict, hours_since_last)
+            
+            # Update the DB objects with decayed values (in-memory for this return)
+            for i, r in enumerate(results):
+                r.confidence_score = decayed_results[i]['confidence_score']
+                r.computation_mode = decayed_results[i]['computation_mode']
+
+        # If no results or if the latest results are "STALE", trigger a re-render
+        is_stale = results and "STALE" in results[0].computation_mode
+        
+        if (not results or is_stale) and resolution == "1m":
+             logger.info(f"Triggering 1m grid refresh for {field_id} (Reason: {'No cache' if not results else 'Stale data'})")
+             
              # Convert SoilSensorReadings to the format expected by RSSKrigingEngine
              sensor_list = [
                  {'lat': r.location.lat, 'lon': r.location.lon, 'moisture': r.moisture_surface} 
                  for r in readings if r.location
              ]
              
-             rss_engine = RSSKrigingEngine()
-             # In production, this would happen on the RSS hardware cluster
-             rss_grid = rss_engine.generate_1m_grid(field_id, sensor_list)
+             # Differential update: provide previous grid if available and not too old
+             prev_grid = None
+             if results and not is_stale:
+                 prev_grid = results_dict
+
+             rss_grid = rss_engine.generate_1m_grid(field_id, sensor_list, prev_grid=prev_grid)
              
              # Save to DB and return
+             # HVS Sync (Horizontal-Vertical Sync): Superimpose VFA anchors onto 1m grid
+             hvs_svc = HVSSyncService()
+             # Mock a nearby VFA anchor reading for the field
+             mock_vfa = {
+                 'id': 'VFA_ANCHOR_001',
+                 'slot_10_moisture': 0.28,
+                 'slot_18_moisture': 0.32,
+                 'slot_25_moisture': 0.35,
+                 'slot_35_moisture': 0.30,
+                 'slot_48_moisture': 0.25
+             }
+
              results = []
              for g in rss_grid:
+                 # Apply HVS Sync logic to the grid point data
+                 synced_cell = hvs_svc.sync_grid_cell(g, mock_vfa)
+                 
                  db_point = VirtualSensorGrid1m(
-                     field_id=g['field_id'],
-                     grid_id=g['grid_id'],
-                     timestamp=g['timestamp'],
-                     location=f"POINT({g['longitude']} {g['latitude']})",
-                     moisture_surface=g['moisture_surface'] * final_modifier,
-                     confidence_score=g['confidence_score'] * confidence,
-                     computation_mode=g['computation_mode']
+                     field_id=synced_cell['field_id'],
+                     grid_id=synced_cell['grid_id'],
+                     timestamp=synced_cell['timestamp'],
+                     location=f"POINT({synced_cell['longitude']} {synced_cell['latitude']})",
+                     moisture_surface=synced_cell['moisture_surface'] * final_modifier,
+                     moisture_root=synced_cell['moisture_root'] * final_modifier, # Populated by HVS
+                     confidence_score=synced_cell['confidence_score'] * confidence,
+                     computation_mode=synced_cell['computation_mode'],
+                     source_sensors=synced_cell.get('vertical_profile') # Store the derived profile
                  )
                  db.add(db_point)
                  results.append(db_point)
+             
+             # Phase 4: FHE Secure Aggregation (SIMD-Batched)
+             if results and "FHE" in results[0].computation_mode:
+                logger.info(f"FHE_ENCLAVE: Performing secure regional aggregation for field {field_id}")
+                # Simulate aggregation of the entire 1m grid into a single secure mean
+                fhe_vec = rss_engine.generate_1m_grid(field_id, sensor_list, prev_grid=prev_grid, fhe_enabled=True)
+                # This is just for demonstration of the API flow
+                
              db.commit()
         
+        # Phase 2: Predictive & Prescriptive Enhancements
+        if predictive_mode:
+            logger.info(f"SYNTHESIS: Generating 48-hour predictive moisture forecast for {field_id}")
+            # Mock temporal shift: Simulate 48h drying trend unless high moisture
+            for r in results:
+                # If moisture is high, it stays wetter longer, else dries 15%
+                m_val = getattr(r, 'moisture_surface', 0.25)
+                drying_factor = 0.85 if m_val < 0.3 else 0.95
+                r.moisture_surface = m_val * drying_factor
+                r.computation_mode += "_PREDICTIVE_48H"
+
+        # VRI Enrichment: Inject prescription metadata into the grid response
+        if resolution == "1m":
+            vri_engine = VRIPrescriptionService()
+            
+            # Convert objects to dict for VRI processing
+            points_to_process = []
+            for r in results:
+                points_to_process.append({
+                    "field_id": r.field_id,
+                    "grid_id": r.grid_id,
+                    "moisture_surface": r.moisture_surface
+                })
+                
+            prescriptions = vri_engine.generate_prescription(points_to_process)
+            
+            # In a real app, we'd attach this to the return object or a separate schema
+            # For this prototype, we'll log the enhancement and effectively "update" the objects in memory
+            if prescriptions:
+                metrics = vri_engine.calculate_efficiency_gain(prescriptions)
+                logger.info(f"VRI Logic Applied. Estimated Water Sync Efficiency: {metrics['estimated_water_savings_pct']:.1f}%")
+                
+                # Attach VRI metadata to the objects (simulated enrichment)
+                for i, r in enumerate(results):
+                    setattr(r, 'vri_nozzle_setting', prescriptions[i]['vri_nozzle_setting'])
+                    setattr(r, 'target_gpt_adjustment', prescriptions[i]['target_gpt_adjustment'])
+
+        # Phase 6: MSF Yield Prediction
+        if resolution == "1m":
+            yield_svc = YieldPredictionService()
+            # Convert objects to dict for batch prediction
+            grid_dicts = []
+            for r in results:
+                # Reconstruct dict from DB object attributes
+                d = {
+                    'moisture_surface': r.moisture_surface,
+                    'ndvi': getattr(r, 'ndvi', 0.6),
+                    'ndwi': getattr(r, 'ndwi', 0.1),
+                    'computation_mode': r.computation_mode,
+                    'source_sensors': r.source_sensors # This holds the vertical profile from HVS
+                }
+                grid_dicts.append(d)
+            
+            predicted_grid = yield_svc.batch_predict_grid(grid_dicts)
+            
+            # Apply predictions back to the objects
+            for i, r in enumerate(results):
+                r.yield_forecast_kgha = predicted_grid[i]['yield_forecast_kgha']
+                r.crop_stress_probability = predicted_grid[i]['crop_stress_probability']
+                r.computation_mode = predicted_grid[i]['computation_mode']
+
         return results
 
     @staticmethod

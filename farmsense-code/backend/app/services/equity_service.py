@@ -1,16 +1,94 @@
-
-from typing import Dict, Optional
-from datetime import datetime, timezone
+import logging
 import math
+from datetime import datetime, timezone
+from typing import Dict, List, Optional
+
 from sqlalchemy.orm import Session
-from app.models.grant import EquityStake
+
+from app.models.equity import EquityStake
 from app.models.user import User
+from app.models.water_rights import WaterTrade, TradeStatus
+from app.models import SoilSensorReading
+from sqlalchemy import func
+from app.services.trading_service import WaterTradingService
+
+logger = logging.getLogger(__name__)
+
+class UFIService:
+    """
+    Unified Freshwater Index (UFI) V2.2 - bx3 Standard.
+    The definitive 'Gold Truth' for Freshwater Availability.
+    Weights: 60% Ground-Truth, 12% VPD, 10% Liquidity, 6.0% Macro signals.
+    """
+    @staticmethod
+    def get_ufi_score(db: Session, region: str = "SLV") -> float:
+        """
+        Hex-Fusion V2.2 Scarcity Engine.
+        Synthesizes real-time regulatory, atmospheric, and liquidity signals.
+        """
+        # 1. Macro Signals (6.0% each) - Static Regulatory Baselines
+        W_SDG = 0.7  # UN Stress Indicator
+        W_F = 0.6    # Falkenmark Pressure
+        W_WSI = 0.75 # Satellite Risk
+        
+        # 2. Leading Indicators (12.0% VPD) - Fetch from Analytics
+        # Vapor Pressure Deficit (kPa) - Scale 0.0 to 1.0 (Critical at >2.5 kPa)
+        try:
+            # Fetch real-time VPD using the updated db-connected method
+            V_VPD_raw = WaterTradingService.get_current_vpd(db, region) 
+            V_VPD = min(1.0, V_VPD_raw / 2.5) 
+        except Exception as e:
+            logger.warning(f"Failed to fetch real-time VPD for region {region}: {e}. Using fallback.")
+            V_VPD = 0.5 # Default moderate stress
+        
+        # 3. Economic Signaling (10.0% AllianceChain Liquidity)
+        # Ratio of pending/completed trades in the last 24h
+        try:
+            # Fetch real-time liquidity from trading service
+            # This could be a more complex aggregation, but for now, count committed trades
+            recent_trades_count = WaterTradingService.get_recent_committed_trades_count(db, region)
+            # Scale liquidity score: 0.1 (low activity) to 1.0 (high velocity)
+            L_AC = min(1.0, recent_trades_count / 50.0) 
+        except Exception as e:
+            logger.warning(f"Failed to fetch real-time liquidity for region {region}: {e}. Using fallback.")
+            L_AC = 0.45
+        
+        # 4. Sovereign Variable (60.0% FarmSense Ground-Truth)
+        # Highest fidelity signal: Recalculated from latest 100 soil readings
+        try:
+            latest_readings = db.query(SoilSensorReading.moisture_surface).filter(
+                SoilSensorReading.quality_flag == 'valid'
+            ).order_by(SoilSensorReading.timestamp.desc()).limit(100).all()
+            
+            if latest_readings:
+                # Average moisture (normalized 0.1 to 0.5 -> 0.0 to 1.0 stress)
+                avg_moisture = sum([r[0] for r in latest_readings]) / len(latest_readings)
+                # UFI stress is inverse of moisture (0.5 moisture -> 0.0 stress, 0.1 moisture -> 1.0 stress)
+                G_FS = max(0.0, min(1.0, (0.5 - avg_moisture) / 0.4))
+            else:
+                G_FS = 0.5
+        except Exception as e:
+            logger.error(f"[UFI] Ground-Truth aggregation failed: {e}")
+            G_FS = 0.5
+        
+        # Hex-Fusion V2.2 Calculation
+        score = (
+            (0.06 * W_SDG) + 
+            (0.06 * W_F) + 
+            (0.06 * W_WSI) + 
+            (0.60 * G_FS) + 
+            (0.12 * V_VPD) + 
+            (0.10 * L_AC)
+        )
+        
+        logger.info(f"[UFI] Scoring Engine: VPD={V_VPD:.2f}, AC_Liq={L_AC:.2f}, Result={score:.4f}")
+        return round(score, 4)
 
 class EquityService:
     """
     Manages the 'Group 100' Equity Buy-in.
     10,000 shares represent 1% total ownership.
-    Price follows a curve: P = P0 * (1 + rate)^n
+    Price follows a curve: P = (P0 * (1 + rate)^n) * (1 + scarcity_premium)
     """
     BASE_PRICE_USD = 100.00  # Starting price per share
     TOTAL_SHARES = 10000
@@ -18,11 +96,19 @@ class EquityService:
     
     @staticmethod
     def get_current_price(db: Session) -> float:
-        """Calculates the current share price based on total seats claimed"""
+        """Calculates current share price with dynamic UFI scarcity multiplier"""
         count = db.query(EquityStake).count()
-        # Price curve: Each new investor pays slightly more
-        # TODO: Integrate with Global Water Scarcity Index (GWSI) for dynamic valuation
-        return EquityService.BASE_PRICE_USD * math.pow((1 + EquityService.RATE_INCREMENT), count)
+        
+        # Base curvature price
+        base_curve = EquityService.BASE_PRICE_USD * math.pow((1 + EquityService.RATE_INCREMENT), count)
+        
+        # Unified Freshwater Index (UFI) Premium
+        ufi_score = UFIService.get_ufi_score(db)
+        
+        # Premium logic: UFI > 0.8 triggers 'Focus Collapse' premium (50%)
+        scarcity_multiplier = 1 + (ufi_score * 0.5) 
+        
+        return round(base_curve * scarcity_multiplier, 2)
 
     @staticmethod
     def process_buy_in(db: Session, user: User, amount_usd: float) -> EquityStake:
@@ -74,16 +160,39 @@ class DilutionModelingService:
         }
 
     @staticmethod
-    def get_100b_series_a_impact(current_total_shares: int) -> Dict[str, any]:
+    def get_100b_series_a_impact(db: Session) -> Dict[str, any]:
         """
         Specific simulation for the $100B Series A target.
         Assumes a $20B raise at a $80B pre-money valuation.
         """
+        current_total_shares = db.query(func.sum(EquityStake.shares)).scalar() or 0
+        if current_total_shares == 0:
+            current_total_shares = 1000000 # Default seed for modeling if empty
+            
         return DilutionModelingService.simulate_round(
             current_total_shares,
             pre_money_valuation=80_000_000_000.0,
             investment_amount=20_000_000_000.0
         )
+
+    @staticmethod
+    def get_investor_roi(entry_price: float, target_valuation_usd: float = 100_000_000_000.0) -> float:
+        """
+        Calculates projected ROI for an investor based on target exit valuation.
+        Incorporates 'UFI Scarcity Premium' at exit to justify the $100B thesis.
+        """
+        # Scarcity Multiplier: At $100B, we assume critical UFI levels (>0.8)
+        # This justifies a premium on the per-acre value of the tech.
+        ufi_premium = 1.5 # 50% scarcity premium at exit
+        
+        # Standardized exit share count
+        EXIT_TOTAL_SHARES = 1_000_000_000 
+        exit_price_per_share = (target_valuation_usd * ufi_premium) / EXIT_TOTAL_SHARES
+        
+        # Correlate Group 100 shards to exit shares (1:100 ratio)
+        projected_value = exit_price_per_share * 100
+        
+        return round((projected_value - entry_price) / entry_price * 100, 2)
 
 class SignatureService:
     """

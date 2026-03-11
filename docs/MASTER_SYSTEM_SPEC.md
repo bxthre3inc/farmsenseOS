@@ -134,13 +134,71 @@ Hermetically sealed high-density compute and legal data repository.
 
 - **Non-Invasive Flow Stack**: **Badger Meter TFX-5000** Ultrasonic Transit-Time (±1.0% accuracy). Employs dual-path transducers to verify **Volumetric Hydraulic Reality** and suppress kinetic noise.
 - **Kinematic Positioning**: **u-blox ZED-F9P RTK GNSS** (<5cm error). Integrated with Bosch BNO055 9-Axis IMU to detect "Crabbing" and **Structural Cantilever Deviations**.
-- **Edge IQ (ESP32-S3)**: Dual-core 240MHz + Hardware Vector Acceleration. Executes **Autonomous Edge-EBK** (50m spatial grid) natively for zero-downtime **Precision VRI**.
-- **Fisherman's Attention (Adaptive Updates)**:
-  - **Dormant**: 4-hour sweeps (Stable).
-  - **Anticipatory**: 1-hour sweeps (Forecasted change).
-  - **Focus Ripple**: 15-min sweeps (Active anomaly detection).
-  - **Focus Collapse**: 5-second sweeps (Critical event / Water moving).
-- **VRI Logic**: Executes 1m-pixel prescriptions delivered from DHU/RSS.
+- **Edge Computation (L1.5/PMT)**:
+  - Generates initial **50m Spatial Grid** (Compliance Level) natively. This is the **Free Compliance Base**, subsidized by SFD grants.
+  - Passes 50m grid + RAW sensor telemetry for redundant auditing.
+- **District Computation (L2/DHU)**:
+  - Receives L1.5 50m grid.
+  - Computes secondary **20m and 10m Resolution Tiles** (Paid / Paid Plus tiers) for territory-level optimization.
+- **Cortex Computation (L3/RSS)**:
+  - Consolidates all tiers for the **Master Compliance Ledger**.
+  - Renders the definitive **1m Enterprise Raster** (Enterprise Tier - **$500/mo min**).
+  - **Point Zoom (1cm Hyper-Accuracy)**: Quality-focused spot check (audit-grade by design). Enterprise Exclusive.
+
+#### 1.6.1 Software Pricing & Volume Discounts
+
+FarmSense employs a "Scale-Out" pricing model to incentivize large-scale subdistrict adoption:
+
+- **Base Units**: Pricing is calculated per-field. Single field is at the standard rate.
+- **Initial Volume Boot**: Triggers at **5% off** for 2 or more fields, increasing by **2.5% per field** until **15%** (Field 6).
+- **Growth Accelerator**: 1% discount for every **2 additional fields** until **20%** (Field 16).
+- **Subdistrict Scale**: 1% discount for every **10 additional fields** until a **25% lifetime cap**.
+
+#### 1.6.2 Statutory Mandate Integration
+
+The FarmSense stack is designed to be the "Enforcement Ledger" for state/subdistrict mandates (e.g., Colorado SB23-295 compliance):
+
+- **Mandatory 50m Audit**: The Free 50m Compliance Base provides a "Blanket Audit" for the entire subdistrict.
+- **Unmetered Usage Detection**: The RSS Master Grid compares satellite-derived crop demand against real-time pumping ground-truth. Discrepancies >15% trigger an automated **Mandate Violation Alert**.
+- **Conservation Triggers**: UFI Stress Scores > 0.85 can be used to trigger **Automated Subdistrict Curtailment**, where vVRI (Variable Variable Rate Irrigation) rules are enforced by the DHU to prevent aquifer collapse.
+
+#### 1.6.3 Field Boundary Definition (Statutory Onboarding)
+
+Farmers define their geographic legal boundaries through three primary vectors:
+
+1. **Native Interface Drawing**: Farmers use the `AgriMap` drawing suite to outline polygons directly on high-resolution Sentinel-2/L8/NAIP imagery. Polygons are validated for topology (no self-intersections) at the Edge.
+2. **GeoJSON/KML/Shapefile Ingestion**: Standard geographic data formats can be uploaded directly to the DHU.
+3. **CLU/RPID Synchronization**: Automated ingestion of Common Land Unit (CLU) or RPID data from USDA/FSA or state agricultural databases ensures legal alignment with registered water rights.
+
+#### 1.6.4 Vision-Assisted "Zero-Touch" Onboarding
+
+To reduce friction in statutory compliance, FarmSense utilizes **Computer Vision (CV)** to accelerate field registration:
+
+- **Auto-Geolocate**: Addresses provided at signup are geocoded to seed the map viewport.
+- **Vision Propose (Mock-Informed)**: The subdistrict-wide 50m layer is analyzed using edge-detection algorithms to identify apparent field boundaries around the geocoded point.
+- **Claim-and-Edit**: Farmers are presented with "Proposed Polygons" which they can click to claim, tweak, or reject, replacing manual drawing with high-fidelity validation.
+
+Once defined, boundaries are stored as **PostGIS WGS-84 Polygons** and hashed into the **AllianceChain Compliance Ledger**.
+
+### 1.7 Operations, Maintenance & Field Staffing
+
+While the RSS handles the computational load (~658 fields/hr/core), the physical resilience of the "Edge of the Edge" requires a dedicated **Field Operations Team**.
+
+#### 1.7.1 Field Staff Requirements
+
+To support a subdistrict-wide mandate and ensure 99.9% sensor up-time for Water Court evidence:
+
+- **Autonomous Scale (99.9%)**: All data layers, including the **1cm "Point Zoom"**, are **100% autonomous**.
+  - **1cm Surgical Precision**: The 1cm tier is a "Point Zoom" computational optimization. It renders high-fidelity Kriging residuals ONLY in the immediate vicinity of the user's click/query. This provides hyper-accurate diagnostics without the overhead of rendering a full subdistrict at 1cm resolution.
+- **Physical Trust Operations**: The **6-man Field Operations Team** is responsible for the **Physical Layer**, not the data layer.
+  - **Hardware Integrity**: Installation, calibration, and repair of PMT/VFA units.
+  - **Power Resilience**: Managing solar/battery hygiene across remote sectors.
+  - **Legal Chain-of-Custody**: Periodically certifying that physical hardware is untampered and correctly positioned, which "anchors" the autonomous data to legal standards.
+- **Baseline Staffing**: Minimum **6 Full-Time Field Technicians** on a rotational "on-the-clock" basis.
+
+#### 1.7.2 Operational Scale
+
+The RSS is designed to scale horizontally via clusters, but the Field Staff is the primary bottleneck for "Digital Twin" expansion. Pricing tiers (e.g., the $500 monthly Enterprise minimum) are designed to subsidize this high-touch human operational layer.
 
 #### PMT Bus & Pin Mapping (Cortex-M4/ESP32-S3)
 
@@ -380,7 +438,7 @@ Used for standard center-pivot machines without articulate corner-swing arms. Th
   - 4× **LRZ2** Spatial Reference Nodes (cardinal directions).
   - 12× **LRZ1** High-Density Truth Nodes (stochastic placement within SFD zones).
 - **Total Node Count**: 20 Nodes.
-- **Target Accuracy**: ±1.0% Volumetric, 1m Spatial.
+- **Target Accuracy**: ±1.0% Volumetric, 50m Spatial (Compliance) / 1m Spatial (Enterprise).
 
 ### **11.2 SFD-C: Articulate Corner-Swing Arm (150+ Acre)**
 

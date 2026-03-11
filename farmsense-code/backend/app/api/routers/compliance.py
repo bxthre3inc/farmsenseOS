@@ -5,9 +5,10 @@ from datetime import datetime
 from app.core.database import get_db
 from app.api.dependencies import get_current_user, RequireRole
 from app.models.user import User, UserRole
-from app.models.sensor_data import ComplianceReport
+from app.models import ComplianceReport
 
 from app.schemas.metrics import ComplianceReportResponse
+from app.services.audit_service import RegulatoryAuditService
 
 router = APIRouter()
 
@@ -59,6 +60,21 @@ def generate_compliance_report(
         # Synchronous execution if no background tasks provided
         generate_compliance_report_task(field_id, period_start, period_end, report_type, db)
         return {"status": "completed", "message": "Report generated synchronously"}
+
+
+@router.get("/audit/field/{field_id}", tags=["Regulatory"], dependencies=[Depends(RequireRole([UserRole.REGULATOR, UserRole.INTERNAL]))])
+def get_field_audit_report(
+    field_id: str,
+    db: Session = Depends(get_db),
+    user: User = Depends(get_current_user)
+):
+    """
+    Generate a non-repudiable Water Court Audit Report (bx3 Standard).
+    Consolidates UFI scores, high-res kriging metadata, and AllianceChain proofs.
+    Requires REGULATOR or INTERNAL role.
+    """
+    report = RegulatoryAuditService.generate_field_audit_report(db, field_id, user)
+    return report
 
 
 # ──────────────────────────────────────────────────────────
@@ -136,7 +152,7 @@ def generate_gap_report(
     Returns JSON report + full Markdown narrative ready for submission prep.
     Each report includes a SHA-256 verifiable hash for audit chain integration.
     """
-    from app.services.globalGAP_compliance import gap_engine, GAP_FieldInputs
+    from app.services.globalgap import gap_engine, GAP_FieldInputs
 
     inputs = GAP_FieldInputs(
         field_id=request.field_id,
@@ -225,7 +241,7 @@ def list_gap_control_points():
     evaluated by FarmSense, with their weights and descriptions.
     Useful for the compliance report UI to explain the scoring model.
     """
-    from app.services.globalGAP_compliance import (
+    from app.services.globalgap import (
         CONTROL_POINT_DESCRIPTIONS, CONTROL_POINT_WEIGHTS, ControlPointID
     )
     return [

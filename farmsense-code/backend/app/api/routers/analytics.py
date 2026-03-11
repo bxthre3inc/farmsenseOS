@@ -6,10 +6,10 @@ from app.core.database import get_db
 from app.api.dependencies import get_current_user, RequireTier, SubscriptionTier
 from app.models.user import User
 
-from app.models.sensor_data import VirtualSensorGrid20m, VirtualSensorGrid50m, VirtualSensorGrid10m, VirtualSensorGrid1m, SoilSensorReading as SensorReading
+from app.models import VirtualSensorGrid20m, VirtualSensorGrid50m, VirtualSensorGrid10m, VirtualSensorGrid1m, SoilSensorReading as SensorReading
 from sqlalchemy import func
 from app.services.grid_renderer import GridRenderingService
-from app.services.decision_engine import FieldDecisionEngine, FieldDiagnosticService
+from app.services.decision import FieldDecisionEngine, FieldDiagnosticService
 from app.services.vri_command_center import VRICommandCenter
 from app.services.terrain import TerrainService
 
@@ -268,8 +268,8 @@ def get_field_analytics(
     stress_pct = (stressed_cells / total_cells * 100) if total_cells > 0 else 0.0
     
     # Check adaptive recalcular logic (AttentionMode)
-    from app.services.adaptive_recalc_engine import AttentionMode
-    from app.models.sensor_data import RecalculationLog
+    from app.services.adaptive_recalc import AttentionMode
+    from app.models import RecalculationLog
     latest_recalc = db.query(RecalculationLog).filter(RecalculationLog.field_id == field_id).order_by(RecalculationLog.timestamp.desc()).first()
     
     mode = latest_recalc.new_mode if latest_recalc else AttentionMode.DORMANT.value
@@ -390,7 +390,7 @@ def anonymize_sensor_points(
     Suppressed points (k-anonymity not met) are included with suppressed=True
     and zeroed values — callers MUST NOT export suppressed points.
     """
-    from app.services.spatial_privacy import (
+    from app.services.privacy import (
         privacy_service, SensorPoint, PrivacyTier
     )
 
@@ -468,7 +468,7 @@ def anonymize_aggregate_stat(
     Used by federated learning result broadcasts where individual
     sensor points are never exported — only basin-level averages.
     """
-    from app.services.spatial_privacy import privacy_service, PrivacyTier
+    from app.services.privacy import privacy_service, PrivacyTier
 
     try:
         tier = PrivacyTier(request.tier)
@@ -491,7 +491,7 @@ def list_privacy_tiers():
     Returns the available privacy tier configurations and their parameters.
     Useful for research portal UI to display what each tier does.
     """
-    from app.services.spatial_privacy import TIER_DEFAULTS
+    from app.services.privacy import TIER_DEFAULTS
 
     return {
         tier.value: {

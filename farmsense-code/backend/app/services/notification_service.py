@@ -2,7 +2,7 @@
 from typing import List, Optional
 from datetime import datetime
 from sqlalchemy.orm import Session
-from app.models.sensor_data import SoilSensorReading
+from app.models import SoilSensorReading
 from enum import Enum
 
 class AlertSeverity(Enum):

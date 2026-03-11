@@ -145,18 +145,18 @@ class RegressionKriging:
         
         logger.info(f"Variogram params: sill={sill:.4f}, range={range_param:.1f}m, nugget={nugget:.4f}")
     
-    def predict_1m_grid(
+    def predict_grid(
         self,
         sensor_points: List[SensorPoint],
         satellite_data: List[SatellitePixel],
         grid_bounds: Tuple[float, float, float, float],  # (min_x, min_y, max_x, max_y)
-        resolution: float = 1.0  # meters
+        resolution: float = 1.0  # meters (e.g., 50.0, 20.0, 10.0, 1.0)
     ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
         """
         Generate 1m resolution predictions across field
         Returns: (x_grid, y_grid, predictions, variances)
         """
-        logger.info("Starting 1m grid prediction...")
+        logger.info(f"Starting {resolution}m grid prediction...")
         
         # 1. Fit trend model
         self.fit_trend(sensor_points, satellite_data)
@@ -204,9 +204,58 @@ class RegressionKriging:
         predictions_grid = final_predictions.reshape(grid_shape)
         variances_grid = variances.reshape(grid_shape)
         
-        logger.info("1m grid prediction complete")
+        logger.info(f"{resolution}m grid prediction complete")
         
         return x_grid, y_grid, predictions_grid, variances_grid
+
+    def predict_point(
+        self,
+        sensor_points: List[SensorPoint],
+        satellite_data: List[SatellitePixel],
+        target_x: float,
+        target_y: float,
+        resolution: float = 0.01 # 1cm default for Point Zoom
+    ) -> Dict[str, float]:
+        """
+        Hyper-accurate Point Zoom (RSS Exclusive)
+        Calculates 1cm resolution truth for a specific coordinate.
+        """
+        logger.info(f"Executing 1cm Point Zoom at ({target_x}, {target_y})")
+        
+        # 1. Reuse/Check trend model
+        if not self.trend_model:
+            self.fit_trend(sensor_points, satellite_data)
+        
+        residuals = self._calculate_residuals(sensor_points, satellite_data)
+        
+        if not self.variogram_params:
+            self.fit_variogram(sensor_points, residuals)
+            
+        # 2. Predict trend at point
+        trend_pred = self._predict_trend_at_grid(
+            np.array([target_x]),
+            np.array([target_y]),
+            satellite_data
+        )[0]
+        
+        # 3. Krige residual at point
+        residual_pred, variance = self._krige_residuals(
+            np.array([target_x]),
+            np.array([target_y]),
+            sensor_points,
+            residuals
+        )
+        
+        final_prediction = trend_pred + residual_pred[0]
+        
+        return {
+            "x": target_x,
+            "y": target_y,
+            "moisture": float(final_prediction),
+            "variance": float(variance[0]),
+            "resolution_m": resolution,
+            "timestamp": datetime.now().isoformat()
+        }
     
     def _find_nearest_pixel(
         self, 
@@ -325,38 +374,58 @@ class RegressionKriging:
         range_param = self.variogram_params['range']
         nugget = self.variogram_params['nugget']
         
+        # Precompute covariance matrix for sensors (K)
+        # K = C(h_ii)
+        K = np.zeros((n_sensors, n_sensors))
+        for i in range(n_sensors):
+            for j in range(n_sensors):
+                h = np.sqrt(np.sum((sensor_coords[i] - sensor_coords[j])**2))
+                if h == 0:
+                    K[i, j] = sill
+                elif h <= range_param:
+                    K[i, j] = sill - (nugget + (sill - nugget) * (1.5 * h / range_param - 0.5 * (h / range_param)**3))
+                else:
+                    K[i, j] = 0
+        
+        # Add small value to diagonal for numerical stability (nugget effect)
+        K += np.eye(n_sensors) * 1e-9
+        
         # For efficiency, process in batches
-        batch_size = 1000
+        batch_size = 500
         
         for batch_start in range(0, n_grid, batch_size):
             batch_end = min(batch_start + batch_size, n_grid)
             batch_coords = grid_coords[batch_start:batch_end]
             
-            # Calculate distances from batch points to all sensors
+            # Calculate distance from batch points to all sensors
             distances = cdist(batch_coords, sensor_coords, metric='euclidean')
             
-            # Calculate kriging weights using variogram
-            for i, dist_vector in enumerate(distances):
-                # Spherical variogram
-                gamma = np.zeros(n_sensors)
+            # Solve Kriging for each point in batch
+            for idx, dist_vector in enumerate(distances):
+                # Covariance between grid point and sensors (k)
+                k = np.zeros(n_sensors)
                 for j, h in enumerate(dist_vector):
                     if h == 0:
-                        gamma[j] = 0
+                        k[j] = sill
                     elif h <= range_param:
-                        gamma[j] = nugget + (sill - nugget) * (1.5 * h / range_param - 0.5 * (h / range_param)**3)
+                        k[j] = sill - (nugget + (sill - nugget) * (1.5 * h / range_param - 0.5 * (h / range_param)**3))
                     else:
-                        gamma[j] = sill
+                        k[j] = 0
                 
-                # Solve kriging system (simplified - no Lagrange multiplier)
-                # weights = gamma^(-1) * residuals
-                weights = np.exp(-dist_vector / range_param)  # Simplified weighting
-                weights /= weights.sum()
-                
-                # Prediction
-                predictions[batch_start + i] = np.dot(weights, residuals)
-                
-                # Variance (kriging variance)
-                variances[batch_start + i] = sill - np.dot(weights, gamma)
+                # Solve: K * weights = k
+                try:
+                    weights = np.linalg.solve(K, k)
+                    
+                    # Prediction = weights . residuals
+                    predictions[batch_start + idx] = np.dot(weights, residuals)
+                    
+                    # Variance = sill - weights . k
+                    variances[batch_start + idx] = max(0, sill - np.dot(weights, k))
+                except np.linalg.LinAlgError:
+                    # Fallback to nearest neighbor if matrix is singular
+                    nearest_idx = np.argmin(dist_vector)
+                    predictions[batch_start + idx] = residuals[nearest_idx]
+                    variances[batch_start + idx] = sill
         
         return predictions, variances
 
@@ -481,12 +550,21 @@ if __name__ == "__main__":
     # Initialize kriging
     rk = RegressionKriging()
     
-    # Generate 1m grid
-    bounds = (-122.4200, 37.7740, -122.4160, 37.7770)
-    x_grid, y_grid, predictions, variances = rk.predict_1m_grid(
+    # Generate 50m Compliance Grid
+    x_50, y_50, pred_50, var_50 = rk.predict_grid(
+        sensors, satellite_pixels, bounds, resolution=50.0
+    )
+    
+    # Generate 1m Enterprise Grid
+    x_1, y_1, pred_1, var_1 = rk.predict_grid(
         sensors, satellite_pixels, bounds, resolution=1.0
     )
     
-    print(f"Generated grid: {predictions.shape}")
-    print(f"Mean prediction: {np.mean(predictions):.3f}")
-    print(f"Mean variance: {np.mean(variances):.4f}")
+    # Generate 1cm Point Zoom
+    zoom = rk.predict_point(
+        sensors, satellite_pixels, -122.4185, 37.7752
+    )
+    
+    print(f"50m Grid Shape: {pred_50.shape}")
+    print(f"1m Grid Shape: {pred_1.shape}")
+    print(f"1cm Point Zoom: {zoom['moisture']:.4f} (Var: {zoom['variance']:.6f})")

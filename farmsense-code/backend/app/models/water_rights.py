@@ -5,6 +5,13 @@ import uuid
 import enum
 from .base import Base
 
+class WaterSourceType(str, enum.Enum):
+    DITCH = "ditch"
+    RIVER = "river"
+    CREEK = "creek"
+    WELL = "well"
+    RECYCLED = "recycled"
+
 class TradeStatus(str, enum.Enum):
     PENDING = "pending"
     COMMITTED = "committed"
@@ -16,6 +23,9 @@ class WaterAllocation(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     field_id = Column(String(50), nullable=False, unique=True, index=True)
+    source_type = Column(sqlalchemy_enum(WaterSourceType), default=WaterSourceType.WELL, nullable=False)
+    source_name = Column(String(100), nullable=True) # e.g. "Rio Grande", "Lariat Ditch"
+    priority = Column(Float, default=1.0) # Lower is higher priority (Seniority)
     quota_m3 = Column(Float, default=0.0)
     consumed_m3 = Column(Float, default=0.0)
     updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
@@ -29,6 +39,7 @@ class WaterTrade(Base):
     from_field_id = Column(String(50), nullable=False, index=True)
     to_field_id = Column(String(50), nullable=False, index=True)
     amount_m3 = Column(Float, nullable=False)
+    source_type = Column(sqlalchemy_enum(WaterSourceType), nullable=True)
     price_per_m3 = Column(Float, nullable=True) # For tokenized trading
     status = Column(sqlalchemy_enum(TradeStatus), default=TradeStatus.PENDING)
     block_hash = Column(String(255), nullable=True) # PBFT block hash for audit

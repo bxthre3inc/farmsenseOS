@@ -2,7 +2,7 @@ from typing import List, Dict, Optional
 from datetime import datetime, timezone
 from uuid import UUID, uuid4
 from sqlalchemy.orm import Session
-from app.models.water_rights import WaterTrade
+from app.models.water_rights import WaterTrade, WaterAllocation
 
 class WaterCreditExchange:
     """
@@ -13,13 +13,24 @@ class WaterCreditExchange:
     WCR_DECIMALS = 4 # 1.0000 m3 precision
     
     @staticmethod
-    def mint_credits(db: Session, field_id: UUID, amount_m3: float) -> float:
+    def mint_credits(db: Session, field_id: str, amount_m3: float) -> float:
         """
         Mints WCRs based on verified ground-truth pumping capacity or MAD headroom.
         Only allowed if the DHU consensus confirms the hydrological state.
+        Constraints: Cannot exceed the field's available Quota.
         """
-        # TODO: Integrate with Ground-Truth sensor data (VFA/PFA)
-        # For now, we simulate the minting onto the ledger
+        allocation = db.query(WaterAllocation).filter(
+            WaterAllocation.field_id == field_id
+        ).first()
+        
+        if not allocation:
+            raise ValueError(f"No water allocation found for field {field_id}")
+            
+        remaining_quota = allocation.quota_m3 - allocation.consumed_m3
+        if amount_m3 > remaining_quota:
+             raise ValueError(f"Minting failed: Requested {amount_m3}m3 exceeds remaining quota of {remaining_quota}m3")
+             
+        # Minting is a logical 'lock' on the allocation until the trade is finalized
         return round(amount_m3, WaterCreditExchange.WCR_DECIMALS)
 
     @staticmethod

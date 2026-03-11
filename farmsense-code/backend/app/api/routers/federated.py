@@ -4,7 +4,7 @@ from typing import List, Dict, Any
 import logging
 
 from app.core.database import get_db
-from app.models.sensor_data import VirtualSensorGrid1m
+from app.models import VirtualSensorGrid1m
 from app.services.jadc2_adapter import JADC2Adapter
 
 router = APIRouter()
