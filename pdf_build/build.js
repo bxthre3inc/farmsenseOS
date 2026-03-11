@@ -45,15 +45,15 @@ const documents = [
         id: 'executive-summary',
         title: 'Executive Summary',
         subtitle: 'FarmSense Seed Round A-1',
-        source: '../FarmSense/Investor_Materials/SECRET_CLEARANCE_BRIEF.md',
+        source: './sources/executive-summary.md',
         classification: 'CONFIDENTIAL',
         icon: 'target',
         sections: [
             { title: 'Executive Summary', icon: 'file-text' },
-            { title: 'The Trojan Horse Model', icon: 'shield' },
-            { title: 'Technical Capabilities', icon: 'cpu' },
-            { title: 'Operational Scenarios', icon: 'globe' },
-            { title: 'Investment Thesis', icon: 'trending-up' }
+            { title: 'The Problem', icon: 'alert-circle' },
+            { title: 'The Solution', icon: 'check-circle' },
+            { title: 'Market Opportunity', icon: 'globe' },
+            { title: 'The Ask', icon: 'dollar-sign' }
         ]
     },
     {
@@ -74,7 +74,7 @@ const documents = [
         id: 'financial-projections',
         title: 'Financial Projections',
         subtitle: 'Revenue Model & Growth Trajectory',
-        source: '../docs/MASTER_PROJECT_ROADMAP.md',
+        source: './sources/financial-projections.md',
         classification: 'STRICTLY CONFIDENTIAL',
         icon: 'bar-chart-3',
         sections: [
@@ -88,6 +88,7 @@ const documents = [
         id: 'team-leadership',
         title: 'Leadership & Team',
         subtitle: 'Builders of the Deterministic Future',
+        source: './sources/team-leadership.md',
         classification: 'CONFIDENTIAL',
         icon: 'users',
         sections: [
