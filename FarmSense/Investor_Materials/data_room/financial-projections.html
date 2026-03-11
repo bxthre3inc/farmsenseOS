@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Projections | FarmSense Investor Materials</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                font-family: 'Inter', sans-serif;
+            }
+            code, pre {
+                font-family: 'JetBrains Mono', monospace;
+            }
+        }
+        @layer components {
+            .page-break {
+                break-after: page;
+            }
+            .no-break {
+                break-inside: avoid;
+            }
+        }
+    </style>
+    <style>
+        @page {
+            size: A4;
+            margin: 15mm;
+        }
+        @page :first {
+            margin: 0;
+        }
+        .prose-custom h1 {
+            @apply text-4xl font-black text-white mb-6 tracking-tight;
+        }
+        .prose-custom h2 {
+            @apply text-2xl font-bold text-white mt-12 mb-4 pb-2 border-b border-emerald-500/20;
+        }
+        .prose-custom h3 {
+            @apply text-lg font-bold text-emerald-400 mt-8 mb-3;
+        }
+        .prose-custom p {
+            @apply text-slate-300 leading-relaxed mb-4;
+        }
+        .prose-custom ul {
+            @apply list-disc list-inside text-slate-300 mb-4 space-y-1;
+        }
+        .prose-custom ol {
+            @apply list-decimal list-inside text-slate-300 mb-4 space-y-1;
+        }
+        .prose-custom li {
+            @apply leading-relaxed;
+        }
+        .prose-custom strong {
+            @apply text-white font-semibold;
+        }
+        .prose-custom a {
+            @apply text-emerald-400 hover:underline;
+        }
+        .prose-custom blockquote {
+            @apply border-l-4 border-emerald-500 pl-4 italic text-slate-400 my-6;
+        }
+        .prose-custom table {
+            @apply w-full text-left border-collapse mb-6;
+        }
+        .prose-custom th {
+            @apply bg-slate-800 text-emerald-400 font-bold text-xs uppercase tracking-widest p-3 border-b border-slate-700;
+        }
+        .prose-custom td {
+            @apply p-3 border-b border-slate-800 text-slate-300;
+        }
+        .prose-custom tr:hover td {
+            @apply bg-slate-800/50;
+        }
+        .prose-custom code {
+            @apply bg-slate-800 text-cyan-400 px-1.5 py-0.5 rounded text-sm;
+        }
+        .prose-custom pre {
+            @apply bg-slate-900 border border-slate-800 p-4 rounded-lg overflow-x-auto mb-4;
+        }
+        .prose-custom pre code {
+            @apply bg-transparent p-0;
+        }
+        /* Print optimizations */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            .page-break {
+                break-after: page;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200">
+    <!-- Cover Page Template -->
+<div class="min-h-[297mm] flex flex-col justify-between bg-slate-950 relative overflow-hidden">
+    <!-- Background gradients -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_#064e3b_0%,_#020617_60%)] opacity-60"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-emerald-950/30 to-transparent"></div>
+    
+    <!-- Grid pattern -->
+    <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
+    
+    <div class="relative z-10 flex-1 flex flex-col px-16 py-20">
+        <!-- Top badge -->
+        <div class="flex items-center gap-3 mb-12">
+            <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 rounded-xl flex items-center justify-center">
+                <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i>
+            </div>
+            <span class="text-emerald-400 font-bold text-xs uppercase tracking-[0.2em]">Strategic Capital Portal</span>
+        </div>
+        
+        <!-- Title -->
+        <div class="flex-1 flex flex-col justify-center">
+            <p class="text-slate-500 font-medium tracking-wider uppercase text-sm mb-4">Revenue Model & Growth Trajectory</p>
+            <h1 class="text-6xl font-black text-white tracking-tighter leading-[0.95]">
+                Financial Projections
+            </h1>
+            <div class="h-1 w-32 bg-gradient-to-r from-emerald-500 to-cyan-400 mt-8 rounded-full"></div>
+        </div>
+        
+        <!-- Metadata -->
+        <div class="grid grid-cols-3 gap-8 pt-12 border-t border-white/5">
+            <div>
+                <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-1">Document Type</p>
+                <p class="text-slate-300 font-medium">Investor Material</p>
+            </div>
+            <div>
+                <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-1">Classification</p>
+                <p class="text-emerald-400 font-medium">STRICTLY CONFIDENTIAL</p>
+            </div>
+            <div>
+                <p class="text-xs font-bold text-slate-600 uppercase tracking-widest mb-1">Date</p>
+                <p class="text-slate-300 font-medium">March 9, 2026</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="relative z-10 px-16 py-8 bg-slate-900/50 backdrop-blur border-t border-white/5">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
+                    <i data-lucide="sprout" class="w-5 h-5 text-slate-950"></i>
+                </div>
+                <span class="text-white font-bold">FarmSense</span>
+                <span class="text-slate-600">|</span>
+                <span class="text-slate-500 text-sm">FS-1 Deterministic Agriculture OS</span>
+            </div>
+            <p class="text-slate-600 text-sm">CONFIDENTIAL</p>
+        </div>
+    </div>
+</div>
+
+<div class="page-break"></div><!-- Content Page Template -->
+<div class="min-h-[297mm] bg-slate-950 px-16 py-12">
+    <!-- Header -->
+    <div class="flex items-center justify-between mb-12 pb-4 border-b border-white/5">
+        <div class="flex items-center gap-3">
+            <div class="w-8 h-8 bg-emerald-500/10 rounded-lg flex items-center justify-center">
+                <i data-lucide="sprout" class="w-4 h-4 text-emerald-400"></i>
+            </div>
+            <span class="text-white font-bold">FarmSense</span>
+        </div>
+        <p class="text-slate-500 text-xs font-medium uppercase tracking-widest">Financial Projections</p>
+    </div>
+    
+    <!-- Main content -->
+    <div class="prose-custom max-w-none">
+        <h1>MASTER PROJECT ROADMAP: FarmSense Strategy &amp; Funding (V2.1)</h1>
+<blockquote>
+<p><strong>The Single Source of Truth for Project Phasing, Grants, and Market Intelligence</strong>
+Consolidates: <a href="http://ROADMAP.md">ROADMAP.md</a>, FUNDING_PIPELINE.md, <a href="http://MILESTONES.md">MILESTONES.md</a>, 2 Strategy KIs, and high-stakes Grant Dossiers.</p>
+</blockquote>
+<hr>
+<h2>1. Project Vision &amp; Mission</h2>
+<p>FarmSense is the definitive sovereign water infrastructure for the 21st century. Its mission is to provides a legally recognized, cryptographically secure, and scientifically absolute <strong>Digital Water Ledger</strong> for global hydrological stability.</p>
+<h3>Core Strategic Mandates</h3>
+<ol>
+<li><strong>The 1% Interpolation Physics</strong>: Establish high-resolution ground truth on 1% of a basin’s footprint to mathematically interpolate 99% of the aquifer depletion via Kriging.</li>
+<li><strong>Deterministic Sovereignty</strong>: Replace stochastic “intuition” with auditable logic defensible in Water Court.</li>
+<li><strong>Dual-Use Resilience</strong>: Leverage commercial civilian AgTech as a self-sustaining layer for strategic inter-agency water intelligence.</li>
+</ol>
+<hr>
+<h3>2.1 Subdistrict 1 Hyper-Local Financial Dossier</h3>
+<p>This constitutes the authoritative statistical grounding for all market sizing and procurement.</p>
+<ul>
+<li><strong>Infrastructure Footprint</strong>: <strong>1,280 active pivots</strong> (~160,000 irrigated acres).</li>
+<li><strong>The Hydro-Economic Crisis</strong>: Aquifer depletion of 89,000 acre-feet/year. Groundwater extraction fees at <strong>$500/acre-foot</strong>.</li>
+<li><strong>Financial Savings</strong>: 52 AF average savings per pivot = <strong>$26,000/year operational savings</strong> per field.</li>
+<li><strong>TAM (Subdistrict 1 Bulk Rollout)</strong>:
+<ul>
+<li><strong>Hardware CapEx (One-time)</strong>: $1,423,360 (at $1,112/PMT and $158.20/VFA scale).</li>
+<li><strong>SaaS ARR (Gold Truth)</strong>: $7.6M/year at Enterprise rates ($30/acre).</li>
+<li><strong>Total Phase 1/2 Pilot Cost (2 Fields)</strong>: <strong>$12,450</strong> (Estimated Single-Unit BOM).</li>
+</ul>
+</li>
+<li><strong>Phase 2 Expansion (Full Truth)</strong>: Estimated <strong>$3,970,638</strong> (total CAPEX for 18-node density).</li>
+</ul>
+<h3>2.1 The Revenue Model: The “Resolution Pop”</h3>
+<p>FarmSense captures market share via a tiered spatial fidelity model, driving conversion through high-resolution data visualization.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Tier</th>
+<th style="text-align:left">Grid Res</th>
+<th style="text-align:left">Cost</th>
+<th style="text-align:left">Focus</th>
+<th style="text-align:left">Behavioral Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>FREE</strong></td>
+<td style="text-align:left">50m</td>
+<td style="text-align:left">$0</td>
+<td style="text-align:left">Gov / Compliance</td>
+<td style="text-align:left">“Macro-Truth” onboarding magnet.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>BASIC</strong></td>
+<td style="text-align:left">20m</td>
+<td style="text-align:left">$15/acre</td>
+<td style="text-align:left">Small Farmers</td>
+<td style="text-align:left">Initial Sentinel-2 processing.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>PRO</strong></td>
+<td style="text-align:left">10m</td>
+<td style="text-align:left">$22/acre</td>
+<td style="text-align:left">Commercial Ag</td>
+<td style="text-align:left">Broad-acre drone/sensor fusion.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ENTERPRISE</strong></td>
+<td style="text-align:left">1m</td>
+<td style="text-align:left">$30/acre</td>
+<td style="text-align:left">Legal Fortress</td>
+<td style="text-align:left"><strong>Gold Truth</strong>: Sub-cm legal evidence.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The “FOMO” Trigger</strong>: When a user zooms in on a suspected anomaly (e.g., nozzle leak), the UI generates a high-contrast, blurred preview of the 1m grid with the overlay: <em>“High-Resolution Proof Available.”</em> This converts technical curiosity into Immediate Enterprise upgrades.</p>
+<hr>
+<h2>3. Phased Deployment Roadmap (2026–2030)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Phase</th>
+<th style="text-align:left">Timeline</th>
+<th style="text-align:left">Primary Objective</th>
+<th style="text-align:left">Geopolitical Goal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>I: Pilot</strong></td>
+<td style="text-align:left">Q1-Q2 2026</td>
+<td style="text-align:left">2-Field CSU Pilot</td>
+<td style="text-align:left">Establish “Rule-Compliant” digital subdistrict.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>II: Regulatory Capture</strong></td>
+<td style="text-align:left">Q3-Q4 2026</td>
+<td style="text-align:left">DWR Integration</td>
+<td style="text-align:left">Establish “Presumed Compliant” well status workflow.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>III: State Standard</strong></td>
+<td style="text-align:left">2027</td>
+<td style="text-align:left">Colorado Statewide</td>
+<td style="text-align:left">Primary tool for Colorado River Compact compliance.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>IV: National Layer</strong></td>
+<td style="text-align:left">2028</td>
+<td style="text-align:left">High Plains Aquifer</td>
+<td style="text-align:left">Standardize “Federal Water Credits” with USDA/USGS.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>V: Sovereign Global</strong></td>
+<td style="text-align:left">2029+</td>
+<td style="text-align:left">International G2G</td>
+<td style="text-align:left">Trans-boundary conflict mitigation (Nile/Indus).</td>
+</tr>
+</tbody>
+</table>
+<h3>3.4 The Seasonal “Rapid Deployment” Lifecycle</h3>
+<p>To maximize hardware lifecycle (10 years), FarmSense operates on a two-phase seasonal deployment model:</p>
+<ol>
+<li><strong>Post-Planting Insertion</strong>: Once spring planting is complete, crews drop high-value sensor sleds into the permanent HDPE SDR9 shells. Insertion, locking, and +5 PSI Nitrogen re-pressurization are completed in <strong>under 15 minutes per field</strong>.</li>
+<li><strong>Harvest Extraction</strong>: Prior to fall harvest, crews pull the C&amp;C caps and extract the sensitive electronics for storage in the <strong>RSS Sled Hospital</strong>.</li>
+<li><strong>Winter Hibernation</strong>: Blanking plugs seal the permanent in-ground shells, while batteries undergo trickle-charging and diagnostics at the RSS hub, preventing sub-zero degradation.</li>
+</ol>
+<hr>
+<h2>4. Immediate Milestones &amp; Deliverables</h2>
+<h3>4.1 Beta Completion (Late Feb / Early March 2026)</h3>
+<ul>
+<li><strong>Software</strong>: Full Ingestion Pipeline + k-means Kriging Engine operational.</li>
+<li><strong>Frontend</strong>: Farmer Dashboard Beta (MapLibre GL JS) live on <code>brodiblanco.zo.computer</code>.</li>
+</ul>
+<h3>4.2 Beta Launch (CSU SLV Pilot - March 10, 2026)</h3>
+<ul>
+<li><strong>Deployment</strong>: 2 Fields at CSU Research Center (Center, CO).</li>
+<li><strong>Hardware</strong>: 2 PMTs, 2 PFAs, 2 VFAs, 16-20 LRZ1/LRZ2 Nodes.</li>
+<li><strong>Goal</strong>: <code>&lt;5%</code> Kriging Error validation for Water Court.</li>
+</ul>
+<h3>4.3 V1 Master Standard (Spring 2027)</h3>
+<ul>
+<li><strong>Scale</strong>: Instrumenting all 1,280 SD1 fields + 25 DHUs.</li>
+<li><strong>Standard</strong>: Official integration into Colorado River Compact compliance.</li>
+<li><strong>Tech</strong>: AllianceChain PBFT Ledger fully active for P2P water trading.</li>
+</ul>
+<hr>
+<p>%-SAME%</p>
+<h3>5.2 Mid-2026 Scaling (Requires Pilot Data)</h3>
+<ul>
+<li><strong>NSF SBIR Phase I</strong>: $275K (Q2 2026)</li>
+<li><strong>CWCB Water Plan Grant</strong>: $500K–$2M (July 1, 2026)</li>
+<li><strong>BoR WaterSMART</strong>: $300K (July 31, 2026)</li>
+</ul>
+<h3>5.3 Global Impact Grants (Q3–Q4 2026)</h3>
+<ul>
+<li><strong>Gates Foundation</strong>: COP30 COP30 Smallholder Advisory Mesh ($50.80 LRZ1 target).</li>
+<li><strong>World Food Prize</strong>: $250,000 nomination for food-security impact.</li>
+<li><strong>Earthshot Prize</strong>: £1M for climate/nature protection.</li>
+</ul>
+<hr>
+<h2>6. Economic Logic: The “Resolution Pop”</h2>
+<p>FarmSense captures market share via a tiered spatial fidelity model, driving conversion through high-resolution data visualization.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Tier</th>
+<th style="text-align:left">Resolution</th>
+<th style="text-align:left">Cost</th>
+<th style="text-align:left">Focus</th>
+<th style="text-align:left">Target User</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>FREE</strong></td>
+<td style="text-align:left">50m</td>
+<td style="text-align:left">$0</td>
+<td style="text-align:left">macro-Truth</td>
+<td style="text-align:left">Gov / Baseline Baseline Enrollment</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>BASIC</strong></td>
+<td style="text-align:left">20m</td>
+<td style="text-align:left">$49/mo</td>
+<td style="text-align:left">Optimization</td>
+<td style="text-align:left">Small Family Farmers</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>PRO</strong></td>
+<td style="text-align:left">10m</td>
+<td style="text-align:left">$199/mo</td>
+<td style="text-align:left">Daily Gain</td>
+<td style="text-align:left">Commercial Ag / 24hr VRI</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>ENTERPRISE</strong></td>
+<td style="text-align:left">1m</td>
+<td style="text-align:left">Custom</td>
+<td style="text-align:left"><strong>Legal Fortress</strong></td>
+<td style="text-align:left">Water Court / ESG / Trade</td>
+</tr>
+</tbody>
+</table>
+<h3>6.1 The “FOMO” UI Trigger</h3>
+<ul>
+<li><strong>Resolution Pop</strong>: When a free/basic user zooms into a field anomaly, the 1m grid blurs and renders a “Locked” overlay.</li>
+<li><strong>Audited Proof</strong>: The UI showcases a snippet of the SAT angular movement or VFA deep-percolation anchor to prove the system has “Ground Truth” the user doesn’t.</li>
+<li><strong>Conversion</strong>: High-margin Enterprise upgrades occur precisely during high-stress hydrological events (Nozzle drops, irrigation surges).</li>
+</ul>
+<hr>
+<h2>7. Geopolitical Dual-Use Positioning</h2>
+<h3>7.1 Project OMNI (Strategic Intelligence)</h3>
+<p>FarmSense acts as a distributed “hydrological radar.” Funding from civilian AgTech maintains the cover for inter-agency water monitoring in contested regions (Trojan Horse Model).</p>
+<ul>
+<li><strong>Stealth</strong>: LPI/LPD LoRa Mesh emissions operate below the noise floor.</li>
+<li><strong>Resilience</strong>: JADC2 adapters translate soil moisture into tactical trafficability scores.</li>
+</ul>
+<h3>7.2 Global Philanthropy (Advisory Mesh)</h3>
+<p>For smallholders ($50.80 LRZ1), the “Advisory Mesh” provides deterministic SMS commands without requiring expensive pump actuation hardware, subsidized by domestic Enterprise tiers.</p>
+<hr>
+<h2>8. Success Metrics (KPIs)</h2>
+<ul>
+<li><strong>Kriging Accuracy</strong>: <code>&lt; 5% Error</code> vs Ground Truth VFAs.</li>
+<li><strong>Mesh Uptime</strong>: <code>&gt; 99.5%</code> under 10ft heavy canopy.</li>
+<li><strong>Water Savings</strong>: <code>20–30%</code> reductions documented in AllianceChain.</li>
+<li><strong>Regulatory Status</strong>: <code>100% Alignment</code> with DWR Rule 12.0 requirements.</li>
+</ul>
+<hr>
+<p><em>Classification: Master Project Asset | Single Source of Truth | Approved 2026-03-07</em></p>
+
+    </div>
+    
+    <!-- Page number -->
+    <div class="fixed bottom-8 right-16 text-slate-600 text-xs font-medium">
+        CONFIDENTIAL — March 9, 2026
+    </div>
+</div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

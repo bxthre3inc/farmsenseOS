@@ -24,29 +24,41 @@ FarmSense's non-dilutive funding strategy targets $2.5M-$5M in grants and prizes
 
 | Attribute | Details |
 |-----------|---------|
-| **Deadline** | **March 26, 2026 (19 days)** |
-| **Amount** | $500K-$2M (SBIR Phase I/II pathway) |
+| **Deadline** | **March 26, 2026 (18 days)** |
+| **Amount** | $1,500,000 (ESTCP Demonstration project) |
 | **Probability** | 35% (competitive, but strong dual-use angle) |
-| **Status** | ⚠️ NOT STARTED — CRITICAL GAP |
+| **Status** | 🟡 IN PROGRESS — Submission package complete, Letters of Support pending |
+
+**📄 SUBMISSION PACKAGE:** `FEDERAL_ESG_APPLICATION_SUBMISSION_PACKAGE.md` (complete)
+- Technical Approach (5 pages) — ✅ COMPLETE
+- Dual-Use Narrative (3 pages) — ✅ COMPLETE
+- Risk Mitigation & Security (2 pages) — ✅ COMPLETE
+- Budget & Cost Plan — ✅ COMPLETE
+
+**Updated Sprint Plan (Day 1 of 18):**
+
+| Day | Action | Owner | Status |
+|-----|--------|-------|--------|
+| 0 (Mar 7) | ~~Register in SAM.gov / DSIP~~ | Brodiblanco | ⚠️ VERIFY — CAGE Code status |
+| 1-2 (Mar 8-9) | Technical approach (5 pages) | Zo + Engineering | ✅ **COMPLETE** |
+| 3-4 (Mar 10-11) | Dual-use narrative (3 pages) | Zo | ✅ **COMPLETE** |
+| 5-6 (Mar 12-13) | Compile financials & cost plan | Finance | 🟡 **IN PROGRESS** |
+| 7-8 (Mar 14-15) | Letters of Support (3x) | BD | ⏳ **CRITICAL PATH** |
+| 9-10 (Mar 16-17) | Risk mitigation & security section | Engineering | ✅ Draft ready, needs review |
+| 11-12 (Mar 18-19) | Integration & past performance | Zo | 🟡 **IN PROGRESS** |
+| 13-14 (Mar 20-21) | Full proposal assembly | Zo | ⏳ Pending LOIs |
+| 15-16 (Mar 22-23) | Legal review & compliance | Counsel | ⏳ Schedule now |
+| 17-18 (Mar 24-25) | Final revisions & formatting | Zo | ⏳ |
+| 19 (Mar 26) | **SUBMIT** | Brodiblanco | 🔴 **HARD DEADLINE** |
+
+**Immediate Actions Required:**
+1. ✅ Verify SAM.gov CAGE Code is active
+2. ⏳ Send Letter of Support requests (3 contacts below)
+3. ⏳ Schedule legal review (ITAR compliance check)
+4. 🟡 Finalize budget with Finance
 
 **Program Description:**
 Federal Federal ESG (Environmental Security and Governance) program funds technologies that reduce water consumption on military installations. FarmSense's "Digital Water Ledger" and edge-computing architecture directly support Joint All-Domain Command and Control (Inter-agency) priorities.
-
-**Required Actions (19-day sprint):**
-
-| Day | Action | Owner | Deliverable |
-|-----|--------|-------|-------------|
-| 0 (Today) | Register in SAM.gov / DSIP | Brodiblanco | Cage Code verification |
-| 1-2 | Draft technical approach (5 pages) | Zo + Engineering | "Edge-resilient water monitoring for federal installations" |
-| 3-4 | Draft dual-use narrative (3 pages) | Zo | JADC2 alignment, contested environment operation |
-| 5-6 | Compile financials & cost plan | Finance | Budget justification, indirect rate |
-| 7-8 | Letters of Support (3x) | BD | CSU SLV RC, RGWCD, Colorado School of Mines |
-| 9-10 | Risk mitigation & security section | Engineering | AES-256, LPI/LPD, supply chain security |
-| 11-12 | Integration & past performance | Zo | Bxthre3 capabilities, relevant experience |
-| 13-14 | Full proposal assembly | Zo | Complete package review |
-| 15-16 | Legal review & compliance | Counsel | Export control, ITAR check |
-| 17-18 | Final revisions & formatting | Zo | Submission-ready PDFs |
-| 19 | **SUBMIT** | Brodiblanco | Grants.gov confirmation |
 
 **Pre-Filled Technical Approach Outline:**
 
