@@ -1,146 +1,160 @@
 # Executive Summary
+## FarmSense Seed Round A-1
 
-## FarmSense: The Deterministic Agriculture Operating System
-
-**Seed Round A-1 | $10M Raise | $26.8M Pre-Money Valuation**
-
----
-
-## The Problem
-
-Agriculture operates on **stochastic intuition** — guesswork disguised as expertise. In water-constrained regions like Colorado's San Luis Valley, this translates to:
-
-- **$26,000/year** in wasted water costs per pivot (based on 52 acre-foot average oversupply)
-- **89,000 acre-feet/year** aquifer depletion in Subdistrict 1 alone
-- **Groundwater fees at $500/acre-foot** — farmers hemorrhage cash on inefficiency
-- **Water Court decisions** lacking defensible, auditable data
-
-The result: Farmers spend more on water than necessary, regulators can't enforce compliance, and agricultural productivity declines in drought-stressed regions.
+**Founder:** Jeremy Beebe — Successful startup exit with Hempvada  
+**Company:** Bxthre3 Inc.  
+**Product:** FarmSense™ — Deterministic Farming Operating System (DFOS)  
+**Classification:** CONFIDENTIAL
 
 ---
 
-## The Solution
+## The $500/AF Catalyst
 
-**FarmSense FS-1** is a deterministic farming operating system that replaces intuition with ground-truth telemetry.
+The Rio Grande Basin faces a severe hydro-economic crisis that makes FarmSense a **legal necessity**, not just an optimization tool:
 
-### Core Value Proposition
+| Factor | Status |
+|--------|--------|
+| Annual aquifer depletion | 89,000 acre-feet |
+| Groundwater pumping fee | **$500/AF** (quadrupled from $75-150/AF) |
+| Reservoir storage | 26% of historical capacity |
+| Irrigated agriculture | 300,000 acres at risk |
 
-| Capability | FarmSense | Status Quo |
-|------------|-----------|------------|
-| Grid Resolution | **1-meter** satellite/sensor fusion | 50-meter satellite only |
-| Decision Basis | **Deterministic physics** (Kriging) | "Expert intuition" |
-| Legal Admissibility | **Court-ready evidence** | Inadmissible estimates |
-| Cost per Acre | **$15-30/acre** | $50-80/acre (estimated waste) |
+**Economic Impact for a 126-acre pivot:**
+- 20% water reduction = 50.4 AF saved per season
+- 50.4 AF × $500/AF = **$25,200 direct savings annually**
+- FarmSense Enterprise subscription: $499/month ($5,988/year)
+- **First-year ROI: 421% return on subscription cost**
 
-### The "Resolution Pop" Revenue Model
+---
 
-Four tiers driving a **land-and-expand** strategy:
+## The Deterministic Paradigm
 
-| Tier | Resolution | Price | Target |
-|------|------------|-------|--------|
-| **FREE** | 50m | $0 | Government / Compliance |
-| **BASIC** | 20m | $15/acre | Small Farmers |
-| **PRO** | 10m | $22/acre | Commercial Agriculture |
-| **ENTERPRISE** | 1m | $30/acre | **Legal / ESG / Trading** |
+FarmSense replaces stochastic, intuition-based agriculture with a high-fidelity computational engine.
 
-The **FOMO trigger**: When users zoom into anomalies, the UI blurs high-res data with "Unlock Proof" — converting technical curiosity into Enterprise upgrades during high-stress events (nozzle leaks, irrigation surges).
+| Dimension | Current Industry Standard | FarmSense DFOS |
+|-----------|---------------------------|----------------|
+| **Observation** | Visual scouting / manual soil probe | 1m centimetric Kriging + ground-truth validation |
+| **Calculation** | Crop-coefficient (static, FAO-56) | SPAC thermodynamics (dynamic, real-time) |
+| **Decision** | Intuition-based pumping schedules | Edge-calculated VRI prescription |
+| **Evidence** | Paper logs, human memory | SHA-256 sovereign ledger, cryptographic proofs |
+| **Resolution** | Field-scale (variable) | 1m grid, legally admissible |
 
 ---
 
 ## Market Opportunity
 
-### Immediate TAM: Subdistrict 1, Colorado
+### TAM/SAM/SOM Analysis
 
-- **1,280 active pivots** (~160,000 irrigated acres)
-- **SaaS ARR at full penetration**: **$7.6M/year** (Enterprise $30/acre)
-- **Hardware CapEx (one-time)**: $1.4M (at scale)
-- **Pilot validation**: 2-field deployment with CSU SLV Research Center
-
-### Expansion Trajectory
-
-| Phase | Timeline | Geography | Target ARR |
-|-------|----------|-----------|------------|
-| **I: Pilot** | Q2 2026 | 2 fields, CSU | Validation |
-| **II: Regulatory** | Q4 2026 | SD1 Colorado | $380K ARR |
-| **III: State Standard** | 2027 | Colorado River Basin | $2.4M ARR |
-| **IV: National** | 2028 | High Plains Aquifer | $12M ARR |
-| **V: Global** | 2029+ | Trans-boundary basins | $50M+ ARR |
-
-### Competitive Moat
-
-1. **Patent-pending interpolation physics** — 1% ground truth enables 99% aquifer modeling
-2. **AllianceChain ledger** — Immutable, court-admissible water rights documentation
-3. **LPI/LPD mesh** — Stealth LoRa deployment resilient to detection/interference
-4. **Regulatory capture** — "Presumed Compliant" workflow integration with DWR
+| Market Tier | Size | Definition |
+|-------------|------|------------|
+| **TAM** | $12.8B by 2030 | Global precision irrigation market (14.3% CAGR) |
+| **SAM** | $1.05B/year | North American center-pivot SaaS potential |
+| **SOM** | $7.7M/year | SLV Subdistrict 1 immediate opportunity (1,280 fields) |
 
 ---
 
-## Traction & Validation
+## Competitive Moat: Why We're Defensible
 
-### Current Status (March 2026)
+### Competitor Comparison
 
-- **Software**: Full ingestion pipeline + k-means Kriging engine operational
-- **Pilot**: CSU SLV Research Center (2 fields, 16-20 nodes) — **March 10, 2026**
-- **Target**: <5% Kriging error validation for Water Court admissibility
+| Competitor | Approach | Their Weakness | Our Advantage |
+|------------|----------|----------------|---------------|
+| **CropX** | Cloud-only analytics | Latency, connectivity dependency | Edge autonomy + sovereign ledger |
+| **FieldNET** | Pivot control only | No soil moisture, no VRI | Full SPAC modeling + 1m VRI prescriptions |
+| **Arable** | Weather-only | No ground-truth correlation | Sensor fusion + satellite validation |
+| **Sat-only providers** | Trend analysis | No deep-profile validation | 1m Kriging + 48" VFA anchors |
 
-### Institutional Support
+### Moat Durability
 
-- **CSU SLV Research Center** — Deterministic sensor validation partnership
-- **Rio Grande Water Conservation District** — Institutional endorsement
-- **Valley Green Co-op** — Nutrient optimization pilot partnership
+1. **Data Moat:** 4+ years of ground-truth calibration per field creates network effects
+2. **Regulatory Moat:** Legal recognition as "approved monitoring method" (SLV 2026 Water Court)
+3. **Technical Moat:** Sensor-agnostic architecture fuses satellite trends with sub-surface realities
+4. **Network Moat:** 1,280-field mesh effects improve interpolative accuracy
 
-### Regulatory Alignment
+---
 
-- **100% alignment** with Colorado DWR Rule 12.0 requirements
-- Path to "Presumed Compliant" well status workflow (Q4 2026)
+## Core Capabilities
+
+| Capability | Description |
+|------------|-------------|
+| **Satellite Integration** | Multi-spectral imagery from Sentinel, Landsat, commercial providers |
+| **IoT Sensor Suite** | LRZ scouts, VFA anchors, PMT hubs, DHU regional managers |
+| **Water Ledger** | Cryptographically signed chain of custody — Water Court admissible |
+| **Adaptive Recalculation** | Deterministic algorithms: Dormant, Anticipatory, Ripple, Collapse modes |
+| **Regulatory Compliance** | Built for SLV 2026 Water Court requirements |
+| **Economic Intelligence** | Continuous cost-benefit analysis per field |
+
+---
+
+## Hardware Ecosystem: Tri-Layer Architecture
+
+| Tier | Device | Function | Compute |
+|------|--------|----------|---------|
+| **Regional** | RSS (40ft container) | Territory master, blackout-proof | 64-core Threadripper, 50TB NVMe |
+| **District** | DHU (35ft pole) | 100-pivot mesh manager, 30-day cache | Jetson Orin, 128GB PSLC SSD |
+| **Field** | PMT (pivot-mounted) | Edge aggregator, 50m Kriging | ESP32-S3, IMU, LoRa gateway |
+| **Sensors** | VFA/LRZ1/LRZ2/PFA | Ground-truth collection | nRF52840, AES-256, 4+ yr battery |
+
+---
+
+## Key Metrics
+
+| Metric | Target |
+|--------|--------|
+| Water Reduction | 20-30% |
+| ROI Increase | 18-22% |
+| Grid Resolution | 50m → 1m (400x improvement) |
+| Pilot Deployment | SLV 2026 (2 fields active) |
+| Legal Validation | June 29, 2026 Water Court |
+
+---
+
+## Development Timeline
+
+| Phase | Date | Milestone |
+|-------|------|-----------|
+| **Now — June 2026** | Active | CSU San Luis Valley 2-Field Pilot |
+| **March 26, 2026** | Fund Raising | Federal ESG Pre-Proposal Deadline |
+| **June 2026** | Evidence | SLV Subdistrict 1 Water Court Submission |
+| **Q3-Q4 2026** | Scale | Regional Master — 100% SLV Subdistrict 1 |
+| **2027** | Standard | Colorado DWR Adoption |
+| **2028** | Expansion | Colorado River Basin (4M acres) |
 
 ---
 
 ## The Ask: Seed Round A-1
 
-| Element | Terms |
-|---------|-------|
-| **Raise** | $10,000,000 |
-| **Valuation** | $26,800,000 pre-money |
-| **Structure** | Equity + Strategic Warrants |
-| **Use of Funds** | Pilot scale → Regulatory capture → State standard |
+**Seeking:** $3M Seed Round  
+**Valuation:** $8-10M pre-money  
+**Use of Funds:**
+- 40% Hardware prototype manufacturing
+- 25% Field operations team (CSU pilot)
+- 20% Software / Kriging engine refinement
+- 10% Regulatory / Water Court preparation
+- 5% Reserve
 
-### Use of Funds Breakdown
-
-| Category | Allocation | Purpose |
-|----------|------------|---------|
-| **Hardware Production** | $3.5M (35%) | PMT, VFA, PFA manufacturing at scale |
-| **Software & Cloud** | $2.0M (20%) | Core compute, security, compliance ledger |
-| **Pilot Expansion** | $2.5M (25%) | 2-field → 1280-field SD1 rollout |
-| **Regulatory & GTM** | $1.5M (15%) | DWR integration, sales, partnerships |
-| **Operations** | $0.5M (5%) | Team, facilities, admin |
-
-### Investor Value Proposition
-
-1. **Commercial revenue**: SaaS ARR scaling from $0 → $7.6M (SD1 alone)
-2. **Strategic upside**: Dual-use positioning for inter-agency contracts
-3. **Defensible IP**: Patent portfolio + regulatory moat
-4. **ESG alignment**: Water conservation measurable at court-admissible fidelity
+**Non-Dilutive Pipeline:** $12M-$25M federal grants (USDA SBIR, NRCS CIG, DOE, NSF, Gates Foundation)
 
 ---
 
-## Risk Mitigation
+## Risk Factors
 
 | Risk | Mitigation |
 |------|------------|
-| **Pilot failure** | CSU validation partnership; modular hardware allows rapid iteration |
-| **Regulatory rejection** | 100% DWR Rule 12.0 alignment; "Presumed Compliant" path cleared |
-| **Competition** | Patent-pending interpolation physics; 4-year head start on deterministic agriculture |
-| **Hardware delays** | 10-year lifecycle design; seasonal insertion/extraction model minimizes downtime |
+| Regulatory delay | Multi-state expansion pipeline (CO, AZ, CA, TX) |
+| Hardware supply chain | Dual-source strategy, domestic alternatives |
+| Competition | Legal moat + data network effects |
+| Climate variability | 40 global basins reduce geographic concentration |
 
 ---
 
-## Contact
+## Long-Term Vision: Sovereign Water Infrastructure
 
-**FarmSense (Bxthre3 Inc.)**  
-Secure investor portal: https://brodiblanco.zo.space/invest  
-Email: contact@bxthre3.com
+FarmSense will become the **standard data substrate** for agricultural water management across North America and beyond. From SLV's 1,280 fields to the Colorado River Basin's 4M acres to the High Plains Aquifer's 15M acres — deterministic water intelligence with cryptographic chain of custody.
+
+**The shift:** From "How much can we grow?" to "How little can we use?"
 
 ---
 
-*Classification: CONFIDENTIAL — Investor Materials | Not for public distribution*
+*© 2026 Bxthre3 Inc. — FarmSense™, FS-1™, Digital Water Ledger™ are trademarks of Bxthre3 Inc.*
+*Classification: CONFIDENTIAL — Distribution limited to cleared investors*
