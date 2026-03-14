@@ -8,21 +8,30 @@
 import os
 import sys
 
-REQUIRED_MARKER = "D-DAP (Documentation Drift Aversion Protocol)"
+REQUIRED_MARKER = "MODULAR DAP (Drift Aversion Protocol)"
+REQUIRED_MODULE_D = "Module: D-DAP (Documentation)"
+REQUIRED_MODULE_E = "Module: E-DAP (Engineering)"
 REQUIRED_FIELDS = ["Status:", "Last Audited:", "Drift Aversion: REQUIRED"]
 
-def check_file(filepath):
+def check_file(filepath, module_type="D-DAP"):
     try:
         with open(filepath, 'r') as f:
             content = f.read()
             
         missing = []
-        for field in REQUIRED_FIELDS:
-            if field not in content:
-                missing.append(field)
+        
+        # Meta fields are only required for Documentation (D-DAP)
+        if module_type == "D-DAP":
+            for field in REQUIRED_FIELDS:
+                if field not in content:
+                    missing.append(field)
                 
-        if REQUIRED_MARKER not in content and "DOCUMENTATION DRIFT AVERSION PROTOCOL" not in content:
-            missing.append("D-DAP Protocol Marker")
+        if REQUIRED_MARKER not in content:
+            missing.append("MODULAR DAP Header")
+        
+        target_module = REQUIRED_MODULE_D if module_type == "D-DAP" else REQUIRED_MODULE_E
+        if target_module not in content:
+            missing.append(f"DAP Module Marker ({target_module})")
             
         return missing
     except Exception as e:
@@ -49,8 +58,23 @@ def main():
                     if missing:
                         non_compliant.append((filepath, missing))
     
+    # Check codebase for E-DAP
+    code_dirs = ["farmsense-code/backend", "farmsense-code/edge-compute", "scripts"]
+    for d in code_dirs:
+        if os.path.exists(d):
+            for root, dirs, files in os.walk(d):
+                for file in files:
+                    if file.endswith(".py") or file.endswith(".sh"):
+                        filepath = os.path.join(root, file)
+                        # Skip the verifier itself to avoid circular confusion during dev
+                        if "verify_drift_protocol.py" in filepath:
+                            continue
+                        missing = check_file(filepath, module_type="E-DAP")
+                        if missing:
+                            non_compliant.append((filepath, missing))
+
     if non_compliant:
-        print("❌ DAP NON-COMPLIANCE DETECTED:")
+        print("❌ DAP NON-COMPLIANCE DETECTED (Modular Protocol v2):")
         for path, missing in non_compliant:
             print(f"  - {path}: Missing {', '.join(missing)}")
         

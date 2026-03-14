@@ -14,6 +14,9 @@ Drift Aversion: REQUIRED
 
 # MASTER_IP_LEGAL: DAP (Drift Aversion Protocol) Framework
 
+> [!NOTE]
+> For a comprehensive list of registered project IP, see the [IP_INVENTORY](IP_INVENTORY.md).
+
 ## 1. Abstract
 The Drift Aversion Protocol (DAP) is a proprietary, modular framework developed by bxthre3 inc. for the FarmSense project. It is designed to mitigate "drift"—the divergence between project specifications, system engineering, and actual implementation—especially in high-stakes environments like Water Court litigation.
 
