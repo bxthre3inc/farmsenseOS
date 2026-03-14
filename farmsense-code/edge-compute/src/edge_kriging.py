@@ -1,14 +1,12 @@
-"""
-edge_kriging.py — PMT Edge-EBK Spatial Interpolation
-
-Simplified Empirical Bayesian Kriging (EBK) implementation for the 
-Cortex-M4 FPU. Performs a single-pass interpolation using a 
-weighted variogram model across a 50m resolution grid.
-"""
-
 import math
 import numpy as np
 from typing import List, Dict, Tuple
+import sys
+import os
+
+# Add common to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+from common.spatial.coords import get_lat_lon_steps
 
 class EdgeKrigingEngine:
     def __init__(self, grid_size: int = 16, resolution_m: float = 50.0):
@@ -30,10 +28,8 @@ class EdgeKrigingEngine:
 
         grid = np.zeros((self.grid_size, self.grid_size))
         
-        # Approximate meters to degrees conversion for local field
-        # (Simplified for Cortex-M4 math)
-        lat_step = (self.resolution / 111111.0)
-        lon_step = (self.resolution / (111111.0 * math.cos(math.radians(center_lat))))
+        # Use shared spatial logic
+        lat_step, lon_step = get_lat_lon_steps(self.resolution, center_lat)
         
         # Grid boundaries
         min_lat = center_lat - (self.grid_size // 2) * lat_step
