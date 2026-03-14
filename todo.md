@@ -5,7 +5,8 @@ Drift Aversion: REQUIRED
 ---
 
 > [!IMPORTANT]
-> **D-DAP (Documentation Drift Aversion Protocol)**
+> **MODULAR DAP (Drift Aversion Protocol)**
+> **Module: D-DAP (Documentation)**
 > 1. **Single Source of Truth**: This document is the authoritative reference for its subject matter.
 > 2. **Synchronized Updates**: Any change to corresponding code or system behavior MUST be reflected here immediately.
 > 3. **AI Agent Compliance**: Agents MUST verify the current implementation against this document before proposing changes.
