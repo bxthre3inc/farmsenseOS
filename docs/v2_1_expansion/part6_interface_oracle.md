@@ -11,4 +11,300 @@ Drift Aversion: REQUIRED
 > 3. **AI Agent Compliance**: Agents MUST verify the current implementation against this document before proposing changes.
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
-\n> [!IMPORTANT]\n> **DOCUMENTATION DRIFT AVERSION PROTOCOL**\n> 1. **Single Source of Truth**: This document is the authoritative reference for its subject matter.\n> 2. **Synchronized Updates**: Any change to corresponding code or system behavior MUST be reflected here immediately.\n> 3. **AI Agent Compliance**: Agents MUST verify the current implementation against this document before proposing changes.\n> 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.\n\n\n# PART VI: THE INTERFACE LAYER\n\n## 6.1 Farmer Dashboard (3D VRI Control)\n\n### 6.1.1 Technology Stack\n\n| Layer | Technology | Purpose |\n|-------|------------|---------|\n| Framework | React 19 | Component architecture |\n| Language | TypeScript 5.3 | Type safety |\n| Styling | Tailwind CSS 4 | Utility-first styling |\n| 3D Engine | Three.js r158 | Field visualization |\n| Maps | MapLibre GL JS 3.0 | Basemap, tile layers |\n| State | Zustand | Global state management |\n| WebSocket | Socket.io-client | Real-time updates |\n| Build | Vite 5 | Fast dev, optimized builds |\n\n### 6.1.2 Core Features\n\n**3D Field Heatmap:**\n- 1m resolution VWC overlay on 3D terrain\n- Time-slider for historical playback\n- Vertical profile visualization (click any point)\n- Animated water infiltration simulation\n\n**"Resolution Pop" Zoom Behavior:**\n| Zoom Level | Grid | Behavior |\n|------------|------|----------|\n| >1:50,000 | 50m | Clear, labeled compliance view |\n| 1:10,000 - 1:50,000 | 20m | Smooth transition |\n| 1:5,000 - 1:10,000 | 10m | Pop trigger zone |\n| <1:5,000 | 1m | Full enterprise resolution |\n\n**Traffic-Light Status Indicators:**\n| Status | Color | Meaning | Action |\n|--------|-------|---------|--------|\n| Green | #22c55e | Optimal, no action | Monitor |\n| Yellow | #eab308 | Attention, review | Check worksheet |\n| Red | #ef4444 | Critical, immediate | Execute or investigate |\n| Gray | #6b7280 | Offline, no data | Field service |\n\n**Irrigation Worksheet Viewer:**\n- Prescription zones (speed, direction)\n- Estimated water application\n- Confidence intervals (Kriging MAPE)\n- Override controls (with compliance logging)\n\n### 6.1.3 Mobile-Responsive PWA\n\n**Offline Capabilities:**\n- Cached field data (last 24 hours)\n- Stored worksheets\n- Manual entry (sync on reconnection)\n- Critical alerts (SMS fallback)\n\n**Performance Targets:**\n| Metric | Target | Test Device |\n|--------|--------|-------------|\n| First paint | <1.5s | iPhone 12 |\n| Time to interactive | <3s | iPhone 12 |\n| 3D render (1m grid) | >30fps | Desktop RTX 3060 |\n| Battery impact | <5%/hour | Mobile Safari |\n\n---\n\n## 6.2 Regulatory Portal (Water Court Audit)\n\n### 6.2.1 Purpose and Access\n\n**Primary Users:**\n- State Engineers (Colorado DWR)\n- Water Court judges and clerks\n- RGWCD compliance officers\n- Legal counsel (read-only for farmers)\n\n**Compliance Framework:**\n- Read-only audit log (immutable)\n- Hash verification on every view\n- Digital signature on exports\n- PBFT consensus certificate display\n\n### 6.2.2 Export Formats\n\n**Digital Water Ledger (DWL):**\n```\n.dwl package structure:\n├── manifest.json (metadata, signatures)\n├── ledger.csv (all events)\n├── proofs/ (PBFT signatures)\n├── validation_report.pdf\n└── README.txt (chain verification instructions)\n```\n\n**SLV 2026 Compliance Reports:**\n- Daily summaries (automated email)\n- Weekly aggregation (PDF)\n- Monthly trend analysis\n- Annual Water Court submission package\n\n### 6.2.3 WORM S3 Configuration\n\n**Write-Once-Read-Many:**\n- Bucket: `farmsense-compliance-vault`\n- Object Lock: Compliance mode, 7-year retention\n- Legal Hold: Automatic on litigation matters\n- Versioning: Disabled (single version only)\n\n---\n\n## 6.3 Admin Dashboard (Fleet C&C)\n\n### 6.3.1 Sled Hospital Monitor\n\n**Real-Time Metrics:**\n| Metric | Display | Alert Threshold |\n|--------|---------|-----------------|\n| Hospital occupancy | Progress bar | >80% |\n| Processing queue | List + ETA | >24hr backlog |\n| Failed diagnostics | Red count | Any |\n| Battery health trend | Sparkline | <20% annual |\n\n**Maintenance Scheduling:**\n- Automatic (based on runtime hours)\n- Seasonal (pre-plant, pre-harvest)\n- Reactive (failure detection)\n- Override (technician judgment)\n\n---\n\n## 6.4 Investor ROI Dashboard\n\n### 6.4.1 Metrics Displayed\n\n| Category | Metrics | Granularity |\n|----------|---------|-------------|\n| Water | Savings (AF/acre), efficiency (%) | Field, district, region |\n| Energy | kWh reduction, cost savings | Field, monthly |\n| Yield | CWT/acre, quality premium | Field, season |\n| Financial | SaaS ARR, churn, LTV, CAC | Company-wide |\n| Growth | Fields added, expansion pipeline | Quarterly |\n\n---\n\n# PART VII: THE HYDROLOGIC ORACLE\n\n## 7.1 SPAC Thermodynamics: Surface Energy Balance\n\n### 7.1.1 Fundamental Equation\n\nThe Oracle solves for every 1m grid cell:\n\n```\nR_n - G = λE + H\n\nWhere:\nR_n = Net radiation (W/m²)\nG   = Soil heat flux (W/m²)\nλE  = Latent heat flux (evapotranspiration, W/m²)\nH   = Sensible heat flux (W/m²)\n```\n\n**Component Sources:**\n| Variable | Source | Accuracy |\n|----------|--------|----------|\n| R_n | Solar + atmospheric radiation models | ±5% |\n| G | VFA dual-needle thermal pulse | ±1% |\n| λE | Penman-Monteith calculation | ±10% |\n| H | Residual (closure check) | Balance |\n\n### 7.1.2 Penman-Monteith Model\n\n**Reference ET (ET₀) Calculation:**\n```\nET₀ = [0.408Δ(R_n - G) + γ(900/(T+273))u₂(eₛ - eₐ)] / [Δ + γ(1 + 0.34u₂)]\n\nWhere:\nΔ   = Slope of vapor pressure curve (kPa/°C)\nγ   = Psychrometric constant (0.665×10⁻³ kPa/°C)\nT   = Mean air temperature (°C)\nu₂  = Wind speed at 2m (m/s)\neₛ  = Saturation vapor pressure (kPa)\neₐ  = Actual vapor pressure (kPa)\n```\n\n**Crop-Specific ETc:**\n```\nETc = Kc × ET₀\n```\n\n### 7.1.3 VPD Stress Thresholds\n\n| VPD (kPa) | Stomatal Response | Photosynthetic Impact |\n|-----------|-------------------|----------------------|\n| <1.0 | Wide open | 100% capacity |\n| 1.0-2.0 | Slight closure | 95% capacity |\n| 2.0-3.5 | Moderate closure | 80% capacity |\n| 3.5-5.0 | Significant closure | 40% capacity |\n| >5.0 | Near-complete closure | <10% capacity |\n\n---\n\n## 7.2 Mathematical Derivation: Cokriging with Matérn Kernels\n\n### 7.2.1 Why Matérn?\n\n**Flexibility in Smoothness:**\n```\nMatérn variogram: γ(h) = σ²[1 - (2^(1-ν)/Γ(ν))(√(2ν)h/ρ)^ν K_ν(√(2ν)h/ρ)]\n\nWhere:\nν (nu) = Smoothness parameter (0.5, 1.5, 2.5 typical)\nρ (rho) = Range parameter\nσ²      = Sill (variance)\nK_ν     = Modified Bessel function of second kind\n```\n\n**Smoothness Values:**\n| ν | Interpretation | Use Case |\n|---|----------------|----------|\n| 0.5 | Exponential, rough | Highly variable soils (sand lenses) |\n| 1.5 | Medium | Typical agricultural fields |\n| 2.5 | Gaussian, smooth | Uniform clay soils |\n\n### 7.2.2 Field Roughness Index (FRI)\n\n**Automatic ν Selection:**\n```\nFRI = std(NDVI) / mean(NDVI) + std(elevation) / mean(elevation)\n\nIf FRI > 0.3: ν = 0.5 (rough/exponential)\nIf 0.1 < FRI ≤ 0.3: ν = 1.5 (medium)\nIf FRI ≤ 0.1: ν = 2.5 (smooth/Gaussian)\n```\n\n### 7.2.3 Residual Calculation\n\n**Regression Component:**\n```\nZ(s) = m(s) + ε(s)\n\nm(s) = β₀ + β₁×NDVI(s) + β₂×Elevation(s) + β₃×SoilType(s)\n\nε(s)  = Spatially correlated residual (Kriged)\n```\n\n**Validation:**\n- Leave-one-out cross-validation\n- Target: MAPE <5% vs. VFA ground truth\n- R² > 0.94 for all fields\n\n---\n\n## 7.3 Crop-Specific Calibration Libraries\n\n### 7.3.1 Potato (Russet Burbank)\n\n**Growth Stages:**\n| Stage | Days | GDD | Critical Management |\n|-------|------|-----|---------------------|\n| Planting | 1 | 0 | Seed piece depth, spacing |\n| Emergence | 10-20 | 100 | Soil temperature >50°F |\n| Tuber Initiation | 40-50 | 500 | Water stress <80 kPa |\n| Tuber Bulking | 50-80 | 800 | MAD 50%, steady moisture |\n| Maturation | 80-110 | 1200 | Vines senescence |\n| Harvest | 110-130 | 1400 | Skin set before digging |\n\n**Stress Avoidance:**\n- Tuber initiation: <80 kPa (water stress causes knobbiness)\n- Bulking: Avoid >100 kPa (reduced yield)\n- Never exceed 120 kPa (hollow heart, internal defects)\n\n### 7.3.2 Barley (2-Row Malting)\n\n**Drought Tolerance:** Higher than potato\n**Critical Periods:**\n- Tillering: 30% MAD (establishment sensitive)\n- Stem elongation: 50% MAD\n- Heading: 40% MAD (yield determination)\n- Grain fill: 60% MAD (quality formation)\n\n**Quality Parameters:**\n- Protein: <12% for malting (irrigation affects)\n- Plump: >90% (water stress reduces)\n- Germination: >95%\n\n### 7.3.3 Alfalfa\n\n**Deep Rooting Advantage:**\n- Taproot to 10+ feet\n- Exploits deep moisture\n- Higher MAD tolerance (60-70%)\n\n**Cut Timing Strategy:**\n- Pre-bloom: Maximum quality, lower yield\n- Early bloom: Yield/quality balance\n- Full bloom: Maximum yield, lower quality\n- Stress timing: Avoid before 3rd cut\n
+# PART VI: THE INTERFACE LAYER
+
+## 6.1 Farmer Dashboard (3D VRI Control)
+
+### 6.1.1 Technology Stack
+
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| Framework | React 19 | Component architecture |
+| Language | TypeScript 5.3 | Type safety |
+| Styling | Tailwind CSS 4 | Utility-first styling |
+| 3D Engine | Three.js r158 | Field visualization |
+| Maps | MapLibre GL JS 3.0 | Basemap, tile layers |
+| State | Zustand | Global state management |
+| WebSocket | Socket.io-client | Real-time updates |
+| Build | Vite 5 | Fast dev, optimized builds |
+
+### 6.1.2 Core Features
+
+**3D Field Heatmap:**
+- 1m resolution VWC overlay on 3D terrain
+- Time-slider for historical playback
+- Vertical profile visualization (click any point)
+- Animated water infiltration simulation
+
+**"Resolution Pop" Zoom Behavior:**
+| Zoom Level | Grid | Behavior |
+|------------|------|----------|
+| >1:50,000 | 50m | Clear, labeled compliance view |
+| 1:10,000 - 1:50,000 | 20m | Smooth transition |
+| 1:5,000 - 1:10,000 | 10m | Pop trigger zone |
+| <1:5,000 | 1m | Full enterprise resolution |
+
+**Traffic-Light Status Indicators:**
+| Status | Color | Meaning | Action |
+|--------|-------|---------|--------|
+| Green | #22c55e | Optimal, no action | Monitor |
+| Yellow | #eab308 | Attention, review | Check worksheet |
+| Red | #ef4444 | Critical, immediate | Execute or investigate |
+| Gray | #6b7280 | Offline, no data | Field service |
+
+**Irrigation Worksheet Viewer:**
+- Prescription zones (speed, direction)
+- Estimated water application
+- Confidence intervals (Kriging MAPE)
+- Override controls (with compliance logging)
+
+### 6.1.3 Mobile-Responsive PWA
+
+**Offline Capabilities:**
+- Cached field data (last 24 hours)
+- Stored worksheets
+- Manual entry (sync on reconnection)
+- Critical alerts (SMS fallback)
+
+**Performance Targets:**
+| Metric | Target | Test Device |
+|--------|--------|-------------|
+| First paint | <1.5s | iPhone 12 |
+| Time to interactive | <3s | iPhone 12 |
+| 3D render (1m grid) | >30fps | Desktop RTX 3060 |
+| Battery impact | <5%/hour | Mobile Safari |
+
+---
+
+## 6.2 Regulatory Portal (Water Court Audit)
+
+### 6.2.1 Purpose and Access
+
+**Primary Users:**
+- State Engineers (Colorado DWR)
+- Water Court judges and clerks
+- RGWCD compliance officers
+- Legal counsel (read-only for farmers)
+
+**Compliance Framework:**
+- Read-only audit log (immutable)
+- Hash verification on every view
+- Digital signature on exports
+- PBFT consensus certificate display
+
+### 6.2.2 Export Formats
+
+**Digital Water Ledger (DWL):**
+```
+.dwl package structure:
+├── manifest.json (metadata, signatures)
+├── ledger.csv (all events)
+├── proofs/ (PBFT signatures)
+├── validation_report.pdf
+└── README.txt (chain verification instructions)
+```
+
+**SLV 2026 Compliance Reports:**
+- Daily summaries (automated email)
+- Weekly aggregation (PDF)
+- Monthly trend analysis
+- Annual Water Court submission package
+
+### 6.2.3 WORM S3 Configuration
+
+**Write-Once-Read-Many:**
+- Bucket: `farmsense-compliance-vault`
+- Object Lock: Compliance mode, 7-year retention
+- Legal Hold: Automatic on litigation matters
+- Versioning: Disabled (single version only)
+
+---
+
+## 6.3 Admin Dashboard (Fleet C&C)
+
+### 6.3.1 Sled Hospital Monitor
+
+**Real-Time Metrics:**
+| Metric | Display | Alert Threshold |
+|--------|---------|-----------------|
+| Hospital occupancy | Progress bar | >80% |
+| Processing queue | List + ETA | >24hr backlog |
+| Failed diagnostics | Red count | Any |
+| Battery health trend | Sparkline | <20% annual |
+
+**Maintenance Scheduling:**
+- Automatic (based on runtime hours)
+- Seasonal (pre-plant, pre-harvest)
+- Reactive (failure detection)
+- Override (technician judgment)
+
+---
+
+## 6.4 Investor ROI Dashboard
+
+### 6.4.1 Metrics Displayed
+
+| Category | Metrics | Granularity |
+|----------|---------|-------------|
+| Water | Savings (AF/acre), efficiency (%) | Field, district, region |
+| Energy | kWh reduction, cost savings | Field, monthly |
+| Yield | CWT/acre, quality premium | Field, season |
+| Financial | SaaS ARR, churn, LTV, CAC | Company-wide |
+| Growth | Fields added, expansion pipeline | Quarterly |
+
+---
+
+# PART VII: THE HYDROLOGIC ORACLE
+
+## 7.1 SPAC Thermodynamics: Surface Energy Balance
+
+### 7.1.1 Fundamental Equation
+
+The Oracle solves for every 1m grid cell:
+
+```
+R_n - G = λE + H
+
+Where:
+R_n = Net radiation (W/m²)
+G   = Soil heat flux (W/m²)
+λE  = Latent heat flux (evapotranspiration, W/m²)
+H   = Sensible heat flux (W/m²)
+```
+
+**Component Sources:**
+| Variable | Source | Accuracy |
+|----------|--------|----------|
+| R_n | Solar + atmospheric radiation models | ±5% |
+| G | VFA dual-needle thermal pulse | ±1% |
+| λE | Penman-Monteith calculation | ±10% |
+| H | Residual (closure check) | Balance |
+
+### 7.1.2 Penman-Monteith Model
+
+**Reference ET (ET₀) Calculation:**
+```
+ET₀ = [0.408Δ(R_n - G) + γ(900/(T+273))u₂(eₛ - eₐ)] / [Δ + γ(1 + 0.34u₂)]
+
+Where:
+Δ   = Slope of vapor pressure curve (kPa/°C)
+γ   = Psychrometric constant (0.665×10⁻³ kPa/°C)
+T   = Mean air temperature (°C)
+u₂  = Wind speed at 2m (m/s)
+eₛ  = Saturation vapor pressure (kPa)
+eₐ  = Actual vapor pressure (kPa)
+```
+
+**Crop-Specific ETc:**
+```
+ETc = Kc × ET₀
+```
+
+### 7.1.3 VPD Stress Thresholds
+
+| VPD (kPa) | Stomatal Response | Photosynthetic Impact |
+|-----------|-------------------|----------------------|
+| <1.0 | Wide open | 100% capacity |
+| 1.0-2.0 | Slight closure | 95% capacity |
+| 2.0-3.5 | Moderate closure | 80% capacity |
+| 3.5-5.0 | Significant closure | 40% capacity |
+| >5.0 | Near-complete closure | <10% capacity |
+
+---
+
+## 7.2 Mathematical Derivation: Cokriging with Matérn Kernels
+
+### 7.2.1 Why Matérn?
+
+**Flexibility in Smoothness:**
+```
+Matérn variogram: γ(h) = σ²[1 - (2^(1-ν)/Γ(ν))(√(2ν)h/ρ)^ν K_ν(√(2ν)h/ρ)]
+
+Where:
+ν (nu) = Smoothness parameter (0.5, 1.5, 2.5 typical)
+ρ (rho) = Range parameter
+σ²      = Sill (variance)
+K_ν     = Modified Bessel function of second kind
+```
+
+**Smoothness Values:**
+| ν | Interpretation | Use Case |
+|---|----------------|----------|
+| 0.5 | Exponential, rough | Highly variable soils (sand lenses) |
+| 1.5 | Medium | Typical agricultural fields |
+| 2.5 | Gaussian, smooth | Uniform clay soils |
+
+### 7.2.2 Field Roughness Index (FRI)
+
+**Automatic ν Selection:**
+```
+FRI = std(NDVI) / mean(NDVI) + std(elevation) / mean(elevation)
+
+If FRI > 0.3: ν = 0.5 (rough/exponential)
+If 0.1 < FRI ≤ 0.3: ν = 1.5 (medium)
+If FRI ≤ 0.1: ν = 2.5 (smooth/Gaussian)
+```
+
+### 7.2.3 Residual Calculation
+
+**Regression Component:**
+```
+Z(s) = m(s) + ε(s)
+
+m(s) = β₀ + β₁×NDVI(s) + β₂×Elevation(s) + β₃×SoilType(s)
+
+ε(s)  = Spatially correlated residual (Kriged)
+```
+
+**Validation:**
+- Leave-one-out cross-validation
+- Target: MAPE <5% vs. VFA ground truth
+- R² > 0.94 for all fields
+
+---
+
+## 7.3 Crop-Specific Calibration Libraries
+
+### 7.3.1 Potato (Russet Burbank)
+
+**Growth Stages:**
+| Stage | Days | GDD | Critical Management |
+|-------|------|-----|---------------------|
+| Planting | 1 | 0 | Seed piece depth, spacing |
+| Emergence | 10-20 | 100 | Soil temperature >50°F |
+| Tuber Initiation | 40-50 | 500 | Water stress <80 kPa |
+| Tuber Bulking | 50-80 | 800 | MAD 50%, steady moisture |
+| Maturation | 80-110 | 1200 | Vines senescence |
+| Harvest | 110-130 | 1400 | Skin set before digging |
+
+**Stress Avoidance:**
+- Tuber initiation: <80 kPa (water stress causes knobbiness)
+- Bulking: Avoid >100 kPa (reduced yield)
+- Never exceed 120 kPa (hollow heart, internal defects)
+
+### 7.3.2 Barley (2-Row Malting)
+
+**Drought Tolerance:** Higher than potato
+**Critical Periods:**
+- Tillering: 30% MAD (establishment sensitive)
+- Stem elongation: 50% MAD
+- Heading: 40% MAD (yield determination)
+- Grain fill: 60% MAD (quality formation)
+
+**Quality Parameters:**
+- Protein: <12% for malting (irrigation affects)
+- Plump: >90% (water stress reduces)
+- Germination: >95%
+
+### 7.3.3 Alfalfa
+
+**Deep Rooting Advantage:**
+- Taproot to 10+ feet
+- Exploits deep moisture
+- Higher MAD tolerance (60-70%)
+
+**Cut Timing Strategy:**
+- Pre-bloom: Maximum quality, lower yield
+- Early bloom: Yield/quality balance
+- Full bloom: Maximum yield, lower quality
+- Stress timing: Avoid before 3rd cut

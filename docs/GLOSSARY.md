@@ -11,4 +11,24 @@ Drift Aversion: REQUIRED
 > 3. **AI Agent Compliance**: Agents MUST verify the current implementation against this document before proposing changes.
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
-\n> [!IMPORTANT]\n> **DOCUMENTATION DRIFT AVERSION PROTOCOL**\n> 1. **Single Source of Truth**: This document is the authoritative reference for its subject matter.\n> 2. **Synchronized Updates**: Any change to corresponding code or system behavior MUST be reflected here immediately.\n> 3. **AI Agent Compliance**: Agents MUST verify the current implementation against this document before proposing changes.\n> 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.\n\n# FarmSense Project Glossary\n\n| Term | Definition | Layer |\n| :--- | :--- | :--- |\n| **DHU** | **District Hub**. Edge coordinator mounted on 35ft poles; manages ~100 pivots. | L2 |\n| **EBK** | **Empirical Bayesian Kriging**. Geostatistical interpolation method for moisture mapping. | L1.5 / L2 |\n| **FHE** | **Fully Homomorphic Encryption**. Cryptography allowing math on encrypted data. | L3 / L4 |\n| **HAPS** | **Horizontal Profiling Sled**. Sensor configuration for lateral moisture tracking. | L1 |\n| **Kriging** | A geostatistical interpolation method that accounts for spatial autocorrelation. | L2 / L3 |\n| **LPI/LPD** | **Low Probability of Intercept / Detection**. Secure radio emission standards. | L1 |\n| **LRZ1 / LRZ2** | **Lateral Root-Zone** scouts. High-density ground-truth sensors. | L1 |\n| **MAD** | **Management Allowable Depletion**. Percentage of water soil can lose before stress. | Logic |\n| **NDVI** | **Normalized Difference Vegetation Index**. Satellite-derived measure of plant health. | L0 / L4 |\n| **PFA** | **Pressure & Flow Anchor**. Safety actuator and wellhead monitoring node. | L1 |\n| **PMT** | **Pivot Motion Tracker**. Field aggregator and kinematic auditor on the pivot span. | L1.5 |\n| **RSS** | **Regional Superstation**. territory master node (40' HC Container). | L3 |\n| **SFD** | **Soil Functional Domain**. Agronomic zones with distinct hydraulic behaviors. | Logic |\n| **SPAC** | **Soil-Plant-Atmosphere Continuum**. Modeling fluxes across soil, plants, and air. | Science |\n| **VFA** | **Vertical Field Anchor**. Sub-surface truth node for deep percolation auditing. | L1 |\n| **VRI** | **Variable Rate Irrigation**. Precisely applying different water amounts across a field. | Execution |\n| **Zo** | The **Core Compute Server** executing master geostatistical models. | L3 / L4 |
+# FarmSense Project Glossary
+
+| Term | Definition | Layer |
+| :--- | :--- | :--- |
+| **DHU** | **District Hub**. Edge coordinator mounted on 35ft poles; manages ~100 pivots. | L2 |
+| **EBK** | **Empirical Bayesian Kriging**. Geostatistical interpolation method for moisture mapping. | L1.5 / L2 |
+| **FHE** | **Fully Homomorphic Encryption**. Cryptography allowing math on encrypted data. | L3 / L4 |
+| **HAPS** | **Horizontal Profiling Sled**. Sensor configuration for lateral moisture tracking. | L1 |
+| **Kriging** | A geostatistical interpolation method that accounts for spatial autocorrelation. | L2 / L3 |
+| **LPI/LPD** | **Low Probability of Intercept / Detection**. Secure radio emission standards. | L1 |
+| **LRZ1 / LRZ2** | **Lateral Root-Zone** scouts. High-density ground-truth sensors. | L1 |
+| **MAD** | **Management Allowable Depletion**. Percentage of water soil can lose before stress. | Logic |
+| **NDVI** | **Normalized Difference Vegetation Index**. Satellite-derived measure of plant health. | L0 / L4 |
+| **PFA** | **Pressure & Flow Anchor**. Safety actuator and wellhead monitoring node. | L1 |
+| **PMT** | **Pivot Motion Tracker**. Field aggregator and kinematic auditor on the pivot span. | L1.5 |
+| **RSS** | **Regional Superstation**. territory master node (40' HC Container). | L3 |
+| **SFD** | **Soil Functional Domain**. Agronomic zones with distinct hydraulic behaviors. | Logic |
+| **SPAC** | **Soil-Plant-Atmosphere Continuum**. Modeling fluxes across soil, plants, and air. | Science |
+| **VFA** | **Vertical Field Anchor**. Sub-surface truth node for deep percolation auditing. | L1 |
+| **VRI** | **Variable Rate Irrigation**. Precisely applying different water amounts across a field. | Execution |
+| **Zo** | The **Core Compute Server** executing master geostatistical models. | L3 / L4 |

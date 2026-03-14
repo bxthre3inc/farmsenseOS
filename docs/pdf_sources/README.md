@@ -11,4 +11,90 @@ Drift Aversion: REQUIRED
 > 3. **AI Agent Compliance**: Agents MUST verify the current implementation against this document before proposing changes.
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
-\n> [!IMPORTANT]\n> **DOCUMENTATION DRIFT AVERSION PROTOCOL**\n> 1. **Single Source of Truth**: This document is the authoritative reference for its subject matter.\n> 2. **Synchronized Updates**: Any change to corresponding code or system behavior MUST be reflected here immediately.\n> 3. **AI Agent Compliance**: Agents MUST verify the current implementation against this document before proposing changes.\n> 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.\n\n# FarmSense Investor Materials Generator\n\nBeautiful PDF/HTML generation system for investor documents. Matches the FarmSense portal's dark theme with emerald/cyan accents.\n\n## Quick Start\n\n```bash\nnpm install\nnpm run build:all\n```\n\n## Scripts\n\n| Command | Description |\n|---------|-------------|\n| `npm run build` | Generate all documents (PDF + HTML) |\n| `npm run build:pdf` | PDFs only |\n| `npm run build:html` | HTML only |\n| `npm run serve` | Preview HTML output locally |\n| `npm run watch` | Auto-rebuild on file changes |\n\n## Documents\n\nConfigured in `build.js`:\n\n| ID | Source | Output |\n|----|--------|--------|\n| `executive-summary` | `SECRET_CLEARANCE_BRIEF.md` | Strategic brief for cleared investors |\n| `technical-overview` | `MASTER_SOFTWARE_ARCH.md` | FS-1 architecture documentation |\n| `financial-projections` | `MASTER_PROJECT_ROADMAP.md` | Revenue model & growth |\n| `team-leadership` | TBD | Founding team & advisors |\n\n## Adding New Documents\n\n1. Add config to `documents` array in `build.js`:\n```javascript\n{\n  id: 'my-doc',\n  title: 'My Document',\n  subtitle: 'Description',\n  source: '../path/to/source.md',\n  classification: 'CONFIDENTIAL',\n  icon: 'icon-name'\n}\n```\n\n2. Run `npm run build`\n\n## Output\n\n- **HTML**: `dist/*.html` — view in browser, includes interactive elements\n- **PDF**: `dist/*.pdf` — print-ready, A4 format\n- **Index**: `dist/index.html` — data room landing page\n\n## Templates\n\n| Template | Purpose |\n|----------|---------|\n| `base.html` | Wrapper with Tailwind + Lucide |\n| `cover.html` | Title page with gradients |\n| `content.html` | Main document body |\n| `section-divider.html` | Chapter break pages |\n\n## Design System\n\n- **Background**: `slate-950`\n- **Primary accent**: `emerald-500` (buttons, highlights)\n- **Secondary**: `cyan-400` (gradients)\n- **Typography**: Inter (headings), JetBrains Mono (code)\n- **Icons**: Lucide\n\n## Hosting\n\nDocuments are automatically available at:\n\n- **Data Room**: https://brodiblanco.zo.space/investors (private, requires login)\n- **Individual PDFs**: https://brodiblanco.zo.space/investors/docs/*.pdf\n\n## Regeneration\n\nAfter editing source markdown:\n\n```bash\nnpm run build:all\n```\n\nPDFs auto-copy to `../FarmSense/Investor_Materials/data_room/` for version control.
+# FarmSense Investor Materials Generator
+
+Beautiful PDF/HTML generation system for investor documents. Matches the FarmSense portal's dark theme with emerald/cyan accents.
+
+## Quick Start
+
+```bash
+npm install
+npm run build:all
+```
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run build` | Generate all documents (PDF + HTML) |
+| `npm run build:pdf` | PDFs only |
+| `npm run build:html` | HTML only |
+| `npm run serve` | Preview HTML output locally |
+| `npm run watch` | Auto-rebuild on file changes |
+
+## Documents
+
+Configured in `build.js`:
+
+| ID | Source | Output |
+|----|--------|--------|
+| `executive-summary` | `SECRET_CLEARANCE_BRIEF.md` | Strategic brief for cleared investors |
+| `technical-overview` | `MASTER_SOFTWARE_ARCH.md` | FS-1 architecture documentation |
+| `financial-projections` | `MASTER_PROJECT_ROADMAP.md` | Revenue model & growth |
+| `team-leadership` | TBD | Founding team & advisors |
+
+## Adding New Documents
+
+1. Add config to `documents` array in `build.js`:
+```javascript
+{
+  id: 'my-doc',
+  title: 'My Document',
+  subtitle: 'Description',
+  source: '../path/to/source.md',
+  classification: 'CONFIDENTIAL',
+  icon: 'icon-name'
+}
+```
+
+2. Run `npm run build`
+
+## Output
+
+- **HTML**: `dist/*.html` — view in browser, includes interactive elements
+- **PDF**: `dist/*.pdf` — print-ready, A4 format
+- **Index**: `dist/index.html` — data room landing page
+
+## Templates
+
+| Template | Purpose |
+|----------|---------|
+| `base.html` | Wrapper with Tailwind + Lucide |
+| `cover.html` | Title page with gradients |
+| `content.html` | Main document body |
+| `section-divider.html` | Chapter break pages |
+
+## Design System
+
+- **Background**: `slate-950`
+- **Primary accent**: `emerald-500` (buttons, highlights)
+- **Secondary**: `cyan-400` (gradients)
+- **Typography**: Inter (headings), JetBrains Mono (code)
+- **Icons**: Lucide
+
+## Hosting
+
+Documents are automatically available at:
+
+- **Data Room**: https://brodiblanco.zo.space/investors (private, requires login)
+- **Individual PDFs**: https://brodiblanco.zo.space/investors/docs/*.pdf
+
+## Regeneration
+
+After editing source markdown:
+
+```bash
+npm run build:all
+```
+
+PDFs auto-copy to `../FarmSense/Investor_Materials/data_room/` for version control.
