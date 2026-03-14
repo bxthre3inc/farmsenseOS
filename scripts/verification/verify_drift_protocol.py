@@ -43,12 +43,28 @@ def main():
                         non_compliant.append((filepath, missing))
     
     if non_compliant:
-        print("❌ DRIFT PROTOCOL NON-COMPLIANCE DETECTED:")
+        print("❌ DAP NON-COMPLIANCE DETECTED:")
         for path, missing in non_compliant:
             print(f"  - {path}: Missing {', '.join(missing)}")
+        
+    # E-DAP checks
+    ext_violations = []
+    for root, dirs, files in os.walk("."):
+        if "node_modules" in root or ".git" in root or "ARCHIVE" in root:
+            continue
+        for file in files:
+            if file.endswith(".bak") or file.endswith(".old") or ".py.bak" in file:
+                ext_violations.append(os.path.join(root, file))
+                
+    if ext_violations:
+        print("\\n❌ E-DAP INFRASTRUCTURE VIOLATIONS (Prohibited File Sprawl):")
+        for v in ext_violations:
+            print(f"  - {v}")
+            
+    if non_compliant or ext_violations:
         sys.exit(1)
     else:
-        print("✅ ALL DOCUMENTATION COMPLIANT WITH DRIFT AVERSION PROTOCOL.")
+        print("✅ ALL SYSTEMS COMPLIANT WITH D-DAP AND E-DAP PROTOCOLS.")
         sys.exit(0)
 
 if __name__ == "__main__":

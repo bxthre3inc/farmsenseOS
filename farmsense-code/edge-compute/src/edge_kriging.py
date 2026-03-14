@@ -6,12 +6,12 @@ import os
 
 # Add common to path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-from common.spatial.coords import get_lat_lon_steps
+from common.spatial.kriging import KrigingBase
 
-class EdgeKrigingEngine:
+class EdgeKrigingEngine(KrigingBase):
     def __init__(self, grid_size: int = 16, resolution_m: float = 50.0):
+        super().__init__(resolution_m=resolution_m)
         self.grid_size = grid_size
-        self.resolution = resolution_m
         
     def compute_50m_grid(
         self, 

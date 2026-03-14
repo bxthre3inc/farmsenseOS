@@ -8,7 +8,7 @@ from app.models.user import User, UserRole
 from app.models import ComplianceReport
 
 from app.schemas.metrics import ComplianceReportResponse
-from app.services.audit_service import RegulatoryAuditService
+from app.services.compliance_service import ComplianceService
 
 router = APIRouter()
 
@@ -73,7 +73,7 @@ def get_field_audit_report(
     Consolidates UFI scores, high-res kriging metadata, and AllianceChain proofs.
     Requires REGULATOR or INTERNAL role.
     """
-    report = RegulatoryAuditService.generate_field_audit_report(db, field_id, user)
+    report = ComplianceService.generate_audit_report(db, field_id, user)
     return report
 
 
