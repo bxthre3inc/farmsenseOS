@@ -1,7 +1,7 @@
 import os
 import sys
 
-REQUIRED_MARKER = "DOCUMENTATION DRIFT AVERSION PROTOCOL"
+REQUIRED_MARKER = "D-DAP (Documentation Drift Aversion Protocol)"
 REQUIRED_FIELDS = ["Status:", "Last Audited:", "Drift Aversion: REQUIRED"]
 
 def check_file(filepath):
@@ -14,8 +14,8 @@ def check_file(filepath):
             if field not in content:
                 missing.append(field)
                 
-        if REQUIRED_MARKER not in content:
-            missing.append("Drift Protocol Marker")
+        if REQUIRED_MARKER not in content and "DOCUMENTATION DRIFT AVERSION PROTOCOL" not in content:
+            missing.append("D-DAP Protocol Marker")
             
         return missing
     except Exception as e:
