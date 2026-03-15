@@ -5,6 +5,9 @@
 # 3. **AI Agent Compliance**: Agents MUST verify the current implementation against documentation before proposing changes.
 # 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
+# 3. **AI Agent Compliance**: Agents MUST verify the current implementation against documentation before proposing changes.
+# 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
+
 from datetime import datetime
 from sqlalchemy.orm import Session
 from app.models import VirtualSensorGrid50m, VirtualSensorGrid20m, VirtualSensorGrid1m, SoilSensorReading

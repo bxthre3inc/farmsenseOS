@@ -4,6 +4,8 @@
 # 2. Synchronized Updates: Changes to system behavior MUST be reflected in D-DAP documentation.
 # 3. No Ghost Edits: All significant modifications must be documented in the project's audit trail.
 
+# 3. No Ghost Edits: All significant modifications must be documented in the project's audit trail.
+
 #!/bin/bash
 set -e
 

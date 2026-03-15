@@ -5,6 +5,9 @@
 # 3. **AI Agent Compliance**: Agents MUST verify the current implementation against documentation before proposing changes.
 # 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
+# 3. **AI Agent Compliance**: Agents MUST verify the current implementation against documentation before proposing changes.
+# 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
+
 import os
 import sys
 
@@ -39,4 +42,3 @@ with open('hardware_specs_full.txt', 'w') as out_f:
         text = extract_text(pdf_file)
         out_f.write(text)
         out_f.write("\n\n")
-

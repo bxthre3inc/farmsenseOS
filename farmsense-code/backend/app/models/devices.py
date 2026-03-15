@@ -5,6 +5,9 @@
 # 3. **AI Agent Compliance**: Agents MUST verify the current implementation against documentation before proposing changes.
 # 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
+# 3. **AI Agent Compliance**: Agents MUST verify the current implementation against documentation before proposing changes.
+# 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
+
 from sqlalchemy import Column, String, Float, DateTime, Integer, JSON, Index, ForeignKey, Enum as sqlalchemy_enum
 from sqlalchemy.dialects.postgresql import UUID
 from datetime import datetime
