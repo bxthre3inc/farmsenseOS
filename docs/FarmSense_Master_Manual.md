@@ -61,23 +61,26 @@ The $500/AF groundwater fee (quadrupled from $75-150/AF) creates the economic mu
 | Observation | Visual Scouting / Manual Probe | 1m Centimetric Kriging |
 | Calculation | Crop-Coefficient (Static) | SPAC Thermodynamics (Dynamic) |
 | Decision | "Intuition-Based" Pumping | Edge-Calculated VRI Prescription |
-| Evidence | Paper Logs | SHA-256 Sovereign Ledger |
+| Evidence | Paper Logs | SHA-256 DAP Ledger |
 
 ### 1.2 SPAC Modeling and Edaphic Variability
 
 FarmSense utilizes 11 domain-specific, explainable engines. The Soil-Plant-Atmosphere Continuum maps fluxes across three domains:
 
 **Soil Layer (Edaphic):**
+
 - Soil Matric Potential (SMP), Volumetric Water Content (VWC), EC, pH
 - San Luis soil: pH 8.4-9.8, exchangeable sodium 15-60%
 - Gunbarrel series: porous sand requiring micro-irrigation
 - Dynamic refill points: 75-80 kPa for silty clay loams; 20-25 kPa for fine sands
 
 **Plant Layer (Vegetative):**
+
 - Leaf water potential, Canopy Water Stress Index (CWSI), NDVI
 - Stomatal closure detection prior to visible wilting
 
 **Atmosphere Layer (Meteorologic):**
+
 - Vapor Pressure Deficit (VPD), solar radiation, wind speed
 - LSTM forecasts ET trends with 81-94% accuracy
 - SLV potato ET demand: 4.5-7.7 mm/day
@@ -89,16 +92,21 @@ MAD defines the percentage of available soil water depletable before crop damage
 ### 1.4 System Architecture Overview
 
 **Backend Intelligence:**
+
 - **RDC (Map Servers):** Master data library (Sentinel-2, Landsat, edaphic)
 - **Spatial Query Engine (Map Manager):** Extracts values at lat/lon → JSON
 - **Core Compute Server (Zo):** Bayesian priors, Localized Kriging algorithms
 
 **Regional/District Edge Infrastructure:**
+
 - **RSS (Regional Superstation):** Level 3 territory master in 40' HC container
+
   - 64-Core AMD Threadripper PRO, 512GB ECC RAM
   - 50TB Enterprise NVMe array
   - Operates during total regional blackouts
+
 - **DHU (District Hub):** Level 2 mesh manager on 35' timber pole
+
   - NVIDIA Jetson Orin Nano (8GB), 100-pivot radius
   - 30-Day "Black Box" Cache: 128GB Swissbit PSLC SSD
   - AES-256 audit packets preserved during backhaul failures
@@ -106,26 +114,29 @@ MAD defines the percentage of available soil water depletable before crop damage
 ### 1.5 Telemetry Architecture Resolution
 
 **The VFA-to-DHU Challenge:**
+
 - VFA transmits 900MHz CSS LoRa; DHU used 2.4GHz LTU only
 - **Resolution:** DHU BOM revised to include 900MHz CSS LoRa gateway
 
 **The PMT Field Hub Solution:**
+
 - PMT elevated 10-15 feet on pivot span as Primary Field Aggregator
 - VFA, LRZ1/LRZ2, PFA report upward to PMT via 900MHz CSS LoRa
 - PMT packages data and routes to DHU via 2.4GHz/LTE-M
 
 **LRZ1/LRZ2 Sub-Node Architecture:**
+
 - Chirp Spread Spectrum (CSS) LoRa: 915MHz, -148dBm sensitivity
 - 100% canopy penetration vs. 2.4GHz (60% loss in dense corn)
 - Battery life: 4+ years at 4-hour chirp intervals
 
 ### 1.6 Risk Factor Analysis
 
-**Geopolitical Water Scarcity:** Interstate litigation could trigger federal aquifer takeovers. The Sovereign Ledger enables state engineers to prove compact compliance, reducing federal intervention standing.
+**Geopolitical Water Scarcity:** Interstate litigation could trigger federal aquifer takeovers. The DAP Ledger enables state engineers to prove compact compliance, reducing federal intervention standing.
 
 **Technical Obsolescence:** FarmSense is "Sensor-Agnostic." The Hydrologic Oracle becomes the "Inference Layer" fusing satellite trends with sub-surface realities — a moat satellite-only players cannot cross.
 
-### 1.7 Long-Term Roadmap: Sovereign Water Infrastructure
+### 1.7 Long-Term Roadmap: Deterministic Water Infrastructure
 
 **2026-2027:** SLV Subdistrict 1 full deployment (1,280 fields)
 **2028-2029:** Colorado River Basin expansion (40+ subdistricts)
@@ -144,6 +155,7 @@ MAD defines the percentage of available soil water depletable before crop damage
 **Serviceable Obtainable Market (SOM):** SLV Subdistrict 1 (1,280 fields) + immediate RGWCD adjacent districts (5,000 fields)
 
 **Revenue Model:**
+
 - Base Tier: $149/month (50m compliance grid)
 - Plus Tier: $299/month (20m optimization)
 - Enterprise Tier: $499/month (1m resolution, predictive maintenance)
@@ -161,6 +173,7 @@ MAD defines the percentage of available soil water depletable before crop damage
 ### 2.3 Federal & State Funding Environment
 
 **Primary Targets:**
+
 - USDA SBIR Phase I/II: $300K-$1.1M
 - NRCS Conservation Innovation Grants: $75K-$5M
 - DOE Water-Energy Nexus: $2M-$10M
@@ -168,6 +181,7 @@ MAD defines the percentage of available soil water depletable before crop damage
 - Gates Foundation Agricultural Adaptation: $1M-$50M
 
 **Secondary Pipeline:**
+
 - ARPA-E WATER program
 - Colorado Water Conservation Board
 - Bureau of Reclamation WaterSMART
@@ -189,12 +203,14 @@ MAD defines the percentage of available soil water depletable before crop damage
 ### 3.2 Technical Org Chart
 
 **Hardware Engineering:**
+
 - Chief Hardware Architect
 - RF/Telemetry Engineer
 - Embedded Systems (nRF52, ESP32-S3)
 - Mechanical/DPE Design
 
 **Software Engineering:**
+
 - Chief Software Architect
 - Backend/Cloud (Python/FastAPI)
 - Edge Compute (Go/TensorRT)
@@ -202,6 +218,7 @@ MAD defines the percentage of available soil water depletable before crop damage
 - Data Science/ML (Kriging, LSTM)
 
 **Operations:**
+
 - Field Operations Manager
 - Installation Technicians (6 FTE for Subdistrict 1)
 - Sled Hospital Technicians
@@ -230,7 +247,7 @@ MAD defines the percentage of available soil water depletable before crop damage
 **Level 2 (DHU):** Jetson Orin Nano — 20m/10m Kriging, PBFT consensus
 **Level 3 (RSS/Cloud):** Threadripper PRO — 1m Master Grid, FHE vaulting
 
-### 4.2 SQL Schema: TimescaleDB & PostGIS Sovereign Vault
+### 4.2 SQL Schema: TimescaleDB & PostGIS Data Vault
 
 ```sql
 -- Sensor telemetry hypertable
@@ -262,6 +279,7 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 ```
 
 **Tables:** 7 core + 1 materialized view
+
 - `fields` (PostGIS polygons)
 - `sensor_readings` (TimescaleDB hypertable)
 - `devices` (hardware inventory)
@@ -290,6 +308,7 @@ WS     /v1/stream/field/{id}      # Real-time WebSocket
 **District (10m):** Ordinary Kriging with spherical variogram
 **Regional (1m):** Regression Kriging with Sentinel-2 NDVI covariates
 **Variogram Parameters:**
+
 - Nugget: 0.0012
 - Sill: 0.0085
 - Range: 245m
@@ -327,18 +346,21 @@ Default → DORMANT
 ### 4.8 Firmware Specifications
 
 **VFA (nRF52840):**
+
 - AES-128 encryption at edge
 - 900MHz CSS LoRa chirp
 - 4-hour baseline, 15-min ripple mode
 - GroPoint Profile: 8", 16", 24", 36" depths
 
 **PFA (nRF52840):**
+
 - Cryptocell-310 AES-256
 - Badger TFX-5000 ultrasonic transit-time
 - 400A CT clamps for harmonic analysis
 - Autonomous pump kill-switch authority
 
 **PMT (ESP32-S3):**
+
 - Dual-core LX7 240MHz
 - Edge-EBK 50m grid calculation
 - u-blox ZED-F9P RTK GNSS (<5cm)
@@ -354,28 +376,33 @@ Default → DORMANT
 **Infrastructure:** Modified 40' High-Cube Container (R-21 insulation)
 
 **Zone A — Logistics & Refurbishment Bay (20' × 7.7'):**
+
 - Tactical Fleet Dock: Polaris Ranger-HD UTV (62" width)
 - Sled Hospital JIGs: 12' stainless workbench with automated fixation
 - Nitrogen Station: +5 PSI Dry Nitrogen manifold
 - Pressure-Decay Tester: <0.1 PSI drop/15 min validation
 
 **Zone B — Inventory Staging (10' × 7.7'):**
+
 - Ready-Rack: 500 units in "Pivot Kits" (1 VFA + 16 LRZ nodes)
 - Burn-In Bench: u-blox ZED-F9P RTK verification
 
 **Zone C — Clean Vault (10' × 7.7'):**
+
 - Mitsubishi Hyper-Heat HVAC (-40°F operational)
 - HEPA scrubbing, positive-pressure airlock
 - Spring-dampened server racks
 - 5kW Honda EU7000iS auto-start generator backup
 
 **Oracle Unified Compute Cluster:**
+
 - 64-Core AMD Threadripper PRO 5995WX
 - 512GB ECC RAM
 - Dual NVIDIA RTX A6000 (48GB)
 - 50TB WD Gold Enterprise NVMe (RAID-10)
 
 **RSS BOM:**
+
 | Component | Cost |
 | :--- | :--- |
 | Structure + Climate | $22,500 |
@@ -399,6 +426,7 @@ Default → DORMANT
 **Power:** 200W Solar + 200Ah Heated LFP
 
 **DHU BOM:**
+
 | Component | Cost |
 | :--- | :--- |
 | Jetson Orin Nano + SSD | $581 |
@@ -411,6 +439,7 @@ Default → DORMANT
 
 **Mount:** Tower 2-3 of center-pivot, 10-15ft elevation
 **Sensors:**
+
 - Badger Meter TFX-5000 ultrasonic transit-time (±1.0%)
 - u-blox ZED-F9P RTK GNSS (<5cm error)
 - Bosch BNO055 9-Axis IMU (crabbing detection)
@@ -425,6 +454,7 @@ Default → DORMANT
 
 **Role:** Wellhead sentry & safety actuator
 **Sensors:**
+
 - Badger TFX-5000 ultrasonic (±1.0% flow)
 - 3× Magnelab split-core CT clamps (400A)
 - Dwyer PBLTX vented 316-SS depth sounder
@@ -434,6 +464,7 @@ Default → DORMANT
 **Comms:** 900MHz CSS LoRa, BLE 5.4 (maintenance)
 
 **Reflex Logic Table:**
+
 | Condition | Action |
 | :--- | :--- |
 | PMT_STALL command | ACTUATE_STOP |
@@ -450,6 +481,7 @@ Default → DORMANT
 **Sensors:** GroPoint Profile (8", 16", 24", 36" depths)
 
 **The 48U Stack Sequence:**
+
 | Slot | Component | Function |
 | :--- | :--- | :--- |
 | 1 | Desiccant Pack | Apex moisture trap |
@@ -461,6 +493,7 @@ Default → DORMANT
 | 48 | Advanced Sensor | 48" Deep Percolation |
 
 **VFA BOM (1,280 unit tier):**
+
 | Component | Cost |
 | :--- | :--- |
 | Housing (HDPE SDR9) | $6.75 |
@@ -475,6 +508,7 @@ Default → DORMANT
 
 **Density:** 16 per field (4× LRZ2 Reference + 12× LRZ1 Truth)
 **PCBA GPIO:**
+
 - P0.02/P0.03: 12-bit analog dielectric
 - P0.28-P0.31: LoRa SPI
 
@@ -487,16 +521,19 @@ Default → DORMANT
 ### 5.7 Single Field Deployment (SFD) Configurations
 
 **SFD-P: Standard Pivot (126-acre circular)**
+
 - 1× PMT, 1× PFA
 - 2× VFA, 4× LRZ2, 12× LRZ1 (20 nodes total)
 - 50m Compliance / 1m Enterprise resolution
 
 **SFD-C: Corner-Swing Arm (150+ acre)**
+
 - 1× PMT + 1× CSA (Swing-Arm Tracker)
 - 1× PFA, 4× VFA, 6× LRZ2, 16× LRZ1 (28 nodes total)
 - BLE 5.2 distance ranging for ±0.1° joint resolution
 
 **SFD-F: Flood/Surface Irrigation**
+
 - 1× DHU-Lite/Static-PMT at ditch intake
 - 1× PFA at headgate, 4× VFA, 8× LRZ2, 20× LRZ1 (34 nodes total)
 - Wetting Front Propagation algorithms
@@ -504,11 +541,13 @@ Default → DORMANT
 ### 5.8 Subdistrict 1 Scale (1,280 Fields)
 
 **Phase 1 — Compliance Foundation:** $1,580,800
+
 - 1,280 PMTs + installation
 - Base RSS infrastructure
 - Focus: Immediate Water Court defensibility
 
 **Phase 2 — Full Ecosystem Saturation:** $3,970,638
+
 - 18-node Stereo Density per field
 - 25 DHUs + RSS + Fleet
 - 1m-pixel spatial moisture grid
@@ -522,6 +561,7 @@ Default → DORMANT
 **Stack:** React 19, Three.js, TailwindCSS, MapLibre GL JS
 
 **Core Features:**
+
 - 3D field heatmap with 1m resolution overlay
 - "Resolution Pop" zoom (50m → 1m blur/unlock)
 - Traffic-light status indicators
@@ -529,6 +569,7 @@ Default → DORMANT
 - Mobile-responsive PWA with offline cache
 
 **Technical Specs:**
+
 - WebSocket real-time updates (1Hz)
 - Frustum-aware tile streaming from RSS
 - 60 FPS target on mobile devices
@@ -537,6 +578,7 @@ Default → DORMANT
 
 **Purpose:** Immutable compliance reporting for legal proceedings
 **Features:**
+
 - Read-only audit log with hash verification
 - PDF/CSV export (.dwl format)
 - Multi-field aggregation views
@@ -544,6 +586,7 @@ Default → DORMANT
 - Violation tracking & trend analysis
 
 **SLV 2026 Compliance:**
+
 - WORM S3 bucket configuration
 - Automated daily/weekly/monthly summaries
 - Ed25519 digital signatures
@@ -551,6 +594,7 @@ Default → DORMANT
 ### 6.3 Admin Dashboard (Fleet C&C)
 
 **Sled Hospital Monitor:**
+
 - Real-time sensor health across fleet
 - Maintenance scheduling
 - Pressure-decay test results
@@ -559,6 +603,7 @@ Default → DORMANT
 ### 6.4 Investor ROI Dashboard
 
 **Metrics:**
+
 - Water savings per acre (AF)
 - Energy reduction (kWh)
 - Yield improvement (CWT)
@@ -568,10 +613,12 @@ Default → DORMANT
 ### 6.5 Grant & Research Portals
 
 **NRCS Conservation Credit Calculator:**
+
 - Auto-maps FarmSense metrics to Resource Concern categories
 - LaTeX export for academic publication
 
 **Federated Learning Interface:**
+
 - Model training without raw data download
 - Differential privacy guarantees
 
@@ -588,6 +635,7 @@ R_n - G = λE + H
 ```
 
 Where:
+
 - **R_n**: Net radiation (solar + atmospheric)
 - **G**: Soil heat flux (±1% accuracy via VFA dual-needle thermal pulse)
 - **λE**: Latent heat flux (evapotranspiration)
@@ -609,26 +657,31 @@ Where m(s) = deterministic trend (satellite), ε(s) = spatially correlated resid
 ### 7.3 Crop-Specific Calibration Libraries
 
 **Potato (Russet Burbank):**
+
 - Critical growth stages: Emergence, Tuber Initiation, Bulking, Maturation
 - MAD thresholds: 40% (tuber initiation), 50% (bulking)
 - Stress avoidance: <80 kPa at tuber initiation
 
 **Barley:**
+
 - Drought-tolerant: 60% MAD acceptable
 - Early growth sensitive: 30% MAD during tillering
 
 **Alfalfa:**
+
 - Deep rooting: 60-70% MAD
 - Cut timing: pre-bloom stress optimization
 
 ### 7.4 Forecasting Architecture
 
 **14-Day Predictive VRI:**
+
 - Transformer-based Sequence Model
 - Input: 10-year SLV weather patterns + real-time ensemble
 - Output: Probabilistic "Refill Probability" map
 
 **LSTM ET Prediction:**
+
 - 81-94% accuracy on SLV potato crops
 - 4.5-7.7 mm/day demand anticipation
 
@@ -639,12 +692,14 @@ Where m(s) = deterministic trend (satellite), ε(s) = spatially correlated resid
 ### 8.1 Site Selection: Center, CO Phase 1
 
 **CSU San Luis Valley Research Center:**
+
 - 2 center-pivot fields
 - Center, CO (37.7509° N, 106.0112° W)
 - 7,600 ft elevation
 - San Luis sandy loam soil series
 
 **Pilot Objectives:**
+
 - Generate ground truth for June 29, 2026 water court trial
 - Validate 20% water savings claim
 - Prove ±1.0% flow accuracy
@@ -667,22 +722,26 @@ Where m(s) = deterministic trend (satellite), ε(s) = spatially correlated resid
 ### 8.3 Commissioning Checklist
 
 **Pre-Installation (Week -2):**
+
 - RF site survey (900MHz CSS LoRa propagation)
 - Soil core samples for dielectric calibration
 - RTK base station setup (CSU SLV RC)
 
 **Installation (Week 0):**
+
 - VFA/LRZ probe installation (hydraulic auger)
 - PMT mounting on pivot tower
 - PFA installation at wellhead
 - DHU mast erection
 
 **Calibration (Week 1):**
+
 - 24-hour GNSS precision verification
 - Flow meter calibration against certified transfer standard
 - Soil dielectric calibration (known moisture samples)
 
 **Validation (Weeks 2-4):**
+
 - Kriging accuracy check (hand-held probe validation)
 - Water balance closure verification
 - Stress detection validation (pressure chamber measurements)
@@ -694,31 +753,37 @@ Where m(s) = deterministic trend (satellite), ε(s) = spatially correlated resid
 ### 9.1 50-Week Industrial Implementation Roadmap
 
 **Phase 1: Foundation (Weeks 1-4)**
+
 - Deploy CSE stack on brodiblanco.zo.computer
 - Prometheus/Grafana monitoring setup
 - JWT Auth & SQLAlchemy models
 
 **Phase 2: Ingestion & Kriging (Weeks 5-8)**
+
 - 10K pings/sec sensor ingestion API
 - 20m Edge Kriging on Jetson DHUs
 - Sentinel-2 cloud-filtering (30% threshold)
 
 **Phase 3: Analytics & Reflex (Weeks 9-12)**
+
 - Adaptive Recalculation Engine validation
 - Decision Engine "Soft-Stop" field trials
 - MAD worksheet deployment
 
 **Phase 4: Portals & Compliance (Weeks 13-16)**
+
 - Farmer Dashboard (React + MapLibre)
 - Regulatory Portal for SLV 2026 trial
 - Security penetration testing
 
 **Phase 5: Optimization & Rollout (Weeks 17-20)**
+
 - Kriging <5 min/field performance tuning
 - Trainer manual generation
 - CSU SLV RC Pilot Launch
 
 **Phase 6: Scale (Weeks 21-50)**
+
 - Subdistrict 1 phased rollout
 - Sled Hospital operations
 - Continuous calibration refinement
@@ -726,6 +791,7 @@ Where m(s) = deterministic trend (satellite), ε(s) = spatially correlated resid
 ### 9.2 Field Deployment SOPs
 
 **SOP-01: VFA Installation**
+
 1. Hydraulic auger to 48" depth
 2. Insert HDPE outer shell
 3. Drive friction-molded tapered tip
@@ -734,6 +800,7 @@ Where m(s) = deterministic trend (satellite), ε(s) = spatially correlated resid
 6. Antenna mounting (3ft SS-304 whip)
 
 **SOP-02: PMT Calibration**
+
 1. 24-hour GNSS static observation
 2. IMU bias calculation
 3. Flow meter zero-point check
@@ -743,6 +810,7 @@ Where m(s) = deterministic trend (satellite), ε(s) = spatially correlated resid
 ### 9.3 Maintenance Protocols: Sled Hospital Workflow
 
 **Post-Harvest Recovery (November):**
+
 1. Sled extraction via hydraulic puller
 2. Ultrasonic decontamination bath
 3. Pressure-decay test (<0.1 PSI/15min)
@@ -751,6 +819,7 @@ Where m(s) = deterministic trend (satellite), ε(s) = spatially correlated resid
 6. Climate-controlled storage
 
 **Pre-Planting Deployment (April):**
+
 1. Battery voltage check (>3.6V/cell)
 2. Seal inspection (Viton O-rings)
 3. Firmware update (BLE 5.4)
@@ -785,11 +854,13 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 **RPO:** 5 minutes (TimescaleDB streaming replication)
 **RTO:** 15 minutes (automated failover to DR region)
 **Backup Strategy:**
+
 - Hourly incremental (WAL archiving)
 - Daily full (cross-region S3)
 - Annual compliance vault (air-gapped)
 
 **"Hydraulic Blackout" Logic:**
+
 - RSS continues autonomous operation
 - DHU 30-day Black Box cache
 - PMT autonomous VRI based on last-valid worksheet
@@ -801,11 +872,13 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 11.1 Zero-Trust Architecture
 
 **Principles:**
+
 - Never trust, always verify
 - Least privilege access
 - Assume breach
 
 **Implementation:**
+
 - mTLS for all service-to-service communication
 - SPIFFE/SPIRE workload identity
 - Network segmentation (VLANs + micro-segmentation)
@@ -813,6 +886,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 11.2 eBPF Kernel Auditing
 
 **Falco:** Runtime threat detection
+
 - Unauthorized process execution
 - Sensitive file access
 - Outbound connections from field devices
@@ -820,11 +894,13 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 11.3 Lateral Movement Prevention
 
 **Pod Security:**
+
 - Read-only root filesystems
 - No privileged containers
 - Seccomp profiles
 
 **Network Policies:**
+
 - Default-deny ingress/egress
 - Explicit allow rules only
 
@@ -835,6 +911,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 12.1 Legal Admissibility Framework: The NREP Standard
 
 **Non-Repudiable Evidence Prime (NREP) Requirements:**
+
 1. **Authenticity:** Ed25519 hardware-locked signatures
 2. **Integrity:** SHA-256 hash chaining
 3. **Availability:** 30-day Black Box cache + redundant storage
@@ -843,24 +920,28 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 12.2 Cryptographic Chain of Custody
 
 **Merkle Tree Proofs:**
+
 - Daily root hash commitment
 - PBFT consensus on DHU mesh
 - Immutable RSS vault
 
 **Digital Water Ledger (DWL) Export:**
+
 - `manifest.json`: Root metadata with system signature
 - `ledger.csv`: Historical transactions
 - `proofs/*.sig`: PBFT consensus certificates
 - `validation_report.pdf`: Kriging MAPE scores
 
-### 12.3 Data Sovereignty
+### 12.3 Data Integrity
 
 **Zero-Knowledge Privacy:**
+
 - Federated learning hooks
 - Differential privacy (ε=1.0)
 - Contextual anonymization
 
 **Search Warrant Response:**
+
 - Technical capability to comply with legal orders
 - Transparency reports on government requests
 
@@ -871,6 +952,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 13.1 GlobalG.A.P. Compliance
 
 **Certification Path:**
+
 - Automated audit trail generation
 - IFA standard alignment
 - Control Points & Compliance Criteria documentation
@@ -878,6 +960,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 13.2 Nitrogen Leaching Prevention
 
 **SPAC-Based N Management:**
+
 - Real-time soil nitrate monitoring
 - Irrigation timing to prevent deep percolation
 - VRA (Variable Rate Application) integration
@@ -885,6 +968,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 13.3 Carbon Sequestration Quantification
 
 **Methodology:**
+
 - Soil organic carbon change detection
 - Reduced pumping energy credits
 - Registry-ready MRV (Measurement, Reporting, Verification)
@@ -903,6 +987,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 14.2 CAPEX/OPEX Breakdown
 
 **Subdistrict 1 (1,280 fields):**
+
 | Category | Amount |
 | :--- | :--- |
 | Field Hardware | $3,822,720 |
@@ -930,6 +1015,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 **CIG (Conservation Innovation Grants):** $75K-$5M — Water conservation validation
 
 **Application Deadlines:**
+
 - SBIR FY26 Cycle I: March 15, 2026
 - CIG FY26: April 30, 2026
 
@@ -941,11 +1027,13 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 15.3 Philanthropic Integration
 
 **Bill & Melinda Gates Foundation:**
+
 - Agricultural Adaptation program: $1M-$50M
 - COP30 smallholder focus alignment
 - SLV pilot as "developed world proof"
 
 **Earthshot Prize:**
+
 - "Protect and Restore Nature" category
 - $1M prize + global visibility
 
@@ -956,11 +1044,13 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 16.1 Empirical Results: 2026 Pilot
 
 **Pre-FarmSense (Control):**
+
 - Water consumption: 258.4 AF/pivot
 - Energy: 125,000 kWh/pivot
 - Yield: 410 CWT/acre
 
 **FarmSense Pilot (Treatment):**
+
 - Water consumption: 204.2 AF/pivot (-21%)
 - Energy: 98,500 kWh/pivot (-21.2%)
 - Yield: 452 CWT/acre (+10.2%)
@@ -970,6 +1060,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 16.2 The "Reflex" Discovery
 
 **Week 12 Event:**
+
 - PFA detected 35 GPM sub-surface breach
 - Traditional monitoring: 4 days to identify
 - FarmSense "Reflex Halt": 4.5 seconds
@@ -978,6 +1069,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### 16.3 Legal Validation: June 29, 2026 Trial
 
 **Evidence Presented:**
+
 - 6 months continuous telemetry
 - SHA-256 chained audit logs
 - Kriging validation (MAPE <5%)
@@ -992,6 +1084,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### Appendix A: Full Bill of Materials (Master Catalog)
 
 **Per-Field Standard Rollout:**
+
 | Item | Hardware Cost | Labor | Subtotal |
 | :--- | :---: | :---: | :---: |
 | Sensors (18 nodes) | $846.75 | — | $846.75 |
@@ -999,17 +1092,20 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 | **TOTAL** | | | **$2,917.75** |
 
 **Tiered Upgrades:**
+
 - Section VRI (Tier 2): +$1,500-$1,800
 - Grid VRI (Tier 3): +$3,800-$4,500
 
 ### Appendix B: Mechanical Assembly Tolerances
 
 **VFA Outer Shell:**
+
 - HDPE SDR9: 2.067" ID (52.5mm)
 - Length: 48" (1219mm) ±0.25"
 - Taper tip: friction-molded, monolithic weld
 
 **PMT Mounting:**
+
 - Tower 2-3 attachment
 - 10-15ft elevation
 - Spring isolators for vibration dampening
@@ -1018,11 +1114,13 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### Appendix C: Radio Propagation Models
 
 **915MHz CSS LoRa:**
+
 - Free-space path loss: FSPL(d) = 32.45 + 20log₁₀(d) + 20log₁₀(f)
 - Canopy attenuation: -3 dB (sparse) to -8 dB (dense corn)
 - Link budget: 150 dB (25km theoretical, 5km practical with foliage)
 
 **2.4GHz LTU:**
+
 - Line-of-sight required
 - 12 dBi sector antennas
 - 15km range (clear path)
@@ -1030,6 +1128,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### Appendix D: FarmSense Nomenclature & Technical Dictionary
 
 **Core Terms:**
+
 - **SPAC:** Soil-Plant-Atmosphere Continuum
 - **MAD:** Management Allowable Depletion
 - **VRI:** Variable Rate Irrigation
@@ -1038,6 +1137,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 - **UFI:** Unified Freshwater Index
 
 **Hardware:**
+
 - **RSS:** Regional Superstation (Level 3)
 - **DHU:** District Hub (Level 2)
 - **PMT:** Pivot Motion Tracker (Level 1.5)
@@ -1047,6 +1147,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 - **CSA:** Corner-Swing Auditor
 
 **Software:**
+
 - **Zo:** Core Compute Engine
 - **Oracle:** Spatial Query Engine
 - **RDC:** Regional Data Center
@@ -1055,6 +1156,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### Appendix E: Firmware State-Machine Logic Tables
 
 **PMT Power States:**
+
 | State | Trigger | Current Draw |
 | :--- | :--- | :--- |
 | SLEEP | RTC timer, stable conditions | 8µA |
@@ -1064,6 +1166,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 | TX | LoRa backhaul transmission | 120mA |
 
 **Fault Handlers:**
+
 | Fault Code | Condition | Action |
 | :--- | :--- | :--- |
 | FAULT_01 | PMT stall detected | CRITICAL_RECOVERY mode, stop pivot |
@@ -1073,6 +1176,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### Appendix F: Installation & Calibration Field Checklists
 
 **VFA Installation Checklist:**
+
 - [ ] Soil core sample collected
 - [ ] 48" depth verified
 - [ ] HDPE shell verticality (<2° tilt)
@@ -1083,6 +1187,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 - [ ] Chirp acknowledgment from PMT
 
 **Calibration Verification:**
+
 - [ ] Dielectric constant baseline (dry soil)
 - [ ] Saturated soil calibration point
 - [ ] Known-volume water addition test
@@ -1091,6 +1196,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### Appendix G: Regional Dielectric Reference Tables (SLV Series)
 
 **San Luis Sandy Loam:**
+
 | Depth (cm) | Target VWC (%) | Dielectric ε | Bulk Density (g/cm³) |
 | :--- | :--- | :--- | :--- |
 | 10 | 16.0 | 4.70 | 1.40 |
@@ -1100,6 +1206,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 | 120 | 27.0 | 6.90 | 1.46 |
 
 **Gunbarrel Loamy Sand:**
+
 | Depth (cm) | Target VWC (%) | Dielectric ε | Bulk Density (g/cm³) |
 | :--- | :--- | :--- | :--- |
 | 10 | 12.0 | 3.85 | 1.35 |
@@ -1109,6 +1216,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 | 120 | 20.0 | 5.70 | 1.42 |
 
 **Alamosa Clay:**
+
 | Depth (cm) | Target VWC (%) | Dielectric ε | Bulk Density (g/cm³) |
 | :--- | :--- | :--- | :--- |
 | 10 | 22.0 | 6.50 | 1.45 |
@@ -1120,18 +1228,21 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### Appendix H: Quality Assurance & Stress Test Results
 
 **Thermal Cycling (-40°C to +85°C):**
+
 - 500 cycles, 1-hour dwell
 - Result: Zero PCB delamination
 - VFA dielectric drift: 0.04% ε
 - Status: **PASS** — Valid for SLV polar vortex scenarios
 
 **Vibration (MIL-STD-810H Method 514.8):**
+
 - Random vibration, 3Hz oscillation simulation
 - Result: All SAC305 joints intact
 - ESP32-S3: No epoxy-underfill lift
 - Status: **PASS** — Valid for pivot span mounting
 
 **IP67 Water Ingress:**
+
 - 1m depth, 30-minute submersion
 - Result: Zero moisture ingress
 - O-ring seal integrity: 100%
@@ -1151,15 +1262,18 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 ### Appendix J: Cited References & Bibliography
 
 **Hydrologic & Agronomic:**
+
 1. Allen, R.G. et al. (1998). *Crop Evapotranspiration: Guidelines for Computing Crop Water Requirements*. FAO Irrigation and Drainage Paper 56.
 2. Matern, B. (1960). *Spatial Variation*. Meddelanden från Statens Skogsforskningsinstitut.
 3. Hillel, D. (1998). *Environmental Soil Physics*. Academic Press.
 
 **Legal & Regulatory:**
+
 4. Rio Grande Compact (1938). Interstate Agreement between CO, NM, and TX.
 5. Colorado Water Rights Determination and Administration Act (1969).
 
 **Technical Standards:**
+
 6. MIL-STD-810H (2019). *Environmental Engineering Considerations and Laboratory Tests*.
 7. NIST SP 800-207 (2020). *Zero Trust Architecture*.
 8. IEEE 802.15.4 (2015). *Wireless Personal Area Networks*.
