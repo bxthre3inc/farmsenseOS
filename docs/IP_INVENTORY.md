@@ -20,33 +20,33 @@ This document registers the core Intellectual Property (IP) modules of the FarmS
 
 - **SFD (Single Field Deployment)**: The proprietary modular hardware and logic configuration platform.
 
-  - *Spec Link*: [Master Manual §5.7](v2_1_expansion/part5_remaining_hardware.md#57-single-field-deployment-sfd-configurations)
+  - *Spec Link*: [Master Manual §5.7](v2_1_part5_remaining_hardware.md#57-single-field-deployment-sfd-configurations)
 
 - **SPAC Engine**: Soil-Plant-Atmosphere Continuum thermodynamics engine.
 
-  - *Spec Link*: [Master Manual §1.2](FarmSense_Master_Manual.md#12-spac-modeling-and-edaphic-variability)
+  - *Spec Link*: [Master Manual §1.2](MASTER_MANUAL.md#12-spac-modeling-and-edaphic-variability)
 
 - **Adaptive Recalculation**: The "Fisherman's Attention" engine for localized moisture reactivity.
 
-  - *Spec Link*: [Master Manual §4.5](FarmSense_Master_Manual.md#45-adaptive-recalculation-engine-fishermans-attention)
+  - *Spec Link*: [Master Manual §4.5](MASTER_MANUAL.md#45-adaptive-recalculation-engine-fishermans-attention)
 
 - **Kriging Engine**: Advanced Geostatistical interpolation (Zo/Oracle).
 
-  - *Spec Link*: [Master Manual §1.4](FarmSense_Master_Manual.md#14-system-architecture-overview)
+  - *Spec Link*: [Master Manual §1.4](MASTER_MANUAL.md#14-system-architecture-overview)
 
 ## 2. Hardware Topology & Deployment
 
 - **RSS (Regional Superstation)**: Level 3 territory master node.
 
-  - *Spec Link*: [Master Manual §1.4](FarmSense_Master_Manual.md#14-system-architecture-overview)
+  - *Spec Link*: [Master Manual §1.4](MASTER_MANUAL.md#14-system-architecture-overview)
 
 - **DHU (District Hub)**: Level 2 regional mesh manager.
 
-  - *Spec Link*: [Master Manual §5.2](FarmSense_Master_Manual.md#52-district-hub-dhu-v11)
+  - *Spec Link*: [Master Manual §5.2](MASTER_MANUAL.md#52-district-hub-dhu-v11)
 
 - **PMT (Pivot Motion Tracker)**: The "Field Hub" — span-mounted primary aggregator and kinematic auditor.
 
-  - *Spec Link*: [Master Manual §5.3](FarmSense_Master_Manual.md#53-pivot-motion-tracker-pmt-v17)
+  - *Spec Link*: [Master Manual §5.3](MASTER_MANUAL.md#53-pivot-motion-tracker-pmt-v17)
 
 - **HAPS (Horizontal Profiling Sled)**: Lateral moisture tracking sensor suite.
 
@@ -54,7 +54,7 @@ This document registers the core Intellectual Property (IP) modules of the FarmS
 
 - **LRZN (Long Range Node)**: High-density RF mesh nodes.
 
-  - *Spec Link*: [Master Manual §1.5](FarmSense_Master_Manual.md#15-telemetry-architecture-resolution)
+  - *Spec Link*: [Master Manual §1.5](MASTER_MANUAL.md#15-telemetry-architecture-resolution)
 
 - **LRZB (Long Range Beacon)**: Primary beacon nodes for field network synchronization.
 - **AllianceChain**: Private PBFT consensus for digital agricultural auditing.
@@ -64,11 +64,11 @@ This document registers the core Intellectual Property (IP) modules of the FarmS
 
 - **VFA (Vertical Field Anchor)**: Sub-surface truth node for deep percolation auditing.
 
-  - *Spec Link*: [Master Manual §5.5](FarmSense_Master_Manual.md#55-vertical-field-anchor-vfa-v21)
+  - *Spec Link*: [Master Manual §5.5](MASTER_MANUAL.md#55-vertical-field-anchor-vfa-v21)
 
 - **PFA (Pressure & Flow Analyzer)**: Wellhead monitoring and safety actuator.
 
-  - *Spec Link*: [Master Manual §5.4](FarmSense_Master_Manual.md#54-pressure-flow-anchor-pfa-v19)
+  - *Spec Link*: [Master Manual §5.4](MASTER_MANUAL.md#54-pressure-flow-anchor-pfa-v19)
 
 - **CSA (Corner Swing Arm)**: Tracker and auditor for swing-arm irrigation sections.
 
