@@ -176,7 +176,7 @@
         <h1>MASTER SOFTWARE ARCHITECTURE: FarmSense OS &amp; Logic (V2.1)</h1>
 <blockquote>
 <p><strong>The Single Source of Truth for Software Engines, APIs, and Data Flows</strong>
-Consolidates: <a ../md/href="http://ARCHITECTURE.md">ARCHITECTURE.md</a>, <a ../md/href="http://BLUEPRINT.md">BLUEPRINT.md</a>, <a ../md/href="http://FEATURESET.md">FEATURESET.md</a>, ../md/BACKEND_SERVICE_MAP.md, ../md/IMPLEMENTATION_GUIDE.md, and 2 Software KIs.</p>
+Consolidates: <a href="http://ARCHITECTURE.md">ARCHITECTURE.md</a>, <a href="http://BLUEPRINT.md">BLUEPRINT.md</a>, <a href="http://FEATURESET.md">FEATURESET.md</a>, BACKEND_SERVICE_MAP.md, IMPLEMENTATION_GUIDE.md, and 2 Software KIs.</p>
 </blockquote>
 <hr>
 <h2>1. System Philosophy &amp; Logic Mandate</h2>
@@ -585,7 +585,7 @@ SELECT create_hypertable('sensor_readings', 'time');
 <h3>11.1 The “Before Creating” Rule</h3>
 <p>Before creating ANY new file, route, or service:</p>
 <ol>
-<li><strong>Audit Documentation</strong>: Start at ../md/<code>README.md</code> → 4 Masters.</li>
+<li><strong>Audit Documentation</strong>: Start at <code>README.md</code> → 4 Masters.</li>
 <li><strong>Verify Routes</strong>: Check <code>app/api/main.py</code> for existing endpoint definitions.</li>
 <li><strong>Grep Search</strong>: Sweep the workspace for similar logic/classes. <strong>Assumption is always that it already exists.</strong></li>
 </ol>

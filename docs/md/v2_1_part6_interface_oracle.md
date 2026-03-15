@@ -109,7 +109,7 @@ Drift Aversion: REQUIRED
 ├── manifest.json (metadata, signatures)
 ├── ledger.csv (all events)
 ├── proofs/ (PBFT signatures)
-├── ../html/validation_report.pdf
+├── validation_report.pdf
 └── README.txt (chain verification instructions)
 ```
 

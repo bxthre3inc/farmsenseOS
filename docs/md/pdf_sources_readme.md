@@ -63,18 +63,18 @@ Configured in `build.js`:
 
 ## Output
 
-- **HTML**: ../html/`dist/*.html` — view in browser, includes interactive elements
-- **PDF**: ../html/`dist/*.pdf` — print-ready, A4 format
-- **Index**: ../html/`dist/index.html` — data room landing page
+- **HTML**: `dist/*.html` — view in browser, includes interactive elements
+- **PDF**: `dist/*.pdf` — print-ready, A4 format
+- **Index**: `dist/index.html` — data room landing page
 
 ## Templates
 
 | Template | Purpose |
 |----------|---------|
-| ../html/`base.html` | Wrapper with Tailwind + Lucide |
-| ../html/`cover.html` | Title page with gradients |
-| ../html/`content.html` | Main document body |
-| ../html/`section-divider.html` | Chapter break pages |
+| `base.html` | Wrapper with Tailwind + Lucide |
+| `cover.html` | Title page with gradients |
+| `content.html` | Main document body |
+| `section-divider.html` | Chapter break pages |
 
 ## Design System
 
@@ -89,7 +89,7 @@ Configured in `build.js`:
 Documents are automatically available at:
 
 - **Data Room**: https://brodiblanco.zo.space/investors (private, requires login)
-- **Individual PDFs**: ../html/https://brodiblanco.zo.space/investors/docs/*.pdf
+- **Individual PDFs**: https://brodiblanco.zo.space/investors/docs/*.pdf
 
 ## Regeneration
 

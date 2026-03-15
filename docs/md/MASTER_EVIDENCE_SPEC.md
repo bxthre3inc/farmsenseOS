@@ -25,7 +25,7 @@ Evidence must be exported as a cryptographically sealed ZIP manifest containing:
 - `manifest.json`: Root metadata with Ed25519 system signature.
 - `ledger.csv`: Historical transaction records (Trade ID, From, To, Amount, Pulse-Timestamp).
 - `proofs/*.sig`: Individual PBFT consensus certificates for each transaction.
-- ../html/`validation_report.pdf`: Human-readable summary of Kriging MAPE scores and ground-truth alignment.
+- `validation_report.pdf`: Human-readable summary of Kriging MAPE scores and ground-truth alignment.
 
 ## 3. Data Integrity Requirements
 
