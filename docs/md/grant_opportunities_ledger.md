@@ -1,3 +1,17 @@
+---
+Status: Active
+Last Audited: 2026-03-15
+Drift Aversion: REQUIRED
+---
+
+> [!IMPORTANT]
+> **MODULAR DAP (Drift Aversion Protocol)**
+> **Module: D-DAP (Documentation)**
+> 1. **Single Source of Truth**: This document is the authoritative reference for its subject matter.
+> 2. **Synchronized Updates**: Any change to corresponding code or system behavior MUST be reflected here immediately.
+> 3. **AI Agent Compliance**: Agents MUST verify the current implementation against this document before proposing changes.
+> 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
+
 # Grant Opportunities Ledger (Target: 50+ Entries)
 
 This ledger tracks high-reward grants specifically aligned with FarmSense's water conservation, IoT, and AI capabilities.

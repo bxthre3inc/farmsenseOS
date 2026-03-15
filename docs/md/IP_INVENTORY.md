@@ -42,23 +42,28 @@ This document registers the core Intellectual Property (IP) modules of the FarmS
 
 - **DHU (District Hub)**: Level 2 regional mesh manager.
 
-  - *Spec Link*: [Master Manual §5.2](MASTER_MANUAL.md#52-district-hub-dhu-v11)
+  - *Spec Link*: [Master Manual §5.2](MASTER_MANUAL.md#52-district-hub-dhu-v19)
 
 - **PMT (Pivot Motion Tracker)**: The "Field Hub" — span-mounted primary aggregator and kinematic auditor.
 
   - *Spec Link*: [Master Manual §5.3](MASTER_MANUAL.md#53-pivot-motion-tracker-pmt-v17)
 
-- **HAPS (Horizontal Profiling Sled)**: Lateral moisture tracking sensor suite.
+- **HAPS (Horizontal Profiling Sled)**: Sensor configuration for lateral moisture tracking (Alpha-Sled variant).
+  - *Spec Link*: [Master Manual §5.5.4](v2_1_part5_remaining_hardware.md#554-the-alpha-sled-design)
 
 ## 3. Communication & Infrastructure
 
 - **LRZN (Long Range Node)**: High-density RF mesh nodes.
-
   - *Spec Link*: [Master Manual §1.5](MASTER_MANUAL.md#15-telemetry-architecture-resolution)
 
 - **LRZB (Long Range Beacon)**: Primary beacon nodes for field network synchronization.
+  - *Spec Link*: [Master Manual §1.5](MASTER_MANUAL.md#15-telemetry-architecture-resolution)
+
 - **AllianceChain**: Private PBFT consensus for digital agricultural auditing.
+  - *Spec Link*: [Master Evidence Spec §3](MASTER_EVIDENCE_SPEC.md#3-data-integrity-requirements)
+
 - **FHE Enclave**: Zero-Knowledge Privacy framework for spatial data.
+  - *Spec Link*: [Master Manual §4.1.2](v2_1_part4_tech_hardware.md#412-compute-hierarchy)
 
 ## 4. Analytics & Regulatory
 

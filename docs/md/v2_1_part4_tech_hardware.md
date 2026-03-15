@@ -395,7 +395,7 @@ This maximizes responsiveness during critical irrigation events.
 
 # PART V: THE HARDWARE ECOSYSTEM
 
-## 5.1 Regional Superstation (RSS) V1.0
+## 5.1 Regional Superstation (RSS) V1.3
 
 ### 5.1.1 Physical Specifications
 
@@ -483,7 +483,7 @@ This maximizes responsiveness during critical irrigation events.
 
 | Sector | Frequency | Antenna | Purpose |
 |--------|-----------|---------|---------|
-| A | 900MHz CSS LoRa | 6dBi omni | Field sensor ingress |
+| A | 900MHz CSS LoRa | 6dBi omni | **District Mesh Ingress** (Static nodes & fallback) |
 | B | 2.4GHz | Ubiquiti LTU 120° | DHU-DHU mesh, RSS backhaul |
 | C | LTE-M | External modem | Fallback, alerts |
 

@@ -120,9 +120,10 @@ MAD defines the percentage of available soil water depletable before crop damage
 
 **The PMT Field Hub Solution:**
 
-- PMT elevated 10-15 feet on pivot span as Primary Field Aggregator
-- VFA, LRZ1/LRZ2, PFA report upward to PMT via 900MHz CSS LoRa
-- PMT packages data and routes to DHU via 2.4GHz/LTE-M
+- PMT elevated 10-15 feet on pivot span as **Primary Field Aggregator**.
+- VFA, LRZ1/LRZ2, PFA report upward to PMT via 900MHz CSS LoRa.
+- PMT packages data and routes to DHU via 2.4GHz/LTE-M.
+- **DHU Role:** DHUs maintain a secondary 900MHz LoRa gateway for static sensing nodes and mesh-node redundancy across the 100-pivot district radius.
 
 **LRZ1/LRZ2 Sub-Node Architecture:**
 
@@ -232,9 +233,9 @@ MAD defines the percentage of available soil water depletable before crop damage
 
 ### 3.4 Recruitment Roadmap
 
-**Immediate (Q1 2026):** 6 field technicians, 2 software engineers, 1 hardware engineer
-**Scale Phase (Q2-Q3 2026):** +4 technicians, +2 software engineers, customer success team
-**2027+:** Regional operations managers for multi-district expansion
+**Immediate (Q1-Q2 2026):** 1 VP Engineering, 1 Lead Backend Engineer, 1 Embedded Systems Engineer, 2 Field Technicians (Total 5 new hires).
+**Growth Phase (Q3-Q4 2026):** +7 Engineering roles, +3 Field Operations, +5 Sales/Regulatory (Target EOY EOY 2026: 23 FTE).
+**2027+:** Regional operations managers for multi-district expansion.
 
 ---
 
@@ -415,7 +416,7 @@ Default → DORMANT
 | Software License | $50,000 |
 | **TOTAL** | **$212,000** |
 
-### 5.2 District Hub (DHU) V1.1
+### 5.2 District Hub (DHU) V1.9
 
 **Mast:** 35ft Class 4 Southern Yellow Pine (CCA treated), 8ft deep in crushed rock
 
@@ -433,7 +434,7 @@ Default → DORMANT
 | Comms (3× LTU + LTE-M + LoRa GW) | $1,427 |
 | Infrastructure (Pole + NEMA 4X) | $1,542 |
 | Power (Solar + Battery) | $1,190 |
-| **TOTAL** | **$4,740** |
+| **TOTAL** | **$3,654** |
 
 ### 5.3 Pivot Motion Tracker (PMT) V1.7
 
@@ -448,7 +449,7 @@ Default → DORMANT
 **Comms:** 900MHz CSS LoRa (field mesh sink), 2.4GHz/LTE-M (DHU uplink)
 **Power:** 10W Solar Lid + LiFePO4 buffer
 
-**PMT BOM:** $1,140.50 per unit
+**PMT BOM:** $1,166.50 per unit
 
 ### 5.4 Pressure & Flow Analyzer (PFA) V1.9
 
@@ -472,7 +473,7 @@ Default → DORMANT
 | Saturation alert (48") | ACTUATE_STOP |
 | Cavitation signature detected | ACTUATE_STOP + alert |
 
-**PFA BOM:** $961.50 per unit
+**PFA BOM:** $1,679.50 per unit
 
 ### 5.5 Vertical Field Anchor (VFA) V2.1
 
@@ -492,17 +493,7 @@ Default → DORMANT
 | 35 | Basic Sensor | 35" Wetting Front |
 | 48 | Advanced Sensor | 48" Deep Percolation |
 
-**VFA BOM (1,280 unit tier):**
-
-| Component | Cost |
-| :--- | :--- |
-| Housing (HDPE SDR9) | $6.75 |
-| Antenna (SS-304 whip) | $3.50 |
-| Compute (nRF52840) | $8.50 |
-| Seals (Viton FKM) | $2.40 |
-| Battery Cartridges (5×) | $83.75 |
-| Sensors (3× Adv + 2× Basic) | $47.00 |
-| **TOTAL** | **$158.20** |
+**VFA BOM:** $358.90 per unit
 
 ### 5.6 Lateral Root-Zone Surveyor (LRZ) V1.2
 
@@ -709,15 +700,15 @@ Where m(s) = deterministic trend (satellite), ε(s) = spatially correlated resid
 
 | Component | Quantity | Unit Cost | Extended |
 | :--- | :--- | :--- | :--- |
-| PMT V1.7 | 2 | $1,140.50 | $2,281 |
-| PFA V1.9 | 2 | $961.50 | $1,923 |
-| VFA V2.1 | 4 | $158.20 | $633 |
-| LRZ2 | 8 | $54.30 | $434 |
+| PMT V1.7 | 2 | $1,166.50 | $2,333 |
+| PFA V1.9 | 2 | $1,679.50 | $3,359 |
+| VFA V2.1 | 4 | $358.90 | $1,435.60 |
+| LRZ2 | 8 | $54.30 | $434.40 |
 | LRZ1 | 24 | $29.00 | $696 |
-| DHU V1.1 | 1 | $4,740 | $4,740 |
+| DHU V1.9 | 1 | $3,654 | $3,654 |
 | RSS V1.3 | 1 | $212,000 | $212,000 |
 | Installation Labor | - | - | $15,000 |
-| **TOTAL** | | | **$236,707** |
+| **TOTAL** | | | **$238,912** |
 
 ### 8.3 Commissioning Checklist
 
@@ -990,13 +981,12 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 
 | Category | Amount |
 | :--- | :--- |
-| Field Hardware | $3,822,720 |
-| Infrastructure (DHU/RSS) | $320,718 |
-| Installation | $192,000 |
-| **Total CAPEX** | **$4,335,438** |
-| Annual OPEX (Maintenance) | $648,000 |
-| Annual Revenue (@ $499/mo/field) | $7,664,640 |
-| **Net Annual (Year 2+)** | **$6,356,922** |
+| Phase 1 CAPEX (Compliance Nodes) | $4,028,524 |
+| Phase 2 CAPEX (Full Saturation) | $2,313,666 |
+| **Total Full Fleet CAPEX** | **$6,342,190** |
+| Annual OPEX (Maintenance Reserve) | $634,219 |
+| Annual Revenue (Year 2+) | $7,664,640 |
+| **Net Annual (Year 2+)** | **$7,030,421** |
 
 ### 14.3 Strategic Exit Roadmap
 

@@ -37,14 +37,15 @@ This constitutes the authoritative statistical grounding for all market sizing a
 
 - **Infrastructure Footprint**: **1,280 active pivots** (~160,000 irrigated acres).
 - **The Hydro-Economic Crisis**: Aquifer depletion of 89,000 acre-feet/year. Groundwater extraction fees at **$500/acre-foot**.
-- **Financial Savings**: 52 AF average savings per pivot = **$26,000/year operational savings** per field.
+- **Financial Savings**: 50.4 AF average savings per pivot = **$25,200/year operational savings** per field (@ $500/AF).
 - **TAM (Subdistrict 1 Bulk Rollout)**:
 
-  - **Hardware CapEx (One-time)**: $1,423,360 (at $1,112/PMT and $158.20/VFA scale).
-  - **SaaS ARR (Gold Truth)**: $7.6M/year at Enterprise rates ($30/acre).
-  - **Total Phase 1/2 Pilot Cost (2 Fields)**: **$12,450** (Estimated Single-Unit BOM).
+  - **Phase 1 CapEx (Compliance)**: **$4,028,524** (1,280 fields, basic PMT+PFA).
+  - **Phase 2 CapEx (Full Truth)**: **$2,313,666** (Adding VFAs, LRZs, full DHU network).
+  - **SaaS ARR (Year 2)**: **$7,664,640** at Enterprise rates.
+  - **Total Pilot Cost (2 Fields)**: **$238,912** (including RSS regional infrastructure).
 
-- **Phase 2 Expansion (Full Truth)**: Estimated **$3,970,638** (total CAPEX for 18-node density).
+- **Full Ecosystem Fleet Value**: **$6,342,190** (Total CAPEX for 1,280 fields).
 
 ### 2.1 The Revenue Model: The "Resolution Pop"
 
