@@ -17,34 +17,46 @@ Drift Aversion: REQUIRED
 This document registers the core Intellectual Property (IP) modules of the FarmSense project. Each entry links to its primary specification and logic owner.
 
 ## 1. Physical & Core Logic
-- **SFD (Soil-Fluid-Dynamics)**: The proprietary thermodynamic and hydraulic engine for moisture behavior modeling. 
+
+- **SFD (Single Field Deployment)**: The proprietary modular hardware and logic configuration platform.
+  - *Spec Link*: [Master Manual §5.7](v2_1_expansion/part5_remaining_hardware.md#57-single-field-deployment-sfd-configurations)
+- **SPAC Engine**: Soil-Plant-Atmosphere Continuum thermodynamics engine.
   - *Spec Link*: [Master Manual §1.2](FarmSense_Master_Manual.md#12-spac-modeling-and-edaphic-variability)
-- **Kriging Engine**: Advanced Gaussian Process Regression for 1m spatial grids.
+- **Adaptive Recalculation**: The "Fisherman's Attention" engine for localized moisture reactivity.
+  - *Spec Link*: [Master Manual §4.5](FarmSense_Master_Manual.md#45-adaptive-recalculation-engine-fishermans-attention)
+- **Kriging Engine**: Advanced Geostatistical interpolation (Zo/Oracle).
   - *Spec Link*: [Master Manual §1.4](FarmSense_Master_Manual.md#14-system-architecture-overview)
 
 ## 2. Hardware Topology & Deployment
+
 - **RSS (Regional Superstation)**: Level 3 territory master node.
   - *Spec Link*: [Master Manual §1.4](FarmSense_Master_Manual.md#14-system-architecture-overview)
-- **DHU (District Hub Unit)**: Level 2 regional mesh manager.
-  - *Spec Link*: [Master Manual §1.4](FarmSense_Master_Manual.md#14-system-architecture-overview)
-- **PMT (Precision Mobile Terminal)**: The "Field Hub" — span-mounted primary aggregator.
-  - *Spec Link*: [Master Manual §1.5](FarmSense_Master_Manual.md#15-telemetry-architecture-resolution)
-- **SFD (Single Field Deployment)**: Modular hardware configurations (SFD-P, SFD-C, SFD-F).
-  - *Spec Link*: [v2.1 Expansion §5.7](v2_1_expansion/part5_remaining_hardware.md#57-single-field-deployment-sfd-configurations)
+- **DHU (District Hub)**: Level 2 regional mesh manager.
+  - *Spec Link*: [Master Manual §5.2](FarmSense_Master_Manual.md#52-district-hub-dhu-v11)
+- **PMT (Pivot Motion Tracker)**: The "Field Hub" — span-mounted primary aggregator and kinematic auditor.
+  - *Spec Link*: [Master Manual §5.3](FarmSense_Master_Manual.md#53-pivot-motion-tracker-pmt-v17)
+- **HAPS (Horizontal Profiling Sled)**: Lateral moisture tracking sensor suite.
 
 ## 3. Communication & Infrastructure
-- **LRZN (Long-Range Zone Network)**: Proprietary RF mesh topology and 915MHz CSS modulation scheme.
+
+- **LRZN (Long Range Node)**: High-density RF mesh nodes.
   - *Spec Link*: [Master Manual §1.5](FarmSense_Master_Manual.md#15-telemetry-architecture-resolution)
-- **LRZB (Long-Range Zone Bridge)**: Hardware bridge logic for cross-protocol telemetry.
-- **AllianceChain**: Private PBFT consensus for agricultural non-repudiation.
+- **LRZB (Long Range Beacon)**: Primary beacon nodes for field network synchronization.
+- **AllianceChain**: Private PBFT consensus for digital agricultural auditing.
+- **FHE Enclave**: Zero-Knowledge Privacy framework for spatial data.
 
 ## 4. Analytics & Regulatory
-- **VFA/PFA (Vegetative/Physical Field Analytics)**: Proprietary multi-spectral soil health scoring.
-  - *Spec Link*: [Master Manual §1.5](FarmSense_Master_Manual.md#15-telemetry-architecture-resolution)
-- **CSA (Compliance & Statutory Auditing)**: The "Water Ledger" blockchain alignment logic.
-  - *Spec Link*: [Master Manual §1.1](FarmSense_Master_Manual.md#11-hydro-economic-logic-and-the-deterministic-paradigm)
-- **DAP (Drift Aversion Protocol)**: Modular framework for specification/implementation synchronization.
+
+- **VFA (Vertical Field Anchor)**: Sub-surface truth node for deep percolation auditing.
+  - *Spec Link*: [Master Manual §5.5](FarmSense_Master_Manual.md#55-vertical-field-anchor-vfa-v21)
+- **PFA (Pressure & Flow Analyzer)**: Wellhead monitoring and safety actuator.
+  - *Spec Link*: [Master Manual §5.4](FarmSense_Master_Manual.md#54-pressure-flow-anchor-pfa-v19)
+- **CSA (Corner Swing Arm)**: Tracker and auditor for swing-arm irrigation sections.
+
+- **DAP (Drift Aversion Protocol)**: The proprietary modular framework for specification/implementation synchronization.
   - *Spec Link*: [MASTER_IP_LEGAL.md](MASTER_IP_LEGAL.md)
+
+- **DFOS (Deterministic Farming Operating System)**: The core system identity and rule-based compute logic.
 
 ---
 *Proprietary IP of bxthre3 inc. — Confidential*

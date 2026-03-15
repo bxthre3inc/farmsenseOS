@@ -421,7 +421,7 @@ Default → DORMANT
 
 **PMT BOM:** $1,140.50 per unit
 
-### 5.4 Pressure & Flow Anchor (PFA) V1.9
+### 5.4 Pressure & Flow Analyzer (PFA) V1.9
 
 **Role:** Wellhead sentry & safety actuator
 **Sensors:**
@@ -1042,7 +1042,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 - **DHU:** District Hub (Level 2)
 - **PMT:** Pivot Motion Tracker (Level 1.5)
 - **VFA:** Vertical Field Anchor (Level 1)
-- **PFA:** Pressure & Flow Anchor (Level 1)
+- **PFA:** Pressure & Flow Analyzer (Level 1)
 - **LRZ:** Lateral Root-Zone (Level 1)
 - **CSA:** Corner-Swing Auditor
 
