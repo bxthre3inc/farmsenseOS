@@ -18,20 +18,26 @@ Drift Aversion: REQUIRED
 
 ### 2.1.1 Total Addressable Market (TAM)
 
-**Global Precision Irrigation Market:**
+**Tier 1: Legacy Precision Ag Market ($12.8B)**
+The historical view of selling hardware and subscriptions to growers. Matches third-party market reports (CAGR 14.3%).
 
-- 2024 value: $8.2 billion
-- 2030 projected: $12.8 billion
-- CAGR: 14.3%
+| Segment | 2030 ($B) |
+| :--- | :--- |
+| Hardware & Controllers | 5.2 |
+| Software & Analytics | 4.5 |
+| Services & Support | 2.4 |
+| Satellite Imagery | 0.7 |
 
-**Market Segments:**
+**Tier 2: Global Water Infrastructure TAM ($70B)**
+The "Sovereign SaaS" layer. Replacing 6.35 million analog irrigation systems with deterministic digital infrastructure.
+- **ARR Potential**: **$38B** (@ $499/mo/field)
+- **Fleet CAPEX**: **$32B** (Initial deployment value)
 
-| Segment | 2024 ($B) | 2030 ($B) | CAGR |
-|---------|-----------|-----------|------|
-| Hardware (sensors, controllers) | 3.5 | 5.2 | 6.8% |
-| Software (SaaS, analytics) | 2.1 | 4.5 | 13.5% |
-| Services (install, support) | 1.8 | 2.4 | 4.9% |
-| Satellite imagery | 0.8 | 0.7 | -2.1% |
+**Tier 3: The Hydro-Economic Apex ($1.13 Trillion)**
+The "Gold Standard" — The total economic value of freshwater resources under management.
+- **Reference**: 2.27 Billion Acre-Feet (Global Ag Use)
+- **Scarcity Multiplier**: **$500/AF** (The Rio Grande Benchmark)
+- **Arbitrage Potential**: 20-40% water conservation = **$220B - $450B annual value created**.
 
 **Growth Drivers:**
 
@@ -70,8 +76,8 @@ Drift Aversion: REQUIRED
 
 - Fields: 1,280
 - Acres: 161,280
-- Annual SaaS at $499/field: $638,720
-- Hardware (one-time): $4,335,438
+- Annual SaaS at $499/field: $7,664,640
+- Hardware (one-time): $6,342,190
 - Pilot completion: June 2026
 
 **Phase 2: RGWCD Adjacent Districts**
@@ -279,17 +285,17 @@ Drift Aversion: REQUIRED
 
 | Role | Count | Skills | Timeline |
 |------|-------|--------|----------|
-| Chief Hardware Architect | 1 | RF, embedded, mechanical | Immediate |
+| VP Engineering | 1 | RF, hardware architecture | Immediate |
 | RF/Telemetry Engineer | 2 | LoRa, antenna design, propagation | Immediate |
-| Embedded Systems Engineer | 3 | nRF52, ESP32, STM32 | Q2 2026 |
+| Embedded Systems Engineer | 3 | nRF52, ESP32, STM32 | Immediate |
 | Mechanical/DPE Engineer | 2 | HDPE, injection molding, FEA | Q2 2026 |
 
 ### 3.2.2 Software Engineering (12 FTE)
 
 | Role | Count | Skills | Timeline |
 |------|-------|--------|----------|
-| Chief Software Architect | 1 | Distributed systems, cloud | Immediate |
-| Backend Engineer (Python) | 3 | FastAPI, PostgreSQL, Redis | Q1 2026 |
+| Lead Backend Engineer | 1 | FastAPI, PostgreSQL, Redis | Immediate |
+| Backend Engineers | 2 | Distributed systems, Python | Q2 2026 |
 | Edge Compute Engineer (Go) | 2 | TensorRT, embedded Linux | Q2 2026 |
 | Frontend Engineer (React) | 3 | Three.js, MapLibre, WebGL | Q1 2026 |
 | Data Science/ML Engineer | 2 | Kriging, LSTM, geospatial | Q2 2026 |
@@ -299,12 +305,13 @@ Drift Aversion: REQUIRED
 
 | Role | Count | Skills | Timeline |
 |------|-------|--------|----------|
-| Field Operations Manager | 1 | Logistics, team leadership | Q2 2026 |
-| Installation Technician | 6 | Mechanical aptitude, driving | Q2 2026 |
+| Head of Field Operations | 1 | Logistics, team leadership | Immediate |
+| Installation Technician | 4 | Mechanical aptitude, driving | Q2 2026 |
 | Sled Hospital Technician | 3 | Electronics, diagnostics | Q2 2026 |
 | Customer Success/Agronomy | 4 | Agriculture background, support | Q3 2026 |
 | Supply Chain/Procurement | 2 | Vendor management, purchasing | Q2 2026 |
 | Fleet Coordinator | 1 | Vehicle maintenance, logistics | Q2 2026 |
+| Service Technicians | 3 | Field repair, calibration | Q3 2026 |
 
 ---
 

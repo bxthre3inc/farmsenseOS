@@ -47,6 +47,12 @@ This constitutes the authoritative statistical grounding for all market sizing a
 
 - **Full Ecosystem Fleet Value**: **$6,342,190** (Total CAPEX for 1,280 fields).
 
+### 2.2 The "Gold Standard" Global TAM
+FarmSense targets three distinct layers of economic value:
+1. **The Tactical Layer ($12.8B)**: Selling tech into the established Precision Ag segment.
+2. **The Infrastructure Layer ($70B)**: The "Sovereign SaaS" ARR across 6.35M global fields.
+3. **The Hydro-Economic Apex ($1.13 Trillion)**: Total annual value of agricultural water under management at a **$500/AF** cost of scarcity.
+
 ### 2.1 The Revenue Model: The "Resolution Pop"
 
 FarmSense captures market share via a tiered spatial fidelity model, driving conversion through high-resolution data visualization.

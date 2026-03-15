@@ -48,7 +48,7 @@ FarmSense's civilian business model — subsidized hardware for farmers, free 50
 - Central Asian aquifers (strategic water scarcity)
 - contested regions with water-driven conflict risk
 
-**Method:** Partner with Gates Foundation, UN, or World Bank climate initiatives. Deploy "democratized" $50.80 LRZ sensors under smallholder aid programs. Satellite backhaul ensures zero local infrastructure dependency.
+**Method:** Partner with Gates Foundation, UN, or World Bank climate initiatives. Deploy "democratized" $54.30 LRZ sensors under smallholder aid programs. Satellite backhaul ensures zero local infrastructure dependency.
 
 ---
 
