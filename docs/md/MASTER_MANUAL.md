@@ -930,7 +930,7 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 - `manifest.json`: Root metadata with system signature
 - `ledger.csv`: Historical transactions
 - `proofs/*.sig`: PBFT consensus certificates
-- `validation_report.pdf`: Kriging MAPE scores
+- ../html/`validation_report.pdf`: Kriging MAPE scores
 
 ### 12.3 Data Integrity
 

@@ -258,7 +258,7 @@ Response: application/zip
 - manifest.json
 - ledger.csv
 - proofs/*.sig
-- validation_report.pdf
+- ../html/validation_report.pdf
 
 ```
 
