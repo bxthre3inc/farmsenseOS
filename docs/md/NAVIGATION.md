@@ -62,10 +62,10 @@ The FarmSense documentation suite has been flattened and consolidated into autho
 
 ### 1. Master System Specifications (The Core Four)
 
-- [**MASTER_MANUAL.md**](MASTER_MANUAL.md): Hardware, BOMs, and software logic (Consolidated).
-- [**MASTER_PROJECT_ROADMAP.md**](MASTER_PROJECT_ROADMAP.md): Phasing, financials, and grant strategy.
+- [**MASTER_MANUAL.md**](MASTER_MANUAL.md): Hardware, Software, Personnel, and Infrastructure (Consolidated).
+- [**MASTER_PROJECT_ROADMAP.md**](MASTER_PROJECT_ROADMAP.md): Phasing, Financials, and Grant Intelligence (Consolidated).
 - [**MASTER_IP_LEGAL.md**](MASTER_IP_LEGAL.md): Patent pipeline and cryptographic chain of truth.
-- [**MASTER_EVIDENCE_SPEC.md**](MASTER_EVIDENCE_SPEC.md): Technical requirements for legal admissibility.
+- [**pdf_source_financials.md**](pdf_source_financials.md): High-fidelity exit math and valuation detail.
 
 ---
 

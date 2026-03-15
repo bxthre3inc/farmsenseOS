@@ -37,7 +37,13 @@ The "Sovereign SaaS" layer. Replacing 6.35 million analog irrigation systems wit
 The "Gold Standard" — The total economic value of freshwater resources under management.
 - **Reference**: 2.27 Billion Acre-Feet (Global Ag Use)
 - **Scarcity Multiplier**: **$500/AF** (The Rio Grande Benchmark)
-- **Arbitrage Potential**: 20-40% water conservation = **$220B - $450B annual value created**.
+- **Arbitrage Potential**: **$220B - $450B** annual value created via 20-40% conservation.
+
+**Tier 4: Global Civilization Apex ($30+ Trillion)**
+The "Sovereign Ultimate" — The total GDP-at-risk from hydrological collapse.
+- **Scope**: Entire sovereign economies dependent on transboundary water stability.
+- **Value**: FarmSense doesn't just manage water; it manages **Civilizational Insurance**. 
+- **Arbitrage**: Preventing conflict-driven state failure. This is un-priced, infinite-upside infrastructure.
 
 **Growth Drivers:**
 

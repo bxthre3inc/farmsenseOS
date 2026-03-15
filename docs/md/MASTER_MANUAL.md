@@ -1272,3 +1272,319 @@ Push to main → GitHub Actions → Build → Test → ArgoCD → EKS
 
 *Classification: Master Project Asset | Single Source of Truth | Approved 2026-03-10*
 *Version: 2.0 Comprehensive | 17 Parts | 10 Appendices*
+---
+Status: Active
+Last Audited: 2026-03-14
+Drift Aversion: REQUIRED
+---
+
+> [!IMPORTANT]
+> **MODULAR DAP (Drift Aversion Protocol)**
+> **Module: D-DAP (Documentation)**
+> 1. **Single Source of Truth**: This document is the authoritative reference for its subject matter.
+> 2. **Synchronized Updates**: Any change to corresponding code or system behavior MUST be reflected here immediately.
+> 3. **AI Agent Compliance**: Agents MUST verify the current implementation against this document before proposing changes.
+> 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
+
+# Executive Summary
+
+## FarmSense Seed Round A-1
+
+**Founder:** Jeremy Beebe — Successful startup exit with Hempvada  
+**Company:** Bxthre3 Inc.  
+**Product:** FarmSense™ — Deterministic Farming Operating System (DFOS)  
+**Classification:** CONFIDENTIAL
+
+---
+
+## The $500/AF Catalyst
+
+The Rio Grande Basin faces a severe hydro-economic crisis that makes FarmSense a **legal necessity**, not just an optimization tool:
+
+| Factor | Status |
+|--------|--------|
+| Annual aquifer depletion | 89,000 acre-feet |
+| Groundwater pumping fee | **$500/AF** (quadrupled from $75-150/AF) |
+| Reservoir storage | 26% of historical capacity |
+| Irrigated agriculture | 300,000 acres at risk |
+
+**Economic Impact for a 126-acre pivot:**
+
+- 20% water reduction = 50.4 AF saved per season
+- 50.4 AF × $500/AF = **$25,200 direct savings annually**
+- FarmSense Enterprise subscription: $499/month ($5,988/year)
+- **First-year ROI: 421% return on subscription cost**
+
+---
+
+## The Deterministic Paradigm
+
+FarmSense replaces stochastic, intuition-based agriculture with a high-fidelity computational engine.
+
+| Dimension | Current Industry Standard | FarmSense DFOS |
+|-----------|---------------------------|----------------|
+| **Observation** | Visual scouting / manual soil probe | 1m centimetric Kriging + ground-truth validation |
+| **Calculation** | Crop-coefficient (static, FAO-56) | SPAC thermodynamics (dynamic, real-time) |
+| **Decision** | Intuition-based pumping schedules | Edge-calculated VRI prescription |
+| **Evidence** | Paper logs, human memory | SHA-256 sovereign ledger, cryptographic proofs |
+| **Resolution** | Field-scale (variable) | 1m grid, legally admissible |
+
+---
+
+## Market Opportunity
+
+### TAM/SAM/SOM Analysis
+
+| Market Tier | Size | Definition |
+|-------------|------|------------|
+| **Hydro-Economic Apex** | **$1.13 Trillion** | Total annual Value Under Management (VUM) of Ag Water |
+| **Civilization Apex** | **$30+ Trillion** | Total GDP-at-risk from hydrological instability |
+| **SOM** | $42.2M/year | Initial Sovereign Enterprise rollouts (CO, AZ, CA) |
+
+---
+
+## Competitive Moat: Why We're Defensible
+
+### Competitor Comparison
+
+| Competitor | Approach | Their Weakness | Our Advantage |
+|------------|----------|----------------|---------------|
+| **CropX** | Cloud-only analytics | Latency, connectivity dependency | Edge autonomy + sovereign ledger |
+| **FieldNET** | Pivot control only | No soil moisture, no VRI | Full SPAC modeling + 1m VRI prescriptions |
+| **Arable** | Weather-only | No ground-truth correlation | Sensor fusion + satellite validation |
+| **Sat-only providers** | Trend analysis | No deep-profile validation | 1m Kriging + 48" VFA anchors |
+
+### Moat Durability
+
+1. **Data Moat:** 4+ years of ground-truth calibration per field creates network effects
+2. **Regulatory Moat:** Legal recognition as "approved monitoring method" (SLV 2026 Water Court)
+3. **Technical Moat:** Sensor-agnostic architecture fuses satellite trends with sub-surface realities
+4. **Network Moat:** 1,280-field mesh effects improve interpolative accuracy
+
+---
+
+## Core Capabilities
+
+| Capability | Description |
+|------------|-------------|
+| **Satellite Integration** | Multi-spectral imagery from Sentinel, Landsat, commercial providers |
+| **IoT Sensor Suite** | LRZ scouts, VFA anchors, PMT hubs, DHU regional managers |
+| **Water Ledger** | Cryptographically signed chain of custody — Water Court admissible |
+| **Adaptive Recalculation** | Deterministic algorithms: Dormant, Anticipatory, Ripple, Collapse modes |
+| **Regulatory Compliance** | Built for SLV 2026 Water Court requirements |
+| **Economic Intelligence** | Continuous cost-benefit analysis per field |
+
+---
+
+## Hardware Ecosystem: Tri-Layer Architecture
+
+| Tier | Device | Function | Compute |
+|------|--------|----------|---------|
+| **Regional** | RSS (40ft container) | Territory master, blackout-proof | 64-core Threadripper, 50TB NVMe |
+| **District** | DHU (35ft pole) | 100-pivot mesh manager, 30-day cache | Jetson Orin, 128GB PSLC SSD |
+| **Field** | PMT (pivot-mounted) | Edge aggregator, 50m Kriging | ESP32-S3, IMU, LoRa gateway |
+| **Sensors** | VFA/LRZ1/LRZ2/PFA | Ground-truth collection | nRF52840, AES-256, 4+ yr battery |
+
+---
+
+## Key Metrics
+
+| Metric | Target |
+|--------|--------|
+| Water Reduction | 20-30% |
+| ROI Increase | 18-22% |
+| Grid Resolution | 50m → 1m (400x improvement) |
+| Pilot Deployment | SLV 2026 (2 fields active) |
+| Legal Validation | June 29, 2026 Water Court |
+
+---
+
+## Development Timeline
+
+| Phase | Date | Milestone |
+|-------|------|-----------|
+| **Now — June 2026** | Active | CSU San Luis Valley 2-Field Pilot |
+| **March 26, 2026** | Fund Raising | Federal ESG Pre-Proposal Deadline |
+| **June 2026** | Evidence | SLV Subdistrict 1 Water Court Submission |
+| **Q3-Q4 2026** | Scale | Regional Master — 100% SLV Subdistrict 1 |
+| **2027** | Standard | Colorado DWR Adoption |
+| **2028** | Expansion | Colorado River Basin (4M acres) |
+
+---
+
+## The Ask: Seed Round A-1 (Infrastructure Round)
+
+**Seeking:** **$25M** Seed Capital  
+**Valuation:** **$225M - $275M pre-money** (Strategic Infrastructure Premium)  
+**Use of Funds:**
+
+- **40% Global Hardware Scale**: Manufacturing DHU V1.9 / RSS regional hubs for multi-basin deployment.
+- **25% Sovereign Interoperability**: Establishing G2B (Government-to-Business) data pipelines with DWR/USDA.
+- **20% AI Engine / Kriging**: Scaling the deterministic logic to handle 5-field/cm resolution at global speed.
+- **10% Regulatory / Water Court**: Securing the "Presumed Compliant" legal status across the High Plains Aquifer.
+- **5% Reserve**: Contingency for rapid expansion.
+
+**Non-Dilutive Pipeline:** **$420B+** Programmatic Grant Pool (World Bank, Gates, Gates, BoR, UAE).
+
+---
+
+## Risk Factors
+
+| Risk | Mitigation |
+|------|------------|
+| Regulatory delay | Multi-state expansion pipeline (CO, AZ, CA, TX) |
+| Hardware supply chain | Dual-source strategy, domestic alternatives |
+| Competition | Legal moat + data network effects |
+| Climate variability | 40 global basins reduce geographic concentration |
+
+---
+
+## Long-Term Vision: Sovereign Water Infrastructure
+
+FarmSense will become the **standard data substrate** for agricultural water management across North America and beyond. From SLV's 1,280 fields to the Colorado River Basin's 4M acres to the High Plains Aquifer's 15M acres — deterministic water intelligence with cryptographic chain of custody.
+
+**The shift:** From "How much can we grow?" to "How little can we use?"
+
+---
+
+*© 2026 Bxthre3 Inc. — FarmSense™, FS-1™, Digital Water Ledger™ are trademarks of Bxthre3 Inc.*
+*Classification: CONFIDENTIAL — Distribution limited to cleared investors*
+---
+Status: Active
+Last Audited: 2026-03-14
+Drift Aversion: REQUIRED
+---
+
+> [!IMPORTANT]
+> **MODULAR DAP (Drift Aversion Protocol)**
+> **Module: D-DAP (Documentation)**
+> 1. **Single Source of Truth**: This document is the authoritative reference for its subject matter.
+> 2. **Synchronized Updates**: Any change to corresponding code or system behavior MUST be reflected here immediately.
+> 3. **AI Agent Compliance**: Agents MUST verify the current implementation against this document before proposing changes.
+> 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
+
+# Leadership & Team
+
+## Builders of the Deterministic Future
+
+**Classification:** CONFIDENTIAL
+
+---
+
+## Founding Team
+
+### Jeremy Beebe — Founder & CEO
+
+Jeremy brings a successful startup exit track record from Hempvada, a cannabis industry technology platform. At FarmSense, he leads strategy, fundraising, and regulatory capture initiatives.
+
+**Responsibilities:**
+
+- Investor relations & capital strategy
+- Water Court regulatory navigation
+- Federal grant capture (USDA, NSF, DOE)
+- Strategic partnerships & ecosystem development
+
+---
+
+## 2026 Hiring Roadmap
+
+Based on the CSU SLV pilot timeline (Q2 2026) and Phase 1 rollout requirements, FarmSense is recruiting the following key roles:
+
+### Engineering Leadership
+
+| Role | Timing | Priority | Compensation |
+|------|--------|----------|--------------|
+| **VP of Engineering** | Q2 2026 | Critical | $180-220K + 2-3% equity |
+| **Senior Backend Engineer** (FastAPI/TimescaleDB) | Q2 2026 | Critical | $140-170K + 0.5-1% |
+| **Embedded Systems Engineer** (LoRa/ESP32) | Q2 2026 | Critical | $130-160K + 0.5-1% |
+| **Geospatial Data Engineer** | Q3 2026 | High | $140-170K + 0.3-0.5% |
+| **DevOps/Cloud Engineer** | Q3 2026 | High | $130-160K + 0.3-0.5% |
+| **React Frontend Engineer** | Q3 2026 | Medium | $120-150K + 0.2-0.4% |
+| **Edge Compute Engineer** (Go/Orin) | Q3 2026 | Medium | $140-170K + 0.3-0.5% |
+| **QA/Field Testing Engineer** | Q3 2026 | Medium | $100-130K + 0.1-0.3% |
+
+### Operations & Growth
+
+| Role | Timing | Priority | Compensation |
+|------|--------|----------|--------------|
+| **Head of Field Operations** | Q2 2026 | Critical | $120-150K + 0.5-1% |
+| **Regulatory Affairs Lead** | Q3 2026 | High | $130-160K + 0.3-0.5% |
+| **Hardware Procurement Lead** | Q3 2026 | High | $100-130K + 0.1-0.3% |
+| **Head of Sales** (Enterprise Ag) | Q4 2026 | Medium | $150-200K + 0.5-1% |
+| **Customer Success Manager** | Q4 2026 | Medium | $90-120K + 0.1-0.2% |
+
+---
+
+## Advisory Board (In Formation)
+
+### Technical Advisory
+
+| Expertise | Role | Value |
+|-----------|------|-------|
+| Precision Agriculture | Retired USDA researcher | Field methodology validation |
+| Hydrogeology | CSU Professor Emeritus | SLV basin expertise |
+| Edge Computing | Former NVIDIA Jetson lead | Compute architecture |
+
+### Regulatory Advisory
+
+| Expertise | Role | Value |
+|-----------|------|-------|
+| Water Law | Former State Engineer | Court navigation |
+| DWR Operations | Retired Division 3 manager | Integration pathway |
+| Federal Grants | Former USDA program officer | Funding capture |
+
+### Strategic Advisory
+
+| Expertise | Role | Value |
+|-----------|------|-------|
+| AgTech Investment | Partner at AgFunder | Network & guidance |
+| Water Trading | Former CME commodities | Market structure |
+| Public Policy | Former USGS leadership | Federal positioning |
+
+---
+
+## Equity Philosophy
+
+| Stage | Equity Pool | Purpose |
+|-------|-------------|---------|
+| **Seed (A-1)** | 10-15% | VP Eng, Head of Field Ops, Backend Lead |
+| **Series A** | 15-20% | Full engineering team, sales, regulatory |
+| **Advisor Pool** | 2-3% | Technical and regulatory advisors |
+| **Employee Reserve** | 5-10% | Future hires, retention grants |
+
+### Vesting Structure
+
+| Role Type | Vesting Schedule | Cliff |
+|-----------|------------------|-------|
+| Founders | 4-year monthly | 1 year |
+| Early Employees | 4-year monthly | 1 year |
+| Advisors | 2-year quarterly | 6 months |
+
+---
+
+## Culture & Values
+
+**Deterministic Execution:** We ship. We measure. We improve. No filler, just results.
+
+**Regulatory Integrity:** Every line of code, every sensor reading, must stand up in court.
+
+**Water First:** We're here to solve the water crisis. Profit follows purpose.
+
+**Remote-First:** Distributed team with quarterly in-person summits (Denver HQ).
+
+---
+
+## Current Team Status
+
+| Function | Filled | Target (EOY 2026) |
+|----------|--------|-------------------|
+| Executive | 1 | 3 (CEO, CTO, COO) |
+| Engineering | 1 (founder) | 10 |
+| Field Operations | 0 | 5 |
+| Sales/Customer Success | 0 | 3 |
+| Regulatory/Admin | 0 | 2 |
+| **Total** | **1** | **23** |
+
+---
+
+*© 2026 Bxthre3 Inc. — Classification: CONFIDENTIAL | Not for public distribution*

@@ -96,15 +96,13 @@ Drift Aversion: REQUIRED
 
 ---
 
-## Dilution Timeline (Corrected)
-
 | Round | Amount | Pre-Money | Post-Money | Your Ownership | Your Value |
 |-------|--------|-----------|------------|----------------|------------|
 | Pre-seed | $25K | $2.5M | $2.525M | 99% | $2.48M |
-| Seed | $25M | $75M | $100M | 74.25% | $74.25M |
-| Series A | $50M | $200M | $250M | 59.4% | $148.5M |
-| Series B | $100M | $500M | $600M | 49.5% | $297M |
-| **At exit** | — | $37.8-47.2B | — | **35%** | **$13.23-16.52B** |
+| **Seed (Infra)** | **$25M** | **$225M** | **$250M** | **89.1%** | **$222.7M** |
+| Series A | $100M | $1B | $1.1B | 81% | $891M |
+| Series B | $500M | $5B | $5.5B | 73% | $4.01B |
+| **At exit** | — | $47.2B | — | **35%** | **$16.52B** |
 
 ---
 
@@ -136,4 +134,4 @@ Drift Aversion: REQUIRED
 
 *Classification: STRICTLY CONFIDENTIAL*
 *AI-accelerated. Grant-funded. 100% margin. This is infrastructure arbitrage.*
-*Value Under Management (VUM): **$1.13 Trillion** Global Hydro-Economic Apex.*
+*Value Under Management (VUM): **$1.13T** (Hydro-Economic) | **$30T+** (Civilizational).*
