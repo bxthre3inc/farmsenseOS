@@ -15,27 +15,34 @@ Drift Aversion: REQUIRED
 # PART II: MARKET INTELLIGENCE & STRATEGIC FUNDING
 
 ## 2.0 Market Overview
+
 FarmSense operates within the global precision agriculture market, specifically targeting water-constrained regions with regulatory enforcement mechanisms.
 
 ## 2.1 TAM/SAM/SOM Analysis
 
 ### 2.1.1 Total Addressable Market (TAM)
+
 Global precision irrigation market — $12.8B by 2030, CAGR 14.3%
 Drivers: Water scarcity, climate regulation, labor costs, yield optimization
 
 ### 2.1.2 Serviceable Addressable Market (SAM)
+
 North American center-pivot operations:
+
 - 175,000 pivots across 22M acres
 - Average field size: 126 acres
 - Annual SaaS potential: $1.05B at $499/month average
 
 ### 2.1.3 Serviceable Obtainable Market (SOM)
+
 Immediate targets:
+
 - SLV Subdistrict 1: 1,280 fields
 - RGWCD adjacent districts: 5,000 fields
 - First-year penetration target: 320 fields (25%)
 
 ### 2.1.4 Revenue Model by Tier
+
 | Tier | Resolution | Price | Target |
 |------|------------|-------|--------|
 | Base | 50m compliance | $149/mo | Regulators, small farms |
@@ -47,6 +54,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 ## 2.2 Competitive Moat: Determinism vs. Stochastic Estimation
 
 ### 2.2.1 Competitor Analysis
+
 | Competitor | Approach | Weakness | FarmSense Advantage |
 |------------|----------|----------|---------------------|
 | CropX | Cloud-only analytics | Latency, connectivity dependency | Edge autonomy + sovereign ledger |
@@ -55,6 +63,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 | Sat-only providers | Trend analysis | No deep-profile validation | 1m Kriging + 48" VFA anchors |
 
 ### 2.2.2 Moat Durability
+
 - **Data moat:** 4+ years of ground-truth calibration per field
 - **Regulatory moat:** Legal recognition as "approved monitoring method"
 - **Network moat:** 1,280-field mesh effects (interpolative accuracy)
@@ -62,6 +71,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 ## 2.3 Federal & State Funding Environment
 
 ### 2.3.1 Primary Grant Targets
+
 | Program | Agency | Amount | Deadline | Fit |
 |---------|--------|--------|----------|-----|
 | SBIR Phase I | USDA | $300K | Mar 2026 | Sensor telemetry optimization |
@@ -71,6 +81,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 | SBIR Phase I | NSF | $275K | May 2026 | ML stress detection |
 
 ### 2.3.2 Secondary Pipeline
+
 | Program | Amount | Alignment |
 |---------|--------|-----------|
 | ARPA-E WATER | $3M-$5M | Novel water tech |
@@ -81,6 +92,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 ## 2.4 Global Expansion Roadmap
 
 ### 2.4.1 Phase Timeline
+
 | Phase | Region | Timeline | Fields | Regulatory |
 |-------|--------|----------|--------|------------|
 | 1 | Rio Grande Basin | 2026-2027 | 6,000 | State engineers (CO, NM, TX) |
@@ -89,6 +101,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 | 4 | International | 2030+ | 100,000+ | Basin treaties (Nile, Indus, Murray-Darling) |
 
 ### 2.4.2 International Targets (40 Basins)
+
 See Part VII, Section 7.5 for complete Global Hydrologic Basin Registry.
 
 ---
@@ -96,11 +109,13 @@ See Part VII, Section 7.5 for complete Global Hydrologic Basin Registry.
 # PART III: THE HUMAN CAPITAL
 
 ## 3.0 Organization Overview
+
 FarmSense operates as a lean, mission-driven team with clear technical authority and field operational capability.
 
 ## 3.1 Executive Leadership
 
 ### 3.1.1 Jeremy Beebe — Chief Executive Officer
+
 **Background:** Successful startup exit track record (Hempvada), first-principles systems thinking
 **Responsibilities:** Vision, investor relations, strategic partnerships, regulatory navigation
 **Authority:** Final decision on product direction, funding strategy, key hires
@@ -108,6 +123,7 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 ## 3.2 Technical Organization Chart
 
 ### 3.2.1 Hardware Engineering
+
 | Role | Count | Responsibilities |
 |------|-------|------------------|
 | Chief Hardware Architect | 1 | BOM finalization, supplier relationships |
@@ -116,6 +132,7 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 | Mechanical/DPE Engineer | 1 | HDPE SDR9 design, thermal analysis |
 
 ### 3.2.2 Software Engineering
+
 | Role | Count | Responsibilities |
 |------|-------|------------------|
 | Chief Software Architect | 1 | API design, database architecture |
@@ -125,6 +142,7 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 | Data Science/ML | 1 | Kriging, LSTM, geostatistics |
 
 ### 3.2.3 Operations
+
 | Role | Count | Responsibilities |
 |------|-------|------------------|
 | Field Operations Manager | 1 | Installation scheduling, fleet coordination |
@@ -133,6 +151,7 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 | Customer Success/Agronomy | 2 | Farmer support, agronomic consultation |
 
 ## 3.3 Scientific Advisory Board
+
 | Position | Expertise | Status |
 |----------|-----------|--------|
 | Hydrology/Soil Physics | Dr. [TBD] | Recruiting |
@@ -142,16 +161,19 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 ## 3.4 Recruitment Roadmap
 
 ### 3.4.1 Immediate (Q1 2026)
+
 - 6 field technicians (seasonal contract-to-hire)
 - 2 software engineers (backend + frontend)
 - 1 hardware engineer (embedded)
 
 ### 3.4.2 Scale Phase (Q2-Q3 2026)
+
 - +4 technicians
 - +2 software engineers
 - Customer success team (2 FTE)
 
 ### 3.4.3 2027+
+
 - Regional operations managers (multi-district expansion)
 - International business development
 
@@ -160,11 +182,13 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 # PART IV: THE TECHNICAL CORE
 
 ## 4.0 Architecture Overview
+
 FarmSense implements a tri-layer compute topology balancing edge reflex with cloud-scale analytics.
 
 ## 4.1 Tri-Layer Compute Topology
 
 ### 4.1.1 Level 0 — Field Sensors
+
 | Device | MCU | Encryption | Language | Power |
 |--------|-----|------------|----------|-------|
 | VFA, LRZ1/LRZ2, PFA | nRF52840 | AES-256 | Bare-metal C | 4+ yr battery |
@@ -172,6 +196,7 @@ FarmSense implements a tri-layer compute topology balancing edge reflex with clo
 **Responsibilities:** Raw sensing, local encryption, ultra-low-power management
 
 ### 4.1.2 Level 1.5 — PMT Hub
+
 | Spec | Value |
 |------|-------|
 | MCU | ESP32-S3-MINI-1 |
@@ -179,12 +204,14 @@ FarmSense implements a tri-layer compute topology balancing edge reflex with clo
 | Logic | Reflex decisions (stall stop, VRI failback) |
 
 **Responsibilities:**
+
 - 50m Edge-EBK computation (16×16 probability matrix)
 - Field sensor aggregation (VFA, LRZ1, LRZ2, PFA)
 - Reflex Logic (IMU stall → ACTUATE_STOP)
 - Zero-downtime VRI failover on DHU loss
 
 ### 4.1.3 Level 2 — DHU
+
 | Spec | Value |
 |------|-------|
 | Compute | NVIDIA Jetson Orin Nano 8GB |
@@ -193,6 +220,7 @@ FarmSense implements a tri-layer compute topology balancing edge reflex with clo
 | Cache | 128GB Swissbit PSLC SSD |
 
 ### 4.1.4 Level 3 — RSS/Cloud
+
 | Spec | Value |
 |------|-------|
 | Compute | 64-Core AMD Threadripper PRO |
@@ -203,6 +231,7 @@ FarmSense implements a tri-layer compute topology balancing edge reflex with clo
 ## 4.2 SQL Schema: TimescaleDB & PostGIS Sovereign Vault
 
 ### 4.2.1 Core Table Definitions
+
 ```sql
 -- Sensor telemetry hypertable
 CREATE TABLE sensor_readings (
@@ -233,6 +262,7 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 ```
 
 ### 4.2.2 Table Inventory
+
 | Table | Purpose | Technology |
 |-------|---------|------------|
 | fields | Field polygons with ownership | PostGIS |
@@ -246,18 +276,21 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 ## 4.3 API Specifications: Nexus of Data Ingestion
 
 ### 4.3.1 Authentication
+
 | Method | Details |
 |--------|---------|
 | JWT | RS256 signing, 24hr expiry |
 | mTLS | For field device authentication |
 
 ### 4.3.2 Rate Limits
+
 | Type | Limit |
 |------|-------|
 | Read | 1,000 req/min |
 | Compute | 100 req/min |
 
 ### 4.3.3 Core Endpoints
+
 | Method | Endpoint | Purpose |
 |--------|----------|---------|
 | POST | /v1/ingest/telemetry | Sensor data ingestion |
@@ -269,6 +302,7 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 ## 4.4 Interpolation Methodology
 
 ### 4.4.1 Resolution Cascade
+
 | Layer | Method | Grid | Hardware |
 |-------|--------|------|----------|
 | Edge | IDW | 20m | Jetson Orin Nano |
@@ -276,6 +310,7 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 | Regional | Regression Kriging | 1m | Threadripper PRO |
 
 ### 4.4.2 Variogram Parameters
+
 | Parameter | Value |
 |-----------|-------|
 | Nugget | 0.0012 |
@@ -287,6 +322,7 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 ## 4.5 Adaptive Recalculation Engine: "Fisherman's Attention"
 
 ### 4.5.1 Operational Modes
+
 | Mode | Trigger | Frequency | Power |
 |------|---------|-----------|-------|
 | DORMANT | Stable moisture, pivot parked | 4 hours | 8µA |
@@ -295,6 +331,7 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 | FOCUS COLLAPSE | Mainline pressure >1 PSI or motion | 5 sec | 120mA |
 
 ### 4.5.2 Volatility Score Calculation
+
 ```
 Volatility = (Moisture_Δ_1h × 0.4) + 
              (Irrigation_Active × 0.3) + 
@@ -302,7 +339,9 @@ Volatility = (Moisture_Δ_1h × 0.4) +
              (Wind_Stress × 0.1)
 
 Thresholds:
+
 - > 0.7 → COLLAPSE mode
 - > 0.3 → ANTICIPATORY mode
 - ≤ 0.3 → DORMANT mode
+
 ```

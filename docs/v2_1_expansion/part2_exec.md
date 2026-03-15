@@ -16,6 +16,7 @@ Drift Aversion: REQUIRED
 
 [truncated]
  ### 1.2.5. Soil Temperature Variations
+
 | Depth | Summer | Winter | Diurnal Range |
 |-------|--------|--------|---------------|
 | 10cm | 28°C | 2°C | 15°C |

@@ -15,6 +15,7 @@ Drift Aversion: REQUIRED
 ### Comprehensive Data Tables
 
 #### Monthly Operational Metrics (Subdistrict 1 Scale)
+
 | Month | Fields Active | Telemetry Points | Storage (GB) | API Calls | Alerts |
 |-------|---------------|------------------|--------------|-----------|--------|
 | Jan | 0 | 0 | 0 | 5,000 | 12 |
@@ -32,6 +33,7 @@ Drift Aversion: REQUIRED
 | **Annual** | | **128M** | **890** | **4.1M** | **1,029** |
 
 #### Device Error Code Reference (Complete)
+
 | Code | Device | Severity | Description | Recovery Action |
 |------|--------|----------|-------------|-----------------|
 | 0x00 | ALL | INFO | Normal operation | None |
@@ -67,6 +69,7 @@ Drift Aversion: REQUIRED
 | 0x52 | RSS | CRITICAL | Storage >90% | Archive to cold |
 
 #### Antenna Specifications by Application
+
 | Application | Frequency | Type | Gain | Pattern | Connector | Cable | Length |
 |-------------|-----------|------|------|---------|-----------|-------|--------|
 | PMT LoRa | 915MHz | Whip | 2.1 dBi | Omnidirectional | U.FL | LMR-195 | 10ft |
@@ -77,6 +80,7 @@ Drift Aversion: REQUIRED
 | DHU LTE | 700-2.1GHz | Omni | 3 dBi | Omnidirectional | SMA | LMR-240 | 25ft |
 
 #### PCB Layer Stackup (All Field Devices)
+
 | Layer | Material | Thickness | Function |
 |-------|----------|-----------|----------|
 | Top overlay | Silkscreen | 0.01mm | Component labels |
@@ -92,6 +96,7 @@ Drift Aversion: REQUIRED
 | Bottom overlay | Silkscreen | 0.01mm | Assembly info |
 
 #### Grounding and Bonding Requirements
+
 | Connection | Wire Size | Torque | Inspection Frequency |
 |------------|-----------|--------|---------------------|
 | DHU pole ground | 4 AWG | 25 ft-lb | Annual |
@@ -101,6 +106,7 @@ Drift Aversion: REQUIRED
 | RSS container ground | 2/0 AWG | 50 ft-lb | Semi-annual |
 
 #### Enclosure IP Ratings and Tests
+
 | Device | Rating | Test | Duration | Result |
 |--------|--------|------|----------|--------|
 | PMT | IP67 | Dust + immersion | 30min @ 1m | Pass |
@@ -113,6 +119,7 @@ Drift Aversion: REQUIRED
 #### Power Budget Calculations (Detailed)
 
 **PMT Daily Power Budget:**
+
 | Mode | Current | Duration | Energy (mAh) |
 |------|---------|----------|--------------|
 | SLEEP | 8µA | 22.5hr | 0.18 |
@@ -126,6 +133,7 @@ Drift Aversion: REQUIRED
 | Solar panel (20W) | | | 4hr sun = 80Wh/day |
 
 **VFA Annual Power Budget:**
+
 | Mode | Current | Duration | Energy (mAh/year) |
 |------|---------|----------|-------------------|
 | DEEP_SLEEP | 2µA | 8750hr | 17.5 |

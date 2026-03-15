@@ -23,6 +23,7 @@ R_n - G = λE + H
 ```
 
 Where:
+
 - **R_n** = Net radiation (solar + atmospheric, W/m²)
 - **G** = Soil heat flux (±1% accuracy via VFA dual-needle thermal pulse, W/m²)
 - **λE** = Latent heat flux (evapotranspiration, W/m²)
@@ -37,6 +38,7 @@ ET₀ = [Δ(R_n - G) + ρₐ cₐ (eₛ - eₐ)/rₐ] / [Δ + γ(1 + rₛ/rₐ)]
 ```
 
 Where:
+
 - Δ = Slope of saturation vapor pressure curve (kPa/°C)
 - ρₐ = Air density (kg/m³)
 - cₐ = Specific heat of air (MJ/kg·°C)
@@ -46,6 +48,7 @@ Where:
 - γ = Psychrometric constant (kPa/°C)
 
 **VPD Stress Thresholds:**
+
 | VPD (kPa) | Impact | Action |
 |-----------|--------|--------|
 | <1.0 | Optimal | None |
@@ -56,6 +59,7 @@ Where:
 ### 7.1.2 Soil Heat Flux (G) Measurement
 
 **VFA Dual-Needle Thermal Pulse Method:**
+
 - Upper needle: Heating element + temperature sensor
 - Lower needle: Temperature sensor only
 - Pulse: 8W for 30 seconds
@@ -71,16 +75,19 @@ Where:
 ### 7.2.1 Why Matérn?
 
 Standard variogram models (exponential, spherical) assume integer smoothness. SLV soil moisture exhibits:
+
 - Localized discontinuities (compaction ridges, wheel tracks)
 - Gradual transitions (texture boundaries)
 - Sharp changes (irrigation boundaries)
 
 The Matérn family allows non-integer smoothness parameter ν:
+
 - ν = 0.5: Rough (exponential, suitable for wheel tracks)
 - ν = 1.5: Moderate (practical default)
 - ν = 2.5: Smooth (suitable for uniform fields)
 
 **Auto-Tuning:** Field Roughness Index (FRI) derived from:
+
 - Terrain slope variability
 - Historical yield CV
 - Traffic pattern density
@@ -94,10 +101,12 @@ Z(s) = m(s) + ε(s)
 ```
 
 Where:
+
 - **m(s)** = Deterministic trend (satellite covariates: NDVI, thermal, elevation)
 - **ε(s)** = Spatially correlated residual (ground-truth sensor interpolation)
 
 **Covariate Weighting:**
+
 | Source | Weight | Rationale |
 |--------|--------|-----------|
 | VFA (48") | 35% | Deep truth, stable |
@@ -125,6 +134,7 @@ Where:
 ### 7.3.1 Potato (Russet Burbank)
 
 **Growth Stages:**
+
 | Stage | Days | Root Depth | MAD % | Critical kPa |
 |-------|------|------------|-------|--------------|
 | Emergence | 14-21 | 6" | 30% | 30-40 |
@@ -133,12 +143,14 @@ Where:
 | Maturation | 70-90 | 36" | 60% | 80-100 |
 
 **Critical Period:** Tuber initiation (30-45 days post-emergence)
+
 - Stress at this stage → permanent yield loss
 - Stress avoidance: <80 kPa throughout this window
 
 ### 7.3.2 Barley (Spring)
 
 **Drought Tolerance:** Higher than potato
+
 | Stage | MAD % | Notes |
 |-------|-------|-------|
 | Tillering | 30% | Establishment critical |
@@ -149,11 +161,13 @@ Where:
 ### 7.3.3 Alfalfa
 
 **Deep Rooting Advantage:**
+
 - Root depth: 6-15 feet
 - Water extraction: Lower profile than annuals
 - MAD: 60-70% acceptable during production
 
 **Cut Timing Optimization:**
+
 - Pre-bloom: Quality premium (dairy feed)
 - Full bloom: Yield maximum, lower quality
 - Stress integration: Time cuts to minimize irrigation
@@ -165,6 +179,7 @@ Where:
 ### 7.4.1 LSTM Network Specification
 
 **Architecture:**
+
 - Input: 168 hours (7 days) of historical weather + 72 hours forecast
 - Layers: 2× LSTM (128 units each), 1× Dense (64 units), Output (1× ET₀)
 - Activation: tanh (LSTM), ReLU (Dense)
@@ -172,11 +187,13 @@ Where:
 - Loss: MSE
 
 **Training Data:**
+
 - SLV weather station records (10 years)
 - CSU AgWeatherNet data
 - 50,000 labeled samples (hourly)
 
 **Accuracy:**
+
 - 24-hour forecast: 94% R²
 - 72-hour forecast: 81% R²
 - 168-hour forecast: 72% R² (trend only)
@@ -184,6 +201,7 @@ Where:
 ### 7.4.2 Ensemble Integration
 
 **Sources:**
+
 - NOAA GFS (global)
 - HRRR (high-resolution rapid refresh)
 - NAM (North American Mesoscale)
@@ -195,6 +213,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ```
 
 **Uncertainty Quantification:**
+
 - Standard deviation across ensemble members
 - Confidence intervals on irrigation recommendations
 - Risk-adjusted MAD thresholds (conservative when high uncertainty)

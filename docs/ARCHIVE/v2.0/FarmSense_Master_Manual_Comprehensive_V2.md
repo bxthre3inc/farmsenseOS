@@ -13,6 +13,7 @@ Drift Aversion: REQUIRED
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
 # FarmSense Master Manual: The Deterministic Farming Operating System
+
 **Comprehensive Technical Specification V2.0**
 
 ---
@@ -48,6 +49,7 @@ Drift Aversion: REQUIRED
 FarmSense constitutes the definitive technical, operational, and financial deployment blueprint of a Deterministic Farming Operating System (DFOS), integrating across Subdistrict 1 of the San Luis Valley (SLV), Colorado.
 
 **Primary Objectives:**
+
 - 20–30% reduction in irrigation water consumption
 - 18–22% increase in crop return on investment (ROI)
 - Legally defensible Digital Water Ledger for Water Court admissibility
@@ -65,6 +67,7 @@ FarmSense constitutes the definitive technical, operational, and financial deplo
 ### 1.1.1 The San Luis Valley Crisis as Economic Multiplier
 
 **Geographic Context:**
+
 - Elevation: 7,500-8,000 feet above sea level
 - Precipitation: 7-10 inches annually
 - Irrigated agriculture: 300,000 acres dependent on snowmelt and aquifers
@@ -75,6 +78,7 @@ FarmSense constitutes the definitive technical, operational, and financial deplo
 The Rio Grande Water Conservation District (RGWCD) implemented a punitive $500 per acre-foot groundwater pumping fee to combat over-consumption. This represents a quadrupling of previous costs ($75-150/AF).
 
 For a 126-acre center pivot consuming 252 AF/season:
+
 - 20% water reduction = 50.4 AF saved per season
 - 50.4 AF × $500/AF = $25,200 direct savings per pivot annually
 - FarmSense Enterprise Tier subscription: $499/month ($5,988/year)
@@ -102,6 +106,7 @@ FarmSense utilizes 11 domain-specific, explainable engines. All irrigation and t
 ### 1.2.1 Soil Layer (Edaphic)
 
 **Parameters Monitored:**
+
 - Soil Matric Potential (SMP) — measure of energy required to extract water
 - Volumetric Water Content (VWC) — percentage of soil volume occupied by water
 - Electrical Conductivity (EC) — indicator of salinity and nutrient content
@@ -111,6 +116,7 @@ FarmSense utilizes 11 domain-specific, explainable engines. All irrigation and t
 **SLV Soil Series Calibration:**
 
 **San Luis Soil Series:**
+
 - pH: 8.4-9.8 (highly alkaline)
 - Exchangeable sodium: 15-60%
 - Primary risk: Salt buildup from irrigation
@@ -118,6 +124,7 @@ FarmSense utilizes 11 domain-specific, explainable engines. All irrigation and t
 - Texture: Sandy loam with clay lenses
 
 **Gunbarrel Soil Series:**
+
 - Type: Highly porous sand
 - Hydraulic conductivity: High (>10 cm/hr saturated)
 - Requirement: Low-volume, high-frequency micro-irrigation
@@ -125,6 +132,7 @@ FarmSense utilizes 11 domain-specific, explainable engines. All irrigation and t
 - Risk: Deep percolation, nitrogen leaching
 
 **Alamosa Soil Series:**
+
 - Type: Clay loam
 - Water holding capacity: High
 - Drainage: Slow
@@ -137,6 +145,7 @@ The system adjusts irrigation thresholds based on real-time soil texture analysi
 ### 1.2.2 Plant Layer (Vegetative)
 
 **Parameters Monitored:**
+
 - Leaf water potential (Ψleaf) — direct measure of plant water stress
 - Canopy Water Stress Index (CWSI) — thermal infrared signature
 - Normalized Difference Vegetation Index (NDVI) — overall plant health
@@ -148,6 +157,7 @@ The system detects stomatal closure prior to visible wilting, enabling intervent
 ### 1.2.3 Atmosphere Layer (Meteorologic)
 
 **Parameters Monitored:**
+
 - Vapor Pressure Deficit (VPD) — driving force for transpiration
 - Solar radiation (shortwave and photosynthetically active)
 - Wind speed and direction (affects evaporation)
@@ -167,6 +177,7 @@ Peak growing season (July-August): 4.5-7.7 mm/day evapotranspiration demand. Ear
 MAD defines the percentage of available soil water (between field capacity and permanent wilting point) that can be depleted before crop experiences physiological damage.
 
 **Crop-Specific MAD Thresholds:**
+
 | Crop | Stage | MAD % | Trigger kPa |
 |------|-------|-------|-------------|
 | Potato | Emergence | 30% | 30-40 kPa |
@@ -180,6 +191,7 @@ MAD defines the percentage of available soil water (between field capacity and p
 
 **The "Water Battery" Strategy:**
 The Core Compute Server (Zo) delays irrigation to the "last possible minute," utilizing the deep soil profile as a dynamic battery. This strategy:
+
 - Leaves headroom for rainfall capture
 - Maximizes natural precipitation utilization
 - Eliminates deep percolation losses
@@ -193,28 +205,34 @@ The Core Compute Server (Zo) delays irrigation to the "last possible minute," ut
 ### 1.4.1 Backend Intelligence (Decentralized Cloud Layer)
 
 **RDC (Regional Data Center / Map Servers):**
+
 - Function: Master data library
 - Data types: Sentinel-2 multispectral imagery, Landsat thermal, historical edaphic datasets, soil survey polygons
 - Update frequency: Sentinel-2 (5-day revisit), Landsat (16-day revisit)
 
 **Spatial Query Engine (Map Manager / Oracle):**
+
 - Function: Extracts spatial values at precise latitude/longitude coordinates
 - Operations: Point queries, polygon intersection, raster sampling
 - Output: Lightweight JSON arrays for edge processing
 - Technologies: PostGIS, STAC API integration
 
 **Core Compute Server (Zo):**
+
 - Location: brodiblanco.zo.computer / cloud infrastructure
 - Functions:
+
   - Bayesian prior establishment using historical SFD profiles
   - Localized Kriging algorithms (geostatistical interpolation)
   - Worksheets generation for district-level distribution
   - Long-term Digital Water Ledger vaulting
+
 - Capacity: Processes hundreds of thousands of data points into predictive spatial grids
 
 ### 1.4.2 Regional/District Edge Infrastructure
 
 **Regional Superstation (RSS) — Level 3:**
+
 - Location: Monte Vista, Colorado
 - Function: Territory master, equal cloud counterpart to backend intelligence
 - Form factor: Modified 40-foot High-Cube shipping container
@@ -224,19 +242,25 @@ The Core Compute Server (Zo) delays irrigation to the "last possible minute," ut
 - Redundancy: Dual fiber paths, LTE backup, generator power
 
 **District Hub (DHU) — Level 2:**
+
 - Mounting: 35-foot Class 4 timber pole
 - Coverage radius: 100 pivots with extreme overlapping redundancy
 - Compute: NVIDIA Jetson Orin Nano (8GB RAM, Ampere GPU)
 - Functions:
+
   - Executes Zo "Worksheets" locally
   - Instantaneous "Reflex Logic" decisions (<100ms latency)
   - PBFT consensus for Digital Water Ledger
   - 20m/10m Kriging computation
+
 - Communications:
+
   - 900MHz CSS LoRa Mesh (field sensor ingress)
   - 2.4GHz Ubiquiti LTU (backhaul to RSS)
   - LTE-M fallback
+
 - **30-Day "Black Box" Cache:** 128GB Swissbit PSLC Industrial SSD
+
   - Function: Continuously records AES-256 encrypted audit packets
   - Outcome: If total regional backhaul fails (fiber cut + cellular blackout), the ledger remains intact and legally admissible
 
@@ -254,6 +278,7 @@ The Core Compute Server (Zo) delays irrigation to the "last possible minute," ut
 
 **Critical Architecture Point:**
 The PMT (elevated on the pivot span at 10-15 feet) serves as the **Primary Field Aggregator**. All ground-level devices (VFA, LRZ1, LRZ2, PFA) report upward to the PMT via 900MHz CSS LoRa. The PMT then:
+
 1. Aggregates all sensor data
 2. Performs Edge-EBK computation (50m grid)
 3. Packages into encrypted payload (~187 bytes)
@@ -268,6 +293,7 @@ This elevated topology circumvents the dense water canopy that attenuates ground
 ### 1.5.1 The VFA-to-DHU Challenge (Resolved)
 
 **Initial Design Flaw:**
+
 - VFA specification required: 900MHz CSS LoRa uplink
 - DHU specification (original): Triple-Sector 2.4GHz Ubiquiti LTU only
 - Problem: Ubiquiti LTU 2.4GHz architecture cannot receive 900MHz CSS LoRa modulations
@@ -278,6 +304,7 @@ DHU Bill of Materials officially revised to include enterprise-grade **900MHz CS
 ### 1.5.2 900MHz CSS LoRa Mesh Specifications
 
 **Technical Parameters:**
+
 - Frequency: 915MHz (ISM band, North America)
 - Bandwidth: 125 kHz
 - Spreading Factor: SF7-SF12 (adaptive)
@@ -288,6 +315,7 @@ DHU Bill of Materials officially revised to include enterprise-grade **900MHz CS
 - Battery life: 4+ years at 4-hour chirp intervals
 
 **Canopy Penetration Advantage:**
+
 | Condition | 2.4GHz Signal Loss | 915MHz CSS LoRa Loss |
 |-----------|-------------------|---------------------|
 | Free space | 0 dB | 0 dB |
@@ -329,7 +357,6 @@ The Hydrologic Oracle functions as the "Inference Layer" — fusing satellite tr
 | IV | 2032+ | International | Murray-Darling, North China Plain, Indus Basin |
 
 **2030 Vision:** FarmSense as the standard water accounting infrastructure for climate-stressed agricultural regions globally.
-
 
 # PART II: MARKET INTELLIGENCE & STRATEGIC FUNDING
 
@@ -380,6 +407,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 | Pure satellite | Trend analysis | No 1m ground-truth validation |
 
 **FarmSense Moat:**
+
 - Only platform with 1m resolution + sub-surface sensors + legal ledger
 - Deterministic algorithms (explainable, auditable)
 - Edge autonomy (functions during outages)
@@ -433,6 +461,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 ## 3.1 Executive Leadership
 
 **Jeremy Beebe — Chief Executive Officer**
+
 - Successful startup exit (Hempvada)
 - First-principles vision bridging technology and agriculture
 - Investor relations, strategic partnerships
@@ -440,12 +469,14 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 ## 3.2 Technical Organization Chart
 
 ### Hardware Engineering (4 FTE)
+
 - Chief Hardware Architect (RF systems, integration)
 - RF/Telemetry Engineer (LoRa, LTE-M, mesh protocols)
 - Embedded Systems Engineer (nRF52, ESP32-S3 firmware)
 - Mechanical/DPE Design Engineer (HDPE shells, environmental sealing)
 
 ### Software Engineering (6 FTE)
+
 - Chief Software Architect (system design, APIs)
 - Backend/Cloud Engineer (Python, FastAPI, PostgreSQL)
 - Edge Compute Engineer (Go, TensorRT, Jetson optimization)
@@ -454,12 +485,14 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 - DevOps/Infrastructure Engineer (AWS EKS, Terraform, monitoring)
 
 ### Operations (6 FTE for Subdistrict 1)
+
 - Field Operations Manager
 - Installation Technicians (4 FTE)
 - Sled Hospital Technicians (2 FTE)
 - Customer Success/Agronomy Support (2 FTE)
 
 ### Business (2 FTE)
+
 - Chief Financial Officer (fundraising, grant management)
 - Customer Success Lead (farmer onboarding, training)
 
@@ -479,7 +512,6 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 | Immediate | Q1 2026 | 6 field techs, 2 SWE, 1 HW | Pilot deployment |
 | Scale | Q2-Q3 2026 | +4 techs, +2 SWE, CS team | Subdistrict rollout |
 | National | 2027+ | Regional ops managers | Multi-district expansion |
-
 
 # PART IV: THE TECHNICAL CORE
 
@@ -611,19 +643,23 @@ WS     /v1/stream/field/{id}       # Real-time WebSocket (1Hz)
 ### 4.4.1 Edge-EBK (Empirical Bayesian Kriging)
 
 **Level 1.5 (PMT):** 50m resolution, IDW fallback
+
 - Hardware: ESP32-S3, FPU accelerated
 - Algorithm: Modified IDW with anisotropic distance
 - Latency: <50ms for 16x16 matrix
 
 **Level 2 (DHU):** 20m/10m resolution, Ordinary Kriging
+
 - Hardware: Jetson Orin Nano (CUDA)
 - Algorithm: Ordinary Kriging with spherical variogram
 - Parameters:
+
   - Nugget: 0.0012
   - Sill: 0.0085
   - Range: 245m
 
 **Level 3 (RSS):** 1m resolution, Regression Kriging
+
 - Hardware: Threadripper PRO (64 cores)
 - Algorithm: Regression Kriging with Sentinel-2 NDVI covariates
 - Covariates: Satellite NDVI, thermal, elevation, slope, aspect
@@ -632,6 +668,7 @@ WS     /v1/stream/field/{id}       # Real-time WebSocket (1Hz)
 ### 4.4.2 Matérn Kernel Specification
 
 **Why Matérn over exponential/spherical:**
+
 - Allows non-integer smoothness parameter ν
 - SLV soil moisture exhibits localized discontinuities (compaction ridges, wheel tracks)
 - ν auto-tunes 0.5 (rough/exponential) to 2.5 (smooth) based on Field Roughness Index (FRI)
@@ -660,6 +697,7 @@ Where m(s) = deterministic trend (satellite covariates), ε(s) = spatially corre
 ```
 Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.2) + (Wind_Stress × 0.1)
 ```
+
 - Score > 0.7 → COLLAPSE mode
 - Score > 0.3 → FOCUS RIPPLE mode
 - Default → PULSE/SLEEP cycling
@@ -678,7 +716,6 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 | Cavitation detected | PFA (CT clamp FFT) | ACTUATE_STOP + Alert | <1s |
 | DHU link lost >4hr | PMT (watchdog) | ISLAND_MODE (cached worksheet) | Immediate |
 
-
 # PART V: THE HARDWARE ECOSYSTEM
 
 ## 5.1 Regional Superstation (RSS) V1.0
@@ -693,12 +730,14 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.1.2 Physical Specifications
 
 **Enclosure:** Modified 40-foot High-Cube ISO shipping container
+
 - Dimensions: 40' × 8' × 9.5' (L×W×H)
 - Climate control: HVAC maintaining 18-24°C
 - Security: Biometric access, seismic sensors, fire suppression
 - Power: Dual feed + 20kW generator backup
 
 **Compute Cluster:**
+
 | Component | Specification |
 |-----------|---------------|
 | CPU | AMD Threadripper PRO 5995WX (64 cores / 128 threads) |
@@ -728,12 +767,14 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.2.2 Physical Specifications
 
 **Enclosure:**
+
 - Housing: Polycase WP-21F (NEMA 4X, IP67)
 - Mounting: Pole bracket with seismic dampeners
 - Dimensions: 14" × 12" × 8"
 - Weight: 8.2 kg (18 lbs)
 
 **Compute Module:**
+
 | Component | Specification |
 |-----------|---------------|
 | CPU/GPU | NVIDIA Jetson Orin Nano (8GB) |
@@ -745,12 +786,14 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.2.3 Communications Array
 
 **900MHz CSS LoRa Gateway (Revised V1.1):**
+
 - Module: Semtech SX1302-based concentrator
 - Antenna: 6dBi omnidirectional fiberglass whip
 - Channels: 8× multi-SF, 1× FSK
 - Capacity: 10,000+ sensor nodes
 
 **2.4GHz Backhaul:**
+
 - Antennas: 3× Ubiquiti LTU-Lite Sector (120° each, 18dBi)
 - Frequency: 2.402-2.477 GHz
 - Modulation: TDD (Time Division Duplexing)
@@ -758,6 +801,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 - Range: 15km line-of-sight
 
 **LTE-M Fallback:**
+
 - Module: Quectel BG95 (Cat M1)
 - Bands: B2, B4, B12, B13, B25, B26
 - Protocol: CoAP/LwM2M
@@ -802,12 +846,14 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.3.2 Physical Specifications
 
 **Housing:**
+
 - Enclosure: Polycase ML-44F (NEMA 4X, IP67)
 - Mounting: Tower bracket with spring isolators (vibration dampening)
 - Dimensions: 8" × 6" × 4"
 - Weight: 2.8 kg (6.2 lbs)
 
 **Environmental:**
+
 - Temperature: -40°C to +85°C operational
 - Humidity: 0-100% RH (IP67 sealed)
 - Vibration: MIL-STD-810H Method 514.8 compliant
@@ -816,6 +862,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.3.3 Compute & Sensing
 
 **Core Module:** ESP32-S3 (Espressif)
+
 | Parameter | Specification |
 |-----------|---------------|
 | CPU | Xtensa LX7 dual-core @ 240MHz |
@@ -826,12 +873,14 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 | Bluetooth | BLE 5.0 (maintenance/config) |
 
 **GNSS (Positioning):**
+
 - Module: u-blox ZED-F9P
 - Constellations: GPS, GLONASS, Galileo, BeiDou
 - RTK accuracy: ±2cm horizontal, ±4cm vertical (with corrections)
 - Update rate: 10Hz (kinematic)
 
 **Inertial Measurement (Structural Monitoring):**
+
 - Module: Bosch BNO055 (9-axis IMU)
 - Accelerometer: ±16g
 - Gyroscope: ±2000°/s
@@ -839,6 +888,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 - Fusion: Built-in sensor fusion (Euler angles, quaternion)
 
 **Hydraulic Monitoring:**
+
 - Flow meter: Badger Meter TFX-5000 (ultrasonic transit-time)
 - Accuracy: ±1.0% of reading
 - Mounting: Clamp-on (no pipe cutting)
@@ -847,6 +897,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.3.4 Communications
 
 **900MHz CSS LoRa Mesh (Sensor Ingress):**
+
 - Module: HopeRF RFM95W (SX1276-based)
 - Frequency: 915MHz
 - TX Power: +20dBm (100mW)
@@ -854,6 +905,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 - Antenna: 3dBi whip (external, spring-mounted)
 
 **2.4GHz/LTE-M (Backhaul to DHU):**
+
 - WiFi: ESP32-S3 integrated (2.4GHz)
 - LTE-M: Optional Quectel BG95 module
 - Range to DHU: 2-5km typical
@@ -862,11 +914,13 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 
 **Primary:** 12VDC from pivot electrical (via transformer)
 **Backup:** Saft LS14500 LiSOCl2 primary cell (3.6V, 2.6Ah)
+
 - Function: Keep-alive for RTC and GNSS ephemeris
 - Duration: 2 years (sleep mode)
 - HPC: Hybrid Pulse Capacitor for burst TX
 
 **Power Consumption:**
+
 | Mode | Current | Duration |
 |------|---------|----------|
 | Sleep | 8µA | 4 hours |
@@ -878,6 +932,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.3.6 Firmware State Machine
 
 **States:**
+
 - **INIT:** Boot, self-test, GNSS lock
 - **SLEEP:** Deep sleep, RTC timer wake
 - **PULSE:** Chirp interval, check for sensor data
@@ -887,6 +942,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 - **ISLAND:** Autonomous mode (DHU link lost)
 
 **Fault Handlers:**
+
 | Code | Condition | Action |
 |------|-----------|--------|
 | FAULT_01 | PMT stall (IMU >3g spike) | EMERGENCY_STOP, alert |
@@ -924,6 +980,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.4.2 Physical Specifications
 
 **Housing:**
+
 - Enclosure: Polycase WP-21F (NEMA 4X)
 - Mounting: Wellhead bracket (stainless steel)
 - Dimensions: 12" × 10" × 6"
@@ -932,6 +989,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.4.3 Sensing Stack
 
 **Flow Measurement:**
+
 - Device: Badger Meter TFX-5000 (ultrasonic transit-time)
 - Accuracy: ±1.0% of reading
 - Repeatability: ±0.2%
@@ -939,18 +997,21 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 - Outputs: 4-20mA, pulse, Modbus
 
 **Pressure Monitoring:**
+
 - Device: Dwyer PBLTX (submersible)
 - Range: 0-300 PSI
 - Accuracy: ±0.25% FS
 - Housing: 316 stainless steel
 
 **Current Monitoring:**
+
 - CT Clamps: Magnelab SCT-0400 (3× split-core)
 - Rating: 400A per phase
 - Accuracy: ±1%
 - Purpose: Cavitation detection via harmonic analysis
 
 **Motor Health (FFT Analysis):**
+
 - Sampling: 10kHz on current waveforms
 - Analysis: FFT to detect bearing wear, cavitation, unbalance
 - Detection: Torque ripple, harmonic distortion
@@ -959,12 +1020,14 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.4.4 Actuation
 
 **Safety Relay:**
+
 - Device: Omron G9EA-1-B (30A, 24VDC coil)
 - Function: Emergency pump shutoff
 - Response time: <50ms
 - Manual override: Physical bypass switch
 
 **Reflex Logic Table:**
+
 | Condition | Sensor | Threshold | Action | Latency |
 |-----------|--------|-----------|--------|---------|
 | PMT stall | PMT command | Digital signal | ACTUATE_STOP | <100ms |
@@ -976,6 +1039,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.4.5 Communications
 
 **900MHz CSS LoRa:**
+
 - Module: nRF52840 (Nordic Semiconductor)
 - CPU: Cortex-M4F @ 64MHz
 - Security: ARM TrustZone, Cryptocell-310 (AES-256)
@@ -983,6 +1047,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 - Range to PMT: 50-200m (depending on canopy)
 
 **BLE 5.4:**
+
 - Purpose: Maintenance/configuration
 - Range: 10m
 - Security: LE Secure Connections
@@ -1024,6 +1089,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.5.2 Physical Specifications
 
 **Outer Shell (Permanent):**
+
 - Material: HDPE SDR9 (2.067" ID / 52.5mm)
 - Length: 48" (1219mm)
 - Wall thickness: 0.154" (3.9mm)
@@ -1032,6 +1098,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 - UV resistance: 40-year rated
 
 **Alpha-Sled (Removable):**
+
 - Material: CHDPE (cross-linked high-density PE)
 - Diameter: 50mm (1.97")
 - Length: 46" (1168mm)
@@ -1052,11 +1119,13 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 | 35-48 | Advanced Sensor #3 | 48" (122cm) VWC/Temp/EC | Deep percolation detection |
 
 **Advanced Sensor (GroPoint Profile segment):**
+
 - Parameters: VWC, soil temperature, bulk EC
 - Accuracy: ±3% VWC
 - Measurement zone: 4" (10cm) diameter sphere
 
 **Basic Sensor (custom capacitive):**
+
 - Parameters: VWC, temperature
 - Accuracy: ±5% VWC
 - Cost: 40% of GroPoint
@@ -1064,12 +1133,14 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.5.4 The Proxy Method (Non-Contact Sensing)
 
 **Principle:** High-frequency dielectric field projection
+
 - Frequency: ~100MHz
 - Field penetration: Through 50mm CHDPE sled wall
 - Gap medium: +5 PSI dry nitrogen (prevents condensation)
 - Advantage: Electronics never contact soil, corrosion eliminated
 
 **Calibration:**
+
 - Mineral soil: Topp equation (ε = 3.03 + 9.3m + 146m²)
 - Organic soil: Custom calibration curve
 - Site-specific: Field-calibrated with gravimetric samples
@@ -1077,6 +1148,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.5.5 Communications
 
 **900MHz CSS LoRa:**
+
 - Module: nRF52840 (same as PFA)
 - TX Power: +8dBm
 - Reporting: To elevated PMT (50-200m range)
@@ -1085,12 +1157,14 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.5.6 Power System
 
 **Battery Cartridges:** 5× 21700 Li-ion packs
+
 - Configuration: 3S1P (3 cells series, 1 parallel)
 - Voltage: 10.8V nominal
 - Capacity: 4.5Ah per cartridge
 - Total capacity: 22.5Ah @ 10.8V = 243Wh
 
 **Active Heating:**
+
 - Element: 5W Kapton heater per battery cartridge
 - Trigger: Temperature <0°C
 - Purpose: Prevent lithium plating during charging
@@ -1123,13 +1197,16 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 
 **Function:** Level 1 spatial scouts, distributed moisture mapping
 **Density:** 16 per field
+
 - 4× LRZ2 (Reference nodes with VWC + temperature)
 - 12× LRZ1 (Truth nodes with basic sensing)
+
 **Distribution:** Grid pattern, 1 per ~8 acres
 
 ### 5.6.2 Physical Specifications
 
 **Housing (Alpha-Sled):**
+
 - Material: CHDPE (same as VFA)
 - Diameter: 35mm (1.38")
 - Length: 12" (305mm)
@@ -1138,23 +1215,28 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.6.3 PCBA (Custom Circuit)
 
 **Microcontroller:** nRF52840 (same as PFA/VFA)
+
 - GPIO allocation:
+
   - P0.02/P0.03: 12-bit analog dielectric sensing
   - P0.28-P0.31: LoRa SPI interface
   - P0.10: Temperature (1-wire)
 
 **Sensing:**
+
 - Method: Capacitive dielectric (non-contact)
 - Frequency: ~100MHz
 - Penetration: Through CHDPE wall into soil
 - Calibration: Field-specific with gravimetric correlation
 
 **LRZ1 (Basic):**
+
 - Parameters: Volumetric water content
 - Accuracy: ±5%
 - Cost target: $29/unit at scale
 
 **LRZ2 (Reference):**
+
 - Parameters: VWC + soil temperature
 - Accuracy: ±3% VWC, ±0.5°C temp
 - Cost target: $54.30/unit at scale
@@ -1162,6 +1244,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.6.4 Communications
 
 **900MHz CSS LoRa:**
+
 - Module: Integrated nRF52840 (RADIO peripheral)
 - Protocol: Dumb chirp (encrypted, minimal payload)
 - Interval: 4 hours (adjustable 1-24 hours)
@@ -1170,12 +1253,14 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.6.5 Power System
 
 **Battery:** 21700 LiSOCl2 primary cell (SAFT LS14500 equivalent)
+
 - Voltage: 3.6V
 - Capacity: 2.6Ah
 - Chemistry: Lithium Thionyl Chloride (high energy density)
 - Life: 4+ years at 4-hour chirp intervals
 
 **Power Consumption:**
+
 | State | Current | Duration | Energy |
 |-------|---------|----------|--------|
 | Sleep | 2µA | 3h 59m | 0.01mAh |
@@ -1225,11 +1310,13 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.7.1 SFD-P: Standard Pivot (126-Acre Circular)
 
 **Geometry:**
+
 - Pivot radius: 1,320 feet (1/4 mile)
 - Area: 126 acres (51 hectares)
 - Soil: Homogeneous or managed by zone
 
 **Node Configuration:**
+
 | Device | Qty | Purpose |
 |--------|-----|---------|
 | PMT | 1 | Field aggregator, kinematic tracking |
@@ -1240,10 +1327,12 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 | **Total** | **20 nodes** | |
 
 **Resolution:**
+
 - Compliance: 50m grid (free tier)
 - Enterprise: 1m grid (subscription)
 
 **Cost per SFD-P:**
+
 | Component | Qty | Unit | Extended |
 |-----------|-----|------|----------|
 | PMT | 1 | $842 | $842 |
@@ -1258,15 +1347,18 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.7.2 SFD-C: Corner-Swing Arm (150+ Acre)
 
 **Geometry:**
+
 - Type: Center pivot with corner arm (end gun or swing arm)
 - Area: 150-175 acres (variable by geometry)
 
 **Additional Components:**
+
 | Device | Qty | Purpose |
 |--------|-----|---------|
 | CSA | 1 | Corner-Swing Auditor |
 
 **CSA (Corner-Swing Auditor) Specifications:**
+
 - Mounting: Last tower + swing arm
 - Tracking: BLE 5.2 distance ranging
 - Precision: ±0.1° joint resolution
@@ -1279,6 +1371,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 **Type:** Graded furrow, border strip, or level basin
 
 **Node Configuration:**
+
 | Device | Qty | Purpose |
 |--------|-----|---------|
 | PMT-Lite | 1 | Static field hub (no pivot tracking) |
@@ -1289,6 +1382,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 | **Total** | **34 nodes** | |
 
 **Wetting Front Propagation:**
+
 - Algorithm: Track infiltration from head/ditch
 - Trigger: Irrigation cessation when wetting front reaches 36"
 - Purpose: Prevent deep percolation in flood systems
@@ -1300,12 +1394,14 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.8.1 Phase 1 — Compliance Foundation
 
 **Scope:** Immediate Water Court readiness
+
 - 1,280 fields × SFD-P configuration
 - 1,280 PMTs (all fields instrumented)
 - Base RSS infrastructure (1 station)
 - Minimum viable sensor density
 
 **Node Count:**
+
 | Device | Per Field | Total |
 |--------|-----------|-------|
 | PMT | 1 | 1,280 |
@@ -1316,6 +1412,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 | **Total Nodes** | **20** | **25,600** |
 
 **Infrastructure:**
+
 | Item | Qty | Unit Cost | Extended |
 |------|-----|-----------|----------|
 | DHU | 13 | $4,160 | $54,080 |
@@ -1326,11 +1423,13 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 5.8.2 Phase 2 — Full Ecosystem Saturation
 
 **Scope:** 18-node Stereo Density per field
+
 - 25 DHUs (full coverage with redundancy)
 - Enhanced RSS (compute upgrade)
 - 1m-pixel spatial moisture grid
 
 **Phase 2 Additions:**
+
 | Item | Qty | Unit Cost | Extended |
 |------|-----|-----------|----------|
 | Additional sensors | 12,800 | $45 | $576,000 |
@@ -1340,13 +1439,13 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 | **Phase 1+2 Total** | | | **$3,970,638** |
 
 **Annual Revenue at Scale:**
+
 | Tier | Fields | Monthly | Annual |
 |------|--------|---------|--------|
 | Base | 256 | $149 | $457,728 |
 | Plus | 512 | $299 | $1,837,056 |
 | Enterprise | 512 | $499 | $3,065,856 |
 | **Total ARR** | **1,280** | | **$5,360,640** |
-
 
 # PART VI: THE INTERFACE LAYER
 
@@ -1366,18 +1465,21 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 6.1.2 Core Features
 
 **3D Field Visualization:**
+
 - Elevation model from LiDAR/DEM
 - Moisture heatmap overlay (1m resolution)
 - Pivot kinematics (live position from PMT GNSS)
 - Section control zones (color-coded by status)
 
 **Resolution Pop (Conversion Mechanism):**
+
 - Base user (50m): Full field view at native resolution
 - Zoom to anomaly: High-contrast 1m grid blurred with "Locked" overlay
 - Trigger: Clicking suspected nozzle leak or dry zone
 - Conversion: "High-Resolution Proof Available" CTA
 
 **Traffic-Light Status System:**
+
 | Color | Meaning | Action |
 |-------|---------|--------|
 | Green | Optimal moisture | No action |
@@ -1387,6 +1489,7 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 | Gray | No data / offline | Check sensors |
 
 **Irrigation Worksheet Viewer:**
+
 - Real-time prescription from DHU
 - Zone-by-zone timing and rate
 - Override controls (emergency stop)
@@ -1395,16 +1498,19 @@ Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.
 ### 6.1.3 Technical Specifications
 
 **WebSocket Real-Time:**
+
 - Protocol: Socket.io
 - Frequency: 1Hz updates during irrigation
 - Fallback: Long-polling for legacy browsers
 
 **Mobile PWA:**
+
 - Offline cache: Last 7 days of field data
 - Background sync: Queue actions for connectivity restoration
 - Push notifications: Irrigation complete, alerts
 
 **Performance Targets:**
+
 | Metric | Target | Minimum |
 |--------|--------|---------|
 | First paint | <1.5s | 3s |
@@ -1423,17 +1529,20 @@ Read-only compliance reporting interface for legal proceedings and regulatory au
 ### 6.2.2 Features
 
 **Immutable Audit Log:**
+
 - Hash verification display for each record
 - Chain integrity status ("Verified" / "Broken Link Detected")
 - Digital signature validation (Ed25519)
 
 **Export Formats:**
+
 - PDF: Formatted for legal submission
 - CSV: Raw data for analysis
 - DWL (Digital Water Ledger): Complete package with proofs
 - JSON: API-compatible for state systems
 
 **Multi-Field Aggregation:**
+
 - Subdistrict-level summaries
 - Trend analysis (seasonal, annual)
 - Violation tracking (if any)
@@ -1442,11 +1551,13 @@ Read-only compliance reporting interface for legal proceedings and regulatory au
 ### 6.2.3 SLV 2026 Compliance
 
 **WORM Storage:** Write-Once Read-Many S3 bucket configuration
+
 - Object Lock: Compliance mode, 7-year retention
 - Versioning: Enabled with MFA delete protection
 - Encryption: AES-256-SSE with CMK
 
 **Automated Reporting:**
+
 - Daily summaries (pushed to regulators)
 - Weekly compliance dashboards
 - Monthly detailed reports
@@ -1459,6 +1570,7 @@ Read-only compliance reporting interface for legal proceedings and regulatory au
 ### 6.3.1 Sled Hospital Monitor
 
 Real-time sensor health across entire fleet:
+
 - Battery voltage (predictive replacement)
 - Last chirp timestamp (connectivity check)
 - Firmware version (OTA update status)
@@ -1487,6 +1599,7 @@ Real-time sensor health across entire fleet:
 ## 6.4 Investor ROI Dashboard
 
 **Key Performance Indicators:**
+
 | Metric | Unit | Display |
 |--------|------|---------|
 | Water savings | AF/acre | Trend line, rolling 30-day |
@@ -1499,6 +1612,7 @@ Real-time sensor health across entire fleet:
 | NRR | % | Logo + expansion - churn |
 
 **Regional Expansion Pipeline:**
+
 - Heat map of target subdistricts
 - Pipeline stages (Prospect → Pilot → Contract)
 - Revenue forecast by quarter
@@ -1510,12 +1624,14 @@ Real-time sensor health across entire fleet:
 ### 6.5.1 NRCS Conservation Credit Calculator
 
 Auto-maps FarmSense metrics to NRCS Resource Concern categories:
+
 - Water Quality (nutrient leaching reduction)
 - Soil Health (organic matter, compaction)
 - Water Quantity (aquifer depletion mitigation)
 - Energy (pumping efficiency)
 
 **LaTeX Export:**
+
 - Academic paper formatting
 - Bibliography integration
 - Data tables (CSV embed)
@@ -1524,16 +1640,17 @@ Auto-maps FarmSense metrics to NRCS Resource Concern categories:
 ### 6.5.2 Federated Learning Interface
 
 **Privacy-Preserving ML:**
+
 - Model training on distributed data
 - No raw sensor data leaves field
 - Differential privacy (ε=1.0, δ=10⁻⁶)
 - Secure aggregation protocols
 
 **Research Collaboration:**
+
 - CSU SLV Research Center integration
 - Controlled data access for peer review
 - Attribution and citation tracking
-
 
 # PART VII: THE HYDROLOGIC ORACLE
 
@@ -1546,6 +1663,7 @@ R_n - G = λE + H
 ```
 
 Where:
+
 - **R_n** = Net radiation (solar + atmospheric, W/m²)
 - **G** = Soil heat flux (±1% accuracy via VFA dual-needle thermal pulse, W/m²)
 - **λE** = Latent heat flux (evapotranspiration, W/m²)
@@ -1560,6 +1678,7 @@ ET₀ = [Δ(R_n - G) + ρₐ cₐ (eₛ - eₐ)/rₐ] / [Δ + γ(1 + rₛ/rₐ)]
 ```
 
 Where:
+
 - Δ = Slope of saturation vapor pressure curve (kPa/°C)
 - ρₐ = Air density (kg/m³)
 - cₐ = Specific heat of air (MJ/kg·°C)
@@ -1569,6 +1688,7 @@ Where:
 - γ = Psychrometric constant (kPa/°C)
 
 **VPD Stress Thresholds:**
+
 | VPD (kPa) | Impact | Action |
 |-----------|--------|--------|
 | <1.0 | Optimal | None |
@@ -1579,6 +1699,7 @@ Where:
 ### 7.1.2 Soil Heat Flux (G) Measurement
 
 **VFA Dual-Needle Thermal Pulse Method:**
+
 - Upper needle: Heating element + temperature sensor
 - Lower needle: Temperature sensor only
 - Pulse: 8W for 30 seconds
@@ -1594,16 +1715,19 @@ Where:
 ### 7.2.1 Why Matérn?
 
 Standard variogram models (exponential, spherical) assume integer smoothness. SLV soil moisture exhibits:
+
 - Localized discontinuities (compaction ridges, wheel tracks)
 - Gradual transitions (texture boundaries)
 - Sharp changes (irrigation boundaries)
 
 The Matérn family allows non-integer smoothness parameter ν:
+
 - ν = 0.5: Rough (exponential, suitable for wheel tracks)
 - ν = 1.5: Moderate (practical default)
 - ν = 2.5: Smooth (suitable for uniform fields)
 
 **Auto-Tuning:** Field Roughness Index (FRI) derived from:
+
 - Terrain slope variability
 - Historical yield CV
 - Traffic pattern density
@@ -1617,10 +1741,12 @@ Z(s) = m(s) + ε(s)
 ```
 
 Where:
+
 - **m(s)** = Deterministic trend (satellite covariates: NDVI, thermal, elevation)
 - **ε(s)** = Spatially correlated residual (ground-truth sensor interpolation)
 
 **Covariate Weighting:**
+
 | Source | Weight | Rationale |
 |--------|--------|-----------|
 | VFA (48") | 35% | Deep truth, stable |
@@ -1648,6 +1774,7 @@ Where:
 ### 7.3.1 Potato (Russet Burbank)
 
 **Growth Stages:**
+
 | Stage | Days | Root Depth | MAD % | Critical kPa |
 |-------|------|------------|-------|--------------|
 | Emergence | 14-21 | 6" | 30% | 30-40 |
@@ -1656,12 +1783,14 @@ Where:
 | Maturation | 70-90 | 36" | 60% | 80-100 |
 
 **Critical Period:** Tuber initiation (30-45 days post-emergence)
+
 - Stress at this stage → permanent yield loss
 - Stress avoidance: <80 kPa throughout this window
 
 ### 7.3.2 Barley (Spring)
 
 **Drought Tolerance:** Higher than potato
+
 | Stage | MAD % | Notes |
 |-------|-------|-------|
 | Tillering | 30% | Establishment critical |
@@ -1672,11 +1801,13 @@ Where:
 ### 7.3.3 Alfalfa
 
 **Deep Rooting Advantage:**
+
 - Root depth: 6-15 feet
 - Water extraction: Lower profile than annuals
 - MAD: 60-70% acceptable during production
 
 **Cut Timing Optimization:**
+
 - Pre-bloom: Quality premium (dairy feed)
 - Full bloom: Yield maximum, lower quality
 - Stress integration: Time cuts to minimize irrigation
@@ -1688,6 +1819,7 @@ Where:
 ### 7.4.1 LSTM Network Specification
 
 **Architecture:**
+
 - Input: 168 hours (7 days) of historical weather + 72 hours forecast
 - Layers: 2× LSTM (128 units each), 1× Dense (64 units), Output (1× ET₀)
 - Activation: tanh (LSTM), ReLU (Dense)
@@ -1695,11 +1827,13 @@ Where:
 - Loss: MSE
 
 **Training Data:**
+
 - SLV weather station records (10 years)
 - CSU AgWeatherNet data
 - 50,000 labeled samples (hourly)
 
 **Accuracy:**
+
 - 24-hour forecast: 94% R²
 - 72-hour forecast: 81% R²
 - 168-hour forecast: 72% R² (trend only)
@@ -1707,6 +1841,7 @@ Where:
 ### 7.4.2 Ensemble Integration
 
 **Sources:**
+
 - NOAA GFS (global)
 - HRRR (high-resolution rapid refresh)
 - NAM (North American Mesoscale)
@@ -1718,10 +1853,10 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ```
 
 **Uncertainty Quantification:**
+
 - Standard deviation across ensemble members
 - Confidence intervals on irrigation recommendations
 - Risk-adjusted MAD thresholds (conservative when high uncertainty)
-
 
 # PART VIII: THE PILOT MISSION SPECIFICATION
 
@@ -1738,6 +1873,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ### 8.1.2 Hardware Deployment
 
 **Field 1 (Treatment):**
+
 | Device | Qty | Notes |
 |--------|-----|-------|
 | PMT | 1 | Full kinematic + flow |
@@ -1748,6 +1884,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 | **Total** | **20** | |
 
 **Field 2 (Control):**
+
 | Device | Qty | Notes |
 |--------|-----|-------|
 | PMT | 1 | Kinematic tracking only |
@@ -1791,11 +1928,13 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ### 8.3.1 VFA Installation SOP
 
 **Pre-Installation:**
+
 1. Soil core sample to 48" (characterize texture)
 2. Mark installation point (GPS waypoint)
 3. Verify underground utilities clearance
 
 **Installation:**
+
 1. Auger 6" diameter hole to 50" depth
 2. Insert HDPE SDR9 outer shell
 3. Backfill annulus with native soil (tamped)
@@ -1803,6 +1942,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 5. Log GPS coordinates (±30cm accuracy)
 
 **Alpha-Sled Insertion:**
+
 1. Pre-charge nitrogen to +5 PSI
 2. Verify desiccant pack dry
 3. Lubricate Viton seals
@@ -1811,6 +1951,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 6. Verify chirp acknowledgment from PMT
 
 **Post-Installation:**
+
 1. Pressure test (maintain +5 PSI for 24hr)
 2. Calibrate dielectric against gravimetric sample
 3. Document in asset management system
@@ -1819,10 +1960,12 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ### 8.3.2 PMT Installation SOP
 
 **Tower Selection:**
+
 - Preferred: Tower 2 or 3 (optimal balance of height and stability)
 - Avoid: Last tower (excessive sway), first tower (motor interference)
 
 **Mounting:**
+
 1. Attach stainless bracket with U-bolts
 2. Install spring isolators (vibration dampening)
 3. Mount NEMA 4X enclosure
@@ -1831,6 +1974,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 6. Install GPS antenna (clear sky view)
 
 **Calibration:**
+
 1. RTK base station initialization (10 minutes)
 2. Fixed solution confirmation (<2cm accuracy)
 3. Pivot end-stop mapping (full rotation)
@@ -1852,6 +1996,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 **Crew Size:** 2 technicians per field
 
 **Workflow:**
+
 1. Extract Alpha-Sleds from Sled Hospital (winter storage)
 2. Diagnose batteries (voltage check)
 3. Nitrogen recharge to +5 PSI
@@ -1862,11 +2007,13 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ### 9.1.2 Summer: Active Monitoring (June-August)
 
 **Monitoring:**
+
 - Telemetry: Continuous (1-hour chirp default)
 - Anomaly response: 15-minute "Focus Ripple" mode
 - Irrigation events: Real-time tracking
 
 **Maintenance:**
+
 - Weekly: DHU solar panel cleaning
 - Bi-weekly: Pressure-decay tests (VFA nitrogen)
 - Monthly: PMT battery voltage checks
@@ -1878,6 +2025,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 **Storage:** Sled Hospital facility (RSS)
 
 **Workflow:**
+
 1. Unlock retaining pins
 2. Extract Alpha-Sleds with stainless cable
 3. Cap HDPE shells with blanking plugs
@@ -1889,6 +2037,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ### 9.1.4 Winter: Hibernation (November-March)
 
 **Sled Hospital Operations:**
+
 - Temperature: Maintained 15-20°C
 - Battery: Trickle charge (0.1C rate)
 - Diagnostics: Monthly health checks
@@ -1896,6 +2045,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 - Calibration: Annual recertification
 
 **Permanent Shells:**
+
 - Blanking plugs prevent water ingress
 - No maintenance required
 - Visual inspection only (annual)
@@ -1910,6 +2060,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 **Capacity:** 500 Alpha-Sleds (phased inventory)
 
 **Workflow:**
+
 | Step | Action | Duration |
 |------|--------|----------|
 | 1 | Receiving (from field) | 5 min |
@@ -1924,6 +2075,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ### 9.2.2 Field Service Protocol
 
 **Response Times:**
+
 | Severity | Issue | Response | Resolution |
 |----------|-------|----------|------------|
 | 1 | PMT failure | 4 hours | Replacement |
@@ -1936,6 +2088,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ## 9.3 Fleet Operations Scale
 
 **Subdistrict 1 (1,280 fields):**
+
 | Metric | Value |
 |--------|-------|
 | Total nodes | 25,600 |
@@ -1945,10 +2098,10 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 | Vehicles | 3 (service trucks) |
 
 **Annual Cycles:**
+
 - Insertion: 25,600 sleds (April)
 - Extraction: 25,600 sleds (September)
 - Hospital processing: 51,200 operations/year
-
 
 # PART X: INFRASTRUCTURE & DEVOPS
 
@@ -1957,6 +2110,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ### 10.1.1 Compute
 
 **EKS Cluster Configuration:**
+
 | Component | Specification |
 |-----------|---------------|
 | Node type | Graviton3 (ARM64) |
@@ -1965,6 +2119,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 | Auto-scaling | 3-20 nodes |
 
 **Pod Allocation:**
+
 | Service | Replicas | CPU | Memory |
 |---------|----------|-----|--------|
 | API (FastAPI) | 6 | 2 | 4GB |
@@ -1975,6 +2130,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ### 10.1.2 Storage
 
 **Hot Data (EBS gp3):**
+
 | Volume | Size | IOPS | Throughput |
 |--------|------|------|------------|
 | PostgreSQL | 2TB | 16,000 | 1,000 MB/s |
@@ -1982,6 +2138,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 | Cache (Redis) | 500GB | 16,000 | 1,000 MB/s |
 
 **Cold Data (S3):**
+
 | Bucket | Class | Retention |
 |--------|-------|-----------|
 | Telemetry archive | Glacier | 7 years |
@@ -1991,6 +2148,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ### 10.1.3 Database
 
 **RDS PostgreSQL 15:**
+
 - Instance: db.r6g.4xlarge
 - Storage: 10TB (auto-scaling)
 - Extensions: PostGIS 3.4, TimescaleDB 2.11
@@ -1998,6 +2156,7 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 - Replica: Cross-region (us-east-1)
 
 **ElastiCache Redis:**
+
 - Mode: Cluster (6 shards, 2 replicas each)
 - Instance: cache.r6g.xlarge
 - Eviction: LRU
@@ -2008,11 +2167,13 @@ ET_forecast = 0.4×LSTM + 0.3×GFS + 0.2×HRRR + 0.1×Persistence
 ## 10.2 GitOps Strategy
 
 **Terraform:** Infrastructure as Code
+
 - State: S3 backend with DynamoDB locking
 - Modules: EKS, RDS, ElastiCache, IAM
 - Environments: dev, staging, prod
 
 **ArgoCD:** Kubernetes GitOps
+
 - Sync: Automated with prune
 - Health: Resource degradation alerts
 - Rollback: One-click to previous revision
@@ -2040,6 +2201,7 @@ Push to main → Build container → Run tests → Push to ECR → ArgoCD sync
 **Scenario:** Total infrastructure failure (fiber + cellular)
 
 **Response:**
+
 | Component | Behavior | Duration |
 |-----------|----------|----------|
 | RSS | Continues autonomous operation | Indefinite |
@@ -2054,11 +2216,13 @@ Push to main → Build container → Run tests → Push to ECR → ArgoCD sync
 ## 11.1 Zero-Trust Architecture
 
 **Principles:**
+
 1. Never trust, always verify
 2. Least privilege access
 3. Assume breach
 
 **Implementation:**
+
 | Layer | Control |
 |-------|---------|
 | Identity | SPIFFE/SPIRE workload identity |
@@ -2069,6 +2233,7 @@ Push to main → Build container → Run tests → Push to ECR → ArgoCD sync
 ## 11.2 eBPF Kernel Auditing
 
 **Falco Runtime Security:**
+
 - Unauthorized process execution
 - Sensitive file access (/etc/shadow, private keys)
 - Outbound connections from field devices
@@ -2077,11 +2242,13 @@ Push to main → Build container → Run tests → Push to ECR → ArgoCD sync
 ## 11.3 Lateral Movement Prevention
 
 **Network Policies:**
+
 - Default-deny ingress/egress
 - Explicit allow rules by service identity
 - Field devices: No direct internet access
 
 **Pod Security:**
+
 - Read-only root filesystem
 - No privileged containers
 - Seccomp profiles (runtime syscall filtering)
@@ -2104,6 +2271,7 @@ Push to main → Build container → Run tests → Push to ECR → ArgoCD sync
 ## 12.2 Cryptographic Chain of Custody
 
 **Merkle Tree Proofs:**
+
 - Daily root hash commitment
 - PBFT consensus on DHU mesh
 - Immutable RSS vault
@@ -2123,6 +2291,7 @@ validation.pdf   - Kriging MAPE scores
 ## 13.1 GlobalG.A.P. Compliance
 
 **Certification Path:**
+
 - Automated audit trail generation
 - IFA standard alignment
 - Control Points documentation
@@ -2130,6 +2299,7 @@ validation.pdf   - Kriging MAPE scores
 ## 13.2 Nitrogen Leaching Prevention
 
 **SPAC-Based N Management:**
+
 - Real-time soil nitrate monitoring (VFA EC)
 - Irrigation timing to prevent deep percolation
 - VRA (Variable Rate Application) integration
@@ -2137,6 +2307,7 @@ validation.pdf   - Kriging MAPE scores
 ## 13.3 Carbon Sequestration Quantification
 
 **Methodology:**
+
 - Soil organic carbon change detection (annual sampling)
 - Reduced pumping energy credits
 - Registry-ready MRV (Measurement, Reporting, Verification)
@@ -2191,6 +2362,7 @@ validation.pdf   - Kriging MAPE scores
 ## 15.2 Grant Writing Resources
 
 **Boilerplate Library:**
+
 - Technical narrative (1,000 words)
 - Commercialization plan
 - Team bios
@@ -2203,6 +2375,7 @@ validation.pdf   - Kriging MAPE scores
 ## 16.1 Empirical Results: 2026 Pilot
 
 **Pre-FarmSense (Control Field):**
+
 | Metric | Value |
 |--------|-------|
 | Water consumption | 258.4 AF/pivot |
@@ -2210,6 +2383,7 @@ validation.pdf   - Kriging MAPE scores
 | Yield | 410 CWT/acre |
 
 **FarmSense (Treatment Field):**
+
 | Metric | Value |
 |--------|-------|
 | Water consumption | 204.2 AF/pivot (-21%) |
@@ -2221,6 +2395,7 @@ validation.pdf   - Kriging MAPE scores
 ## 16.2 The "Reflex" Discovery
 
 **Week 12 Event:**
+
 - PFA detected 35 GPM sub-surface breach
 - Traditional: 4 days to identify
 - FarmSense: 4.5 seconds
@@ -2229,6 +2404,7 @@ validation.pdf   - Kriging MAPE scores
 ## 16.3 Legal Validation: June 29, 2026 Trial
 
 **Evidence Presented:**
+
 - 6 months continuous telemetry (25,600 points)
 - SHA-256 chained audit logs
 - Kriging validation (MAPE 3.2%)
@@ -2264,11 +2440,13 @@ validation.pdf   - Kriging MAPE scores
 ## Appendix C: Radio Propagation Models
 
 **915MHz CSS LoRa:**
+
 - FSPL(d) = 32.45 + 20log₁₀(d) + 20log₁₀(f)
 - Canopy: -3 dB (sparse) to -8 dB (dense)
 - Link budget: 150 dB
 
 **2.4GHz LTU:**
+
 - Line-of-sight required
 - 12 dBi sector antennas
 - 15km range (clear)
@@ -2276,12 +2454,14 @@ validation.pdf   - Kriging MAPE scores
 ## Appendix D: Nomenclature & Technical Dictionary
 
 **Core Terms:**
+
 - SPAC: Soil-Plant-Atmosphere Continuum
 - MAD: Management Allowable Depletion
 - VRI: Variable Rate Irrigation
 - CSS LoRa: Chirp Spread Spectrum (915MHz)
 
 **Hardware:**
+
 - RSS: Regional Superstation (Level 3)
 - DHU: District Hub (Level 2)
 - PMT: Pivot Motion Tracker (Level 1.5) — **Field Aggregator**
@@ -2293,6 +2473,7 @@ validation.pdf   - Kriging MAPE scores
 ## Appendix E: Firmware State-Machine Logic Tables
 
 **PMT States:**
+
 | State | Trigger | Current |
 |-------|---------|---------|
 | SLEEP | RTC timer | 8µA |
@@ -2301,6 +2482,7 @@ validation.pdf   - Kriging MAPE scores
 | TX | LoRa TX | 120mA |
 
 **Fault Handlers:**
+
 | Code | Condition | Action |
 |------|-----------|--------|
 | FAULT_01 | PMT stall | EMERGENCY_STOP |
@@ -2309,6 +2491,7 @@ validation.pdf   - Kriging MAPE scores
 ## Appendix F: Installation & Calibration Checklists
 
 **VFA Installation:**
+
 - [ ] Soil core collected
 - [ ] 48" depth verified
 - [ ] Shell verticality <2°
@@ -2317,6 +2500,7 @@ validation.pdf   - Kriging MAPE scores
 - [ ] Chirp acknowledgment
 
 **Calibration:**
+
 - [ ] Dielectric dry baseline
 - [ ] Saturated calibration
 - [ ] Known-volume test
@@ -2325,6 +2509,7 @@ validation.pdf   - Kriging MAPE scores
 ## Appendix G: Regional Dielectric Reference Tables
 
 **San Luis Sandy Loam (see Part 1, Section 1.2.1):**
+
 | Depth | Target VWC | Dielectric ε |
 |-------|------------|--------------|
 | 10cm | 16% | 4.70 |
@@ -2373,7 +2558,6 @@ validation.pdf   - Kriging MAPE scores
 *PMT Hierarchy: CORRECTED — PMT is Field Aggregator*
 *LRZ Distinction: CORRECTED — LRZ1 (Basic) vs LRZ2 (Reference)*
 
-
 ## Additional Technical Specifications (Expanded Detail)
 
 ### SQL Schema Expansion
@@ -2393,6 +2577,7 @@ USING BTREE (date_trunc('hour', time));
 ```
 
 **Partitioning Strategy:**
+
 | Table | Strategy | Retention |
 |-------|----------|-----------|
 | sensor_readings | TimescaleDB hypertable, 7-day chunks | 2 years hot, 5 years cold |
@@ -2454,6 +2639,7 @@ Response (400 Bad Request):
 **GET /v1/fields/{id}/moisture (Retrieve Kriging Grid)**
 
 Query Parameters:
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | resolution | enum | "1m" | "50m", "20m", "10m", "1m" |
@@ -2556,6 +2742,7 @@ Response (JSON):
 ```
 
 **State Timing:**
+
 | State | Entry Condition | Exit Condition | Max Duration |
 |-------|---------------|----------------|--------------|
 | INIT | Power on | Tests complete | 30 seconds |
@@ -2598,6 +2785,7 @@ Response (JSON):
 **VFA Detailed Sensor Specifications:**
 
 **GroPoint Profile (Advanced Sensor):**
+
 | Parameter | Specification |
 |-----------|-------------|
 | Measurement principle | Frequency Domain Reflectometry (FDR) |
@@ -2612,6 +2800,7 @@ Response (JSON):
 | Warranty | 5 years |
 
 **Custom Basic Sensor:**
+
 | Parameter | Specification |
 |-----------|-------------|
 | Measurement principle | Capacitive (100MHz) |
@@ -2629,6 +2818,7 @@ Response (JSON):
 **900MHz CSS LoRa Protocol Stack:**
 
 **Physical Layer:**
+
 | Parameter | Value |
 |-----------|-------|
 | Frequency range | 902-928 MHz (US ISM) |
@@ -2640,6 +2830,7 @@ Response (JSON):
 | CRC | Enabled |
 
 **Data Rate Configuration:**
+
 | SF | Bitrate | Sensitivity | Range (km) | Use case |
 |----|---------|-------------|------------|----------|
 | 7 | 5.47 kbps | -123 dBm | 2 | Good conditions, short range |
@@ -2648,12 +2839,14 @@ Response (JSON):
 | 12 | 0.29 kbps | -148 dBm | 10 | Emergency, extreme range |
 
 **Adaptive Data Rate (ADR):**
+
 - Algorithm: Node adjusts SF based on SNR feedback from gateway
 - Floor: SF7 (minimum for reliability)
 - Ceiling: SF12 (emergency only, high power)
 - Default: SF9 (balance of speed and range)
 
 **MAC Layer (LoRaWAN-like):**
+
 - Class A: Bi-directional after uplink (power efficient)
 - Confirmed vs. unconfirmed messages
 - Frame counter for replay protection
@@ -2720,12 +2913,12 @@ Packet Structure (max 187 bytes):
 | Data latency | <1 hour | >4 hours |
 | Kriging MAPE | <5% | >8% |
 
-
 ### Detailed Installation Procedures (Step-by-Step)
 
 **PMT Installation Procedure (Expanded):**
 
 **Pre-Installation Checklist:**
+
 1. Review site survey map
 2. Verify pivot model and tower spacing
 3. Confirm electrical tap availability (12VDC)
@@ -2733,6 +2926,7 @@ Packet Structure (max 187 bytes):
 5. Gather tools and PMT kit
 
 **Tools Required:**
+
 | Tool | Specification | Purpose |
 |------|-------------|---------|
 | Torque wrench | 3/8" drive, 5-25 ft-lb | U-bolt tightening |
@@ -2745,6 +2939,7 @@ Packet Structure (max 187 bytes):
 **Step-by-Step Installation:**
 
 **Step 1: Tower Selection (10 minutes)**
+
 - Inspect towers 2, 3, and 4 for structural integrity
 - Check for weld cracks, rust, or deformation
 - Select tower with best electrical access
@@ -2752,6 +2947,7 @@ Packet Structure (max 187 bytes):
 - Mark selected tower with spray paint
 
 **Step 2: Bracket Mounting (20 minutes)**
+
 - Position stainless bracket at desired height (10-15 feet)
 - Align with pivot span direction of travel
 - Install U-bolts with anti-seize compound
@@ -2759,16 +2955,19 @@ Packet Structure (max 187 bytes):
 - Verify no movement with 50-lb lateral force
 
 **Step 3: Spring Isolator Installation (15 minutes)**
+
 - Mount 4× Vibrashock VSG-1 isolators to bracket
 - Torque to 8 ft-lb
 - Verify 0.5" travel range
 
 **Step 4: Enclosure Mounting (10 minutes)**
+
 - Attach Polycase ML-44F to isolators
 - Orient with cable glands facing down
 - Torque screws to 6 ft-lb
 
 **Step 5: Antenna Installation (15 minutes)**
+
 - Mount LoRa antenna (3ft whip) to top of bracket
 - Spring base oriented for flex in wind
 - Route coax through gland, seal with silicone
@@ -2776,6 +2975,7 @@ Packet Structure (max 187 bytes):
 - Route GPS cable separately from power
 
 **Step 6: Electrical Connection (20 minutes)**
+
 - Locate 12V tap in pivot panel
 - Verify voltage: 11.5-14.5V acceptable
 - Install 5A inline fuse
@@ -2784,6 +2984,7 @@ Packet Structure (max 187 bytes):
 - Test: LED indicators illuminate
 
 **Step 7: Flow Meter Installation (30 minutes)**
+
 - Locate discharge pipe (downstream of pump, upstream of pivot)
 - Clean pipe surface (remove paint, rust)
 - Apply coupling compound
@@ -2793,14 +2994,17 @@ Packet Structure (max 187 bytes):
 - Connect cable to PMT
 
 **Step 8: Initial Power-On (10 minutes)**
+
 - Switch on at pivot panel
 - Observe PMT LED sequence:
+
   - Red solid: Booting (30 seconds)
   - Red blink: GNSS acquisition (up to 10 minutes)
   - Green solid: RTK fix achieved
   - Blue blink: LoRa transmission active
 
 **Step 9: GNSS Configuration (20 minutes)**
+
 - Connect tablet via BLE
 - Launch FarmSense Field Config app
 - Verify RTK base station connectivity
@@ -2809,18 +3013,21 @@ Packet Structure (max 187 bytes):
 - Save to device registry
 
 **Step 10: IMU Calibration (15 minutes)**
+
 - Command from app: "Start IMU Calibration"
 - Keep PMT stationary for 30 seconds
 - Verify all 9 axes report valid values
 - Save calibration to flash
 
 **Step 11: LoRa Range Test (15 minutes)**
+
 - Command: "Test Chirp"
 - Verify DHU acknowledgment
 - Check RSSI: should be >-100dBm
 - If weak, adjust antenna position
 
 **Step 12: Full Rotation Test (30 minutes)**
+
 - Start pivot in slow mode
 - Monitor GNSS track on app
 - Verify continuous position updates
@@ -2829,12 +3036,14 @@ Packet Structure (max 187 bytes):
 - Verify pivot stop detected
 
 **Step 13: Flow Zero Calibration (15 minutes)**
+
 - Ensure pump is off
 - Command: "Calibrate Flow Zero"
 - Wait for stable reading (2 minutes)
 - Save zero offset
 
 **Step 14: Documentation (10 minutes)**
+
 - Photograph installation
 - Record final GPS coordinates (decimal degrees, 8 decimal places)
 - Log firmware version
@@ -2843,6 +3052,7 @@ Packet Structure (max 187 bytes):
 - Upload to asset management system
 
 **Post-Installation Verification (24-hour):**
+
 - Check for 24 hours of continuous telemetry
 - Verify hourly chirps received at DHU
 - Confirm battery voltage stable
@@ -2868,10 +3078,12 @@ Packet Structure (max 187 bytes):
 | Maturity | 105-120 | 36" | 60% | 70-90 |
 
 **Critical Periods:**
+
 - Tasseling/Silking: Never allow stress; yield reduction permanent
 - Grain fill: Moderate stress acceptable; early stress reduces kernel depth
 
 **Kc Values (Crop Coefficient):**
+
 | Stage | Kc | ET₀ Multiplier |
 |-------|-----|----------------|
 | Initial | 0.3 | Low demand |
@@ -2894,6 +3106,7 @@ Packet Structure (max 187 bytes):
 | Maturity | July | 60% | Allow dry-down |
 
 **Frost Risk Integration:**
+
 - Green-up irrigation delays: Account for frost risk in scheduling
 - Tender growth stages: Avoid saturation before freeze events
 
@@ -2910,6 +3123,7 @@ Packet Structure (max 187 bytes):
 | Maturity | 100-120 | 36" | 50% | Allow dry-down |
 
 **Nodulation Consideration:**
+
 - Rhizobia activity requires moist (not saturated) soil
 - First irrigation timing affects nodulation establishment
 
@@ -2918,6 +3132,7 @@ Packet Structure (max 187 bytes):
 ### Regional Dielectric Reference Tables (Additional Soils)
 
 **Hooper Sandy Clay Loam:**
+
 | Depth (cm) | Target VWC | Dielectric ε | Bulk Density |
 |------------|------------|--------------|--------------|
 | 10 | 19% | 5.50 | 1.42 |
@@ -2927,6 +3142,7 @@ Packet Structure (max 187 bytes):
 | 120 | 31% | 8.30 | 1.50 |
 
 **Olney Fine Sandy Loam:**
+
 | Depth (cm) | Target VWC | Dielectric ε | Bulk Density |
 |------------|------------|--------------|--------------|
 | 10 | 14% | 4.20 | 1.38 |
@@ -2936,6 +3152,7 @@ Packet Structure (max 187 bytes):
 | 120 | 26% | 6.90 | 1.46 |
 
 **Weld Clay:**
+
 | Depth (cm) | Target VWC | Dielectric ε | Bulk Density |
 |------------|------------|--------------|--------------|
 | 10 | 24% | 7.10 | 1.48 |
@@ -2949,6 +3166,7 @@ Packet Structure (max 187 bytes):
 ### Expanded Quality Assurance Test Results
 
 **Salt Fog Corrosion (ASTM B117):**
+
 - Duration: 1,000 hours continuous
 - Concentration: 5% NaCl, 35°C
 - Result: No corrosion on SS-304, minimal on SS-316
@@ -2956,6 +3174,7 @@ Packet Structure (max 187 bytes):
 - Status: PASS for SLV alkali environment
 
 **Thermal Shock (MIL-STD-810H Method 503.7):**
+
 - Range: -40°C to +70°C
 - Rate: 10°C/minute
 - Cycles: 100
@@ -2963,6 +3182,7 @@ Packet Structure (max 187 bytes):
 - Status: PASS
 
 **Solar Radiation (MIL-STD-810H Method 505.7):**
+
 - Irradiance: 1,120 W/m² (simulated 8,000ft altitude)
 - Duration: 500 hours
 - UV-B enhanced
@@ -2970,6 +3190,7 @@ Packet Structure (max 187 bytes):
 - Status: PASS (coated), CONDITIONAL (uncoated)
 
 **Dust (MIL-STD-810H Method 510.7):**
+
 - Dust composition: Arizona road dust (alkali-rich)
 - Concentration: 10 g/m³
 - Duration: 6 hours
@@ -2977,12 +3198,14 @@ Packet Structure (max 187 bytes):
 - Status: PASS
 
 **Icing/Freezing Rain (MIL-STD-810H Method 521.4):**
+
 - Ice accumulation: 6mm
 - Duration: 4 hours
 - Result: Antenna ice loading acceptable, heating elements effective
 - Status: PASS
 
 **Combined Environmental (Sequential):**
+
 - Low temp storage: -40°C, 24hr
 - High temp storage: +70°C, 24hr
 - Temperature shock: -40°C to +70°C, 5 cycles
@@ -2995,6 +3218,7 @@ Packet Structure (max 187 bytes):
 ### Maintenance Schedule Detailed
 
 **Daily (Automated Monitoring):**
+
 | Check | Threshold | Alert |
 |-------|-----------|-------|
 | PMT last chirp | >1 hour ago | WARNING |
@@ -3005,6 +3229,7 @@ Packet Structure (max 187 bytes):
 | DHU link status | >4 hours down | CRITICAL |
 
 **Weekly (Field Technician):**
+
 | Task | Duration | Tools |
 |------|----------|-------|
 | DHU solar panel cleaning | 15 min | Soft brush, distilled water |
@@ -3013,6 +3238,7 @@ Packet Structure (max 187 bytes):
 | Backup battery check | 5 min | Multimeter |
 
 **Monthly (Service Visit):**
+
 | Task | Duration |
 |------|----------|
 | PMT battery voltage log download | 15 min |
@@ -3022,6 +3248,7 @@ Packet Structure (max 187 bytes):
 | Firmware version audit | 5 min |
 
 **Quarterly (Maintenance Crew):**
+
 | Task | Duration |
 |------|----------|
 | Deep diagnostics on 10% sample | 4 hours |
@@ -3030,6 +3257,7 @@ Packet Structure (max 187 bytes):
 | Calibration drift check | 2 hours per field |
 
 **Annually (Factory Service):**
+
 | Task | Duration |
 |------|----------|
 | Full extraction and Sled Hospital processing | 2 days per 100 fields |
@@ -3037,7 +3265,6 @@ Packet Structure (max 187 bytes):
 | Firmware major updates | Overnight batch |
 | Calibration recertification | 30 min per VFA |
 | Structural inspection (enclosures) | Visual only |
-
 
 ### Additional API Endpoints (Complete Specification)
 
@@ -3201,6 +3428,7 @@ Messages:
 **Technical Approach (Excerpt):**
 
 Phase I Objectives:
+
 1. Validate $54.30 LRZ2 sensor accuracy vs. $500 laboratory-standard probes
 2. Demonstrate 4-year battery life in field conditions
 3. Achieve <5% MAPE kriging accuracy with 16-node field density
@@ -3212,11 +3440,13 @@ Innovation: Novel capacitive dielectric measurement through molded HDPE wall, el
 Market Entry: SLV Subdistrict 1 (1,280 fields, captive market due to $500/AF pumping fees)
 
 Go-to-Market:
+
 - Year 1-2: Direct sales to early adopters (CSU validation)
 - Year 3-5: NRCS Conservation Innovation Grants fund 50% farmer cost
 - Year 5+: Channel partnerships with irrigation dealers
 
 **Team Qualifications:**
+
 - PI: [CSU hydrology PhD, 20 years SLV research]
 - Hardware Lead: [20 years RF/embedded, AgTech background]
 - Commercialization: [Jeremy Beebe, proven AgTech exit]
@@ -3248,6 +3478,7 @@ Go-to-Market:
 **mTLS Configuration:**
 
 Field Device Certificates:
+
 - Issuer: FarmSense Private CA (offline root, online intermediate)
 - Key type: ECDSA P-256
 - Validity: 2 years with auto-renewal
@@ -3255,6 +3486,7 @@ Field Device Certificates:
 - Chain: Device → Intermediate CA → Root CA (embedded)
 
 Service Mesh (Istio):
+
 - Strict mTLS: All pod-to-pod communication
 - Certificate rotation: 24 hours before expiry
 - Revocation: OCSP stapling, CRL distribution
@@ -3262,12 +3494,14 @@ Service Mesh (Istio):
 **Field Device Security:**
 
 Boot Sequence:
+
 1. Secure boot: Signed firmware only (ECDSA verification)
 2. Key derivation: Hardware PUF (Physical Unclonable Function)
 3. Certificate provisioning: JIT during manufacturing
 4. Network join: Mutual auth with DHU gateway
 
 Runtime Protections:
+
 - JTAG disabled (fuse-blown)
 - Debug UART: Requires physical access + password
 - Firmware updates: Signed, encrypted, rollback-protected
@@ -3316,12 +3550,14 @@ June 15, 2026 (all times MDT):
 **Water Saved Calculation:**
 
 Without detection:
+
 - Duration until farmer's morning check: ~6 hours (09:00 - 03:00)
 - Excess flow: 397 GPM above baseline
 - Water lost: 397 GPM × 360 min = 143,000 gallons = 0.44 AF
 - Cost at $500/AF: $220
 
 With FarmSense detection:
+
 - Detection to halt: 1 second
 - Water lost: 397 GPM × 0.017 min = 6.7 gallons = negligible
 - Cost: $0
@@ -3429,7 +3665,6 @@ With FarmSense detection:
 | WORM | Write Once Read Many | Immutable storage |
 | Zo | Core Compute Server | FarmSense cloud brain |
 
-
 ### Detailed Error Codes and Diagnostics
 
 **PMT Fault Code Reference:**
@@ -3512,12 +3747,14 @@ With FarmSense detection:
 **Certification Curriculum:**
 
 **Module 1: Agriculture Fundamentals (8 hours)**
+
 - Soil physics and water movement
 - Crop water requirements
 - Irrigation systems (pivot, flood, drip)
 - SLV specific challenges (alkali, wind, cold)
 
 **Module 2: Hardware Systems (16 hours)**
+
 - PMT installation and calibration
 - VFA insertion and extraction procedures
 - PFA safety systems
@@ -3525,6 +3762,7 @@ With FarmSense detection:
 - DHU/RSS overview
 
 **Module 3: Software and Diagnostics (12 hours)**
+
 - Dashboard navigation
 - Alert interpretation
 - Firmware updates
@@ -3532,12 +3770,14 @@ With FarmSense detection:
 - Support ticket escalation
 
 **Module 4: Safety and Compliance (4 hours)**
+
 - Tower work safety (OSHA)
 - Electrical safety (lockout/tagout)
 - Confined space (VFA extraction)
 - Water Court documentation
 
 **Exam:**
+
 - Written: 80% to pass
 - Practical: Install PMT + VFA in <4 hours
 - Recertification: Annual, 4-hour update
@@ -3556,12 +3796,14 @@ With FarmSense detection:
 | US-2025-004 | Adaptive Recalculation Based on Environmental Volatility | Pending | US |
 
 **Trade Secrets:**
+
 - Kriging variogram parameters (tuned for SLV)
 - Dielectric calibration curves (site-specific)
 - LSTM training weights
 - PBFT consensus optimization
 
 **Trademarks:**
+
 - FarmSense® (Class 9, 42)
 - Digital Water Ledger® (Class 9)
 - Hydrologic Oracle™ (Class 42)
@@ -3651,7 +3893,6 @@ With FarmSense detection:
 *Version 2.0 | Academic & Investor Vetting Ready*
 *Total Lines: 4,000+ | All Facts, No Filler*
 
-
 ### Additional Technical Reference Tables
 
 **LoRaWAN Regional Parameters (North America):**
@@ -3735,6 +3976,7 @@ With FarmSense detection:
 **Crop Coefficient (Kc) Curves:**
 
 **Potato:**
+
 | Growth Stage | Days | Kc | Description |
 |------------|------|-----|-------------|
 | Initial | 1-30 | 0.50 | Emergence to 10% ground cover |
@@ -3744,6 +3986,7 @@ With FarmSense detection:
 | Harvest | 121-130 | 0.85-0.40 | Dry-down |
 
 **Alfalfa:**
+
 | Cut | Kc Initial | Kc Mid | Notes |
 |-----|------------|--------|-------|
 | 1st | 0.40 | 1.05 | Establishment |
@@ -3811,7 +4054,6 @@ With FarmSense detection:
 | Academic Vetting | Ready |
 | Investor Vetting | Ready |
 
-
 ### Command Reference: Field Technician Quick Guide
 
 **PMT CLI Commands (BLE Maintenance Mode):**
@@ -3847,6 +4089,7 @@ With FarmSense detection:
 **Emergency Procedures:**
 
 **Pivot Stall During Irrigation:**
+
 1. PMT detects stall (IMU spike >3g)
 2. PMT issues ACTUATE_STOP to PFA
 3. PFA opens safety relay (<50ms)
@@ -3856,6 +4099,7 @@ With FarmSense detection:
 7. Manual reset required at PMT
 
 **Underground Line Break:**
+
 1. PFA detects flow rate drop (>30%)
 2. PFA detects pressure drop (<20 PSI)
 3. ACTUATE_STOP triggered
@@ -3865,6 +4109,7 @@ With FarmSense detection:
 7. Restart sequence with full calibration
 
 **DHU Failure During Active Irrigation:**
+
 1. PMT loses DHU heartbeat (>4 hours)
 2. PMT enters ISLAND_MODE
 3. PMT executes last valid worksheet
@@ -3874,6 +4119,7 @@ With FarmSense detection:
 7. On DHU restoration, sync backlog
 
 **VFA Breach (Flooding):**
+
 1. VFA detects >95% VWC (saturation)
 2. Emergency chirp to PMT (immediate, not batched)
 3. PMT forwards to DHU with PRIORITY_CRITICAL
@@ -3893,6 +4139,7 @@ With FarmSense detection:
 | 2.1 | 2026-03-11 | FarmSense Team | Expanded technical tables, 4,000+ line target | Investor review |
 
 **Distribution List:**
+
 | Role | Access | Format |
 |------|--------|--------|
 | CEO (Jeremy Beebe) | Full | Digital + printed |
@@ -3904,12 +4151,14 @@ With FarmSense detection:
 | Regulators (DWR) | Parts I, XII, XVI | PDF submission |
 
 **Review Cycle:**
+
 - Technical content: Quarterly
 - Financial projections: Monthly
 - Grant deadlines: Weekly
 - Legal compliance: Annual
 
 **Feedback:**
+
 - Technical issues: engineering@farmsense.io
 - Documentation issues: docs@farmsense.io
 - Updates: Submit PR to github.com/bxthre3/farmsense-docs
@@ -3942,10 +4191,10 @@ With FarmSense detection:
 
 **END OF FARM SENSE MASTER MANUAL: COMPREHENSIVE V2.0**
 
-
 ### Supplementary Data Tables
 
 **MCU Comparison (Field Devices):**
+
 | MCU | Flash | RAM | GPIO | LoRa | BLE | Cost | Used In |
 |-----|-------|-----|------|------|-----|------|---------|
 | nRF52840 | 1MB | 256KB | 48 | Yes | 5.0 | $4.50 | PFA, VFA, LRZ2 |
@@ -3953,6 +4202,7 @@ With FarmSense detection:
 | STM32L4 | 1MB | 128KB | 51 | External | 5.0 | $3.20 | Alternative |
 
 **Battery Capacity by Device:**
+
 | Device | Chemistry | Capacity | Voltage | Wh | Life |
 |--------|-----------|----------|---------|-------|------|
 | LRZ1 | LiSOCl2 | 2.6Ah | 3.6V | 9.4 | 4+ yr |
@@ -3963,6 +4213,7 @@ With FarmSense detection:
 | DHU | LiFePO4 | 200Ah | 12V | 2400 | 7+ day |
 
 **Cable Specifications:**
+
 | Cable | Gauge | Conductors | Shield | Use | Length |
 |-------|-------|------------|--------|-----|--------|
 | Power (PMT) | 16 AWG | 2 | None | 12V supply | 25 ft |
@@ -3971,6 +4222,7 @@ With FarmSense detection:
 | LoRa antenna | LMR-195 | 1 | Braid | RFM95W | 3 ft |
 
 **Torque Specifications:**
+
 | Fastener | Size | Torque | Tool |
 |----------|------|--------|------|
 | U-bolt (PMT bracket) | 3/8" | 15 ft-lb | Torque wrench |
@@ -3981,6 +4233,7 @@ With FarmSense detection:
 | Flow clamp | N/A | 25 ft-lb | Torque wrench |
 
 **Error Code Quick Reference:**
+
 | Device | Code | Meaning | Severity |
 |--------|------|---------|----------|
 | PMT | 0x01 | Init fail | HIGH |
@@ -4001,7 +4254,6 @@ All Technical Specifications Included
 Hierarchy Verified: PMT = Field Aggregator
 Distinction Verified: LRZ1 ≠ LRZ2
 Academic & Investor Vetting Ready
-
 
 ---
 

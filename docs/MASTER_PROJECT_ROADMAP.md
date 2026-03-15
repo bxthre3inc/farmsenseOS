@@ -39,9 +39,11 @@ This constitutes the authoritative statistical grounding for all market sizing a
 - **The Hydro-Economic Crisis**: Aquifer depletion of 89,000 acre-feet/year. Groundwater extraction fees at **$500/acre-foot**.
 - **Financial Savings**: 52 AF average savings per pivot = **$26,000/year operational savings** per field.
 - **TAM (Subdistrict 1 Bulk Rollout)**:
+
   - **Hardware CapEx (One-time)**: $1,423,360 (at $1,112/PMT and $158.20/VFA scale).
   - **SaaS ARR (Gold Truth)**: $7.6M/year at Enterprise rates ($30/acre).
   - **Total Phase 1/2 Pilot Cost (2 Fields)**: **$12,450** (Estimated Single-Unit BOM).
+
 - **Phase 2 Expansion (Full Truth)**: Estimated **$3,970,638** (total CAPEX for 18-node density).
 
 ### 2.1 The Revenue Model: The "Resolution Pop"

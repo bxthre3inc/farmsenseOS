@@ -174,6 +174,7 @@ Messages:
 **Technical Approach (Excerpt):**
 
 Phase I Objectives:
+
 1. Validate $54.30 LRZ2 sensor accuracy vs. $500 laboratory-standard probes
 2. Demonstrate 4-year battery life in field conditions
 3. Achieve <5% MAPE kriging accuracy with 16-node field density
@@ -185,11 +186,13 @@ Innovation: Novel capacitive dielectric measurement through molded HDPE wall, el
 Market Entry: SLV Subdistrict 1 (1,280 fields, captive market due to $500/AF pumping fees)
 
 Go-to-Market:
+
 - Year 1-2: Direct sales to early adopters (CSU validation)
 - Year 3-5: NRCS Conservation Innovation Grants fund 50% farmer cost
 - Year 5+: Channel partnerships with irrigation dealers
 
 **Team Qualifications:**
+
 - PI: [CSU hydrology PhD, 20 years SLV research]
 - Hardware Lead: [20 years RF/embedded, AgTech background]
 - Commercialization: [Jeremy Beebe, proven AgTech exit]
@@ -221,6 +224,7 @@ Go-to-Market:
 **mTLS Configuration:**
 
 Field Device Certificates:
+
 - Issuer: FarmSense Private CA (offline root, online intermediate)
 - Key type: ECDSA P-256
 - Validity: 2 years with auto-renewal
@@ -228,6 +232,7 @@ Field Device Certificates:
 - Chain: Device → Intermediate CA → Root CA (embedded)
 
 Service Mesh (Istio):
+
 - Strict mTLS: All pod-to-pod communication
 - Certificate rotation: 24 hours before expiry
 - Revocation: OCSP stapling, CRL distribution
@@ -235,12 +240,14 @@ Service Mesh (Istio):
 **Field Device Security:**
 
 Boot Sequence:
+
 1. Secure boot: Signed firmware only (ECDSA verification)
 2. Key derivation: Hardware PUF (Physical Unclonable Function)
 3. Certificate provisioning: JIT during manufacturing
 4. Network join: Mutual auth with DHU gateway
 
 Runtime Protections:
+
 - JTAG disabled (fuse-blown)
 - Debug UART: Requires physical access + password
 - Firmware updates: Signed, encrypted, rollback-protected
@@ -289,12 +296,14 @@ June 15, 2026 (all times MDT):
 **Water Saved Calculation:**
 
 Without detection:
+
 - Duration until farmer's morning check: ~6 hours (09:00 - 03:00)
 - Excess flow: 397 GPM above baseline
 - Water lost: 397 GPM × 360 min = 143,000 gallons = 0.44 AF
 - Cost at $500/AF: $220
 
 With FarmSense detection:
+
 - Detection to halt: 1 second
 - Water lost: 397 GPM × 0.017 min = 6.7 gallons = negligible
 - Cost: $0

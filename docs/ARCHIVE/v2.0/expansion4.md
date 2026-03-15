@@ -94,12 +94,14 @@ Drift Aversion: REQUIRED
 **Certification Curriculum:**
 
 **Module 1: Agriculture Fundamentals (8 hours)**
+
 - Soil physics and water movement
 - Crop water requirements
 - Irrigation systems (pivot, flood, drip)
 - SLV specific challenges (alkali, wind, cold)
 
 **Module 2: Hardware Systems (16 hours)**
+
 - PMT installation and calibration
 - VFA insertion and extraction procedures
 - PFA safety systems
@@ -107,6 +109,7 @@ Drift Aversion: REQUIRED
 - DHU/RSS overview
 
 **Module 3: Software and Diagnostics (12 hours)**
+
 - Dashboard navigation
 - Alert interpretation
 - Firmware updates
@@ -114,12 +117,14 @@ Drift Aversion: REQUIRED
 - Support ticket escalation
 
 **Module 4: Safety and Compliance (4 hours)**
+
 - Tower work safety (OSHA)
 - Electrical safety (lockout/tagout)
 - Confined space (VFA extraction)
 - Water Court documentation
 
 **Exam:**
+
 - Written: 80% to pass
 - Practical: Install PMT + VFA in <4 hours
 - Recertification: Annual, 4-hour update
@@ -138,12 +143,14 @@ Drift Aversion: REQUIRED
 | US-2025-004 | Adaptive Recalculation Based on Environmental Volatility | Pending | US |
 
 **Trade Secrets:**
+
 - Kriging variogram parameters (tuned for SLV)
 - Dielectric calibration curves (site-specific)
 - LSTM training weights
 - PBFT consensus optimization
 
 **Trademarks:**
+
 - FarmSense® (Class 9, 42)
 - Digital Water Ledger® (Class 9)
 - Hydrologic Oracle™ (Class 42)

@@ -76,6 +76,7 @@ Response Schema (429 Rate Limited):
 **GET /v1/fields/{id}/moisture**
 
 Query Parameters:
+
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | resolution | enum | No | "1m" | "1m", "10m", "20m", "50m" |
@@ -148,6 +149,7 @@ Response Schema:
 ### Extended Soil Physics Tables
 
 #### Particle Size Distribution by SLV Series
+
 | Series | Sand % | Silt % | Clay % | USDA Class |
 |--------|--------|--------|--------|------------|
 | San Luis | 65 | 25 | 10 | Sandy loam |
@@ -158,6 +160,7 @@ Response Schema:
 | Hooper | 70 | 20 | 10 | Sandy loam |
 
 #### Moisture Retention Curves (van Genuchten Parameters)
+
 | Series | θs | θr | α (1/cm) | n | Ks (cm/day) |
 |--------|-----|-----|----------|---|-------------|
 | San Luis | 0.45 | 0.08 | 0.035 | 1.8 | 45 |
@@ -165,6 +168,7 @@ Response Schema:
 | Alamosa | 0.52 | 0.12 | 0.025 | 2.1 | 8 |
 
 #### Infiltration Rates by Initial Moisture
+
 | Initial VWC | Gunbarrel | San Luis | Alamosa |
 |-------------|-----------|----------|---------|
 | 0.05 (dry) | 15 cm/hr | 8 cm/hr | 2 cm/hr |
@@ -176,6 +180,7 @@ Response Schema:
 #### VFA Calibration Protocol
 
 **Step 1: Factory Calibration**
+
 | Standard | VWC | EC (dS/m) | Temperature |
 |----------|-----|-----------|-------------|
 | Air dry | 0.00 | 0.00 | 25°C |
@@ -184,6 +189,7 @@ Response Schema:
 | 0.1M NaCl | 1.00 | 11.0 | 25°C |
 
 **Step 2: Field Calibration**
+
 1. Collect undisturbed soil core at 30cm
 2. Measure volumetrically (core method)
 3. Install VFA at same location
@@ -192,6 +198,7 @@ Response Schema:
 6. Update device EEPROM with coefficients
 
 **Step 3: Validation**
+
 | Check | Tolerance | Action if Fail |
 |-------|-----------|----------------|
 | Replicate cores | ±2% VWC | Recalibrate |
@@ -201,18 +208,21 @@ Response Schema:
 #### PMT Flow Meter Calibration
 
 **Zero Calibration (Dry Pipe):**
+
 1. Close all valves downstream
 2. Ensure pipe is full but static
 3. Record TFX-5000 zero offset
 4. Store in EEPROM
 
 **Span Calibration (Known Flow):**
+
 1. Install inline reference meter (±0.5%)
 2. Run pump at 25%, 50%, 75%, 100% capacity
 3. Record TFX readings vs reference
 4. Calculate linear correction: Q_corrected = m × Q_raw + b
 
 **Field Verification (Quarterly):**
+
 | Test | Method | Tolerance |
 |------|--------|-----------|
 | Zero | Static full pipe | ±0.5 GPM |
@@ -224,6 +234,7 @@ Response Schema:
 #### PMT State Machine (Detailed)
 
 States:
+
 | State | Entry Condition | Activities | Exit Condition |
 |-------|-----------------|------------|----------------|
 | INIT | Power-on | Self-test, load config | Test pass → SLEEP |
@@ -236,6 +247,7 @@ States:
 | FAULT | Error detected | Logging, alerting, 45mA | Recovery or manual reset |
 
 Transitions:
+
 | From | To | Trigger |
 |------|-----|---------|
 | SLEEP | PULSE | RTC timer (4hr/1hr/15min/5sec based on mode) |
@@ -248,6 +260,7 @@ Transitions:
 #### VFA State Machine
 
 States:
+
 | State | Power | Activities |
 |-------|-------|------------|
 | DEEP_SLEEP | 2µA | RTC, wake on interrupt |
@@ -255,6 +268,7 @@ States:
 | RIPPLE_RESPOND | 18mA | Faster sampling when PMT requests |
 
 Chirp Interval Table:
+
 | Mode | Interval | Battery Life |
 |------|----------|--------------|
 | Standard | 4 hours | 4.2 years |
@@ -264,6 +278,7 @@ Chirp Interval Table:
 ### Extended Supply Chain Details
 
 #### Critical Components Lead Times
+
 | Component | Supplier | Lead Time | MOQ | Strategic Stock |
 |-------------|----------|-----------|-----|-----------------|
 | nRF52840-QIAA | Nordic | 16 weeks | 1,000 | 3 months |
@@ -276,6 +291,7 @@ Chirp Interval Table:
 | HDPE SDR9 pipe | Local | 2 weeks | 500 ft | 1 month |
 
 #### Supplier Diversification Strategy
+
 | Component | Primary | Secondary | Tertiary |
 |-----------|---------|-----------|----------|
 | LoRa modules | RAK | Ebyte | HopeRF |
@@ -288,6 +304,7 @@ Chirp Interval Table:
 #### Environmental Stress Testing (Full Suite)
 
 **Thermal Shock (MIL-STD-810H Method 503.7):**
+
 | Cycle | Low (°C) | High (°C) | Dwell (min) | Transitions |
 |-------|----------|-----------|-------------|-------------|
 | 1 | -40 | +85 | 30 | 5 |
@@ -296,6 +313,7 @@ Chirp Interval Table:
 | Pass Criteria | No functional degradation | | | |
 
 **Salt Fog (MIL-STD-810H Method 509.7):**
+
 | Parameter | Value |
 |-----------|-------|
 | Concentration | 5% NaCl |
@@ -304,6 +322,7 @@ Chirp Interval Table:
 | Pass Criteria | No corrosion on critical surfaces |
 
 **Solar Radiation (MIL-STD-810H Method 505.7):**
+
 | Parameter | Value |
 |-----------|-------|
 | Irradiance | 1120 W/m² |
@@ -312,6 +331,7 @@ Chirp Interval Table:
 | Pass Criteria | <5% polymer degradation |
 
 #### EMC Testing (FCC Part 15)
+
 | Test | Standard | Limit | Margin |
 |------|----------|-------|--------|
 | Radiated emissions | CISPR 22 | Class B | 6 dB |
@@ -324,6 +344,7 @@ Chirp Interval Table:
 ### Extended Financial Models
 
 #### Grant Funding Timeline
+
 | Quarter | Grant | Amount | Probability | Expected Value |
 |---------|-------|--------|-------------|----------------|
 | Q1 2026 | USDA SBIR I | $300K | 60% | $180K |
@@ -335,6 +356,7 @@ Chirp Interval Table:
 | **Total Expected** | | | | **$4.05M** |
 
 #### Investor Return Scenarios
+
 | Scenario | Exit Year | Valuation | Return Multiple |
 |----------|-----------|-----------|-----------------|
 | Conservative | 2030 | $100M | 10x |
@@ -345,6 +367,7 @@ Chirp Interval Table:
 ### Extended Compliance Documentation
 
 #### Water Court Evidence Package
+
 | Document | Format | Signatures | Retention |
 |----------|--------|------------|-----------|
 | Daily telemetry logs | CSV | Ed25519 | 7 years |
@@ -354,6 +377,7 @@ Chirp Interval Table:
 | Expert validation | PDF | Third-party signature | 10 years |
 
 #### NRCS Conservation Planning Integration
+
 | Resource Concern | FarmSense Metric | NRCS Code | Points |
 |------------------|------------------|-----------|--------|
 | Soil quality limitation | EC trends, VWC stability | 1A | 3 |

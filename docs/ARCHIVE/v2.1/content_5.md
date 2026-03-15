@@ -15,11 +15,13 @@ Drift Aversion: REQUIRED
 # PART VIII: THE PILOT MISSION SPECIFICATION
 
 ## 8.0 CSU San Luis Valley Research Center Pilot
+
 The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground truth for the June 29, 2026 Water Court trial.
 
 ## 8.1 Pilot Scope
 
 ### 8.1.1 Field Specifications
+
 | Attribute | Field A | Field B |
 |-----------|---------|---------|
 | Size | 126 acres | 118 acres |
@@ -30,6 +32,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | Pump capacity | 800 GPM | 750 GPM |
 
 ### 8.1.2 Hardware Deployment
+
 | Component | Field A | Field B | Total |
 |-----------|---------|---------|-------|
 | PMT | 1 | 1 | 2 |
@@ -40,6 +43,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | DHU (shared) | 1 | — | 1 |
 
 ### 8.1.3 Pilot Investment
+
 | Category | Amount |
 |----------|--------|
 | Hardware | $12,450 |
@@ -50,6 +54,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 ## 8.2 Timeline & Milestones
 
 ### 8.2.1 Pre-Season (March-April 2026)
+
 | Week | Activity | Deliverable |
 |------|----------|-------------|
 | 1-2 | Site survey, soil cores | Baseline characterization |
@@ -58,6 +63,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | 7-8 | Network commissioning | Chirp acknowledgments |
 
 ### 8.2.2 In-Season (May-September 2026)
+
 | Week | Activity | Deliverable |
 |------|----------|-------------|
 | 9-12 | Planting, sensor activation | Full telemetry |
@@ -66,6 +72,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | 31-34 | Harvest, data analysis | ROI verification |
 
 ### 8.2.3 Post-Season (October-November 2026)
+
 | Week | Activity | Deliverable |
 |------|----------|-------------|
 | 35-36 | Sensor extraction | Sled Hospital processing |
@@ -73,6 +80,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | 41-44 | Report generation | Submission to DWR |
 
 ## 8.3 Hardware Manifest
+
 | Component | Qty | Serial Range | Location |
 |-----------|-----|--------------|----------|
 | PMT V1.6 | 2 | PMT-260001/2 | Tower 2-3, Fields A/B |
@@ -85,6 +93,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 ## 8.4 Success Criteria
 
 ### 8.4.1 Technical Metrics
+
 | Metric | Target | Measurement |
 |--------|--------|-------------|
 | Kriging accuracy | <5% MAPE | VFA ground-truth validation |
@@ -93,6 +102,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | Yield improvement | 10%+ | Harvest weighing |
 
 ### 8.4.2 Legal Metrics
+
 | Metric | Target | Measurement |
 |--------|--------|-------------|
 | Data admissibility | Ruling in favor | Water Court decision |
@@ -104,14 +114,17 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 # PART IX: OPERATIONS & EXECUTION
 
 ## 9.0 Seasonal Operational Cycle
+
 FarmSense operates on a two-phase seasonal deployment model synchronized to agricultural cycles.
 
 ## 9.1 The Four Phases
 
 ### 9.1.1 Spring: Insertion (April-May)
+
 **Activity:** Deploy Alpha-Sleds into permanent HDPE SDR9 shells
 **Duration:** 15 minutes per sensor
 **Process:**
+
 1. Retrieve sleds from Sled Hospital
 2. Verify nitrogen pressure (>5 PSI)
 3. Insert into permanent shells
@@ -120,16 +133,20 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 6. Log deployment in field app
 
 ### 9.1.2 Summer: Active Season (June-September)
+
 **Activity:** Continuous monitoring, adaptive irrigation
 **Key Operations:**
+
 - Daily: Telemetry review, anomaly investigation
 - Weekly: Maintenance checks, battery monitoring
 - Monthly: Full system health report
 
 ### 9.1.3 Fall: Extraction (September-October)
+
 **Activity:** Remove Alpha-Sleds before harvest
 **Duration:** 10 minutes per sensor
 **Process:**
+
 1. Unlock retaining pins
 2. Extract sleds with stainless cable
 3. Cap HDPE shells with blanking plugs
@@ -139,8 +156,10 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 7. Store at 15°C, 40% RH
 
 ### 9.1.4 Winter: Hibernation (November-March)
+
 **Activity:** Sled Hospital operations, maintenance, planning
 **Tasks:**
+
 - Monthly: Battery health checks
 - Quarterly: Firmware updates (if needed)
 - Annual: Calibration recertification
@@ -149,9 +168,11 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 ## 9.2 Maintenance Operations
 
 ### 9.2.1 Sled Hospital Facility
+
 **Location:** Co-located with RSS (Monte Vista)
 **Capacity:** 500 Alpha-Sleds
 **Workflow:**
+
 | Step | Action | Duration |
 |------|--------|----------|
 | 1 | Receiving | 5 min |
@@ -164,6 +185,7 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 | **Total** | | **80 min per sled** |
 
 ### 9.2.2 Field Service Protocol
+
 | Severity | Issue | Response | Resolution |
 |----------|-------|----------|------------|
 | 1 | PMT failure | 4 hours | Replacement |
@@ -174,6 +196,7 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 ## 9.3 Fleet Operations Scale (1,280 Fields)
 
 ### 9.3.1 Resource Requirements
+
 | Metric | Value |
 |--------|-------|
 | Total nodes | 25,600 |
@@ -183,6 +206,7 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 | Service vehicles | 3 trucks |
 
 ### 9.3.2 Annual Cycles
+
 - Insertion: 25,600 sleds (April)
 - Extraction: 25,600 sleds (September)
 - Hospital processing: 51,200 operations/year
@@ -192,11 +216,13 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 # PART X: INFRASTRUCTURE & DEVOPS
 
 ## 10.0 Cloud Architecture
+
 FarmSense operates on AWS EKS with full GitOps automation.
 
 ## 10.1 AWS EKS Reference Architecture
 
 ### 10.1.1 Compute
+
 | Component | Specification |
 |-----------|-------------|
 | Node type | Graviton3 (ARM64) |
@@ -205,6 +231,7 @@ FarmSense operates on AWS EKS with full GitOps automation.
 | Auto-scaling | 3-20 nodes |
 
 ### 10.1.2 Storage
+
 | Volume | Size | IOPS | Throughput |
 |--------|------|------|------------|
 | PostgreSQL | 2TB | 16,000 | 1,000 MB/s |
@@ -213,6 +240,7 @@ FarmSense operates on AWS EKS with full GitOps automation.
 | Cold Archive | Glacier | N/A | N/A |
 
 ### 10.1.3 Database
+
 | Component | Specification |
 |-----------|-------------|
 | PostgreSQL | 15 (RDS) |
@@ -223,6 +251,7 @@ FarmSense operates on AWS EKS with full GitOps automation.
 ## 10.2 GitOps Strategy
 
 ### 10.2.1 Toolchain
+
 | Layer | Tool | Purpose |
 |-------|------|---------|
 | IaC | Terraform | Infrastructure definition |
@@ -230,6 +259,7 @@ FarmSense operates on AWS EKS with full GitOps automation.
 | CI/CD | GitHub Actions | Build, test, deploy |
 
 ### 10.2.2 Deployment Flow
+
 ```
 Push to main → GitHub Actions → Build → Test → Push to ECR → ArgoCD sync
 ```
@@ -237,12 +267,14 @@ Push to main → GitHub Actions → Build → Test → Push to ECR → ArgoCD sy
 ## 10.3 Disaster Recovery
 
 ### 10.3.1 Recovery Objectives
+
 | Metric | Target | Implementation |
 |--------|--------|----------------|
 | RPO | 5 minutes | Streaming replication |
 | RTO | 15 minutes | Automated failover |
 
 ### 10.3.2 "Hydraulic Blackout" Protocol
+
 | Component | Behavior | Duration |
 |-----------|----------|----------|
 | RSS | Autonomous operation | Indefinite |
@@ -255,16 +287,19 @@ Push to main → GitHub Actions → Build → Test → Push to ECR → ArgoCD sy
 # PART XI: CYBERSECURITY & SOVEREIGN HARDENING
 
 ## 11.0 Security Architecture
+
 FarmSense implements defense-in-depth with Zero-Trust principles.
 
 ## 11.1 Zero-Trust Architecture
 
 ### 11.1.1 Core Principles
+
 1. Never trust, always verify
 2. Least privilege access
 3. Assume breach
 
 ### 11.1.2 Implementation Layers
+
 | Layer | Control |
 |-------|---------|
 | Identity | SPIFFE/SPIRE workload identity |
@@ -275,6 +310,7 @@ FarmSense implements defense-in-depth with Zero-Trust principles.
 ## 11.2 eBPF Kernel Auditing (Falco)
 
 ### 11.2.1 Runtime Detection
+
 | Event | Action |
 |-------|--------|
 | Unauthorized process | Alert + log |
@@ -285,11 +321,13 @@ FarmSense implements defense-in-depth with Zero-Trust principles.
 ## 11.3 Lateral Movement Prevention
 
 ### 11.3.1 Network Policies
+
 - Default-deny ingress/egress
 - Explicit allow rules only
 - Field devices: No direct internet access
 
 ### 11.3.2 Pod Security
+
 - Read-only root filesystem
 - No privileged containers
 - Seccomp profiles (runtime syscall filtering)
@@ -299,11 +337,13 @@ FarmSense implements defense-in-depth with Zero-Trust principles.
 # PART XII: THE WATER COURT LEDGER
 
 ## 12.0 Legal Admissibility Framework
+
 The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard.
 
 ## 12.1 NREP Requirements
 
 ### 12.1.1 Five Pillars
+
 | Pillar | Implementation |
 |--------|----------------|
 | Authenticity | Ed25519 hardware-locked signatures |
@@ -315,11 +355,13 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 12.2 Cryptographic Chain of Custody
 
 ### 12.2.1 Merkle Tree Structure
+
 - Daily root hash commitment
 - PBFT consensus on DHU mesh
 - Immutable RSS vault
 
 ### 12.2.2 Digital Water Ledger (DWL) Export
+
 | Component | Format |
 |-------------|--------|
 | manifest.json | Root metadata, system signature |
@@ -330,6 +372,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 12.3 Data Sovereignty
 
 ### 12.3.1 Privacy Controls
+
 | Feature | Specification |
 |---------|---------------|
 | Federated learning | Model training without raw data download |
@@ -343,12 +386,14 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 13.0 Certification & Environmental Compliance
 
 ## 13.1 GlobalG.A.P. Compliance
+
 | Standard | Alignment | Automation |
 |----------|-----------|------------|
 | IFA | Audit trail generation | Automated |
 | Control Points | Compliance criteria | 95% automated |
 
 ## 13.2 Nitrogen Leaching Prevention
+
 | Method | Implementation |
 |--------|----------------|
 | Real-time nitrate monitoring | VFA EC sensors |
@@ -356,6 +401,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | VRA integration | Variable rate application coordination |
 
 ## 13.3 Carbon Sequestration Quantification
+
 | Component | Method |
 |-----------|--------|
 | Soil organic carbon | Change detection from baselines |
@@ -369,6 +415,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 14.0 Economics & Funding Strategy
 
 ## 14.1 10-Year Cash Flow Projections
+
 | Year | Revenue | Expenses | Net | Cumulative |
 |------|---------|----------|-----|------------|
 | 1 | $240K | $1.2M | -$960K | -$960K |
@@ -378,6 +425,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | 10 | $45M | $20M | $25M | $120M |
 
 ## 14.2 CAPEX/OPEX Breakdown (Subdistrict 1)
+
 | Category | Amount |
 |----------|--------|
 | Hardware | $3,822,720 |
@@ -389,6 +437,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | **Net Annual** | **$6,356,922** |
 
 ## 14.3 Strategic Exit Roadmap
+
 | Year | Event | Target Valuation |
 |------|-------|------------------|
 | 2028 | Series B | $50M |
@@ -402,6 +451,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 15.0 Non-Dilutive Capital Strategy
 
 ## 15.1 USDA & NRCS Portfolio
+
 | Program | Amount | Deadline | Status |
 |---------|--------|----------|--------|
 | SBIR Phase I | $300K | Mar 2026 | Preparing |
@@ -409,6 +459,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | CIG | $75K-$5M | Apr 2026 | Identified |
 
 ## 15.2 NSF & DOE Innovation
+
 | Program | Amount | Alignment |
 |---------|--------|-----------|
 | SBIR Phase I | $275K | ML stress detection |
@@ -416,6 +467,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | ARPA-E WATER | $3M-$5M | Novel water tech |
 
 ## 15.3 Philanthropic Integration
+
 | Program | Amount | Fit |
 |---------|--------|-----|
 | Gates Foundation | $1M-$50M | Smallholder scaling |
@@ -429,6 +481,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 16.0 2026 Pilot Results
 
 ## 16.1 Empirical Results
+
 | Metric | Control | FarmSense | Delta |
 |--------|---------|-----------|-------|
 | Water consumption | 258.4 AF | 204.2 AF | -21% |
@@ -437,14 +490,18 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | **Net ROI** | Baseline | +$38,450/field | — |
 
 ## 16.2 The "Reflex" Discovery
+
 **Week 12 Event:**
+
 - PFA detected 35 GPM sub-surface breach
 - Traditional monitoring: 4 days to identify
 - FarmSense "Reflex Halt": 4.5 seconds
 - Water saved: 1.2 AF in single event
 
 ## 16.3 Legal Validation: June 29, 2026 Trial
+
 **Evidence Presented:**
+
 - 6 months continuous telemetry
 - SHA-256 chained audit logs
 - Kriging validation (MAPE <5%)
@@ -459,9 +516,11 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 17.0 Supporting Technical Data
 
 ## 17.1 Appendix A: Full Bill of Materials (Master Catalog)
+
 See Section 5.8 for complete Subdistrict 1 BOM.
 
 ## 17.2 Appendix B: Mechanical Assembly Tolerances
+
 | Component | Tolerance | Critical |
 |-----------|-----------|----------|
 | VFA shell verticality | <2° | Yes |
@@ -470,12 +529,15 @@ See Section 5.8 for complete Subdistrict 1 BOM.
 | Flow clamp torque | 25 ft-lb | Yes |
 
 ## 17.3 Appendix C: Radio Propagation Models
+
 See Section 1.5 for complete telemetry architecture.
 
 ## 17.4 Appendix D: Soil Dielectric Reference Tables
+
 See Part VII, Section 7.3 for crop-specific calibrations.
 
 ## 17.5 Appendix E: Quality Assurance Test Results
+
 | Test | Standard | Result |
 |------|----------|--------|
 | Thermal cycling | MIL-STD-810H | PASS (-40°C to +85°C) |
@@ -483,6 +545,7 @@ See Part VII, Section 7.3 for crop-specific calibrations.
 | Water ingress | IP67 | PASS (1m, 30min) |
 
 ## 17.6 Appendix F: Global Hydrologic Basin Registry
+
 See Part VII, Section 7.5 for complete 40-basin registry.
 
 ---
@@ -492,6 +555,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 ## 18.0 Comprehensive Terminology Dictionary
 
 ### A
+
 **Adaptive Recalculation Engine** — Dynamic computation scheduler that adjusts sensor polling and kriging frequency based on environmental volatility. Modes: DORMANT, ANTICIPATORY, FOCUS RIPPLE, FOCUS COLLAPSE.
 
 **AES-256** — Advanced Encryption Standard with 256-bit keys. Used for all field telemetry encryption at the edge (nRF52840, ESP32-S3).
@@ -505,6 +569,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **Aquifer** — Underground geological formation containing groundwater. SLV relies on unconfined aquifer recharged by snowmelt.
 
 ### B
+
 **Black Box Cache** — 128GB Swissbit PSLC SSD in DHU that continuously records encrypted audit packets for 30 days during backhaul failures.
 
 **BLE 5.0/5.2/5.4** — Bluetooth Low Energy for technician maintenance access. Not used for field telemetry (replaced by 900MHz CSS LoRa).
@@ -512,6 +577,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **BOM** — Bill of Materials. Complete parts list with costs for all hardware variants.
 
 ### C
+
 **CSS LoRa** — Chirp Spread Spectrum LoRa modulation at 915MHz. Primary field telemetry protocol. See: LoRa.
 
 **CSA** — Corner-Swing Arm. Additional tracking device for pivot corners, provides BLE 5.2 distance ranging for ±0.1° joint resolution.
@@ -525,6 +591,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **Crop Coefficient (Kc)** — Dimensionless factor relating actual crop evapotranspiration to reference ET. Varies by growth stage.
 
 ### D
+
 **DHU** — District Hub. Level 2 infrastructure node. 35' pole-mounted, Orin Nano compute, 100-pivot radius, 30-day Black Box cache.
 
 **Digital Water Ledger (DWL)** — Cryptographically signed chain of custody for water usage data. Legally admissible in Water Court.
@@ -534,6 +601,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **DORMANT Mode** — Low-power adaptive engine state when conditions stable. 4-hour polling, 8µA power draw.
 
 ### E
+
 **Edge-EBK** — Empirical Bayesian Kriging executed at the edge (PMT). Generates 50m-resolution 16×16 probability matrix.
 
 **ESP32-S3** — MCU in PMT. Dual-core Xtensa LX7, vector FPU, 8MB flash, WiFi/BLE, 900MHz LoRa via RFM95W.
@@ -541,21 +609,25 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **ET (Evapotranspiration)** — Combined water loss from soil evaporation and plant transpiration. Key SPAC output.
 
 ### F
+
 **FHE** — Fully Homomorphic Encryption. Advanced privacy-preserving computation (future capability).
 
 **FOCUS RIPPLE** — Adaptive engine state triggered by >5% moisture deviation. 15-minute polling.
 
 ### G
+
 **GNSS** — Global Navigation Satellite System. PMT uses u-blox ZED-F9P RTK for sub-cm positioning.
 
 **GroPoint Profile** — Commercial soil moisture sensor used in VFA. Measures VWC, EC, temperature at multiple depths.
 
 ### H
+
 **HDPE SDR9** — High-Density Polyethylene pipe, Standard Dimension Ratio 9. Used for permanent VFA/LRZ outer shells.
 
 **Hydraulic Conductivity (Ksat)** — Rate at which water moves through saturated soil. Determines drainage class.
 
 ### I
+
 **IMU** — Inertial Measurement Unit. PMT uses Bosch BNO055 9-axis for tower stability and stall detection.
 
 **IDW** — Inverse Distance Weighting. Simple interpolation method used at edge for 20m grids.
@@ -563,14 +635,17 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **ISLAND Mode** — PMT autonomous operation when DHU offline >4 hours. Executes last valid worksheet.
 
 ### J
+
 **JADC2** — Joint All-Domain Command and Control (Inter-agency). Military integration specification (future).
 
 ### K
+
 **Kc** — See: Crop Coefficient.
 
 **Kriging** — Geostatistical interpolation method. FarmSense uses Ordinary Kriging (10m), Regression Kriging (1m), Edge-EBK (50m).
 
 ### L
+
 **LiFePO4** — Lithium Iron Phosphate battery chemistry. Used in DHU, PFA (safer, longer cycle life than Li-ion).
 
 **LiSOCl2** — Lithium Thionyl Chloride primary cell. Used in LRZ1/LRZ2 (10-year shelf life, low self-discharge).
@@ -584,6 +659,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **LTE-M** — LTE for Machines. Low-power cellular used for DHU-P backhaul fallback.
 
 ### M
+
 **MAD** — Management Allowable Depletion. Percentage of available soil water depletable before crop damage.
 
 **MAPE** — Mean Absolute Percentage Error. Kriging validation metric. Target <5%.
@@ -593,14 +669,17 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **MCU** — Microcontroller Unit. nRF52840 (field sensors), ESP32-S3 (PMT).
 
 ### N
+
 **nRF52840** — Nordic Semiconductor Bluetooth 5.2 SoC with ARM Cortex-M4. Used in VFA, PFA, LRZ1/LRZ2.
 
 **NREP** — Non-Repudiable Evidence Prime. Legal admissibility standard for Digital Water Ledger.
 
 ### O
+
 **Oracle** — See: Spatial Query Engine.
 
 ### P
+
 **PBFT** — Practical Byzantine Fault Tolerance. Consensus algorithm for Digital Water Ledger.
 
 **PFA** — Pressure & Flow Anchor. Wellhead sentry with flow meter, current clamps, pressure sensor, and actuation relay.
@@ -612,7 +691,9 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **PSLC** — Pseudo-Single Level Cell. Industrial SSD technology used in DHU Black Box cache (high endurance).
 
 ### Q
+
 ### R
+
 **RDC** — Regional Data Center. Map servers hosting Sentinel-2, Landsat, edaphic datasets.
 
 **Reflex Logic** — Autonomous safety decisions executed at edge without cloud dependency. <100ms response.
@@ -626,6 +707,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **RTK** — Real-Time Kinematic. GNSS correction technique achieving sub-cm accuracy.
 
 ### S
+
 **SAC305** — Lead-free solder alloy (Sn96.5/Ag3.0/Cu0.5). Used for all field hardware joints.
 
 **SFD** — Single Field Deployment. Hardware configurations: SFD-P (pivot), SFD-C (corner), SFD-F (flood).
@@ -641,6 +723,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **SQL** — Structured Query Language. FarmSense uses PostgreSQL with TimescaleDB extension.
 
 ### T
+
 **Telemetry** — Automated data transmission from sensors to aggregation points.
 
 **TFX-5000** — Badger Meter ultrasonic transit-time flow meter. ±1.0% accuracy, clamp-on installation.
@@ -648,9 +731,11 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **TimescaleDB** — PostgreSQL extension for time-series data. Hypertables chunked by 7 days.
 
 ### U
+
 **UFI** — Unified Freshwater Index. Proprietary water availability metric (Hex-Fusion).
 
 ### V
+
 **VFA** — Vertical Field Anchor. Deep-truth probe with 48" sensor profile. Reports **TO PMT**, not directly to DHU.
 
 **VPD** — Vapor Pressure Deficit. Atmospheric moisture demand driving transpiration.
@@ -660,6 +745,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **VWC** — Volumetric Water Content. Percentage of soil volume occupied by water.
 
 ### W
+
 **Water Battery** — Soil profile used as dynamic storage. MAD framework delays irrigation to maximize natural precipitation capture.
 
 **WORM** — Write Once Read Many. S3 Object Lock for compliance data (7-year retention).
@@ -667,8 +753,11 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **Worksheet** — Kriging output distributed from Zo to DHU/PMT containing irrigation prescriptions.
 
 ### X
+
 ### Y
+
 ### Z
+
 **Zero-Trust** — Security architecture assuming breach. Verifies every access request regardless of source.
 
 **Zo** — See: Core Compute Server.
@@ -678,6 +767,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 ## 18.1 Cross-Reference Index
 
 ### By Hardware Component
+
 | Term | Section | Definition |
 |------|---------|------------|
 | PMT | 5.3, 1.4.3 | Primary Field Aggregator |
@@ -689,6 +779,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 | RSS | 5.1 | Regional Superstation |
 
 ### By Software Component
+
 | Term | Section | Definition |
 |------|---------|------------|
 | Zo | 1.4.1 | Core Compute Server |
@@ -697,6 +788,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 | Edge-EBK | 5.3.6 | 50m Kriging at PMT |
 
 ### By Protocol
+
 | Term | Section | Definition |
 |------|---------|------------|
 | CSS LoRa | 1.5, 5.3.5 | 915MHz field telemetry |
@@ -705,6 +797,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 | mTLS | 11.1.2 | Service authentication |
 
 ### By Concept
+
 | Term | Section | Definition |
 |------|---------|------------|
 | SPAC | 1.2 | Soil-Plant-Atmosphere Continuum |

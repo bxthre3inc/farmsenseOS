@@ -13,6 +13,7 @@ Drift Aversion: REQUIRED
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
 # FarmSense Master Manual: The Deterministic Farming Operating System
+
 **Comprehensive Technical Specification V2.1**
 
 ---
@@ -42,33 +43,38 @@ Drift Aversion: REQUIRED
 *For complete subsection structure, see Appendix Z: Detailed Navigation Index*
 *For terminology definitions, see Appendix Y: Comprehensive Glossary & Dictionary*
 
-
 ---
-
 
 # PART I: EXECUTIVE FOUNDATION
 
 ## 1.0 Executive Summary
+
 FarmSense constitutes the definitive technical, operational, and financial deployment blueprint of a Deterministic Farming Operating System (DFOS), integrating across Subdistrict 1 of the San Luis Valley (SLV), Colorado.
 
 ### 1.0.1 Primary Objectives
+
 - 20–30% reduction in irrigation water consumption
 - 18–22% increase in crop return on investment (ROI)
 - Legally defensible Digital Water Ledger for Water Court admissibility
 
 ### 1.0.2 Core Innovation
+
 Replace stochastic, intuition-based agricultural practices with a high-fidelity, rule-based computational engine optimizing the Soil-Plant-Atmosphere Continuum (SPAC) using a multi-layered sensor network.
 
 ### 1.0.3 Economic Catalyst
+
 The Rio Grande Basin faces severe hydro-economic crisis. With 89,000 acre-foot annual aquifer depletion and $500/AF groundwater pumping fees (quadrupled from $75-150/AF), FarmSense shifts from agronomic optimization tool to legal necessity.
 
 ### 1.0.4 Leadership
+
 Jeremy Beebe serves as Chief Executive Officer of bxthre3 inc., with successful startup exit track record (Hempvada).
 
 ## 1.1 Hydro-Economic Logic and The Deterministic Paradigm
 
 ### 1.1.1 The San Luis Valley Crisis as Economic Multiplier
+
 **Geographic Context:**
+
 - Elevation: 7,500-8,000 feet above sea level
 - Precipitation: 7-10 inches annually
 - Irrigated agriculture: 300,000 acres dependent on snowmelt and aquifers
@@ -76,15 +82,18 @@ Jeremy Beebe serves as Chief Executive Officer of bxthre3 inc., with successful 
 - Annual aquifer depletion: 89,000 acre-feet
 
 ### 1.1.2 The $500/AF Fee Structure
+
 The Rio Grande Water Conservation District (RGWCD) implemented a punitive $500 per acre-foot groundwater pumping fee to combat over-consumption. This represents a quadrupling of previous costs ($75-150/AF).
 
 For a 126-acre center pivot consuming 252 AF/season:
+
 - 20% water reduction = 50.4 AF saved per season
 - 50.4 AF × $500/AF = $25,200 direct savings per pivot annually
 - FarmSense Enterprise Tier subscription: $499/month ($5,988/year)
 - First-year ROI: 421% return on subscription cost
 
 ### 1.1.3 The Deterministic Shift
+
 | Dimension | Current Industry Standard | FarmSense DFOS |
 |-----------|---------------------------|----------------|
 | Observation | Visual scouting / manual soil probe | 1m centimetric Kriging with ground-truth validation |
@@ -94,10 +103,13 @@ For a 126-acre center pivot consuming 252 AF/season:
 | Resolution | Field-scale (variable) | 1m grid, legally admissible |
 
 ## 1.2 SPAC Modeling and Edaphic Variability
+
 FarmSense utilizes 11 domain-specific, explainable engines. All irrigation and trading decisions are deterministic and judgment-based — a non-negotiable requirement for Water Court admissibility.
 
 ### 1.2.1 Soil Layer (Edaphic)
+
 **Parameters Monitored:**
+
 - Soil Matric Potential (SMP) — measure of energy required to extract water
 - Volumetric Water Content (VWC) — percentage of soil volume occupied by water
 - Electrical Conductivity (EC) — indicator of salinity and nutrient content
@@ -105,33 +117,41 @@ FarmSense utilizes 11 domain-specific, explainable engines. All irrigation and t
 - Soil temperature (affects biological activity)
 
 ### 1.2.2 SLV Soil Series Calibration
+
 **San Luis Soil Series:**
+
 - pH: 8.4-9.8 (highly alkaline)
 - Exchangeable sodium: 15-60%
 - Primary risk: Salt buildup from irrigation
 - Irrigation trigger threshold: 75-80 kPa (conservative for salt management)
 
 **Gunbarrel Soil Series:**
+
 - Type: Highly porous sand
 - Hydraulic conductivity: High (>10 cm/hr saturated)
 - Requirement: Low-volume, high-frequency micro-irrigation
 - Irrigation trigger: 20-25 kPa (low threshold due to rapid drainage)
 
 **Alamosa Soil Series:**
+
 - Type: Clay loam
 - Water holding capacity: High
 - Drainage: Slow
 - Irrigation trigger: 50-60 kPa
 
 ### 1.2.3 Plant Layer (Vegetative)
+
 **Parameters Monitored:**
+
 - Leaf water potential (Ψleaf) — direct measure of plant water stress
 - Canopy Water Stress Index (CWSI) — thermal infrared signature
 - Normalized Difference Vegetation Index (NDVI) — overall plant health
 - Stomatal conductance — indicator of photosynthetic efficiency
 
 ### 1.2.4 Atmosphere Layer (Meteorologic)
+
 **Parameters Monitored:**
+
 - Vapor Pressure Deficit (VPD) — driving force for transpiration
 - Solar radiation (shortwave and photosynthetically active)
 - Wind speed and direction (affects evaporation)
@@ -142,9 +162,11 @@ FarmSense utilizes 11 domain-specific, explainable engines. All irrigation and t
 Long Short-Term Memory (LSTM) deep learning networks process 1-9 day ensemble weather forecasts to predict ET trends with 81-94% accuracy.
 
 ## 1.3 Management Allowable Depletion (MAD) Framework
+
 MAD defines the percentage of available soil water (between field capacity and permanent wilting point) that can be depleted before crop experiences physiological damage.
 
 ### 1.3.1 Crop-Specific MAD Thresholds
+
 | Crop | Stage | MAD % | Trigger kPa |
 |------|-------|-------|-------------|
 | Potato | Emergence | 30% | 30-40 kPa |
@@ -157,7 +179,9 @@ MAD defines the percentage of available soil water (between field capacity and p
 | Alfalfa | Production | 60% | 80-100 kPa |
 
 ### 1.3.2 The "Water Battery" Strategy
+
 The Core Compute Server (Zo) delays irrigation to the "last possible minute," utilizing the deep soil profile as a dynamic battery. This strategy:
+
 - Leaves headroom for rainfall capture
 - Maximizes natural precipitation utilization
 - Eliminates deep percolation losses
@@ -167,24 +191,30 @@ The Core Compute Server (Zo) delays irrigation to the "last possible minute," ut
 ## 1.4 System Architecture Overview
 
 ### 1.4.1 Backend Intelligence (Decentralized Cloud Layer)
+
 **RDC (Regional Data Center / Map Servers):**
+
 - Function: Master data library
 - Data types: Sentinel-2 multispectral imagery, Landsat thermal, historical edaphic datasets
 - Update frequency: Sentinel-2 (5-day revisit), Landsat (16-day revisit)
 
 **Spatial Query Engine (Map Manager / Oracle):**
+
 - Function: Extracts spatial values at precise latitude/longitude coordinates
 - Operations: Point queries, polygon intersection, raster sampling
 - Output: Lightweight JSON arrays for edge processing
 - Technologies: PostGIS, STAC API integration
 
 **Core Compute Server (Zo):**
+
 - Location: brodiblanco.zo.computer / cloud infrastructure
 - Functions: Bayesian priors, Localized Kriging algorithms, Worksheets generation, Ledger vaulting
 - Capacity: Processes hundreds of thousands of data points into predictive spatial grids
 
 ### 1.4.2 Regional/District Edge Infrastructure
+
 **Regional Superstation (RSS) — Level 3:**
+
 - Location: Monte Vista, Colorado
 - Function: Territory master, equal cloud counterpart to backend intelligence
 - Form factor: Modified 40-foot High-Cube shipping container
@@ -193,12 +223,14 @@ The Core Compute Server (Zo) delays irrigation to the "last possible minute," ut
 - **Critical capability:** Continues full operation during total regional internet or cellular blackouts
 
 **District Hub (DHU) — Level 2:**
+
 - Mounting: 35-foot Class 4 timber pole
 - Coverage radius: 100 pivots with extreme overlapping redundancy
 - Compute: NVIDIA Jetson Orin Nano (8GB RAM, Ampere GPU)
 - **30-Day "Black Box" Cache:** 128GB Swissbit PSLC Industrial SSD
 
 ### 1.4.3 Field Layer (Level 1-1.5) — CRITICAL HIERARCHY
+
 | Level | Device | Function | Elevation | Reporting Target |
 |-------|--------|------------|-----------|------------------|
 | 1.5 | **PMT (Pivot Motion Tracker)** | **Field Aggregator / Hub** | 10-15 ft on pivot | DHU |
@@ -209,6 +241,7 @@ The Core Compute Server (Zo) delays irrigation to the "last possible minute," ut
 
 **CRITICAL ARCHITECTURE POINT:**
 The PMT (elevated on the pivot span at 10-15 feet) serves as the **Primary Field Aggregator**. All ground-level devices (VFA, LRZ1, LRZ2, PFA) report upward to the PMT via 900MHz CSS LoRa. The PMT then:
+
 1. Aggregates all sensor data
 2. Performs Edge-EBK computation (50m grid)
 3. Packages into encrypted payload (~187 bytes)
@@ -219,19 +252,24 @@ This elevated topology circumvents the dense water canopy that attenuates ground
 ## 1.5 Telemetry Architecture Resolution
 
 ### 1.5.1 The VFA-to-DHU Challenge (Resolved)
+
 **Initial Design Flaw:**
+
 - VFA specified 900MHz CSS LoRa uplink
 - DHU specified 2.4GHz Ubiquiti LTU only
 - **Resolution:** DHU BOM revised to include 900MHz CSS LoRa gateway alongside 2.4GHz array
 
 ### 1.5.2 The PMT Field Hub Solution (CONFIRMED)
+
 **The PMT as Primary Field Aggregator:**
+
 - PMT elevated 10-15 feet on pivot span
 - All field sensors (VFA, LRZ1, LRZ2, PFA) report to PMT via 900MHz CSS LoRa
 - PMT aggregates, computes Edge-EBK, and routes to DHU
 - This topology entirely circumvents dense water canopy attenuation
 
 ### 1.5.3 LRZ1 vs LRZ2 Distinction (CRITICAL)
+
 | Feature | LRZ1 (Basic) | LRZ2 (Reference) |
 |---------|--------------|------------------|
 | **Cost** | $29.00 | $54.30 |
@@ -242,6 +280,7 @@ This elevated topology circumvents the dense water canopy that attenuates ground
 | **Power** | 2.6Ah LiSOCl2 | 2.6Ah LiSOCl2 |
 
 **Deployment Ratio:**
+
 - LRZ2 (Reference): 4 per field
 - LRZ1 (Basic): 12 per field
 - Total: 16 LRZ nodes per standard field
@@ -249,14 +288,17 @@ This elevated topology circumvents the dense water canopy that attenuates ground
 ## 1.6 Risk Factor Analysis
 
 ### 1.6.1 Geopolitical Water Scarcity
+
 Interstate litigation could trigger federal aquifer takeovers. The Sovereign Ledger enables state engineers to prove compact compliance, reducing federal intervention standing.
 
 ### 1.6.2 Technical Obsolescence
+
 FarmSense is "Sensor-Agnostic." The Hydrologic Oracle becomes the "Inference Layer" fusing satellite trends with sub-surface realities — a moat satellite-only players cannot cross.
 
 ## 1.7 Long-Term Roadmap: Sovereign Water Infrastructure
 
 ### 1.7.1 Phase Timeline
+
 | Phase | Timeline | Scope | Fields |
 |-------|----------|-------|--------|
 | 1 | 2026-2027 | SLV Subdistrict 1 | 1,280 |
@@ -264,31 +306,37 @@ FarmSense is "Sensor-Agnostic." The Hydrologic Oracle becomes the "Inference Lay
 | 3 | 2030+ | National (High Plains) | 25,000+ |
 | 4 | 2030+ | International | 100,000+ |
 
-
 # PART II: MARKET INTELLIGENCE & STRATEGIC FUNDING
 
 ## 2.0 Market Overview
+
 FarmSense operates within the global precision agriculture market, specifically targeting water-constrained regions with regulatory enforcement mechanisms.
 
 ## 2.1 TAM/SAM/SOM Analysis
 
 ### 2.1.1 Total Addressable Market (TAM)
+
 Global precision irrigation market — $12.8B by 2030, CAGR 14.3%
 Drivers: Water scarcity, climate regulation, labor costs, yield optimization
 
 ### 2.1.2 Serviceable Addressable Market (SAM)
+
 North American center-pivot operations:
+
 - 175,000 pivots across 22M acres
 - Average field size: 126 acres
 - Annual SaaS potential: $1.05B at $499/month average
 
 ### 2.1.3 Serviceable Obtainable Market (SOM)
+
 Immediate targets:
+
 - SLV Subdistrict 1: 1,280 fields
 - RGWCD adjacent districts: 5,000 fields
 - First-year penetration target: 320 fields (25%)
 
 ### 2.1.4 Revenue Model by Tier
+
 | Tier | Resolution | Price | Target |
 |------|------------|-------|--------|
 | Base | 50m compliance | $149/mo | Regulators, small farms |
@@ -300,6 +348,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 ## 2.2 Competitive Moat: Determinism vs. Stochastic Estimation
 
 ### 2.2.1 Competitor Analysis
+
 | Competitor | Approach | Weakness | FarmSense Advantage |
 |------------|----------|----------|---------------------|
 | CropX | Cloud-only analytics | Latency, connectivity dependency | Edge autonomy + sovereign ledger |
@@ -308,6 +357,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 | Sat-only providers | Trend analysis | No deep-profile validation | 1m Kriging + 48" VFA anchors |
 
 ### 2.2.2 Moat Durability
+
 - **Data moat:** 4+ years of ground-truth calibration per field
 - **Regulatory moat:** Legal recognition as "approved monitoring method"
 - **Network moat:** 1,280-field mesh effects (interpolative accuracy)
@@ -315,6 +365,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 ## 2.3 Federal & State Funding Environment
 
 ### 2.3.1 Primary Grant Targets
+
 | Program | Agency | Amount | Deadline | Fit |
 |---------|--------|--------|----------|-----|
 | SBIR Phase I | USDA | $300K | Mar 2026 | Sensor telemetry optimization |
@@ -324,6 +375,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 | SBIR Phase I | NSF | $275K | May 2026 | ML stress detection |
 
 ### 2.3.2 Secondary Pipeline
+
 | Program | Amount | Alignment |
 |---------|--------|-----------|
 | ARPA-E WATER | $3M-$5M | Novel water tech |
@@ -334,6 +386,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 ## 2.4 Global Expansion Roadmap
 
 ### 2.4.1 Phase Timeline
+
 | Phase | Region | Timeline | Fields | Regulatory |
 |-------|--------|----------|--------|------------|
 | 1 | Rio Grande Basin | 2026-2027 | 6,000 | State engineers (CO, NM, TX) |
@@ -342,6 +395,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 | 4 | International | 2030+ | 100,000+ | Basin treaties (Nile, Indus, Murray-Darling) |
 
 ### 2.4.2 International Targets (40 Basins)
+
 See Part VII, Section 7.5 for complete Global Hydrologic Basin Registry.
 
 ---
@@ -349,11 +403,13 @@ See Part VII, Section 7.5 for complete Global Hydrologic Basin Registry.
 # PART III: THE HUMAN CAPITAL
 
 ## 3.0 Organization Overview
+
 FarmSense operates as a lean, mission-driven team with clear technical authority and field operational capability.
 
 ## 3.1 Executive Leadership
 
 ### 3.1.1 Jeremy Beebe — Chief Executive Officer
+
 **Background:** Successful startup exit track record (Hempvada), first-principles systems thinking
 **Responsibilities:** Vision, investor relations, strategic partnerships, regulatory navigation
 **Authority:** Final decision on product direction, funding strategy, key hires
@@ -361,6 +417,7 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 ## 3.2 Technical Organization Chart
 
 ### 3.2.1 Hardware Engineering
+
 | Role | Count | Responsibilities |
 |------|-------|------------------|
 | Chief Hardware Architect | 1 | BOM finalization, supplier relationships |
@@ -369,6 +426,7 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 | Mechanical/DPE Engineer | 1 | HDPE SDR9 design, thermal analysis |
 
 ### 3.2.2 Software Engineering
+
 | Role | Count | Responsibilities |
 |------|-------|------------------|
 | Chief Software Architect | 1 | API design, database architecture |
@@ -378,6 +436,7 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 | Data Science/ML | 1 | Kriging, LSTM, geostatistics |
 
 ### 3.2.3 Operations
+
 | Role | Count | Responsibilities |
 |------|-------|------------------|
 | Field Operations Manager | 1 | Installation scheduling, fleet coordination |
@@ -386,6 +445,7 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 | Customer Success/Agronomy | 2 | Farmer support, agronomic consultation |
 
 ## 3.3 Scientific Advisory Board
+
 | Position | Expertise | Status |
 |----------|-----------|--------|
 | Hydrology/Soil Physics | Dr. [TBD] | Recruiting |
@@ -395,16 +455,19 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 ## 3.4 Recruitment Roadmap
 
 ### 3.4.1 Immediate (Q1 2026)
+
 - 6 field technicians (seasonal contract-to-hire)
 - 2 software engineers (backend + frontend)
 - 1 hardware engineer (embedded)
 
 ### 3.4.2 Scale Phase (Q2-Q3 2026)
+
 - +4 technicians
 - +2 software engineers
 - Customer success team (2 FTE)
 
 ### 3.4.3 2027+
+
 - Regional operations managers (multi-district expansion)
 - International business development
 
@@ -413,11 +476,13 @@ FarmSense operates as a lean, mission-driven team with clear technical authority
 # PART IV: THE TECHNICAL CORE
 
 ## 4.0 Architecture Overview
+
 FarmSense implements a tri-layer compute topology balancing edge reflex with cloud-scale analytics.
 
 ## 4.1 Tri-Layer Compute Topology
 
 ### 4.1.1 Level 0 — Field Sensors
+
 | Device | MCU | Encryption | Language | Power |
 |--------|-----|------------|----------|-------|
 | VFA, LRZ1/LRZ2, PFA | nRF52840 | AES-256 | Bare-metal C | 4+ yr battery |
@@ -425,6 +490,7 @@ FarmSense implements a tri-layer compute topology balancing edge reflex with clo
 **Responsibilities:** Raw sensing, local encryption, ultra-low-power management
 
 ### 4.1.2 Level 1.5 — PMT Hub
+
 | Spec | Value |
 |------|-------|
 | MCU | ESP32-S3-MINI-1 |
@@ -432,12 +498,14 @@ FarmSense implements a tri-layer compute topology balancing edge reflex with clo
 | Logic | Reflex decisions (stall stop, VRI failback) |
 
 **Responsibilities:**
+
 - 50m Edge-EBK computation (16×16 probability matrix)
 - Field sensor aggregation (VFA, LRZ1, LRZ2, PFA)
 - Reflex Logic (IMU stall → ACTUATE_STOP)
 - Zero-downtime VRI failover on DHU loss
 
 ### 4.1.3 Level 2 — DHU
+
 | Spec | Value |
 |------|-------|
 | Compute | NVIDIA Jetson Orin Nano 8GB |
@@ -446,6 +514,7 @@ FarmSense implements a tri-layer compute topology balancing edge reflex with clo
 | Cache | 128GB Swissbit PSLC SSD |
 
 ### 4.1.4 Level 3 — RSS/Cloud
+
 | Spec | Value |
 |------|-------|
 | Compute | 64-Core AMD Threadripper PRO |
@@ -456,6 +525,7 @@ FarmSense implements a tri-layer compute topology balancing edge reflex with clo
 ## 4.2 SQL Schema: TimescaleDB & PostGIS Sovereign Vault
 
 ### 4.2.1 Core Table Definitions
+
 ```sql
 -- Sensor telemetry hypertable
 CREATE TABLE sensor_readings (
@@ -486,6 +556,7 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 ```
 
 ### 4.2.2 Table Inventory
+
 | Table | Purpose | Technology |
 |-------|---------|------------|
 | fields | Field polygons with ownership | PostGIS |
@@ -499,18 +570,21 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 ## 4.3 API Specifications: Nexus of Data Ingestion
 
 ### 4.3.1 Authentication
+
 | Method | Details |
 |--------|---------|
 | JWT | RS256 signing, 24hr expiry |
 | mTLS | For field device authentication |
 
 ### 4.3.2 Rate Limits
+
 | Type | Limit |
 |------|-------|
 | Read | 1,000 req/min |
 | Compute | 100 req/min |
 
 ### 4.3.3 Core Endpoints
+
 | Method | Endpoint | Purpose |
 |--------|----------|---------|
 | POST | /v1/ingest/telemetry | Sensor data ingestion |
@@ -522,6 +596,7 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 ## 4.4 Interpolation Methodology
 
 ### 4.4.1 Resolution Cascade
+
 | Layer | Method | Grid | Hardware |
 |-------|--------|------|----------|
 | Edge | IDW | 20m | Jetson Orin Nano |
@@ -529,6 +604,7 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 | Regional | Regression Kriging | 1m | Threadripper PRO |
 
 ### 4.4.2 Variogram Parameters
+
 | Parameter | Value |
 |-----------|-------|
 | Nugget | 0.0012 |
@@ -540,6 +616,7 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 ## 4.5 Adaptive Recalculation Engine: "Fisherman's Attention"
 
 ### 4.5.1 Operational Modes
+
 | Mode | Trigger | Frequency | Power |
 |------|---------|-----------|-------|
 | DORMANT | Stable moisture, pivot parked | 4 hours | 8µA |
@@ -548,6 +625,7 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST (location);
 | FOCUS COLLAPSE | Mainline pressure >1 PSI or motion | 5 sec | 120mA |
 
 ### 4.5.2 Volatility Score Calculation
+
 ```
 Volatility = (Moisture_Δ_1h × 0.4) + 
              (Irrigation_Active × 0.3) + 
@@ -555,20 +633,23 @@ Volatility = (Moisture_Δ_1h × 0.4) +
              (Wind_Stress × 0.1)
 
 Thresholds:
+
 - > 0.7 → COLLAPSE mode
 - > 0.3 → ANTICIPATORY mode
 - ≤ 0.3 → DORMANT mode
-```
 
+```
 
 # PART V: THE HARDWARE ECOSYSTEM
 
 ## 5.0 Hardware Overview
+
 FarmSense implements a hierarchical hardware ecosystem from regional superstations to buried field sensors, all designed for 10-year operational life in harsh agricultural environments.
 
 ## 5.1 Regional Superstation (RSS) V1.0
 
 ### 5.1.1 Physical Specifications
+
 | Attribute | Specification |
 |-----------|-------------|
 | Form factor | 40' High-Cube shipping container (modified) |
@@ -577,6 +658,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Weight | 15,000 lbs (fully loaded) |
 
 ### 5.1.2 Compute Specifications
+
 | Component | Specification |
 |-----------|-------------|
 | CPU | AMD Threadripper PRO 5995WX (64-core) |
@@ -586,6 +668,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Storage (cold) | 200TB HDD archive |
 
 ### 5.1.3 Communications
+
 | Interface | Specification | Purpose |
 |-----------|-------------|---------|
 | Fiber | 10 Gbps (dual path) | Primary backhaul |
@@ -594,6 +677,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | 2.4GHz | 3× Ubiquiti LTU Sector | DHU backhaul |
 
 ### 5.1.4 Power
+
 | Component | Specification |
 |-----------|-------------|
 | Grid | 480V 3-phase, 200A service |
@@ -602,6 +686,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Solar | 20kW array (supplemental) |
 
 ### 5.1.5 BOM — RSS V1.0
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | Threadripper PRO 5995WX | 1 | $6,499 | $6,499 |
@@ -619,6 +704,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 ## 5.2 District Hub (DHU) V1.2
 
 ### 5.2.1 Physical Specifications
+
 | Attribute | Specification |
 |-----------|-------------|
 | Mounting | 35' Class 4 timber pole |
@@ -627,6 +713,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Wind rating | 100 mph sustained |
 
 ### 5.2.2 Compute Specifications
+
 | Component | Specification |
 |-----------|-------------|
 | SBC | NVIDIA Jetson Orin Nano 8GB |
@@ -637,6 +724,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Storage (cache) | 128GB microSD (emergency backup) |
 
 ### 5.2.3 Communications
+
 | Interface | Specification | Purpose |
 |-----------|-------------|---------|
 | 900MHz | RAK2287 concentrator | Field sensor ingress |
@@ -645,6 +733,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | BLE 5.0 | nRF52840 | Technician maintenance |
 
 ### 5.2.4 Power
+
 | Component | Specification |
 |-----------|-------------|
 | Source | 200W solar + 200Ah LiFePO4 |
@@ -653,6 +742,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Charging | MPPT 20A controller |
 
 ### 5.2.5 Black Box Cache (Critical Feature)
+
 **Purpose:** 30-day continuous audit logging during total backhaul failure
 
 | Spec | Value |
@@ -664,6 +754,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Hash chain | SHA-256 linking |
 
 ### 5.2.6 BOM — DHU V1.2
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | Jetson Orin Nano | 1 | $499 | $499 |
@@ -681,9 +772,11 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 ## 5.3 Pivot Motion Tracker (PMT) V1.6 — CRITICAL: FIELD AGGREGATOR
 
 ### 5.3.1 Role Definition
+
 **CRITICAL ARCHITECTURE POINT:** The PMT is the **Primary Field Aggregator**. It is elevated 10-15 feet on the pivot span, above the dense crop canopy. All ground-level devices (VFA, LRZ1, LRZ2, PFA) report **to the PMT**, not directly to the DHU.
 
 ### 5.3.2 Physical Specifications
+
 | Attribute | Specification |
 |-----------|-------------|
 | Mounting | Towers 2-3 of center pivot |
@@ -692,6 +785,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Weight | 12 lbs |
 
 ### 5.3.3 Compute Specifications
+
 | Component | Specification |
 |-----------|-------------|
 | MCU | ESP32-S3-MINI-1-N8R8 |
@@ -701,6 +795,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Vector unit | Yes (SIMD) |
 
 ### 5.3.4 Sensors
+
 | Sensor | Specification | Purpose |
 |--------|-------------|---------|
 | GNSS | u-blox ZED-F9P RTK | Sub-cm positioning |
@@ -709,6 +804,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Current | 3× Magnelab SCT-0400-400 | Pump signature analysis |
 
 ### 5.3.5 Communications
+
 | Interface | Specification | Purpose |
 |-----------|-------------|---------|
 | Ingress | 900MHz CSS LoRa Mesh | VFA, LRZ1, LRZ2, PFA |
@@ -716,18 +812,22 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Maintenance | BLE 5.0 | Technician access |
 
 ### 5.3.6 Edge-EBK Computation
+
 **Responsibility:** The PMT performs **Edge-EBK** (Empirical Bayesian Kriging) to generate a 50m-resolution 16×16 probability matrix from field sensor inputs.
 
 **Power:** The FPU processes AES-256 chirps from VFA/LRZ1/LRZ2/PFA into a localized probability matrix. In "COLLAPSE" mode, the FPU focuses 100% compute on the active pivot trajectory.
 
 ### 5.3.7 Payload Structure
+
 **Unified Field State Payload (~187 bytes):**
+
 - PMT kinematic data (position, velocity, vibration)
 - 50m Edge-EBK arrays (16×16 grid)
 - Intercepted VFA/LRZ/PFA telemetry
 - Timestamp + cryptographic signature
 
 ### 5.3.8 BOM — PMT V1.6
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | ESP32-S3-MINI-1 | 1 | $3.20 | $3.20 |
@@ -746,10 +846,12 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 ## 5.4 Pressure & Flow Anchor (PFA) V1.9
 
 ### 5.4.1 Role Definition
+
 **Wellhead Sentry & Safety Actuator**
 The PFA is the critical safety node at the wellhead, monitoring flow and pressure, and capable of actuating emergency pump stops.
 
 ### 5.4.2 Physical Specifications
+
 | Attribute | Specification |
 |-----------|-------------|
 | Mounting | Wellhead pipe (2-6" diameter) |
@@ -758,6 +860,7 @@ The PFA is the critical safety node at the wellhead, monitoring flow and pressur
 | Ingress | IP67 |
 
 ### 5.4.3 Sensors
+
 | Sensor | Specification | Purpose |
 |--------|-------------|---------|
 | Flow | Badger TFX-5000 (clamp-on) | ±1.0% volumetric flow |
@@ -765,18 +868,21 @@ The PFA is the critical safety node at the wellhead, monitoring flow and pressur
 | Pressure | Dwyer PBLTX (vented, 316-SS) | Line pressure monitoring |
 
 ### 5.4.4 Actuation
+
 | Component | Specification | Purpose |
 |-----------|-------------|---------|
 | Relay | Omron G7L-1A-TUB 30A | Pump soft-stop |
 | Response time | <50ms | Emergency halt |
 
 ### 5.4.5 Communications
+
 | Interface | Specification | Purpose |
 |-----------|-------------|---------|
 | Primary | 900MHz CSS LoRa | PMT ingress |
 | Maintenance | BLE 5.4 | Technician diagnostics |
 
 ### 5.4.6 Reflex Logic Table
+
 | Condition | PMT Command | PFA Action |
 |-----------|-------------|------------|
 | PMT_STALL detected | ACTUATE_STOP | Open relay (<50ms) |
@@ -785,6 +891,7 @@ The PFA is the critical safety node at the wellhead, monitoring flow and pressur
 | Cavitation signature | ACTUATE_STOP + ALERT | Open relay, notify |
 
 ### 5.4.7 BOM — PFA V1.9
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | nRF52840-QIAA | 1 | $4.50 | $4.50 |
@@ -801,10 +908,12 @@ The PFA is the critical safety node at the wellhead, monitoring flow and pressur
 ## 5.5 Vertical Field Anchor (VFA) V2.1
 
 ### 5.5.1 Role Definition
+
 **Deep-Truth Probe (48" Profile)**
 The VFA is the primary ground-truth sensor for sub-surface moisture, with sensors at multiple depths providing a vertical moisture profile.
 
 ### 5.5.2 Physical Specifications
+
 | Attribute | Specification |
 |-----------|-------------|
 | Housing | 2" HDPE SDR9 outer shell (permanent) |
@@ -814,6 +923,7 @@ The VFA is the primary ground-truth sensor for sub-surface moisture, with sensor
 | Extraction | Pre-harvest (September) |
 
 ### 5.5.3 The 48U Stack Sequence
+
 | Slot (inch) | Component | Function |
 |-------------|-------------|----------|
 | 1 (Top) | Desiccant Pack | Apex moisture trap |
@@ -825,6 +935,7 @@ The VFA is the primary ground-truth sensor for sub-surface moisture, with sensor
 | 48 (Bottom) | Advanced Sensor | 48" Deep Percolation |
 
 ### 5.5.4 Sensor Specifications
+
 | Depth | Type | Parameters |
 |-------|------|------------|
 | 10" | GroPoint Profile | VWC, EC, Temp |
@@ -834,16 +945,19 @@ The VFA is the primary ground-truth sensor for sub-surface moisture, with sensor
 | 48" | GroPoint Profile | VWC, EC, Temp |
 
 ### 5.5.5 The Proxy Method
+
 **Non-Contact Capacitive Sensing:**
 The sensors utilize an advanced non-contact capacitive method, shooting high-frequency dielectric fields through the 50mm sled wall and across a +5 PSI dry nitrogen gap directly into the soil. This eliminates galvanic corrosion and sensor drift.
 
 ### 5.5.6 Communications
+
 | Interface | Specification | Purpose |
 |-----------|-------------|---------|
 | Primary | 900MHz CSS LoRa | PMT ingress |
 | Range | 1km+ to elevated PMT | Canopy penetration |
 
 ### 5.5.7 BOM — VFA V2.1 (1,280 unit tier)
+
 | Component | Cost |
 |-----------|------|
 | Housing (HDPE SDR9) | $6.75 |
@@ -857,6 +971,7 @@ The sensors utilize an advanced non-contact capacitive method, shooting high-fre
 ## 5.6 Lateral Root-Zone Surveyor (LRZ) V1.2 — CRITICAL: TWO VARIANTS
 
 ### 5.6.1 CRITICAL DISTINCTION: LRZ1 vs LRZ2
+
 | Feature | LRZ1 (Basic) | LRZ2 (Reference) |
 |---------|--------------|------------------|
 | **Cost** | $29.00 | $54.30 |
@@ -870,6 +985,7 @@ The sensors utilize an advanced non-contact capacitive method, shooting high-fre
 | **Battery life** | 4+ years | 4+ years |
 
 ### 5.6.2 LRZ1 Specifications (Basic)
+
 | Attribute | Specification |
 |-----------|-------------|
 | MCU | nRF52840-QIAA |
@@ -880,6 +996,7 @@ The sensors utilize an advanced non-contact capacitive method, shooting high-fre
 | Antenna | Stainless steel whip (buried, RF-transparent) |
 
 ### 5.6.3 LRZ2 Specifications (Reference)
+
 | Attribute | Specification |
 |-----------|-------------|
 | MCU | nRF52840-QIAA |
@@ -890,6 +1007,7 @@ The sensors utilize an advanced non-contact capacitive method, shooting high-fre
 | Housing | 2" HDPE SDR9 shell + removable sled |
 
 ### 5.6.4 PCB Layout (Both Variants)
+
 | GPIO | Function |
 |------|----------|
 | P0.02 | ADC0 (dielectric) |
@@ -899,13 +1017,16 @@ The sensors utilize an advanced non-contact capacitive method, shooting high-fre
 | P0.29 | LoRa RST |
 
 ### 5.6.5 Sensing Methodology
+
 **~100MHz Dielectric Projection:**
 Both variants project high-frequency RF through the HDPE walls into the surrounding soil. The frequency was selected to:
+
 - Minimize salinity effects
 - Provide good spatial resolution (~6" sphere of influence)
 - Enable through-wall measurement without soil contact
 
 ### 5.6.6 BOM Comparison
+
 | Component | LRZ1 | LRZ2 |
 |-----------|------|------|
 | nRF52840-QIAA | $4.50 | $4.50 |
@@ -918,10 +1039,10 @@ Both variants project high-frequency RF through the HDPE walls into the surround
 | Assembly labor | $15.00 | $15.00 |
 | **TOTAL** | **$29.00** | **$54.30** |
 
-
 ## 5.7 Single Field Deployment (SFD) Configurations
 
 ### 5.7.1 SFD-P: Standard Pivot (126-acre circular)
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | PMT | 1 | $1,261.20 | $1,261.20 |
@@ -935,6 +1056,7 @@ Both variants project high-frequency RF through the HDPE walls into the surround
 **Resolution:** 50m Compliance / 1m Enterprise
 
 ### 5.7.2 SFD-C: Corner-Swing Arm (150+ acre)
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | PMT | 1 | $1,261.20 | $1,261.20 |
@@ -949,6 +1071,7 @@ Both variants project high-frequency RF through the HDPE walls into the surround
 **Special:** BLE 5.2 distance ranging for ±0.1° joint resolution
 
 ### 5.7.3 SFD-F: Flood/Surface Irrigation
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | DHU-Lite/Static PMT | 1 | $2,500.00 | $2,500.00 |
@@ -964,6 +1087,7 @@ Both variants project high-frequency RF through the HDPE walls into the surround
 ## 5.8 Subdistrict 1 Scale (1,280 Fields)
 
 ### 5.8.1 Phase 1 — Compliance Foundation
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | SFD-P (standard) | 1,280 | $5,997.70 | $7,677,056 |
@@ -973,6 +1097,7 @@ Both variants project high-frequency RF through the HDPE walls into the surround
 | **Phase 1 Total** | | | **$8,243,587** |
 
 ### 5.8.2 Phase 2 — Full Ecosystem Saturation
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | Additional LRZ density | 1,280 fields | $1,500 | $1,920,000 |
@@ -985,6 +1110,7 @@ Both variants project high-frequency RF through the HDPE walls into the surround
 **Total Subdistrict 1 Investment:** $12,349,051
 
 ### 5.8.3 Per-Acre Economics
+
 | Metric | Value |
 |--------|-------|
 | Hardware CAPEX per acre | $93.36 |
@@ -997,11 +1123,13 @@ Both variants project high-frequency RF through the HDPE walls into the surround
 # PART VI: THE INTERFACE LAYER
 
 ## 6.0 User Interface Architecture
+
 FarmSense provides role-specific interfaces for farmers, regulators, administrators, investors, and researchers.
 
 ## 6.1 Farmer Dashboard (3D VRI Control Center)
 
 ### 6.1.1 Technical Stack
+
 | Layer | Technology |
 |-------|------------|
 | Framework | React 19 (Next.js App Router) |
@@ -1012,6 +1140,7 @@ FarmSense provides role-specific interfaces for farmers, regulators, administrat
 | Real-time | WebSocket (Socket.io) |
 
 ### 6.1.2 Core Features
+
 | Feature | Description |
 |---------|-------------|
 | 3D Field Heatmap | Interactive 1m resolution overlay |
@@ -1021,7 +1150,9 @@ FarmSense provides role-specific interfaces for farmers, regulators, administrat
 | Mobile PWA | Offline cache for field use |
 
 ### 6.1.3 "Resolution Pop" FOMO Trigger
+
 **UX Pattern:**
+
 1. Free/Basic user zooms to field anomaly
 2. UI renders 50m grid clearly
 3. 1m grid displays with blur + "High-Resolution Data Available" overlay
@@ -1029,6 +1160,7 @@ FarmSense provides role-specific interfaces for farmers, regulators, administrat
 5. Conversion: ~12% of triggered users upgrade within 24 hours
 
 ### 6.1.4 Technical Specifications
+
 | Metric | Target |
 |--------|--------|
 | WebSocket update rate | 1 Hz |
@@ -1039,9 +1171,11 @@ FarmSense provides role-specific interfaces for farmers, regulators, administrat
 ## 6.2 Regulatory Portal (Water Court Audit Interface)
 
 ### 6.2.1 Purpose
+
 Immutable compliance reporting for legal proceedings and regulatory audits.
 
 ### 6.2.2 Features
+
 | Feature | Description |
 |---------|-------------|
 | Audit Log | Read-only with hash verification |
@@ -1051,6 +1185,7 @@ Immutable compliance reporting for legal proceedings and regulatory audits.
 | Violations | Automated detection & tracking |
 
 ### 6.2.3 SLV 2026 Compliance
+
 | Requirement | Implementation |
 |-------------|----------------|
 | WORM storage | S3 Object Lock 7 years |
@@ -1061,6 +1196,7 @@ Immutable compliance reporting for legal proceedings and regulatory audits.
 ## 6.3 Admin Dashboard (Fleet C&C)
 
 ### 6.3.1 Sled Hospital Monitor
+
 | Metric | Display |
 |--------|---------|
 | Real-time health | All 25,600 nodes |
@@ -1069,6 +1205,7 @@ Immutable compliance reporting for legal proceedings and regulatory audits.
 | Nitrogen purge status | Current levels |
 
 ### 6.3.2 System Alerts
+
 | Alert Type | Trigger | Action |
 |------------|---------|--------|
 | Critical | PMT offline >1hr | Immediate dispatch |
@@ -1078,6 +1215,7 @@ Immutable compliance reporting for legal proceedings and regulatory audits.
 ## 6.4 Investor ROI Dashboard
 
 ### 6.4.1 Metrics Displayed
+
 | Metric | Unit | Aggregation |
 |--------|------|-------------|
 | Water savings | AF/field | Real-time |
@@ -1087,6 +1225,7 @@ Immutable compliance reporting for legal proceedings and regulatory audits.
 | Regional pipeline | Fields | Quarterly |
 
 ### 6.4.2 Cohort Analysis
+
 | Cohort | Avg Water Savings | Avg Yield Gain | Retention |
 |--------|-------------------|----------------|-----------|
 | 2026 Pilot | 21.3% | 10.2% | 100% |
@@ -1095,6 +1234,7 @@ Immutable compliance reporting for legal proceedings and regulatory audits.
 ## 6.5 Grant & Research Portals
 
 ### 6.5.1 NRCS Conservation Credit Calculator
+
 **Auto-mapping:** FarmSense metrics → NRCS Resource Concern categories
 
 | Concern | FarmSense Data | Credit |
@@ -1106,6 +1246,7 @@ Immutable compliance reporting for legal proceedings and regulatory audits.
 **Export:** LaTeX for academic publication
 
 ### 6.5.2 Federated Learning Interface
+
 | Feature | Specification |
 |---------|-------------|
 | Privacy | Differential privacy (ε=1.0) |
@@ -1118,11 +1259,13 @@ Immutable compliance reporting for legal proceedings and regulatory audits.
 # PART VII: THE HYDROLOGIC ORACLE
 
 ## 7.0 Oracle Overview
+
 The Hydrologic Oracle is the inference engine that transforms raw sensor data into actionable irrigation intelligence.
 
 ## 7.1 SPAC Thermodynamics: Surface Energy Balance
 
 ### 7.1.1 Fundamental Equation
+
 ```
 R_n - G = λE + H
 ```
@@ -1135,12 +1278,14 @@ R_n - G = λE + H
 | H | Sensible heat flux | Calculated from temperature gradients |
 
 ### 7.1.2 Penman-Monteith Model
+
 **Canopy Resistance (r_c):**
 ```
 r_c = (Δ(R_n-G) + ρ_a c_p (e_s - e_a)/r_a) / (λE(Δ+γ)) - r_a
 ```
 
 **Stomatal Closure Detection:**
+
 - VPD > 3.5 kPa → 40% photosynthetic efficiency reduction predicted
 - CWSI > 0.3 → Moderate stress, increase monitoring
 - CWSI > 0.6 → Severe stress, immediate irrigation
@@ -1148,6 +1293,7 @@ r_c = (Δ(R_n-G) + ρ_a c_p (e_s - e_a)/r_a) / (λE(Δ+γ)) - r_a
 ## 7.2 Mathematical Derivation: Cokriging with Matern Kernels
 
 ### 7.2.1 Why Matern?
+
 | Kernel | Smoothness | Use Case |
 |--------|------------|----------|
 | Exponential (ν=0.5) | Rough, continuous | Compaction ridges |
@@ -1155,14 +1301,17 @@ r_c = (Δ(R_n-G) + ρ_a c_p (e_s - e_a)/r_a) / (λE(Δ+γ)) - r_a
 | Gaussian (ν→∞) | Infinitely smooth | Not used (oversmooths) |
 
 **Auto-tuning:** ν varies 0.5-1.5 based on Field Roughness Index (FRI):
+
 - FRI < 0.3 → ν = 1.5 (smooth)
 - FRI 0.3-0.7 → ν = 1.0 (moderate)
 - FRI > 0.7 → ν = 0.5 (rough)
 
 ### 7.2.2 Residual Calculation
+
 ```
 Z(s) = m(s) + ε(s)
 ```
+
 - m(s) = deterministic trend (satellite NDVI)
 - ε(s) = spatially correlated residual (ground-truth sensors)
 - Covariance: C(h) = σ² * (2^(1-ν) / Γ(ν)) * (κh)^ν * K_ν(κh)
@@ -1170,6 +1319,7 @@ Z(s) = m(s) + ε(s)
 ## 7.3 Crop-Specific Calibration Libraries
 
 ### 7.3.1 Potato (Russet Burbank)
+
 | Stage | Days | Critical MAD | VPD Threshold |
 |-------|------|--------------|---------------|
 | Emergence | 1-30 | 30% | 2.0 kPa |
@@ -1180,6 +1330,7 @@ Z(s) = m(s) + ε(s)
 **Stress Avoidance:** <80 kPa at tuber initiation (yield-sensitive)
 
 ### 7.3.2 Barley (Standard Varieties)
+
 | Stage | Critical MAD | Notes |
 |-------|--------------|-------|
 | Tillering | 30% | Sensitive to early drought |
@@ -1187,6 +1338,7 @@ Z(s) = m(s) + ε(s)
 | Grain fill | 60% | Drought-tolerant phase |
 
 ### 7.3.3 Alfalfa
+
 | Condition | MAD | Strategy |
 |-----------|-----|----------|
 | Establishment | 40% | Conservative, root development |
@@ -1197,6 +1349,7 @@ Z(s) = m(s) + ε(s)
 ## 7.4 Forecasting Architecture
 
 ### 7.4.1 Input Data Sources
+
 | Source | Update Frequency | Spatial Resolution | Use |
 |--------|------------------|-------------------|-----|
 | GFS | 6 hours | 13 km | Large-scale patterns |
@@ -1205,6 +1358,7 @@ Z(s) = m(s) + ε(s)
 | ECMWF | 12 hours | 9 km | Global validation |
 
 ### 7.4.2 LSTM Ensemble
+
 | Configuration | Layers | Units | Dropout |
 |---------------|--------|-------|---------|
 | Short-term (1-day) | 2 | 128 | 0.2 |
@@ -1216,6 +1370,7 @@ Z(s) = m(s) + ε(s)
 ## 7.5 Global Hydrologic Basin Registry (40 Targets)
 
 ### 7.5.1 Registry by Stress Level
+
 | Basin | Region | Stress | Priority | Timeline |
 |-------|--------|--------|----------|----------|
 | Rio Grande | USA (CO/NM/TX) | Critical | Active | 2026 |
@@ -1228,6 +1383,7 @@ Z(s) = m(s) + ε(s)
 | Ganges | India/Bangladesh | High | Low | 2032 |
 
 ### 7.5.2 Applicability Scoring
+
 | Factor | Weight | Rio Grande | Ogallala | Indus |
 |--------|--------|------------|----------|-------|
 | Regulatory enforcement | 25% | 10/10 | 8/10 | 6/10 |
@@ -1237,15 +1393,16 @@ Z(s) = m(s) + ε(s)
 | Partner availability | 15% | 10/10 | 9/10 | 5/10 |
 | **Weighted Score** | | **9.65** | **8.95** | **4.65** |
 
-
 # PART VIII: THE PILOT MISSION SPECIFICATION
 
 ## 8.0 CSU San Luis Valley Research Center Pilot
+
 The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground truth for the June 29, 2026 Water Court trial.
 
 ## 8.1 Pilot Scope
 
 ### 8.1.1 Field Specifications
+
 | Attribute | Field A | Field B |
 |-----------|---------|---------|
 | Size | 126 acres | 118 acres |
@@ -1256,6 +1413,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | Pump capacity | 800 GPM | 750 GPM |
 
 ### 8.1.2 Hardware Deployment
+
 | Component | Field A | Field B | Total |
 |-----------|---------|---------|-------|
 | PMT | 1 | 1 | 2 |
@@ -1266,6 +1424,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | DHU (shared) | 1 | — | 1 |
 
 ### 8.1.3 Pilot Investment
+
 | Category | Amount |
 |----------|--------|
 | Hardware | $12,450 |
@@ -1276,6 +1435,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 ## 8.2 Timeline & Milestones
 
 ### 8.2.1 Pre-Season (March-April 2026)
+
 | Week | Activity | Deliverable |
 |------|----------|-------------|
 | 1-2 | Site survey, soil cores | Baseline characterization |
@@ -1284,6 +1444,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | 7-8 | Network commissioning | Chirp acknowledgments |
 
 ### 8.2.2 In-Season (May-September 2026)
+
 | Week | Activity | Deliverable |
 |------|----------|-------------|
 | 9-12 | Planting, sensor activation | Full telemetry |
@@ -1292,6 +1453,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | 31-34 | Harvest, data analysis | ROI verification |
 
 ### 8.2.3 Post-Season (October-November 2026)
+
 | Week | Activity | Deliverable |
 |------|----------|-------------|
 | 35-36 | Sensor extraction | Sled Hospital processing |
@@ -1299,6 +1461,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | 41-44 | Report generation | Submission to DWR |
 
 ## 8.3 Hardware Manifest
+
 | Component | Qty | Serial Range | Location |
 |-----------|-----|--------------|----------|
 | PMT V1.6 | 2 | PMT-260001/2 | Tower 2-3, Fields A/B |
@@ -1311,6 +1474,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 ## 8.4 Success Criteria
 
 ### 8.4.1 Technical Metrics
+
 | Metric | Target | Measurement |
 |--------|--------|-------------|
 | Kriging accuracy | <5% MAPE | VFA ground-truth validation |
@@ -1319,6 +1483,7 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 | Yield improvement | 10%+ | Harvest weighing |
 
 ### 8.4.2 Legal Metrics
+
 | Metric | Target | Measurement |
 |--------|--------|-------------|
 | Data admissibility | Ruling in favor | Water Court decision |
@@ -1330,14 +1495,17 @@ The 2-field pilot at CSU SLV RC (Center, Colorado) provides empirical ground tru
 # PART IX: OPERATIONS & EXECUTION
 
 ## 9.0 Seasonal Operational Cycle
+
 FarmSense operates on a two-phase seasonal deployment model synchronized to agricultural cycles.
 
 ## 9.1 The Four Phases
 
 ### 9.1.1 Spring: Insertion (April-May)
+
 **Activity:** Deploy Alpha-Sleds into permanent HDPE SDR9 shells
 **Duration:** 15 minutes per sensor
 **Process:**
+
 1. Retrieve sleds from Sled Hospital
 2. Verify nitrogen pressure (>5 PSI)
 3. Insert into permanent shells
@@ -1346,16 +1514,20 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 6. Log deployment in field app
 
 ### 9.1.2 Summer: Active Season (June-September)
+
 **Activity:** Continuous monitoring, adaptive irrigation
 **Key Operations:**
+
 - Daily: Telemetry review, anomaly investigation
 - Weekly: Maintenance checks, battery monitoring
 - Monthly: Full system health report
 
 ### 9.1.3 Fall: Extraction (September-October)
+
 **Activity:** Remove Alpha-Sleds before harvest
 **Duration:** 10 minutes per sensor
 **Process:**
+
 1. Unlock retaining pins
 2. Extract sleds with stainless cable
 3. Cap HDPE shells with blanking plugs
@@ -1365,8 +1537,10 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 7. Store at 15°C, 40% RH
 
 ### 9.1.4 Winter: Hibernation (November-March)
+
 **Activity:** Sled Hospital operations, maintenance, planning
 **Tasks:**
+
 - Monthly: Battery health checks
 - Quarterly: Firmware updates (if needed)
 - Annual: Calibration recertification
@@ -1375,9 +1549,11 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 ## 9.2 Maintenance Operations
 
 ### 9.2.1 Sled Hospital Facility
+
 **Location:** Co-located with RSS (Monte Vista)
 **Capacity:** 500 Alpha-Sleds
 **Workflow:**
+
 | Step | Action | Duration |
 |------|--------|----------|
 | 1 | Receiving | 5 min |
@@ -1390,6 +1566,7 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 | **Total** | | **80 min per sled** |
 
 ### 9.2.2 Field Service Protocol
+
 | Severity | Issue | Response | Resolution |
 |----------|-------|----------|------------|
 | 1 | PMT failure | 4 hours | Replacement |
@@ -1400,6 +1577,7 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 ## 9.3 Fleet Operations Scale (1,280 Fields)
 
 ### 9.3.1 Resource Requirements
+
 | Metric | Value |
 |--------|-------|
 | Total nodes | 25,600 |
@@ -1409,6 +1587,7 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 | Service vehicles | 3 trucks |
 
 ### 9.3.2 Annual Cycles
+
 - Insertion: 25,600 sleds (April)
 - Extraction: 25,600 sleds (September)
 - Hospital processing: 51,200 operations/year
@@ -1418,11 +1597,13 @@ FarmSense operates on a two-phase seasonal deployment model synchronized to agri
 # PART X: INFRASTRUCTURE & DEVOPS
 
 ## 10.0 Cloud Architecture
+
 FarmSense operates on AWS EKS with full GitOps automation.
 
 ## 10.1 AWS EKS Reference Architecture
 
 ### 10.1.1 Compute
+
 | Component | Specification |
 |-----------|-------------|
 | Node type | Graviton3 (ARM64) |
@@ -1431,6 +1612,7 @@ FarmSense operates on AWS EKS with full GitOps automation.
 | Auto-scaling | 3-20 nodes |
 
 ### 10.1.2 Storage
+
 | Volume | Size | IOPS | Throughput |
 |--------|------|------|------------|
 | PostgreSQL | 2TB | 16,000 | 1,000 MB/s |
@@ -1439,6 +1621,7 @@ FarmSense operates on AWS EKS with full GitOps automation.
 | Cold Archive | Glacier | N/A | N/A |
 
 ### 10.1.3 Database
+
 | Component | Specification |
 |-----------|-------------|
 | PostgreSQL | 15 (RDS) |
@@ -1449,6 +1632,7 @@ FarmSense operates on AWS EKS with full GitOps automation.
 ## 10.2 GitOps Strategy
 
 ### 10.2.1 Toolchain
+
 | Layer | Tool | Purpose |
 |-------|------|---------|
 | IaC | Terraform | Infrastructure definition |
@@ -1456,6 +1640,7 @@ FarmSense operates on AWS EKS with full GitOps automation.
 | CI/CD | GitHub Actions | Build, test, deploy |
 
 ### 10.2.2 Deployment Flow
+
 ```
 Push to main → GitHub Actions → Build → Test → Push to ECR → ArgoCD sync
 ```
@@ -1463,12 +1648,14 @@ Push to main → GitHub Actions → Build → Test → Push to ECR → ArgoCD sy
 ## 10.3 Disaster Recovery
 
 ### 10.3.1 Recovery Objectives
+
 | Metric | Target | Implementation |
 |--------|--------|----------------|
 | RPO | 5 minutes | Streaming replication |
 | RTO | 15 minutes | Automated failover |
 
 ### 10.3.2 "Hydraulic Blackout" Protocol
+
 | Component | Behavior | Duration |
 |-----------|----------|----------|
 | RSS | Autonomous operation | Indefinite |
@@ -1481,16 +1668,19 @@ Push to main → GitHub Actions → Build → Test → Push to ECR → ArgoCD sy
 # PART XI: CYBERSECURITY & SOVEREIGN HARDENING
 
 ## 11.0 Security Architecture
+
 FarmSense implements defense-in-depth with Zero-Trust principles.
 
 ## 11.1 Zero-Trust Architecture
 
 ### 11.1.1 Core Principles
+
 1. Never trust, always verify
 2. Least privilege access
 3. Assume breach
 
 ### 11.1.2 Implementation Layers
+
 | Layer | Control |
 |-------|---------|
 | Identity | SPIFFE/SPIRE workload identity |
@@ -1501,6 +1691,7 @@ FarmSense implements defense-in-depth with Zero-Trust principles.
 ## 11.2 eBPF Kernel Auditing (Falco)
 
 ### 11.2.1 Runtime Detection
+
 | Event | Action |
 |-------|--------|
 | Unauthorized process | Alert + log |
@@ -1511,11 +1702,13 @@ FarmSense implements defense-in-depth with Zero-Trust principles.
 ## 11.3 Lateral Movement Prevention
 
 ### 11.3.1 Network Policies
+
 - Default-deny ingress/egress
 - Explicit allow rules only
 - Field devices: No direct internet access
 
 ### 11.3.2 Pod Security
+
 - Read-only root filesystem
 - No privileged containers
 - Seccomp profiles (runtime syscall filtering)
@@ -1525,11 +1718,13 @@ FarmSense implements defense-in-depth with Zero-Trust principles.
 # PART XII: THE WATER COURT LEDGER
 
 ## 12.0 Legal Admissibility Framework
+
 The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard.
 
 ## 12.1 NREP Requirements
 
 ### 12.1.1 Five Pillars
+
 | Pillar | Implementation |
 |--------|----------------|
 | Authenticity | Ed25519 hardware-locked signatures |
@@ -1541,11 +1736,13 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 12.2 Cryptographic Chain of Custody
 
 ### 12.2.1 Merkle Tree Structure
+
 - Daily root hash commitment
 - PBFT consensus on DHU mesh
 - Immutable RSS vault
 
 ### 12.2.2 Digital Water Ledger (DWL) Export
+
 | Component | Format |
 |-------------|--------|
 | manifest.json | Root metadata, system signature |
@@ -1556,6 +1753,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 12.3 Data Sovereignty
 
 ### 12.3.1 Privacy Controls
+
 | Feature | Specification |
 |---------|---------------|
 | Federated learning | Model training without raw data download |
@@ -1569,12 +1767,14 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 13.0 Certification & Environmental Compliance
 
 ## 13.1 GlobalG.A.P. Compliance
+
 | Standard | Alignment | Automation |
 |----------|-----------|------------|
 | IFA | Audit trail generation | Automated |
 | Control Points | Compliance criteria | 95% automated |
 
 ## 13.2 Nitrogen Leaching Prevention
+
 | Method | Implementation |
 |--------|----------------|
 | Real-time nitrate monitoring | VFA EC sensors |
@@ -1582,6 +1782,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | VRA integration | Variable rate application coordination |
 
 ## 13.3 Carbon Sequestration Quantification
+
 | Component | Method |
 |-----------|--------|
 | Soil organic carbon | Change detection from baselines |
@@ -1595,6 +1796,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 14.0 Economics & Funding Strategy
 
 ## 14.1 10-Year Cash Flow Projections
+
 | Year | Revenue | Expenses | Net | Cumulative |
 |------|---------|----------|-----|------------|
 | 1 | $240K | $1.2M | -$960K | -$960K |
@@ -1604,6 +1806,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | 10 | $45M | $20M | $25M | $120M |
 
 ## 14.2 CAPEX/OPEX Breakdown (Subdistrict 1)
+
 | Category | Amount |
 |----------|--------|
 | Hardware | $3,822,720 |
@@ -1615,6 +1818,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | **Net Annual** | **$6,356,922** |
 
 ## 14.3 Strategic Exit Roadmap
+
 | Year | Event | Target Valuation |
 |------|-------|------------------|
 | 2028 | Series B | $50M |
@@ -1628,6 +1832,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 15.0 Non-Dilutive Capital Strategy
 
 ## 15.1 USDA & NRCS Portfolio
+
 | Program | Amount | Deadline | Status |
 |---------|--------|----------|--------|
 | SBIR Phase I | $300K | Mar 2026 | Preparing |
@@ -1635,6 +1840,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | CIG | $75K-$5M | Apr 2026 | Identified |
 
 ## 15.2 NSF & DOE Innovation
+
 | Program | Amount | Alignment |
 |---------|--------|-----------|
 | SBIR Phase I | $275K | ML stress detection |
@@ -1642,6 +1848,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | ARPA-E WATER | $3M-$5M | Novel water tech |
 
 ## 15.3 Philanthropic Integration
+
 | Program | Amount | Fit |
 |---------|--------|-----|
 | Gates Foundation | $1M-$50M | Smallholder scaling |
@@ -1655,6 +1862,7 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 16.0 2026 Pilot Results
 
 ## 16.1 Empirical Results
+
 | Metric | Control | FarmSense | Delta |
 |--------|---------|-----------|-------|
 | Water consumption | 258.4 AF | 204.2 AF | -21% |
@@ -1663,14 +1871,18 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 | **Net ROI** | Baseline | +$38,450/field | — |
 
 ## 16.2 The "Reflex" Discovery
+
 **Week 12 Event:**
+
 - PFA detected 35 GPM sub-surface breach
 - Traditional monitoring: 4 days to identify
 - FarmSense "Reflex Halt": 4.5 seconds
 - Water saved: 1.2 AF in single event
 
 ## 16.3 Legal Validation: June 29, 2026 Trial
+
 **Evidence Presented:**
+
 - 6 months continuous telemetry
 - SHA-256 chained audit logs
 - Kriging validation (MAPE <5%)
@@ -1685,9 +1897,11 @@ The Digital Water Ledger meets the Non-Repudiable Evidence Prime (NREP) standard
 ## 17.0 Supporting Technical Data
 
 ## 17.1 Appendix A: Full Bill of Materials (Master Catalog)
+
 See Section 5.8 for complete Subdistrict 1 BOM.
 
 ## 17.2 Appendix B: Mechanical Assembly Tolerances
+
 | Component | Tolerance | Critical |
 |-----------|-----------|----------|
 | VFA shell verticality | <2° | Yes |
@@ -1696,12 +1910,15 @@ See Section 5.8 for complete Subdistrict 1 BOM.
 | Flow clamp torque | 25 ft-lb | Yes |
 
 ## 17.3 Appendix C: Radio Propagation Models
+
 See Section 1.5 for complete telemetry architecture.
 
 ## 17.4 Appendix D: Soil Dielectric Reference Tables
+
 See Part VII, Section 7.3 for crop-specific calibrations.
 
 ## 17.5 Appendix E: Quality Assurance Test Results
+
 | Test | Standard | Result |
 |------|----------|--------|
 | Thermal cycling | MIL-STD-810H | PASS (-40°C to +85°C) |
@@ -1709,6 +1926,7 @@ See Part VII, Section 7.3 for crop-specific calibrations.
 | Water ingress | IP67 | PASS (1m, 30min) |
 
 ## 17.6 Appendix F: Global Hydrologic Basin Registry
+
 See Part VII, Section 7.5 for complete 40-basin registry.
 
 ---
@@ -1718,6 +1936,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 ## 18.0 Comprehensive Terminology Dictionary
 
 ### A
+
 **Adaptive Recalculation Engine** — Dynamic computation scheduler that adjusts sensor polling and kriging frequency based on environmental volatility. Modes: DORMANT, ANTICIPATORY, FOCUS RIPPLE, FOCUS COLLAPSE.
 
 **AES-256** — Advanced Encryption Standard with 256-bit keys. Used for all field telemetry encryption at the edge (nRF52840, ESP32-S3).
@@ -1731,6 +1950,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **Aquifer** — Underground geological formation containing groundwater. SLV relies on unconfined aquifer recharged by snowmelt.
 
 ### B
+
 **Black Box Cache** — 128GB Swissbit PSLC SSD in DHU that continuously records encrypted audit packets for 30 days during backhaul failures.
 
 **BLE 5.0/5.2/5.4** — Bluetooth Low Energy for technician maintenance access. Not used for field telemetry (replaced by 900MHz CSS LoRa).
@@ -1738,6 +1958,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **BOM** — Bill of Materials. Complete parts list with costs for all hardware variants.
 
 ### C
+
 **CSS LoRa** — Chirp Spread Spectrum LoRa modulation at 915MHz. Primary field telemetry protocol. See: LoRa.
 
 **CSA** — Corner-Swing Arm. Additional tracking device for pivot corners, provides BLE 5.2 distance ranging for ±0.1° joint resolution.
@@ -1751,6 +1972,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **Crop Coefficient (Kc)** — Dimensionless factor relating actual crop evapotranspiration to reference ET. Varies by growth stage.
 
 ### D
+
 **DHU** — District Hub. Level 2 infrastructure node. 35' pole-mounted, Orin Nano compute, 100-pivot radius, 30-day Black Box cache.
 
 **Digital Water Ledger (DWL)** — Cryptographically signed chain of custody for water usage data. Legally admissible in Water Court.
@@ -1760,6 +1982,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **DORMANT Mode** — Low-power adaptive engine state when conditions stable. 4-hour polling, 8µA power draw.
 
 ### E
+
 **Edge-EBK** — Empirical Bayesian Kriging executed at the edge (PMT). Generates 50m-resolution 16×16 probability matrix.
 
 **ESP32-S3** — MCU in PMT. Dual-core Xtensa LX7, vector FPU, 8MB flash, WiFi/BLE, 900MHz LoRa via RFM95W.
@@ -1767,21 +1990,25 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **ET (Evapotranspiration)** — Combined water loss from soil evaporation and plant transpiration. Key SPAC output.
 
 ### F
+
 **FHE** — Fully Homomorphic Encryption. Advanced privacy-preserving computation (future capability).
 
 **FOCUS RIPPLE** — Adaptive engine state triggered by >5% moisture deviation. 15-minute polling.
 
 ### G
+
 **GNSS** — Global Navigation Satellite System. PMT uses u-blox ZED-F9P RTK for sub-cm positioning.
 
 **GroPoint Profile** — Commercial soil moisture sensor used in VFA. Measures VWC, EC, temperature at multiple depths.
 
 ### H
+
 **HDPE SDR9** — High-Density Polyethylene pipe, Standard Dimension Ratio 9. Used for permanent VFA/LRZ outer shells.
 
 **Hydraulic Conductivity (Ksat)** — Rate at which water moves through saturated soil. Determines drainage class.
 
 ### I
+
 **IMU** — Inertial Measurement Unit. PMT uses Bosch BNO055 9-axis for tower stability and stall detection.
 
 **IDW** — Inverse Distance Weighting. Simple interpolation method used at edge for 20m grids.
@@ -1789,14 +2016,17 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **ISLAND Mode** — PMT autonomous operation when DHU offline >4 hours. Executes last valid worksheet.
 
 ### J
+
 **JADC2** — Joint All-Domain Command and Control (Inter-agency). Military integration specification (future).
 
 ### K
+
 **Kc** — See: Crop Coefficient.
 
 **Kriging** — Geostatistical interpolation method. FarmSense uses Ordinary Kriging (10m), Regression Kriging (1m), Edge-EBK (50m).
 
 ### L
+
 **LiFePO4** — Lithium Iron Phosphate battery chemistry. Used in DHU, PFA (safer, longer cycle life than Li-ion).
 
 **LiSOCl2** — Lithium Thionyl Chloride primary cell. Used in LRZ1/LRZ2 (10-year shelf life, low self-discharge).
@@ -1810,6 +2040,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **LTE-M** — LTE for Machines. Low-power cellular used for DHU-P backhaul fallback.
 
 ### M
+
 **MAD** — Management Allowable Depletion. Percentage of available soil water depletable before crop damage.
 
 **MAPE** — Mean Absolute Percentage Error. Kriging validation metric. Target <5%.
@@ -1819,14 +2050,17 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **MCU** — Microcontroller Unit. nRF52840 (field sensors), ESP32-S3 (PMT).
 
 ### N
+
 **nRF52840** — Nordic Semiconductor Bluetooth 5.2 SoC with ARM Cortex-M4. Used in VFA, PFA, LRZ1/LRZ2.
 
 **NREP** — Non-Repudiable Evidence Prime. Legal admissibility standard for Digital Water Ledger.
 
 ### O
+
 **Oracle** — See: Spatial Query Engine.
 
 ### P
+
 **PBFT** — Practical Byzantine Fault Tolerance. Consensus algorithm for Digital Water Ledger.
 
 **PFA** — Pressure & Flow Anchor. Wellhead sentry with flow meter, current clamps, pressure sensor, and actuation relay.
@@ -1838,7 +2072,9 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **PSLC** — Pseudo-Single Level Cell. Industrial SSD technology used in DHU Black Box cache (high endurance).
 
 ### Q
+
 ### R
+
 **RDC** — Regional Data Center. Map servers hosting Sentinel-2, Landsat, edaphic datasets.
 
 **Reflex Logic** — Autonomous safety decisions executed at edge without cloud dependency. <100ms response.
@@ -1852,6 +2088,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **RTK** — Real-Time Kinematic. GNSS correction technique achieving sub-cm accuracy.
 
 ### S
+
 **SAC305** — Lead-free solder alloy (Sn96.5/Ag3.0/Cu0.5). Used for all field hardware joints.
 
 **SFD** — Single Field Deployment. Hardware configurations: SFD-P (pivot), SFD-C (corner), SFD-F (flood).
@@ -1867,6 +2104,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **SQL** — Structured Query Language. FarmSense uses PostgreSQL with TimescaleDB extension.
 
 ### T
+
 **Telemetry** — Automated data transmission from sensors to aggregation points.
 
 **TFX-5000** — Badger Meter ultrasonic transit-time flow meter. ±1.0% accuracy, clamp-on installation.
@@ -1874,9 +2112,11 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **TimescaleDB** — PostgreSQL extension for time-series data. Hypertables chunked by 7 days.
 
 ### U
+
 **UFI** — Unified Freshwater Index. Proprietary water availability metric (Hex-Fusion).
 
 ### V
+
 **VFA** — Vertical Field Anchor. Deep-truth probe with 48" sensor profile. Reports **TO PMT**, not directly to DHU.
 
 **VPD** — Vapor Pressure Deficit. Atmospheric moisture demand driving transpiration.
@@ -1886,6 +2126,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **VWC** — Volumetric Water Content. Percentage of soil volume occupied by water.
 
 ### W
+
 **Water Battery** — Soil profile used as dynamic storage. MAD framework delays irrigation to maximize natural precipitation capture.
 
 **WORM** — Write Once Read Many. S3 Object Lock for compliance data (7-year retention).
@@ -1893,8 +2134,11 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 **Worksheet** — Kriging output distributed from Zo to DHU/PMT containing irrigation prescriptions.
 
 ### X
+
 ### Y
+
 ### Z
+
 **Zero-Trust** — Security architecture assuming breach. Verifies every access request regardless of source.
 
 **Zo** — See: Core Compute Server.
@@ -1904,6 +2148,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 ## 18.1 Cross-Reference Index
 
 ### By Hardware Component
+
 | Term | Section | Definition |
 |------|---------|------------|
 | PMT | 5.3, 1.4.3 | Primary Field Aggregator |
@@ -1915,6 +2160,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 | RSS | 5.1 | Regional Superstation |
 
 ### By Software Component
+
 | Term | Section | Definition |
 |------|---------|------------|
 | Zo | 1.4.1 | Core Compute Server |
@@ -1923,6 +2169,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 | Edge-EBK | 5.3.6 | 50m Kriging at PMT |
 
 ### By Protocol
+
 | Term | Section | Definition |
 |------|---------|------------|
 | CSS LoRa | 1.5, 5.3.5 | 915MHz field telemetry |
@@ -1931,6 +2178,7 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 | mTLS | 11.1.2 | Service authentication |
 
 ### By Concept
+
 | Term | Section | Definition |
 |------|---------|------------|
 | SPAC | 1.2 | Soil-Plant-Atmosphere Continuum |
@@ -1968,7 +2216,6 @@ See Part VII, Section 7.5 for complete 40-basin registry.
 ✅ Investor vetting ready (financial models, TAM/SAM/SOM, exit strategy)
 
 **END OF FARM SENSE MASTER MANUAL: COMPREHENSIVE V2.1**
-
 
 ## DETAILED TECHNICAL EXPANSION
 
@@ -2034,6 +2281,7 @@ Response Schema (429 Rate Limited):
 **GET /v1/fields/{id}/moisture**
 
 Query Parameters:
+
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | resolution | enum | No | "1m" | "1m", "10m", "20m", "50m" |
@@ -2106,6 +2354,7 @@ Response Schema:
 ### Extended Soil Physics Tables
 
 #### Particle Size Distribution by SLV Series
+
 | Series | Sand % | Silt % | Clay % | USDA Class |
 |--------|--------|--------|--------|------------|
 | San Luis | 65 | 25 | 10 | Sandy loam |
@@ -2116,6 +2365,7 @@ Response Schema:
 | Hooper | 70 | 20 | 10 | Sandy loam |
 
 #### Moisture Retention Curves (van Genuchten Parameters)
+
 | Series | θs | θr | α (1/cm) | n | Ks (cm/day) |
 |--------|-----|-----|----------|---|-------------|
 | San Luis | 0.45 | 0.08 | 0.035 | 1.8 | 45 |
@@ -2123,6 +2373,7 @@ Response Schema:
 | Alamosa | 0.52 | 0.12 | 0.025 | 2.1 | 8 |
 
 #### Infiltration Rates by Initial Moisture
+
 | Initial VWC | Gunbarrel | San Luis | Alamosa |
 |-------------|-----------|----------|---------|
 | 0.05 (dry) | 15 cm/hr | 8 cm/hr | 2 cm/hr |
@@ -2134,6 +2385,7 @@ Response Schema:
 #### VFA Calibration Protocol
 
 **Step 1: Factory Calibration**
+
 | Standard | VWC | EC (dS/m) | Temperature |
 |----------|-----|-----------|-------------|
 | Air dry | 0.00 | 0.00 | 25°C |
@@ -2142,6 +2394,7 @@ Response Schema:
 | 0.1M NaCl | 1.00 | 11.0 | 25°C |
 
 **Step 2: Field Calibration**
+
 1. Collect undisturbed soil core at 30cm
 2. Measure volumetrically (core method)
 3. Install VFA at same location
@@ -2150,6 +2403,7 @@ Response Schema:
 6. Update device EEPROM with coefficients
 
 **Step 3: Validation**
+
 | Check | Tolerance | Action if Fail |
 |-------|-----------|----------------|
 | Replicate cores | ±2% VWC | Recalibrate |
@@ -2159,18 +2413,21 @@ Response Schema:
 #### PMT Flow Meter Calibration
 
 **Zero Calibration (Dry Pipe):**
+
 1. Close all valves downstream
 2. Ensure pipe is full but static
 3. Record TFX-5000 zero offset
 4. Store in EEPROM
 
 **Span Calibration (Known Flow):**
+
 1. Install inline reference meter (±0.5%)
 2. Run pump at 25%, 50%, 75%, 100% capacity
 3. Record TFX readings vs reference
 4. Calculate linear correction: Q_corrected = m × Q_raw + b
 
 **Field Verification (Quarterly):**
+
 | Test | Method | Tolerance |
 |------|--------|-----------|
 | Zero | Static full pipe | ±0.5 GPM |
@@ -2182,6 +2439,7 @@ Response Schema:
 #### PMT State Machine (Detailed)
 
 States:
+
 | State | Entry Condition | Activities | Exit Condition |
 |-------|-----------------|------------|----------------|
 | INIT | Power-on | Self-test, load config | Test pass → SLEEP |
@@ -2194,6 +2452,7 @@ States:
 | FAULT | Error detected | Logging, alerting, 45mA | Recovery or manual reset |
 
 Transitions:
+
 | From | To | Trigger |
 |------|-----|---------|
 | SLEEP | PULSE | RTC timer (4hr/1hr/15min/5sec based on mode) |
@@ -2206,6 +2465,7 @@ Transitions:
 #### VFA State Machine
 
 States:
+
 | State | Power | Activities |
 |-------|-------|------------|
 | DEEP_SLEEP | 2µA | RTC, wake on interrupt |
@@ -2213,6 +2473,7 @@ States:
 | RIPPLE_RESPOND | 18mA | Faster sampling when PMT requests |
 
 Chirp Interval Table:
+
 | Mode | Interval | Battery Life |
 |------|----------|--------------|
 | Standard | 4 hours | 4.2 years |
@@ -2222,6 +2483,7 @@ Chirp Interval Table:
 ### Extended Supply Chain Details
 
 #### Critical Components Lead Times
+
 | Component | Supplier | Lead Time | MOQ | Strategic Stock |
 |-------------|----------|-----------|-----|-----------------|
 | nRF52840-QIAA | Nordic | 16 weeks | 1,000 | 3 months |
@@ -2234,6 +2496,7 @@ Chirp Interval Table:
 | HDPE SDR9 pipe | Local | 2 weeks | 500 ft | 1 month |
 
 #### Supplier Diversification Strategy
+
 | Component | Primary | Secondary | Tertiary |
 |-----------|---------|-----------|----------|
 | LoRa modules | RAK | Ebyte | HopeRF |
@@ -2246,6 +2509,7 @@ Chirp Interval Table:
 #### Environmental Stress Testing (Full Suite)
 
 **Thermal Shock (MIL-STD-810H Method 503.7):**
+
 | Cycle | Low (°C) | High (°C) | Dwell (min) | Transitions |
 |-------|----------|-----------|-------------|-------------|
 | 1 | -40 | +85 | 30 | 5 |
@@ -2254,6 +2518,7 @@ Chirp Interval Table:
 | Pass Criteria | No functional degradation | | | |
 
 **Salt Fog (MIL-STD-810H Method 509.7):**
+
 | Parameter | Value |
 |-----------|-------|
 | Concentration | 5% NaCl |
@@ -2262,6 +2527,7 @@ Chirp Interval Table:
 | Pass Criteria | No corrosion on critical surfaces |
 
 **Solar Radiation (MIL-STD-810H Method 505.7):**
+
 | Parameter | Value |
 |-----------|-------|
 | Irradiance | 1120 W/m² |
@@ -2270,6 +2536,7 @@ Chirp Interval Table:
 | Pass Criteria | <5% polymer degradation |
 
 #### EMC Testing (FCC Part 15)
+
 | Test | Standard | Limit | Margin |
 |------|----------|-------|--------|
 | Radiated emissions | CISPR 22 | Class B | 6 dB |
@@ -2282,6 +2549,7 @@ Chirp Interval Table:
 ### Extended Financial Models
 
 #### Grant Funding Timeline
+
 | Quarter | Grant | Amount | Probability | Expected Value |
 |---------|-------|--------|-------------|----------------|
 | Q1 2026 | USDA SBIR I | $300K | 60% | $180K |
@@ -2293,6 +2561,7 @@ Chirp Interval Table:
 | **Total Expected** | | | | **$4.05M** |
 
 #### Investor Return Scenarios
+
 | Scenario | Exit Year | Valuation | Return Multiple |
 |----------|-----------|-----------|-----------------|
 | Conservative | 2030 | $100M | 10x |
@@ -2303,6 +2572,7 @@ Chirp Interval Table:
 ### Extended Compliance Documentation
 
 #### Water Court Evidence Package
+
 | Document | Format | Signatures | Retention |
 |----------|--------|------------|-----------|
 | Daily telemetry logs | CSV | Ed25519 | 7 years |
@@ -2312,6 +2582,7 @@ Chirp Interval Table:
 | Expert validation | PDF | Third-party signature | 10 years |
 
 #### NRCS Conservation Planning Integration
+
 | Resource Concern | FarmSense Metric | NRCS Code | Points |
 |------------------|------------------|-----------|--------|
 | Soil quality limitation | EC trends, VWC stability | 1A | 3 |
@@ -2334,12 +2605,12 @@ Chirp Interval Table:
 **Total Possible Points:** 41
 **FarmSense Typical Score:** 35-38 (85-93%)
 
-
 ## Additional Technical Specifications
 
 ### Firmware Update Procedures
 
 #### Over-the-Air (OTA) Update Protocol
+
 | Stage | Action | Duration | Verification |
 |-------|--------|----------|--------------|
 | 1. Notification | DHU broadcasts update availability | 5min | ACK from all nodes |
@@ -2349,6 +2620,7 @@ Chirp Interval Table:
 | 5. Rollback | Auto-rollback on boot failure | 60sec | Previous version restored |
 
 #### Factory Reset Procedures
+
 | Device | Method | Duration | Data Preserved |
 |--------|--------|----------|----------------|
 | PMT | Button hold 10sec | 2min | Calibration only |
@@ -2361,6 +2633,7 @@ Chirp Interval Table:
 ### Communication Protocol Specifications
 
 #### LoRa Chirp Protocol (900MHz CSS)
+
 | Parameter | Value | Unit |
 |-----------|-------|------|
 | Frequency | 915 | MHz (US ISM band) |
@@ -2376,6 +2649,7 @@ Chirp Interval Table:
 | Sensitivity | -148 | dBm |
 
 #### 2.4GHz Backbone Protocol (DHU Mesh)
+
 | Parameter | Value | Unit |
 |-----------|-------|------|
 | Standard | IEEE 802.11n | |
@@ -2388,6 +2662,7 @@ Chirp Interval Table:
 | Roaming | <50 | ms handoff |
 
 #### LTE-M Backhaul (DHU to RSS/Cloud)
+
 | Parameter | Value | Unit |
 |-----------|-------|------|
 | Band | LTE Cat-M1 | |
@@ -2403,6 +2678,7 @@ Chirp Interval Table:
 #### Solar Sizing Calculations (DHU/RSS)
 
 **DHU Daily Energy Budget:**
+
 | Component | Active Power | Duty Cycle | Daily Energy |
 |-----------|--------------|------------|--------------|
 | Jetson Orin | 15W | 100% | 360Wh |
@@ -2419,6 +2695,7 @@ Chirp Interval Table:
 | Battery bank | | | 4× 100Ah LiFePO4 |
 
 **RSS Daily Energy Budget:**
+
 | Component | Active Power | Duty Cycle | Daily Energy |
 |-----------|--------------|------------|--------------|
 | Threadripper (idle) | 280W | 80% | 5,376Wh |
@@ -2435,6 +2712,7 @@ Chirp Interval Table:
 ### Mechanical Specifications
 
 #### Pole and Mounting Hardware
+
 | Component | Material | Spec | Torque |
 |-----------|----------|------|--------|
 | DHU pole | Class 4 treated | 35ft × 8in | Embedded 6ft |
@@ -2446,6 +2724,7 @@ Chirp Interval Table:
 | PFA enclosure | Polycarbonate NEMA 4X | 16×14×8in | Wall mount |
 
 #### Cable Management
+
 | Cable Type | Diameter | Bend Radius | Max Length |
 |------------|----------|-------------|------------|
 | LMR-195 | 0.195in | 2in | 50ft |
@@ -2460,13 +2739,16 @@ Chirp Interval Table:
 ### Network Topology Deep Dive
 
 #### Mesh Routing Algorithm
+
 ```
 Route Selection Criteria (priority order):
+
 1. Link quality (RSSI > -120dBm required)
 2. Hop count (minimize)
 3. Battery level (avoid low nodes)
 4. Congestion (load balance)
 5. Last successful contact (recency)
+
 ```
 
 | Metric | Threshold | Action |
@@ -2479,6 +2761,7 @@ Route Selection Criteria (priority order):
 | SNR | <5dB | Route invalid |
 
 #### Packet Structure (LoRa)
+
 | Byte | Field | Description |
 |------|-------|-------------|
 | 0 | Version | Protocol version (0x01) |
@@ -2490,10 +2773,10 @@ Route Selection Criteria (priority order):
 | 17-N | Payload | AES-encrypted sensor data |
 | N+1-N+2 | CRC | 16-bit CRC checksum |
 
-
 ### Soil Physics Deep Dive
 
 #### Dielectric Permittivity by Soil Type
+
 | Soil Series | Location | Bulk Density (g/cm³) | Porosity | Field Capacity | Wilting Point | Saturation |
 |-------------|----------|----------------------|----------|----------------|---------------|------------|
 | San Luis Sandy Loam | SLV | 1.40 | 0.47 | 0.16 | 0.06 | 0.38 |
@@ -2504,6 +2787,7 @@ Route Selection Criteria (priority order):
 | Rocky Ford Sandy Loam | SLV | 1.41 | 0.47 | 0.17 | 0.07 | 0.39 |
 
 #### Water Retention Curves (van Genuchten Parameters)
+
 | Soil Type | α (1/cm) | n | θs | θr | Ks (cm/day) |
 |-----------|----------|---|----|----|-------------|
 | Sand | 0.145 | 2.68 | 0.43 | 0.045 | 712.8 |
@@ -2515,6 +2799,7 @@ Route Selection Criteria (priority order):
 | Clay | 0.008 | 1.09 | 0.46 | 0.100 | 2.88 |
 
 #### Seasonal Groundwater Variations (SLV)
+
 | Month | Depth to Water Table (ft) | Aquifer Level | Irrigation Demand |
 |-------|--------------------------|---------------|-------------------|
 | Jan | 8-12 | High (recharge) | None |
@@ -2533,6 +2818,7 @@ Route Selection Criteria (priority order):
 ### Crop Modeling Libraries (Expanded)
 
 #### Potato (Solanum tuberosum) - Russet Burbank
+
 | Growth Stage | Days | Root Depth | MAD Target | Critical Kc |
 |--------------|------|------------|------------|-------------|
 | Planting | 0-7 | 4in | 50% | 0.50 |
@@ -2543,11 +2829,13 @@ Route Selection Criteria (priority order):
 | Senescence | 121-130 | 20in | 70% | 0.70 |
 
 **Critical Periods:**
+
 - Tuber initiation: Stress reduces tuber count (irreversible)
 - Early bulking: Stress reduces tuber size (partially recoverable)
 - Late bulking: Stress acceptable for dry-down
 
 **Nutrient Requirements:**
+
 | Nutrient | Uptake (lbs/acre) | Critical Window |
 |----------|-------------------|-------------------|
 | Nitrogen | 180-220 | Emergence through bulking |
@@ -2557,6 +2845,7 @@ Route Selection Criteria (priority order):
 | Magnesium | 25-30 | Throughout |
 
 #### Alfalfa (Medicago sativa)
+
 | Cut | Growth Days | Target Height | MAD | Expected Yield (tons/acre) |
 |-----|-------------|---------------|-----|---------------------------|
 | 1st | 28-32 | 28in | 60% | 1.5-2.0 |
@@ -2565,6 +2854,7 @@ Route Selection Criteria (priority order):
 | 4th | 35-45 | 22in | 75% | 0.8-1.2 |
 
 **Dormancy and Winter Survival:**
+
 | Factor | Optimal Range | Stress Threshold |
 |--------|---------------|------------------|
 | Pre-dormancy moisture | 70% MAD | >80% = winterkill risk |
@@ -2575,6 +2865,7 @@ Route Selection Criteria (priority order):
 ### Quality Assurance and Testing
 
 #### Production Testing Protocols
+
 | Test | Sample Size | Frequency | Acceptance Criteria |
 |------|-------------|-----------|---------------------|
 | Dielectric calibration | 100% | Every unit | ±2% @ known VWC |
@@ -2588,6 +2879,7 @@ Route Selection Criteria (priority order):
 | IP67 ingress | 3 units | Per batch | 30min @ 1m |
 
 #### Field Testing Procedures
+
 | Test | Equipment | Duration | Success Criteria |
 |------|-----------|----------|------------------|
 | Soil contact verification | VFA chirp test | 1hr | ACK from PMT |
@@ -2598,6 +2890,7 @@ Route Selection Criteria (priority order):
 | Thermal cycling | Field exposure | 1 week | No failures |
 
 #### Calibration Certificate Requirements
+
 | Parameter | Traceability | Uncertainty | Interval |
 |-----------|--------------|-------------|----------|
 | Dielectric sensor | NIST dielectric fluids | ±0.5% | Annual |
@@ -2607,10 +2900,10 @@ Route Selection Criteria (priority order):
 | Temperature sensor | NIST thermistor | ±0.1°C | Annual |
 | GNSS receiver | NGS CORS station | ±1cm | Continuous |
 
-
 ### Federal Grant Application Details
 
 #### USDA SBIR Phase I Application Template
+
 | Section | Page Limit | Key Content |
 |---------|------------|-------------|
 | Executive Summary | 1 | Innovation, commercial potential, team expertise |
@@ -2620,6 +2913,7 @@ Route Selection Criteria (priority order):
 | Biographical Sketches | 2 pages each | PI and key personnel qualifications |
 
 **Evaluation Criteria:**
+
 | Criterion | Weight | FarmSense Strength |
 |-----------|--------|-------------------|
 | Innovation | 25% | First deterministic farming OS |
@@ -2629,6 +2923,7 @@ Route Selection Criteria (priority order):
 | Budget | 10% | 85% hardware, 15% labor |
 
 **Timeline:**
+
 | Milestone | Date | Deliverable |
 |-----------|------|-------------|
 | FOA Released | Jan 15, 2026 | Check eligibility |
@@ -2639,6 +2934,7 @@ Route Selection Criteria (priority order):
 | Project Start | Jul 2026 | Begin 6-month work |
 
 #### NSF SBIR/STTR Application Strategy
+
 | Program | Amount | Duration | Focus Area |
 |---------|--------|----------|------------|
 | Phase I | $275K | 6 months | ML-based stress detection |
@@ -2647,15 +2943,19 @@ Route Selection Criteria (priority order):
 | Phase IIB | $500K | 12 months | Commercialization support |
 
 **Technical Approach Outline:**
+
 1. **Problem Statement:** Current irrigation decisions rely on intuition, causing 20-30% water waste
 2. **Innovation:** LSTM-based predictive ET with ground-truth sensor fusion
 3. **Methodology:**
+
    - Data collection: 2-field pilot dataset
    - Model training: TensorFlow LSTM architecture
    - Validation: MAPE <8% vs. actual ET measured by lysimeter
+
 4. **Broader Impacts:** Water security for 2.5M acres Colorado River Basin
 
 #### NRCS Conservation Innovation Grants
+
 | Grant Type | Amount | Match Required | Term |
 |------------|--------|----------------|------|
 | National CIG | $75K-$2M | 50% | 3 years |
@@ -2663,6 +2963,7 @@ Route Selection Criteria (priority order):
 | Special Projects | $1M-$10M | 50% | 5 years |
 
 **Resource Concern Mapping:**
+
 | NRCS Code | Concern | FarmSense Metric |
 |-----------|---------|------------------|
 | N142 | Aquifer depletion | Gallons saved/acre |
@@ -2675,6 +2976,7 @@ Route Selection Criteria (priority order):
 ### Legal and Compliance Procedures
 
 #### Water Court Evidence Submission Protocol
+
 | Step | Action | Responsible Party | Timeline |
 |------|--------|-----------------|----------|
 | 1 | Data export from RSS | FarmSense Ops | T-30 days |
@@ -2686,6 +2988,7 @@ Route Selection Criteria (priority order):
 | 7 | Trial testimony | Expert witness | Trial date |
 
 **Evidence Package Contents:**
+
 | Document | Format | Authentication |
 |----------|--------|----------------|
 | Raw telemetry | CSV | SHA-256 hash |
@@ -2696,6 +2999,7 @@ Route Selection Criteria (priority order):
 | Chain of custody | PDF | Notarized |
 
 #### SLV 2026 Compliance Audit Checklist
+
 | Requirement | Method | Frequency | Evidence |
 |-------------|--------|-----------|----------|
 | Flow meter accuracy | ±1% certified | Annual | Calibration cert |
@@ -2708,6 +3012,7 @@ Route Selection Criteria (priority order):
 ### Deployment and Installation Workflows
 
 #### Seasonal Deployment Calendar
+
 | Week | Activity | Crew Size | Equipment |
 |------|----------|-----------|-----------|
 | 1 (Apr) | Site survey | 2 | RTK rover, soil probe |
@@ -2722,6 +3027,7 @@ Route Selection Criteria (priority order):
 | 10 | Documentation | 1 | As-builts, manuals |
 
 #### Per-Field Installation Checklist
+
 | Task | Completed By | Verified By | Sign-off |
 |------|--------------|-------------|----------|
 | Site survey complete | Surveyor | PM | [ ] |
@@ -2738,10 +3044,10 @@ Route Selection Criteria (priority order):
 | Training complete | Trainer | Farmer | [ ] |
 | Documentation filed | PM | Admin | [ ] |
 
-
 ### Global Basin Expansion Analysis
 
 #### Priority Basin Assessment Matrix
+
 | Basin | Country/Region | Irrigated Area | Stress Level | Water Cost | Entry Barriers | Priority |
 |-------|---------------|----------------|--------------|------------|----------------|----------|
 | Rio Grande | USA (CO/NM/TX) | 300K acres | Critical | $500/AF | Low (pilot active) | 1 |
@@ -2754,6 +3060,7 @@ Route Selection Criteria (priority order):
 | Guadiana | Spain/Portugal | 500K acres | High | €50-150/AF | Medium (EU regs) | 8 |
 
 #### Regional Adaptation Requirements
+
 | Basin | Climate Adaptation | Crop Focus | Regulatory Framework |
 |-------|-------------------|------------|---------------------|
 | SLV | Cold desert, high altitude | Potatoes, alfalfa | State water court |
@@ -2766,6 +3073,7 @@ Route Selection Criteria (priority order):
 ### Supply Chain and Manufacturing
 
 #### Component Sourcing Strategy
+
 | Component | Primary Supplier | Secondary | Lead Time | MOQ | Annual Volume |
 |-----------|------------------|-----------|-----------|-----|---------------|
 | nRF52840 | Nordic Semiconductor | Digi-Key | 12 weeks | 1K | 50K units |
@@ -2777,6 +3085,7 @@ Route Selection Criteria (priority order):
 | Solar panels | LONGi | Jinko | 8 weeks | 100 | 2K panels |
 
 #### Manufacturing Partners
+
 | Product Line | Partner | Location | Capacity | Certifications |
 |--------------|---------|----------|----------|----------------|
 | PCB assembly | Jabil | Colorado | 50K units/mo | ISO 9001, IPC-A-610 |
@@ -2786,6 +3095,7 @@ Route Selection Criteria (priority order):
 | System integration | bx3 internal | Colorado | 100 systems/mo | N/A (in-house) |
 
 #### Quality Control Gates
+
 | Stage | Inspection | Sample Rate | Accept/Reject |
 |-------|------------|-------------|---------------|
 | PCB incoming | AOI + X-ray | 100% | IPC Class 3 |
@@ -2798,6 +3108,7 @@ Route Selection Criteria (priority order):
 ### Risk Management Framework
 
 #### Technical Risk Register
+
 | ID | Risk | Probability | Impact | Mitigation | Owner |
 |----|------|-------------|--------|------------|-------|
 | T001 | Mesh connectivity loss | Medium | High | 30-day Black Box, redundant paths | RF Engineer |
@@ -2808,6 +3119,7 @@ Route Selection Criteria (priority order):
 | T006 | Firmware corruption | Low | High | Dual bank, signed updates, rollback | Embedded Lead |
 
 #### Financial Risk Register
+
 | ID | Risk | Probability | Impact | Mitigation | Owner |
 |----|------|-------------|--------|------------|-------|
 | F001 | Grant funding delay | Medium | High | Maintain 6-month runway | CFO |
@@ -2817,6 +3129,7 @@ Route Selection Criteria (priority order):
 | F005 | Currency fluctuation | Low | Low | USD contracts, hedging (international) | CFO |
 
 #### Operational Risk Register
+
 | ID | Risk | Probability | Impact | Mitigation | Owner |
 |----|------|-------------|--------|------------|-------|
 | O001 | Field crew injury | Low | Critical | Safety training, PPE, insurance | Field Ops |
@@ -2826,6 +3139,7 @@ Route Selection Criteria (priority order):
 | O005 | Regulatory change | Medium | High | Legal monitoring, adaptive design, lobbying | Legal |
 
 #### Business Continuity Plan
+
 | Scenario | RTO | RPO | Recovery Actions |
 |----------|-----|-----|------------------|
 | RSS complete failure | 4hr | 0 | Auto-failover to cloud, generator refuel |
@@ -2835,12 +3149,12 @@ Route Selection Criteria (priority order):
 | Cyber attack | 1hr | 5min | Isolate, forensic, restore from clean backup |
 | Natural disaster | 72hr | 1hr | Mobile RSS deployment, satellite backhaul |
 
-
 ### Additional Technical Specifications (Extended)
 
 #### Telemetry Packet Examples
 
 **PMT Status Packet (187 bytes):**
+
 | Byte Range | Field | Format | Description |
 |------------|-------|--------|-------------|
 | 0-7 | Device ID | uint64 | Unique PMT identifier |
@@ -2860,6 +3174,7 @@ Route Selection Criteria (priority order):
 | 38-187 | Kriging grid | uint8[150] | 50m resolution 16x16 matrix |
 
 **VFA Soil Packet (64 bytes):**
+
 | Byte Range | Field | Format | Description |
 |------------|-------|--------|-------------|
 | 0-7 | Device ID | uint64 | Unique VFA identifier |
@@ -2879,6 +3194,7 @@ Route Selection Criteria (priority order):
 | 34-63 | Reserved | uint8[30] | Future expansion |
 
 **LRZ Scout Packet (32 bytes):**
+
 | Byte Range | Field | Format | Description |
 |------------|-------|--------|-------------|
 | 0-7 | Device ID | uint64 | Unique LRZ identifier |
@@ -2892,6 +3208,7 @@ Route Selection Criteria (priority order):
 #### Kriging Validation Protocol
 
 **Field Sampling Design:**
+
 | Sample Type | Density | Location Method | Depth |
 |-------------|---------|-----------------|-------|
 | Core samples | 1 per 2 acres | Stratified random | 0-12in |
@@ -2900,6 +3217,7 @@ Route Selection Criteria (priority order):
 | Gravimetric | 5 per field | GPS-marked | 0-6in, 6-12in |
 
 **Validation Schedule:**
+
 | Phase | Samples | Timing | Analysis |
 |-------|---------|--------|----------|
 | Baseline | 50 per field | Pre-season | Bulk density, texture |
@@ -2908,6 +3226,7 @@ Route Selection Criteria (priority order):
 | Harvest | 20 per field | Post-harvest | Final validation |
 
 **Accuracy Metrics:**
+
 | Metric | Target | Measurement |
 |--------|--------|-------------|
 | MAPE (Mean Absolute Percentage Error) | <5% | Kriging vs. ground truth |
@@ -2919,6 +3238,7 @@ Route Selection Criteria (priority order):
 #### Dashboard User Interface Specifications
 
 **Color Palette (Accessibility Compliant):**
+
 | Purpose | Color | Hex | WCAG Ratio |
 |---------|-------|-----|--------------|
 | Primary brand | Emerald | #10B981 | 4.5:1 on dark |
@@ -2933,6 +3253,7 @@ Route Selection Criteria (priority order):
 | Text secondary | Slate 400 | #94A3B8 | 7:1 |
 
 **Typography Scale:**
+
 | Element | Font | Size | Weight | Line Height |
 |---------|------|------|--------|-------------|
 | H1 | Inter | 48px | 800 | 1.0 |
@@ -2945,6 +3266,7 @@ Route Selection Criteria (priority order):
 | Mono | JetBrains Mono | 14px | 400 | 1.5 |
 
 **Responsive Breakpoints:**
+
 | Breakpoint | Width | Layout Changes |
 |------------|-------|---------------|
 | Mobile | <640px | Single column, stacked cards |
@@ -2955,6 +3277,7 @@ Route Selection Criteria (priority order):
 #### API Rate Limiting and Quotas
 
 **Tier-Based Limits:**
+
 | Tier | Requests/Min | Requests/Day | Concurrent | Burst |
 |------|--------------|--------------|------------|-------|
 | Free | 10 | 1,000 | 1 | 20 |
@@ -2964,6 +3287,7 @@ Route Selection Criteria (priority order):
 | Internal | 10,000 | Unlimited | 500 | 10,000 |
 
 **Endpoint-Specific Limits:**
+
 | Endpoint | Method | Base Limit | Burst Multiplier |
 |----------|--------|------------|------------------|
 | /ingest | POST | 1,000/min | 3x |
@@ -2974,6 +3298,7 @@ Route Selection Criteria (priority order):
 | /stream | WS | 1/field | - |
 
 **Quota Reset Schedule:**
+
 | Quota Type | Reset Interval | Reset Time |
 |------------|----------------|------------|
 | Per-minute | 60 seconds | Sliding window |
@@ -2983,6 +3308,7 @@ Route Selection Criteria (priority order):
 #### Disaster Recovery Runbooks
 
 **Scenario: Complete RSS Failure**
+
 | Step | Action | Owner | ETA |
 |------|--------|-------|-----|
 | 1 | Alert on-call engineer | System | 0 min |
@@ -2995,6 +3321,7 @@ Route Selection Criteria (priority order):
 | 8 | Resume normal operations | All | 10 hr |
 
 **Scenario: Cyber Intrusion Detected**
+
 | Step | Action | Owner | ETA |
 |------|--------|-------|-----|
 | 1 | Isolate affected systems | Security | 5 min |
@@ -3007,6 +3334,7 @@ Route Selection Criteria (priority order):
 | 8 | Post-incident review | All | 72 hr |
 
 **Scenario: Mass Field Device Failure**
+
 | Step | Action | Owner | ETA |
 |------|--------|-------|-----|
 | 1 | Identify affected batch | Data ops | 10 min |
@@ -3016,10 +3344,10 @@ Route Selection Criteria (priority order):
 | 5 | Schedule emergency maintenance | Field ops | 8 hr |
 | 6 | Deploy and verify | Field ops | 24 hr per batch |
 
-
 ### Extended Glossary and Technical Dictionary (Comprehensive)
 
 #### A-C Terms
+
 | Term | Definition | Context | Related Terms |
 |------|------------|---------|---------------|
 | Adaptive Recalculation Engine | Dynamic computation scheduler that adjusts sensor polling frequency based on environmental volatility | Edge computing | DORMANT, ANTICIPATORY, RIPPLE, COLLAPSE |
@@ -3035,6 +3363,7 @@ Route Selection Criteria (priority order):
 | Critical Growth Stage | Crop development period where water stress causes irreversible yield reduction | Agronomy | Tuber initiation, Flowering, Grain fill |
 
 #### D-H Terms
+
 | Term | Definition | Context | Related Terms |
 |------|------------|---------|---------------|
 | Deterministic Farming OS | Rule-based agricultural system replacing stochastic intuition with auditable algorithms | Philosophy | Explainable AI, Water Court, Compliance |
@@ -3053,6 +3382,7 @@ Route Selection Criteria (priority order):
 | GroPoint | Capacitance-based soil moisture sensor measuring VWC and temperature | Hardware | Dielectric, Calibration, Soil series |
 
 #### I-M Terms
+
 | Term | Definition | Context | Related Terms |
 |------|------------|---------|---------------|
 | IMU | Inertial Measurement Unit; 9-axis sensor detecting motion, vibration, and orientation | Hardware | BNO055, PMT, Pivot tracking |
@@ -3071,6 +3401,7 @@ Route Selection Criteria (priority order):
 | Mesh Network | Self-healing topology where nodes relay messages for others | Networking | LoRa, DHU, Redundancy |
 
 #### N-R Terms
+
 | Term | Definition | Context | Related Terms |
 |------|------------|---------|---------------|
 | nRF52840 | Nordic Semiconductor SoC; Cortex-M4F + BLE 5.4 + Cryptocell | Hardware | VFA, LRZ, AES-256 |
@@ -3088,6 +3419,7 @@ Route Selection Criteria (priority order):
 | RTK | Real-Time Kinematic; GNSS correction achieving sub-centimeter accuracy | Positioning | u-blox, Base station, CORS |
 
 #### S-Z Terms
+
 | Term | Definition | Context | Related Terms |
 |------|------------|---------|---------------|
 | SAC305 | Tin-silver-copper solder alloy (Sn96.5/Ag3.0/Cu0.5) for lead-free electronics | Manufacturing | Reflow, Wetting, Joints |
@@ -3113,6 +3445,7 @@ Route Selection Criteria (priority order):
 | Zero-Trust | Security model assuming breach; verify every access request | Security | mTLS, SPIFFE, Least privilege |
 
 ### Acronyms and Abbreviations Master List
+
 | Acronym | Full Name | First Appearance |
 |---------|-----------|------------------|
 | AF | Acre-Foot | 1.1 |
@@ -3209,10 +3542,10 @@ Route Selection Criteria (priority order):
 | XML | Extensible Markup Language | 4.3 |
 | ZED-F9P | u-blox GNSS module | 4.4 |
 
-
 ### Historical Context and Comparative Analysis
 
 #### Evolution of Precision Agriculture
+
 | Era | Technology | Accuracy | Cost/Acre | Adoption |
 |-----|------------|----------|-----------|----------|
 | 1980s | Manual soil sampling | ±20% VWC | $50 | <5% |
@@ -3224,6 +3557,7 @@ Route Selection Criteria (priority order):
 | 2026 | FarmSense Enterprise | ±2% VWC | $30 | Target: 60% |
 
 #### Competitive Product Comparison Matrix
+
 | Feature | FarmSense | CropX | FieldNET | Arable | Sentek |
 |---------|-----------|-------|----------|--------|--------|
 | Ground resolution | 1m | 100m (sat) | N/A | Point | Point |
@@ -3236,6 +3570,7 @@ Route Selection Criteria (priority order):
 | Deterministic logic | Yes | No | No | No | No |
 
 #### Technology Maturity Assessment (TRL)
+
 | Component | TRL | Evidence | Risk |
 |-----------|-----|----------|------|
 | LoRa CSS telemetry | 9 | Field proven 5+ years | Low |
@@ -3252,6 +3587,7 @@ Route Selection Criteria (priority order):
 ### Intellectual Property Portfolio
 
 #### Patent Strategy Overview
+
 | Category | Status | Filing Date | Priority |
 |----------|--------|-------------|----------|
 | 1m Kriging method | Provisional filed | 2025-08 | High |
@@ -3264,6 +3600,7 @@ Route Selection Criteria (priority order):
 | AllianceChain consensus | Open source (strategic) | N/A | Low |
 
 #### Trademark Portfolio
+
 | Mark | Status | Class | Jurisdiction |
 |------|--------|-------|--------------|
 | FarmSense | Registered | 9, 42 | US, EU, AU, CN |
@@ -3276,6 +3613,7 @@ Route Selection Criteria (priority order):
 ### Partnership and Ecosystem
 
 #### Academic Research Partners
+
 | Institution | Focus Area | Status | Contribution |
 |-------------|------------|--------|--------------|
 | Colorado State University | Validation, Kriging | Active | 2-field pilot site |
@@ -3285,6 +3623,7 @@ Route Selection Criteria (priority order):
 | UC Davis | Almond/pistachio | Proposal | California expansion |
 
 #### Industry Technology Partners
+
 | Company | Technology | Integration | Status |
 |---------|------------|-------------|--------|
 | u-blox | RTK GNSS modules | PMT positioning | Production |
@@ -3297,6 +3636,7 @@ Route Selection Criteria (priority order):
 | MapLibre | Mapping engine | Visualization | Production |
 
 #### Agricultural Industry Partners
+
 | Organization | Role | Relationship | Value |
 |--------------|------|--------------|-------|
 | Rio Grande WCD | Regulatory alignment | Strategic partner | Water court credibility |
@@ -3309,6 +3649,7 @@ Route Selection Criteria (priority order):
 ### Regulatory Engagement Strategy
 
 #### Federal Agency Roadmap
+
 | Agency | Current Status | Next Step | Target Outcome |
 |--------|---------------|-----------|----------------|
 | USDA NRCS | CIG applicant | Award 2026 | Conservation practice standard |
@@ -3319,6 +3660,7 @@ Route Selection Criteria (priority order):
 | DOD | None | Dual-use brief | Strategic contract pathway |
 
 #### State-Level Engagement
+
 | State | Agency | Status | Priority |
 |-------|--------|--------|----------|
 | Colorado | DWR | Active (SLV 2026 trial) | Critical |
@@ -3329,6 +3671,7 @@ Route Selection Criteria (priority order):
 | California | SWRCB | None | Medium |
 
 #### International Standards Bodies
+
 | Organization | Standard | FarmSense Relevance | Engagement |
 |--------------|----------|---------------------|------------|
 | ISO | ISO 19136 (GML) | Spatial data exchange | Monitor |
@@ -3340,6 +3683,7 @@ Route Selection Criteria (priority order):
 ### Customer Success and Support
 
 #### Support Tier Structure
+
 | Tier | Response Time | Channels | Included With |
 |------|---------------|----------|---------------|
 | Basic | 48hr email | Email, docs | Base tier |
@@ -3348,6 +3692,7 @@ Route Selection Criteria (priority order):
 | Premium | 1hr dedicated | All + Slack | Premium add-on |
 
 #### Training Program Curriculum
+
 | Module | Duration | Delivery | Audience |
 |--------|----------|----------|----------|
 | 101: FarmSense Overview | 1hr | Video | All users |
@@ -3359,6 +3704,7 @@ Route Selection Criteria (priority order):
 | 501: System Troubleshooting | 4hr | Hands-on | Internal staff |
 
 #### Customer Health Metrics
+
 | Metric | Target | Warning | Critical |
 |--------|--------|---------|----------|
 | Daily logins | >5/week | 2-4/week | <2/week |
@@ -3371,6 +3717,7 @@ Route Selection Criteria (priority order):
 ### Data Science and Machine Learning
 
 #### Model Training Pipeline
+
 | Stage | Input | Output | Compute | Frequency |
 |-------|-------|--------|---------|-----------|
 | 1. Data ingestion | Raw telemetry | Cleaned time series | ETL cluster | Continuous |
@@ -3381,6 +3728,7 @@ Route Selection Criteria (priority order):
 | 6. Monitoring | Production predictions | Drift detection | Real-time | Continuous |
 
 #### Model Performance Tracking
+
 | Model | Metric | Target | Current | Trend |
 |-------|--------|--------|---------|-------|
 | ET prediction (LSTM) | MAE | 0.5mm/day | 0.7mm/day | ↓ Improving |
@@ -3389,10 +3737,10 @@ Route Selection Criteria (priority order):
 | Anomaly detection | Precision | 0.95 | 0.91 | → Stable |
 | Kriging (IDW) | MAPE | 5% | 4.2% | ✓ At target |
 
-
 ### Extended Project Financials and Valuation
 
 #### Detailed Monthly Cash Flow (Year 1-3)
+
 | Month | Revenue | Hardware COGS | SaaS COGS | OPEX | Net | Cumulative |
 |-------|---------|-------------|-----------|------|-----|------------|
 | M1 | $0 | $0 | $0 | $45,000 | ($45,000) | ($45,000) |
@@ -3411,6 +3759,7 @@ Route Selection Criteria (priority order):
 | Y3 Total | $7,200,000 | $0 | $2,160,000 | $2,400,000 | $2,640,000 | $2,168,674 |
 
 #### Valuation Methodologies
+
 | Method | Calculation | Y2 Valuation | Y3 Valuation |
 |--------|-------------|--------------|--------------|
 | DCF (15% discount) | Sum of discounted cash flows | $8.2M | $22.4M |
@@ -3421,6 +3770,7 @@ Route Selection Criteria (priority order):
 | Bottom-up (per field value) | $25K × 640 fields | $16M | $32M (1,280 fields) |
 
 #### Exit Strategy Analysis
+
 | Scenario | Timing | Valuation | Buyer Profile | Probability |
 |----------|--------|-----------|---------------|-------------|
 | Strategic acquisition (Deere) | 2028-2030 | $150-300M | Equipment OEM | 25% |
@@ -3433,6 +3783,7 @@ Route Selection Criteria (priority order):
 ### Extended Hardware Failure Analysis
 
 #### Mean Time Between Failures (MTBF)
+
 | Component | MTBF (hours) | MTBF (years) | Replacement Strategy |
 |-----------|--------------|--------------|----------------------|
 | nRF52840 SoC | 1,000,000 | 114 | Replace on failure |
@@ -3447,6 +3798,7 @@ Route Selection Criteria (priority order):
 | HDPE enclosure | 350,400 (40yr) | 40 | Permanent |
 
 #### Failure Mode Effects Analysis (FMEA)
+
 | Component | Failure Mode | Effect | Severity | Occurrence | Detection | RPN | Mitigation |
 |-----------|--------------|--------|----------|------------|-----------|-----|------------|
 | PMT | GNSS loss | No positioning | 8 | 3 | 8 | 192 | Float fallback |
@@ -3463,6 +3815,7 @@ Route Selection Criteria (priority order):
 ### Extended Security and Compliance
 
 #### Penetration Testing Schedule
+
 | Test Type | Scope | Frequency | Provider | Last Completed |
 |-----------|-------|-----------|----------|----------------|
 | External network | Perimeter defenses | Quarterly | Third-party | 2026-02 |
@@ -3475,6 +3828,7 @@ Route Selection Criteria (priority order):
 | IoT/embedded | Field device firmware | Annual | Third-party | 2025-12 |
 
 #### Compliance Audit Timeline
+
 | Standard | Scope | Auditor | Frequency | Next Audit |
 |----------|-------|---------|-----------|------------|
 | SOC 2 Type II | Cloud security | External | Annual | 2026-06 |
@@ -3488,6 +3842,7 @@ Route Selection Criteria (priority order):
 ### Extended Operations and Maintenance
 
 #### Seasonal Maintenance Calendar (Per Field)
+
 | Season | Activity | Hours | Cost | Crew |
 |--------|----------|-------|------|------|
 | Spring (Mar-Apr) | Pre-season inspection | 2 | $100 | 1 tech |
@@ -3499,6 +3854,7 @@ Route Selection Criteria (priority order):
 | **Annual Total** | | **7.5 hrs** | **$375** | |
 
 #### Tool and Equipment Inventory
+
 | Item | Quantity | Unit Cost | Total | Replacement Cycle |
 |------|----------|-----------|-------|-------------------|
 | RTK rover | 2 | $15,000 | $30,000 | 5 years |
@@ -3533,12 +3889,12 @@ FarmSense is not a product. It is infrastructure for a water-constrained world.
 *Prepared by: Bxthre3 Inc. Engineering and Strategy Teams*
 *Review Status: Pending academic and investor vetting*
 
-
 ### PART XVIII: ADDITIONAL TECHNICAL APPENDICES (Extended Reference)
 
 #### A. Detailed Sensor Specifications
 
 ##### A.1 Dielectric Sensor Physics
+
 | Parameter | Formula | Typical Value | Unit |
 |-----------|---------|---------------|------|
 | Operating frequency | f₀ | 100 | MHz |
@@ -3551,6 +3907,7 @@ FarmSense is not a product. It is infrastructure for a water-constrained world.
 | Repeatability | εᵣ | <0.5 | % |
 
 ##### A.2 Temperature Sensor Specifications (DS18B20)
+
 | Parameter | Value | Unit | Notes |
 |-----------|-------|------|-------|
 | Range | -55 to +125 | °C | Soil compatible |
@@ -3564,6 +3921,7 @@ FarmSense is not a product. It is infrastructure for a water-constrained world.
 | 1-Wire protocol | - | - | Single wire interface |
 
 ##### A.3 Pressure Sensor Specifications (Dwyer PBLTX)
+
 | Parameter | Value | Unit | Notes |
 |-----------|-------|------|-------|
 | Range | 0-300 | PSI | 316SS diaphragm |
@@ -3581,6 +3939,7 @@ FarmSense is not a product. It is infrastructure for a water-constrained world.
 | Cable | Ventilated | - | For barometric compensation |
 
 ##### A.4 Flow Meter Specifications (Badger TFX-5000)
+
 | Parameter | Value | Unit | Notes |
 |-----------|-------|------|-------|
 | Pipe size range | 2-48 | inches | Clamp-on |
@@ -3602,6 +3961,7 @@ FarmSense is not a product. It is infrastructure for a water-constrained world.
 #### B. RF Link Budget Calculations
 
 ##### B.1 LoRa 915MHz VFA to PMT
+
 | Parameter | Value | Unit | Calculation |
 |-----------|-------|------|-------------|
 | TX power | 14 | dBm | Regulation limit |
@@ -3621,6 +3981,7 @@ FarmSense is not a product. It is infrastructure for a water-constrained world.
 | Maximum range (LOS) | 15,000 | m | Clear path |
 
 ##### B.2 2.4GHz PMT to DHU
+
 | Parameter | Value | Unit | Calculation |
 |-----------|-------|------|-------------|
 | TX power | 20 | dBm | 100mW |
@@ -3643,6 +4004,7 @@ FarmSense is not a product. It is infrastructure for a water-constrained world.
 #### C. Battery Sizing Calculations
 
 ##### C.1 VFA Annual Energy Budget (Detailed)
+
 | Mode | Current | Duration/Day | Energy/Day | Days/Year | Annual Energy |
 |------|---------|--------------|------------|-----------|---------------|
 | Deep sleep | 2.0 µA | 23.5 hr | 47 µAh | 365 | 17,155 µAh |
@@ -3659,6 +4021,7 @@ FarmSense is not a product. It is infrastructure for a water-constrained world.
 | Design life | - | - | - | - | **4 years** |
 
 ##### C.2 PMT Daily Energy Budget (Solar)
+
 | Mode | Current | Voltage | Power | Duration | Energy |
 |------|---------|---------|-------|----------|--------|
 | Sleep (GNSS keep-alive) | 12 mA | 12V | 144 mW | 22 hr | 3,168 mWh |
@@ -3678,6 +4041,7 @@ FarmSense is not a product. It is infrastructure for a water-constrained world.
 #### D. SQL Schema Reference (Complete)
 
 ##### D.1 Core Tables
+
 ```sql
 -- Fields (spatial boundaries)
 CREATE TABLE fields (
@@ -3781,6 +4145,7 @@ CREATE TABLE user_fields (
 ```
 
 ##### D.2 Materialized Views
+
 ```sql
 -- Daily field summaries
 CREATE MATERIALIZED VIEW mv_field_daily_summary AS
@@ -3812,6 +4177,7 @@ GROUP BY field_id, DATE_TRUNC('month', log_time);
 ```
 
 ##### D.3 Functions and Triggers
+
 ```sql
 -- Automatic hash generation for compliance logs
 CREATE OR REPLACE FUNCTION generate_compliance_hash()
@@ -3853,6 +4219,7 @@ EXECUTE FUNCTION update_field_area();
 #### E. API Endpoint Reference (Complete)
 
 ##### E.1 Authentication Endpoints
+
 | Endpoint | Method | Description | Rate Limit |
 |----------|--------|-------------|------------|
 | /auth/login | POST | JWT token issuance | 5/min |
@@ -3862,6 +4229,7 @@ EXECUTE FUNCTION update_field_area();
 | /auth/mfa/verify | POST | MFA code verification | 10/min |
 
 ##### E.2 Field Management Endpoints
+
 | Endpoint | Method | Description | Rate Limit |
 |----------|--------|-------------|------------|
 | /fields | GET | List all accessible fields | 100/min |
@@ -3876,6 +4244,7 @@ EXECUTE FUNCTION update_field_area();
 | /fields/{id}/worksheet | POST | Generate new worksheet | 10/min |
 
 ##### E.3 Device Management Endpoints
+
 | Endpoint | Method | Description | Rate Limit |
 |----------|--------|-------------|------------|
 | /devices | GET | List all devices | 100/min |
@@ -3888,6 +4257,7 @@ EXECUTE FUNCTION update_field_area();
 | /devices/{id}/command | POST | Send command | 10/min |
 
 ##### E.4 Data Ingestion Endpoints
+
 | Endpoint | Method | Description | Rate Limit |
 |----------|--------|-------------|------------|
 | /ingest/telemetry | POST | Batch telemetry upload | 1000/min |
@@ -3896,6 +4266,7 @@ EXECUTE FUNCTION update_field_area();
 | /ingest/log | POST | Debug log upload | 60/min |
 
 ##### E.5 Compliance and Reporting Endpoints
+
 | Endpoint | Method | Description | Rate Limit |
 |----------|--------|-------------|------------|
 | /compliance/ledger | GET | Export Digital Water Ledger | 10/min |
@@ -3906,6 +4277,7 @@ EXECUTE FUNCTION update_field_area();
 | /exports/kriging | GET | Kriging grid export | 10/min |
 
 ##### E.6 WebSocket Endpoints
+
 | Endpoint | Direction | Description | Auth Required |
 |----------|-----------|-------------|---------------|
 | /ws/field/{id} | Bidirectional | Real-time field updates | Yes |
@@ -4058,12 +4430,12 @@ EXECUTE FUNCTION update_field_area();
 | Zeolite | Microporous mineral; water and ion exchange | Materials |
 | Zero flux plane | Depth with no vertical water movement; recharge boundary | Hydrology |
 
-
 ### PART XIX: SUPPLEMENTARY TECHNICAL DATA
 
 #### X.1 Detailed Electrical Specifications
 
 ##### X.1.1 PMT Power System
+
 | Parameter | Value | Condition | Notes |
 |-----------|-------|-----------|-------|
 | Input voltage range | 10.5-14.5V | Operating | Solar battery direct |
@@ -4088,6 +4460,7 @@ EXECUTE FUNCTION update_field_area();
 | Storage temperature | -40 to +85°C | With batteries removed | Extended range |
 
 ##### X.1.2 VFA Power System
+
 | Parameter | Value | Condition | Notes |
 |-----------|-------|-----------|-------|
 | Battery chemistry | LiSOCl2 | SAFT LS14500 | A-size cell |
@@ -4109,6 +4482,7 @@ EXECUTE FUNCTION update_field_area();
 | Storage temperature | -60 to +100°C | Without HPC | Extended range |
 
 ##### X.1.3 PFA Power System
+
 | Parameter | Value | Condition | Notes |
 |-----------|-------|-----------|-------|
 | Input voltage | 12-24V | Wide range | Battery or solar |
@@ -4130,6 +4504,7 @@ EXECUTE FUNCTION update_field_area();
 #### X.2 Network Protocol Deep Dive
 
 ##### X.2.1 LoRaWAN vs FarmSense Proprietary
+
 | Feature | LoRaWAN | FarmSense CSS Mesh | Advantage |
 |---------|---------|-------------------|-----------|
 | Architecture | Star-of-stars | True mesh | Redundancy |
@@ -4145,6 +4520,7 @@ EXECUTE FUNCTION update_field_area();
 | Customization | Limited | Full control | Flexibility |
 
 ##### X.2.2 Packet Collision Analysis
+
 | Scenario | Nodes | Packet Rate | Collision Probability | Mitigation |
 |----------|-------|-------------|---------------------|------------|
 | Sparse field | 20 | 4hr interval | <0.1% | Sufficient spacing |
@@ -4154,6 +4530,7 @@ EXECUTE FUNCTION update_field_area();
 | Coordinated sync | All | Scheduled | <0.01% | PMT orchestration |
 
 ##### X.2.3 Mesh Routing Metrics
+
 | Metric | Target | Measurement | Optimization |
 |--------|--------|-------------|--------------|
 | Path diversity | >2 routes | Route table entries | Multi-parent selection |
@@ -4166,6 +4543,7 @@ EXECUTE FUNCTION update_field_area();
 #### X.3 Mechanical Engineering Details
 
 ##### X.3.1 Wind Load Calculations
+
 | Component | Area | Wind Speed | Force | Safety Factor | Design Load |
 |-----------|------|------------|-------|---------------|-------------|
 | DHU pole | 12ft² | 100mph | 460lbf | 2.0 | 920lbf |
@@ -4176,6 +4554,7 @@ EXECUTE FUNCTION update_field_area();
 | Pole bending moment | - | 100mph | 11,500ft-lb | 1.5 | 17,250ft-lb |
 
 ##### X.3.2 HDPE Shell Structural Analysis
+
 | Parameter | Value | Test Method | Safety Factor |
 |-----------|-------|-------------|---------------|
 | Crush strength (radial) | 1,500psi | ASTM D2412 | 3.0 |
@@ -4187,6 +4566,7 @@ EXECUTE FUNCTION update_field_area();
 | Buckling resistance | >10,000lbf | Finite element analysis | 3.0 |
 
 ##### X.3.3 Installation Torque Specifications
+
 | Component | Size | Torque | Tool | Verification |
 |-----------|------|--------|------|------------|
 | DHU pole anchor bolts | 5/8" | 150ft-lb | Torque wrench | Mark paint |
@@ -4200,6 +4580,7 @@ EXECUTE FUNCTION update_field_area();
 #### X.4 Extended Bibliography and References
 
 ##### X.4.1 Academic Sources
+
 | Citation | Authors | Year | Journal/Publisher | Relevance |
 |----------|---------|------|-------------------|-----------|
 | "Spatial Data Analysis" | Cressie, N. | 1993 | Wiley | Kriging theory foundation |
@@ -4220,6 +4601,7 @@ EXECUTE FUNCTION update_field_area();
 | "Blockchain for Agriculture" | Caro, M.P. et al. | 2018 | IEEE Access | Distributed ledger |
 
 ##### X.4.2 Technical Standards
+
 | Standard | Title | Organization | Year | Application |
 |----------|-------|--------------|------|-------------|
 | ISO 19136 | Geographic Markup Language (GML) | ISO | 2007 | Spatial data exchange |
@@ -4241,6 +4623,7 @@ EXECUTE FUNCTION update_field_area();
 | REACH EC 1907/2006 | Chemical Registration | EU | 2006 | Chemical compliance |
 
 ##### X.4.3 Government and Regulatory Sources
+
 | Source | Title | Jurisdiction | Year |
 |--------|-------|--------------|------|
 | Colorado Revised Statutes §37-92 | Groundwater Management | Colorado | 1965 |
@@ -4256,6 +4639,7 @@ EXECUTE FUNCTION update_field_area();
 #### X.5 Additional Design Calculations
 
 ##### X.5.1 Economic Analysis Sensitivity
+
 | Variable | Base Case | -20% | +20% | NPV Impact |
 |----------|-----------|------|------|------------|
 | Water savings | 21% | 16.8% | 25.2% | -$2.1M / +$2.1M |
@@ -4267,6 +4651,7 @@ EXECUTE FUNCTION update_field_area();
 | Discount rate | 15% | 12% | 18% | +$2.1M / -$2.1M |
 
 ##### X.5.2 Monte Carlo Risk Simulation Results
+
 | Outcome Metric | P10 | P50 | P90 | Mean |
 |----------------|-----|-----|-----|------|
 | Year 3 revenue | $5.2M | $7.6M | $10.1M | $7.5M |
@@ -4277,6 +4662,7 @@ EXECUTE FUNCTION update_field_area();
 | Total funding needed | $2.8M | $2.1M | $1.6M | $2.1M |
 
 ##### X.5.3 Scenario Planning
+
 | Scenario | Trigger | Revenue Y3 | Strategy |
 |----------|---------|------------|----------|
 | Best case | 80% adoption, $600/AF water | $10.2M | Accelerate expansion |
@@ -4288,6 +4674,7 @@ EXECUTE FUNCTION update_field_area();
 #### X.6 Additional Project Management Framework
 
 ##### X.6.1 Critical Path Analysis
+
 | Task | Duration | Predecessors | Float | Critical? |
 |------|----------|--------------|-------|-----------|
 | Finalize hardware design | 4 weeks | None | 0 | Yes |
@@ -4306,6 +4693,7 @@ EXECUTE FUNCTION update_field_area();
 | **Total duration** | **26 weeks** | | | |
 
 ##### X.6.2 Resource Loading
+
 | Role | FTE | Months 1-3 | Months 4-6 | Months 7-9 | Months 10-12 |
 |------|-----|------------|------------|------------|--------------|
 | Hardware engineer | 2.0 | 3.0 | 2.0 | 1.0 | 0.5 |
@@ -4320,6 +4708,7 @@ EXECUTE FUNCTION update_field_area();
 | **Total FTE** | **14.0** | **10.0** | **14.0** | **14.5** | **12.0** |
 
 ##### X.6.3 Risk Register Updates
+
 | ID | Risk | Probability (%) | Impact ($) | Expected Value | Mitigation Cost | Net EV |
 |----|------|-----------------|------------|----------------|-----------------|--------|
 | R001 | Pilot fails validation | 15 | $1,500,000 | $225,000 | $100,000 | $125,000 |
@@ -4332,12 +4721,12 @@ EXECUTE FUNCTION update_field_area();
 | R008 | Cyber security breach | 10 | $600,000 | $60,000 | $100,000 | -$40,000 |
 | **Total** | | | | **$1,030,000** | **$605,000** | **$425,000** |
 
-
 ### PART XX: COMPLETE REFERENCE APPENDICES
 
 #### Y.1 ASCII Protocol Reference
 
 ##### Y.1.1 NMEA Sentences (GNSS)
+
 | Sentence | Description | Example | Fields |
 |----------|-------------|---------|--------|
 | $GPGGA | Global positioning system fix data | $GPGGA,123519,4807.038,N,01131.000,E,1,08,0.9,545.4,M,46.9,M,,*47 | Time, lat, lon, quality, sats, HDOP, alt, geoid sep |
@@ -4348,6 +4737,7 @@ EXECUTE FUNCTION update_field_area();
 | $GPGLL | Geographic position, latitude/longitude | $GPGLL,4807.038,N,01131.000,E,123519,A*28 | Lat, lon, time, status |
 
 ##### Y.1.2 RTCM Messages (RTK Corrections)
+
 | Message | Type | Rate | Size | Description |
 |----------|------|------|------|-------------|
 | 1002 | L1 GPS | 1Hz | ~40B | GPS L1 observations |
@@ -4364,6 +4754,7 @@ EXECUTE FUNCTION update_field_area();
 | 1124 | MSM4 BeiDou | 1Hz | Variable | Compact BeiDou observations |
 
 ##### Y.1.3 Modbus Register Map (PFA)
+
 | Address | Register | Type | Scale | Units | Description |
 |---------|----------|------|-------|-------|-------------|
 | 40001 | Flow rate | uint16 | 0.1 | GPM | Current flow |
@@ -4383,6 +4774,7 @@ EXECUTE FUNCTION update_field_area();
 | 40015 | Boot count | uint16 | 1 | - | Number of boots |
 
 ##### Y.1.4 CANopen Object Dictionary (PMT)
+
 | Index | Subindex | Name | Type | Access | Description |
 |-------|----------|------|------|--------|-------------|
 | 0x2000 | 0x01 | Latitude | int32 | RO | Scaled × 1e7 |
@@ -4407,6 +4799,7 @@ EXECUTE FUNCTION update_field_area();
 #### Y.2 Color Codes and Standards
 
 ##### Y.2.1 Cable Color Codes
+
 | Function | Color | Standard | Notes |
 |----------|-------|----------|-------|
 | DC positive | Red | NEC | 12-24V systems |
@@ -4421,6 +4814,7 @@ EXECUTE FUNCTION update_field_area();
 | Flood | Green | FarmSense | Surface irrigation |
 
 ##### Y.2.2 Pneumatic Line Identification
+
 | Pressure | Color | Application |
 |----------|-------|-------------|
 | +5 PSI N2 | Blue | VFA pressurization |
@@ -4428,6 +4822,7 @@ EXECUTE FUNCTION update_field_area();
 | Vacuum | White | Sample extraction (if equipped) |
 
 ##### Y.2.3 Status LED Patterns
+
 | Pattern | Color | Meaning |
 |---------|-------|---------|
 | Solid | Green | Normal operation |
@@ -4444,6 +4839,7 @@ EXECUTE FUNCTION update_field_area();
 #### Y.3 Mathematical Formulas Reference
 
 ##### Y.3.1 Geospatial Calculations
+
 ```
 Haversine distance (great circle):
 a = sin²(Δφ/2) + cos(φ₁) × cos(φ₂) × sin²(Δλ/2)
@@ -4467,6 +4863,7 @@ Destination point given distance and bearing:
 ```
 
 ##### Y.3.2 Statistical Calculations
+
 ```
 Sample mean:
 x̄ = (1/n) × Σ(xi)
@@ -4499,6 +4896,7 @@ RMSE = √(Σ(predicted - actual)² / n)
 ```
 
 ##### Y.3.3 Hydraulic Calculations
+
 ```
 Darcy-Weisbach head loss:
 hL = f × (L/D) × (v²/2g)
@@ -4536,6 +4934,7 @@ Where:
 ```
 
 ##### Y.3.4 Electrical Calculations
+
 ```
 Ohm's Law:
 V = I × R
@@ -4583,6 +4982,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 #### Y.4 Extended Error Code Reference
 
 ##### Y.4.1 HTTP API Error Codes
+
 | Code | Status | Description | Resolution |
 |------|--------|-------------|------------|
 | 400 | Bad Request | Invalid request format | Check request body |
@@ -4598,6 +4998,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | 504 | Gateway Timeout | Upstream timeout | Retry with idempotency |
 
 ##### Y.4.2 Device-Specific Error Codes (Expanded)
+
 | Code | Device | Severity | Condition | Action |
 |------|--------|----------|-----------|--------|
 | 0x60 | PMT | HIGH | RTC battery low | Schedule replacement |
@@ -4634,17 +5035,20 @@ Where efficiency accounts for charge controller, battery, and derating.
 #### Y.6 Signature Block
 
 **PREPARED BY:**
+
 - Jeremy Beebe, Chief Executive Officer, Bxthre3 Inc.
 - [Chief Technical Officer, pending]
 - [Chief Operations Officer, pending]
 - [Chief Financial Officer, pending]
 
 **REVIEWED BY:**
+
 - [External Technical Reviewer, pending]
 - [External Financial Reviewer, pending]
 - [External Legal Reviewer, pending]
 
 **APPROVED FOR DISTRIBUTION:**
+
 - This document contains confidential and proprietary information of Bxthre3 Inc.
 - Distribution limited to cleared investors, strategic partners, and regulatory authorities.
 - No reproduction or disclosure without written consent of Bxthre3 Inc.
@@ -4657,10 +5061,10 @@ Where efficiency accounts for charge controller, battery, and derating.
 *© 2026 Bxthre3 Inc. All rights reserved.*
 *FarmSense™, FS-1™, Digital Water Ledger™, and Resolution Pop™ are trademarks of Bxthre3 Inc.*
 
-
 ### Z.2 Extended RF Link Budget Analysis
 
 #### Z.2.1 PMT-to-DHU 2.4GHz Link Budget
+
 | Parameter | Value | Notes |
 |-----------|-------|-------|
 | Frequency | 2.412-2.462 GHz | ISM band, channels 1-11 |
@@ -4683,6 +5087,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | **Link margin (DHU→PMT)** | **+11.0 dB** | Excellent, asymmetrical design |
 
 #### Z.2.2 LRZ-to-PMT 915MHz LoRa Link Budget
+
 | Parameter | Value | Notes |
 |-----------|-------|-------|
 | Frequency | 902-928 MHz | ISM band (US) |
@@ -4701,6 +5106,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | **Link margin (LRZ→PMT)** | **+77.15 dB** | Exceptional, deep fade margin |
 
 #### Z.2.3 CSS LoRa Spreading Factor Trade-offs
+
 | SF | Data Rate | Sensitivity | Time-on-Air | Battery/Year | Use Case |
 |----|-----------|-------------|-------------|--------------|----------|
 | 7 | 5.47 kbps | -123 dBm | 36 ms | 15% more | DHU backbone, near-range |
@@ -4715,6 +5121,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 ### Z.3 PCB Schematics Reference
 
 #### Z.3.1 PMT Main Board (PMT-MB-1.6) Block Diagram
+
 ```
 [Power Input 12-24V] → [TPS54331 Buck] → [3.3V Rail]
                                     ↓
@@ -4738,6 +5145,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 ```
 
 #### Z.3.2 PMT PCB Stackup (4-Layer)
+
 | Layer | Function | Material | Thickness |
 |-------|----------|----------|-----------|
 | L1 (Top) | Signal + Components | FR-4 | 1.6mm total |
@@ -4746,12 +5154,14 @@ Where efficiency accounts for charge controller, battery, and derating.
 | L4 (Bottom) | Signal + GND | FR-4 | - |
 
 **Critical Design Rules:**
+
 - RF trace: 50Ω coplanar waveguide, 0.3mm width, 0.2mm gap
 - Decoupling: 100nF per power pin, 10µF bulk per rail
 - Antenna keepout: 5mm clearance, no copper, no components
 - Thermal: 4× 0.3mm vias under power ICs
 
 #### Z.3.3 VFA Sensor Board (VFA-SB-2.1) Block Diagram
+
 ```
 [LiSOCl2 3.6V] → [TPS709 LDO] → [3.3V Rail]
                               ↓
@@ -4769,6 +5179,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 ```
 
 #### Z.3.4 VFA PCB Stackup (2-Layer Rigid-Flex)
+
 | Region | Layers | Function | Bend Radius |
 |--------|--------|----------|-------------|
 | Sensor head | 2-layer | Dielectric sensing + conditioning | Rigid |
@@ -4779,6 +5190,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 ### Z.4 Power Analysis Deep-Dive
 
 #### Z.4.1 PMT Power Budget (Per State)
+
 | State | Duration/Hour | Components Active | Current | Energy/Hour |
 |-------|---------------|-------------------|---------|-------------|
 | SLEEP | 45 min | RTC, watchdog | 8 µA | 0.0024 mAh |
@@ -4795,6 +5207,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 **Solar Panel:** 20W (winter minimum) provides 16Ah/day at 4.8 sun-hours
 
 #### Z.4.2 VFA Power Budget (Per Day)
+
 | Activity | Frequency | Duration | Current | Energy/Day |
 |----------|-----------|----------|---------|------------|
 | Deep sleep | - | 23 hr 56 min | 2.6 µA | 0.062 mAh |
@@ -4808,6 +5221,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 **Safety Factor:** 41× (41 years theoretical, 10-year practical)
 
 #### Z.4.3 DHU Power Budget (Solar Sizing)
+
 | Component | Active Current | Sleep Current | Duty Cycle | Daily Energy |
 |-----------|----------------|---------------|------------|--------------|
 | Jetson Orin | 15W (full) | 2W (idle) | 20% active | 82 Wh |
@@ -4826,6 +5240,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 ### Z.5 Extended Case Study: SLV Pilot 2026
 
 #### Z.5.1 Pre-FarmSense Baseline (Control Fields)
+
 | Metric | Field A (Control) | Field B (Control) | Average |
 |--------|-------------------|-------------------|---------|
 | Soil type | San Luis sandy loam | Gunbarrel loamy sand | Mixed |
@@ -4839,6 +5254,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | Total cost/acre | $1,340 | $1,290 | $1,315 |
 
 #### Z.5.2 FarmSense Treatment (2026 Pilot)
+
 | Metric | Field A (FarmSense) | Field B (FarmSense) | Average | vs. Control |
 |--------|---------------------|---------------------|---------|-------------|
 | Water use | 208.2 AF (-20.4%) | 200.3 AF (-21.6%) | 204.2 AF | -21.0% |
@@ -4851,6 +5267,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | Total cost/acre | $1,085 | $1,120 | $1,102.50 | -16.2% |
 
 #### Z.5.3 Economic Summary
+
 | Category | Value | Calculation |
 |----------|-------|-------------|
 | Water savings value | $27,100/field | 50.4 AF × $500/AF + pumping savings |
@@ -4863,18 +5280,22 @@ Where efficiency accounts for charge controller, battery, and derating.
 | **Net benefit** | **$37,577/field** | 727% ROI |
 
 #### Z.5.4 Farmer Testimonial (CSU SLV RC)
+
 > "We've been farming this valley for three generations. Never had data like this. The VFA at 48 inches told us things we never knew — our water was going deeper than the roots, just wasted. First year with FarmSense, we cut water 20% and grew better potatoes. The water court likes the data too — finally something they can't argue with."
 >
 > — [Farmer name, pending release], Center, CO
 
 #### Z.5.5 Agronomist Technical Notes
+
 **Unexpected Discoveries:**
+
 1. **Nighttime ET:** LSTM models predicted 15% of daily ET occurs at night — previously unaccounted
 2. **Soil heterogeneity:** 1m Kriging revealed 40% within-field variability, previously masked by manual sampling
 3. **Irrigation timing:** Afternoon irrigation showed 12% more efficiency than morning (lower VPD)
 4. **Fertilizer synchronization:** Matching N application to pre-irrigation moisture spikes increased uptake 23%
 
 **System Reliability:**
+
 - 99.7% telemetry uptime (exceeds 99.5% target)
 - 0 false-positive "Reflex" stops (100% were actual faults)
 - 3 chirp retransmissions required over 6 months (99.98% first-try success)
@@ -4883,6 +5304,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 ### Z.6 Regulatory Playbook: Water Court Preparation
 
 #### Z.6.1 Colorado Water Court Procedures
+
 | Court | District | Counties Served | Specialization |
 |-------|----------|-----------------|----------------|
 | Water Court 1 | Denver | Metro, South Platte | Urban/domestic |
@@ -4894,6 +5316,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | Water Court 7 | Grand Junction | Colorado River tributaries | Agricultural |
 
 #### Z.6.2 Case Law Precedents for Telemetry Evidence
+
 | Case | Year | Court | Ruling | FarmSense Relevance |
 |------|------|-------|--------|---------------------|
 | *Colorado v. New Mexico* | 1984 | SCOTUS | Groundwater = tributary if connected | Establishes metering need |
@@ -4903,6 +5326,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | *RGWCD v. [Redacted]* | 2019 | Water Ct 3 | Blockchain-style ledgers noted positively | Merkle tree precedent |
 
 #### Z.6.3 Evidence Packaging Checklist (Trial-Ready)
+
 | Item | Format | Preparation | Custodian |
 |------|--------|-------------|-----------|
 | 1. Raw telemetry | CSV | Extract from TimescaleDB, SHA-256 hash | Database Admin |
@@ -4917,7 +5341,9 @@ Where efficiency accounts for charge controller, battery, and derating.
 | 10. System reliability stats | PDF | Uptime, error rates, maintenance logs | DevOps |
 
 #### Z.6.4 Expert Witness Qualifications Template
+
 **Required Expert Profile:**
+
 - PhD in Hydrology, Agricultural Engineering, or Soil Science
 - 10+ years professional experience in water resources
 - Published research on precision irrigation or soil moisture monitoring
@@ -4925,6 +5351,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 - No conflicts of interest with opposing parties
 
 **Expected Questions:**
+
 | Topic | Preparation |
 |-------|-------------|
 | Dielectric sensor physics | Topp equation, frequency-domain principles |
@@ -4937,6 +5364,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 ### Z.7 International Expansion: Basin-Specific Adaptations
 
 #### Z.7.1 Murray-Darling Basin (Australia)
+
 | Factor | Australia Requirement | FarmSense Adaptation |
 |--------|----------------------|----------------------|
 | Regulatory | MDBA Basin Plan | Integration with state water registers |
@@ -4947,6 +5375,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | Pricing | Variable water markets | Real-time market pricing integration |
 
 #### Z.7.2 North China Plain (China)
+
 | Factor | China Requirement | FarmSense Adaptation |
 |--------|-------------------|----------------------|
 | Regulatory | Ministry of Water Resources | Dual-stack data (domestic + international) |
@@ -4957,6 +5386,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | Partnership | SOE requirement | JV with local ag-tech firm |
 
 #### Z.7.3 Ogallala Aquifer (USA Midwest)
+
 | Factor | Ogallala Requirement | FarmSense Adaptation |
 |--------|----------------------|----------------------|
 | Regulatory | State GCDs (8 states) | Multi-state compliance dashboard |
@@ -4969,6 +5399,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 ### Z.8 Grant Writing Templates
 
 #### Z.8.1 NSF SBIR Phase I Template Structure
+
 | Section | Length | Key Points |
 |---------|--------|------------|
 | A. Project Summary | 1 page | Innovation, commercial potential, broader impacts |
@@ -4981,6 +5412,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 > "FarmSense combines deterministic edge computing with geostatistical interpolation (Kriging) to achieve 1-meter resolution soil moisture mapping at 1/10th the cost of traditional dense sensor networks. Our CSS LoRa mesh provides 100% canopy penetration where WiFi/2.4GHz fails, and our Digital Water Ledger provides legally admissible evidence for water rights proceedings — a capability no existing platform offers."
 
 #### Z.8.2 USDA NRCS CIG Application Elements
+
 | Element | FarmSense Response |
 |---------|-------------------|
 | Resource concern | N142: Aquifer depletion |
@@ -4991,6 +5423,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | Transferability | Scalable to any center-pivot region |
 
 #### Z.8.3 Gates Foundation Agricultural Adaptation
+
 | Criterion | FarmSense Alignment |
 |-----------|---------------------|
 | Smallholder focus | $54.30 LRZ2 for 1-5 acre farms |
@@ -5002,11 +5435,12 @@ Where efficiency accounts for charge controller, battery, and derating.
 
 ---
 
-
 ### AA.1 Detailed Crop Physiology Reference
 
 #### AA.1.1 Potato (Solanum tuberosum L.) Deep-Dive
+
 **Growth Stages and Critical Periods:**
+
 | Stage | Days After Emergence | Critical Stress Period | MAD Limit | Irrigation Trigger |
 |-------|---------------------|------------------------|-----------|-------------------|
 | Sprout development | 0-14 | Root establishment | 20% | 20-25 kPa |
@@ -5017,6 +5451,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | Senescence | 90-105 | Vine desiccation | 70% | 80-100 kPa |
 
 **Water Stress Symptoms by Stage:**
+
 | Stage | Mild Stress | Moderate Stress | Severe Stress |
 |-------|-------------|-----------------|---------------|
 | Vegetative | Slight leaf rolling | Stunted growth, dark leaves | Wilting, necrosis |
@@ -5025,6 +5460,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | Maturation | Early senescence | Poor skin set | Storage diseases |
 
 **Nutrient Interactions:**
+
 | Nutrient | Water Stress Effect | FarmSense Monitoring |
 |----------|-------------------|----------------------|
 | Nitrogen | Reduced uptake, leaching risk | Deep percolation alerts |
@@ -5033,7 +5469,9 @@ Where efficiency accounts for charge controller, battery, and derating.
 | Calcium | Blossom end rot risk | VFA 8-10" zone focus |
 
 #### AA.1.2 Alfalfa (Medicago sativa) Deep-Dive
+
 **Growth Cycles and Water Use:**
+
 | Cutting | Growth Period | ET Rate | MAD Limit | Quality Impact |
 |---------|--------------|---------|-----------|----------------|
 | 1st | Early spring | 4.5 mm/day | 50% | Protein, yield |
@@ -5042,6 +5480,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | 4th | Early fall | 4.0 mm/day | 65% | Winter survival |
 
 **Dormancy and Winter Survival:**
+
 | Factor | Threshold | FarmSense Action |
 |----------|-----------|------------------|
 | Fall moisture | >40% MAD before dormancy | Irrigate to threshold |
@@ -5051,7 +5490,9 @@ Where efficiency accounts for charge controller, battery, and derating.
 ### AA.2 Advanced Kriging Mathematics
 
 #### AA.2.1 Variogram Modeling Deep-Dive
+
 **Theoretical Variogram Models:**
+
 | Model | Formula | Characteristics | Use Case |
 |-------|---------|-----------------|----------|
 | Spherical | γ(h) = C₀ + C×[1.5(h/a) - 0.5(h/a)³] for h≤a; C₀+C for h>a | Most common, linear near origin | General soil properties |
@@ -5060,6 +5501,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | Matern | γ(h) = C₀ + C×[1 - (2^(1-ν)/Γ(ν))×(h√(2ν)/a)^ν × Kᵥ(h√(2ν)/a)] | Flexible smoothness | FarmSense selected |
 
 **FarmSense Matern Parameter Selection:**
+
 | Field Condition | ν (smoothness) | a (range) | Nugget C₀ |
 |---------------|----------------|-----------|-----------|
 | Homogeneous soil | 1.5 | 200m | 0.001 |
@@ -5068,6 +5510,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | Recent tillage | 1.0 | 180m | 0.0015 |
 
 #### AA.2.2 Cross-Validation Procedures
+
 | Method | Description | Acceptance Criteria |
 |--------|-------------|---------------------|
 | Leave-one-out | Remove each point, predict, compare | MAPE <5% |
@@ -5078,6 +5521,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 ### AA.3 Extended API Endpoint Reference
 
 #### AA.3.1 Complete Endpoint Catalog
+
 | Endpoint | Method | Auth | Rate Limit | Purpose |
 |----------|--------|------|------------|---------|
 | `/v1/health` | GET | None | 100/min | System status |
@@ -5110,6 +5554,7 @@ Where efficiency accounts for charge controller, battery, and derating.
 | `/v1/alerts` | POST | System | Internal | Create alert |
 
 #### AA.3.2 Request/Response Examples
+
 **Moisture Grid Request:**
 ```
 GET /v1/fields/fld_abc123/moisture?depth=30cm&resolution=1m
@@ -5144,6 +5589,7 @@ Accept: application/json
 ### AA.4 Manufacturing and Supply Chain Deep-Dive
 
 #### AA.4.1 Assembly Line Specifications
+
 | Station | Task | Cycle Time | Quality Check |
 |---------|------|------------|---------------|
 | 1 | PCB loading | 30 sec | Visual inspection |
@@ -5158,6 +5604,7 @@ Accept: application/json
 | **Total cycle** | - | **16.75 min** | - |
 
 **Production Capacity:**
+
 | Shift | Hours | Stations | Daily Output | Annual Output |
 |-------|-------|----------|--------------|---------------|
 | Single shift | 8 hr | 1 line | 29 units | 7,250 units |
@@ -5166,6 +5613,7 @@ Accept: application/json
 | Triple + weekend | 24/7 | 1 line | 86 units | 30,100 units |
 
 #### AA.4.2 Inventory Management
+
 | Component | Safety Stock | Reorder Point | Lead Time | Supplier Diversification |
 |-----------|-------------|---------------|-----------|-------------------------|
 | nRF52840 | 5,000 units | 10,000 units | 12 weeks | 2 suppliers |
@@ -5178,6 +5626,7 @@ Accept: application/json
 ### AA.5 Extended Warranty and Service Plans
 
 #### AA.5.1 Standard Warranty Terms
+
 | Component | Warranty Period | Coverage | Exclusions |
 |-----------|---------------|----------|------------|
 | Electronics | 3 years | Manufacturing defects | Lightning, flood, abuse |
@@ -5187,6 +5636,7 @@ Accept: application/json
 | Antennas | 3 years | RF performance | Physical damage |
 
 #### AA.5.2 Extended Service Plans
+
 | Plan | Duration | Cost | Includes |
 |------|----------|------|----------|
 | Basic | +2 years | $299/field | Parts, phone support |
@@ -5195,6 +5645,7 @@ Accept: application/json
 | Enterprise | Custom | Custom | Dedicated technician, SLA |
 
 #### AA.5.3 Mean Time Between Failure (MTBF) Projections
+
 | Component | MTBF (hours) | MTBF (years) | Replacement Strategy |
 |-----------|-------------|--------------|---------------------|
 | PMT | 100,000 | 11.4 | Preventive at 10 years |
@@ -5207,6 +5658,7 @@ Accept: application/json
 ### AA.6 Competitive Intelligence Deep-Dive
 
 #### AA.6.1 Detailed Competitor Feature Matrix
+
 | Feature | CropX | FieldNET | Arable | FarmSense |
 |---------|-------|----------|--------|-----------|
 | **Sensing depth** | 12" max | N/A (pivot control) | Surface | **48" deep-profile** |
@@ -5221,6 +5673,7 @@ Accept: application/json
 | **Integrations** | Limited | Valley/Trimble | Limited | **Open API, standards** |
 
 #### AA.6.2 Market Positioning Analysis
+
 | Segment | Leader | FarmSense Entry | Differentiation |
 |---------|--------|-----------------|-----------------|
 | Large commodity farms | Climate Corp | High-end consulting | Legal defensibility |
@@ -5232,6 +5685,7 @@ Accept: application/json
 ### AA.7 Environmental Impact Quantification
 
 #### AA.7.1 Carbon Footprint Analysis
+
 | Lifecycle Phase | Emissions (kg CO₂e/field) | Mitigation |
 |-----------------|---------------------------|------------|
 | Manufacturing | 1,247 | Renewable energy sourcing |
@@ -5242,6 +5696,7 @@ Accept: application/json
 | **Net 10-year** | **1,214** | **Negative with offsets** |
 
 **Comparison to Water Savings:**
+
 | Metric | Value | CO₂e Equivalent |
 |--------|-------|-----------------|
 | Water saved/field/year | 50.4 AF | 18,450 kg CO₂e (pumping energy) |
@@ -5250,6 +5705,7 @@ Accept: application/json
 | **10-year benefit** | - | **+183,286 kg CO₂e** |
 
 #### AA.7.2 Nitrogen Management Impact
+
 | Practice | Without FarmSense | With FarmSense | Improvement |
 |----------|-------------------|----------------|-------------|
 | N application rate | 241.5 lbs/acre | 195 lbs/acre | -19.3% |
@@ -5261,6 +5717,7 @@ Accept: application/json
 ### AA.8 Research and Development Roadmap
 
 #### AA.8.1 Near-Term R&D (2026-2027)
+
 | Initiative | Investment | Timeline | Expected Outcome |
 |------------|------------|----------|------------------|
 | ML-based disease prediction | $150K | 12 months | 2-week early warning |
@@ -5269,6 +5726,7 @@ Accept: application/json
 | Predictive maintenance v2 | $75K | 9 months | 30-day failure prediction |
 
 #### AA.8.2 Medium-Term R&D (2028-2029)
+
 | Initiative | Investment | Timeline | Expected Outcome |
 |------------|------------|----------|------------------|
 | Salinity management module | $250K | 24 months | Automated leaching fraction |
@@ -5277,6 +5735,7 @@ Accept: application/json
 | Fully autonomous VRI | $500K | 36 months | Zero-human-intervention irrigation |
 
 #### AA.8.3 Long-Term R&D (2030+)
+
 | Initiative | Investment | Timeline | Vision |
 |------------|------------|----------|--------|
 | Gene-to-phenotype modeling | $1M+ | 5+ years | Variety-specific optimization |
@@ -5289,10 +5748,10 @@ Accept: application/json
 *Expansion AA: Advanced Technical Reference | Added for 7,000+ line target*
 *End of Extended Appendices*
 
-
 ### BB.1 Complete SQL Schema Reference
 
 #### BB.1.1 Core Database Tables
+
 ```sql
 -- Fields table with PostGIS geometry
 CREATE TABLE fields (
@@ -5441,6 +5900,7 @@ CREATE TABLE user_field_access (
 ```
 
 #### BB.1.2 Materialized Views for Analytics
+
 ```sql
 -- Daily field summaries
 CREATE MATERIALIZED VIEW mv_field_daily_summary AS
@@ -5485,6 +5945,7 @@ GROUP BY field_id, DATE_TRUNC('month', start_time);
 ### BB.2 Docker Deployment Specifications
 
 #### BB.2.1 Service Architecture
+
 | Service | Image | Replicas | Resources | Purpose |
 |---------|-------|----------|-----------|---------|
 | api | farmsense/api:latest | 3 | 2 CPU, 4GB RAM | FastAPI application |
@@ -5497,6 +5958,7 @@ GROUP BY field_id, DATE_TRUNC('month', start_time);
 | prometheus | prom/prometheus:latest | 1 | 2 CPU, 4GB RAM | Metrics collection |
 
 #### BB.2.2 Docker Compose Production
+
 ```yaml
 version: '3.8'
 services:
@@ -5600,6 +6062,7 @@ networks:
 ### BB.3 Kubernetes Deployment Manifests
 
 #### BB.3.1 Namespace and ConfigMap
+
 ```yaml
 apiVersion: v1
 kind: Namespace
@@ -5624,6 +6087,7 @@ data:
 ```
 
 #### BB.3.2 API Deployment
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -5748,6 +6212,7 @@ spec:
 ```
 
 #### BB.3.3 Horizontal Pod Autoscaler
+
 ```yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
@@ -5799,9 +6264,12 @@ spec:
 ### BB.4 Monitoring and Alerting Specifications
 
 #### BB.4.1 Prometheus Rules
+
 ```yaml
 groups:
+
 - name: farmsense-alerts
+
   rules:
   - alert: HighErrorRate
     expr: |
@@ -5858,6 +6326,7 @@ groups:
 ```
 
 #### BB.4.2 Grafana Dashboard JSON
+
 ```json
 {
   "dashboard": {
@@ -5914,6 +6383,7 @@ groups:
 ### BB.5 Security Hardening Specifications
 
 #### BB.5.1 Network Policies
+
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
@@ -5971,6 +6441,7 @@ spec:
 ```
 
 #### BB.5.2 Pod Security Standards
+
 ```yaml
 apiVersion: v1
 kind: Pod
@@ -6011,10 +6482,10 @@ spec:
 *Expansion BB: Infrastructure & DevOps Deep-Dive | SQL Schema, Docker, K8s, Monitoring, Security*
 *Target: 7,000+ lines | Current additions: ~1,500 lines*
 
-
 ### CC.1 Extended Field Operations Playbook
 
 #### CC.1.1 Daily Operations Checklist
+
 | Time | Task | Responsible | System | Verification |
 |------|------|-------------|--------|--------------|
 | 06:00 | Night batch review | Automated | Core Compute | Alert if failed |
@@ -6031,6 +6502,7 @@ spec:
 | 22:00 | Night mode activation | Automated | All systems | Power reduction |
 
 #### CC.1.2 Weekly Operations Rhythm
+
 | Day | Morning Focus | Afternoon Focus | Key Deliverable |
 |-----|---------------|-----------------|-----------------|
 | Monday | Fleet health review | Farmer check-ins | Weekly status report |
@@ -6042,6 +6514,7 @@ spec:
 | Sunday | On-call rotation | System maintenance | Backup verification |
 
 #### CC.1.3 Seasonal Operations Calendar
+
 | Month | Key Activities | Crew Allocation | System Focus |
 |-------|--------------|-----------------|--------------|
 | March | Pre-season prep | 100% field ops | Installation & commissioning |
@@ -6060,6 +6533,7 @@ spec:
 ### CC.2 Customer Support and Success
 
 #### CC.2.1 Support Tier Structure
+
 | Tier | Response Time | Resolution Target | Escalation Path | Cost |
 |------|---------------|-------------------|-----------------|------|
 | 1 - Self-service | Immediate | - | N/A | Included |
@@ -6068,6 +6542,7 @@ spec:
 | 4 - Enterprise | 15 minutes | 1 hour | On-site | +$200/month |
 
 #### CC.2.2 Common Issues and Resolutions
+
 | Issue | Frequency | Root Cause | Resolution | Prevention |
 |-------|-----------|------------|------------|------------|
 | No chirp from LRZ | 5% | Battery, antenna, burial depth | Field visit, replace | Annual inspection |
@@ -6079,6 +6554,7 @@ spec:
 | Network unreachable | 1% | DHU outage, cellular dead zone | Redundant path | Multi-carrier setup |
 
 #### CC.2.3 Farmer Training Curriculum
+
 | Module | Duration | Format | Topics | Assessment |
 |--------|----------|--------|--------|------------|
 | 101 - Platform Overview | 1 hour | Video + quiz | Dashboard, mobile app, alerts | 80% pass |
@@ -6092,6 +6568,7 @@ spec:
 ### CC.3 Business Continuity and Disaster Recovery
 
 #### CC.3.1 Incident Severity Classification
+
 | Level | Name | Criteria | Response | Notification |
 |-------|------|----------|----------|------------|
 | 1 | Informational | Anomaly detected, no impact | Automated logging | Dashboard only |
@@ -6101,6 +6578,7 @@ spec:
 | 5 | Catastrophic | Complete system failure, legal exposure | CEO activation | All channels + press |
 
 #### CC.3.2 Backup and Recovery Specifications
+
 | Data Type | Frequency | Retention | Location | RTO | RPO |
 |-----------|-----------|-----------|----------|-----|-----|
 | Telemetry | Continuous | 7 years | TimescaleDB + S3 | 15 min | 5 min |
@@ -6110,6 +6588,7 @@ spec:
 | User data | Daily | Indefinite | PostgreSQL + S3 | 1 hour | 24 hours |
 
 #### CC.3.3 Regional Failover Architecture
+
 | Primary | Failover Region | Sync Method | Latency | Failover Time |
 |---------|-----------------|-------------|---------|---------------|
 | AWS us-west-2 (Oregon) | AWS us-east-1 (Virginia) | Streaming replication | <100ms | 5 minutes |
@@ -6119,6 +6598,7 @@ spec:
 ### CC.4 Intellectual Property and Licensing
 
 #### CC.4.1 Patent Portfolio
+
 | Filing | Title | Status | Jurisdictions | Claims |
 |--------|-------|--------|---------------|--------|
 | US-2025-XXXXX | Deterministic Edge VRI with Legal Admissibility | Pending | US, CA, AU, EU | 47 claims |
@@ -6127,6 +6607,7 @@ spec:
 | PCT-2025-AAAAA | Unified Freshwater Index (UFI) Calculation | PCT Filed | 150+ countries | 52 claims |
 
 #### CC.4.2 Trademark Portfolio
+
 | Mark | Classes | Status | Territories |
 |------|---------|--------|-------------|
 | FarmSense® | 9, 42 | Registered | US, CA, AU, EU, MX |
@@ -6136,6 +6617,7 @@ spec:
 | UFI® | 42 | Registered | US |
 
 #### CC.4.3 Open Source Contributions
+
 | Component | License | Repository | Description |
 |-----------|---------|------------|-------------|
 | Edge-EBK Engine | Apache 2.0 | github.com/bxthre3/edge-ebk | Empirical Bayesian Kriging |
@@ -6145,6 +6627,7 @@ spec:
 ### CC.5 Partnership and Ecosystem
 
 #### CC.5.1 Technology Partners
+
 | Partner | Relationship | Integration | Value |
 |---------|--------------|-------------|-------|
 | Ubiquiti | Hardware supplier | LTU radios for backhaul | Cost-effective, proven |
@@ -6155,6 +6638,7 @@ spec:
 | MapLibre | Visualization | 3D field rendering | Open source, flexible |
 
 #### CC.5.2 Academic Partners
+
 | Institution | Focus Area | Contribution | Status |
 |-------------|------------|--------------|--------|
 | Colorado State University | Validation, research | Pilot site, peer review | Active |
@@ -6164,6 +6648,7 @@ spec:
 | IWMI (CGIAR) | Global south | Smallholder adaptation | Grant proposal |
 
 #### CC.5.3 Industry Partners
+
 | Partner | Sector | Collaboration | Commercial Terms |
 |---------|--------|-------------|------------------|
 | Valley Irrigation | Pivot manufacturer | PMT integration | Licensing fee per unit |
@@ -6176,6 +6661,7 @@ spec:
 ### CC.6 Investor and Stakeholder Communications
 
 #### CC.6.1 Quarterly Reporting Template
+
 | Section | Metrics | Visualizations |
 |---------|---------|----------------|
 | Executive Summary | Key wins, challenges | Traffic light status |
@@ -6189,6 +6675,7 @@ spec:
 | Forward Outlook | Next quarter priorities | Forecast |
 
 #### CC.6.2 Board of Advisors Structure
+
 | Role | Expertise | Commitment | Compensation |
 |------|-----------|------------|--------------|
 | Agriculture Advisor | Precision ag, extension | 2 days/quarter | Equity 0.5% |
@@ -6198,6 +6685,7 @@ spec:
 | Sustainability Advisor | ESG, carbon markets | 1 day/quarter | Equity 0.25% |
 
 #### CC.6.3 Media and Public Relations
+
 | Audience | Channel | Frequency | Owner |
 |----------|---------|-----------|-------|
 | Farmers | Trade publications (Farm Progress, AgWeb) | Monthly | Marketing |

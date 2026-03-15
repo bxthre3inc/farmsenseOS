@@ -13,6 +13,7 @@ Drift Aversion: REQUIRED
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
 # Boilerplate Materials Library
+
 **Reusable Content for 100+ Grant Applications**
 
 ---
@@ -20,6 +21,7 @@ Drift Aversion: REQUIRED
 ## 1. ORGANIZATION PROFILE
 
 ### Standard Bio (250 words)
+
 ```
 Bxthre3 Inc. is a Colorado-based venture studio building deterministic infrastructure systems for agriculture, water, and logistics. Founded in 2026, we develop technology that solves resource scarcity through AI, 
 robotics, and edge computing.
@@ -48,6 +50,7 @@ and international sources.
 ```
 
 ### Short Bio (100 words)
+
 ```
 Bxthre3 Inc. builds deterministic infrastructure systems for agriculture 
 and water management. Our FarmSense platform combines AI, IoT, and edge 
@@ -58,6 +61,7 @@ globally.
 ```
 
 ### Elevator Pitch (50 words)
+
 ```
 FarmSense is the operating system for precision agriculture. We cut water 
 use 20-40% and boost yields 15-25% using AI-powered sensors and edge 
@@ -69,6 +73,7 @@ computing. Think Tesla Autopilot for irrigation.
 ## 2. PROBLEM STATEMENT TEMPLATES
 
 ### Water Scarcity (Universal)
+
 ```
 Global water demand is projected to exceed supply by 40% by 2030. 
 Agriculture consumes 70% of freshwater withdrawals, yet irrigation 
@@ -92,6 +97,7 @@ regulations.
 ```
 
 ### Food Security (Global South)
+
 ```
 Smallholder farmers produce 30% of the world's food but face 
 disproportionate climate risk. Without access to precision agriculture 
@@ -107,6 +113,7 @@ Tesla-grade autonomy to any field, anywhere.
 ```
 
 ### Federal/Defense (US)
+
 ```
 Military installations face dual water crises: operational (maintaining 
 readiness during drought) and infrastructure (aging distribution systems 
@@ -129,32 +136,41 @@ FarmSense provides:
 ## 3. SOLUTION DESCRIPTION
 
 ### Core Platform (Standard)
+
 ```
 FarmSense is a deterministic operating system for agriculture with 11 
 integrated engines:
 
 1. SATELLITE INTAKE ENGINE — 4-band imagery (RGB+NIR), 20m resolution, 
+
    daily capture for vegetation index tracking
 
 2. GROUND TRUTH ENGINE — 5-depth soil sensors (VFA), flow meters (PFA), 
+
    kinematic probes (PMT) for real-time field conditions
 
 3. VEGETATION & WATER BUDGET ENGINE — Combines satellite + ground data 
+
    to calculate precise crop water requirements
 
 4. COST & VOLUME ENGINE — Models irrigation costs, tracks every gallon 
+
    to the subdistrict level for compliance
 
 5. REFLEX LOGIC ENGINE — Edge-autonomous decision engine that operates 
+
    without cloud connectivity, adjusting irrigation in real-time
 
 6. AUDIT ENGINE — Cryptographically signed records for water court 
+
    proceedings, tamper-proof from sensor to judge
 
 7. WEATHER INTAKE ENGINE — 6-source ensemble forecasting with precipitation 
+
    accumulation tracking
 
 8. PREDICTIVE MAINTENANCE ENGINE — Current harmonic analysis for pump 
+
    health, reducing downtime 40%
 
 9. CROP CALENDAR ENGINE — Growth stage modeling for irrigation timing
@@ -176,6 +192,7 @@ hardware is assembled in the USA with no foreign-controlled components.
 ```
 
 ### Adapted for Rivers/Streams (New Use Case)
+
 ```
 The FarmSense architecture extends naturally to surface water monitoring:
 
@@ -201,6 +218,7 @@ calibration.
 ## 4. IMPACT METRICS (By Funder Type)
 
 ### Environmental Foundations
+
 ```
 ENVIRONMENTAL OUTCOMES (per 100 acres):
 • Water conserved: 50-80 acre-feet annually
@@ -218,6 +236,7 @@ SYSTEM-WIDE IMPACT (at scale):
 ```
 
 ### Development Banks (World Bank, ADB, etc.)
+
 ```
 ECONOMIC DEVELOPMENT OUTCOMES:
 • Farmer income increase: 15-25% from yield optimization
@@ -233,6 +252,7 @@ SCALABILITY METRICS:
 ```
 
 ### Defense/Federal (US)
+
 ```
 OPERATIONAL OUTCOMES:
 • Installation water security: [X]% reduction in external supply dependency
@@ -252,6 +272,7 @@ SECURITY METRICS:
 ## 5. BUDGET TEMPLATES
 
 ### Small Grant Template ($50K-$250K)
+
 ```
 PERSONNEL (60%)
 ├── Project Manager (0.5 FTE, 12 months): $45,000
@@ -277,6 +298,7 @@ REQUESTED: $120,000
 ```
 
 ### Medium Grant Template ($250K-$1M)
+
 ```
 PERSONNEL (45%): $315,000
 ├── Project Director (0.5 FTE, 24 months): $90,000
@@ -305,6 +327,7 @@ REQUESTED: $500,000
 ```
 
 ### Large Grant Template ($1M-$10M)
+
 ```
 PERSONNEL (40%): $1,600,000
 ├── Executive Team (3 FTE, 36 months): $720,000
@@ -342,6 +365,7 @@ REQUESTED: $3,000,000
 ## 6. LOGIC MODELS
 
 ### Standard Logic Model Format
+
 ```
 INPUTS → ACTIVITIES → OUTPUTS → OUTCOMES → IMPACT
 
@@ -352,6 +376,7 @@ INPUTS:
 • Partners: [List]
 
 ACTIVITIES:
+
 1. [Activity 1 with timeline]
 2. [Activity 2 with timeline]
 3. [Activity 3 with timeline]
@@ -386,6 +411,7 @@ IMPACT (Systemic Change):
 ```
 
 ### FarmSense Pilot Logic Model (Example)
+
 ```
 INPUTS:
 • Funding: $500K over 18 months
@@ -394,6 +420,7 @@ INPUTS:
 • Partners: CSU SLV RC, RGWCD, 3 growers
 
 ACTIVITIES:
+
 1. Deploy FarmSense to 3 fields (Months 1-3)
 2. Collect continuous sensor data (Months 3-18)
 3. Provide weekly irrigation recommendations (Months 3-18)
@@ -425,6 +452,7 @@ IMPACT:
 ## 7. LETTERS OF SUPPORT TEMPLATES
 
 ### Academic Partner (CSU SLV RC)
+
 ```
 [Date]
 
@@ -455,6 +483,7 @@ Colorado State University
 ```
 
 ### Industry Partner (Grower/Co-op)
+
 ```
 [Date]
 
@@ -484,6 +513,7 @@ Sincerely,
 ```
 
 ### Government Partner (Water District/Agency)
+
 ```
 [Date]
 
@@ -517,6 +547,7 @@ Sincerely,
 ## 8. EVALUATION PLANS
 
 ### Standard Evaluation Framework
+
 ```
 EVALUATION APPROACH: Mixed-methods, third-party validated
 
@@ -555,19 +586,31 @@ REPORTING:
 ## 9. RISK MITIGATION (Standard)
 
 ```
+
 | Risk | Likelihood | Impact | Mitigation |
 |------|------------|--------|------------|
 | Hardware failure in field | Medium | High | Redundant sensors, RAID-1 storage, 
+
 swap units on-site |
+
 | Adverse weather delays deployment | Medium | Medium | Flexible timeline, 
+
 indoor testing phase, 4-season design |
+
 | Grower withdrawal from pilot | Low | Medium | 3x recruitment target, 
+
 memoranda of understanding, incentives |
+
 | Data connectivity issues | Medium | Medium | 30-day local storage, 
+
 LoRa mesh, satellite backup |
+
 | Regulatory changes | Low | High | Close agency relationships, 
+
 adaptable system design |
+
 | Supply chain disruption | Low | High | Multi-source components, 
+
 US-based assembly, 6-month inventory |
 ```
 
@@ -576,6 +619,7 @@ US-based assembly, 6-month inventory |
 ## 10. SUSTAINABILITY PLANS
 
 ### Post-Grant Sustainability (Standard)
+
 ```
 FUNDING TRANSITION:
 • Year 1-2: Grant-funded deployment and validation
@@ -613,6 +657,7 @@ LONG-TERM OWNERSHIP:
 5. **Review** against funder priorities and evaluation criteria
 
 ### Customization Checklist:
+
 - [ ] Funder name and program inserted
 - [ ] Amount and duration match solicitation
 - [ ] Location/region specified

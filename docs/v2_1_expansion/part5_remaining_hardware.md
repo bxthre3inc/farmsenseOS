@@ -12,13 +12,14 @@ Drift Aversion: REQUIRED
 > 3. **AI Agent Compliance**: Agents MUST verify the current implementation against this document before proposing changes.
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
-## 5.4 Pressure & Flow Anchor (PFA) V1.9
+## 5.4 Pressure & Flow Analyzer (PFA) V1.9
 
 ### 5.4.1 Role and Function
 
 **Primary Role:** Wellhead sentry and safety actuator
 **Location:** Mounted on wellhead discharge pipe
 **Critical Functions:**
+
 1. Measure flow rate with ±1.0% accuracy (ultrasonic transit-time)
 2. Monitor pump electrical signatures (current harmonics)
 3. Detect wellhead pressure (depth to water)
@@ -28,6 +29,7 @@ Drift Aversion: REQUIRED
 ### 5.4.2 Flow Measurement
 
 **Sensor: Badger Meter TFX-5000**
+
 | Parameter | Specification |
 |-----------|---------------|
 | Principle | Ultrasonic transit-time |
@@ -38,6 +40,7 @@ Drift Aversion: REQUIRED
 | Outputs | 4-20mA, pulse, Modbus |
 
 **Legal Defensibility:**
+
 - Matches "Gold Standard" for State Engineer reporting
 - Traceable calibration (annual)
 - NIST-traceable standards
@@ -46,6 +49,7 @@ Drift Aversion: REQUIRED
 ### 5.4.3 Electrical Signature Analysis
 
 **Current Transformers: Magnelab SCT-0400**
+
 | Parameter | Specification |
 |-----------|---------------|
 | Current range | 5 - 400A |
@@ -56,6 +60,7 @@ Drift Aversion: REQUIRED
 **Predictive Maintenance Algorithm:**
 ```
 FFT analysis of current waveform:
+
 - Fundamental (60Hz): Normal torque
 - 2nd harmonic: Bearing wear indicator
 - 3rd harmonic: Magnetic saturation
@@ -63,14 +68,17 @@ FFT analysis of current waveform:
 - High frequency (>1kHz): Cavitation
 
 Alert thresholds:
+
 - Bearing: 2nd harmonic >5% of fundamental
 - Cavitation: HF energy >threshold
 - Efficiency drop: >10% from baseline
+
 ```
 
 ### 5.4.4 Actuation System
 
 **Safety Relay: Omron G9SE-221-T05**
+
 | Parameter | Specification |
 |-----------|---------------|
 | Contacts | 2× SPST-NO |
@@ -79,6 +87,7 @@ Alert thresholds:
 | SIL rating | SIL 3 (IEC 61508) |
 
 **Reflex Logic Table:**
+
 | Condition | Sensor | Threshold | Action |
 |-----------|--------|-----------|--------|
 | PMT stall command | IMU | >3g | ACTUATE_STOP |
@@ -90,6 +99,7 @@ Alert thresholds:
 ### 5.4.5 Wellhead Depth Measurement
 
 **Sensor: Dwyer PBLTX**
+
 | Parameter | Specification |
 |-----------|---------------|
 | Principle | Vented differential pressure |
@@ -99,6 +109,7 @@ Alert thresholds:
 | Output | 4-20mA |
 
 **Application:**
+
 - Static water level monitoring
 - Drawdown tracking during pumping
 - Aquifer health assessment
@@ -132,6 +143,7 @@ Alert thresholds:
 **Primary Role:** Deep-truth probe for vertical soil moisture profile
 **Location:** Buried vertically, 48" depth
 **Key Functions:**
+
 1. Measure 4-depth VWC profile (8", 16", 24", 36")
 2. Capture deep percolation and leaching events
 3. Provide ground-truth for Kriging algorithms
@@ -157,6 +169,7 @@ Alert thresholds:
 ### 5.5.3 Advanced vs Basic Sensors
 
 **Advanced Sensor (GroPoint Profile):**
+
 | Parameter | Specification |
 |-----------|---------------|
 | Measurement | VWC, temperature, EC |
@@ -167,6 +180,7 @@ Alert thresholds:
 | Interface | SDI-12 |
 
 **Basic Sensor (Capacitive DIY):**
+
 | Parameter | Specification |
 |-----------|---------------|
 | Measurement | VWC only |
@@ -178,6 +192,7 @@ Alert thresholds:
 ### 5.5.4 The Alpha-Sled Design
 
 **Outer Shell (Permanent):**
+
 | Attribute | Specification |
 |-----------|---------------|
 | Material | HDPE SDR9 |
@@ -187,6 +202,7 @@ Alert thresholds:
 | Lifespan | 40+ years |
 
 **Alpha-Sled (Removable):**
+
 | Attribute | Specification |
 |-----------|---------------|
 | Material | CHDPE (conductive HDPE, ESD-safe) |
@@ -232,6 +248,7 @@ Alert thresholds:
 ### 5.6.2 Field Deployment Pattern
 
 **16-Node Standard Configuration:**
+
 | Ring | Radius | Nodes | Type | Purpose |
 |------|--------|-------|------|---------|
 | Center | 0% | 1 | LRZ2 | Pivot point reference |
@@ -240,6 +257,7 @@ Alert thresholds:
 | Outer | 75% | 8 | LRZ1 | Edge interpolation |
 
 **Placement Strategy:**
+
 - Avoid wheel tracks (compaction zones)
 - Avoid previous crop rows (residue effects)
 - Maximize spatial coverage
@@ -248,6 +266,7 @@ Alert thresholds:
 ### 5.6.3 PCBA GPIO Pinout
 
 **nRF52840 GPIO Assignment:**
+
 | Pin | Function | Direction |
 |-----|----------|-----------|
 | P0.02 | ADC0 (dielectric) | Input |
@@ -267,15 +286,18 @@ Alert thresholds:
 
 **Principle:** High-frequency capacitive (~100MHz)
 **Implementation:**
+
 - Two electrodes embedded in sled wall
 - Field projected through HDPE into soil
 - Dielectric constant (ε) measured
 - Topp equation converts to VWC:
+
   ```
   VWC = -5.3×10⁻² + 2.92×10⁻²×ε - 5.5×10⁻⁴×ε² + 4.3×10⁻⁶×ε³
   ```
 
 **Calibration:**
+
 - Factory: Air (ε=1), water (ε=80)
 - Field: Saturated soil, oven-dry soil
 - Temperature correction (LRZ2 only)
@@ -302,6 +324,7 @@ Alert thresholds:
 ### 5.7.1 SFD-P: Standard Pivot (126-acre Circular)
 
 **Configuration:**
+
 | Component | Quantity | Unit Cost | Extended |
 |-----------|----------|-----------|----------|
 | PMT | 1 | $1,166.50 | $1,166.50 |
@@ -313,6 +336,7 @@ Alert thresholds:
 | **SFD-P TOTAL** | | | **$4,253.00** |
 
 **Coverage:**
+
 - Resolution: 50m (compliance) to 1m (enterprise)
 - Nodes: 20 per field
 - Telemetry: 100% via PMT
@@ -320,6 +344,7 @@ Alert thresholds:
 ### 5.7.2 SFD-C: Corner-Swing Arm (150+ acre)
 
 **Additional Components:**
+
 | Component | Quantity | Purpose |
 |-----------|----------|---------|
 | CSA | 1 | Corner-swing arm tracking |
@@ -328,6 +353,7 @@ Alert thresholds:
 | LRZ1 | +4 | Extended interpolation |
 
 **CSA (Corner-Swing Auditor):**
+
 - BLE 5.2 distance ranging
 - Calculates swing-arm angle
 - ±0.1° joint resolution
@@ -338,6 +364,7 @@ Alert thresholds:
 ### 5.7.3 SFD-F: Flood/Surface Irrigation
 
 **Configuration:**
+
 | Component | Quantity | Purpose |
 |-----------|----------|---------|
 | Static-PMT | 1 | Fixed field hub |
@@ -347,6 +374,7 @@ Alert thresholds:
 | LRZ1 | 20 | Interpolation density |
 
 **Special Features:**
+
 - Wetting Front Propagation algorithms
 - Slope-aware runoff modeling
 - Ditch-level scheduling

@@ -13,6 +13,7 @@ Drift Aversion: REQUIRED
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
 # Executive Summary
+
 ## FarmSense Seed Round A-1
 
 **Founder:** Jeremy Beebe — Successful startup exit with Hempvada  
@@ -34,6 +35,7 @@ The Rio Grande Basin faces a severe hydro-economic crisis that makes FarmSense a
 | Irrigated agriculture | 300,000 acres at risk |
 
 **Economic Impact for a 126-acre pivot:**
+
 - 20% water reduction = 50.4 AF saved per season
 - 50.4 AF × $500/AF = **$25,200 direct savings annually**
 - FarmSense Enterprise subscription: $499/month ($5,988/year)
@@ -141,6 +143,7 @@ FarmSense replaces stochastic, intuition-based agriculture with a high-fidelity 
 **Seeking:** $3M Seed Round  
 **Valuation:** $8-10M pre-money  
 **Use of Funds:**
+
 - 40% Hardware prototype manufacturing
 - 25% Field operations team (CSU pilot)
 - 20% Software / Kriging engine refinement

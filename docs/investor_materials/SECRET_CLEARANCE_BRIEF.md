@@ -13,6 +13,7 @@ Drift Aversion: REQUIRED
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
 # FarmSense: Strategic Intelligence Brief
+
 **Classification: SECRET / NOFORN**  
 **Distribution: Cleared Defense VCs, Intelligence Community, DoD Partners Only**
 
@@ -41,6 +42,7 @@ FarmSense's civilian business model — subsidized hardware for farmers, free 50
 ### 1.2 Strategic Insertion Points
 
 **Target Regions:**
+
 - Nile Basin (Egypt/Ethiopia/Sudan tensions)
 - Indus River system (India/Pakistan/Afghanistan)
 - Central Asian aquifers (strategic water scarcity)
@@ -86,6 +88,7 @@ FarmSense includes **federated data fabric adapters** for Joint All-Domain Comma
 **Scenario:** Ethiopian dam filling on Blue Nile threatens Egyptian water security.
 
 **FarmSense Role:**
+
 1. Deploy "climate adaptation" sensors in Ethiopian highlands under Gates Foundation cover
 2. Real-time monitoring of reservoir levels, river flow, soil saturation
 3. Encrypted burst-transmission via satellite to neutral ground stations
@@ -96,6 +99,7 @@ FarmSense includes **federated data fabric adapters** for Joint All-Domain Comma
 **Scenario:** Military planning requires ground-truth soil conditions for vehicle mobility.
 
 **FarmSense Role:**
+
 1. Existing "subsidized farmer" network provides dense soil moisture grid
 2. JADC2 adapter translates to Go/No-Go trafficability scores
 3. No drone overflight required — passive, persistent coverage
@@ -106,6 +110,7 @@ FarmSense includes **federated data fabric adapters** for Joint All-Domain Comma
 **Scenario:** Adversarial nation claims compliance with water-sharing treaty.
 
 **FarmSense Role:**
+
 1. Neutral, mathematically immutable hydro-data from civilian sensors
 2. Cryptographic proof prevents data tampering allegations
 3. Court-admissible evidence for international arbitration
@@ -142,11 +147,13 @@ The FarmSense radio stack was designed for Low Probability of Intercept (LPI) an
 FarmSense JADC2 adapters translate ground-truth sensor data into tactical decision metrics:
 
 **Soil Moisture → Trafficability Score**
+
 - Volumetric water content + shear strength algorithms
 - Predicts vehicle mobility (tracked/wheeled) across terrain
 - Updates in near-real-time via mesh burst transmissions
 
 **Use Case: Military Planning**
+
 - Pre-positioning logistics routes
 - Off-road mobility corridors
 - Construction feasibility (runways, FOBs)
@@ -170,6 +177,7 @@ FarmSense JADC2 adapters translate ground-truth sensor data into tactical decisi
 **For Defense VCs**: FarmSense offers exposure to a civilian revenue stream (AgTech SaaS) with asymmetric upside via classified contracts (IC, DoD, State Department).
 
 **Revenue Split Estimate**:
+
 - 70% Commercial AgTech (public books)
 - 30% Strategic contracts (classified, non-dilutive)
 

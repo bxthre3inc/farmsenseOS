@@ -13,6 +13,7 @@ Drift Aversion: REQUIRED
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
 # Leadership & Team
+
 ## Builders of the Deterministic Future
 
 **Classification:** CONFIDENTIAL
@@ -26,6 +27,7 @@ Drift Aversion: REQUIRED
 Jeremy brings a successful startup exit track record from Hempvada, a cannabis industry technology platform. At FarmSense, he leads strategy, fundraising, and regulatory capture initiatives.
 
 **Responsibilities:**
+
 - Investor relations & capital strategy
 - Water Court regulatory navigation
 - Federal grant capture (USDA, NSF, DOE)

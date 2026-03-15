@@ -19,6 +19,7 @@ Drift Aversion: REQUIRED
 ### 10.1.1 Compute
 
 **EKS Cluster Configuration:**
+
 | Component | Specification |
 |-----------|---------------|
 | Node type | Graviton3 (ARM64) |
@@ -27,6 +28,7 @@ Drift Aversion: REQUIRED
 | Auto-scaling | 3-20 nodes |
 
 **Pod Allocation:**
+
 | Service | Replicas | CPU | Memory |
 |---------|----------|-----|--------|
 | API (FastAPI) | 6 | 2 | 4GB |
@@ -37,6 +39,7 @@ Drift Aversion: REQUIRED
 ### 10.1.2 Storage
 
 **Hot Data (EBS gp3):**
+
 | Volume | Size | IOPS | Throughput |
 |--------|------|------|------------|
 | PostgreSQL | 2TB | 16,000 | 1,000 MB/s |
@@ -44,6 +47,7 @@ Drift Aversion: REQUIRED
 | Cache (Redis) | 500GB | 16,000 | 1,000 MB/s |
 
 **Cold Data (S3):**
+
 | Bucket | Class | Retention |
 |--------|-------|-----------|
 | Telemetry archive | Glacier | 7 years |
@@ -53,6 +57,7 @@ Drift Aversion: REQUIRED
 ### 10.1.3 Database
 
 **RDS PostgreSQL 15:**
+
 - Instance: db.r6g.4xlarge
 - Storage: 10TB (auto-scaling)
 - Extensions: PostGIS 3.4, TimescaleDB 2.11
@@ -60,6 +65,7 @@ Drift Aversion: REQUIRED
 - Replica: Cross-region (us-east-1)
 
 **ElastiCache Redis:**
+
 - Mode: Cluster (6 shards, 2 replicas each)
 - Instance: cache.r6g.xlarge
 - Eviction: LRU
@@ -70,11 +76,13 @@ Drift Aversion: REQUIRED
 ## 10.2 GitOps Strategy
 
 **Terraform:** Infrastructure as Code
+
 - State: S3 backend with DynamoDB locking
 - Modules: EKS, RDS, ElastiCache, IAM
 - Environments: dev, staging, prod
 
 **ArgoCD:** Kubernetes GitOps
+
 - Sync: Automated with prune
 - Health: Resource degradation alerts
 - Rollback: One-click to previous revision
@@ -102,6 +110,7 @@ Push to main → Build container → Run tests → Push to ECR → ArgoCD sync
 **Scenario:** Total infrastructure failure (fiber + cellular)
 
 **Response:**
+
 | Component | Behavior | Duration |
 |-----------|----------|----------|
 | RSS | Continues autonomous operation | Indefinite |
@@ -116,11 +125,13 @@ Push to main → Build container → Run tests → Push to ECR → ArgoCD sync
 ## 11.1 Zero-Trust Architecture
 
 **Principles:**
+
 1. Never trust, always verify
 2. Least privilege access
 3. Assume breach
 
 **Implementation:**
+
 | Layer | Control |
 |-------|---------|
 | Identity | SPIFFE/SPIRE workload identity |
@@ -131,6 +142,7 @@ Push to main → Build container → Run tests → Push to ECR → ArgoCD sync
 ## 11.2 eBPF Kernel Auditing
 
 **Falco Runtime Security:**
+
 - Unauthorized process execution
 - Sensitive file access (/etc/shadow, private keys)
 - Outbound connections from field devices
@@ -139,11 +151,13 @@ Push to main → Build container → Run tests → Push to ECR → ArgoCD sync
 ## 11.3 Lateral Movement Prevention
 
 **Network Policies:**
+
 - Default-deny ingress/egress
 - Explicit allow rules by service identity
 - Field devices: No direct internet access
 
 **Pod Security:**
+
 - Read-only root filesystem
 - No privileged containers
 - Seccomp profiles (runtime syscall filtering)
@@ -166,6 +180,7 @@ Push to main → Build container → Run tests → Push to ECR → ArgoCD sync
 ## 12.2 Cryptographic Chain of Custody
 
 **Merkle Tree Proofs:**
+
 - Daily root hash commitment
 - PBFT consensus on DHU mesh
 - Immutable RSS vault
@@ -185,6 +200,7 @@ validation.pdf   - Kriging MAPE scores
 ## 13.1 GlobalG.A.P. Compliance
 
 **Certification Path:**
+
 - Automated audit trail generation
 - IFA standard alignment
 - Control Points documentation
@@ -192,6 +208,7 @@ validation.pdf   - Kriging MAPE scores
 ## 13.2 Nitrogen Leaching Prevention
 
 **SPAC-Based N Management:**
+
 - Real-time soil nitrate monitoring (VFA EC)
 - Irrigation timing to prevent deep percolation
 - VRA (Variable Rate Application) integration
@@ -199,6 +216,7 @@ validation.pdf   - Kriging MAPE scores
 ## 13.3 Carbon Sequestration Quantification
 
 **Methodology:**
+
 - Soil organic carbon change detection (annual sampling)
 - Reduced pumping energy credits
 - Registry-ready MRV (Measurement, Reporting, Verification)
@@ -253,6 +271,7 @@ validation.pdf   - Kriging MAPE scores
 ## 15.2 Grant Writing Resources
 
 **Boilerplate Library:**
+
 - Technical narrative (1,000 words)
 - Commercialization plan
 - Team bios
@@ -265,6 +284,7 @@ validation.pdf   - Kriging MAPE scores
 ## 16.1 Empirical Results: 2026 Pilot
 
 **Pre-FarmSense (Control Field):**
+
 | Metric | Value |
 |--------|-------|
 | Water consumption | 258.4 AF/pivot |
@@ -272,6 +292,7 @@ validation.pdf   - Kriging MAPE scores
 | Yield | 410 CWT/acre |
 
 **FarmSense (Treatment Field):**
+
 | Metric | Value |
 |--------|-------|
 | Water consumption | 204.2 AF/pivot (-21%) |
@@ -283,6 +304,7 @@ validation.pdf   - Kriging MAPE scores
 ## 16.2 The "Reflex" Discovery
 
 **Week 12 Event:**
+
 - PFA detected 35 GPM sub-surface breach
 - Traditional: 4 days to identify
 - FarmSense: 4.5 seconds
@@ -291,6 +313,7 @@ validation.pdf   - Kriging MAPE scores
 ## 16.3 Legal Validation: June 29, 2026 Trial
 
 **Evidence Presented:**
+
 - 6 months continuous telemetry (25,600 points)
 - SHA-256 chained audit logs
 - Kriging validation (MAPE 3.2%)
@@ -326,11 +349,13 @@ validation.pdf   - Kriging MAPE scores
 ## Appendix C: Radio Propagation Models
 
 **915MHz CSS LoRa:**
+
 - FSPL(d) = 32.45 + 20log₁₀(d) + 20log₁₀(f)
 - Canopy: -3 dB (sparse) to -8 dB (dense)
 - Link budget: 150 dB
 
 **2.4GHz LTU:**
+
 - Line-of-sight required
 - 12 dBi sector antennas
 - 15km range (clear)
@@ -338,12 +363,14 @@ validation.pdf   - Kriging MAPE scores
 ## Appendix D: Nomenclature & Technical Dictionary
 
 **Core Terms:**
+
 - SPAC: Soil-Plant-Atmosphere Continuum
 - MAD: Management Allowable Depletion
 - VRI: Variable Rate Irrigation
 - CSS LoRa: Chirp Spread Spectrum (915MHz)
 
 **Hardware:**
+
 - RSS: Regional Superstation (Level 3)
 - DHU: District Hub (Level 2)
 - PMT: Pivot Motion Tracker (Level 1.5) — **Field Aggregator**
@@ -355,6 +382,7 @@ validation.pdf   - Kriging MAPE scores
 ## Appendix E: Firmware State-Machine Logic Tables
 
 **PMT States:**
+
 | State | Trigger | Current |
 |-------|---------|---------|
 | SLEEP | RTC timer | 8µA |
@@ -363,6 +391,7 @@ validation.pdf   - Kriging MAPE scores
 | TX | LoRa TX | 120mA |
 
 **Fault Handlers:**
+
 | Code | Condition | Action |
 |------|-----------|--------|
 | FAULT_01 | PMT stall | EMERGENCY_STOP |
@@ -371,6 +400,7 @@ validation.pdf   - Kriging MAPE scores
 ## Appendix F: Installation & Calibration Checklists
 
 **VFA Installation:**
+
 - [ ] Soil core collected
 - [ ] 48" depth verified
 - [ ] Shell verticality <2°
@@ -379,6 +409,7 @@ validation.pdf   - Kriging MAPE scores
 - [ ] Chirp acknowledgment
 
 **Calibration:**
+
 - [ ] Dielectric dry baseline
 - [ ] Saturated calibration
 - [ ] Known-volume test
@@ -387,6 +418,7 @@ validation.pdf   - Kriging MAPE scores
 ## Appendix G: Regional Dielectric Reference Tables
 
 **San Luis Sandy Loam (see Part 1, Section 1.2.1):**
+
 | Depth | Target VWC | Dielectric ε |
 |-------|------------|--------------|
 | 10cm | 16% | 4.70 |

@@ -13,6 +13,7 @@ Drift Aversion: REQUIRED
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
 # Global Water Monitoring Grant Intelligence
+
 **Target: 100+ Grant Opportunities for FarmSense Water Systems**
 
 *Expanded scope: Rivers, creeks, drainage, streams, watersheds — not just agricultural fields*
@@ -22,6 +23,7 @@ Drift Aversion: REQUIRED
 ## EXECUTIVE SUMMARY
 
 FarmSense's modular architecture (RSS → DHU → Field Mesh) can monitor:
+
 - 🌊 **River basins** (Nile, Indus, Ganges, Murray-Darling, Mekong)
 - 🏞️ **Watersheds & catchments** (headwaters to confluence)
 - 🚰 **Drainage & runoff systems** (urban, agricultural, industrial)

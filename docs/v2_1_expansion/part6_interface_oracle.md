@@ -32,12 +32,14 @@ Drift Aversion: REQUIRED
 ### 6.1.2 Core Features
 
 **3D Field Heatmap:**
+
 - 1m resolution VWC overlay on 3D terrain
 - Time-slider for historical playback
 - Vertical profile visualization (click any point)
 - Animated water infiltration simulation
 
 **"Resolution Pop" Zoom Behavior:**
+
 | Zoom Level | Grid | Behavior |
 |------------|------|----------|
 | >1:50,000 | 50m | Clear, labeled compliance view |
@@ -46,6 +48,7 @@ Drift Aversion: REQUIRED
 | <1:5,000 | 1m | Full enterprise resolution |
 
 **Traffic-Light Status Indicators:**
+
 | Status | Color | Meaning | Action |
 |--------|-------|---------|--------|
 | Green | #22c55e | Optimal, no action | Monitor |
@@ -54,6 +57,7 @@ Drift Aversion: REQUIRED
 | Gray | #6b7280 | Offline, no data | Field service |
 
 **Irrigation Worksheet Viewer:**
+
 - Prescription zones (speed, direction)
 - Estimated water application
 - Confidence intervals (Kriging MAPE)
@@ -62,12 +66,14 @@ Drift Aversion: REQUIRED
 ### 6.1.3 Mobile-Responsive PWA
 
 **Offline Capabilities:**
+
 - Cached field data (last 24 hours)
 - Stored worksheets
 - Manual entry (sync on reconnection)
 - Critical alerts (SMS fallback)
 
 **Performance Targets:**
+
 | Metric | Target | Test Device |
 |--------|--------|-------------|
 | First paint | <1.5s | iPhone 12 |
@@ -82,12 +88,14 @@ Drift Aversion: REQUIRED
 ### 6.2.1 Purpose and Access
 
 **Primary Users:**
+
 - State Engineers (Colorado DWR)
 - Water Court judges and clerks
 - RGWCD compliance officers
 - Legal counsel (read-only for farmers)
 
 **Compliance Framework:**
+
 - Read-only audit log (immutable)
 - Hash verification on every view
 - Digital signature on exports
@@ -106,6 +114,7 @@ Drift Aversion: REQUIRED
 ```
 
 **SLV 2026 Compliance Reports:**
+
 - Daily summaries (automated email)
 - Weekly aggregation (PDF)
 - Monthly trend analysis
@@ -114,6 +123,7 @@ Drift Aversion: REQUIRED
 ### 6.2.3 WORM S3 Configuration
 
 **Write-Once-Read-Many:**
+
 - Bucket: `farmsense-compliance-vault`
 - Object Lock: Compliance mode, 7-year retention
 - Legal Hold: Automatic on litigation matters
@@ -126,6 +136,7 @@ Drift Aversion: REQUIRED
 ### 6.3.1 Sled Hospital Monitor
 
 **Real-Time Metrics:**
+
 | Metric | Display | Alert Threshold |
 |--------|---------|-----------------|
 | Hospital occupancy | Progress bar | >80% |
@@ -134,6 +145,7 @@ Drift Aversion: REQUIRED
 | Battery health trend | Sparkline | <20% annual |
 
 **Maintenance Scheduling:**
+
 - Automatic (based on runtime hours)
 - Seasonal (pre-plant, pre-harvest)
 - Reactive (failure detection)
@@ -174,6 +186,7 @@ H   = Sensible heat flux (W/m²)
 ```
 
 **Component Sources:**
+
 | Variable | Source | Accuracy |
 |----------|--------|----------|
 | R_n | Solar + atmospheric radiation models | ±5% |
@@ -229,6 +242,7 @@ K_ν     = Modified Bessel function of second kind
 ```
 
 **Smoothness Values:**
+
 | ν | Interpretation | Use Case |
 |---|----------------|----------|
 | 0.5 | Exponential, rough | Highly variable soils (sand lenses) |
@@ -258,6 +272,7 @@ m(s) = β₀ + β₁×NDVI(s) + β₂×Elevation(s) + β₃×SoilType(s)
 ```
 
 **Validation:**
+
 - Leave-one-out cross-validation
 - Target: MAPE <5% vs. VFA ground truth
 - R² > 0.94 for all fields
@@ -269,6 +284,7 @@ m(s) = β₀ + β₁×NDVI(s) + β₂×Elevation(s) + β₃×SoilType(s)
 ### 7.3.1 Potato (Russet Burbank)
 
 **Growth Stages:**
+
 | Stage | Days | GDD | Critical Management |
 |-------|------|-----|---------------------|
 | Planting | 1 | 0 | Seed piece depth, spacing |
@@ -279,6 +295,7 @@ m(s) = β₀ + β₁×NDVI(s) + β₂×Elevation(s) + β₃×SoilType(s)
 | Harvest | 110-130 | 1400 | Skin set before digging |
 
 **Stress Avoidance:**
+
 - Tuber initiation: <80 kPa (water stress causes knobbiness)
 - Bulking: Avoid >100 kPa (reduced yield)
 - Never exceed 120 kPa (hollow heart, internal defects)
@@ -287,12 +304,14 @@ m(s) = β₀ + β₁×NDVI(s) + β₂×Elevation(s) + β₃×SoilType(s)
 
 **Drought Tolerance:** Higher than potato
 **Critical Periods:**
+
 - Tillering: 30% MAD (establishment sensitive)
 - Stem elongation: 50% MAD
 - Heading: 40% MAD (yield determination)
 - Grain fill: 60% MAD (quality formation)
 
 **Quality Parameters:**
+
 - Protein: <12% for malting (irrigation affects)
 - Plump: >90% (water stress reduces)
 - Germination: >95%
@@ -300,11 +319,13 @@ m(s) = β₀ + β₁×NDVI(s) + β₂×Elevation(s) + β₃×SoilType(s)
 ### 7.3.3 Alfalfa
 
 **Deep Rooting Advantage:**
+
 - Taproot to 10+ feet
 - Exploits deep moisture
 - Higher MAD tolerance (60-70%)
 
 **Cut Timing Strategy:**
+
 - Pre-bloom: Maximum quality, lower yield
 - Early bloom: Yield/quality balance
 - Full bloom: Maximum yield, lower quality

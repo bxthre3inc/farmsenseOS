@@ -13,6 +13,7 @@ Drift Aversion: REQUIRED
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
 # FarmSense Master Manual: The Deterministic Farming Operating System
+
 **Comprehensive Technical Specification V2.1**
 
 ---

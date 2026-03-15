@@ -33,21 +33,25 @@ Autonomous technical review and analysis for solo-founder engineering workflows.
 ## Capabilities
 
 1. **Protocol Architecture Analysis**
+
    - Identify receiver/transmitter mismatches
    - Recommend standardization paths
    - Produce EDRs with trade-off matrices
 
 2. **BOM Validation**
+
    - Cross-reference BOMs against specifications
    - Flag cost variations and component mismatches
    - Generate aligned BOM CSVs
 
 3. **RF Coexistence Analysis**
+
    - Analyze frequency band conflicts
    - Calculate interference margins
    - Recommend guard bands and filtering
 
 4. **Documentation Harmonization**
+
    - Standardize terminology across specs
    - Resolve naming inconsistencies
    - Maintain master glossary
@@ -61,6 +65,7 @@ python3 /home/workspace/Skills/engineering-analysis/scripts/review.py --phase 1
 ```
 
 Phases:
+
 - 1: Protocol Architecture Lock
 - 2: BOM Validation  
 - 3: RF Coexistence Analysis
@@ -81,6 +86,7 @@ python3 /home/workspace/Skills/engineering-analysis/scripts/bomcheck.py --spec V
 ## Output Format
 
 All deliverables saved to:
+
 - `docs/engineering/EDRs/` — Engineering Decision Records
 - `docs/engineering/Reports/` — Analysis reports
 - `docs/engineering/BOMs/` — Validated BOM CSVs
@@ -88,6 +94,7 @@ All deliverables saved to:
 ## Task Management Integration
 
 When running in Antigravity IDE context, the skill:
+
 1. Reads task files from `Tasks/`
 2. Updates status in task frontmatter
 3. Writes completion reports to `Reports/`

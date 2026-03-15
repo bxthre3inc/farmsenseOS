@@ -17,6 +17,7 @@ Drift Aversion: REQUIRED
 **PMT Installation Procedure (Expanded):**
 
 **Pre-Installation Checklist:**
+
 1. Review site survey map
 2. Verify pivot model and tower spacing
 3. Confirm electrical tap availability (12VDC)
@@ -24,6 +25,7 @@ Drift Aversion: REQUIRED
 5. Gather tools and PMT kit
 
 **Tools Required:**
+
 | Tool | Specification | Purpose |
 |------|-------------|---------|
 | Torque wrench | 3/8" drive, 5-25 ft-lb | U-bolt tightening |
@@ -36,6 +38,7 @@ Drift Aversion: REQUIRED
 **Step-by-Step Installation:**
 
 **Step 1: Tower Selection (10 minutes)**
+
 - Inspect towers 2, 3, and 4 for structural integrity
 - Check for weld cracks, rust, or deformation
 - Select tower with best electrical access
@@ -43,6 +46,7 @@ Drift Aversion: REQUIRED
 - Mark selected tower with spray paint
 
 **Step 2: Bracket Mounting (20 minutes)**
+
 - Position stainless bracket at desired height (10-15 feet)
 - Align with pivot span direction of travel
 - Install U-bolts with anti-seize compound
@@ -50,16 +54,19 @@ Drift Aversion: REQUIRED
 - Verify no movement with 50-lb lateral force
 
 **Step 3: Spring Isolator Installation (15 minutes)**
+
 - Mount 4× Vibrashock VSG-1 isolators to bracket
 - Torque to 8 ft-lb
 - Verify 0.5" travel range
 
 **Step 4: Enclosure Mounting (10 minutes)**
+
 - Attach Polycase ML-44F to isolators
 - Orient with cable glands facing down
 - Torque screws to 6 ft-lb
 
 **Step 5: Antenna Installation (15 minutes)**
+
 - Mount LoRa antenna (3ft whip) to top of bracket
 - Spring base oriented for flex in wind
 - Route coax through gland, seal with silicone
@@ -67,6 +74,7 @@ Drift Aversion: REQUIRED
 - Route GPS cable separately from power
 
 **Step 6: Electrical Connection (20 minutes)**
+
 - Locate 12V tap in pivot panel
 - Verify voltage: 11.5-14.5V acceptable
 - Install 5A inline fuse
@@ -75,6 +83,7 @@ Drift Aversion: REQUIRED
 - Test: LED indicators illuminate
 
 **Step 7: Flow Meter Installation (30 minutes)**
+
 - Locate discharge pipe (downstream of pump, upstream of pivot)
 - Clean pipe surface (remove paint, rust)
 - Apply coupling compound
@@ -84,14 +93,17 @@ Drift Aversion: REQUIRED
 - Connect cable to PMT
 
 **Step 8: Initial Power-On (10 minutes)**
+
 - Switch on at pivot panel
 - Observe PMT LED sequence:
+
   - Red solid: Booting (30 seconds)
   - Red blink: GNSS acquisition (up to 10 minutes)
   - Green solid: RTK fix achieved
   - Blue blink: LoRa transmission active
 
 **Step 9: GNSS Configuration (20 minutes)**
+
 - Connect tablet via BLE
 - Launch FarmSense Field Config app
 - Verify RTK base station connectivity
@@ -100,18 +112,21 @@ Drift Aversion: REQUIRED
 - Save to device registry
 
 **Step 10: IMU Calibration (15 minutes)**
+
 - Command from app: "Start IMU Calibration"
 - Keep PMT stationary for 30 seconds
 - Verify all 9 axes report valid values
 - Save calibration to flash
 
 **Step 11: LoRa Range Test (15 minutes)**
+
 - Command: "Test Chirp"
 - Verify DHU acknowledgment
 - Check RSSI: should be >-100dBm
 - If weak, adjust antenna position
 
 **Step 12: Full Rotation Test (30 minutes)**
+
 - Start pivot in slow mode
 - Monitor GNSS track on app
 - Verify continuous position updates
@@ -120,12 +135,14 @@ Drift Aversion: REQUIRED
 - Verify pivot stop detected
 
 **Step 13: Flow Zero Calibration (15 minutes)**
+
 - Ensure pump is off
 - Command: "Calibrate Flow Zero"
 - Wait for stable reading (2 minutes)
 - Save zero offset
 
 **Step 14: Documentation (10 minutes)**
+
 - Photograph installation
 - Record final GPS coordinates (decimal degrees, 8 decimal places)
 - Log firmware version
@@ -134,6 +151,7 @@ Drift Aversion: REQUIRED
 - Upload to asset management system
 
 **Post-Installation Verification (24-hour):**
+
 - Check for 24 hours of continuous telemetry
 - Verify hourly chirps received at DHU
 - Confirm battery voltage stable
@@ -159,10 +177,12 @@ Drift Aversion: REQUIRED
 | Maturity | 105-120 | 36" | 60% | 70-90 |
 
 **Critical Periods:**
+
 - Tasseling/Silking: Never allow stress; yield reduction permanent
 - Grain fill: Moderate stress acceptable; early stress reduces kernel depth
 
 **Kc Values (Crop Coefficient):**
+
 | Stage | Kc | ET₀ Multiplier |
 |-------|-----|----------------|
 | Initial | 0.3 | Low demand |
@@ -185,6 +205,7 @@ Drift Aversion: REQUIRED
 | Maturity | July | 60% | Allow dry-down |
 
 **Frost Risk Integration:**
+
 - Green-up irrigation delays: Account for frost risk in scheduling
 - Tender growth stages: Avoid saturation before freeze events
 
@@ -201,6 +222,7 @@ Drift Aversion: REQUIRED
 | Maturity | 100-120 | 36" | 50% | Allow dry-down |
 
 **Nodulation Consideration:**
+
 - Rhizobia activity requires moist (not saturated) soil
 - First irrigation timing affects nodulation establishment
 
@@ -209,6 +231,7 @@ Drift Aversion: REQUIRED
 ### Regional Dielectric Reference Tables (Additional Soils)
 
 **Hooper Sandy Clay Loam:**
+
 | Depth (cm) | Target VWC | Dielectric ε | Bulk Density |
 |------------|------------|--------------|--------------|
 | 10 | 19% | 5.50 | 1.42 |
@@ -218,6 +241,7 @@ Drift Aversion: REQUIRED
 | 120 | 31% | 8.30 | 1.50 |
 
 **Olney Fine Sandy Loam:**
+
 | Depth (cm) | Target VWC | Dielectric ε | Bulk Density |
 |------------|------------|--------------|--------------|
 | 10 | 14% | 4.20 | 1.38 |
@@ -227,6 +251,7 @@ Drift Aversion: REQUIRED
 | 120 | 26% | 6.90 | 1.46 |
 
 **Weld Clay:**
+
 | Depth (cm) | Target VWC | Dielectric ε | Bulk Density |
 |------------|------------|--------------|--------------|
 | 10 | 24% | 7.10 | 1.48 |
@@ -240,6 +265,7 @@ Drift Aversion: REQUIRED
 ### Expanded Quality Assurance Test Results
 
 **Salt Fog Corrosion (ASTM B117):**
+
 - Duration: 1,000 hours continuous
 - Concentration: 5% NaCl, 35°C
 - Result: No corrosion on SS-304, minimal on SS-316
@@ -247,6 +273,7 @@ Drift Aversion: REQUIRED
 - Status: PASS for SLV alkali environment
 
 **Thermal Shock (MIL-STD-810H Method 503.7):**
+
 - Range: -40°C to +70°C
 - Rate: 10°C/minute
 - Cycles: 100
@@ -254,6 +281,7 @@ Drift Aversion: REQUIRED
 - Status: PASS
 
 **Solar Radiation (MIL-STD-810H Method 505.7):**
+
 - Irradiance: 1,120 W/m² (simulated 8,000ft altitude)
 - Duration: 500 hours
 - UV-B enhanced
@@ -261,6 +289,7 @@ Drift Aversion: REQUIRED
 - Status: PASS (coated), CONDITIONAL (uncoated)
 
 **Dust (MIL-STD-810H Method 510.7):**
+
 - Dust composition: Arizona road dust (alkali-rich)
 - Concentration: 10 g/m³
 - Duration: 6 hours
@@ -268,12 +297,14 @@ Drift Aversion: REQUIRED
 - Status: PASS
 
 **Icing/Freezing Rain (MIL-STD-810H Method 521.4):**
+
 - Ice accumulation: 6mm
 - Duration: 4 hours
 - Result: Antenna ice loading acceptable, heating elements effective
 - Status: PASS
 
 **Combined Environmental (Sequential):**
+
 - Low temp storage: -40°C, 24hr
 - High temp storage: +70°C, 24hr
 - Temperature shock: -40°C to +70°C, 5 cycles
@@ -286,6 +317,7 @@ Drift Aversion: REQUIRED
 ### Maintenance Schedule Detailed
 
 **Daily (Automated Monitoring):**
+
 | Check | Threshold | Alert |
 |-------|-----------|-------|
 | PMT last chirp | >1 hour ago | WARNING |
@@ -296,6 +328,7 @@ Drift Aversion: REQUIRED
 | DHU link status | >4 hours down | CRITICAL |
 
 **Weekly (Field Technician):**
+
 | Task | Duration | Tools |
 |------|----------|-------|
 | DHU solar panel cleaning | 15 min | Soft brush, distilled water |
@@ -304,6 +337,7 @@ Drift Aversion: REQUIRED
 | Backup battery check | 5 min | Multimeter |
 
 **Monthly (Service Visit):**
+
 | Task | Duration |
 |------|----------|
 | PMT battery voltage log download | 15 min |
@@ -313,6 +347,7 @@ Drift Aversion: REQUIRED
 | Firmware version audit | 5 min |
 
 **Quarterly (Maintenance Crew):**
+
 | Task | Duration |
 |------|----------|
 | Deep diagnostics on 10% sample | 4 hours |
@@ -321,6 +356,7 @@ Drift Aversion: REQUIRED
 | Calibration drift check | 2 hours per field |
 
 **Annually (Factory Service):**
+
 | Task | Duration |
 |------|----------|
 | Full extraction and Sled Hospital processing | 2 days per 100 fields |

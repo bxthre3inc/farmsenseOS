@@ -142,19 +142,23 @@ WS     /v1/stream/field/{id}       # Real-time WebSocket (1Hz)
 ### 4.4.1 Edge-EBK (Empirical Bayesian Kriging)
 
 **Level 1.5 (PMT):** 50m resolution, IDW fallback
+
 - Hardware: ESP32-S3, FPU accelerated
 - Algorithm: Modified IDW with anisotropic distance
 - Latency: <50ms for 16x16 matrix
 
 **Level 2 (DHU):** 20m/10m resolution, Ordinary Kriging
+
 - Hardware: Jetson Orin Nano (CUDA)
 - Algorithm: Ordinary Kriging with spherical variogram
 - Parameters:
+
   - Nugget: 0.0012
   - Sill: 0.0085
   - Range: 245m
 
 **Level 3 (RSS):** 1m resolution, Regression Kriging
+
 - Hardware: Threadripper PRO (64 cores)
 - Algorithm: Regression Kriging with Sentinel-2 NDVI covariates
 - Covariates: Satellite NDVI, thermal, elevation, slope, aspect
@@ -163,6 +167,7 @@ WS     /v1/stream/field/{id}       # Real-time WebSocket (1Hz)
 ### 4.4.2 Matérn Kernel Specification
 
 **Why Matérn over exponential/spherical:**
+
 - Allows non-integer smoothness parameter ν
 - SLV soil moisture exhibits localized discontinuities (compaction ridges, wheel tracks)
 - ν auto-tunes 0.5 (rough/exponential) to 2.5 (smooth) based on Field Roughness Index (FRI)
@@ -191,6 +196,7 @@ Where m(s) = deterministic trend (satellite covariates), ε(s) = spatially corre
 ```
 Score = (Moisture_Δ_1h × 0.4) + (Irrigation_Active × 0.3) + (VPD_Stress × 0.2) + (Wind_Stress × 0.1)
 ```
+
 - Score > 0.7 → COLLAPSE mode
 - Score > 0.3 → FOCUS RIPPLE mode
 - Default → PULSE/SLEEP cycling

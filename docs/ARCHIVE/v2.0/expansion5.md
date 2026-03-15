@@ -95,6 +95,7 @@ Drift Aversion: REQUIRED
 **Crop Coefficient (Kc) Curves:**
 
 **Potato:**
+
 | Growth Stage | Days | Kc | Description |
 |------------|------|-----|-------------|
 | Initial | 1-30 | 0.50 | Emergence to 10% ground cover |
@@ -104,6 +105,7 @@ Drift Aversion: REQUIRED
 | Harvest | 121-130 | 0.85-0.40 | Dry-down |
 
 **Alfalfa:**
+
 | Cut | Kc Initial | Kc Mid | Notes |
 |-----|------------|--------|-------|
 | 1st | 0.40 | 1.05 | Establishment |

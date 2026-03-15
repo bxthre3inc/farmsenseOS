@@ -31,6 +31,7 @@ USING BTREE (date_trunc('hour', time));
 ```
 
 **Partitioning Strategy:**
+
 | Table | Strategy | Retention |
 |-------|----------|-----------|
 | sensor_readings | TimescaleDB hypertable, 7-day chunks | 2 years hot, 5 years cold |
@@ -92,6 +93,7 @@ Response (400 Bad Request):
 **GET /v1/fields/{id}/moisture (Retrieve Kriging Grid)**
 
 Query Parameters:
+
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | resolution | enum | "1m" | "50m", "20m", "10m", "1m" |
@@ -194,6 +196,7 @@ Response (JSON):
 ```
 
 **State Timing:**
+
 | State | Entry Condition | Exit Condition | Max Duration |
 |-------|---------------|----------------|--------------|
 | INIT | Power on | Tests complete | 30 seconds |
@@ -236,6 +239,7 @@ Response (JSON):
 **VFA Detailed Sensor Specifications:**
 
 **GroPoint Profile (Advanced Sensor):**
+
 | Parameter | Specification |
 |-----------|-------------|
 | Measurement principle | Frequency Domain Reflectometry (FDR) |
@@ -250,6 +254,7 @@ Response (JSON):
 | Warranty | 5 years |
 
 **Custom Basic Sensor:**
+
 | Parameter | Specification |
 |-----------|-------------|
 | Measurement principle | Capacitive (100MHz) |
@@ -267,6 +272,7 @@ Response (JSON):
 **900MHz CSS LoRa Protocol Stack:**
 
 **Physical Layer:**
+
 | Parameter | Value |
 |-----------|-------|
 | Frequency range | 902-928 MHz (US ISM) |
@@ -278,6 +284,7 @@ Response (JSON):
 | CRC | Enabled |
 
 **Data Rate Configuration:**
+
 | SF | Bitrate | Sensitivity | Range (km) | Use case |
 |----|---------|-------------|------------|----------|
 | 7 | 5.47 kbps | -123 dBm | 2 | Good conditions, short range |
@@ -286,12 +293,14 @@ Response (JSON):
 | 12 | 0.29 kbps | -148 dBm | 10 | Emergency, extreme range |
 
 **Adaptive Data Rate (ADR):**
+
 - Algorithm: Node adjusts SF based on SNR feedback from gateway
 - Floor: SF7 (minimum for reliability)
 - Ceiling: SF12 (emergency only, high power)
 - Default: SF9 (balance of speed and range)
 
 **MAC Layer (LoRaWAN-like):**
+
 - Class A: Bi-directional after uplink (power efficient)
 - Confirmed vs. unconfirmed messages
 - Frame counter for replay protection

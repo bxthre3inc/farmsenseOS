@@ -26,12 +26,14 @@ Drift Aversion: REQUIRED
 ### 5.1.2 Physical Specifications
 
 **Enclosure:** Modified 40-foot High-Cube ISO shipping container
+
 - Dimensions: 40' × 8' × 9.5' (L×W×H)
 - Climate control: HVAC maintaining 18-24°C
 - Security: Biometric access, seismic sensors, fire suppression
 - Power: Dual feed + 20kW generator backup
 
 **Compute Cluster:**
+
 | Component | Specification |
 |-----------|---------------|
 | CPU | AMD Threadripper PRO 5995WX (64 cores / 128 threads) |
@@ -61,12 +63,14 @@ Drift Aversion: REQUIRED
 ### 5.2.2 Physical Specifications
 
 **Enclosure:**
+
 - Housing: Polycase WP-21F (NEMA 4X, IP67)
 - Mounting: Pole bracket with seismic dampeners
 - Dimensions: 14" × 12" × 8"
 - Weight: 8.2 kg (18 lbs)
 
 **Compute Module:**
+
 | Component | Specification |
 |-----------|---------------|
 | CPU/GPU | NVIDIA Jetson Orin Nano (8GB) |
@@ -78,12 +82,14 @@ Drift Aversion: REQUIRED
 ### 5.2.3 Communications Array
 
 **900MHz CSS LoRa Gateway (Revised V1.1):**
+
 - Module: Semtech SX1302-based concentrator
 - Antenna: 6dBi omnidirectional fiberglass whip
 - Channels: 8× multi-SF, 1× FSK
 - Capacity: 10,000+ sensor nodes
 
 **2.4GHz Backhaul:**
+
 - Antennas: 3× Ubiquiti LTU-Lite Sector (120° each, 18dBi)
 - Frequency: 2.402-2.477 GHz
 - Modulation: TDD (Time Division Duplexing)
@@ -91,6 +97,7 @@ Drift Aversion: REQUIRED
 - Range: 15km line-of-sight
 
 **LTE-M Fallback:**
+
 - Module: Quectel BG95 (Cat M1)
 - Bands: B2, B4, B12, B13, B25, B26
 - Protocol: CoAP/LwM2M
@@ -135,12 +142,14 @@ Drift Aversion: REQUIRED
 ### 5.3.2 Physical Specifications
 
 **Housing:**
+
 - Enclosure: Polycase ML-44F (NEMA 4X, IP67)
 - Mounting: Tower bracket with spring isolators (vibration dampening)
 - Dimensions: 8" × 6" × 4"
 - Weight: 2.8 kg (6.2 lbs)
 
 **Environmental:**
+
 - Temperature: -40°C to +85°C operational
 - Humidity: 0-100% RH (IP67 sealed)
 - Vibration: MIL-STD-810H Method 514.8 compliant
@@ -149,6 +158,7 @@ Drift Aversion: REQUIRED
 ### 5.3.3 Compute & Sensing
 
 **Core Module:** ESP32-S3 (Espressif)
+
 | Parameter | Specification |
 |-----------|---------------|
 | CPU | Xtensa LX7 dual-core @ 240MHz |
@@ -159,12 +169,14 @@ Drift Aversion: REQUIRED
 | Bluetooth | BLE 5.0 (maintenance/config) |
 
 **GNSS (Positioning):**
+
 - Module: u-blox ZED-F9P
 - Constellations: GPS, GLONASS, Galileo, BeiDou
 - RTK accuracy: ±2cm horizontal, ±4cm vertical (with corrections)
 - Update rate: 10Hz (kinematic)
 
 **Inertial Measurement (Structural Monitoring):**
+
 - Module: Bosch BNO055 (9-axis IMU)
 - Accelerometer: ±16g
 - Gyroscope: ±2000°/s
@@ -172,6 +184,7 @@ Drift Aversion: REQUIRED
 - Fusion: Built-in sensor fusion (Euler angles, quaternion)
 
 **Hydraulic Monitoring:**
+
 - Flow meter: Badger Meter TFX-5000 (ultrasonic transit-time)
 - Accuracy: ±1.0% of reading
 - Mounting: Clamp-on (no pipe cutting)
@@ -180,6 +193,7 @@ Drift Aversion: REQUIRED
 ### 5.3.4 Communications
 
 **900MHz CSS LoRa Mesh (Sensor Ingress):**
+
 - Module: HopeRF RFM95W (SX1276-based)
 - Frequency: 915MHz
 - TX Power: +20dBm (100mW)
@@ -187,6 +201,7 @@ Drift Aversion: REQUIRED
 - Antenna: 3dBi whip (external, spring-mounted)
 
 **2.4GHz/LTE-M (Backhaul to DHU):**
+
 - WiFi: ESP32-S3 integrated (2.4GHz)
 - LTE-M: Optional Quectel BG95 module
 - Range to DHU: 2-5km typical
@@ -195,11 +210,13 @@ Drift Aversion: REQUIRED
 
 **Primary:** 12VDC from pivot electrical (via transformer)
 **Backup:** Saft LS14500 LiSOCl2 primary cell (3.6V, 2.6Ah)
+
 - Function: Keep-alive for RTC and GNSS ephemeris
 - Duration: 2 years (sleep mode)
 - HPC: Hybrid Pulse Capacitor for burst TX
 
 **Power Consumption:**
+
 | Mode | Current | Duration |
 |------|---------|----------|
 | Sleep | 8µA | 4 hours |
@@ -211,6 +228,7 @@ Drift Aversion: REQUIRED
 ### 5.3.6 Firmware State Machine
 
 **States:**
+
 - **INIT:** Boot, self-test, GNSS lock
 - **SLEEP:** Deep sleep, RTC timer wake
 - **PULSE:** Chirp interval, check for sensor data
@@ -220,6 +238,7 @@ Drift Aversion: REQUIRED
 - **ISLAND:** Autonomous mode (DHU link lost)
 
 **Fault Handlers:**
+
 | Code | Condition | Action |
 |------|-----------|--------|
 | FAULT_01 | PMT stall (IMU >3g spike) | EMERGENCY_STOP, alert |
@@ -257,6 +276,7 @@ Drift Aversion: REQUIRED
 ### 5.4.2 Physical Specifications
 
 **Housing:**
+
 - Enclosure: Polycase WP-21F (NEMA 4X)
 - Mounting: Wellhead bracket (stainless steel)
 - Dimensions: 12" × 10" × 6"
@@ -265,6 +285,7 @@ Drift Aversion: REQUIRED
 ### 5.4.3 Sensing Stack
 
 **Flow Measurement:**
+
 - Device: Badger Meter TFX-5000 (ultrasonic transit-time)
 - Accuracy: ±1.0% of reading
 - Repeatability: ±0.2%
@@ -272,18 +293,21 @@ Drift Aversion: REQUIRED
 - Outputs: 4-20mA, pulse, Modbus
 
 **Pressure Monitoring:**
+
 - Device: Dwyer PBLTX (submersible)
 - Range: 0-300 PSI
 - Accuracy: ±0.25% FS
 - Housing: 316 stainless steel
 
 **Current Monitoring:**
+
 - CT Clamps: Magnelab SCT-0400 (3× split-core)
 - Rating: 400A per phase
 - Accuracy: ±1%
 - Purpose: Cavitation detection via harmonic analysis
 
 **Motor Health (FFT Analysis):**
+
 - Sampling: 10kHz on current waveforms
 - Analysis: FFT to detect bearing wear, cavitation, unbalance
 - Detection: Torque ripple, harmonic distortion
@@ -292,12 +316,14 @@ Drift Aversion: REQUIRED
 ### 5.4.4 Actuation
 
 **Safety Relay:**
+
 - Device: Omron G9EA-1-B (30A, 24VDC coil)
 - Function: Emergency pump shutoff
 - Response time: <50ms
 - Manual override: Physical bypass switch
 
 **Reflex Logic Table:**
+
 | Condition | Sensor | Threshold | Action | Latency |
 |-----------|--------|-----------|--------|---------|
 | PMT stall | PMT command | Digital signal | ACTUATE_STOP | <100ms |
@@ -309,6 +335,7 @@ Drift Aversion: REQUIRED
 ### 5.4.5 Communications
 
 **900MHz CSS LoRa:**
+
 - Module: nRF52840 (Nordic Semiconductor)
 - CPU: Cortex-M4F @ 64MHz
 - Security: ARM TrustZone, Cryptocell-310 (AES-256)
@@ -316,6 +343,7 @@ Drift Aversion: REQUIRED
 - Range to PMT: 50-200m (depending on canopy)
 
 **BLE 5.4:**
+
 - Purpose: Maintenance/configuration
 - Range: 10m
 - Security: LE Secure Connections
@@ -357,6 +385,7 @@ Drift Aversion: REQUIRED
 ### 5.5.2 Physical Specifications
 
 **Outer Shell (Permanent):**
+
 - Material: HDPE SDR9 (2.067" ID / 52.5mm)
 - Length: 48" (1219mm)
 - Wall thickness: 0.154" (3.9mm)
@@ -365,6 +394,7 @@ Drift Aversion: REQUIRED
 - UV resistance: 40-year rated
 
 **Alpha-Sled (Removable):**
+
 - Material: CHDPE (cross-linked high-density PE)
 - Diameter: 50mm (1.97")
 - Length: 46" (1168mm)
@@ -385,11 +415,13 @@ Drift Aversion: REQUIRED
 | 35-48 | Advanced Sensor #3 | 48" (122cm) VWC/Temp/EC | Deep percolation detection |
 
 **Advanced Sensor (GroPoint Profile segment):**
+
 - Parameters: VWC, soil temperature, bulk EC
 - Accuracy: ±3% VWC
 - Measurement zone: 4" (10cm) diameter sphere
 
 **Basic Sensor (custom capacitive):**
+
 - Parameters: VWC, temperature
 - Accuracy: ±5% VWC
 - Cost: 40% of GroPoint
@@ -397,12 +429,14 @@ Drift Aversion: REQUIRED
 ### 5.5.4 The Proxy Method (Non-Contact Sensing)
 
 **Principle:** High-frequency dielectric field projection
+
 - Frequency: ~100MHz
 - Field penetration: Through 50mm CHDPE sled wall
 - Gap medium: +5 PSI dry nitrogen (prevents condensation)
 - Advantage: Electronics never contact soil, corrosion eliminated
 
 **Calibration:**
+
 - Mineral soil: Topp equation (ε = 3.03 + 9.3m + 146m²)
 - Organic soil: Custom calibration curve
 - Site-specific: Field-calibrated with gravimetric samples
@@ -410,6 +444,7 @@ Drift Aversion: REQUIRED
 ### 5.5.5 Communications
 
 **900MHz CSS LoRa:**
+
 - Module: nRF52840 (same as PFA)
 - TX Power: +8dBm
 - Reporting: To elevated PMT (50-200m range)
@@ -418,12 +453,14 @@ Drift Aversion: REQUIRED
 ### 5.5.6 Power System
 
 **Battery Cartridges:** 5× 21700 Li-ion packs
+
 - Configuration: 3S1P (3 cells series, 1 parallel)
 - Voltage: 10.8V nominal
 - Capacity: 4.5Ah per cartridge
 - Total capacity: 22.5Ah @ 10.8V = 243Wh
 
 **Active Heating:**
+
 - Element: 5W Kapton heater per battery cartridge
 - Trigger: Temperature <0°C
 - Purpose: Prevent lithium plating during charging
@@ -456,13 +493,16 @@ Drift Aversion: REQUIRED
 
 **Function:** Level 1 spatial scouts, distributed moisture mapping
 **Density:** 16 per field
+
 - 4× LRZ2 (Reference nodes with VWC + temperature)
 - 12× LRZ1 (Truth nodes with basic sensing)
+
 **Distribution:** Grid pattern, 1 per ~8 acres
 
 ### 5.6.2 Physical Specifications
 
 **Housing (Alpha-Sled):**
+
 - Material: CHDPE (same as VFA)
 - Diameter: 35mm (1.38")
 - Length: 12" (305mm)
@@ -471,23 +511,28 @@ Drift Aversion: REQUIRED
 ### 5.6.3 PCBA (Custom Circuit)
 
 **Microcontroller:** nRF52840 (same as PFA/VFA)
+
 - GPIO allocation:
+
   - P0.02/P0.03: 12-bit analog dielectric sensing
   - P0.28-P0.31: LoRa SPI interface
   - P0.10: Temperature (1-wire)
 
 **Sensing:**
+
 - Method: Capacitive dielectric (non-contact)
 - Frequency: ~100MHz
 - Penetration: Through CHDPE wall into soil
 - Calibration: Field-specific with gravimetric correlation
 
 **LRZ1 (Basic):**
+
 - Parameters: Volumetric water content
 - Accuracy: ±5%
 - Cost target: $29/unit at scale
 
 **LRZ2 (Reference):**
+
 - Parameters: VWC + soil temperature
 - Accuracy: ±3% VWC, ±0.5°C temp
 - Cost target: $54.30/unit at scale
@@ -495,6 +540,7 @@ Drift Aversion: REQUIRED
 ### 5.6.4 Communications
 
 **900MHz CSS LoRa:**
+
 - Module: Integrated nRF52840 (RADIO peripheral)
 - Protocol: Dumb chirp (encrypted, minimal payload)
 - Interval: 4 hours (adjustable 1-24 hours)
@@ -503,12 +549,14 @@ Drift Aversion: REQUIRED
 ### 5.6.5 Power System
 
 **Battery:** 21700 LiSOCl2 primary cell (SAFT LS14500 equivalent)
+
 - Voltage: 3.6V
 - Capacity: 2.6Ah
 - Chemistry: Lithium Thionyl Chloride (high energy density)
 - Life: 4+ years at 4-hour chirp intervals
 
 **Power Consumption:**
+
 | State | Current | Duration | Energy |
 |-------|---------|----------|--------|
 | Sleep | 2µA | 3h 59m | 0.01mAh |
@@ -558,11 +606,13 @@ Drift Aversion: REQUIRED
 ### 5.7.1 SFD-P: Standard Pivot (126-Acre Circular)
 
 **Geometry:**
+
 - Pivot radius: 1,320 feet (1/4 mile)
 - Area: 126 acres (51 hectares)
 - Soil: Homogeneous or managed by zone
 
 **Node Configuration:**
+
 | Device | Qty | Purpose |
 |--------|-----|---------|
 | PMT | 1 | Field aggregator, kinematic tracking |
@@ -573,10 +623,12 @@ Drift Aversion: REQUIRED
 | **Total** | **20 nodes** | |
 
 **Resolution:**
+
 - Compliance: 50m grid (free tier)
 - Enterprise: 1m grid (subscription)
 
 **Cost per SFD-P:**
+
 | Component | Qty | Unit | Extended |
 |-----------|-----|------|----------|
 | PMT | 1 | $842 | $842 |
@@ -591,15 +643,18 @@ Drift Aversion: REQUIRED
 ### 5.7.2 SFD-C: Corner-Swing Arm (150+ Acre)
 
 **Geometry:**
+
 - Type: Center pivot with corner arm (end gun or swing arm)
 - Area: 150-175 acres (variable by geometry)
 
 **Additional Components:**
+
 | Device | Qty | Purpose |
 |--------|-----|---------|
 | CSA | 1 | Corner-Swing Auditor |
 
 **CSA (Corner-Swing Auditor) Specifications:**
+
 - Mounting: Last tower + swing arm
 - Tracking: BLE 5.2 distance ranging
 - Precision: ±0.1° joint resolution
@@ -612,6 +667,7 @@ Drift Aversion: REQUIRED
 **Type:** Graded furrow, border strip, or level basin
 
 **Node Configuration:**
+
 | Device | Qty | Purpose |
 |--------|-----|---------|
 | PMT-Lite | 1 | Static field hub (no pivot tracking) |
@@ -622,6 +678,7 @@ Drift Aversion: REQUIRED
 | **Total** | **34 nodes** | |
 
 **Wetting Front Propagation:**
+
 - Algorithm: Track infiltration from head/ditch
 - Trigger: Irrigation cessation when wetting front reaches 36"
 - Purpose: Prevent deep percolation in flood systems
@@ -633,12 +690,14 @@ Drift Aversion: REQUIRED
 ### 5.8.1 Phase 1 — Compliance Foundation
 
 **Scope:** Immediate Water Court readiness
+
 - 1,280 fields × SFD-P configuration
 - 1,280 PMTs (all fields instrumented)
 - Base RSS infrastructure (1 station)
 - Minimum viable sensor density
 
 **Node Count:**
+
 | Device | Per Field | Total |
 |--------|-----------|-------|
 | PMT | 1 | 1,280 |
@@ -649,6 +708,7 @@ Drift Aversion: REQUIRED
 | **Total Nodes** | **20** | **25,600** |
 
 **Infrastructure:**
+
 | Item | Qty | Unit Cost | Extended |
 |------|-----|-----------|----------|
 | DHU | 13 | $4,160 | $54,080 |
@@ -659,11 +719,13 @@ Drift Aversion: REQUIRED
 ### 5.8.2 Phase 2 — Full Ecosystem Saturation
 
 **Scope:** 18-node Stereo Density per field
+
 - 25 DHUs (full coverage with redundancy)
 - Enhanced RSS (compute upgrade)
 - 1m-pixel spatial moisture grid
 
 **Phase 2 Additions:**
+
 | Item | Qty | Unit Cost | Extended |
 |------|-----|-----------|----------|
 | Additional sensors | 12,800 | $45 | $576,000 |
@@ -673,6 +735,7 @@ Drift Aversion: REQUIRED
 | **Phase 1+2 Total** | | | **$3,970,638** |
 
 **Annual Revenue at Scale:**
+
 | Tier | Fields | Monthly | Annual |
 |------|--------|---------|--------|
 | Base | 256 | $149 | $457,728 |

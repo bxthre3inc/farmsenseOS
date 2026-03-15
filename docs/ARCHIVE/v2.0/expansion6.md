@@ -47,6 +47,7 @@ Drift Aversion: REQUIRED
 **Emergency Procedures:**
 
 **Pivot Stall During Irrigation:**
+
 1. PMT detects stall (IMU spike >3g)
 2. PMT issues ACTUATE_STOP to PFA
 3. PFA opens safety relay (<50ms)
@@ -56,6 +57,7 @@ Drift Aversion: REQUIRED
 7. Manual reset required at PMT
 
 **Underground Line Break:**
+
 1. PFA detects flow rate drop (>30%)
 2. PFA detects pressure drop (<20 PSI)
 3. ACTUATE_STOP triggered
@@ -65,6 +67,7 @@ Drift Aversion: REQUIRED
 7. Restart sequence with full calibration
 
 **DHU Failure During Active Irrigation:**
+
 1. PMT loses DHU heartbeat (>4 hours)
 2. PMT enters ISLAND_MODE
 3. PMT executes last valid worksheet
@@ -74,6 +77,7 @@ Drift Aversion: REQUIRED
 7. On DHU restoration, sync backlog
 
 **VFA Breach (Flooding):**
+
 1. VFA detects >95% VWC (saturation)
 2. Emergency chirp to PMT (immediate, not batched)
 3. PMT forwards to DHU with PRIORITY_CRITICAL
@@ -93,6 +97,7 @@ Drift Aversion: REQUIRED
 | 2.1 | 2026-03-11 | FarmSense Team | Expanded technical tables, 4,000+ line target | Investor review |
 
 **Distribution List:**
+
 | Role | Access | Format |
 |------|--------|--------|
 | CEO (Jeremy Beebe) | Full | Digital + printed |
@@ -104,12 +109,14 @@ Drift Aversion: REQUIRED
 | Regulators (DWR) | Parts I, XII, XVI | PDF submission |
 
 **Review Cycle:**
+
 - Technical content: Quarterly
 - Financial projections: Monthly
 - Grant deadlines: Weekly
 - Legal compliance: Annual
 
 **Feedback:**
+
 - Technical issues: engineering@farmsense.io
 - Documentation issues: docs@farmsense.io
 - Updates: Submit PR to github.com/bxthre3/farmsense-docs

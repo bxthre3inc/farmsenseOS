@@ -15,11 +15,13 @@ Drift Aversion: REQUIRED
 # PART V: THE HARDWARE ECOSYSTEM
 
 ## 5.0 Hardware Overview
+
 FarmSense implements a hierarchical hardware ecosystem from regional superstations to buried field sensors, all designed for 10-year operational life in harsh agricultural environments.
 
 ## 5.1 Regional Superstation (RSS) V1.0
 
 ### 5.1.1 Physical Specifications
+
 | Attribute | Specification |
 |-----------|-------------|
 | Form factor | 40' High-Cube shipping container (modified) |
@@ -28,6 +30,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Weight | 15,000 lbs (fully loaded) |
 
 ### 5.1.2 Compute Specifications
+
 | Component | Specification |
 |-----------|-------------|
 | CPU | AMD Threadripper PRO 5995WX (64-core) |
@@ -37,6 +40,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Storage (cold) | 200TB HDD archive |
 
 ### 5.1.3 Communications
+
 | Interface | Specification | Purpose |
 |-----------|-------------|---------|
 | Fiber | 10 Gbps (dual path) | Primary backhaul |
@@ -45,6 +49,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | 2.4GHz | 3× Ubiquiti LTU Sector | DHU backhaul |
 
 ### 5.1.4 Power
+
 | Component | Specification |
 |-----------|-------------|
 | Grid | 480V 3-phase, 200A service |
@@ -53,6 +58,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Solar | 20kW array (supplemental) |
 
 ### 5.1.5 BOM — RSS V1.0
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | Threadripper PRO 5995WX | 1 | $6,499 | $6,499 |
@@ -70,6 +76,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 ## 5.2 District Hub (DHU) V1.2
 
 ### 5.2.1 Physical Specifications
+
 | Attribute | Specification |
 |-----------|-------------|
 | Mounting | 35' Class 4 timber pole |
@@ -78,6 +85,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Wind rating | 100 mph sustained |
 
 ### 5.2.2 Compute Specifications
+
 | Component | Specification |
 |-----------|-------------|
 | SBC | NVIDIA Jetson Orin Nano 8GB |
@@ -88,6 +96,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Storage (cache) | 128GB microSD (emergency backup) |
 
 ### 5.2.3 Communications
+
 | Interface | Specification | Purpose |
 |-----------|-------------|---------|
 | 900MHz | RAK2287 concentrator | Field sensor ingress |
@@ -96,6 +105,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | BLE 5.0 | nRF52840 | Technician maintenance |
 
 ### 5.2.4 Power
+
 | Component | Specification |
 |-----------|-------------|
 | Source | 200W solar + 200Ah LiFePO4 |
@@ -104,6 +114,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Charging | MPPT 20A controller |
 
 ### 5.2.5 Black Box Cache (Critical Feature)
+
 **Purpose:** 30-day continuous audit logging during total backhaul failure
 
 | Spec | Value |
@@ -115,6 +126,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Hash chain | SHA-256 linking |
 
 ### 5.2.6 BOM — DHU V1.2
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | Jetson Orin Nano | 1 | $499 | $499 |
@@ -132,9 +144,11 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 ## 5.3 Pivot Motion Tracker (PMT) V1.6 — CRITICAL: FIELD AGGREGATOR
 
 ### 5.3.1 Role Definition
+
 **CRITICAL ARCHITECTURE POINT:** The PMT is the **Primary Field Aggregator**. It is elevated 10-15 feet on the pivot span, above the dense crop canopy. All ground-level devices (VFA, LRZ1, LRZ2, PFA) report **to the PMT**, not directly to the DHU.
 
 ### 5.3.2 Physical Specifications
+
 | Attribute | Specification |
 |-----------|-------------|
 | Mounting | Towers 2-3 of center pivot |
@@ -143,6 +157,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Weight | 12 lbs |
 
 ### 5.3.3 Compute Specifications
+
 | Component | Specification |
 |-----------|-------------|
 | MCU | ESP32-S3-MINI-1-N8R8 |
@@ -152,6 +167,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Vector unit | Yes (SIMD) |
 
 ### 5.3.4 Sensors
+
 | Sensor | Specification | Purpose |
 |--------|-------------|---------|
 | GNSS | u-blox ZED-F9P RTK | Sub-cm positioning |
@@ -160,6 +176,7 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Current | 3× Magnelab SCT-0400-400 | Pump signature analysis |
 
 ### 5.3.5 Communications
+
 | Interface | Specification | Purpose |
 |-----------|-------------|---------|
 | Ingress | 900MHz CSS LoRa Mesh | VFA, LRZ1, LRZ2, PFA |
@@ -167,18 +184,22 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 | Maintenance | BLE 5.0 | Technician access |
 
 ### 5.3.6 Edge-EBK Computation
+
 **Responsibility:** The PMT performs **Edge-EBK** (Empirical Bayesian Kriging) to generate a 50m-resolution 16×16 probability matrix from field sensor inputs.
 
 **Power:** The FPU processes AES-256 chirps from VFA/LRZ1/LRZ2/PFA into a localized probability matrix. In "COLLAPSE" mode, the FPU focuses 100% compute on the active pivot trajectory.
 
 ### 5.3.7 Payload Structure
+
 **Unified Field State Payload (~187 bytes):**
+
 - PMT kinematic data (position, velocity, vibration)
 - 50m Edge-EBK arrays (16×16 grid)
 - Intercepted VFA/LRZ/PFA telemetry
 - Timestamp + cryptographic signature
 
 ### 5.3.8 BOM — PMT V1.6
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | ESP32-S3-MINI-1 | 1 | $3.20 | $3.20 |
@@ -197,10 +218,12 @@ FarmSense implements a hierarchical hardware ecosystem from regional superstatio
 ## 5.4 Pressure & Flow Anchor (PFA) V1.9
 
 ### 5.4.1 Role Definition
+
 **Wellhead Sentry & Safety Actuator**
 The PFA is the critical safety node at the wellhead, monitoring flow and pressure, and capable of actuating emergency pump stops.
 
 ### 5.4.2 Physical Specifications
+
 | Attribute | Specification |
 |-----------|-------------|
 | Mounting | Wellhead pipe (2-6" diameter) |
@@ -209,6 +232,7 @@ The PFA is the critical safety node at the wellhead, monitoring flow and pressur
 | Ingress | IP67 |
 
 ### 5.4.3 Sensors
+
 | Sensor | Specification | Purpose |
 |--------|-------------|---------|
 | Flow | Badger TFX-5000 (clamp-on) | ±1.0% volumetric flow |
@@ -216,18 +240,21 @@ The PFA is the critical safety node at the wellhead, monitoring flow and pressur
 | Pressure | Dwyer PBLTX (vented, 316-SS) | Line pressure monitoring |
 
 ### 5.4.4 Actuation
+
 | Component | Specification | Purpose |
 |-----------|-------------|---------|
 | Relay | Omron G7L-1A-TUB 30A | Pump soft-stop |
 | Response time | <50ms | Emergency halt |
 
 ### 5.4.5 Communications
+
 | Interface | Specification | Purpose |
 |-----------|-------------|---------|
 | Primary | 900MHz CSS LoRa | PMT ingress |
 | Maintenance | BLE 5.4 | Technician diagnostics |
 
 ### 5.4.6 Reflex Logic Table
+
 | Condition | PMT Command | PFA Action |
 |-----------|-------------|------------|
 | PMT_STALL detected | ACTUATE_STOP | Open relay (<50ms) |
@@ -236,6 +263,7 @@ The PFA is the critical safety node at the wellhead, monitoring flow and pressur
 | Cavitation signature | ACTUATE_STOP + ALERT | Open relay, notify |
 
 ### 5.4.7 BOM — PFA V1.9
+
 | Component | Qty | Unit Cost | Extended |
 |-----------|-----|-----------|----------|
 | nRF52840-QIAA | 1 | $4.50 | $4.50 |
@@ -252,10 +280,12 @@ The PFA is the critical safety node at the wellhead, monitoring flow and pressur
 ## 5.5 Vertical Field Anchor (VFA) V2.1
 
 ### 5.5.1 Role Definition
+
 **Deep-Truth Probe (48" Profile)**
 The VFA is the primary ground-truth sensor for sub-surface moisture, with sensors at multiple depths providing a vertical moisture profile.
 
 ### 5.5.2 Physical Specifications
+
 | Attribute | Specification |
 |-----------|-------------|
 | Housing | 2" HDPE SDR9 outer shell (permanent) |
@@ -265,6 +295,7 @@ The VFA is the primary ground-truth sensor for sub-surface moisture, with sensor
 | Extraction | Pre-harvest (September) |
 
 ### 5.5.3 The 48U Stack Sequence
+
 | Slot (inch) | Component | Function |
 |-------------|-------------|----------|
 | 1 (Top) | Desiccant Pack | Apex moisture trap |
@@ -276,6 +307,7 @@ The VFA is the primary ground-truth sensor for sub-surface moisture, with sensor
 | 48 (Bottom) | Advanced Sensor | 48" Deep Percolation |
 
 ### 5.5.4 Sensor Specifications
+
 | Depth | Type | Parameters |
 |-------|------|------------|
 | 10" | GroPoint Profile | VWC, EC, Temp |
@@ -285,16 +317,19 @@ The VFA is the primary ground-truth sensor for sub-surface moisture, with sensor
 | 48" | GroPoint Profile | VWC, EC, Temp |
 
 ### 5.5.5 The Proxy Method
+
 **Non-Contact Capacitive Sensing:**
 The sensors utilize an advanced non-contact capacitive method, shooting high-frequency dielectric fields through the 50mm sled wall and across a +5 PSI dry nitrogen gap directly into the soil. This eliminates galvanic corrosion and sensor drift.
 
 ### 5.5.6 Communications
+
 | Interface | Specification | Purpose |
 |-----------|-------------|---------|
 | Primary | 900MHz CSS LoRa | PMT ingress |
 | Range | 1km+ to elevated PMT | Canopy penetration |
 
 ### 5.5.7 BOM — VFA V2.1 (1,280 unit tier)
+
 | Component | Cost |
 |-----------|------|
 | Housing (HDPE SDR9) | $6.75 |
@@ -308,6 +343,7 @@ The sensors utilize an advanced non-contact capacitive method, shooting high-fre
 ## 5.6 Lateral Root-Zone Surveyor (LRZ) V1.2 — CRITICAL: TWO VARIANTS
 
 ### 5.6.1 CRITICAL DISTINCTION: LRZ1 vs LRZ2
+
 | Feature | LRZ1 (Basic) | LRZ2 (Reference) |
 |---------|--------------|------------------|
 | **Cost** | $29.00 | $54.30 |
@@ -321,6 +357,7 @@ The sensors utilize an advanced non-contact capacitive method, shooting high-fre
 | **Battery life** | 4+ years | 4+ years |
 
 ### 5.6.2 LRZ1 Specifications (Basic)
+
 | Attribute | Specification |
 |-----------|-------------|
 | MCU | nRF52840-QIAA |
@@ -331,6 +368,7 @@ The sensors utilize an advanced non-contact capacitive method, shooting high-fre
 | Antenna | Stainless steel whip (buried, RF-transparent) |
 
 ### 5.6.3 LRZ2 Specifications (Reference)
+
 | Attribute | Specification |
 |-----------|-------------|
 | MCU | nRF52840-QIAA |
@@ -341,6 +379,7 @@ The sensors utilize an advanced non-contact capacitive method, shooting high-fre
 | Housing | 2" HDPE SDR9 shell + removable sled |
 
 ### 5.6.4 PCB Layout (Both Variants)
+
 | GPIO | Function |
 |------|----------|
 | P0.02 | ADC0 (dielectric) |
@@ -350,13 +389,16 @@ The sensors utilize an advanced non-contact capacitive method, shooting high-fre
 | P0.29 | LoRa RST |
 
 ### 5.6.5 Sensing Methodology
+
 **~100MHz Dielectric Projection:**
 Both variants project high-frequency RF through the HDPE walls into the surrounding soil. The frequency was selected to:
+
 - Minimize salinity effects
 - Provide good spatial resolution (~6" sphere of influence)
 - Enable through-wall measurement without soil contact
 
 ### 5.6.6 BOM Comparison
+
 | Component | LRZ1 | LRZ2 |
 |-----------|------|------|
 | nRF52840-QIAA | $4.50 | $4.50 |

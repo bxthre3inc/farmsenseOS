@@ -61,6 +61,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 | Pure satellite | Trend analysis | No 1m ground-truth validation |
 
 **FarmSense Moat:**
+
 - Only platform with 1m resolution + sub-surface sensors + legal ledger
 - Deterministic algorithms (explainable, auditable)
 - Edge autonomy (functions during outages)
@@ -114,6 +115,7 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 ## 3.1 Executive Leadership
 
 **Jeremy Beebe — Chief Executive Officer**
+
 - Successful startup exit (Hempvada)
 - First-principles vision bridging technology and agriculture
 - Investor relations, strategic partnerships
@@ -121,12 +123,14 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 ## 3.2 Technical Organization Chart
 
 ### Hardware Engineering (4 FTE)
+
 - Chief Hardware Architect (RF systems, integration)
 - RF/Telemetry Engineer (LoRa, LTE-M, mesh protocols)
 - Embedded Systems Engineer (nRF52, ESP32-S3 firmware)
 - Mechanical/DPE Design Engineer (HDPE shells, environmental sealing)
 
 ### Software Engineering (6 FTE)
+
 - Chief Software Architect (system design, APIs)
 - Backend/Cloud Engineer (Python, FastAPI, PostgreSQL)
 - Edge Compute Engineer (Go, TensorRT, Jetson optimization)
@@ -135,12 +139,14 @@ Volume discounts: 5% (2 fields), 15% (6 fields), 25% cap (subdistrict scale)
 - DevOps/Infrastructure Engineer (AWS EKS, Terraform, monitoring)
 
 ### Operations (6 FTE for Subdistrict 1)
+
 - Field Operations Manager
 - Installation Technicians (4 FTE)
 - Sled Hospital Technicians (2 FTE)
 - Customer Success/Agronomy Support (2 FTE)
 
 ### Business (2 FTE)
+
 - Chief Financial Officer (fundraising, grant management)
 - Customer Success Lead (farmer onboarding, training)
 

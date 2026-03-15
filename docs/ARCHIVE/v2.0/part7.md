@@ -27,6 +27,7 @@ Drift Aversion: REQUIRED
 ### 8.1.2 Hardware Deployment
 
 **Field 1 (Treatment):**
+
 | Device | Qty | Notes |
 |--------|-----|-------|
 | PMT | 1 | Full kinematic + flow |
@@ -37,6 +38,7 @@ Drift Aversion: REQUIRED
 | **Total** | **20** | |
 
 **Field 2 (Control):**
+
 | Device | Qty | Notes |
 |--------|-----|-------|
 | PMT | 1 | Kinematic tracking only |
@@ -80,11 +82,13 @@ Drift Aversion: REQUIRED
 ### 8.3.1 VFA Installation SOP
 
 **Pre-Installation:**
+
 1. Soil core sample to 48" (characterize texture)
 2. Mark installation point (GPS waypoint)
 3. Verify underground utilities clearance
 
 **Installation:**
+
 1. Auger 6" diameter hole to 50" depth
 2. Insert HDPE SDR9 outer shell
 3. Backfill annulus with native soil (tamped)
@@ -92,6 +96,7 @@ Drift Aversion: REQUIRED
 5. Log GPS coordinates (±30cm accuracy)
 
 **Alpha-Sled Insertion:**
+
 1. Pre-charge nitrogen to +5 PSI
 2. Verify desiccant pack dry
 3. Lubricate Viton seals
@@ -100,6 +105,7 @@ Drift Aversion: REQUIRED
 6. Verify chirp acknowledgment from PMT
 
 **Post-Installation:**
+
 1. Pressure test (maintain +5 PSI for 24hr)
 2. Calibrate dielectric against gravimetric sample
 3. Document in asset management system
@@ -108,10 +114,12 @@ Drift Aversion: REQUIRED
 ### 8.3.2 PMT Installation SOP
 
 **Tower Selection:**
+
 - Preferred: Tower 2 or 3 (optimal balance of height and stability)
 - Avoid: Last tower (excessive sway), first tower (motor interference)
 
 **Mounting:**
+
 1. Attach stainless bracket with U-bolts
 2. Install spring isolators (vibration dampening)
 3. Mount NEMA 4X enclosure
@@ -120,6 +128,7 @@ Drift Aversion: REQUIRED
 6. Install GPS antenna (clear sky view)
 
 **Calibration:**
+
 1. RTK base station initialization (10 minutes)
 2. Fixed solution confirmation (<2cm accuracy)
 3. Pivot end-stop mapping (full rotation)
@@ -141,6 +150,7 @@ Drift Aversion: REQUIRED
 **Crew Size:** 2 technicians per field
 
 **Workflow:**
+
 1. Extract Alpha-Sleds from Sled Hospital (winter storage)
 2. Diagnose batteries (voltage check)
 3. Nitrogen recharge to +5 PSI
@@ -151,11 +161,13 @@ Drift Aversion: REQUIRED
 ### 9.1.2 Summer: Active Monitoring (June-August)
 
 **Monitoring:**
+
 - Telemetry: Continuous (1-hour chirp default)
 - Anomaly response: 15-minute "Focus Ripple" mode
 - Irrigation events: Real-time tracking
 
 **Maintenance:**
+
 - Weekly: DHU solar panel cleaning
 - Bi-weekly: Pressure-decay tests (VFA nitrogen)
 - Monthly: PMT battery voltage checks
@@ -167,6 +179,7 @@ Drift Aversion: REQUIRED
 **Storage:** Sled Hospital facility (RSS)
 
 **Workflow:**
+
 1. Unlock retaining pins
 2. Extract Alpha-Sleds with stainless cable
 3. Cap HDPE shells with blanking plugs
@@ -178,6 +191,7 @@ Drift Aversion: REQUIRED
 ### 9.1.4 Winter: Hibernation (November-March)
 
 **Sled Hospital Operations:**
+
 - Temperature: Maintained 15-20°C
 - Battery: Trickle charge (0.1C rate)
 - Diagnostics: Monthly health checks
@@ -185,6 +199,7 @@ Drift Aversion: REQUIRED
 - Calibration: Annual recertification
 
 **Permanent Shells:**
+
 - Blanking plugs prevent water ingress
 - No maintenance required
 - Visual inspection only (annual)
@@ -199,6 +214,7 @@ Drift Aversion: REQUIRED
 **Capacity:** 500 Alpha-Sleds (phased inventory)
 
 **Workflow:**
+
 | Step | Action | Duration |
 |------|--------|----------|
 | 1 | Receiving (from field) | 5 min |
@@ -213,6 +229,7 @@ Drift Aversion: REQUIRED
 ### 9.2.2 Field Service Protocol
 
 **Response Times:**
+
 | Severity | Issue | Response | Resolution |
 |----------|-------|----------|------------|
 | 1 | PMT failure | 4 hours | Replacement |
@@ -225,6 +242,7 @@ Drift Aversion: REQUIRED
 ## 9.3 Fleet Operations Scale
 
 **Subdistrict 1 (1,280 fields):**
+
 | Metric | Value |
 |--------|-------|
 | Total nodes | 25,600 |
@@ -234,6 +252,7 @@ Drift Aversion: REQUIRED
 | Vehicles | 3 (service trucks) |
 
 **Annual Cycles:**
+
 - Insertion: 25,600 sleds (April)
 - Extraction: 25,600 sleds (September)
 - Hospital processing: 51,200 operations/year

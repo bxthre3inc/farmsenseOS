@@ -13,6 +13,7 @@ Drift Aversion: REQUIRED
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
 # FarmSense Master Manual: The Deterministic Farming Operating System
+
 **Comprehensive Technical Specification V2.0**
 
 ---
@@ -48,6 +49,7 @@ Drift Aversion: REQUIRED
 FarmSense constitutes the definitive technical, operational, and financial deployment blueprint of a Deterministic Farming Operating System (DFOS), integrating across Subdistrict 1 of the San Luis Valley (SLV), Colorado.
 
 **Primary Objectives:**
+
 - 20–30% reduction in irrigation water consumption
 - 18–22% increase in crop return on investment (ROI)
 - Legally defensible Digital Water Ledger for Water Court admissibility
@@ -65,6 +67,7 @@ FarmSense constitutes the definitive technical, operational, and financial deplo
 ### 1.1.1 The San Luis Valley Crisis as Economic Multiplier
 
 **Geographic Context:**
+
 - Elevation: 7,500-8,000 feet above sea level
 - Precipitation: 7-10 inches annually
 - Irrigated agriculture: 300,000 acres dependent on snowmelt and aquifers
@@ -75,6 +78,7 @@ FarmSense constitutes the definitive technical, operational, and financial deplo
 The Rio Grande Water Conservation District (RGWCD) implemented a punitive $500 per acre-foot groundwater pumping fee to combat over-consumption. This represents a quadrupling of previous costs ($75-150/AF).
 
 For a 126-acre center pivot consuming 252 AF/season:
+
 - 20% water reduction = 50.4 AF saved per season
 - 50.4 AF × $500/AF = $25,200 direct savings per pivot annually
 - FarmSense Enterprise Tier subscription: $499/month ($5,988/year)
@@ -102,6 +106,7 @@ FarmSense utilizes 11 domain-specific, explainable engines. All irrigation and t
 ### 1.2.1 Soil Layer (Edaphic)
 
 **Parameters Monitored:**
+
 - Soil Matric Potential (SMP) — measure of energy required to extract water
 - Volumetric Water Content (VWC) — percentage of soil volume occupied by water
 - Electrical Conductivity (EC) — indicator of salinity and nutrient content
@@ -111,6 +116,7 @@ FarmSense utilizes 11 domain-specific, explainable engines. All irrigation and t
 **SLV Soil Series Calibration:**
 
 **San Luis Soil Series:**
+
 - pH: 8.4-9.8 (highly alkaline)
 - Exchangeable sodium: 15-60%
 - Primary risk: Salt buildup from irrigation
@@ -118,6 +124,7 @@ FarmSense utilizes 11 domain-specific, explainable engines. All irrigation and t
 - Texture: Sandy loam with clay lenses
 
 **Gunbarrel Soil Series:**
+
 - Type: Highly porous sand
 - Hydraulic conductivity: High (>10 cm/hr saturated)
 - Requirement: Low-volume, high-frequency micro-irrigation
@@ -125,6 +132,7 @@ FarmSense utilizes 11 domain-specific, explainable engines. All irrigation and t
 - Risk: Deep percolation, nitrogen leaching
 
 **Alamosa Soil Series:**
+
 - Type: Clay loam
 - Water holding capacity: High
 - Drainage: Slow
@@ -137,6 +145,7 @@ The system adjusts irrigation thresholds based on real-time soil texture analysi
 ### 1.2.2 Plant Layer (Vegetative)
 
 **Parameters Monitored:**
+
 - Leaf water potential (Ψleaf) — direct measure of plant water stress
 - Canopy Water Stress Index (CWSI) — thermal infrared signature
 - Normalized Difference Vegetation Index (NDVI) — overall plant health
@@ -148,6 +157,7 @@ The system detects stomatal closure prior to visible wilting, enabling intervent
 ### 1.2.3 Atmosphere Layer (Meteorologic)
 
 **Parameters Monitored:**
+
 - Vapor Pressure Deficit (VPD) — driving force for transpiration
 - Solar radiation (shortwave and photosynthetically active)
 - Wind speed and direction (affects evaporation)
@@ -167,6 +177,7 @@ Peak growing season (July-August): 4.5-7.7 mm/day evapotranspiration demand. Ear
 MAD defines the percentage of available soil water (between field capacity and permanent wilting point) that can be depleted before crop experiences physiological damage.
 
 **Crop-Specific MAD Thresholds:**
+
 | Crop | Stage | MAD % | Trigger kPa |
 |------|-------|-------|-------------|
 | Potato | Emergence | 30% | 30-40 kPa |
@@ -180,6 +191,7 @@ MAD defines the percentage of available soil water (between field capacity and p
 
 **The "Water Battery" Strategy:**
 The Core Compute Server (Zo) delays irrigation to the "last possible minute," utilizing the deep soil profile as a dynamic battery. This strategy:
+
 - Leaves headroom for rainfall capture
 - Maximizes natural precipitation utilization
 - Eliminates deep percolation losses
@@ -193,28 +205,34 @@ The Core Compute Server (Zo) delays irrigation to the "last possible minute," ut
 ### 1.4.1 Backend Intelligence (Decentralized Cloud Layer)
 
 **RDC (Regional Data Center / Map Servers):**
+
 - Function: Master data library
 - Data types: Sentinel-2 multispectral imagery, Landsat thermal, historical edaphic datasets, soil survey polygons
 - Update frequency: Sentinel-2 (5-day revisit), Landsat (16-day revisit)
 
 **Spatial Query Engine (Map Manager / Oracle):**
+
 - Function: Extracts spatial values at precise latitude/longitude coordinates
 - Operations: Point queries, polygon intersection, raster sampling
 - Output: Lightweight JSON arrays for edge processing
 - Technologies: PostGIS, STAC API integration
 
 **Core Compute Server (Zo):**
+
 - Location: brodiblanco.zo.computer / cloud infrastructure
 - Functions:
+
   - Bayesian prior establishment using historical SFD profiles
   - Localized Kriging algorithms (geostatistical interpolation)
   - Worksheets generation for district-level distribution
   - Long-term Digital Water Ledger vaulting
+
 - Capacity: Processes hundreds of thousands of data points into predictive spatial grids
 
 ### 1.4.2 Regional/District Edge Infrastructure
 
 **Regional Superstation (RSS) — Level 3:**
+
 - Location: Monte Vista, Colorado
 - Function: Territory master, equal cloud counterpart to backend intelligence
 - Form factor: Modified 40-foot High-Cube shipping container
@@ -224,19 +242,25 @@ The Core Compute Server (Zo) delays irrigation to the "last possible minute," ut
 - Redundancy: Dual fiber paths, LTE backup, generator power
 
 **District Hub (DHU) — Level 2:**
+
 - Mounting: 35-foot Class 4 timber pole
 - Coverage radius: 100 pivots with extreme overlapping redundancy
 - Compute: NVIDIA Jetson Orin Nano (8GB RAM, Ampere GPU)
 - Functions:
+
   - Executes Zo "Worksheets" locally
   - Instantaneous "Reflex Logic" decisions (<100ms latency)
   - PBFT consensus for Digital Water Ledger
   - 20m/10m Kriging computation
+
 - Communications:
+
   - 900MHz CSS LoRa Mesh (field sensor ingress)
   - 2.4GHz Ubiquiti LTU (backhaul to RSS)
   - LTE-M fallback
+
 - **30-Day "Black Box" Cache:** 128GB Swissbit PSLC Industrial SSD
+
   - Function: Continuously records AES-256 encrypted audit packets
   - Outcome: If total regional backhaul fails (fiber cut + cellular blackout), the ledger remains intact and legally admissible
 
@@ -254,6 +278,7 @@ The Core Compute Server (Zo) delays irrigation to the "last possible minute," ut
 
 **Critical Architecture Point:**
 The PMT (elevated on the pivot span at 10-15 feet) serves as the **Primary Field Aggregator**. All ground-level devices (VFA, LRZ1, LRZ2, PFA) report upward to the PMT via 900MHz CSS LoRa. The PMT then:
+
 1. Aggregates all sensor data
 2. Performs Edge-EBK computation (50m grid)
 3. Packages into encrypted payload (~187 bytes)
@@ -268,6 +293,7 @@ This elevated topology circumvents the dense water canopy that attenuates ground
 ### 1.5.1 The VFA-to-DHU Challenge (Resolved)
 
 **Initial Design Flaw:**
+
 - VFA specification required: 900MHz CSS LoRa uplink
 - DHU specification (original): Triple-Sector 2.4GHz Ubiquiti LTU only
 - Problem: Ubiquiti LTU 2.4GHz architecture cannot receive 900MHz CSS LoRa modulations
@@ -278,6 +304,7 @@ DHU Bill of Materials officially revised to include enterprise-grade **900MHz CS
 ### 1.5.2 900MHz CSS LoRa Mesh Specifications
 
 **Technical Parameters:**
+
 - Frequency: 915MHz (ISM band, North America)
 - Bandwidth: 125 kHz
 - Spreading Factor: SF7-SF12 (adaptive)
@@ -288,6 +315,7 @@ DHU Bill of Materials officially revised to include enterprise-grade **900MHz CS
 - Battery life: 4+ years at 4-hour chirp intervals
 
 **Canopy Penetration Advantage:**
+
 | Condition | 2.4GHz Signal Loss | 915MHz CSS LoRa Loss |
 |-----------|-------------------|---------------------|
 | Free space | 0 dB | 0 dB |

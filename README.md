@@ -24,15 +24,19 @@ Pilot: San Luis Valley, Subdistrict 1 — CSU Partnership | June 2026
 Every piece of project documentation has been consolidated into four authoritative Master Documents. **Start here** based on your role:
 
 - 🤖 **Developer / AI Agent**  
+
   👉 [`docs/MASTER_SOFTWARE_ARCH.md`](docs/MASTER_SOFTWARE_ARCH.md) — *Architecture, Service Maps, Schemas, Roadmap.*
   
 - 🏗️ **Hardware / RF Engineer**  
+
   👉 [`docs/MASTER_SYSTEM_SPEC.md`](docs/MASTER_SYSTEM_SPEC.md) — *Specs, Network, Hierarchy, BOM, Pinouts.*
 
 - 🌾 **Project Manager / Founder**  
+
   👉 [`docs/MASTER_PROJECT_ROADMAP.md`](docs/MASTER_PROJECT_ROADMAP.md) — *Development Phases, Funding, Market, Milestones.*
 
 - ⚖️ **Regulator / Legal / IP**  
+
   👉 [`docs/MASTER_IP_LEGAL.md`](docs/MASTER_IP_LEGAL.md) — *Water Court Evidence, Patents, AllianceChain, Ledger.*
 
 ---

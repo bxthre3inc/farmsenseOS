@@ -29,24 +29,28 @@ Drift Aversion: REQUIRED
 ### 4.1.2 Compute Hierarchy
 
 **Level 0 — Sensors:**
+
 - Bare-metal C firmware
 - AES-256 encryption at edge
 - 10-year battery target
 - Deep-sleep management
 
 **Level 1.5 — PMT:**
+
 - Edge-EBK 50m grid computation
 - Reflex logic (actuation decisions)
 - IMU stall detection
 - Flow meter integration
 
 **Level 2 — DHU:**
+
 - 20m/10m Kriging (Ordinary Kriging)
 - PBFT consensus for ledger
 - AllianceChain water trading
 - 30-day Black Box cache
 
 **Level 3 — RSS:**
+
 - 1m Master Grid (Regression Kriging)
 - Long-term Digital Water Ledger
 - FHE vaulting
@@ -81,11 +85,13 @@ CREATE INDEX idx_sensor_location ON sensor_readings USING GIST(location);
 ```
 
 **Chunking Strategy:**
+
 - 7-day chunks for sensor readings
 - 30-day chunks for compliance logs
 - Automatic compression after 30 days
 
 **Retention Policy:**
+
 - Hot data: 90 days (SSD)
 - Warm data: 2 years (EBS)
 - Cold data: 7 years (Glacier)
@@ -161,6 +167,7 @@ POST /v1/auth/login
 ```
 
 **mTLS for Field Devices:**
+
 - Client certificates issued at manufacturing
 - Certificate fingerprint in device registry
 - Mutual authentication required for field endpoints
@@ -247,10 +254,12 @@ POST /v1/irrigation/worksheet
 GET /v1/compliance/report?field_id={id}&start_date=2026-01-01&end_date=2026-03-31&format=dwl
 
 Response: application/zip
+
 - manifest.json
 - ledger.csv
 - proofs/*.sig
 - validation_report.pdf
+
 ```
 
 **Real-Time WebSocket:**
@@ -285,6 +294,7 @@ where wᵢ = 1 / d(s₀, sᵢ)²
 ```
 
 **Implementation:**
+
 - Jetson Orin Nano (CUDA-accelerated)
 - Radius: 100m (sensor neighborhood)
 - Min points: 3
@@ -302,12 +312,14 @@ where wᵢ = 1 / d(s₀, sᵢ)²
 ```
 
 **Parameters (SLV-calibrated):**
+
 - Nugget (c₀): 0.0012
 - Sill (c₀ + c): 0.0085
 - Range (a): 245m
 - R² fit: 0.94
 
 **Implementation:**
+
 - DHU: Jetson Orin Nano
 - PyKrige library (optimized)
 - Search radius: 300m
@@ -317,6 +329,7 @@ where wᵢ = 1 / d(s₀, sᵢ)²
 ### 4.4.3 Regional Regression Kriging (1m Grid)
 
 **Covariates:**
+
 - Sentinel-2 NDVI (10m native, downscaled)
 - Elevation (1m DEM)
 - Soil texture (SSURGO polygons)
@@ -333,6 +346,7 @@ Z(s) = β₀ + β₁×NDVI(s) + β₂×Elevation(s) + β₃×Soil(s) + ε(s)
 ```
 
 **Implementation:**
+
 - RSS: Threadripper PRO (64 cores)
 - Scikit-learn GPR
 - Compute time: 3-5 minutes per field
@@ -352,6 +366,7 @@ Volatility = (ΔMoisture_1h × 0.40) +
 ```
 
 **Component Details:**
+
 - ΔMoisture_1h: Max absolute change in any VWC sensor (0-1 scale)
 - Irrigation_Active: 1 if pivot moving, 0 otherwise
 - VPD_Stress: VPD > 3.5 kPa normalized to 0-1
@@ -369,6 +384,7 @@ Volatility = (ΔMoisture_1h × 0.40) +
 ### 4.5.3 Trajectory Zeroing
 
 In FOCUS_COLLAPSE mode, the PMT FPU reallocates compute:
+
 - Dormant sections: 0% compute allocation
 - Active pivot span: 100% compute allocation
 - Memory: Purge cached grids for inactive zones
@@ -384,6 +400,7 @@ This maximizes responsiveness during critical irrigation events.
 ### 5.1.1 Physical Specifications
 
 **Enclosure:**
+
 | Attribute | Specification |
 |-----------|---------------|
 | Type | Modified 40' High-Cube shipping container |
@@ -407,12 +424,14 @@ This maximizes responsiveness during critical irrigation events.
 | Network | Mellanox ConnectX-6 100GbE | 1 | Backhaul |
 
 **RAID Configuration:**
+
 - Hot storage: RAID-10 (30TB usable)
 - Warm storage: RAID-6 (108TB usable)
 
 ### 5.1.3 Field Support Infrastructure
 
 **Sled Hospital:**
+
 | Attribute | Specification |
 |-----------|---------------|
 | Capacity | 500 Alpha-Sleds |
@@ -422,6 +441,7 @@ This maximizes responsiveness during critical irrigation events.
 | Throughput | 80 sleds/day |
 
 **Fleet Maintenance:**
+
 - 3× service trucks (Ford F-350 with utility beds)
 - Mobile diagnostic kit per truck
 - Parts inventory (critical spares)
@@ -452,6 +472,7 @@ This maximizes responsiveness during critical irrigation events.
 | AI Performance | 40 TOPS (INT8) |
 
 **Power Consumption:**
+
 - Idle: 5W
 - Active compute: 15W
 - Peak (Kriging): 25W
@@ -459,6 +480,7 @@ This maximizes responsiveness during critical irrigation events.
 ### 5.2.3 Communications Array
 
 **Triple-Sector Radio Spine:**
+
 | Sector | Frequency | Antenna | Purpose |
 |--------|-----------|---------|---------|
 | A | 900MHz CSS LoRa | 6dBi omni | Field sensor ingress |
@@ -466,6 +488,7 @@ This maximizes responsiveness during critical irrigation events.
 | C | LTE-M | External modem | Fallback, alerts |
 
 **Coverage:**
+
 - LoRa: 5km radius (field sensors)
 - LTU: 15km line-of-sight (backhaul)
 - Overlapping: 3-DHU redundancy for any point
@@ -473,12 +496,14 @@ This maximizes responsiveness during critical irrigation events.
 ### 5.2.4 30-Day Black Box Cache
 
 **Specifications:**
+
 - SSD: 128GB Swissbit PSLC (industrial grade)
 - Write endurance: 60,000 P/E cycles
 - Temperature: -40°C to +85°C rated
 - Encryption: AES-256 (hardware)
 
 **Cache Policy:**
+
 - Continuous circular buffer
 - Cryptographic chain of custody preserved
 - On restoration: Automatic sync to RSS
@@ -521,6 +546,7 @@ This maximizes responsiveness during critical irrigation events.
 **Primary Role:** Field aggregator and pivot tracking hub
 **Elevation:** 10-15 feet on pivot span (Tower 2-3)
 **Key Functions:**
+
 1. Aggregate data from VFA, LRZ1, LRZ2, PFA via 900MHz CSS LoRa
 2. Execute Edge-EBK 50m grid computation
 3. Track pivot position with sub-cm RTK GNSS
@@ -540,6 +566,7 @@ This maximizes responsiveness during critical irrigation events.
 | Antenna | Tallysman TW7972 (multi-band, high-gain) |
 
 **Pivot Angle Calculation:**
+
 - Reference point: Last tower (pivot point)
 - PMT position: Tower 2-3 on outer span
 - Angular resolution: 0.01°
@@ -558,6 +585,7 @@ This maximizes responsiveness during critical irrigation events.
 ### 5.3.4 Motion Sensing
 
 **IMU: Bosch BNO055**
+
 | Parameter | Specification |
 |-----------|---------------|
 | Accelerometer | ±16g, 3-axis |
@@ -584,6 +612,7 @@ if (accel_magnitude > 3g AND gyro_delta > 100°/s):
 | RTK correction | RTCM 3.x | GNSS precision |
 
 **LoRa Configuration:**
+
 - Frequency: 915MHz (US ISM band)
 - Bandwidth: 125kHz
 - Spreading Factor: SF7 (fastest) to SF12 (longest range)

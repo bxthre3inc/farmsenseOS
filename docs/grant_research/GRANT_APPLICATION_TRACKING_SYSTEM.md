@@ -13,6 +13,7 @@ Drift Aversion: REQUIRED
 > 4. **No Ghost Edits**: All significant modifications must be documented in the project's audit trail.
 
 # Grant Application Tracking System (GATS)
+
 **For Managing 100+ Grant Opportunities**
 
 ## System Overview
@@ -93,6 +94,7 @@ P3 (LOW): <$100K, >180 days, any probability, opportunistic
 ## Automation Rules
 
 ### Date-Based Triggers
+
 - **T-30 days**: Move P2 → P1 if materials ready
 - **T-14 days**: Daily standup on P0 grants
 - **T-7 days**: Final review required
@@ -100,6 +102,7 @@ P3 (LOW): <$100K, >180 days, any probability, opportunistic
 - **T+1 day**: Archive if not submitted
 
 ### Status-Based Actions
+
 - **IDENTIFIED → RESEARCHING**: Auto-assign to grant queue
 - **RESEARCHING → PITCHING**: Create application workspace
 - **APPLIED → SHORTLIST**: Schedule prep call
@@ -108,6 +111,7 @@ P3 (LOW): <$100K, >180 days, any probability, opportunistic
 ## Dashboard Views
 
 ### 1. Pipeline Overview
+
 ```
 Active Grants: [COUNT]
 By Stage: [IDENTIFIED: X] [RESEARCHING: X] [PITCHING: X] [APPLIED: X] [SHORTLIST: X]
@@ -116,6 +120,7 @@ Expected Value: $[SUM of (amount × probability) for APPLIED+SHORTLIST]
 ```
 
 ### 2. This Week's Actions
+
 ```
 Deadline This Week: [LIST]
 New Applications Started: [LIST]
@@ -124,6 +129,7 @@ Follow-up Required: [LIST]
 ```
 
 ### 3. Performance Metrics
+
 ```
 Win Rate: [AWARDED / (AWARDED + REJECTED)]
 Avg Time to Award: [Days from APPLIED to AWARDED]
@@ -134,12 +140,14 @@ Funding Secured (YTD): $[TOTAL]
 ## Integration Points
 
 ### With FarmSense Systems
+
 - Pull pilot data for "Current Impact" fields
 - Auto-populate "Team" from org chart
 - Sync deadlines with calendar
 - Export reports for investor updates
 
 ### With Calendar
+
 - T-30: Create calendar event
 - T-14: Block time for daily check-ins
 - T-7: Block time for final review
@@ -148,16 +156,19 @@ Funding Secured (YTD): $[TOTAL]
 ## Implementation Options
 
 ### Option A: Airtable (Recommended)
+
 - Base with 6 tables: Grants, Applications, Tasks, Documents, Contacts, Reports
 - Views: Kanban by stage, Calendar by deadline, Grid by priority
 - Automations: Email reminders, status updates, Slack notifications
 
 ### Option B: Notion Database
+
 - Single database with filtered views
 - Linked pages for application workspaces
 - Templates for common grant types
 
 ### Option C: Custom Web App/Add to Admin Console
+
 - React + Supabase (scales to any size)
 - API integrations with Grants.gov, foundations
 - Custom reporting dashboards
@@ -165,9 +176,11 @@ Funding Secured (YTD): $[TOTAL]
 ## Recommended: Airtable Setup
 
 ### Table: Grants (Master List)
+
 Fields as defined in schema above
 
 ### Table: Applications (Per-Grant Workspaces)
+
 - Link to Grant
 - Status (In Progress, Under Review, Submitted, Awarded, Rejected)
 - Application Portal URL
@@ -176,6 +189,7 @@ Fields as defined in schema above
 - Notes & Decisions
 
 ### Table: Tasks
+
 - Link to Grant
 - Task Type (Research, Draft, Review, Submit)
 - Due Date
@@ -183,6 +197,7 @@ Fields as defined in schema above
 - Status (Open, In Progress, Done, Blocked)
 
 ### Table: Documents
+
 - Document Type (Narrative, Budget, Logic Model, Letters)
 - Version
 - Last Updated
@@ -190,6 +205,7 @@ Fields as defined in schema above
 - File Attachment
 
 ### Automations to Configure
+
 1. **Deadline Alert**: 7 days before → Slack DM + Email
 2. **Status Change**: Move to APPLIED → Post to #grants-wins
 3. **Weekly Digest**: Every Monday → Pipeline status report

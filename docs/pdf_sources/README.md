@@ -47,6 +47,7 @@ Configured in `build.js`:
 ## Adding New Documents
 
 1. Add config to `documents` array in `build.js`:
+
 ```javascript
 {
   id: 'my-doc',
